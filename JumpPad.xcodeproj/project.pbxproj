@@ -1,0 +1,496 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
+		5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
+		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
+		5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */; };
+		5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BB184ACBB700EFCE0A /* main.m */; };
+		5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */; };
+		5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */; };
+		5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */; };
+		5DE5B7C9184ACBB700EFCE0A /* JumpPadFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C8184ACBB700EFCE0A /* JumpPadFirstViewController.m */; };
+		5DE5B7CC184ACBB700EFCE0A /* JumpPadSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7CB184ACBB700EFCE0A /* JumpPadSecondViewController.m */; };
+		5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */; };
+		5DE5B7D5184ACBB700EFCE0A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */; };
+		5DE5B7D6184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
+		5DE5B7D7184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
+		5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */; };
+		5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DE5B7D8184ACBB700EFCE0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DE5B7A4184ACBB700EFCE0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DE5B7AB184ACBB700EFCE0A;
+			remoteInfo = JumpPad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5DE5B7AC184ACBB700EFCE0A /* JumpPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5DE5B7B7184ACBB700EFCE0A /* JumpPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JumpPad-Info.plist"; sourceTree = "<group>"; };
+		5DE5B7B9184ACBB700EFCE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5DE5B7BB184ACBB700EFCE0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5DE5B7BD184ACBB700EFCE0A /* JumpPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JumpPad-Prefix.pch"; sourceTree = "<group>"; };
+		5DE5B7BE184ACBB700EFCE0A /* JumpPadAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JumpPadAppDelegate.h; sourceTree = "<group>"; };
+		5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadAppDelegate.m; sourceTree = "<group>"; };
+		5DE5B7C2184ACBB700EFCE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5DE5B7C5184ACBB700EFCE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		5DE5B7C7184ACBB700EFCE0A /* JumpPadFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JumpPadFirstViewController.h; sourceTree = "<group>"; };
+		5DE5B7C8184ACBB700EFCE0A /* JumpPadFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadFirstViewController.m; sourceTree = "<group>"; };
+		5DE5B7CA184ACBB700EFCE0A /* JumpPadSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JumpPadSecondViewController.h; sourceTree = "<group>"; };
+		5DE5B7CB184ACBB700EFCE0A /* JumpPadSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadSecondViewController.m; sourceTree = "<group>"; };
+		5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		5DE5B7DC184ACBB700EFCE0A /* JumpPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JumpPadTests-Info.plist"; sourceTree = "<group>"; };
+		5DE5B7DE184ACBB700EFCE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DE5B7A9184ACBB700EFCE0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */,
+				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
+				5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE5B7D0184ACBB700EFCE0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE5B7D5184ACBB700EFCE0A /* XCTest.framework in Frameworks */,
+				5DE5B7D7184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
+				5DE5B7D6184ACBB700EFCE0A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5DE5B7A3184ACBB700EFCE0A = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5DE5B7DA184ACBB700EFCE0A /* JumpPadTests */,
+				5DE5B7AE184ACBB700EFCE0A /* Frameworks */,
+				5DE5B7AD184ACBB700EFCE0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5DE5B7AD184ACBB700EFCE0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7AC184ACBB700EFCE0A /* JumpPad.app */,
+				5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */,
+				5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */,
+				5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */,
+				5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5DE5B7B5184ACBB700EFCE0A /* JumpPad */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7BE184ACBB700EFCE0A /* JumpPadAppDelegate.h */,
+				5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */,
+				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
+				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
+				5DE5B7C7184ACBB700EFCE0A /* JumpPadFirstViewController.h */,
+				5DE5B7C8184ACBB700EFCE0A /* JumpPadFirstViewController.m */,
+				5DE5B7CA184ACBB700EFCE0A /* JumpPadSecondViewController.h */,
+				5DE5B7CB184ACBB700EFCE0A /* JumpPadSecondViewController.m */,
+				5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */,
+				5DE5B7B6184ACBB700EFCE0A /* Supporting Files */,
+			);
+			path = JumpPad;
+			sourceTree = "<group>";
+		};
+		5DE5B7B6184ACBB700EFCE0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7B7184ACBB700EFCE0A /* JumpPad-Info.plist */,
+				5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */,
+				5DE5B7BB184ACBB700EFCE0A /* main.m */,
+				5DE5B7BD184ACBB700EFCE0A /* JumpPad-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DE5B7DA184ACBB700EFCE0A /* JumpPadTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */,
+				5DE5B7DB184ACBB700EFCE0A /* Supporting Files */,
+			);
+			path = JumpPadTests;
+			sourceTree = "<group>";
+		};
+		5DE5B7DB184ACBB700EFCE0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B7DC184ACBB700EFCE0A /* JumpPadTests-Info.plist */,
+				5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DE5B7AB184ACBB700EFCE0A /* JumpPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPad" */;
+			buildPhases = (
+				5DE5B7A8184ACBB700EFCE0A /* Sources */,
+				5DE5B7A9184ACBB700EFCE0A /* Frameworks */,
+				5DE5B7AA184ACBB700EFCE0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JumpPad;
+			productName = JumpPad;
+			productReference = 5DE5B7AC184ACBB700EFCE0A /* JumpPad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5DE5B7D2184ACBB700EFCE0A /* JumpPadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPadTests" */;
+			buildPhases = (
+				5DE5B7CF184ACBB700EFCE0A /* Sources */,
+				5DE5B7D0184ACBB700EFCE0A /* Frameworks */,
+				5DE5B7D1184ACBB700EFCE0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DE5B7D9184ACBB700EFCE0A /* PBXTargetDependency */,
+			);
+			name = JumpPadTests;
+			productName = JumpPadTests;
+			productReference = 5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DE5B7A4184ACBB700EFCE0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JumpPad;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Si Te Feng";
+				TargetAttributes = {
+					5DE5B7D2184ACBB700EFCE0A = {
+						TestTargetID = 5DE5B7AB184ACBB700EFCE0A;
+					};
+				};
+			};
+			buildConfigurationList = 5DE5B7A7184ACBB700EFCE0A /* Build configuration list for PBXProject "JumpPad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5DE5B7A3184ACBB700EFCE0A;
+			productRefGroup = 5DE5B7AD184ACBB700EFCE0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DE5B7AB184ACBB700EFCE0A /* JumpPad */,
+				5DE5B7D2184ACBB700EFCE0A /* JumpPadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DE5B7AA184ACBB700EFCE0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
+				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
+				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
+				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE5B7D1184ACBB700EFCE0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DE5B7A8184ACBB700EFCE0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE5B7CC184ACBB700EFCE0A /* JumpPadSecondViewController.m in Sources */,
+				5DE5B7C9184ACBB700EFCE0A /* JumpPadFirstViewController.m in Sources */,
+				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
+				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DE5B7CF184ACBB700EFCE0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5DE5B7D9184ACBB700EFCE0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DE5B7AB184ACBB700EFCE0A /* JumpPad */;
+			targetProxy = 5DE5B7D8184ACBB700EFCE0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE5B7B9184ACBB700EFCE0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE5B7C2184ACBB700EFCE0A /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE5B7C5184ACBB700EFCE0A /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5DE5B7DE184ACBB700EFCE0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5DE5B7E2184ACBB700EFCE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5DE5B7E3184ACBB700EFCE0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DE5B7E5184ACBB700EFCE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
+				INFOPLIST_FILE = "JumpPad/JumpPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5DE5B7E6184ACBB700EFCE0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
+				INFOPLIST_FILE = "JumpPad/JumpPad-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5DE5B7E8184ACBB700EFCE0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JumpPad.app/JumpPad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "JumpPadTests/JumpPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		5DE5B7E9184ACBB700EFCE0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JumpPad.app/JumpPad";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
+				INFOPLIST_FILE = "JumpPadTests/JumpPadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DE5B7A7184ACBB700EFCE0A /* Build configuration list for PBXProject "JumpPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE5B7E2184ACBB700EFCE0A /* Debug */,
+				5DE5B7E3184ACBB700EFCE0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE5B7E5184ACBB700EFCE0A /* Debug */,
+				5DE5B7E6184ACBB700EFCE0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE5B7E8184ACBB700EFCE0A /* Debug */,
+				5DE5B7E9184ACBB700EFCE0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DE5B7A4184ACBB700EFCE0A /* Project object */;
+}
