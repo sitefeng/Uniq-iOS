@@ -15,14 +15,15 @@
 		5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */; };
 		5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */; };
 		5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */; };
-		5DE5B7C9184ACBB700EFCE0A /* JumpPadFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C8184ACBB700EFCE0A /* JumpPadFirstViewController.m */; };
-		5DE5B7CC184ACBB700EFCE0A /* JumpPadSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7CB184ACBB700EFCE0A /* JumpPadSecondViewController.m */; };
 		5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */; };
 		5DE5B7D5184ACBB700EFCE0A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */; };
 		5DE5B7D6184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		5DE5B7D7184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */; };
+		5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */; };
+		5DE5B83F185054F600EFCE0A /* ApplicationConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B83C1850520300EFCE0A /* ApplicationConstants.h */; };
+		5DE5B8401850550100EFCE0A /* UserInterfaceConstants.h in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B83E185053C900EFCE0A /* UserInterfaceConstants.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +49,16 @@
 		5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadAppDelegate.m; sourceTree = "<group>"; };
 		5DE5B7C2184ACBB700EFCE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5DE5B7C5184ACBB700EFCE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		5DE5B7C7184ACBB700EFCE0A /* JumpPadFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JumpPadFirstViewController.h; sourceTree = "<group>"; };
-		5DE5B7C8184ACBB700EFCE0A /* JumpPadFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadFirstViewController.m; sourceTree = "<group>"; };
-		5DE5B7CA184ACBB700EFCE0A /* JumpPadSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JumpPadSecondViewController.h; sourceTree = "<group>"; };
-		5DE5B7CB184ACBB700EFCE0A /* JumpPadSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadSecondViewController.m; sourceTree = "<group>"; };
 		5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		5DE5B7DC184ACBB700EFCE0A /* JumpPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JumpPadTests-Info.plist"; sourceTree = "<group>"; };
 		5DE5B7DE184ACBB700EFCE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadTests.m; sourceTree = "<group>"; };
+		5DE5B83518504D0300EFCE0A /* iPadMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFeaturedViewController.h; sourceTree = "<group>"; };
+		5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFeaturedViewController.m; sourceTree = "<group>"; };
+		5DE5B83C1850520300EFCE0A /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationConstants.h; path = ../ApplicationConstants.h; sourceTree = "<group>"; };
+		5DE5B83E185053C900EFCE0A /* UserInterfaceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInterfaceConstants.h; path = ../UserInterfaceConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +122,10 @@
 				5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
 				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
-				5DE5B7C7184ACBB700EFCE0A /* JumpPadFirstViewController.h */,
-				5DE5B7C8184ACBB700EFCE0A /* JumpPadFirstViewController.m */,
-				5DE5B7CA184ACBB700EFCE0A /* JumpPadSecondViewController.h */,
-				5DE5B7CB184ACBB700EFCE0A /* JumpPadSecondViewController.m */,
+				5DE5B83C1850520300EFCE0A /* ApplicationConstants.h */,
+				5DE5B83E185053C900EFCE0A /* UserInterfaceConstants.h */,
+				5DE5B83418504A5C00EFCE0A /* iPhone UI */,
+				5DE5B83818504D0B00EFCE0A /* iPad UI */,
 				5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */,
 				5DE5B7B6184ACBB700EFCE0A /* Supporting Files */,
 			);
@@ -158,6 +159,22 @@
 				5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DE5B83418504A5C00EFCE0A /* iPhone UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "iPhone UI";
+			sourceTree = "<group>";
+		};
+		5DE5B83818504D0B00EFCE0A /* iPad UI */ = {
+			isa = PBXGroup;
+			children = (
+				5DE5B83518504D0300EFCE0A /* iPadMainFeaturedViewController.h */,
+				5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */,
+			);
+			name = "iPad UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +276,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE5B7CC184ACBB700EFCE0A /* JumpPadSecondViewController.m in Sources */,
-				5DE5B7C9184ACBB700EFCE0A /* JumpPadFirstViewController.m in Sources */,
+				5DE5B8401850550100EFCE0A /* UserInterfaceConstants.h in Sources */,
+				5DE5B83F185054F600EFCE0A /* ApplicationConstants.h in Sources */,
+				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 			);
@@ -481,6 +499,7 @@
 				5DE5B7E6184ACBB700EFCE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPadTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +508,7 @@
 				5DE5B7E9184ACBB700EFCE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
