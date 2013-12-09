@@ -115,10 +115,10 @@
             
             for(int i = 0; i< [array count]; i++)
             {
-                _currentX = (i%2 == 0) ? kiPadSizeDashletBorderPadding
-                                       : 2*kiPadSizeDashletBorderPadding + kiPadSizeDashletPortrait.width;
+                _currentX = (i%2 == 0) ? kiPadDashletBorderPadding
+                                       : 2*kiPadDashletBorderPadding + kiPadSizeDashletPortrait.width;
                 
-                _currentY = (kiPadSizeDashletBorderPadding + i/2 * (kiPadSizeDashletBorderPadding + kiPadSizeDashletPortrait.height));
+                _currentY = (kiPadDashletBorderPadding + i/2 * (kiPadDashletBorderPadding + kiPadSizeDashletPortrait.height));
                 
                 iPadDashletView* dashletView = [array objectAtIndex:i];
                 
@@ -127,6 +127,7 @@
                 dashletView.center = jpp(dashletView.frame.size.width/2 + _currentX, dashletView.frame.size.height/2 + _currentY);  //CGPointMake
                 
                 [self addSubview:dashletView];
+                [self setContentSize:jps(self.frame.size.width, _currentY + kiPadSizeDashletPortrait.height +  kiPadDashletBorderPadding)];
             }
             
             

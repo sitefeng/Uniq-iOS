@@ -35,7 +35,6 @@
     [scrollView setFrame: CGRectMake(0, kiPadTopBarHeight, self.view.bounds.size.width, self.view.bounds.size.height - kiPadTopBarHeight - kiPadTabBarHeight)];
     
     [scrollView setScrollEnabled:YES];
-    [scrollView setContentSize:jps(scrollView.frame.size.width, 2000)];
     
     [self.view addSubview:scrollView];
     
@@ -51,7 +50,7 @@
 
 - (NSUInteger)dashletScrollView:(iPadDashletScrollView *)scrollView numberOfDashletsInSection:(NSUInteger)section
 {
-    return 9;
+    return 87;
     
 }
 

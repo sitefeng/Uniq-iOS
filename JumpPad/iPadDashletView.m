@@ -21,13 +21,13 @@
         frame.size.height = frame.size.width;
     }
     
-    if(frame.size.width > 372)
+    if(frame.size.width > kiPadSizeDashletPortrait.width)
     {
-        frame.size.width = 372;
+        frame.size.width = kiPadSizeDashletPortrait.width;
     }
-    else if(frame.size.width < 330)
+    else if(frame.size.width < kiPadSizeDashletLandscape.width)
     {
-        frame.size.width = 330;
+        frame.size.width = kiPadSizeDashletLandscape.width;
     }
     
     self = [super initWithFrame:frame];
@@ -51,26 +51,21 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    CGContextSetLineWidth(context, 3.0);
-//    
-//    CGFloat components[] = {0.0, 0.0, 0.8, 1.0};
-//    CGColorRef color = CGColorCreate(colorspace, components);
-    
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
     CGContextSetStrokeColorWithColor(context, [JPStyle dashletDefaultBorderColor].CGColor);
     
-    CGContextAddRect(context, CGRectInset(self.bounds, 1.5, 1.5));
-    
-    CGContextSetLineWidth(context, 3);
-    
+    CGContextAddRect(context, CGRectInset(self.bounds, kiPadDashletBorderWidth/2.0, kiPadDashletBorderWidth/2.0));
+
+    CGContextSetLineWidth(context, kiPadDashletBorderWidth);
+    CGContextSetLineCap(context, kCGLineCapRound);
     CGContextDrawPath(context, kCGPathStroke);
     
-    
+    CGPoint line[] = {jpp(0, kiPadDashletDividerPositionFromTopPortrait),jpp(self.frame.size.width, kiPadDashletDividerPositionFromTopPortrait)};
+    CGContextSetLineWidth(context, kiPadDashletDividerWidth);
+    CGContextAddLines(context, line, 2);
+    CGContextDrawPath(context, kCGPathStroke);
     
     
 }

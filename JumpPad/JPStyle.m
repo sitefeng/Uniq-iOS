@@ -55,7 +55,7 @@
 
 +(UIColor*) dashletDefaultBorderColor
 {
-    return [self colorWithHex:@"7A4500" alpha:1];
+    return [self colorWithHex:@"240059" alpha:1];
 }
 
 
