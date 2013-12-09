@@ -16,6 +16,9 @@
 		5DAC8F981855337200FE3B5B /* iPadDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F971855337200FE3B5B /* iPadDashletDetailsView.m */; };
 		5DAC8FA518554E8100FE3B5B /* iPadDashletScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA418554E8100FE3B5B /* iPadDashletScrollView.m */; };
 		5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */; };
+		5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAD18556A9900FE3B5B /* JPLocation.m */; };
+		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
+		5DAC8FB31855810B00FE3B5B /* iPadBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FB21855810B00FE3B5B /* iPadBannerView.m */; };
 		5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
@@ -63,6 +66,11 @@
 		5DAC8FA418554E8100FE3B5B /* iPadDashletScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletScrollView.m; sourceTree = "<group>"; };
 		5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDashlet.h; sourceTree = "<group>"; };
 		5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDashlet.m; sourceTree = "<group>"; };
+		5DAC8FAC18556A9900FE3B5B /* JPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPLocation.h; sourceTree = "<group>"; };
+		5DAC8FAD18556A9900FE3B5B /* JPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocation.m; sourceTree = "<group>"; };
+		5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocationTest.m; sourceTree = "<group>"; };
+		5DAC8FB11855810B00FE3B5B /* iPadBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadBannerView.h; sourceTree = "<group>"; };
+		5DAC8FB21855810B00FE3B5B /* iPadBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadBannerView.m; sourceTree = "<group>"; };
 		5DE5B7AC184ACBB700EFCE0A /* JumpPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +127,8 @@
 			children = (
 				5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */,
 				5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */,
+				5DAC8FAC18556A9900FE3B5B /* JPLocation.h */,
+				5DAC8FAD18556A9900FE3B5B /* JPLocation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -151,6 +161,8 @@
 				5DAC8F941855335A00FE3B5B /* iPadDashletBackgroundView.m */,
 				5DAC8F961855337200FE3B5B /* iPadDashletDetailsView.h */,
 				5DAC8F971855337200FE3B5B /* iPadDashletDetailsView.m */,
+				5DAC8FB11855810B00FE3B5B /* iPadBannerView.h */,
+				5DAC8FB21855810B00FE3B5B /* iPadBannerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -220,6 +232,7 @@
 		5DE5B7DA184ACBB700EFCE0A /* JumpPadTests */ = {
 			isa = PBXGroup;
 			children = (
+				5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */,
 				5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */,
 				5DE5B7DB184ACBB700EFCE0A /* Supporting Files */,
 			);
@@ -351,11 +364,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
+				5DAC8FB31855810B00FE3B5B /* iPadBannerView.m in Sources */,
 				5DAC8F981855337200FE3B5B /* iPadDashletDetailsView.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5DAC8F881855252000FE3B5B /* iPadMainSearchViewController.m in Sources */,
 				5DAC8F951855335A00FE3B5B /* iPadDashletBackgroundView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
+				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
 				5DAC8FA518554E8100FE3B5B /* iPadDashletScrollView.m in Sources */,
@@ -370,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */,
 				5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

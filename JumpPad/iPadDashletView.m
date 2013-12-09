@@ -9,6 +9,7 @@
 #import "iPadDashletView.h"
 #import "iPadDashletBackgroundView.h"
 #import "iPadDashletDetailsView.h"
+#import "JPLocation.h"
 
 @implementation iPadDashletView
 

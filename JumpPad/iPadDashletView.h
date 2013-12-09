@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class JPDashlet;
+
 @interface iPadDashletView : UIView
+
+
+
+@property (nonatomic, retain) JPDashlet* dashlet;
+
+
+
+
+
+
+
+
+
 
 @end

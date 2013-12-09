@@ -10,4 +10,28 @@
 
 @implementation JPDashlet
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"Dashlet for %@[%@]", self.title, self.itemUID];
+}
+
+
+
+
 @end

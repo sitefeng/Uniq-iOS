@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class iPadDashletScrollView;
+@class iPadDashletScrollView, JPDashlet;
 
 @protocol JPDashletScrollViewDataSource <NSObject>
 
 @required
 
 
-- (NSUInteger)dashletScrollView:(iPadDashletScrollView*)scrollView numberOfDashletsInSection: (NSUInteger)section;
-
-
+- (NSUInteger)dashletScrollView:(iPadDashletScrollView*)scrollView numberOfDashletsInSection:(NSUInteger)section;
+- (JPDashlet*)dashletScrollView: (iPadDashletScrollView*)scrollView dashletAtIndexPath: (NSIndexPath*)path;
 
 
    
@@ -33,5 +32,13 @@
 
 
 @interface iPadDashletScrollView : UIScrollView
+
+
+
+
+
+
+
+
 
 @end
