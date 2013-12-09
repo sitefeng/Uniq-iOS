@@ -14,7 +14,7 @@
 @property (nonatomic, assign) NSString* cityName;
 
 @property (nonatomic, assign) CGPoint coordinates;
-//ex: ccp(43.658092,-79.380598)
+//ex: jpp(43.658092,-79.380598)
 /*  To Calculate the distance between two locations,
  use the Haversine formula:
  a = sin²(Δφ/2) + cos(φ1).cos(φ2).sin²(Δλ/2)

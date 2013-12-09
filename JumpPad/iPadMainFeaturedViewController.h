@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadMainFeaturedViewController : UIViewController
+#import "iPadDashletScrollView.h"
+
+@interface iPadMainFeaturedViewController : UIViewController<UIScrollViewDelegate, JPDashletScrollViewDataSource, JPDashletScrollViewDelegate>
+
+
 
 
 @end

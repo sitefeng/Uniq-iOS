@@ -14,10 +14,9 @@
 
 #define CGRectMakeWithOriginXYAndSize(originX, originY, size) CGRectMake(originX, originY, size.width, size.height)
 
-#define ccp(x,y) CGPointMake(x,y)
-
-
-
+#define jpp(x,y)      CGPointMake(x,y)
+#define jps(w,h)      CGSizeMake(w,h)
+#define jpr(x,y,w,h)  CGRectMake(x,y,w,h)
 
 
 

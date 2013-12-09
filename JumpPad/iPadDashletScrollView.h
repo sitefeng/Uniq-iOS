@@ -29,9 +29,50 @@
 
 
 
+@protocol JPDashletScrollViewDelegate <NSObject, UIScrollViewDelegate>
+
+@optional
+
+- (void)dashletScrollView: (iPadDashletScrollView*)scrollView didSelectDashletAtIndexPath: (NSIndexPath*)path;
+
+@end
+
+
+
 
 
 @interface iPadDashletScrollView : UIScrollView
+{
+    @private
+    
+    NSMutableArray*          _dashletViews; //An array of array of DashletViews
+    NSUInteger           _numberOfDashlets;
+    
+    //Track the position of the dashlets
+    CGFloat              _currentY;
+    CGFloat              _currentX;
+    
+    
+    
+    
+    
+}
+
+
+
+@property (nonatomic, assign) id<JPDashletScrollViewDataSource> dataSource;
+@property (nonatomic, assign) id<JPDashletScrollViewDelegate> delegate;
+
+
+@property (nonatomic, assign, getter = isEditing) BOOL editing;
+
+
+
+
+
+
+- (void)loadDashlets;
+
 
 
 

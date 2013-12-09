@@ -42,7 +42,7 @@ typedef enum
 
 
 
-
+- (instancetype)initWithItemUID: (NSString*)uid;
 
 
 

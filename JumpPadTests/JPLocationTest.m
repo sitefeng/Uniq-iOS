@@ -35,9 +35,9 @@
 - (void)testDistanceToLocation
 {
     
-    JPLocation* location = [[JPLocation alloc] initWithCooridinates:ccp(43.661223,-79.384694) city:@"Toronto" country:@"Canada"];
+    JPLocation* location = [[JPLocation alloc] initWithCooridinates:jpp(43.661223,-79.384694) city:@"Toronto" country:@"Canada"];
     
-    JPLocation* loc2 = [[JPLocation alloc] initWithCooridinates:ccp(43.479273, -80.533557) city:@"waterloo" country:@"canada"];
+    JPLocation* loc2 = [[JPLocation alloc] initWithCooridinates:jpp(43.479273, -80.533557) city:@"waterloo" country:@"canada"];
    
     double distance = [location distanceToLocation:loc2];
     

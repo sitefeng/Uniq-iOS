@@ -15,7 +15,16 @@
 
 
 
-
+- (instancetype)initWithItemUID: (NSString*)uid
+{
+    self = [super init];
+    if(self)
+    {
+        self.itemUID = uid;
+    }
+    
+    return self;
+}
 
 
 

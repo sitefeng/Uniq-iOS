@@ -61,7 +61,13 @@
 
 +(UIColor*) mainViewControllerDefaultBackgroundColor
 {
-    return [self colorWithHex:@"FFFFFF" alpha:1];
+    return [self colorWithHex:@"DFFCDC" alpha:1];
+}
+
+
++(UIColor*) mainViewControllerPromotionalBackgroundColor
+{
+    return [self colorWithHex:@"FCE2DC" alpha:1];
 }
 
 

@@ -48,7 +48,7 @@
     
     if([city caseInsensitiveCompare:@"toronto"] == NSOrderedSame)
     {
-        c = ccp(43.658092,-79.380598);
+        c = jpp(43.658092,-79.380598);
     }
     
     

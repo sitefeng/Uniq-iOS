@@ -26,8 +26,9 @@
 +(UIColor*) dashletTextColor;
 +(UIColor*) dashletDefaultBorderColor;
 
+//set the main background color
 +(UIColor*) mainViewControllerDefaultBackgroundColor;
-
++(UIColor*) mainViewControllerPromotionalBackgroundColor;
 
 //Default app theme
 +(void)applyGlobalStyle;
