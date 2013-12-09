@@ -7,9 +7,11 @@
 //
 
 #import "iPadMainFeaturedViewController.h"
-#include "UserInterfaceConstants.h"
+#import "iPadDashletScrollView.h"
 
 @interface iPadMainFeaturedViewController ()
+
+@property (nonatomic, strong) NSMutableArray *players;
 
 @end
 
@@ -21,9 +23,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [JPStyle mainViewControllerDefaultBackgroundColor];
+    
+    iPadDashletScrollView* scrollView = [[iPadDashletScrollView alloc] initWithFrame:CGRectZero];
+    
+    [scrollView setFrame: CGRectMake(0, kiPadTopBarHeight, self.view.bounds.size.width, self.view.bounds.size.height - kiPadTopBarHeight - kiPadTabBarHeight)];
     
     
-    
+    [self.view addSubview:scrollView];
     
     
 }
@@ -36,6 +43,14 @@
 
 
 
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
 
 
 
