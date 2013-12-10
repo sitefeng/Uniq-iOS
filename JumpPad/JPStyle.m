@@ -11,6 +11,8 @@
 @implementation JPStyle
 
 
+#pragma mark - Device Verification
+
 +(BOOL) iPad
 {
 #ifdef UI_USER_INTERFACE_IDIOM
@@ -32,6 +34,8 @@
     return ([UIScreen mainScreen].bounds.size.height == 568.0) ? YES : NO;
 }
 
+
+#pragma mark - User Interface Colors
 
 
 +(UIColor*) interfaceTintColor
@@ -56,6 +60,23 @@
 +(UIColor*) dashletDefaultBorderColor
 {
     return [self colorWithHex:@"240059" alpha:1];
+}
+
+
++(UIColor*) dashletScrollViewDefaultbackgroundColor
+{
+    return [self colorWithHex:@"F2F2F2" alpha:1];
+}
+
+
++(UIColor*) bannerDefaultbackgroundColor
+{
+    return [self colorWithHex:@"C39BCC" alpha:1];
+}
+
++(UIColor*) filterBarDefaultbackgroundColor
+{
+    return [self colorWithHex:@"FCAE54" alpha:1];
 }
 
 

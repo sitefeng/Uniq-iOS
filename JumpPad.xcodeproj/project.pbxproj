@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16762E18560E580041993E /* iPadFilterBarView.m */; };
 		5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */; };
 		5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */; };
 		5DAC8F881855252000FE3B5B /* iPadMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F871855252000FE3B5B /* iPadMainSearchViewController.m */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D16762D18560E580041993E /* iPadFilterBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFilterBarView.h; sourceTree = "<group>"; };
+		5D16762E18560E580041993E /* iPadFilterBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFilterBarView.m; sourceTree = "<group>"; };
 		5DAC8F801855250000FE3B5B /* iPadMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFavoritesViewController.h; sourceTree = "<group>"; };
 		5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFavoritesViewController.m; sourceTree = "<group>"; };
 		5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainExploreViewController.h; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				5DAC8F971855337200FE3B5B /* iPadDashletDetailsView.m */,
 				5DAC8FB11855810B00FE3B5B /* iPadBannerView.h */,
 				5DAC8FB21855810B00FE3B5B /* iPadBannerView.m */,
+				5D16762D18560E580041993E /* iPadFilterBarView.h */,
+				5D16762E18560E580041993E /* iPadFilterBarView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 			files = (
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DAC8FB31855810B00FE3B5B /* iPadBannerView.m in Sources */,
+				5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */,
 				5DAC8F981855337200FE3B5B /* iPadDashletDetailsView.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5DAC8F881855252000FE3B5B /* iPadMainSearchViewController.m in Sources */,

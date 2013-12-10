@@ -16,7 +16,13 @@
 #define kiPadDashletBorderWidth               3
 #define kiPadDashletDividerWidth              2
 #define kiPadDashletBorderPadding             8
-#define kiPadDashletDividerPositionFromTopPortrait   260
+#define kiPadDashletDividerPositionFromBottom 68.5
+#define kiPadDashletTitleHeight               33
+#define kiPadDashletDetailsHeight             30
+
+#define kiPadDefaultBorderWidth               1
+#define kiPadDefaultBorderPadding             1
+
 
 #define kiPadKeyboardHeightLandscape 		  352
 #define kiPadKeyboardHeightPortrait 		  264
@@ -33,9 +39,15 @@
 
 #define kiPadStatusBarHeight			20.0
 #define kiPadNavigationBarHeight        44.0
+#define kiPadSearchBarHeight            44.0
+#define kiPadFilterBarHeight            44.0
 #define kiPadTabBarHeight               56.0
 #define kiPadTopBarHeight               64.0
 
+#define kiPadWidthLandscape             1024
+#define kiPadWidthPortrait              768
+#define kiPadHeightLandscape            768
+#define kiPadHeightPortrait             1024
 
 
 /////////////////////////////////////
@@ -55,7 +67,6 @@
 
 
 
-
 ///////////////////////////////////
 #pragma mark - Resource Image Sizes
 
@@ -64,10 +75,10 @@
 
 
 //in dashletBackgroundView and the photo slide show in the program extended chart
-//shinked to (372 x 229) when in dashlets
-#define kiPadSizeProgramImage  CGSizeMake(400,246)
-#define kiPadSizeFacultyImage  CGSizeMake(400,246)
-#define kiPadSizeCollegeImage  CGSizeMake(400,246)
+//shinked to (372 x 303) when in dashlets
+#define kiPadSizeProgramImage  CGSizeMake(400,300)
+#define kiPadSizeFacultyImage  CGSizeMake(400,300)
+#define kiPadSizeCollegeImage  CGSizeMake(400,300)
 
 
 #define kiPadSizeCountryFlag   CGSizeMake(50,25)

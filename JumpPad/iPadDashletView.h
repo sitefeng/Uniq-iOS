@@ -15,9 +15,12 @@
 
 
 
+
+
+
 @property (nonatomic, retain) JPDashlet* dashlet;
 
-
+@property (nonatomic, assign) BOOL hideDeleteButton;
 
 
 

@@ -1,15 +1,14 @@
 //
-//  iPadBannerView.m
+//  iPadFilterBarView.m
 //  JumpPad
 //
-//  Created by Si Te Feng on 12/8/2013.
+//  Created by Si Te Feng on 12/9/2013.
 //  Copyright (c) 2013 Si Te Feng. All rights reserved.
 //
 
-#import "iPadBannerView.h"
+#import "iPadFilterBarView.h"
 
-
-@implementation iPadBannerView
+@implementation iPadFilterBarView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -17,30 +16,20 @@
     if (self) {
         // Initialization code
         
-        
-        
+        self.backgroundColor = [JPStyle filterBarDefaultbackgroundColor];
         
     }
     return self;
 }
 
-
--(void) setFrame:(CGRect)frame
+- (void) setFrame:(CGRect)frame
 {
     [super setFrame:frame];
     
-    
-    
-    self.backgroundColor = [JPStyle bannerDefaultbackgroundColor];
+    self.backgroundColor = [JPStyle filterBarDefaultbackgroundColor];
     
     
 }
-
-
-
-
-
-
 
 
 

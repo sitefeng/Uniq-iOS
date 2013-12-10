@@ -62,7 +62,10 @@
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextDrawPath(context, kCGPathStroke);
     
-    CGPoint line[] = {jpp(0, kiPadDashletDividerPositionFromTopPortrait),jpp(self.frame.size.width, kiPadDashletDividerPositionFromTopPortrait)};
+    float dashletHeight = self.frame.size.height;
+    
+    CGPoint line[] = {jpp(0, dashletHeight - kiPadDashletDividerPositionFromBottom),jpp(self.frame.size.width, dashletHeight - kiPadDashletDividerPositionFromBottom)};
+    
     CGContextSetLineWidth(context, kiPadDashletDividerWidth);
     CGContextAddLines(context, line, 2);
     CGContextDrawPath(context, kCGPathStroke);

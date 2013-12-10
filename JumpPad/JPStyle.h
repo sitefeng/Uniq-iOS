@@ -18,13 +18,20 @@
 +(BOOL) iOS7;
 +(BOOL) iPhone4Inch;
 
+
+/////////////////////////////
+////User Interface Colors
+
 // Color of Nav Bar and Search Bar
 +(UIColor*) interfaceTintColor;
 
-//UI Colors
 +(UIImage*) dashletDefaultBackgroundImage;
 +(UIColor*) dashletTextColor;
 +(UIColor*) dashletDefaultBorderColor;
+
++(UIColor*) dashletScrollViewDefaultbackgroundColor;
++(UIColor*) bannerDefaultbackgroundColor;
++(UIColor*) filterBarDefaultbackgroundColor;
 
 //set the main background color
 +(UIColor*) mainViewControllerDefaultBackgroundColor;

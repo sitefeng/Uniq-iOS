@@ -25,11 +25,12 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+
         UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    
+        
         [self addGestureRecognizer:tapRecognizer];
         
-      
+        self.backgroundColor = [JPStyle dashletScrollViewDefaultbackgroundColor];
         
     }
     return self;
@@ -97,22 +98,48 @@
     
 
     
-    
-    
-    
     // Width of the Screen in pt
     float width= frame.size.width;
     
     if( width >= 1024)
     {
+        for(NSMutableArray* array in _dashletViews)
+        {
+            for(int i = 0; i< [array count]; i++)
+            {
+                
+                if(i%3 == 0)
+                {
+                    _currentX = kiPadDashletBorderPadding;
+                }
+                else if(i%3 == 1)
+                {
+                    _currentX = 2*kiPadDashletBorderPadding + kiPadSizeDashletLandscape.width;
+                }
+                else
+                {
+                    _currentX = 3*kiPadDashletBorderPadding + 2*kiPadSizeDashletLandscape.width;
+                }
+                
+                _currentY = (kiPadDashletBorderPadding + i/3 * (kiPadDashletBorderPadding + kiPadSizeDashletLandscape.height));
+                
+                iPadDashletView* dashletView = [array objectAtIndex:i];
+                
+                [dashletView setFrame:CGRectMakeWithOriginXYAndSize(0, 0, kiPadSizeDashletLandscape)];
+                
+                dashletView.center = jpp(dashletView.frame.size.width/2 + _currentX, dashletView.frame.size.height/2 + _currentY);  //CGPointMake
+                
+                [self addSubview:dashletView];
+                [self setContentSize:jps(self.frame.size.width, _currentY + kiPadSizeDashletLandscape.height +  kiPadDashletBorderPadding)];
+            }
+        }
+
         
     }
     else if(width < 1024 && width >= 768)
     {
-        
         for(NSMutableArray* array in _dashletViews)
         {
-            
             for(int i = 0; i< [array count]; i++)
             {
                 _currentX = (i%2 == 0) ? kiPadDashletBorderPadding
@@ -129,18 +156,11 @@
                 [self addSubview:dashletView];
                 [self setContentSize:jps(self.frame.size.width, _currentY + kiPadSizeDashletPortrait.height +  kiPadDashletBorderPadding)];
             }
-            
-            
-            
         }
-        
-        
-        
-        
     }
     else
     {
-        
+        //implement when needed, chances are this is never used
     }
     
     
