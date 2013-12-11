@@ -11,16 +11,14 @@
 @implementation JPLocation
 
 //Designated Initializer
--(instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city country: (NSString*)country
+-(instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city
 {
     self = [self init];
     
     self.coordinates = coord;
     self.cityName = city;
-    self.countryName = country;
     
     return self;
-    
 }
 
 
@@ -37,13 +35,11 @@
     {
         return NO;
     }
-    
 }
 
 
 + (CGPoint)coordinatesForCity: (NSString*)city
 {
-    
     CGPoint c;
     
     if([city caseInsensitiveCompare:@"toronto"] == NSOrderedSame)
@@ -51,87 +47,37 @@
         c = jpp(43.658092,-79.380598);
     }
     
-    
     return c;
-    
 }
-
 
 
 - (double)distanceToLocation: (JPLocation*)destination
 {
-    
-    double lat1 = 0;
-    double lon1 = 0;
-    
-    if(self.coordinates.x != 0 && self.coordinates.y != 0)
-    {
-        lat1 = self.coordinates.x;
-        lon1 = self.coordinates.y;
-    }
-    else if(self.cityName != nil)
-    {
-        lat1 = [JPLocation coordinatesForCity:self.cityName].x;
-        lon1 = [JPLocation coordinatesForCity:self.cityName].y;
-    }
-    
-    double lat2 = destination.coordinates.x;
-    double lon2 = destination.coordinates.y;
-    
-    double R = 6371;
-    double dLat = (lat2-lat1)/180.0*M_PI;
-    double dLon = (lon2-lon1)/180.0*M_PI;
-    
-    lat1 = lat1/180.0*M_PI;
-    lat2 = lat2/180.0*M_PI;
-    
-    double a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(lat1) * cos(lat2);
-    
-    double c = 2 * atan2(sqrt(a), sqrt(1-a));
-    
-    double distance = R * c;
-    
-    return distance;
-    
+    return [JPLocation distanceBetweenLocationOne:self.coordinates andLocationTwo:destination.coordinates];
 }
-
 
 
 - (double)distanceToCoordinate: (CGPoint)destination
 {
-    double lat1 = 0;
-    double lon1 = 0;
-    
-    if(self.coordinates.x != 0 && self.coordinates.y != 0)
-    {
-        lat1 = self.coordinates.x;
-        lon1 = self.coordinates.y;
-    }
-    else if(self.cityName != nil)
-    {
-        lat1 = [JPLocation coordinatesForCity:self.cityName].x;
-        lon1 = [JPLocation coordinatesForCity:self.cityName].y;
-    }
-    
-    double lat2 = destination.x;
-    double lon2 = destination.y;
-    
-    double R = 6371;
-    double dLat = (lat2-lat1)/180.0*M_PI;
-    double dLon = (lon2-lon1)/180.0*M_PI;
-    
-    lat1 = lat1/180.0*M_PI;
-    lat2 = lat2/180.0*M_PI;
-    
-    double a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(lat1) * cos(lat2);
-    double c = 2 * atan2(sqrt(a), sqrt(1-a));
-    double distance = R * c;
-    return distance;
+    return [JPLocation distanceBetweenLocationOne:self.coordinates andLocationTwo:destination];
 }
 
 
 + (double)distanceBetweenLocationOne: (CGPoint)p1 andLocationTwo: (CGPoint)p2
 {
+    //ex: jpp(43.658092,-79.380598)
+    /*  To Calculate the distance between two locations,
+     use the Haversine formula:
+     a = sin²(Δφ/2) + cos(φ1).cos(φ2).sin²(Δλ/2)
+     c = 2.atan2(√a, √(1−a))
+     d = R.c
+     
+     where	φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km)
+     note that angles need to be in radians to pass to trig functions!
+     
+     Source: http://www.movable-type.co.uk/scripts/latlong.html
+     */
+    
     double lat1 = p1.x;
     double lon1 = p1.y;
     double lat2 = p2.x;
@@ -147,13 +93,15 @@
     double a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(lat1) * cos(lat2);
     
     double c = 2 * atan2(sqrt(a), sqrt(1-a));
-    
     double distance = R * c;
-    
     return distance;
 }
 
 
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"City:%@[%f,%f]",self.cityName,self.coordinates.x, self.coordinates.y];
+}
 
 
 @end

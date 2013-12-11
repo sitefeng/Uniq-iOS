@@ -44,10 +44,20 @@
     
 }
 
++(UIColor*) defaultBorderColor
+{
+    return [UIColor blackColor];
+}
+
 
 + (UIImage*) dashletDefaultBackgroundImage
 {
     return [UIImage imageNamed:@"dashletDefault"];
+}
+
++(UIColor*) dashletDefaultBackgroundColor
+{
+    return [UIColor lightGrayColor];
 }
 
 
@@ -60,6 +70,25 @@
 +(UIColor*) dashletDefaultBorderColor
 {
     return [self colorWithHex:@"240059" alpha:1];
+}
+
++(UIColor*) dashletDefaultTitleTextColor
+{
+    return [UIColor blackColor];
+}
+
++(UIColor*) dashletDefaultTitleBackgroundColor
+{
+    return [UIColor greenColor];
+}
++(UIColor*) dashletDefaultDetailsTextColor
+{
+    return [UIColor blackColor];
+}
+
++(UIColor*) dashletDefaultDetailsBackgroundColor
+{
+    return [UIColor orangeColor];
 }
 
 

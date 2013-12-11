@@ -123,6 +123,8 @@
     [self.bannerView setFrame: jpr(0, kiPadTopBarHeight, width, bannerHeight)];
     [self.filterBarView setFrame: jpr(0, kiPadTopBarHeight + bannerHeight, width, kiPadSearchBarHeight)];
     [self.dashletScrollView setFrame: jpr(0, bannerHeight + kiPadFilterBarHeight + kiPadTopBarHeight, width, height - bannerHeight - kiPadSearchBarHeight - kiPadTopBarHeight - kiPadTabBarHeight)];
+    
+    
 }
                                         
                                         

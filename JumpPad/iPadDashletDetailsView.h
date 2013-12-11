@@ -9,5 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @interface iPadDashletDetailsView : UIView
+//Also used for item extended chart
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

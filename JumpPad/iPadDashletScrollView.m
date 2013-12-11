@@ -126,6 +126,7 @@
                 iPadDashletView* dashletView = [array objectAtIndex:i];
                 
                 [dashletView setFrame:CGRectMakeWithOriginXYAndSize(0, 0, kiPadSizeDashletLandscape)];
+                [dashletView setNeedsDisplay];
                 
                 dashletView.center = jpp(dashletView.frame.size.width/2 + _currentX, dashletView.frame.size.height/2 + _currentY);  //CGPointMake
                 
@@ -150,6 +151,7 @@
                 iPadDashletView* dashletView = [array objectAtIndex:i];
                 
                 [dashletView setFrame:CGRectMakeWithOriginXYAndSize(0, 0, kiPadSizeDashletPortrait)];
+                [dashletView setNeedsDisplay];
                 
                 dashletView.center = jpp(dashletView.frame.size.width/2 + _currentX, dashletView.frame.size.height/2 + _currentY);  //CGPointMake
                 
@@ -169,17 +171,6 @@
 
 
 
-- (void)resizeDashlets
-{
-    
-    
-    
-    
-    
-    
-    
-    
-}
 
 
 

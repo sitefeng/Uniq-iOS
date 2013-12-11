@@ -1,0 +1,55 @@
+
+//Created by Si Te Feng on December 11, 2013
+//
+
+
+
+
+What is ItemUID?
+
+The most prominent feature of the app is all the colleges and programs that the user can explore. Contents of these item are shown right away once the app starts. In order to organize all these items into a meaningful manner, an "Item UID" or "Item Unique Identifier" is created.
+
+ex: "0002-004-001"  or  "0002004001"
+
+The first 4 number represents a specific college, followed by 3 digits that represents a Faculty within that college. The last three represents a Program.
+
+-> You Cannot specify a program without specifying its college and faculty: 0000-000-002 X
+
+-> If you want an itemUID to represent a college, set last 6 values to zero: 0001-000-000 
+
+
+
+What is iPadDashletView?
+
+Dashlets are the square views that shows information about a college, faculty, or program. They are interactive and can be tappable
+
+
+
+What is Item Extended Chart?
+
+After tapping on a Dashlet from the Featured tab or the Exlore tab, the user will be presented with a new Modal View Controller with a brand new sets of tabs, in oder to view more spcific details
+-> It can be a Program Extended Chart or College Extended Chart
+
+
+
+
+JPLocation
+
+Although the GPS coordinates can be very exact, the app will only collect location information of the user to the accuracy of a city until location framework is implemented
+
+
+
+
+iPadBannerView
+
+The image below the Navigation Bar
+
+
+iPadDashletBackgroundView
+
+Controls the image portion of a dashlet only
+
+
+
+
+

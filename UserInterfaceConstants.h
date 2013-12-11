@@ -16,7 +16,7 @@
 #define kiPadDashletBorderWidth               3
 #define kiPadDashletDividerWidth              2
 #define kiPadDashletBorderPadding             8
-#define kiPadDashletDividerPositionFromBottom 68.5
+#define kiPadDashletDividerPositionFromBottom 68
 #define kiPadDashletTitleHeight               33
 #define kiPadDashletDetailsHeight             30
 

@@ -25,9 +25,17 @@
 // Color of Nav Bar and Search Bar
 +(UIColor*) interfaceTintColor;
 
++(UIColor*) defaultBorderColor;
+
+//Dashslet View
 +(UIImage*) dashletDefaultBackgroundImage;
-+(UIColor*) dashletTextColor;
++(UIColor*) dashletDefaultBackgroundColor; //Not used in production
 +(UIColor*) dashletDefaultBorderColor;
++(UIColor*) dashletDefaultTitleTextColor;
++(UIColor*) dashletDefaultTitleBackgroundColor;
++(UIColor*) dashletDefaultDetailsTextColor;
++(UIColor*) dashletDefaultDetailsBackgroundColor;
+
 
 +(UIColor*) dashletScrollViewDefaultbackgroundColor;
 +(UIColor*) bannerDefaultbackgroundColor;
