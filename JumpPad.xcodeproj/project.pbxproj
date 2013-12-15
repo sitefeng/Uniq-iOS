@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16762E18560E580041993E /* iPadFilterBarView.m */; };
-		5D167632185787750041993E /* iPadDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* iPadDashletTitleView.m */; };
-		5D167635185839690041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167634185839690041993E /* JPFont.m */; };
+		5D167632185787750041993E /* iOSDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* iOSDashletTitleView.m */; };
 		5D16763818583A0F0041993E /* JPItemUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763718583A0F0041993E /* JPItemUID.m */; };
 		5D16763A18583D250041993E /* JumpPad-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* JumpPad-Explaination.txt */; };
+		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
+		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
+		5D167643185920470041993E /* iOSDashletDetailsElementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167642185920470041993E /* iOSDashletDetailsElementView.m */; };
 		5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */; };
 		5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */; };
 		5DAC8F881855252000FE3B5B /* iPadMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F871855252000FE3B5B /* iPadMainSearchViewController.m */; };
 		5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */; };
 		5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8D185525C500FE3B5B /* JPStyle.m */; };
 		5DAC8F951855335A00FE3B5B /* iPadDashletBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F941855335A00FE3B5B /* iPadDashletBackgroundView.m */; };
-		5DAC8F981855337200FE3B5B /* iPadDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F971855337200FE3B5B /* iPadDashletDetailsView.m */; };
 		5DAC8FA518554E8100FE3B5B /* iPadDashletScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA418554E8100FE3B5B /* iPadDashletScrollView.m */; };
 		5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */; };
 		5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAD18556A9900FE3B5B /* JPLocation.m */; };
@@ -55,13 +56,19 @@
 /* Begin PBXFileReference section */
 		5D16762D18560E580041993E /* iPadFilterBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFilterBarView.h; sourceTree = "<group>"; };
 		5D16762E18560E580041993E /* iPadFilterBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFilterBarView.m; sourceTree = "<group>"; };
-		5D167630185787750041993E /* iPadDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletTitleView.h; sourceTree = "<group>"; };
-		5D167631185787750041993E /* iPadDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletTitleView.m; sourceTree = "<group>"; };
-		5D167633185839690041993E /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFont.h; sourceTree = "<group>"; };
-		5D167634185839690041993E /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
+		5D167630185787750041993E /* iOSDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletTitleView.h; sourceTree = "<group>"; };
+		5D167631185787750041993E /* iOSDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletTitleView.m; sourceTree = "<group>"; };
 		5D16763618583A0F0041993E /* JPItemUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPItemUID.h; sourceTree = "<group>"; };
 		5D16763718583A0F0041993E /* JPItemUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPItemUID.m; sourceTree = "<group>"; };
 		5D16763918583D250041993E /* JumpPad-Explaination.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "JumpPad-Explaination.txt"; sourceTree = "<group>"; };
+		5D16763B1858D3CB0041993E /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFont.h; sourceTree = "<group>"; };
+		5D16763C1858D3CB0041993E /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
+		5D16763E18591AE10041993E /* iOSDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletDetailsView.h; sourceTree = "<group>"; };
+		5D16763F18591AE10041993E /* iOSDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletDetailsView.m; sourceTree = "<group>"; };
+		5D167641185920470041993E /* iOSDashletDetailsElementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletDetailsElementView.h; sourceTree = "<group>"; };
+		5D167642185920470041993E /* iOSDashletDetailsElementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletDetailsElementView.m; sourceTree = "<group>"; };
+		5D167646185D6A6C0041993E /* ApplicationConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
+		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
 		5DAC8F801855250000FE3B5B /* iPadMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFavoritesViewController.h; sourceTree = "<group>"; };
 		5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFavoritesViewController.m; sourceTree = "<group>"; };
 		5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainExploreViewController.h; sourceTree = "<group>"; };
@@ -74,8 +81,6 @@
 		5DAC8F8D185525C500FE3B5B /* JPStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPStyle.m; sourceTree = "<group>"; };
 		5DAC8F931855335A00FE3B5B /* iPadDashletBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletBackgroundView.h; sourceTree = "<group>"; };
 		5DAC8F941855335A00FE3B5B /* iPadDashletBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletBackgroundView.m; sourceTree = "<group>"; };
-		5DAC8F961855337200FE3B5B /* iPadDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletDetailsView.h; sourceTree = "<group>"; };
-		5DAC8F971855337200FE3B5B /* iPadDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletDetailsView.m; sourceTree = "<group>"; };
 		5DAC8FA318554E8100FE3B5B /* iPadDashletScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletScrollView.h; sourceTree = "<group>"; };
 		5DAC8FA418554E8100FE3B5B /* iPadDashletScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletScrollView.m; sourceTree = "<group>"; };
 		5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDashlet.h; sourceTree = "<group>"; };
@@ -105,8 +110,6 @@
 		5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadTests.m; sourceTree = "<group>"; };
 		5DE5B83518504D0300EFCE0A /* iPadMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFeaturedViewController.h; sourceTree = "<group>"; };
 		5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFeaturedViewController.m; sourceTree = "<group>"; };
-		5DE5B83C1850520300EFCE0A /* ApplicationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationConstants.h; path = ../ApplicationConstants.h; sourceTree = "<group>"; };
-		5DE5B83E185053C900EFCE0A /* UserInterfaceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInterfaceConstants.h; path = ../UserInterfaceConstants.h; sourceTree = "<group>"; };
 		5DE5B85018541D2D00EFCE0A /* iPadDashletView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletView.h; sourceTree = "<group>"; };
 		5DE5B85118541D2D00EFCE0A /* iPadDashletView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletView.m; sourceTree = "<group>"; };
 		5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -136,6 +139,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D1676441859208A0041993E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5D167630185787750041993E /* iOSDashletTitleView.h */,
+				5D167631185787750041993E /* iOSDashletTitleView.m */,
+				5D16763E18591AE10041993E /* iOSDashletDetailsView.h */,
+				5D16763F18591AE10041993E /* iOSDashletDetailsView.m */,
+				5D167641185920470041993E /* iOSDashletDetailsElementView.h */,
+				5D167642185920470041993E /* iOSDashletDetailsElementView.m */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		5DAC8FA918555EE500FE3B5B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,10 +191,6 @@
 				5DE5B85118541D2D00EFCE0A /* iPadDashletView.m */,
 				5DAC8F931855335A00FE3B5B /* iPadDashletBackgroundView.h */,
 				5DAC8F941855335A00FE3B5B /* iPadDashletBackgroundView.m */,
-				5D167630185787750041993E /* iPadDashletTitleView.h */,
-				5D167631185787750041993E /* iPadDashletTitleView.m */,
-				5DAC8F961855337200FE3B5B /* iPadDashletDetailsView.h */,
-				5DAC8F971855337200FE3B5B /* iPadDashletDetailsView.m */,
 				5DAC8FB11855810B00FE3B5B /* iPadBannerView.h */,
 				5DAC8FB21855810B00FE3B5B /* iPadBannerView.m */,
 				5D16762D18560E580041993E /* iPadFilterBarView.h */,
@@ -226,15 +238,16 @@
 				5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
 				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
-				5DE5B83C1850520300EFCE0A /* ApplicationConstants.h */,
-				5DE5B83E185053C900EFCE0A /* UserInterfaceConstants.h */,
+				5D167646185D6A6C0041993E /* ApplicationConstants.h */,
+				5D167647185D6A750041993E /* UserInterfaceConstants.h */,
 				5DAC8F8C185525C500FE3B5B /* JPStyle.h */,
 				5DAC8F8D185525C500FE3B5B /* JPStyle.m */,
-				5D167633185839690041993E /* JPFont.h */,
-				5D167634185839690041993E /* JPFont.m */,
+				5D16763B1858D3CB0041993E /* JPFont.h */,
+				5D16763C1858D3CB0041993E /* JPFont.m */,
 				5DAC8FA918555EE500FE3B5B /* Model */,
 				5DE5B83418504A5C00EFCE0A /* iPhone */,
 				5DE5B83818504D0B00EFCE0A /* iPad */,
+				5D1676441859208A0041993E /* Shared */,
 				5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */,
 				5DE5B7B6184ACBB700EFCE0A /* Supporting Files */,
 			);
@@ -390,18 +403,19 @@
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DAC8FB31855810B00FE3B5B /* iPadBannerView.m in Sources */,
 				5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */,
-				5DAC8F981855337200FE3B5B /* iPadDashletDetailsView.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5DAC8F881855252000FE3B5B /* iPadMainSearchViewController.m in Sources */,
+				5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */,
 				5DAC8F951855335A00FE3B5B /* iPadDashletBackgroundView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
-				5D167632185787750041993E /* iPadDashletTitleView.m in Sources */,
+				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
+				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,
+				5D167643185920470041993E /* iOSDashletDetailsElementView.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
 				5DAC8FA518554E8100FE3B5B /* iPadDashletScrollView.m in Sources */,
 				5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */,
-				5D167635185839690041993E /* JPFont.m in Sources */,
 				5DE5B85218541D2D00EFCE0A /* iPadDashletView.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,

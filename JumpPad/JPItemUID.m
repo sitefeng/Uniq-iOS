@@ -10,7 +10,12 @@
 
 @implementation JPItemUID
 
-
++ (JPItemUID*)itemUIDFromString: (NSString*)string
+{
+    JPItemUID* uid = (JPItemUID*)string;
+    
+    return uid;
+}
 
 - (NSUInteger)collegeNumber
 {

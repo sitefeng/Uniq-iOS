@@ -2,22 +2,28 @@
 //  iPadDashletDetailsView.m
 //  JumpPad
 //
-//  Created by Si Te Feng on 12/8/2013.
+//  Created by Si Te Feng on 12/11/2013.
 //  Copyright (c) 2013 Si Te Feng. All rights reserved.
 //
 
-#import "iPadDashletDetailsView.h"
+#import "iOSDashletDetailsView.h"
 
-@implementation iPadDashletDetailsView
+@implementation iOSDashletDetailsView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        self.backgroundColor = [JPStyle dashletDefaultDetailsBackgroundColor];
+        
     }
     return self;
 }
+
+
+
 
 
 -(void) setFrame:(CGRect)frame
@@ -26,10 +32,13 @@
     
     
     
-    self.backgroundColor = [JPStyle dashletDefaultDetailsBackgroundColor];
+    
+    
     
     
 }
+
+
 
 
 

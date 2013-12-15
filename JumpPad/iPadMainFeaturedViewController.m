@@ -71,7 +71,7 @@
 
 - (NSUInteger)dashletScrollView:(iPadDashletScrollView *)scrollView numberOfDashletsInSection:(NSUInteger)section
 {
-    return 87;
+    return 3;
 }
 
 

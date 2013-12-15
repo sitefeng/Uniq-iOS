@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class JPDashlet, iPadDashletBackgroundView, iPadDashletTitleView, iPadDashletDetailsView;
+@class JPDashlet, iPadDashletBackgroundView, iOSDashletTitleView, iOSDashletDetailsView;
 
 @interface iPadDashletView : UIView
 
@@ -21,11 +21,11 @@
 @property (nonatomic, retain) JPDashlet* dashlet;
 
 @property (nonatomic, retain) iPadDashletBackgroundView* backgroundView;
-@property (nonatomic, retain) iPadDashletTitleView* titleView;
-@property (nonatomic, retain) iPadDashletDetailsView* detailsView;
+@property (nonatomic, retain) iOSDashletTitleView* titleView;
+@property (nonatomic, retain) iOSDashletDetailsView* detailsView;
 
 
-@property (nonatomic, assign) BOOL hideDeleteButton;
+@property (nonatomic, assign, getter = isDeleteButtonHidden) BOOL deleteButtonHidden;
 
 
 

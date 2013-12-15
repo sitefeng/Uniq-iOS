@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class JPItemUID;
+
 @interface iPadDashletBackgroundView : UIView
 
 
@@ -17,10 +20,8 @@
 //Icon for College, null if it's not a school
 @property (nonatomic, strong, readonly) UIImage* icon;
 
-@property (nonatomic, strong) NSString* itemUID;
-
+@property (nonatomic, strong) JPItemUID* itemUID;
 @property (nonatomic, strong) NSString* iconName;
-
 @property (nonatomic, strong) NSArray* backgroundImageNames;
 
 

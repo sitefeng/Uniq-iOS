@@ -22,9 +22,8 @@
 
 #pragma mark - Default Names
 
-
-
-
+#define kDashletDetailsElementIconDefaultName @"unspecified"
+#define kDashletDetailsElementValueDefaultName @"unknown"
 
 
 

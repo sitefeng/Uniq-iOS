@@ -16,9 +16,9 @@
 #define kiPadDashletBorderWidth               3
 #define kiPadDashletDividerWidth              2
 #define kiPadDashletBorderPadding             8
-#define kiPadDashletDividerPositionFromBottom 68
-#define kiPadDashletTitleHeight               33
-#define kiPadDashletDetailsHeight             30
+#define kiPadDashletDividerPositionFromBottom (kiPadDashletBorderWidth+kiPadDashletDetailsHeight+kiPadDashletTitleHeight+kiPadDefaultBorderWidth+kiPadDashletDividerWidth/2.0) //68
+#define kiPadDashletTitleHeight               40
+#define kiPadDashletDetailsHeight             40
 
 #define kiPadDefaultBorderWidth               1
 #define kiPadDefaultBorderPadding             1
@@ -64,6 +64,9 @@
 
 #define kiPadSizeDashletLogoPortrait      CGSizeMake(180,180)
 #define kiPadSizeDashletLogoLandscape     CGSizeMake(155,155)
+
+#define kiPadSizeDashletProgramTitleIcon  CGSizeMake(kiPadDashletTitleHeight * 0.9, kiPadDashletTitleHeight * 0.9)
+#define kiPadSizeDashletCollegeTitleIcon  CGSizeMake(kiPadDashletTitleHeight * 1.5, kiPadDashletTitleHeight * 0.9)
 
 
 

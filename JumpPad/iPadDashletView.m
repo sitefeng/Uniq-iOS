@@ -8,9 +8,13 @@
 
 #import "iPadDashletView.h"
 #import "iPadDashletBackgroundView.h"
-#import "iPadDashletTitleView.h"
-#import "iPadDashletDetailsView.h"
+#import "iOSDashletTitleView.h"
+#import "iOSDashletDetailsView.h"
 #import "JPLocation.h"
+
+//Delete after Jan 15, 2013
+#import "iOSDashletDetailsElementView.h"
+
 
 @implementation iPadDashletView
 
@@ -24,8 +28,8 @@
         
 
         self.backgroundView = [[iPadDashletBackgroundView alloc] initWithFrame: CGRectZero];
-        self.titleView = [[iPadDashletTitleView alloc] initWithFrame: CGRectZero];
-        self.detailsView = [[iPadDashletDetailsView alloc] initWithFrame: CGRectZero];
+        self.titleView = [[iOSDashletTitleView alloc] initWithFrame: CGRectZero];
+        self.detailsView = [[iOSDashletDetailsView alloc] initWithFrame: CGRectZero];
         
         [self addSubview:self.backgroundView];
         [self addSubview:self.titleView];
@@ -57,14 +61,21 @@
     
     
     //Adding all three subviews to the main dashlet view
-    [self.backgroundView setFrame: jpr(kiPadDashletBorderWidth, kiPadDashletBorderWidth, self.frame.size.width - 2* kiPadDashletBorderWidth, frame.size.height - kiPadDashletBorderWidth - kiPadDashletDividerPositionFromBottom - kiPadDashletDividerWidth/2 - 1)];
+    [self.backgroundView setFrame: jpr(kiPadDashletBorderWidth, kiPadDashletBorderWidth, frame.size.width - 2* kiPadDashletBorderWidth, frame.size.height - kiPadDashletBorderWidth - kiPadDashletDividerPositionFromBottom - kiPadDashletDividerWidth/2 - 1)];
     
-    log(@"%f",frame.size.height - kiPadDashletBorderWidth - kiPadDashletDividerPositionFromBottom - kiPadDashletDividerWidth);
+    [self.titleView setFrame:jpr(kiPadDashletBorderWidth, frame.size.height - kiPadDashletDividerPositionFromBottom + kiPadDashletDividerWidth/2.0, frame.size.width - 2*kiPadDashletBorderWidth, kiPadDashletTitleHeight)];
+    
+    [self.detailsView setFrame:jpr(kiPadDashletBorderWidth, frame.size.height - kiPadDashletBorderWidth - kiPadDashletDetailsHeight, frame.size.width - 2*kiPadDashletBorderWidth, kiPadDashletDetailsHeight)];
     
     
     
     
+    //Adding a details element view temporarily for testing
     
+    iOSDashletDetailsElementView* element = [[iOSDashletDetailsElementView alloc] initWithIconName:@"establishedin" andValue:@"Est. 1897"];
+    [element setFrame:jpr(kiPadDashletBorderWidth, frame.size.height - kiPadDashletBorderWidth - kiPadDashletDetailsHeight, frame.size.width -500, kiPadDashletDetailsHeight)];
+    
+    [self insertSubview:element aboveSubview:self.detailsView];
     
     
     

@@ -6,8 +6,29 @@
 //  Copyright (c) 2013 Si Te Feng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface JPFont : NSObject
+@interface JPFont : UIFont
+
+
++ (UIFont*)dashletTitleFont;
+
+
+
+//Default Fonts Arraged accroding to thickness
+
++ (NSString*)defaultBoldFont;
++ (NSString*)defaultBoldItalicFont;
+
+//Regular Series
++ (NSString*)defaultFont;
++ (NSString*)defaultItalicFont;
+
+
++ (NSString*)defaultMediumFont;
+
++ (NSString*)defaultLightFont;
++ (NSString*)defaultThinFont;
++ (NSString*)defaultUltraLightFont;
 
 @end
