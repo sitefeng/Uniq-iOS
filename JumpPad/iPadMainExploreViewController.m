@@ -11,6 +11,7 @@
 #import "iPadSearchBarView.h"
 #import "iPadMainCollectionViewCell.h"
 #import "iPadBannerView.h"
+#import "sortViewController.h"
 
 @interface iPadMainExploreViewController ()
 
@@ -59,6 +60,7 @@
     
     //Search Bar
     self.searchBarView = [[iPadSearchBarView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 200, _screenWidth, 44)];
+    self.searchBarView.delegate = self;
     
     //Banner View
     self.bannerView = [[iPadBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
@@ -73,6 +75,21 @@
     
     //Display all subviews
     [self resizeFrames];
+    
+    //Setting up for keyboard dismissal
+    self.cv.backgroundView = [[UIImageView alloc] init];
+    self.cv.backgroundView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewBackgroundTapped)];
+    self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
+  
+    
+}
+
+
+- (void)dismissKeyboard
+{
+    [self.searchBarView resignFirstResponder];
 }
 
 #pragma mark - Update Model
@@ -117,7 +134,7 @@
     
     NSMutableArray* dashletArray = [@[d1,d2,d3,d4] mutableCopy];
     
-    self.featuredDashlets = dashletArray;
+    self.dashlets = dashletArray;
     
 }
 
@@ -180,7 +197,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.featuredDashlets count];
+    return [self.dashlets count];
     //    return 44;
     
 }
@@ -191,7 +208,7 @@
     
     iPadMainCollectionViewCell* cell = [self.cv dequeueReusableCellWithReuseIdentifier:@"featuredItem" forIndexPath:indexPath];
     
-    cell.dashletInfo = self.featuredDashlets[indexPath.item];
+    cell.dashletInfo = self.dashlets[indexPath.item];
     
     return cell;
 }
@@ -233,10 +250,82 @@
 
 
 
+#pragma mark - JPSearchBar Delegate Methods
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString* query = searchBar.text;
+    NSMutableArray* array = [NSMutableArray array];
+   
+    for(int i=0; i<[self.dashlets count]; i++)
+    {
+        JPDashlet* d = self.dashlets[i];
+        if([d.title rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound)
+        {
+            [array addObject:d];
+        }
+    }
+    
+    self.dashlets = array;
+    [self.cv reloadData];
+}
+
+
+- (void)sortButtonPressed:(id)sender
+{
+    UIButton* button = (UIButton*)sender;
+    
+    sortViewController* vc = [[sortViewController alloc] init];
+    vc.delegate = self;
+    
+    UIPopoverController* popover = [[UIPopoverController alloc] initWithContentViewController:vc];
+    
+    popover.popoverContentSize = CGSizeMake(320, 4 * 45);
+    popover.delegate = self;
+    
+    self.localPopoverController = popover;
+    
+    [self.localPopoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row == 0)
+    {
+        self.dashlets = [[self.dashlets sortedArrayUsingSelector:@selector(compareWithName:)] mutableCopy];
+    }
+    
+    [self.cv reloadData];
+    [self.localPopoverController dismissPopoverAnimated:YES];
+}
 
 
 
 
+#pragma mark - JPSearchBar Delegate Methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"did select item");
+    
+    
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"did tap");
+    [self.view endEditing:YES];
+}
+
+
+- (void)collectionViewBackgroundTapped
+{
+    NSLog(@"did tap");
+    [self.view endEditing:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -31,8 +31,26 @@
 
 
 
+- (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet {
+    return [self.title compare:otherDashlet.title];
+    
+}
 
+- (NSComparisonResult)compareWithLocation:(JPDashlet *)otherDashlet {
+    
+    return [self.title compare:otherDashlet.title];
+    
+}
 
+- (NSComparisonResult)compareWithAverage:(JPDashlet *)otherDashlet {
+    return [self.title compare:otherDashlet.title];
+    
+}
+
+- (NSComparisonResult)compareWithPopulation:(JPDashlet *)otherDashlet {
+    return [self.title compare:otherDashlet.title];
+    
+}
 
 - (NSString*)description
 {

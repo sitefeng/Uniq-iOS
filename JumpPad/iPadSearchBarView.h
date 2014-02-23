@@ -32,7 +32,7 @@
 @protocol JPSearchBarDelegate <UISearchBarDelegate>
 
 
-- (void)sortButtonPressed;
+- (void)sortButtonPressed: (id)sender;
 
 
 @end

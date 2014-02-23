@@ -27,7 +27,7 @@
         //Creating Sort Button
         self.sortButton = [[UIButton alloc] initWithFrame:CGRectMake(361, 0, 44, 44)];
         [self.sortButton addTarget:self
-                       action:@selector(buttonPressed)
+                            action:@selector(buttonPressed:)
              forControlEvents:UIControlEventTouchDown];
         
         self.sortButton.tintColor = [UIColor whiteColor];
@@ -67,9 +67,9 @@
 }
 
 
-- (void)buttonPressed
+- (void)buttonPressed: (id)sender
 {
-    [self.delegate sortButtonPressed];
+    [self.delegate sortButtonPressed:sender];
 
 }
 

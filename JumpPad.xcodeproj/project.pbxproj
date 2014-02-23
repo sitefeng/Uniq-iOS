@@ -29,6 +29,8 @@
 		5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70560918B9E10D002941B3 /* AFURLResponseSerialization.m */; };
 		5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70560B18B9E10D002941B3 /* AFURLSessionManager.m */; };
 		5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */; };
+		5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561F18B9EAB2002941B3 /* sortViewController.m */; };
+		5D70562518BA061D002941B3 /* iPadFacultySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */; };
 		5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */; };
 		5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */; };
 		5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */; };
@@ -108,6 +110,10 @@
 		5D70560B18B9E10D002941B3 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		5D70561518B9E11A002941B3 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		5D70561E18B9EAB2002941B3 /* sortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sortViewController.h; sourceTree = "<group>"; };
+		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sortViewController.m; sourceTree = "<group>"; };
+		5D70562318BA061D002941B3 /* iPadFacultySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultySelectViewController.h; sourceTree = "<group>"; };
+		5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultySelectViewController.m; sourceTree = "<group>"; };
 		5DAC8F801855250000FE3B5B /* iPadMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFavoritesViewController.h; sourceTree = "<group>"; };
 		5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFavoritesViewController.m; sourceTree = "<group>"; };
 		5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainExploreViewController.h; sourceTree = "<group>"; };
@@ -247,6 +253,10 @@
 				5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */,
 				5DAC8F891855254200FE3B5B /* iPadMainHomeViewController.h */,
 				5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */,
+				5D70561E18B9EAB2002941B3 /* sortViewController.h */,
+				5D70561F18B9EAB2002941B3 /* sortViewController.m */,
+				5D70562318BA061D002941B3 /* iPadFacultySelectViewController.h */,
+				5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -481,6 +491,7 @@
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
+				5D70562518BA061D002941B3 /* iPadFacultySelectViewController.m in Sources */,
 				5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
@@ -494,6 +505,7 @@
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
+				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
 				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,

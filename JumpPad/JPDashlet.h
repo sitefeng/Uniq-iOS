@@ -45,7 +45,10 @@ typedef enum
 
 - (instancetype)initWithItemUID: (NSString*)uid;
 
+- (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet;
 
-
+- (NSComparisonResult)compareWithLocation:(JPDashlet *)otherDashlet;
+- (NSComparisonResult)compareWithAverage:(JPDashlet *)otherDashlet;
+- (NSComparisonResult)compareWithPopulation:(JPDashlet *)otherDashlet;
 
 @end
