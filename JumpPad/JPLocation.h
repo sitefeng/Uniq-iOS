@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JPLocation : NSObject
+@interface JPLocation : NSObject <NSCopying>
 
-@property (nonatomic, assign) NSString* countryName;
-@property (nonatomic, assign) NSString* cityName;
+@property (nonatomic, retain) NSString* countryName;
+@property (nonatomic, retain) NSString* cityName;
 
 @property (nonatomic, assign) CGPoint coordinates;
 

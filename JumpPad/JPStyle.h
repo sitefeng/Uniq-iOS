@@ -29,21 +29,18 @@
 
 //Dashslet View
 +(UIImage*) dashletDefaultBackgroundImage;
-+(UIColor*) dashletDefaultBackgroundColor; //Not used in production
 +(UIColor*) dashletDefaultBorderColor;
 +(UIColor*) dashletDefaultTitleTextColor;
-+(UIColor*) dashletDefaultTitleBackgroundColor;
 +(UIColor*) dashletDefaultDetailsTextColor;
-+(UIColor*) dashletDefaultDetailsBackgroundColor;
 
-
-+(UIColor*) dashletScrollViewDefaultbackgroundColor;
-+(UIColor*) bannerDefaultbackgroundColor;
-+(UIColor*) filterBarDefaultbackgroundColor;
 
 //set the main background color
 +(UIColor*) mainViewControllerDefaultBackgroundColor;
 +(UIColor*) mainViewControllerPromotionalBackgroundColor;
+
+
+//Search Bar
++(UIColor*) searchBarBackgroundColor;
 
 //Default app theme
 +(void)applyGlobalStyle;

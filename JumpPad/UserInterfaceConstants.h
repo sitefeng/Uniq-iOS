@@ -13,24 +13,7 @@
 //////////////////////////////////
 #pragma mark - Borders and Lines
 
-#define kiPadDashletBorderWidth               3
-#define kiPadDashletDividerWidth              2
-#define kiPadDashletBorderPadding             8
-#define kiPadDashletDividerPositionFromBottom (kiPadDashletBorderWidth+kiPadDashletDetailsHeight+kiPadDashletTitleHeight+kiPadDefaultBorderWidth+kiPadDashletDividerWidth/2.0) //68
-#define kiPadDashletTitleHeight               40
-#define kiPadDashletDetailsHeight             40
-
-#define kiPadDefaultBorderWidth               1
-#define kiPadDefaultBorderPadding             1
-
-
-#define kiPadKeyboardHeightLandscape 		  352
-#define kiPadKeyboardHeightPortrait 		  264
-
-#define kiPadScreenSizePortrait         CGSizeMake(768,1024)
-#define kiPhone35InchScreenSizePortrait CGSizeMake(320,480)
-#define kiPhone4InchScreenSizePortrait  CGSizeMake(320,568)
-
+#define kiPadDashletMargin               12
 
 
 
@@ -49,24 +32,39 @@
 #define kiPadHeightLandscape            768
 #define kiPadHeightPortrait             1024
 
+//-----------------
+
+#define kiPadKeyboardHeightLandscape 		  352
+#define kiPadKeyboardHeightPortrait 		  264
+
+#define kiPadScreenSizePortrait         CGSizeMake(768,1024)
+#define kiPadScreenSizeLandscape        CGSizeMake(1024,768)
+#define kiPhone35InchScreenSizePortrait CGSizeMake(320,480)
+#define kiPhone4InchScreenSizePortrait  CGSizeMake(320,568)
+
+
+
+
+
 
 /////////////////////////////////////
 #pragma mark - Graphical UI Elements
 
-#define kiPadSizeMainBannerPortrait       CGSizeMake(768,200)
-#define kiPadSizeMainBannerLandscape      CGSizeMake(1024,200)
+//#define kiPadSizeMainBannerPortrait       CGSizeMake(768,200)
+//#define kiPadSizeMainBannerLandscape      CGSizeMake(1024,200)
 
-#define kiPadSizeDashletPortrait          CGSizeMake(372,372)
-#define kiPadSizeDashletLandscape         CGSizeMake(330,330)
+#define kiPadDashletSizePortrait           CGSizeMake(240,240)
+#define kiPadDashletSizeLandscape          CGSizeMake(241,241)
 
-#define kiPadSizeDashletBackgroundImagePortrait    (CGSizeMake(372,229)
-#define kiPadSizeDashletBackgroundImageLandscape   (CGSizeMake(330,203)
+#define kiPadDashletImageSizePortrait      CGSizeMake(234,177)
+#define kiPadDashletImageSizeLandscape     CGSizeMake(235,178)
 
-#define kiPadSizeDashletLogoPortrait      CGSizeMake(180,180)
-#define kiPadSizeDashletLogoLandscape     CGSizeMake(155,155)
+#define kiPadDashletImagePadding            3
 
-#define kiPadSizeDashletProgramTitleIcon  CGSizeMake(kiPadDashletTitleHeight * 0.9, kiPadDashletTitleHeight * 0.9)
-#define kiPadSizeDashletCollegeTitleIcon  CGSizeMake(kiPadDashletTitleHeight * 1.5, kiPadDashletTitleHeight * 0.9)
+//#define kiPadSizeDashletLogoPortrait      CGSizeMake(180,180)
+//#define kiPadSizeDashletLogoLandscape     CGSizeMake(155,155)
+
+//#define kiPadSizeDashletCollegeTitleIcon  CGSizeMake(kiPadDashletTitleHeight * 1.5, kiPadDashletTitleHeight * 0.9)
 
 
 

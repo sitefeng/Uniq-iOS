@@ -56,11 +56,6 @@
     return [UIImage imageNamed:@"dashletDefault"];
 }
 
-+(UIColor*) dashletDefaultBackgroundColor
-{
-    return [UIColor lightGrayColor];
-}
-
 
 +(UIColor*) dashletDefaultBorderColor
 {
@@ -73,36 +68,10 @@
     return [UIColor blackColor];
 }
 
-+(UIColor*) dashletDefaultTitleBackgroundColor
-{
-    return [UIColor greenColor];
-}
 
 +(UIColor*) dashletDefaultDetailsTextColor
 {
     return [UIColor purpleColor];
-}
-
-+(UIColor*) dashletDefaultDetailsBackgroundColor
-{
-    return [UIColor yellowColor];
-}
-
-
-+(UIColor*) dashletScrollViewDefaultbackgroundColor
-{
-    return [self colorWithHex:@"F2F2F2" alpha:1];
-}
-
-
-+(UIColor*) bannerDefaultbackgroundColor
-{
-    return [self colorWithHex:@"C39BCC" alpha:1];
-}
-
-+(UIColor*) filterBarDefaultbackgroundColor
-{
-    return [self colorWithHex:@"FCAE54" alpha:1];
 }
 
 
@@ -115,6 +84,12 @@
 +(UIColor*) mainViewControllerPromotionalBackgroundColor
 {
     return [self colorWithHex:@"FCE2DC" alpha:1];
+}
+
++(UIColor*) searchBarBackgroundColor{
+    
+    
+    return [UIColor lightGrayColor];
 }
 
 

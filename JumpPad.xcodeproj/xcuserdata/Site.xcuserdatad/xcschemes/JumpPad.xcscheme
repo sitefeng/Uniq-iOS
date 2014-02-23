@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-               BuildableName = "JumpPad.app"
-               BlueprintName = "JumpPad"
+               BuildableName = "Jump.app"
+               BlueprintName = "Jump"
                ReferencedContainer = "container:JumpPad.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-            BuildableName = "JumpPad.app"
-            BlueprintName = "JumpPad"
+            BuildableName = "Jump.app"
+            BlueprintName = "Jump"
             ReferencedContainer = "container:JumpPad.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-            BuildableName = "JumpPad.app"
-            BlueprintName = "JumpPad"
+            BuildableName = "Jump.app"
+            BlueprintName = "Jump"
             ReferencedContainer = "container:JumpPad.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-            BuildableName = "JumpPad.app"
-            BlueprintName = "JumpPad"
+            BuildableName = "Jump.app"
+            BlueprintName = "Jump"
             ReferencedContainer = "container:JumpPad.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -18,7 +18,7 @@
  
  */
 
-@interface JPItemUID : NSString
+@interface JPItemUID : NSString <NSCopying>
 
 
 

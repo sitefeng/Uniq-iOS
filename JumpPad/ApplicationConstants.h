@@ -22,8 +22,7 @@
 
 #pragma mark - Default Names
 
-#define kDashletDetailsElementIconDefaultName @"unspecified"
-#define kDashletDetailsElementValueDefaultName @"unknown"
+#define kSearchBarPlaceholderText @"Filter Universities (search coming soon)"
 
 
 

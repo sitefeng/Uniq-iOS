@@ -7,6 +7,7 @@
 //
 
 #import "iOSDashletTitleView.h"
+#import "JPFont.h"
 
 @implementation iOSDashletTitleView
 
@@ -15,11 +16,19 @@
     self = [super initWithFrame:frame];
     if (self) {
 
-        self.backgroundColor = [JPStyle dashletDefaultTitleBackgroundColor];
+        self.iconPositionLeft = NO;
         
-        self.iconPositionLeft = YES;
+        if(self.iconPositionLeft)
+        {
+           
+        }
+        else
+        {
+            self.titleLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        }
         
-        
+     
+        [self addSubview:self.titleLabel];
         
     }
     return self;
@@ -32,22 +41,33 @@
 }
 
 
--(void) setFrame:(CGRect)frame
+
+- (void) setText:(NSString *)text
 {
-    [super setFrame:frame];
+    _text = text;
+    self.titleLabel.text = text;
     
-    if(self.iconPositionLeft)
+    float fontSize = 15.0f;
+    NSString* fontName = [JPFont defaultMediumFont];
+    
+    CGSize size = [self.titleLabel.text sizeWithAttributes:@{ NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]}];
+    
+    while(size.width > self.titleLabel.bounds.size.width)
     {
+        fontSize -= 0.5;
         
-    }
-    else
-    {
-        
+        size = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName : [UIFont fontWithName:fontName size:fontSize]}];
     }
     
-    
+    self.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
     
 }
+
+
+
+
+
+
 
 
 

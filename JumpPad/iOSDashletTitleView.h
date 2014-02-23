@@ -13,7 +13,7 @@
 
 
 
-
+@property (nonatomic, strong) NSString* text;
 @property (nonatomic, strong) UILabel* titleLabel;
 
 @property (nonatomic, strong) UIImage* titleIconImage;

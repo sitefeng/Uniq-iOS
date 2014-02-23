@@ -10,4 +10,15 @@
 
 @interface iOSDashletDetailsView : UIScrollView
 
+
+@property (nonatomic, strong) UIImage* starImage;
+
+@property (nonatomic, strong) UIImageView* starImageView;
+
+@property (nonatomic, strong) UILabel* label;
+
+- (id)initWithFrame:(CGRect)frame andRating: (NSInteger)rating;
+
+
+
 @end

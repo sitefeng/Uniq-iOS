@@ -37,7 +37,7 @@
     }
 }
 
-
+//Inaccurate: Only for Testing and Convenience purposes
 + (CGPoint)coordinatesForCity: (NSString*)city
 {
     CGPoint c;
@@ -46,7 +46,31 @@
     {
         c = jpp(43.658092,-79.380598);
     }
-    
+    else if([city caseInsensitiveCompare:@"waterloo"] == NSOrderedSame)
+    {
+        c= jpp(43.656877,-79.32085);
+    }
+    else if([city caseInsensitiveCompare:@"london"] == NSOrderedSame)
+    {
+        c= jpp(43.472285,-80.544858);
+    }
+    else if([city caseInsensitiveCompare:@"hamilton"] == NSOrderedSame)
+    {
+        c= jpp(43.006145,-81.269537);
+    }
+    else if([city caseInsensitiveCompare:@"ottawa"] == NSOrderedSame)
+    {
+        c= jpp(43.260879,-79.919225);//carleton
+    }
+    else if([city caseInsensitiveCompare:@"kingston"] == NSOrderedSame)
+    {
+        c= jpp(45.385956,-75.695396);//queens
+    }
+    else
+    {
+        c= jpp(45.000000,-77.000000);//random
+    }
+        
     return c;
 }
 
@@ -102,6 +126,19 @@
 {
     return [NSString stringWithFormat:@"City:%@[%f,%f]",self.cityName,self.coordinates.x, self.coordinates.y];
 }
+
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    JPLocation* location = [[JPLocation alloc] init];
+    location.countryName = [self.countryName copyWithZone:zone];
+    location.cityName = [self.cityName copyWithZone:zone];
+    location.coordinates = self.coordinates;
+    
+    return location;
+}
+
+
+
 
 
 @end

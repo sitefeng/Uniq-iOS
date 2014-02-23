@@ -16,7 +16,7 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [JPStyle filterBarDefaultbackgroundColor];
+        self.backgroundColor = [UIColor whiteColor];
         
     }
     return self;
@@ -26,7 +26,7 @@
 {
     [super setFrame:frame];
     
-    self.backgroundColor = [JPStyle filterBarDefaultbackgroundColor];
+    self.backgroundColor = [UIColor whiteColor];
     
     
 }

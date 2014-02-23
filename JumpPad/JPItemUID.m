@@ -50,9 +50,7 @@
 - (BOOL)isEqual:(JPItemUID*)object
 {
     
-    
-    
-    
+
     return YES;
     
 }
@@ -65,7 +63,11 @@
 }
 
 
-
+- (instancetype)copyWithZone:(NSZone *)zone
+{
+    JPItemUID* itemUid = [super copyWithZone:zone];
+    return itemUid;
+}
 
 
 @end
