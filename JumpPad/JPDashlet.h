@@ -17,13 +17,13 @@ typedef enum
 
 } JPDashletType;
 
-@class JPItemUID;
+
 
 @interface JPDashlet : NSObject <NSCopying>
 
 //Item Unique Idenntifier for the exact item
 //CCCC-FFF-PPP (College#-Faculty#-Program#), program=0 means the item is a faculty
-@property (nonatomic, strong) JPItemUID* itemUID;
+@property (nonatomic, strong) NSString* itemUID;
 
 @property (nonatomic, strong) JPLocation* location;
 //Includes the country, city, and coordinates

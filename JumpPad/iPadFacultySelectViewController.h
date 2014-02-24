@@ -10,4 +10,12 @@
 
 @interface iPadFacultySelectViewController : UIViewController
 
+
+
+
+@property (nonatomic, strong) NSString* itemUid;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
 @end

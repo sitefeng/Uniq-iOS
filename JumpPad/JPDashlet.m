@@ -7,7 +7,6 @@
 //
 
 #import "JPDashlet.h"
-#import "JPItemUID.h"
 
 @implementation JPDashlet
 
@@ -17,7 +16,7 @@
     self = [super init];
     if(self)
     {
-        self.itemUID = [JPItemUID itemUIDFromString:uid];
+        self.itemUID = uid;
         
         //Retrieve Info from CoreData and fill in ALL Properties Automatically
         

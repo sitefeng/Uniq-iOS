@@ -10,6 +10,8 @@
 
 @class iPadDashletImageView, JPDashlet, iOSDashletTitleView, iOSDashletDetailsView;
 
+@protocol JPDashletInfoDelegate;
+
 @interface iPadMainCollectionViewCell : UICollectionViewCell
 
 
@@ -22,5 +24,15 @@
 
 @property (nonatomic, strong) UIButton* infoButton;
 
+@property (nonatomic, weak) id<JPDashletInfoDelegate> delegate;
+
+
+@end
+
+
+
+@protocol JPDashletInfoDelegate <NSObject>
+
+- (void)infoButtonPressed: (iPadMainCollectionViewCell*)sender;
 
 @end

@@ -105,7 +105,6 @@
         _bannerRightIsSet = NO;
     }
     
-    
     //Left Side
     BOOL isFirstBanner = fabs(scrollView.contentOffset.x - 0) < 8.0;
     CGPoint firstBanner = CGPointMake(_bannerWidth*(imageCount), 0);
@@ -123,8 +122,6 @@
     }
 
 }
-
-
 
 
 

@@ -12,7 +12,7 @@
 #import "iOSDashletTitleView.h"
 #import "iOSDashletDetailsView.h"
 
-
+#import "iPadCollegeViewController.h"
 
 @implementation iPadMainCollectionViewCell
 
@@ -68,9 +68,7 @@
 
 - (void)infoButtonPressed: (id)sender
 {
-    
-    JPLog(@"Button");
-    
+    [self.delegate infoButtonPressed:self];
 }
 
 

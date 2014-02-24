@@ -23,7 +23,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqr-l5-b2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-403" y="997"/>
+            <point key="canvasLocation" x="-407" y="997"/>
         </scene>
         <!--I Pad Main Featured View Controller - Featured-->
         <scene sceneID="GxR-Ra-LPH">

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "iPadSearchBarView.h"
 #import "sortViewController.h"
+#import "iPadMainCollectionViewCell.h"
 
 typedef enum
 {
@@ -18,13 +19,9 @@ typedef enum
     JPSortTypeLargestCollege
 }JPSortType;
 
-
-
-
 @class iPadBannerView;
 
-
-@interface iPadMainExploreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate>
+@interface iPadMainExploreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate, JPDashletInfoDelegate>
 {
 @private
     
@@ -51,5 +48,7 @@ typedef enum
 
 //--Controller--
 @property (nonatomic, strong) UIPopoverController* localPopoverController;
+
+
 
 @end

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Faculty" syncable="YES">
+        <attribute name="alumniNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="attribute" optional="YES" syncable="YES"/>
+        <attribute name="attribute1" optional="YES" syncable="YES"/>
+        <attribute name="facebookLink" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="facultyId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="logoUrl" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numPrograms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="totalFunding" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearEstablished" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FacultyImageLink" inverseName="faculty" inverseEntity="FacultyImageLink" syncable="YES"/>
+        <relationship name="programs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="faculty" inverseEntity="Program" syncable="YES"/>
+        <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="faculties" inverseEntity="School" syncable="YES"/>
+    </entity>
+    <entity name="FacultyImageLink" syncable="YES">
+        <attribute name="descriptor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facultyImageId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="images" inverseEntity="Faculty" syncable="YES"/>
+    </entity>
+    <entity name="Program" syncable="YES">
+        <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="admissionDeadline" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ext" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fax" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearEstablished" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="applicationStats" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgramApplicationStat" inverseName="program" inverseEntity="ProgramApplicationStat" syncable="YES"/>
+        <relationship name="courses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgramCourse" inverseName="program" inverseEntity="ProgramCourse" syncable="YES"/>
+        <relationship name="faculty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Faculty" inverseName="programs" inverseEntity="Faculty" syncable="YES"/>
+        <relationship name="images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgramImageLink" inverseName="program" inverseEntity="ProgramImageLink" syncable="YES"/>
+        <relationship name="ratings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgramRating" inverseName="program" inverseEntity="ProgramRating" syncable="YES"/>
+        <relationship name="tuitions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProgramYearlyTuition" inverseName="program" inverseEntity="ProgramYearlyTuition" syncable="YES"/>
+    </entity>
+    <entity name="ProgramApplicationStat" syncable="YES">
+        <attribute name="numApplicants" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pAcceptanceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="percentageAccepted" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="applicationStats" inverseEntity="Program" syncable="YES"/>
+    </entity>
+    <entity name="ProgramCourse" syncable="YES">
+        <attribute name="courseCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enrollmentYear" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="pCourseId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="courses" inverseEntity="Program" syncable="YES"/>
+    </entity>
+    <entity name="ProgramImageLink" syncable="YES">
+        <attribute name="descriptor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pImageId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="images" inverseEntity="Program" syncable="YES"/>
+    </entity>
+    <entity name="ProgramRating" syncable="YES">
+        <attribute name="classmates" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="difficulty" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="guyToGirlRatio" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="pRatingId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="professor" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="ratingOverall" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="schedule" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="socialEnjoyments" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="studyEnv" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="ratings" inverseEntity="Program" syncable="YES"/>
+    </entity>
+    <entity name="ProgramYearlyTuition" syncable="YES">
+        <attribute name="domesticTuition" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="internationalTuition" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pYearlyTuitionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="tuitions" inverseEntity="Program" syncable="YES"/>
+    </entity>
+    <entity name="School" syncable="YES">
+        <attribute name="alumniNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkedinLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numPrograms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="schoolId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="totalFunding" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearEstablished" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="faculties" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Faculty" inverseName="school" inverseEntity="Faculty" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchoolImageLink" inverseName="school" inverseEntity="SchoolImageLink" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchoolLocation" inverseName="school" inverseEntity="SchoolLocation" syncable="YES"/>
+        <relationship name="rankings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchoolRanking" inverseName="school" inverseEntity="SchoolRanking" syncable="YES"/>
+    </entity>
+    <entity name="SchoolImageLink" syncable="YES">
+        <attribute name="descriptor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolImageId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="images" inverseEntity="School" syncable="YES"/>
+    </entity>
+    <entity name="SchoolLocation" syncable="YES">
+        <attribute name="apt" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lattitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolLocationId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="streetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetNum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="locations" inverseEntity="School" syncable="YES"/>
+    </entity>
+    <entity name="SchoolRanking" syncable="YES">
+        <attribute name="ranking" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rankingSource" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolRankingId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="rankings" inverseEntity="School" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="School" positionX="178" positionY="-91" width="128" height="298"/>
+        <element name="SchoolLocation" positionX="529" positionY="-81" width="128" height="223"/>
+        <element name="SchoolRanking" positionX="367" positionY="-54" width="128" height="118"/>
+        <element name="SchoolImageLink" positionX="340" positionY="-252" width="128" height="118"/>
+        <element name="Faculty" positionX="-11" positionY="-103" width="128" height="298"/>
+        <element name="FacultyImageLink" positionX="-180" positionY="-72" width="128" height="118"/>
+        <element name="Program" positionX="196" positionY="263" width="128" height="343"/>
+        <element name="ProgramCourse" positionX="403" positionY="200" width="128" height="148"/>
+        <element name="ProgramYearlyTuition" positionX="-0" positionY="252" width="128" height="133"/>
+        <element name="ProgramApplicationStat" positionX="412" positionY="395" width="128" height="133"/>
+        <element name="ProgramImageLink" positionX="565" positionY="194" width="128" height="118"/>
+        <element name="ProgramRating" positionX="-146" positionY="392" width="128" height="208"/>
+    </elements>
+</model>

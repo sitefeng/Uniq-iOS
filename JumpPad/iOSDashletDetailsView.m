@@ -34,7 +34,7 @@
         
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(20, (frame.size.height -20)/2.0 -3, 150, 24)];
         self.label.font = [UIFont fontWithName:[JPFont defaultFont] size:20];
-        self.label.text = [NSString stringWithFormat:@"%i", rating];
+        self.label.text = [NSString stringWithFormat:@"%li",(long)rating];
         self.label.textColor = [UIColor blackColor];
         
         [self addSubview:self.starImageView];

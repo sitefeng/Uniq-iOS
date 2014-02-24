@@ -1,18 +1,18 @@
 //
-//  iPadFacultySelectViewController.m
+//  iPadCollegeViewController.m
 //  JumpPad
 //
-//  Created by Si Te Feng on 2/23/2014.
+//  Created by Si Te Feng on 2/24/2014.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadFacultySelectViewController.h"
+#import "iPadCollegeViewController.h"
 
-@interface iPadFacultySelectViewController ()
+@interface iPadCollegeViewController ()
 
 @end
 
-@implementation iPadFacultySelectViewController
+@implementation iPadCollegeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,10 +20,7 @@
     if (self) {
         // Custom initialization
         
-        
-        
-        
-        
+        self.view.backgroundColor = [UIColor orangeColor];
     }
     return self;
 }
@@ -31,14 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor purpleColor];
-    
-    self.testLabel.text = self.itemUid;
-    
-    NSLog(@"%@", self.testLabel.text);
-    
-    
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning

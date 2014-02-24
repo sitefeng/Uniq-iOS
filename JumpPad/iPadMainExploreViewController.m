@@ -12,6 +12,9 @@
 #import "iPadMainCollectionViewCell.h"
 #import "iPadBannerView.h"
 #import "sortViewController.h"
+#import "iPadFacultySelectViewController.h"
+#import "iPadCollegeViewController.h"
+#import "iPadMainCollectionViewCell.h"
 
 @interface iPadMainExploreViewController ()
 
@@ -138,11 +141,13 @@
     d3.title = @"University of Western Ontario";
     d3.backgroundImages = nil;
     d3.icon = [UIImage imageNamed:@"western"];
+    d3.itemUID = @"0003000000";
     
     JPDashlet* d4 = [d1 copy];
     d4.title = @"Ryerson University";
     d4.backgroundImages = [@[[UIImage imageNamed:@"ryerson1"],[UIImage imageNamed:@"ryerson2"],[UIImage imageNamed:@"ryerson3"]] mutableCopy];
     d4.icon = [UIImage imageNamed:@"ryerson"];
+    d4.itemUID = @"0004000000";
     
     NSMutableArray* dashletArray = [@[d1,d2,d3,d4] mutableCopy];
     
@@ -221,6 +226,7 @@
     iPadMainCollectionViewCell* cell = [self.cv dequeueReusableCellWithReuseIdentifier:@"featuredItem" forIndexPath:indexPath];
     
     cell.dashletInfo = self.dashlets[indexPath.item];
+    cell.delegate = self;
     
     return cell;
 }
@@ -327,9 +333,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"did select item");
+    iPadFacultySelectViewController* viewController = [[iPadFacultySelectViewController alloc] initWithNibName:@"iPadFacultySelectViewController" bundle:nil];
     
+    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
+    viewController.title = selectedDashlet.title;
+    viewController.itemUid = [selectedDashlet.itemUID copy];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 
@@ -347,6 +358,21 @@
 
 
 
+#pragma mark - JPDashlet Info Delegate
+
+- (void)infoButtonPressed:(iPadMainCollectionViewCell *)sender
+{
+    iPadCollegeViewController* viewController = [[iPadCollegeViewController alloc] initWithNibName:@"iPadCollegeViewController" bundle:[NSBundle mainBundle]];
+    
+    viewController.itemUid = sender.dashletInfo.itemUID;
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+
+
+
+
 #pragma mark - Keyboard Dismissal with touchRecognizer
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -358,9 +384,9 @@
 
 - (void)collectionViewBackgroundTapped
 {
-    NSLog(@"did tap");
     [self.view endEditing:YES];
 }
+
 
 
 - (void)didReceiveMemoryWarning
