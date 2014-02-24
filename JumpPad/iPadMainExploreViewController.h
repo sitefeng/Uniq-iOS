@@ -10,6 +10,17 @@
 #import "iPadSearchBarView.h"
 #import "sortViewController.h"
 
+typedef enum
+{
+    JPSortTypeAlphabetical = 0,
+    JPSortTypeClosest,
+    JPSortTypeHighestEntryAvg,
+    JPSortTypeLargestCollege
+}JPSortType;
+
+
+
+
 @class iPadBannerView;
 
 
@@ -25,8 +36,12 @@
 //---Model---
 
 //Array of JPDashlets of type JPDashletTypeCollege
+//to be Displayed on Screen
 @property (nonatomic, strong) NSMutableArray* dashlets;
 
+@property (nonatomic, strong) NSMutableArray* backupDashlets;
+
+@property (nonatomic, assign) NSInteger sortType;
 
 
 //---View---

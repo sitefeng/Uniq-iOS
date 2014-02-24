@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadBannerView : UIScrollView
+@interface iPadBannerView : UIScrollView <UIScrollViewDelegate>
+{
+    @private
+    
+    float          _bannerWidth;
+    BOOL           _bannerRightIsSet;
+    BOOL           _bannerLeftIsSet;
+    
+    NSTimer*       _scrollTimer;
+    
+}
 
 
 

@@ -29,10 +29,11 @@
         [self addSubview:self.backgroundView];
         [self insertSubview:self.logoView aboveSubview:self.backgroundView];
         
+        [self setUserInteractionEnabled:NO];
+        
     }
     return self;
 }
-
 
 
 
@@ -42,16 +43,20 @@
     UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
     NSMutableArray* blurredImages = [NSMutableArray array];
     
-    if([_images count] == 0 || !_images)
+    if([images count] == 0 || !images)
     {
+        self.backgroundView.animationImages = nil;
         self.backgroundView.image = [[UIImage imageNamed:@"defaultDashlet"] applyBlurWithRadius:8 tintColor: tintColor saturationDeltaFactor:1.8 maskImage:nil];
     }
     else if([images count] == 1)
     {
+        self.backgroundView.animationImages = nil;
         self.backgroundView.image = [_images[0] applyBlurWithRadius:9 tintColor: tintColor saturationDeltaFactor:2.5 maskImage:nil];
     }
     else //[image count] >= 2
     {
+        self.backgroundView.image = nil;
+        
         for(int i=0; i<[images count]; i++)
         {
             UIImage* img = [_images[i] applyBlurWithRadius:9 tintColor:tintColor saturationDeltaFactor:2.5 maskImage:nil];

@@ -15,6 +15,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        [self setUserInteractionEnabled:NO];
 
         self.iconPositionLeft = NO;
         

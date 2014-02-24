@@ -55,17 +55,26 @@
     self.searchBar.showsCancelButton = NO;
     
     self.searchBar.barTintColor = [JPStyle searchBarBackgroundColor];
-    self.searchBar.delegate = self;
     
-
-
+    
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)setDelegate:(id<JPSearchBarDelegate>)delegate
 {
-     [self.delegate searchBarSearchButtonClicked:searchBar];
+    _delegate = delegate;
+    self.searchBar.delegate = _delegate;
+    
 }
 
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//     [self.delegate searchBarSearchButtonClicked:searchBar];
+//}
+//
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+//{
+//    [self.delegate searchBar:searchBar textDidChange:searchText];
+//}
 
 - (void)buttonPressed: (id)sender
 {

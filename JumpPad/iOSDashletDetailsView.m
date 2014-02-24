@@ -39,6 +39,8 @@
         
         [self addSubview:self.starImageView];
         [self addSubview:self.label];
+        
+        [self setUserInteractionEnabled:NO];
     }
     return self;
     

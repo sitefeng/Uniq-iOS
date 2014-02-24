@@ -38,7 +38,6 @@
         _screenWidth = kiPadWidthLandscape;
     }
     
-
     
     [self updateDashletsInfo];
     
@@ -91,6 +90,19 @@
 {
     [self.searchBarView resignFirstResponder];
 }
+
+
+- (void)setDashlets:(NSMutableArray *)dashlets
+{
+    if(!self.backupDashlets)
+    {
+        self.backupDashlets = [dashlets mutableCopy];
+    }
+    
+    _dashlets = dashlets;
+}
+
+
 
 #pragma mark - Update Model
 //Retrieving College info from Core Data and put into featuredDashelts
@@ -220,8 +232,6 @@
 //
 //}
 
-
-
 #pragma mark - UICollectionView Delegate FlowLayout
 
 //Dashlet Size
@@ -292,12 +302,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0)
+    
+    if(self.sortType == indexPath.row)
     {
+    }
+    else
+    {
+        self.sortType = indexPath.row;
+        
+        //Add NSSortDescriptor Later!! only Alphabetically right now
+        
         self.dashlets = [[self.dashlets sortedArrayUsingSelector:@selector(compareWithName:)] mutableCopy];
+        
+        [self.cv reloadData];
     }
     
-    [self.cv reloadData];
     [self.localPopoverController dismissPopoverAnimated:YES];
 }
 
@@ -314,9 +333,25 @@
 }
 
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    
+    if([searchText isEqual:@""])
+    {
+        //use self.sortType LATER!
+        self.dashlets = [[self.backupDashlets sortedArrayUsingSelector:@selector(compareWithName:)] mutableCopy];
+        [self.cv reloadData];
+    }
+
+}
+
+
+
+#pragma mark - Keyboard Dismissal with touchRecognizer
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"did tap");
+
     [self.view endEditing:YES];
 }
 
@@ -326,6 +361,7 @@
     NSLog(@"did tap");
     [self.view endEditing:YES];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
