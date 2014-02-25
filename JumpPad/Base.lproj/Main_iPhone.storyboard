@@ -16,23 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Use iPad simulator" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rin-0A-P40">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Use iPad simulator" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rin-0A-P40">
                                 <rect key="frame" x="9" y="157" width="303" height="42"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Currently there are no iPhone UI implementation" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-2V-8YM">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Currently there are no iPhone UI implementation" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f2N-2V-8YM">
                                 <rect key="frame" x="20" y="240" width="280" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="X7X-T4-PAk"/>
+                                    <constraint firstAttribute="width" constant="280" id="bSy-Rt-DsE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.8216169680048917" green="1" blue="0.90885915855287669" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rin-0A-P40" firstAttribute="top" secondItem="BGq-QS-k7U" secondAttribute="top" constant="157" id="4CW-8z-CnM"/>
+                            <constraint firstItem="f2N-2V-8YM" firstAttribute="top" secondItem="BGq-QS-k7U" secondAttribute="top" constant="240" id="Ggd-6L-kxb"/>
+                            <constraint firstItem="Rin-0A-P40" firstAttribute="leading" secondItem="BGq-QS-k7U" secondAttribute="leading" constant="9" id="lug-GJ-aQD"/>
+                            <constraint firstItem="f2N-2V-8YM" firstAttribute="leading" secondItem="BGq-QS-k7U" secondAttribute="leading" constant="20" id="onZ-ZV-Imj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8LG-OY-hji"/>
                 </viewController>
