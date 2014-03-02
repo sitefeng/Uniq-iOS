@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Si Te Feng. All rights reserved.
 //
 
+
 #import "iPadMainExploreViewController.h"
 #import "JPDashlet.h"
 #import "iPadSearchBarView.h"
@@ -15,6 +16,7 @@
 #import "iPadFacultySelectViewController.h"
 #import "iPadCollegeViewController.h"
 #import "iPadMainCollectionViewCell.h"
+
 
 @interface iPadMainExploreViewController ()
 
@@ -67,23 +69,26 @@
     //Banner View
     self.bannerView = [[iPadBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
     
-    
-    
     //Adding subviews
     [self.view addSubview: self.cv];
     [self.view addSubview:self.searchBarView];
     [self.view addSubview:self.bannerView];
     
-    
     //Display all subviews
     [self resizeFrames];
     
-    //Setting up for keyboard dismissal
+    
+    //Setting up cv background touch recognizer for keyboard dismissal
     self.cv.backgroundView = [[UIImageView alloc] init];
     self.cv.backgroundView.userInteractionEnabled = YES;
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewBackgroundTapped)];
     self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
+    
+    
+    //CORE LOCATION
+    
+    
   
     
 }
@@ -117,7 +122,7 @@
     JPDashlet* d1 = [[JPDashlet alloc] initWithItemUID:@"0001000000"];
     d1.location.cityName = @"waterloo";
     d1.location.countryName = @"Canada";
-    d1.location.coordinates = [JPLocation coordinatesForCity:@"toronto"];
+    d1.location.coordinates = [JPLocation coordinatesForCity:@"waterloo"];
     d1.title = @"University of Waterloo";
     d1.type= JPDashletTypeCollege;
     d1.backgroundImages = [@[[UIImage imageNamed:@"waterloo1"],[UIImage imageNamed:@"waterloo2"],[UIImage imageNamed:@"waterloo3"],[UIImage imageNamed:@"waterloo4"],[UIImage imageNamed:@"waterloo5"],[UIImage imageNamed:@"waterloo6"]] mutableCopy];
@@ -142,12 +147,14 @@
     d3.backgroundImages = nil;
     d3.icon = [UIImage imageNamed:@"western"];
     d3.itemUID = @"0003000000";
+    d3.location.coordinates = [JPLocation coordinatesForCity:@"london"];
     
     JPDashlet* d4 = [d1 copy];
     d4.title = @"Ryerson University";
     d4.backgroundImages = [@[[UIImage imageNamed:@"ryerson1"],[UIImage imageNamed:@"ryerson2"],[UIImage imageNamed:@"ryerson3"]] mutableCopy];
     d4.icon = [UIImage imageNamed:@"ryerson"];
     d4.itemUID = @"0004000000";
+    d4.location.coordinates = [JPLocation coordinatesForCity:@"toronto"];
     
     NSMutableArray* dashletArray = [@[d1,d2,d3,d4] mutableCopy];
     

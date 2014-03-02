@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Banners" syncable="YES">
+        <attribute name="bannerData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="bannerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="bannerLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkedUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Faculty" representedClassName="Faculty" syncable="YES">
         <attribute name="alumniNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="facebookLink" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -37,7 +45,9 @@
         <attribute name="ext" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fax" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isCoop" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numFavorites" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="population" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="programId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -155,16 +165,17 @@
         <element name="Faculty" positionX="-18" positionY="-108" width="128" height="268"/>
         <element name="FacultyImageLink" positionX="-180" positionY="-72" width="128" height="118"/>
         <element name="HighschoolCourse" positionX="916" positionY="-108" width="128" height="103"/>
-        <element name="Program" positionX="196" positionY="263" width="128" height="343"/>
-        <element name="ProgramApplicationStat" positionX="412" positionY="395" width="128" height="133"/>
-        <element name="ProgramCourse" positionX="403" positionY="200" width="128" height="148"/>
-        <element name="ProgramImageLink" positionX="574" positionY="251" width="128" height="118"/>
-        <element name="ProgramRating" positionX="-146" positionY="392" width="128" height="208"/>
-        <element name="ProgramYearlyTuition" positionX="-0" positionY="252" width="128" height="133"/>
+        <element name="Program" positionX="196" positionY="263" width="128" height="373"/>
+        <element name="ProgramApplicationStat" positionX="450" positionY="261" width="128" height="133"/>
+        <element name="ProgramCourse" positionX="450" positionY="414" width="128" height="148"/>
+        <element name="ProgramImageLink" positionX="594" positionY="477" width="128" height="118"/>
+        <element name="ProgramRating" positionX="-29" positionY="234" width="128" height="208"/>
+        <element name="ProgramYearlyTuition" positionX="-36" positionY="488" width="128" height="133"/>
         <element name="School" positionX="178" positionY="-91" width="128" height="298"/>
-        <element name="SchoolImageLink" positionX="340" positionY="-252" width="128" height="118"/>
-        <element name="SchoolLocation" positionX="529" positionY="-81" width="128" height="223"/>
-        <element name="SchoolRanking" positionX="367" positionY="-54" width="128" height="118"/>
+        <element name="SchoolImageLink" positionX="367" positionY="-190" width="128" height="118"/>
+        <element name="SchoolLocation" positionX="369" positionY="-52" width="128" height="223"/>
+        <element name="SchoolRanking" positionX="540" positionY="81" width="128" height="118"/>
         <element name="User" positionX="738" positionY="-118" width="128" height="118"/>
+        <element name="Banners" positionX="556" positionY="-99" width="128" height="135"/>
     </elements>
 </model>

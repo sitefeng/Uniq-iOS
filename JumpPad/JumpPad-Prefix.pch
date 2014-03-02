@@ -16,5 +16,6 @@
     #import "ApplicationConstants.h"
     #import "UserInterfaceConstants.h"
     #import "JPStyle.h"
+    #import "Mixpanel.h"
 
 #endif

@@ -26,7 +26,7 @@
 
 
 
-
+#define MIXPANEL_TOKEN @"5b5fabc80437ba330dd37ae889f26dae"
 
 
 
@@ -38,13 +38,16 @@
 
 #ifdef DEBUG
 #define JPLog(fmt, ...) NSLog((@"%s [%d]: " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-
 #define log(fmt, ...) NSLog((@"[%d]: " fmt), __LINE__, ##__VA_ARGS__);
+
+#define debugMode YES
 
 #else
 
 #define log(x...)
 #define JPLog(x...)
+
+#define debugMode NO
 
 #endif
 

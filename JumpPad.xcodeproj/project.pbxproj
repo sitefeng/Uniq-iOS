@@ -35,6 +35,33 @@
 		5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */; };
 		5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561F18B9EAB2002941B3 /* sortViewController.m */; };
 		5D70562518BA061D002941B3 /* iPadFacultySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */; };
+		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
+		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
+		5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */; };
+		5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2C18C2FE430011AC26 /* MPArrowRight.png */; };
+		5DA82D7618C2FE430011AC26 /* MPArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2D18C2FE430011AC26 /* MPArrowRight@2x.png */; };
+		5DA82D7718C2FE430011AC26 /* MPCheckmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2E18C2FE430011AC26 /* MPCheckmark.png */; };
+		5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2F18C2FE430011AC26 /* MPCheckmark@2x.png */; };
+		5DA82D7918C2FE430011AC26 /* MPCloseBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3018C2FE430011AC26 /* MPCloseBtn.png */; };
+		5DA82D7A18C2FE430011AC26 /* MPCloseBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3118C2FE430011AC26 /* MPCloseBtn@2x.png */; };
+		5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3218C2FE430011AC26 /* MPDismissKeyboard.png */; };
+		5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3318C2FE430011AC26 /* MPDismissKeyboard@2x.png */; };
+		5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3418C2FE430011AC26 /* MPLogo.png */; };
+		5DA82D7E18C2FE430011AC26 /* MPLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3518C2FE430011AC26 /* MPLogo@2x.png */; };
+		5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D3718C2FE430011AC26 /* MPNotification.m */; };
+		5DA82D8018C2FE430011AC26 /* MPNotification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3818C2FE430011AC26 /* MPNotification.storyboard */; };
+		5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D3A18C2FE430011AC26 /* MPNotificationViewController.m */; };
+		5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D3C18C2FE430011AC26 /* MPSurvey.m */; };
+		5DA82D8318C2FE430011AC26 /* MPSurvey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D3D18C2FE430011AC26 /* MPSurvey.storyboard */; };
+		5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D3F18C2FE430011AC26 /* MPSurveyNavigationController.m */; };
+		5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4118C2FE430011AC26 /* MPSurveyQuestion.m */; };
+		5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4318C2FE430011AC26 /* MPSurveyQuestionViewController.m */; };
+		5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4518C2FE430011AC26 /* NSData+MPBase64.m */; };
+		5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4718C2FE430011AC26 /* UIColor+MPColor.m */; };
+		5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4918C2FE430011AC26 /* UIImage+MPAverageColor.m */; };
+		5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4B18C2FE430011AC26 /* UIImage+MPImageEffects.m */; };
+		5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4D18C2FE430011AC26 /* UIView+MPSnapshotImage.m */; };
+		5DA82D9618C310630011AC26 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA82D9518C310630011AC26 /* CoreLocation.framework */; };
 		5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */; };
 		5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */; };
 		5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */; };
@@ -137,6 +164,45 @@
 		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sortViewController.m; sourceTree = "<group>"; };
 		5D70562318BA061D002941B3 /* iPadFacultySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultySelectViewController.h; sourceTree = "<group>"; };
 		5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultySelectViewController.m; sourceTree = "<group>"; };
+		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
+		5DA82D2918C2FE430011AC26 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
+		5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowLeft.png; sourceTree = "<group>"; };
+		5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPArrowLeft@2x.png"; sourceTree = "<group>"; };
+		5DA82D2C18C2FE430011AC26 /* MPArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowRight.png; sourceTree = "<group>"; };
+		5DA82D2D18C2FE430011AC26 /* MPArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPArrowRight@2x.png"; sourceTree = "<group>"; };
+		5DA82D2E18C2FE430011AC26 /* MPCheckmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPCheckmark.png; sourceTree = "<group>"; };
+		5DA82D2F18C2FE430011AC26 /* MPCheckmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPCheckmark@2x.png"; sourceTree = "<group>"; };
+		5DA82D3018C2FE430011AC26 /* MPCloseBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPCloseBtn.png; sourceTree = "<group>"; };
+		5DA82D3118C2FE430011AC26 /* MPCloseBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPCloseBtn@2x.png"; sourceTree = "<group>"; };
+		5DA82D3218C2FE430011AC26 /* MPDismissKeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPDismissKeyboard.png; sourceTree = "<group>"; };
+		5DA82D3318C2FE430011AC26 /* MPDismissKeyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPDismissKeyboard@2x.png"; sourceTree = "<group>"; };
+		5DA82D3418C2FE430011AC26 /* MPLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPLogo.png; sourceTree = "<group>"; };
+		5DA82D3518C2FE430011AC26 /* MPLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MPLogo@2x.png"; sourceTree = "<group>"; };
+		5DA82D3618C2FE430011AC26 /* MPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNotification.h; sourceTree = "<group>"; };
+		5DA82D3718C2FE430011AC26 /* MPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNotification.m; sourceTree = "<group>"; };
+		5DA82D3818C2FE430011AC26 /* MPNotification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MPNotification.storyboard; sourceTree = "<group>"; };
+		5DA82D3918C2FE430011AC26 /* MPNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNotificationViewController.h; sourceTree = "<group>"; };
+		5DA82D3A18C2FE430011AC26 /* MPNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNotificationViewController.m; sourceTree = "<group>"; };
+		5DA82D3B18C2FE430011AC26 /* MPSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSurvey.h; sourceTree = "<group>"; };
+		5DA82D3C18C2FE430011AC26 /* MPSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSurvey.m; sourceTree = "<group>"; };
+		5DA82D3D18C2FE430011AC26 /* MPSurvey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MPSurvey.storyboard; sourceTree = "<group>"; };
+		5DA82D3E18C2FE430011AC26 /* MPSurveyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSurveyNavigationController.h; sourceTree = "<group>"; };
+		5DA82D3F18C2FE430011AC26 /* MPSurveyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSurveyNavigationController.m; sourceTree = "<group>"; };
+		5DA82D4018C2FE430011AC26 /* MPSurveyQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSurveyQuestion.h; sourceTree = "<group>"; };
+		5DA82D4118C2FE430011AC26 /* MPSurveyQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSurveyQuestion.m; sourceTree = "<group>"; };
+		5DA82D4218C2FE430011AC26 /* MPSurveyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSurveyQuestionViewController.h; sourceTree = "<group>"; };
+		5DA82D4318C2FE430011AC26 /* MPSurveyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSurveyQuestionViewController.m; sourceTree = "<group>"; };
+		5DA82D4418C2FE430011AC26 /* NSData+MPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MPBase64.h"; sourceTree = "<group>"; };
+		5DA82D4518C2FE430011AC26 /* NSData+MPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MPBase64.m"; sourceTree = "<group>"; };
+		5DA82D4618C2FE430011AC26 /* UIColor+MPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MPColor.h"; sourceTree = "<group>"; };
+		5DA82D4718C2FE430011AC26 /* UIColor+MPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MPColor.m"; sourceTree = "<group>"; };
+		5DA82D4818C2FE430011AC26 /* UIImage+MPAverageColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MPAverageColor.h"; sourceTree = "<group>"; };
+		5DA82D4918C2FE430011AC26 /* UIImage+MPAverageColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MPAverageColor.m"; sourceTree = "<group>"; };
+		5DA82D4A18C2FE430011AC26 /* UIImage+MPImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MPImageEffects.h"; sourceTree = "<group>"; };
+		5DA82D4B18C2FE430011AC26 /* UIImage+MPImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MPImageEffects.m"; sourceTree = "<group>"; };
+		5DA82D4C18C2FE430011AC26 /* UIView+MPSnapshotImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MPSnapshotImage.h"; sourceTree = "<group>"; };
+		5DA82D4D18C2FE430011AC26 /* UIView+MPSnapshotImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MPSnapshotImage.m"; sourceTree = "<group>"; };
+		5DA82D9518C310630011AC26 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5DAC8F801855250000FE3B5B /* iPadMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFavoritesViewController.h; sourceTree = "<group>"; };
 		5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFavoritesViewController.m; sourceTree = "<group>"; };
 		5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainExploreViewController.h; sourceTree = "<group>"; };
@@ -206,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DA82D9618C310630011AC26 /* CoreLocation.framework in Frameworks */,
 				5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */,
 				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
 				5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */,
@@ -280,6 +347,52 @@
 			name = "Image Blurring";
 			sourceTree = "<group>";
 		};
+		5DA82D2718C2FE430011AC26 /* Mixpanel */ = {
+			isa = PBXGroup;
+			children = (
+				5DA82D2818C2FE430011AC26 /* Mixpanel.h */,
+				5DA82D2918C2FE430011AC26 /* Mixpanel.m */,
+				5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */,
+				5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */,
+				5DA82D2C18C2FE430011AC26 /* MPArrowRight.png */,
+				5DA82D2D18C2FE430011AC26 /* MPArrowRight@2x.png */,
+				5DA82D2E18C2FE430011AC26 /* MPCheckmark.png */,
+				5DA82D2F18C2FE430011AC26 /* MPCheckmark@2x.png */,
+				5DA82D3018C2FE430011AC26 /* MPCloseBtn.png */,
+				5DA82D3118C2FE430011AC26 /* MPCloseBtn@2x.png */,
+				5DA82D3218C2FE430011AC26 /* MPDismissKeyboard.png */,
+				5DA82D3318C2FE430011AC26 /* MPDismissKeyboard@2x.png */,
+				5DA82D3418C2FE430011AC26 /* MPLogo.png */,
+				5DA82D3518C2FE430011AC26 /* MPLogo@2x.png */,
+				5DA82D3618C2FE430011AC26 /* MPNotification.h */,
+				5DA82D3718C2FE430011AC26 /* MPNotification.m */,
+				5DA82D3818C2FE430011AC26 /* MPNotification.storyboard */,
+				5DA82D3918C2FE430011AC26 /* MPNotificationViewController.h */,
+				5DA82D3A18C2FE430011AC26 /* MPNotificationViewController.m */,
+				5DA82D3B18C2FE430011AC26 /* MPSurvey.h */,
+				5DA82D3C18C2FE430011AC26 /* MPSurvey.m */,
+				5DA82D3D18C2FE430011AC26 /* MPSurvey.storyboard */,
+				5DA82D3E18C2FE430011AC26 /* MPSurveyNavigationController.h */,
+				5DA82D3F18C2FE430011AC26 /* MPSurveyNavigationController.m */,
+				5DA82D4018C2FE430011AC26 /* MPSurveyQuestion.h */,
+				5DA82D4118C2FE430011AC26 /* MPSurveyQuestion.m */,
+				5DA82D4218C2FE430011AC26 /* MPSurveyQuestionViewController.h */,
+				5DA82D4318C2FE430011AC26 /* MPSurveyQuestionViewController.m */,
+				5DA82D4418C2FE430011AC26 /* NSData+MPBase64.h */,
+				5DA82D4518C2FE430011AC26 /* NSData+MPBase64.m */,
+				5DA82D4618C2FE430011AC26 /* UIColor+MPColor.h */,
+				5DA82D4718C2FE430011AC26 /* UIColor+MPColor.m */,
+				5DA82D4818C2FE430011AC26 /* UIImage+MPAverageColor.h */,
+				5DA82D4918C2FE430011AC26 /* UIImage+MPAverageColor.m */,
+				5DA82D4A18C2FE430011AC26 /* UIImage+MPImageEffects.h */,
+				5DA82D4B18C2FE430011AC26 /* UIImage+MPImageEffects.m */,
+				5DA82D4C18C2FE430011AC26 /* UIView+MPSnapshotImage.h */,
+				5DA82D4D18C2FE430011AC26 /* UIView+MPSnapshotImage.m */,
+			);
+			name = Mixpanel;
+			path = "mixpanel-iphone-master 2/Mixpanel";
+			sourceTree = "<group>";
+		};
 		5DAC8FA918555EE500FE3B5B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5DA82D2718C2FE430011AC26 /* Mixpanel */,
 				5D70561818B9E122002941B3 /* Image Blurring */,
 				5D7055F818B9E10D002941B3 /* AFNetworking */,
 				5DE5B7DA184ACBB700EFCE0A /* JumpPadTests */,
@@ -357,6 +471,7 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DA82D9518C310630011AC26 /* CoreLocation.framework */,
 				5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */,
 				5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */,
 				5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */,
@@ -583,15 +698,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DA82D8018C2FE430011AC26 /* MPNotification.storyboard in Resources */,
+				5DA82D8318C2FE430011AC26 /* MPSurvey.storyboard in Resources */,
+				5DA82D7718C2FE430011AC26 /* MPCheckmark.png in Resources */,
 				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
 				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
+				5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */,
+				5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */,
+				5DA82D7918C2FE430011AC26 /* MPCloseBtn.png in Resources */,
+				5DA82D7A18C2FE430011AC26 /* MPCloseBtn@2x.png in Resources */,
+				5DA82D7E18C2FE430011AC26 /* MPLogo@2x.png in Resources */,
+				5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */,
+				5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */,
 				5D2664C918BB1FD700C8CC91 /* iPadFacultySelectViewController.xib in Resources */,
 				5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */,
 				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
+				5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */,
+				5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */,
 				5D2664D718BB268D00C8CC91 /* iPadCollegeViewController.xib in Resources */,
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
+				5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */,
 				5D16763A18583D250041993E /* JumpPad-Explaination.txt in Resources */,
 				5D2540AB18B6FAFA00FAB887 /* icon-76.png in Resources */,
+				5DA82D7618C2FE430011AC26 /* MPArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,19 +744,25 @@
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
+				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
+				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
 				5DF56C5418BC7E5B006D3024 /* SchoolRanking.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5D70562518BA061D002941B3 /* iPadFacultySelectViewController.m in Sources */,
 				5DF56C3318BC7E5A006D3024 /* ProgramCourse.m in Sources */,
 				5DF56C4518BC7E5A006D3024 /* ProgramImageLink.m in Sources */,
+				5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */,
+				5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */,
 				5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
 				5DF56C3F18BC7E5A006D3024 /* Program.m in Sources */,
 				5DF56C3918BC7E5A006D3024 /* User.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
+				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
 				5DF56C4218BC7E5A006D3024 /* ProgramApplicationStat.m in Sources */,
 				5DF56C5118BC7E5B006D3024 /* FacultyImageLink.m in Sources */,
+				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5DF56C3618BC7E5A006D3024 /* ProgramRating.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
@@ -638,9 +773,12 @@
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
 				5DF56C3C18BC7E5A006D3024 /* SchoolImageLink.m in Sources */,
+				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
+				5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
 				5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */,
+				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
@@ -650,9 +788,12 @@
 				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
 				5DF56C4B18BC7E5B006D3024 /* ProgramYearlyTuition.m in Sources */,
 				5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */,
+				5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */,
 				5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */,
+				5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */,
 				5DF56C3018BC7E59006D3024 /* School.m in Sources */,
 				5DF56C5718BC7E5B006D3024 /* Faculty.m in Sources */,
+				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,

@@ -7,12 +7,30 @@
 //
 
 #import "JumpPadAppDelegate.h"
+#import "Mixpanel.h"
 
 @implementation JumpPadAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //Adding Mixpanel
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    Mixpanel* mixpanel = [Mixpanel sharedInstance];
+    
+    if (debugMode)
+    {
+        [mixpanel track:@"App Launches Debug"
+             properties:@{
+                      @"Gender": @"Male",
+                      }];
+    }
+    else
+    {
+        [mixpanel track:@"App Launches"];
+    }
+    
+    //Tab bar change to 3rd element
     UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
     tabBar.selectedIndex = 2;
     
