@@ -35,6 +35,7 @@
 		5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */; };
 		5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561F18B9EAB2002941B3 /* sortViewController.m */; };
 		5D70562518BA061D002941B3 /* iPadFacultySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */; };
+		5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */; };
 		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
 		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
 		5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */; };
@@ -164,6 +165,8 @@
 		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sortViewController.m; sourceTree = "<group>"; };
 		5D70562318BA061D002941B3 /* iPadFacultySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultySelectViewController.h; sourceTree = "<group>"; };
 		5D70562418BA061D002941B3 /* iPadFacultySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultySelectViewController.m; sourceTree = "<group>"; };
+		5D84161319108D20005A8D74 /* iPadMainSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainSearchViewController.h; sourceTree = "<group>"; };
+		5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainSearchViewController.m; sourceTree = "<group>"; };
 		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5DA82D2918C2FE430011AC26 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowLeft.png; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */,
 				5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */,
 				5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */,
+				5D84161319108D20005A8D74 /* iPadMainSearchViewController.h */,
+				5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */,
 				5DAC8F891855254200FE3B5B /* iPadMainHomeViewController.h */,
 				5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */,
 				5D70561E18B9EAB2002941B3 /* sortViewController.h */,
@@ -739,6 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,

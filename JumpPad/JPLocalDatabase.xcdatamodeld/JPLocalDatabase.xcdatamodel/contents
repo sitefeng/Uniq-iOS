@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Banners" syncable="YES">
         <attribute name="bannerData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="bannerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -162,10 +162,11 @@
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HighschoolCourse" inverseName="user" inverseEntity="HighschoolCourse" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Faculty" positionX="-18" positionY="-108" width="128" height="268"/>
-        <element name="FacultyImageLink" positionX="-180" positionY="-72" width="128" height="118"/>
+        <element name="Banners" positionX="556" positionY="-99" width="128" height="135"/>
+        <element name="Faculty" positionX="-0" positionY="-99" width="128" height="268"/>
+        <element name="FacultyImageLink" positionX="-155" positionY="-19" width="128" height="118"/>
         <element name="HighschoolCourse" positionX="916" positionY="-108" width="128" height="103"/>
-        <element name="Program" positionX="196" positionY="263" width="128" height="373"/>
+        <element name="Program" positionX="205" positionY="252" width="128" height="373"/>
         <element name="ProgramApplicationStat" positionX="450" positionY="261" width="128" height="133"/>
         <element name="ProgramCourse" positionX="450" positionY="414" width="128" height="148"/>
         <element name="ProgramImageLink" positionX="594" positionY="477" width="128" height="118"/>
@@ -176,6 +177,5 @@
         <element name="SchoolLocation" positionX="369" positionY="-52" width="128" height="223"/>
         <element name="SchoolRanking" positionX="540" positionY="81" width="128" height="118"/>
         <element name="User" positionX="738" positionY="-118" width="128" height="118"/>
-        <element name="Banners" positionX="556" positionY="-99" width="128" height="135"/>
     </elements>
 </model>
