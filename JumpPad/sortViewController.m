@@ -9,9 +9,7 @@
 #import "sortViewController.h"
 
 @interface sortViewController ()
-{
-    NSArray* _sortOptions;
-}
+
 
 @end
 
@@ -55,6 +53,11 @@
    
     cell.textLabel.text = _sortOptions[indexPath.row];
     
+    if(self.sortType==indexPath.row)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
     return cell;
     
 }
@@ -64,8 +67,13 @@
     
     [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     
+    [self.tableView reloadData];
     
 }
+
+
+
+
 
 
 

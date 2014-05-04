@@ -1,0 +1,26 @@
+{
+    
+    "faculties":[
+      {
+      "id":1,
+      "name":"Faculty of Engineering",
+      "population":492,
+      "establishedYear":1999,
+      "numPrograms":69,
+      "imageUrl":null,
+      "images":[
+                {
+                "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterlooEngineering1.jpg",
+                "descriptor":"fieh fhg0eri gaepo;j aofoa ejfojdv aoier fsjfejfioe vkef."
+                }
+      ],
+      "website":"https:\/\/uwaterloo.ca\/engineering",
+      "facebookLink":"https:\/\/uwaterloo.ca\/engineering",
+      "alumniNumber":9999,
+      "totalFunding":null,
+       "toDelete":false
+
+     }
+     
+    ]
+}

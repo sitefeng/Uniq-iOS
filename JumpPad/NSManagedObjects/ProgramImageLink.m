@@ -2,7 +2,7 @@
 //  ProgramImageLink.m
 //  JumpPad
 //
-//  Created by Si Te Feng on 2/25/2014.
+//  Created by Si Te Feng on 2014-05-04.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -15,7 +15,6 @@
 @dynamic descriptor;
 @dynamic imageLink;
 @dynamic pImageId;
-@dynamic timeModified;
 @dynamic program;
 
 @end

@@ -1,0 +1,119 @@
+{
+
+  "programs":[
+    {
+     "id":1,
+     "name":"Software Engineering",
+     "population":99,
+     "yearEstablished":1998,
+     "images":null,
+     "about":"David R. Cheriton School of Engineering.",
+
+     "admissionDeadline":"01/20",
+     "email":"engieng@yahoo.com",
+     "phone":4165673910,
+     "ext":31203,
+     "facebookLink":"facebook.com",
+     "fax":23456789,
+     "isCoop":true,
+     "numFavorites":321,
+     "twitterLink":"twitter.com",
+     "website":"google.com",
+
+     "rating":{
+         "domesticTuition":"11111.00",
+         "internationalTuition":"22222.00",
+         "ratingOverall":"5.0",
+         "professors":"5.0",
+         "difficulty":"5.0",
+         "schedule":"5.0",
+         "classmates":"5.0",
+         "socialEnjoyment":"5.0",
+         "studyEnv":"5.0",
+         "guyRatio":"5.0"
+      }
+     "courses":{
+        "firstYear":{
+           "course1":"Designing Functional Programs"
+        },
+        "secondYear":{
+           "course1":"Computational Logic",
+           "course2":"Object Oriented Programming"
+        },
+        "thirdYear":{
+           "course1":"Operating Systems"
+        },
+        "fourthYear":{
+           "course1":"Algorithm Design and Analysis"
+        }
+     }
+  },
+  
+   
+   
+   {
+     "id":2,
+     "name":"Mechatronics Engineering",
+     "population":132,
+     "yearEstablished":2003,
+     "images":[
+               {
+               "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterlooMechatronics1.jpg",
+               "descriptor":"gaeoirf iapwh fweiuhh fw efiuhawefp uh."
+
+               },
+               {
+               "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterlooMechatronics2.jpg",
+               "descriptor":"gaeoirf iapwh fweiuhh fw efiuhawefp uh."
+               }
+     ],
+   
+     "about":"Christopher J. Luc School of Technology.",
+
+    "admissionDeadline":"01/20",
+     "email":"engieng@yahoo.com",
+     "phone":4165673910,
+     "ext":31203,
+     "facebookLink":"facebook.com",
+     "fax":23456789,
+     "isCoop":true,551,
+     "twitterLink":"twitter.com",
+     "website":"google.com",
+
+     "rating":{
+         "domesticTuition":"11111.00",
+         "internationalTuition":"22222.00",
+         "ratingOverall":"5.0",
+         "professors":"5.0",
+         "difficulty":"5.0",
+         "schedule":"5.0",
+         "classmates":"5.0",
+         "socialEnjoyment":"5.0",
+         "studyEnv":"5.0",
+         "guyRatio":"5.0"
+      },
+
+     "domesticTuition":"11311.00",
+     "internationalTuition":"33337.00",
+     
+     "courses":{
+        "firstYear":{
+           "course1":"Calculus 1"
+        },
+        "secondYear":{
+           "course1":"Ordinary Differential Equations",
+           "course2":"Mechanics of Deformable Solids",
+           "course3":"Real Time Operating Systems"
+        },
+        "thirdYear":{
+           "course1":"Advanced Embedded Power Electronics"
+        },
+        "fourthYear":{
+           "course1":"Final Year Design Project"
+        }
+      }
+    }
+   
+   ]
+
+}

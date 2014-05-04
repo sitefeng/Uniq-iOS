@@ -7,9 +7,14 @@
 //
 
 #import "JumpPadAppDelegate.h"
+
 #import "Mixpanel.h"
 
 @implementation JumpPadAppDelegate
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -18,17 +23,17 @@
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     Mixpanel* mixpanel = [Mixpanel sharedInstance];
     
-    if (debugMode)
-    {
-        [mixpanel track:@"App Launches Debug"
-             properties:@{
-                      @"Gender": @"Male",
-                      }];
-    }
-    else
-    {
-        [mixpanel track:@"App Launches"];
-    }
+//    if (debugMode)
+//    {
+//        [mixpanel track:@"App Launches Debug"
+//             properties:@{
+//                      @"Gender": @"Male",
+//                      }];
+//    }
+//    else
+//    {
+//        [mixpanel track:@"App Launches"];
+//    }
     
     //Tab bar change to 3rd element
     UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
@@ -62,6 +67,106 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    [self saveContext];
+    
 }
+
+
+#pragma mark - Save Core Data Context
+
+- (void)saveContext
+{
+    NSError *error = nil;
+    
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    if (context != nil)
+    {
+        if([context hasChanges] && ![context save:&error])
+        {
+            NSLog(@"<<Unresolved ManagedObjectContext save error: %@, %@>>", error, [error userInfo]);
+        }
+    }
+    
+}
+
+
+#pragma mark - Core Data stack
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (_managedObjectContext != nil)
+    {
+        return _managedObjectContext;
+    }
+    
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if(coordinator != nil)
+    {
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    
+    return _managedObjectContext;
+
+}
+
+
+- (NSManagedObjectModel *)managedObjectModel
+{
+    
+    if (_managedObjectModel != nil)
+    {
+        return _managedObjectModel;
+    }
+    
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"JPLocalDatabase" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
+    return _managedObjectModel;
+    
+}
+
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if(_persistentStoreCoordinator != nil)
+    {
+        return _persistentStoreCoordinator;
+    }
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"JPLocalDatabase.sqlite"];
+    
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    
+    if(![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
+    {
+        NSLog(@"Unresolved PersistentStore error: %@, %@",error, [error userInfo]);
+    }
+    
+    return _persistentStoreCoordinator;
+    
+}
+
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

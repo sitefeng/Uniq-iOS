@@ -23,11 +23,11 @@ typedef enum
 
 @interface iPadMainExploreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate, JPDashletInfoDelegate>
 {
-@private
+    @private
     
-    BOOL      _isOrientationPortrait; //or will be portrait for resizing frames
+    BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
+    float       _screenWidth;
     
-    float     _screenWidth;
 }
 
 //---Model---
@@ -38,7 +38,7 @@ typedef enum
 
 @property (nonatomic, strong) NSMutableArray* backupDashlets;
 
-@property (nonatomic, assign) NSInteger sortType;
+@property (nonatomic, assign) JPSortType sortType;
 
 
 //---View---

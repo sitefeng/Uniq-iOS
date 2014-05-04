@@ -2,7 +2,7 @@
 //  School.h
 //  JumpPad
 //
-//  Created by Si Te Feng on 2/25/2014.
+//  Created by Si Te Feng on 2014-05-04.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -28,7 +28,7 @@
 @property (nonatomic, retain) NSDate * yearEstablished;
 @property (nonatomic, retain) NSSet *faculties;
 @property (nonatomic, retain) NSSet *images;
-@property (nonatomic, retain) NSSet *locations;
+@property (nonatomic, retain) SchoolLocation *locations;
 @property (nonatomic, retain) NSSet *rankings;
 @end
 
@@ -43,11 +43,6 @@
 - (void)removeImagesObject:(SchoolImageLink *)value;
 - (void)addImages:(NSSet *)values;
 - (void)removeImages:(NSSet *)values;
-
-- (void)addLocationsObject:(SchoolLocation *)value;
-- (void)removeLocationsObject:(SchoolLocation *)value;
-- (void)addLocations:(NSSet *)values;
-- (void)removeLocations:(NSSet *)values;
 
 - (void)addRankingsObject:(SchoolRanking *)value;
 - (void)removeRankingsObject:(SchoolRanking *)value;

@@ -1,0 +1,167 @@
+{
+    
+    "schools":[
+     {
+      "id":1,
+      "name":"University of Waterloo",
+      "population":39400,
+      "yearEstablished":1957,
+      "location":{
+         "streetNum":"200",
+         "streetName":"University Ave. W.",
+         "apt":null,
+         "unit":null,
+         "city":"Waterloo",
+         "province":"Ontario",
+         "country":"Canada",
+         "lattitude":"43.46890000",
+         "longitude":"80.54000000"
+      },
+      "numPrograms": 999,
+      "logoUrl":"http:\/\/sitefeng.com\/images\/Jump\/waterloo.png",
+      "images":[
+            {
+                "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo1.png",
+                "descriptor":"hf nkgn foiejo fpwej fp wepofjg wp gojrg"
+            },
+            {
+            "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo2.png",
+            "descriptor":"hf nkgn foiejo fpwej fp wepofjg wp gojrg"
+            },
+            {
+            "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo3.png",
+            "descriptor":"hf nkgn foiejo fpwej fp wepofjg wp gojrg"
+            },
+            {
+            "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo4.png",
+            "descriptor":"hf nkgn foiejo fpwej fp wepofjg wp gojrg"
+            }
+      ],
+      "website":"https:\/\/uwaterloo.ca\/",
+      "facebookLink":"https:\/\/www.facebook.com\/university.waterloo?ref=br_tf",
+      "twitterLink":"https:\/\/twitter.com\/UWaterloo",
+      "linkedinLink":null,
+      "alumniNumber":999,
+      "totalFunding":null,
+      "toDelete":false
+   },
+   
+     
+     
+     {
+      "id":2,
+      "name":"University of Toronto",
+      "population":39400,
+      "yearEstablished":1877,
+      "location":{
+         "streetNum":"200",
+         "streetName":"University Ave. W.",
+         "apt":null,
+         "unit":null,
+         "city":"Toronto",
+         "province":"Ontario",
+         "country":"Canada",
+         "lattitude":"43.46890000",
+         "longitude":"80.54000000"
+      },
+      "numPrograms":999,
+      "logoUrl":"http:\/\/sitefeng.com\/images\/Jump\/toronto.png",
+      "images":[
+                {
+                    "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto1.png",
+                    "descriptor":"fi auhp uhiawe fiuh f aiuwehf piaefuhaw efohp."
+                },
+                {
+                "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto2.png",
+                "descriptor":"fi auhp uhiawe fiuh f aiuwehf piaefuhaw efohp."
+                },
+                {
+                "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto3.png",
+                "descriptor":"fi auhp uhiawe fiuh f aiuwehf piaefuhaw efohp."
+                }
+      ],
+      "website":"https:\/\/utoronto.ca\/",
+      "facebookLink":"https:\/\/www.facebook.com\/university.waterloo?ref=br_tf",
+      "twitterLink":"https:\/\/twitter.com\/UWaterloo",
+      "linkedinLink":null,
+      "alumniNumber":999,
+      "totalFunding":null,
+       "toDelete":false
+   },
+   
+     
+     
+     {
+      "id":3,
+      "name":"Ryerson University",
+      "population":39400,
+      "yearEstablished":1957,
+      "location":{
+         "streetNum":"200",
+         "streetName":"University Ave. W.",
+         "apt":null,
+         "unit":null,
+         "city":"Toronto",
+         "province":"Ontario",
+         "country":"Canada",
+         "lattitude":"43.46890000",
+         "longitude":"80.54000000"
+      },
+      "numPrograms":99,
+      "logoUrl":"http:\/\/sitefeng.com\/images\/Jump\/ryerson.png",
+     "images":[
+               {
+               "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/ryerson1.png",
+               "descriptor":"fi auhp uhiawe fiuh f aiuwehf piaefuhaw efohp."
+               },
+               {
+               "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/ryerson2.png",
+               "descriptor":"fi auhp uhiawe fiuh f aiuwehf piaefuhaw efohp."
+               },
+               {
+               "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/ryerson3.png",
+               "descriptor":"fi auhp uhiawe fiuh f aiuwehf piaefuhaw efohp."
+               }
+               ],
+     
+     "website":"https:\/\/uwaterloo.ca\/",
+      "facebookLink":"https:\/\/www.facebook.com\/university.waterloo?ref=br_tf",
+      "twitterLink":"https:\/\/twitter.com\/UWaterloo",
+      "linkedinLink":null,
+      "alumniNumber":749,
+      "totalFunding":null,
+       "toDelete":false
+   },
+   
+     
+     {
+      "id":4,
+      "name":"University of Western Ontario",
+      "population":39400,
+      "yearEstablished":1957,
+      "location":{
+         "streetNum":"200",
+         "streetName":"University Ave. W.",
+         "apt":null,
+         "unit":null,
+         "city":"London",
+         "province":"Ontario",
+         "country":"Canada",
+         "lattitude":"43.46890000",
+         "longitude":"80.54000000"
+      },
+      "numPrograms":999,
+      "logoUrl":"http:\/\/sitefeng.com\/images\/Jump\/western.png",
+      "images":null,
+      "website":"https:\/\/uwaterloo.ca\/",
+      "facebookLink":"https:\/\/www.facebook.com\/university.waterloo?ref=br_tf",
+      "twitterLink":"https:\/\/twitter.com\/UWaterloo",
+      "linkedinLink":null,
+      "alumniNumber":999,
+      "totalFunding":"1340321",
+       "toDelete":false
+     }
+     
+     
+    ]
+}

@@ -46,7 +46,7 @@
     if([images count] == 0 || !images)
     {
         self.backgroundView.animationImages = nil;
-        self.backgroundView.image = [[UIImage imageNamed:@"defaultDashlet"] applyBlurWithRadius:8 tintColor: tintColor saturationDeltaFactor:1.8 maskImage:nil];
+        self.backgroundView.image = [[UIImage imageNamed:@"defaultSchool"] applyBlurWithRadius:8 tintColor: tintColor saturationDeltaFactor:1.8 maskImage:nil];
     }
     else if([images count] == 1)
     {

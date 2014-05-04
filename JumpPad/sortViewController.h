@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+
 @protocol JPSortDelegate;
 
 @interface sortViewController : UITableViewController
+{
+    NSArray* _sortOptions;
+    
+    
+    
+}
 
 
 @property (nonatomic, weak) id<JPSortDelegate> delegate;
 
+@property (nonatomic, assign) NSInteger sortType;
 
 @end
 

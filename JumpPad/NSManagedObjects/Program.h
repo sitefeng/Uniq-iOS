@@ -2,7 +2,7 @@
 //  Program.h
 //  JumpPad
 //
-//  Created by Si Te Feng on 2/25/2014.
+//  Created by Si Te Feng on 2014-05-04.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -19,11 +19,12 @@
 @property (nonatomic, retain) NSNumber * ext;
 @property (nonatomic, retain) NSString * facebookLink;
 @property (nonatomic, retain) NSNumber * fax;
+@property (nonatomic, retain) NSNumber * isCoop;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * numFavorites;
 @property (nonatomic, retain) NSNumber * phone;
 @property (nonatomic, retain) NSNumber * population;
 @property (nonatomic, retain) NSNumber * programId;
-@property (nonatomic, retain) NSDate * timeModified;
 @property (nonatomic, retain) NSString * twitterLink;
 @property (nonatomic, retain) NSString * website;
 @property (nonatomic, retain) NSNumber * yearEstablished;
@@ -31,7 +32,7 @@
 @property (nonatomic, retain) NSSet *courses;
 @property (nonatomic, retain) Faculty *faculty;
 @property (nonatomic, retain) NSSet *images;
-@property (nonatomic, retain) NSSet *ratings;
+@property (nonatomic, retain) ProgramRating *ratings;
 @property (nonatomic, retain) NSSet *tuitions;
 @end
 
@@ -51,11 +52,6 @@
 - (void)removeImagesObject:(ProgramImageLink *)value;
 - (void)addImages:(NSSet *)values;
 - (void)removeImages:(NSSet *)values;
-
-- (void)addRatingsObject:(ProgramRating *)value;
-- (void)removeRatingsObject:(ProgramRating *)value;
-- (void)addRatings:(NSSet *)values;
-- (void)removeRatings:(NSSet *)values;
 
 - (void)addTuitionsObject:(ProgramYearlyTuition *)value;
 - (void)removeTuitionsObject:(ProgramYearlyTuition *)value;

@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    self.sortType = JPSortTypeAlphabetical;
+    
     //Getting current device orientation
     if(UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
     {
@@ -84,6 +86,9 @@
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewBackgroundTapped)];
     self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
+    
+    
+    
     
     
     //CORE LOCATION
@@ -300,10 +305,11 @@
     
     sortViewController* vc = [[sortViewController alloc] init];
     vc.delegate = self;
+    vc.sortType = self.sortType;
     
     UIPopoverController* popover = [[UIPopoverController alloc] initWithContentViewController:vc];
     
-    popover.popoverContentSize = CGSizeMake(320, 4 * 45);
+    popover.popoverContentSize = CGSizeMake(220, 4 * 45);
     popover.delegate = self;
     
     self.localPopoverController = popover;

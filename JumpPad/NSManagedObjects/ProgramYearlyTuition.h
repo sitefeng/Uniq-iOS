@@ -2,7 +2,7 @@
 //  ProgramYearlyTuition.h
 //  JumpPad
 //
-//  Created by Si Te Feng on 2/25/2014.
+//  Created by Si Te Feng on 2014-05-04.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -16,7 +16,6 @@
 @property (nonatomic, retain) NSNumber * domesticTuition;
 @property (nonatomic, retain) NSNumber * internationalTuition;
 @property (nonatomic, retain) NSNumber * pYearlyTuitionId;
-@property (nonatomic, retain) NSDate * timeModified;
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) Program *program;
 
