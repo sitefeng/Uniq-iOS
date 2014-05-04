@@ -41,7 +41,7 @@
     self.context = [appDelegate managedObjectContext];
     
     
-    self.textView =[[UITextView alloc] initWithFrame:CGRectMake(50, 50, 700, 700)];
+    self.textView =[[UITextView alloc] initWithFrame:CGRectMake(50, 50, 660, 700)];
     self.textView.text = @"Stored Information: \n";
     self.textView.contentSize = CGSizeMake(300, 3300);
     [self.textView setUserInteractionEnabled:YES];
@@ -383,6 +383,7 @@
         self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Name: [%@]\n", school.name]];
         self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Population: [%@]\n", school.population]];
         self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", school.website]];
+        self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    timeModified: [%@]\n", school.timeModified]];
     }
 
     
