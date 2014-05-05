@@ -1,8 +1,8 @@
-{
 
-  "programs":[
+
+  [
     {
-     "id":1,
+     "id":132,
      "name":"Software Engineering",
      "population":99,
      "yearEstablished":1998,
@@ -19,19 +19,20 @@
      "numFavorites":321,
      "twitterLink":"twitter.com",
      "website":"google.com",
+     "toDelete":false, 
 
      "rating":{
          "domesticTuition":"11111.00",
          "internationalTuition":"22222.00",
-         "ratingOverall":"5.0",
-         "professors":"5.0",
-         "difficulty":"5.0",
-         "schedule":"5.0",
-         "classmates":"5.0",
-         "socialEnjoyment":"5.0",
-         "studyEnv":"5.0",
-         "guyRatio":"5.0"
-      }
+         "ratingOverall":90,
+         "professors":58,
+         "difficulty":50,
+         "schedule":80,
+         "classmates":70,
+         "socialEnjoyment":60,
+         "studyEnv":30,
+         "guyRatio":53
+      },
      "courses":{
         "firstYear":{
            "course1":"Designing Functional Programs"
@@ -52,7 +53,7 @@
    
    
    {
-     "id":2,
+     "id":221,
      "name":"Mechatronics Engineering",
      "population":132,
      "yearEstablished":2003,
@@ -60,7 +61,6 @@
                {
                "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterlooMechatronics1.jpg",
                "descriptor":"gaeoirf iapwh fweiuhh fw efiuhawefp uh."
-
                },
                {
                "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterlooMechatronics2.jpg",
@@ -70,32 +70,34 @@
    
      "about":"Christopher J. Luc School of Technology.",
 
-    "admissionDeadline":"01/20",
+    "admissionDeadline":"02/23",
      "email":"engieng@yahoo.com",
      "phone":4165673910,
      "ext":31203,
      "facebookLink":"facebook.com",
      "fax":23456789,
-     "isCoop":true,551,
+     "isCoop":true,
+     "numFavorites":551,
      "twitterLink":"twitter.com",
      "website":"google.com",
 
      "rating":{
          "domesticTuition":"11111.00",
          "internationalTuition":"22222.00",
-         "ratingOverall":"5.0",
-         "professors":"5.0",
-         "difficulty":"5.0",
-         "schedule":"5.0",
-         "classmates":"5.0",
-         "socialEnjoyment":"5.0",
-         "studyEnv":"5.0",
-         "guyRatio":"5.0"
+         "ratingOverall":90,
+         "professors":58,
+         "difficulty":50,
+         "schedule":80,
+         "classmates":70,
+         "socialEnjoyment":60,
+         "studyEnv":30,
+         "guyRatio":53
       },
 
      "domesticTuition":"11311.00",
      "internationalTuition":"33337.00",
-     
+      "toDelete":false, 
+
      "courses":{
         "firstYear":{
            "course1":"Calculus 1"
@@ -116,4 +118,3 @@
    
    ]
 
-}

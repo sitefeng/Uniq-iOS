@@ -8,7 +8,7 @@
 
 #import "School.h"
 #import "Faculty.h"
-#import "SchoolImageLink.h"
+#import "ImageLink.h"
 #import "SchoolLocation.h"
 #import "SchoolRanking.h"
 
@@ -30,7 +30,7 @@
 @dynamic yearEstablished;
 @dynamic faculties;
 @dynamic images;
-@dynamic locations;
+@dynamic location;
 @dynamic rankings;
 
 @end

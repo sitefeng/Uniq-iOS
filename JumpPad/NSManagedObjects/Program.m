@@ -8,9 +8,9 @@
 
 #import "Program.h"
 #import "Faculty.h"
+#import "ImageLink.h"
 #import "ProgramApplicationStat.h"
 #import "ProgramCourse.h"
-#import "ProgramImageLink.h"
 #import "ProgramRating.h"
 #import "ProgramYearlyTuition.h"
 
@@ -35,8 +35,8 @@
 @dynamic applicationStats;
 @dynamic courses;
 @dynamic faculty;
-@dynamic images;
-@dynamic ratings;
+@dynamic rating;
 @dynamic tuitions;
+@dynamic images;
 
 @end

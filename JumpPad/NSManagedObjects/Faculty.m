@@ -7,7 +7,7 @@
 //
 
 #import "Faculty.h"
-#import "FacultyImageLink.h"
+#import "ImageLink.h"
 #import "Program.h"
 #import "School.h"
 
@@ -25,8 +25,8 @@
 @dynamic twitterLink;
 @dynamic website;
 @dynamic yearEstablished;
-@dynamic images;
 @dynamic programs;
 @dynamic school;
+@dynamic images;
 
 @end

@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class FacultyImageLink, Program, School;
+@class ImageLink, Program, School;
 
 @interface Faculty : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * alumniNumber;
-@property (nonatomic, retain) NSNumber * facebookLink;
+@property (nonatomic, retain) NSString * facebookLink;
 @property (nonatomic, retain) NSNumber * facultyId;
 @property (nonatomic, retain) NSNumber * logoUrl;
 @property (nonatomic, retain) NSString * name;
@@ -23,22 +23,22 @@
 @property (nonatomic, retain) NSNumber * totalFunding;
 @property (nonatomic, retain) NSString * twitterLink;
 @property (nonatomic, retain) NSString * website;
-@property (nonatomic, retain) NSDate * yearEstablished;
-@property (nonatomic, retain) NSSet *images;
+@property (nonatomic, retain) NSNumber * yearEstablished;
 @property (nonatomic, retain) NSSet *programs;
 @property (nonatomic, retain) School *school;
+@property (nonatomic, retain) NSSet *images;
 @end
 
 @interface Faculty (CoreDataGeneratedAccessors)
-
-- (void)addImagesObject:(FacultyImageLink *)value;
-- (void)removeImagesObject:(FacultyImageLink *)value;
-- (void)addImages:(NSSet *)values;
-- (void)removeImages:(NSSet *)values;
 
 - (void)addProgramsObject:(Program *)value;
 - (void)removeProgramsObject:(Program *)value;
 - (void)addPrograms:(NSSet *)values;
 - (void)removePrograms:(NSSet *)values;
+
+- (void)addImagesObject:(ImageLink *)value;
+- (void)removeImagesObject:(ImageLink *)value;
+- (void)addImages:(NSSet *)values;
+- (void)removeImages:(NSSet *)values;
 
 @end

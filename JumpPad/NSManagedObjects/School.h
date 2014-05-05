@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Faculty, SchoolImageLink, SchoolLocation, SchoolRanking;
+@class Faculty, ImageLink, SchoolLocation, SchoolRanking;
 
 @interface School : NSManagedObject
 
@@ -25,10 +25,10 @@
 @property (nonatomic, retain) NSNumber * totalFunding;
 @property (nonatomic, retain) NSString * twitterLink;
 @property (nonatomic, retain) NSString * website;
-@property (nonatomic, retain) NSDate * yearEstablished;
+@property (nonatomic, retain) NSNumber * yearEstablished;
 @property (nonatomic, retain) NSSet *faculties;
 @property (nonatomic, retain) NSSet *images;
-@property (nonatomic, retain) SchoolLocation *locations;
+@property (nonatomic, retain) SchoolLocation *location;
 @property (nonatomic, retain) NSSet *rankings;
 @end
 
@@ -39,8 +39,8 @@
 - (void)addFaculties:(NSSet *)values;
 - (void)removeFaculties:(NSSet *)values;
 
-- (void)addImagesObject:(SchoolImageLink *)value;
-- (void)removeImagesObject:(SchoolImageLink *)value;
+- (void)addImagesObject:(ImageLink *)value;
+- (void)removeImagesObject:(ImageLink *)value;
 - (void)addImages:(NSSet *)values;
 - (void)removeImages:(NSSet *)values;
 

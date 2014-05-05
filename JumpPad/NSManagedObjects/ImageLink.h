@@ -1,5 +1,5 @@
 //
-//  ProgramImageLink.h
+//  ImageLink.h
 //  JumpPad
 //
 //  Created by Si Te Feng on 2014-05-04.
@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Program;
+@class Faculty, Program, School;
 
-@interface ProgramImageLink : NSManagedObject
+@interface ImageLink : NSManagedObject
 
 @property (nonatomic, retain) NSString * descriptor;
 @property (nonatomic, retain) NSString * imageLink;
-@property (nonatomic, retain) NSNumber * pImageId;
+@property (nonatomic, retain) School *school;
 @property (nonatomic, retain) Program *program;
+@property (nonatomic, retain) Faculty *faculty;
 
 @end

@@ -1,6 +1,6 @@
-{
+
     
-    "schools":[
+    [
      {
       "id":1,
       "name":"University of Waterloo",
@@ -158,10 +158,9 @@
       "twitterLink":"https:\/\/twitter.com\/UWaterloo",
       "linkedinLink":null,
       "alumniNumber":999,
-      "totalFunding":"1340321",
+      "totalFunding":1340321,
        "toDelete":false
      }
      
      
     ]
-}
