@@ -16,9 +16,12 @@
 #import "iPadFacultySelectViewController.h"
 #import "iPadCollegeViewController.h"
 #import "iPadMainCollectionViewCell.h"
+#import "School.h"
+#import "Banner.h"
 
 
 @interface iPadMainExploreViewController ()
+
 
 @end
 
@@ -44,9 +47,7 @@
         _isOrientationPortrait = NO;
         _screenWidth = kiPadWidthLandscape;
     }
-    
-    
-    [self updateDashletsInfo];
+
     
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     
@@ -63,6 +64,7 @@
     self.cv.dataSource = self;
     
     self.cv.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
+
     
     //Search Bar
     self.searchBarView = [[iPadSearchBarView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 200, _screenWidth, 44)];
@@ -88,14 +90,30 @@
     self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
     
     
+
+    //Core Data NS Managed Object Context
+    JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    self.context = [delegate managedObjectContext];
     
-    
+    //Initialize banner
+    self.bannerURLs = [NSMutableArray array];
     
     //CORE LOCATION
     
     
-  
+
     
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateDashletsInfo];
+
+    [self.cv reloadData];
+    [self updateBannerInfo];
+
 }
 
 
@@ -117,55 +135,54 @@
 
 
 
-#pragma mark - Update Model
+#pragma mark - Update From Core Data
 //Retrieving College info from Core Data and put into featuredDashelts
 - (void)updateDashletsInfo
 {
-    //Just a MOCK-UP right now
     
-    //This should be done for us in JPDashlet
-    JPDashlet* d1 = [[JPDashlet alloc] initWithItemUID:@"0001000000"];
-    d1.location.cityName = @"waterloo";
-    d1.location.countryName = @"Canada";
-    d1.location.coordinates = [JPLocation coordinatesForCity:@"waterloo"];
-    d1.title = @"University of Waterloo";
-    d1.type= JPDashletTypeCollege;
-    d1.backgroundImages = [@[[UIImage imageNamed:@"waterloo1"],[UIImage imageNamed:@"waterloo2"],[UIImage imageNamed:@"waterloo3"],[UIImage imageNamed:@"waterloo4"],[UIImage imageNamed:@"waterloo5"],[UIImage imageNamed:@"waterloo6"]] mutableCopy];
-    d1.details = @{@"population":@32567,@"establishedin":@1864};
-    d1.icon = [UIImage imageNamed:@"waterloo"];
+    NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
+    dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+
+    NSError* err = nil;
+    NSArray* schoolArray = [self.context executeFetchRequest:dashletRequest error:&err];
+    if(err)
+        JPLog(@"ERR: %@", err);
     
-    JPDashlet* d2 = [[JPDashlet alloc] initWithItemUID:@"0002000000"];
-    d2.title = @"University of Toronto";
-    d2.icon = [UIImage imageNamed:@"toronto"];
+    NSMutableArray* dashletArray = [NSMutableArray array];
     
-    d2.location.cityName = @"toronto";
-    d2.location.countryName = @"Canada";
-    d2.location.coordinates = [JPLocation coordinatesForCity:@"toronto"];
-    
-    d2.type= JPDashletTypeCollege;
-    d2.backgroundImages = [@[[UIImage imageNamed:@"toronto1"],[UIImage imageNamed:@"toronto2"],[UIImage imageNamed:@"toronto3"]] mutableCopy];
-    d2.details = @{@"population":@32567,@"establishedin":@1864};
-    
-    
-    JPDashlet* d3 = [d1 copy];
-    d3.title = @"University of Western Ontario";
-    d3.backgroundImages = nil;
-    d3.icon = [UIImage imageNamed:@"western"];
-    d3.itemUID = @"0003000000";
-    d3.location.coordinates = [JPLocation coordinatesForCity:@"london"];
-    
-    JPDashlet* d4 = [d1 copy];
-    d4.title = @"Ryerson University";
-    d4.backgroundImages = [@[[UIImage imageNamed:@"ryerson1"],[UIImage imageNamed:@"ryerson2"],[UIImage imageNamed:@"ryerson3"]] mutableCopy];
-    d4.icon = [UIImage imageNamed:@"ryerson"];
-    d4.itemUID = @"0004000000";
-    d4.location.coordinates = [JPLocation coordinatesForCity:@"toronto"];
-    
-    NSMutableArray* dashletArray = [@[d1,d2,d3,d4] mutableCopy];
+    for(School* school in schoolArray)
+    {
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithSchool:school];
+        [dashletArray addObject:dashlet];
+    }
     
     self.dashlets = dashletArray;
     
 }
+
+
+- (void)updateBannerInfo
+{
+    NSFetchRequest* bannerRequest = [NSFetchRequest fetchRequestWithEntityName:@"Banner"];
+    bannerRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bannerId" ascending:YES]];
+    
+    NSError* err = nil;
+    NSArray* bannerArray = [self.context executeFetchRequest:bannerRequest error:&err];
+    if(err)
+        JPLog(@"ERR: %@", err);
+    
+    for(Banner* banner in bannerArray)
+    {
+        NSURL* bannerURL = [NSURL URLWithString:banner.bannerLink];
+        [self.bannerURLs addObject: bannerURL];
+    }
+
+    [self.bannerView setImgArrayURL:self.bannerURLs];
+    
+    
+}
+
+
 
 
 
@@ -237,6 +254,7 @@
     
     iPadMainCollectionViewCell* cell = [self.cv dequeueReusableCellWithReuseIdentifier:@"featuredItem" forIndexPath:indexPath];
     
+    
     cell.dashletInfo = self.dashlets[indexPath.item];
     cell.delegate = self;
     
@@ -299,22 +317,23 @@
 }
 
 
-- (void)sortButtonPressed:(id)sender
+- (void)sortButtonPressed:(UIButton*)button
 {
-    UIButton* button = (UIButton*)sender;
+
+//    sortViewController* vc = [[sortViewController alloc] init];
+//    vc.delegate = self;
+//    vc.sortType = self.sortType;
+//    
+//    UIPopoverController* popover = [[UIPopoverController alloc] initWithContentViewController:vc];
+//    
+//    popover.popoverContentSize = CGSizeMake(220, 4 * 45);
+//    popover.delegate = self;
+//    
+//    self.localPopoverController = popover;
+//    
+//    [self.localPopoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
-    sortViewController* vc = [[sortViewController alloc] init];
-    vc.delegate = self;
-    vc.sortType = self.sortType;
-    
-    UIPopoverController* popover = [[UIPopoverController alloc] initWithContentViewController:vc];
-    
-    popover.popoverContentSize = CGSizeMake(220, 4 * 45);
-    popover.delegate = self;
-    
-    self.localPopoverController = popover;
-    
-    [self.localPopoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self updateDashletsInfo];
     
     
 }
@@ -351,7 +370,7 @@
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
     viewController.title = selectedDashlet.title;
-    viewController.itemUid = [selectedDashlet.itemUID copy];
+    viewController.itemUid = selectedDashlet.dashletUid;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -377,7 +396,7 @@
 {
     iPadCollegeViewController* viewController = [[iPadCollegeViewController alloc] initWithNibName:@"iPadCollegeViewController" bundle:[NSBundle mainBundle]];
     
-    viewController.itemUid = sender.dashletInfo.itemUID;
+    viewController.itemUid = sender.dashletInfo.dashletUid;
     
     [self presentViewController:viewController animated:YES completion:nil];
 }

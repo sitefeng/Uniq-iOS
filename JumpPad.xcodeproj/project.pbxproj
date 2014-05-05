@@ -88,6 +88,7 @@
 		5DD82EEB19173C81000577F8 /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EEA19173C81000577F8 /* HighschoolCourse.m */; };
 		5DD82EEE19173C81000577F8 /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EED19173C81000577F8 /* ImageLink.m */; };
 		5DD82EF119173C81000577F8 /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EF019173C81000577F8 /* SchoolRanking.m */; };
+		5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EF319175029000577F8 /* AsyncImageView.m */; };
 		5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
@@ -254,6 +255,8 @@
 		5DD82EED19173C81000577F8 /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLink.m; path = NSManagedObjects/ImageLink.m; sourceTree = "<group>"; };
 		5DD82EEF19173C81000577F8 /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolRanking.h; path = NSManagedObjects/SchoolRanking.h; sourceTree = "<group>"; };
 		5DD82EF019173C81000577F8 /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolRanking.m; path = NSManagedObjects/SchoolRanking.m; sourceTree = "<group>"; };
+		5DD82EF219175029000577F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		5DD82EF319175029000577F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5DE5B7AC184ACBB700EFCE0A /* Jump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -460,6 +463,8 @@
 				5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */,
 				5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */,
 				5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */,
+				5DD82EF219175029000577F8 /* AsyncImageView.h */,
+				5DD82EF319175029000577F8 /* AsyncImageView.m */,
 				5D7055F018B9B240002941B3 /* iPadSearchBarView.h */,
 				5D7055F118B9B240002941B3 /* iPadSearchBarView.m */,
 				5D16762D18560E580041993E /* iPadFilterBarView.h */,
@@ -748,6 +753,7 @@
 				5DD82ECD19173C80000577F8 /* ProgramApplicationStat.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */,
+				5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */,
 				5DD82EEB19173C81000577F8 /* HighschoolCourse.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				5DD82ED919173C81000577F8 /* ProgramYearlyTuition.m in Sources */,

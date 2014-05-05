@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class AsyncImageView;
+
 @interface iPadDashletImageView : UIView
+{
+    int   _imagesToLoad;
+}
 
-
-
+@property (nonatomic, strong) NSURL* logoURL; // set this
 @property (nonatomic, strong) UIImage* logo;
-@property (nonatomic, strong) NSMutableArray* images;
+@property (nonatomic, strong) NSMutableArray* imageURLs; // set this
+@property (nonatomic, strong) NSMutableArray* imageArray;
+
 
 @property (nonatomic, strong) UIImageView* logoView;
 @property (nonatomic, strong) UIImageView* backgroundView;

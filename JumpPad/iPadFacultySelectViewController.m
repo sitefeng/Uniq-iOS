@@ -34,7 +34,7 @@
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor purpleColor];
     
-    self.testLabel.text = self.itemUid;
+    self.testLabel.text = [NSString stringWithFormat:@"%i",self.itemUid];
     
     NSLog(@"%@", self.testLabel.text);
     

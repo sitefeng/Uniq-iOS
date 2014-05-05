@@ -28,6 +28,8 @@ typedef enum
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
     float       _screenWidth;
     
+   
+    
 }
 
 //---Model---
@@ -36,9 +38,16 @@ typedef enum
 //to be Displayed on Screen
 @property (nonatomic, strong) NSMutableArray* dashlets;
 
-@property (nonatomic, strong) NSMutableArray* backupDashlets;
+@property (nonatomic, strong) NSMutableArray* backupDashlets; //for sort
 
 @property (nonatomic, assign) JPSortType sortType;
+
+
+
+@property (nonatomic, strong) NSMutableArray* bannerURLs;
+@property (nonatomic, strong) NSManagedObjectContext* context;
+
+
 
 
 //---View---

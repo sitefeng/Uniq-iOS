@@ -17,16 +17,21 @@
     BOOL           _bannerLeftIsSet;
     
     NSTimer*       _scrollTimer;
+    CGRect         _frame;
     
 }
 
 
+//Array of NSURL
+@property (nonatomic, strong) NSMutableArray* imgArrayURL;
+
 
 //Array of UIImage
-@property (nonatomic, strong) NSMutableArray* imgArray;
+//@property (nonatomic, strong) NSMutableArray* imgArray;
 
 //Array of UIImageView
 @property (nonatomic, strong) NSMutableArray* bannerArray;
+
 
 
 

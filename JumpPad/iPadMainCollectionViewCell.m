@@ -57,9 +57,9 @@
     
     self.title.text = [_dashletInfo.title uppercaseString];
     
-    self.imageView.logo = _dashletInfo.icon;
+    self.imageView.logoURL = _dashletInfo.icon;
     
-    self.imageView.images = _dashletInfo.backgroundImages;
+    self.imageView.imageURLs = _dashletInfo.backgroundImages;
     
 }
 

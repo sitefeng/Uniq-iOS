@@ -11,19 +11,21 @@
 
 typedef enum
 {
-    JPDashletTypeCollege,
+    JPDashletTypeSchool,
     JPDashletTypeFaculty,
     JPDashletTypeProgram
 
 } JPDashletType;
 
 
+@class School;
+
 
 @interface JPDashlet : NSObject <NSCopying>
 
 //Item Unique Idenntifier for the exact item
-//CCCC-FFF-PPP (College#-Faculty#-Program#), program=0 means the item is a faculty
-@property (nonatomic, strong) NSString* itemUID;
+
+@property (nonatomic, assign) NSInteger dashletUid;
 
 @property (nonatomic, strong) JPLocation* location;
 //Includes the country, city, and coordinates
@@ -32,18 +34,20 @@ typedef enum
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) NSUInteger type;
 @property (nonatomic, strong) NSMutableArray*  backgroundImages;
-
+                               //Array of NSURLs
 
 //For dashlet grid detail view
-@property (nonatomic, strong) NSDictionary* details;
+@property (nonatomic, strong) NSNumber* yearEstablished;
+@property (nonatomic, strong) NSNumber* population;
 
 //Not Applicable to Faculties and Programs
-@property (nonatomic, strong) UIImage* icon;
+@property (nonatomic, strong) NSURL* icon;
 
 
 
 
-- (instancetype)initWithItemUID: (NSString*)uid;
+- (instancetype)initWithDashletUid: (NSInteger)uid;
+- (instancetype)initWithSchool: (School*)school;
 
 - (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet;
 

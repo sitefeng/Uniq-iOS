@@ -12,7 +12,7 @@
 
 
 
-@property (nonatomic, strong) NSString* itemUid;
+@property (nonatomic, assign) NSInteger itemUid;
 
 
 

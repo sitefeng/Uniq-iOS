@@ -134,7 +134,6 @@
             newBanner.linkedUrl = [bannerDict valueForKey:@"linkedUrl"];
             newBanner.title = [bannerDict valueForKey:@"title"];
             
-            JPLog(@"BANNAR: %@,%@,%@,%@", newBanner.bannerId,newBanner.bannerLink,newBanner.linkedUrl, newBanner.title);
         }
 
     }
@@ -179,8 +178,6 @@
     {
         JPLog(@"error: %@", [error userInfo]);
     }
-    else
-        JPLog(@"load JSON success");
     
     
     [self saveAllUniversitiesFromArray:parsedObject];
@@ -282,23 +279,56 @@
         
         NSFetchRequest* validationRequest = [[NSFetchRequest alloc] initWithEntityName:@"School"];
         validationRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"schoolId" ascending:YES]];
-        [validationRequest setPropertiesToFetch:@[@"schoolId",@"name",@"population",@"website"]];
+        [validationRequest setPropertiesToFetch:@[@"schoolId", @"name",@"population",@"website"]];
         
         NSArray* valRes = [self.context executeFetchRequest:validationRequest error:nil];
         
         for(School* school in valRes)
         {
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"S: Id: [%@]\n",school.schoolId]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Name: [%@]\n", school.name]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Population: [%@]\n", school.population]];
+            NSArray* imgs = [school.images allObjects];
+            ImageLink* img = [imgs firstObject];
+            ImageLink* img2 = imgs[1];
+            ImageLink* img3 = imgs[2];
+            
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"S: img: [%@]\n",img.imageLink]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    img2: [%@]\n", img2.imageLink]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    img3: [%@]\n", img3.imageLink]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", school.website]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    timeModified: [%@]\n", school.timeModified]];
         }
         
     }
     
+    //Test getAllUniversitiesImageLink
+    else if ([sender.titleLabel.text isEqualToString: @"Display All Data"])
+    {
+        
+        NSFetchRequest* validationRequest = [[NSFetchRequest alloc] initWithEntityName:@"ImageLink"];
+        validationRequest.sortDescriptors = @[  [[NSSortDescriptor alloc] initWithKey:@"descriptor" ascending:YES]  ];
+        validationRequest.propertiesToFetch = @[@"imageLink", @"descriptor"];
+        
+        NSArray* valRes = [self.context executeFetchRequest:validationRequest error:nil];
+        
+        for(ImageLink* img in valRes)
+        {
+//            NSArray* imgs = [school.images allObjects];
+//            ImageLink* img = [imgs firstObject];
+//            ImageLink* img2 = imgs[1];
+//            ImageLink* img3 = imgs[2];
+            
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"S: img: [%@]\n",img.imageLink]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    des: [%@]\n", img.descriptor]];
+//            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    img3: [%@]\n", img3.imageLink]];
+//            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", school.website]];
+//            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    timeModified: [%@]\n", school.timeModified]];
+        }
+        
+    }
+
+    
+    
     //Test Banner
-    else if([sender.titleLabel.text isEqualToString: @"Display All Data"])
+    else if([sender.titleLabel.text isEqualToString: @"Display All Dat"])
     {
         NSFetchRequest* validationRequest = [[NSFetchRequest alloc] initWithEntityName:@"Banner"];
         validationRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"bannerId" ascending:YES]];
@@ -490,20 +520,25 @@
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             //Sync Images
             
-            NSArray* imagesArray = [newSchool valueForKey:@"images"];
-            
-            for(NSDictionary* imageDict in imagesArray)
+            id imagesArrayId = [dict valueForKey:@"images"];
+        
+            if(imagesArrayId != [NSNull null])
             {
-                NSEntityDescription* imageDescription = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:self.context];
+                NSArray* imagesArray =(NSArray*)imagesArrayId;
                 
-                NSManagedObject *newImage = [[NSManagedObject alloc] initWithEntity:imageDescription insertIntoManagedObjectContext:self.context];
-                
-                [newImage setValue:newSchool forKey:@"school"];
-                
-                if([dict valueForKey:@"imageLink"] != [NSNull null])
-                    [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-                if([dict valueForKey:@"descriptor"] != [NSNull null])
-                    [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
+                for(NSDictionary* imageDict in imagesArray)
+                {
+                    NSEntityDescription* imageDescription = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:self.context];
+                    
+                    NSManagedObject *newImage = [[NSManagedObject alloc] initWithEntity:imageDescription insertIntoManagedObjectContext:self.context];
+                    
+                    [newImage setValue:newSchool forKey:@"school"];
+                    
+                    if([dict valueForKey:@"imageLink"] != [NSNull null])
+                        [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
+                    if([dict valueForKey:@"descriptor"] != [NSNull null])
+                        [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
+                }
             }
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             
@@ -515,7 +550,7 @@
             [self.context save:&saveError];
             if(saveError)
             {
-                JPLog(@"Save Successful");
+                JPLog(@"Save not Successful");
             }
             
         }
@@ -553,7 +588,7 @@
         JPLog(@"Error Saving Deletion");
     }
     
-    JPLog(@"Finished Synchronizing Schools, check above if error occurred");
+    JPLog(@"synced");
     
 }
 
@@ -636,21 +671,26 @@
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             //Sync Images
             
-            NSArray* imagesArray = [newFaculty valueForKey:@"images"];
+            id imagesArrayId = [dict valueForKey:@"images"];
             
-            for(NSDictionary* imageDict in imagesArray)
+            if(imagesArrayId != [NSNull null])
             {
-                NSEntityDescription* imageDescription = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:self.context];
-                
-                NSManagedObject *newImage = [[NSManagedObject alloc] initWithEntity:imageDescription insertIntoManagedObjectContext:self.context];
-                
-                [newImage setValue:newFaculty forKey:@"school"];
-                
-                if([dict valueForKey:@"imageLink"] != [NSNull null])
-                    [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-                if([dict valueForKey:@"descriptor"] != [NSNull null])
-                    [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
+                NSArray* imagesArray =(NSArray*)imagesArrayId;
+                for(NSDictionary* imageDict in imagesArray)
+                {
+                    NSEntityDescription* imageDescription = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:self.context];
+                    
+                    NSManagedObject *newImage = [[NSManagedObject alloc] initWithEntity:imageDescription insertIntoManagedObjectContext:self.context];
+                    
+                    [newImage setValue:newFaculty forKey:@"faculty"];
+                    
+                    if([dict valueForKey:@"imageLink"] != [NSNull null])
+                        [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
+                    if([dict valueForKey:@"descriptor"] != [NSNull null])
+                        [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
+                }
             }
+            
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
        
             [newFaculty setValue:school forKey: @"school"];
@@ -779,21 +819,27 @@
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             //Sync Images
             
-            NSArray* imagesArray = [newProgram valueForKey:@"images"];
+            id imagesArrayId = [dict valueForKey:@"images"];
             
-            for(NSDictionary* imageDict in imagesArray)
+            if(imagesArrayId != [NSNull null])
             {
-                NSEntityDescription* imageDescription = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:self.context];
-                
-                NSManagedObject *newImage = [[NSManagedObject alloc] initWithEntity:imageDescription insertIntoManagedObjectContext:self.context];
-                
-                [newImage setValue:newProgram forKey:@"school"];
-                
-                if([dict valueForKey:@"imageLink"] != [NSNull null])
-                    [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-                if([dict valueForKey:@"descriptor"] != [NSNull null])
-                    [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
+                NSArray* imagesArray =(NSArray*)imagesArrayId;
+            
+                for(NSDictionary* imageDict in imagesArray)
+                {
+                    NSEntityDescription* imageDescription = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:self.context];
+                    
+                    NSManagedObject *newImage = [[NSManagedObject alloc] initWithEntity:imageDescription insertIntoManagedObjectContext:self.context];
+                    
+                    [newImage setValue:newProgram forKey:@"program"];
+                    
+                    if([dict valueForKey:@"imageLink"] != [NSNull null])
+                        [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
+                    if([dict valueForKey:@"descriptor"] != [NSNull null])
+                        [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
+                }
             }
+            
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             
             [newProgram setValue:faculty forKey: @"faculty"];
