@@ -14,6 +14,7 @@
 #import "School.h"
 #import "ImageLink.h"
 #import "SchoolLocation.h"
+#import "Banner.h"
 
 #import "Faculty.h"
 
@@ -92,9 +93,7 @@
     
     NSError* timeModifiedError = nil;
     NSFetchRequest* timeModifiedRequest = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-    
     timeModifiedRequest.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"schoolId" ascending:YES] ];
-    
     timeModifiedRequest.propertiesToFetch = @[@"timeModified"];
     timeModifiedRequest.predicate = [NSPredicate predicateWithValue:YES];
     
@@ -107,13 +106,64 @@
     
     self.timeModified = [results lastObject];
     
+    
 }
+
+- (void)saveBannerDataWithArray: (NSArray*)array
+{
+    for(NSDictionary* bannerDict in array)
+    {
+            NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"Banner"];
+            req.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"bannerId" ascending:YES] ];
+            req.propertiesToFetch = @[@"bannerId"];
+            req.predicate = [NSPredicate predicateWithFormat:@"bannerId = %@",[bannerDict valueForKey:@"bannerId"]];
+
+            NSArray* deleteBanners = [self.context executeFetchRequest:req error:nil];
+            
+            for(Banner* banner in deleteBanners)
+            {
+                [self.context deleteObject:banner];
+            }
+
+        if([bannerDict valueForKey:@"toDelete"]==[NSNumber numberWithBool:false])
+        {
+            Banner* newBanner = [NSEntityDescription insertNewObjectForEntityForName:@"Banner" inManagedObjectContext:self.context];
+            
+            newBanner.bannerId = [bannerDict valueForKey:@"bannerId"];
+            newBanner.bannerLink = [bannerDict valueForKey:@"bannerLink"];
+            newBanner.linkedUrl = [bannerDict valueForKey:@"linkedUrl"];
+            newBanner.title = [bannerDict valueForKey:@"title"];
+            
+            JPLog(@"BANNAR: %@,%@,%@,%@", newBanner.bannerId,newBanner.bannerLink,newBanner.linkedUrl, newBanner.title);
+        }
+
+    }
+    
+    NSError* error = nil;
+    [self.context save:&error];
+    if(error)
+    {
+        JPLog(@"ERROR:%@", error);
+    }
+    
+}
+
 
 
 #pragma mark - UIButton Target Action Methods
 
 - (void)sync: (UIButton*)sender
 {
+    //Get banner information
+    //Simulated Banner Data
+    NSURL* bannerDataURL = [[NSBundle mainBundle] URLForResource:@"getAllBannersInfo" withExtension:@"json"];
+    ////////////////
+    NSData* bannerData = [NSData dataWithContentsOfURL:bannerDataURL];
+    NSArray* parseBannerArray = [NSJSONSerialization JSONObjectWithData:bannerData options:0 error:nil];
+    
+    [self saveBannerDataWithArray:parseBannerArray];
+
+    
     [self sendGetAllUniversitiesInfoRequestWithLastModifiedTime:self.timeModified];
     
     //Simulated Data
@@ -247,6 +297,27 @@
         
     }
     
+    //Test Banner
+    else if([sender.titleLabel.text isEqualToString: @"Display All Data"])
+    {
+        NSFetchRequest* validationRequest = [[NSFetchRequest alloc] initWithEntityName:@"Banner"];
+        validationRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"bannerId" ascending:YES]];
+        [validationRequest setPropertiesToFetch:@[@"bannerId",@"bannerLink",@"linkedUrl",@"title"]];
+        
+        NSArray* valRes = [self.context executeFetchRequest:validationRequest error:nil];
+        
+        for(Banner* banner in valRes)
+        {
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"B: Id: [%@]\n",banner.bannerId]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    link: [%@]\n", banner.bannerLink]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    url: [%@]\n", banner.linkedUrl]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    title: [%@]\n", banner.title]];
+
+        }
+
+        
+    }
+    
     //Test getAllProgram
     else
     {
@@ -266,6 +337,7 @@
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Fav: [%@]\n", program.numFavorites]];
         }
     }
+    
     
     
     
@@ -726,7 +798,7 @@
             
             [newProgram setValue:faculty forKey: @"faculty"];
             
-            JPLog(@"Program: %@\n%@\n%@\n%@\n%@", [newProgram valueForKey:@"programId"],[newProgram valueForKey:@"name"],[newProgram valueForKey:@"facebookLink"],[newProgram valueForKey:@"yearEstablished"],[newProgram valueForKey:@"faculty"]);
+//            JPLog(@"Program: %@\n%@\n%@\n%@\n%@", [newProgram valueForKey:@"programId"],[newProgram valueForKey:@"name"],[newProgram valueForKey:@"facebookLink"],[newProgram valueForKey:@"yearEstablished"],[newProgram valueForKey:@"faculty"]);
         }
         else
         {

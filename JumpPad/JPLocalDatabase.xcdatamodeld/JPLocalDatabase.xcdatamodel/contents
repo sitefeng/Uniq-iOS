@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="iOS 7.0">
-    <entity name="Banners" representedClassName="Banners" syncable="YES">
-        <attribute name="bannerData" optional="YES" attributeType="Binary" syncable="YES"/>
+    <entity name="Banner" representedClassName="Banner" syncable="YES">
         <attribute name="bannerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bannerLink" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="descriptor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkedUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -139,7 +137,7 @@
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HighschoolCourse" inverseName="user" inverseEntity="HighschoolCourse" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Banners" positionX="556" positionY="-99" width="128" height="133"/>
+        <element name="Banner" positionX="556" positionY="-99" width="128" height="103"/>
         <element name="Faculty" positionX="-2" positionY="-117" width="128" height="253"/>
         <element name="HighschoolCourse" positionX="900" positionY="-108" width="128" height="103"/>
         <element name="Program" positionX="250" positionY="263" width="128" height="358"/>

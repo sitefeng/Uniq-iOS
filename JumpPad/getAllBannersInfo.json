@@ -1,0 +1,37 @@
+[
+	{
+		"bannerId":1,
+		"bannerLink":"http:\/\/sitefeng.com\/images\/Jump\/banner1.png",
+		"linkedUrl":"www.apple.com",
+		"title": "Apple Campus",
+        "toDelete": false
+	},
+	{
+		"bannerId":2,
+		"bannerLink":"http:\/\/sitefeng.com\/images\/Jump\/banner2.png",
+		"linkedUrl":"www.google.com",
+		"title": "Google Campus",
+ 		"toDelete": false
+	},
+	{
+		"bannerId":3,
+		"bannerLink":"http:\/\/sitefeng.com\/images\/Jump\/banner3.png",
+		"linkedUrl":"www.netflix.com",
+		"title": "Watch Movies",
+ 		"toDelete": false
+	},
+	{
+		"bannerId":4,
+		"bannerLink":"http:\/\/sitefeng.com\/images\/Jump\/banner4.png",
+		"linkedUrl":"www.yahoo.com",
+		"title": "Yahoo US",
+ 		"toDelete": false
+	},
+	{
+		"bannerId":5,
+		"bannerLink":"http:\/\/sitefeng.com\/images\/Jump\/banner5.png",
+		"linkedUrl":"www.harvard.edu",
+		"title": "Harvard University",
+ 		"toDelete": false
+	},
+]

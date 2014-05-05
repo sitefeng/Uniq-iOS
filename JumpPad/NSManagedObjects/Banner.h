@@ -1,5 +1,5 @@
 //
-//  Banners.h
+//  Banner.h
 //  JumpPad
 //
 //  Created by Si Te Feng on 2014-05-04.
@@ -10,12 +10,10 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Banners : NSManagedObject
+@interface Banner : NSManagedObject
 
-@property (nonatomic, retain) NSData * bannerData;
 @property (nonatomic, retain) NSNumber * bannerId;
 @property (nonatomic, retain) NSString * bannerLink;
-@property (nonatomic, retain) NSString * descriptor;
 @property (nonatomic, retain) NSString * linkedUrl;
 @property (nonatomic, retain) NSString * title;
 

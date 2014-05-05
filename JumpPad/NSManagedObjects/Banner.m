@@ -1,20 +1,18 @@
 //
-//  Banners.m
+//  Banner.m
 //  JumpPad
 //
 //  Created by Si Te Feng on 2014-05-04.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "Banners.h"
+#import "Banner.h"
 
 
-@implementation Banners
+@implementation Banner
 
-@dynamic bannerData;
 @dynamic bannerId;
 @dynamic bannerLink;
-@dynamic descriptor;
 @dynamic linkedUrl;
 @dynamic title;
 

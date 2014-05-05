@@ -74,19 +74,20 @@
 		5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */; };
 		5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAD18556A9900FE3B5B /* JPLocation.m */; };
 		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
-		5DD82E7D19171379000577F8 /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E7C19171379000577F8 /* SchoolLocation.m */; };
-		5DD82E801917137A000577F8 /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E7F1917137A000577F8 /* ProgramCourse.m */; };
-		5DD82E831917137A000577F8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E821917137A000577F8 /* User.m */; };
-		5DD82E861917137A000577F8 /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E851917137A000577F8 /* HighschoolCourse.m */; };
-		5DD82E891917137A000577F8 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E881917137A000577F8 /* Program.m */; };
-		5DD82E8C1917137A000577F8 /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E8B1917137A000577F8 /* ProgramRating.m */; };
-		5DD82E8F1917137A000577F8 /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E8E1917137A000577F8 /* ProgramYearlyTuition.m */; };
-		5DD82E921917137A000577F8 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E911917137A000577F8 /* School.m */; };
-		5DD82E951917137A000577F8 /* Banners.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E941917137A000577F8 /* Banners.m */; };
-		5DD82E981917137A000577F8 /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E971917137A000577F8 /* ProgramApplicationStat.m */; };
-		5DD82E9B1917137A000577F8 /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E9A1917137A000577F8 /* SchoolRanking.m */; };
-		5DD82E9E1917137A000577F8 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82E9D1917137A000577F8 /* Faculty.m */; };
-		5DD82EA11917137A000577F8 /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EA01917137A000577F8 /* ImageLink.m */; };
+		5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */; };
+		5DD82ECD19173C80000577F8 /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82ECC19173C80000577F8 /* ProgramApplicationStat.m */; };
+		5DD82ED019173C80000577F8 /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82ECF19173C80000577F8 /* ProgramCourse.m */; };
+		5DD82ED319173C81000577F8 /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82ED219173C81000577F8 /* ProgramRating.m */; };
+		5DD82ED619173C81000577F8 /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82ED519173C81000577F8 /* SchoolLocation.m */; };
+		5DD82ED919173C81000577F8 /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82ED819173C81000577F8 /* ProgramYearlyTuition.m */; };
+		5DD82EDC19173C81000577F8 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EDB19173C81000577F8 /* School.m */; };
+		5DD82EDF19173C81000577F8 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EDE19173C81000577F8 /* Banner.m */; };
+		5DD82EE219173C81000577F8 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EE119173C81000577F8 /* Faculty.m */; };
+		5DD82EE519173C81000577F8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EE419173C81000577F8 /* User.m */; };
+		5DD82EE819173C81000577F8 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EE719173C81000577F8 /* Program.m */; };
+		5DD82EEB19173C81000577F8 /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EEA19173C81000577F8 /* HighschoolCourse.m */; };
+		5DD82EEE19173C81000577F8 /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EED19173C81000577F8 /* ImageLink.m */; };
+		5DD82EF119173C81000577F8 /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EF019173C81000577F8 /* SchoolRanking.m */; };
 		5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
@@ -226,32 +227,33 @@
 		5DAC8FAC18556A9900FE3B5B /* JPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPLocation.h; sourceTree = "<group>"; };
 		5DAC8FAD18556A9900FE3B5B /* JPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocation.m; sourceTree = "<group>"; };
 		5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocationTest.m; sourceTree = "<group>"; };
-		5DD82E7B19171379000577F8 /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolLocation.h; path = NSManagedObjects/SchoolLocation.h; sourceTree = "<group>"; };
-		5DD82E7C19171379000577F8 /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolLocation.m; path = NSManagedObjects/SchoolLocation.m; sourceTree = "<group>"; };
-		5DD82E7E1917137A000577F8 /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramCourse.h; path = NSManagedObjects/ProgramCourse.h; sourceTree = "<group>"; };
-		5DD82E7F1917137A000577F8 /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramCourse.m; path = NSManagedObjects/ProgramCourse.m; sourceTree = "<group>"; };
-		5DD82E811917137A000577F8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = NSManagedObjects/User.h; sourceTree = "<group>"; };
-		5DD82E821917137A000577F8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = NSManagedObjects/User.m; sourceTree = "<group>"; };
-		5DD82E841917137A000577F8 /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighschoolCourse.h; path = NSManagedObjects/HighschoolCourse.h; sourceTree = "<group>"; };
-		5DD82E851917137A000577F8 /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighschoolCourse.m; path = NSManagedObjects/HighschoolCourse.m; sourceTree = "<group>"; };
-		5DD82E871917137A000577F8 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = NSManagedObjects/Program.h; sourceTree = "<group>"; };
-		5DD82E881917137A000577F8 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Program.m; path = NSManagedObjects/Program.m; sourceTree = "<group>"; };
-		5DD82E8A1917137A000577F8 /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramRating.h; path = NSManagedObjects/ProgramRating.h; sourceTree = "<group>"; };
-		5DD82E8B1917137A000577F8 /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramRating.m; path = NSManagedObjects/ProgramRating.m; sourceTree = "<group>"; };
-		5DD82E8D1917137A000577F8 /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramYearlyTuition.h; path = NSManagedObjects/ProgramYearlyTuition.h; sourceTree = "<group>"; };
-		5DD82E8E1917137A000577F8 /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramYearlyTuition.m; path = NSManagedObjects/ProgramYearlyTuition.m; sourceTree = "<group>"; };
-		5DD82E901917137A000577F8 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = School.h; path = NSManagedObjects/School.h; sourceTree = "<group>"; };
-		5DD82E911917137A000577F8 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = School.m; path = NSManagedObjects/School.m; sourceTree = "<group>"; };
-		5DD82E931917137A000577F8 /* Banners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banners.h; path = NSManagedObjects/Banners.h; sourceTree = "<group>"; };
-		5DD82E941917137A000577F8 /* Banners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banners.m; path = NSManagedObjects/Banners.m; sourceTree = "<group>"; };
-		5DD82E961917137A000577F8 /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramApplicationStat.h; path = NSManagedObjects/ProgramApplicationStat.h; sourceTree = "<group>"; };
-		5DD82E971917137A000577F8 /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramApplicationStat.m; path = NSManagedObjects/ProgramApplicationStat.m; sourceTree = "<group>"; };
-		5DD82E991917137A000577F8 /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolRanking.h; path = NSManagedObjects/SchoolRanking.h; sourceTree = "<group>"; };
-		5DD82E9A1917137A000577F8 /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolRanking.m; path = NSManagedObjects/SchoolRanking.m; sourceTree = "<group>"; };
-		5DD82E9C1917137A000577F8 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faculty.h; path = NSManagedObjects/Faculty.h; sourceTree = "<group>"; };
-		5DD82E9D1917137A000577F8 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faculty.m; path = NSManagedObjects/Faculty.m; sourceTree = "<group>"; };
-		5DD82E9F1917137A000577F8 /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLink.h; path = NSManagedObjects/ImageLink.h; sourceTree = "<group>"; };
-		5DD82EA01917137A000577F8 /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLink.m; path = NSManagedObjects/ImageLink.m; sourceTree = "<group>"; };
+		5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllBannersInfo.json; sourceTree = "<group>"; };
+		5DD82ECB19173C80000577F8 /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramApplicationStat.h; path = NSManagedObjects/ProgramApplicationStat.h; sourceTree = "<group>"; };
+		5DD82ECC19173C80000577F8 /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramApplicationStat.m; path = NSManagedObjects/ProgramApplicationStat.m; sourceTree = "<group>"; };
+		5DD82ECE19173C80000577F8 /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramCourse.h; path = NSManagedObjects/ProgramCourse.h; sourceTree = "<group>"; };
+		5DD82ECF19173C80000577F8 /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramCourse.m; path = NSManagedObjects/ProgramCourse.m; sourceTree = "<group>"; };
+		5DD82ED119173C81000577F8 /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramRating.h; path = NSManagedObjects/ProgramRating.h; sourceTree = "<group>"; };
+		5DD82ED219173C81000577F8 /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramRating.m; path = NSManagedObjects/ProgramRating.m; sourceTree = "<group>"; };
+		5DD82ED419173C81000577F8 /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolLocation.h; path = NSManagedObjects/SchoolLocation.h; sourceTree = "<group>"; };
+		5DD82ED519173C81000577F8 /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolLocation.m; path = NSManagedObjects/SchoolLocation.m; sourceTree = "<group>"; };
+		5DD82ED719173C81000577F8 /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramYearlyTuition.h; path = NSManagedObjects/ProgramYearlyTuition.h; sourceTree = "<group>"; };
+		5DD82ED819173C81000577F8 /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramYearlyTuition.m; path = NSManagedObjects/ProgramYearlyTuition.m; sourceTree = "<group>"; };
+		5DD82EDA19173C81000577F8 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = School.h; path = NSManagedObjects/School.h; sourceTree = "<group>"; };
+		5DD82EDB19173C81000577F8 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = School.m; path = NSManagedObjects/School.m; sourceTree = "<group>"; };
+		5DD82EDD19173C81000577F8 /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banner.h; path = NSManagedObjects/Banner.h; sourceTree = "<group>"; };
+		5DD82EDE19173C81000577F8 /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banner.m; path = NSManagedObjects/Banner.m; sourceTree = "<group>"; };
+		5DD82EE019173C81000577F8 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faculty.h; path = NSManagedObjects/Faculty.h; sourceTree = "<group>"; };
+		5DD82EE119173C81000577F8 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faculty.m; path = NSManagedObjects/Faculty.m; sourceTree = "<group>"; };
+		5DD82EE319173C81000577F8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = NSManagedObjects/User.h; sourceTree = "<group>"; };
+		5DD82EE419173C81000577F8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = NSManagedObjects/User.m; sourceTree = "<group>"; };
+		5DD82EE619173C81000577F8 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = NSManagedObjects/Program.h; sourceTree = "<group>"; };
+		5DD82EE719173C81000577F8 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Program.m; path = NSManagedObjects/Program.m; sourceTree = "<group>"; };
+		5DD82EE919173C81000577F8 /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighschoolCourse.h; path = NSManagedObjects/HighschoolCourse.h; sourceTree = "<group>"; };
+		5DD82EEA19173C81000577F8 /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighschoolCourse.m; path = NSManagedObjects/HighschoolCourse.m; sourceTree = "<group>"; };
+		5DD82EEC19173C81000577F8 /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLink.h; path = NSManagedObjects/ImageLink.h; sourceTree = "<group>"; };
+		5DD82EED19173C81000577F8 /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLink.m; path = NSManagedObjects/ImageLink.m; sourceTree = "<group>"; };
+		5DD82EEF19173C81000577F8 /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolRanking.h; path = NSManagedObjects/SchoolRanking.h; sourceTree = "<group>"; };
+		5DD82EF019173C81000577F8 /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolRanking.m; path = NSManagedObjects/SchoolRanking.m; sourceTree = "<group>"; };
 		5DE5B7AC184ACBB700EFCE0A /* Jump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -327,6 +329,7 @@
 				5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */,
 				5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */,
 				5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */,
+				5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -576,32 +579,32 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				5DD82E9F1917137A000577F8 /* ImageLink.h */,
-				5DD82EA01917137A000577F8 /* ImageLink.m */,
-				5DD82E9C1917137A000577F8 /* Faculty.h */,
-				5DD82E9D1917137A000577F8 /* Faculty.m */,
-				5DD82E991917137A000577F8 /* SchoolRanking.h */,
-				5DD82E9A1917137A000577F8 /* SchoolRanking.m */,
-				5DD82E961917137A000577F8 /* ProgramApplicationStat.h */,
-				5DD82E971917137A000577F8 /* ProgramApplicationStat.m */,
-				5DD82E931917137A000577F8 /* Banners.h */,
-				5DD82E941917137A000577F8 /* Banners.m */,
-				5DD82E901917137A000577F8 /* School.h */,
-				5DD82E911917137A000577F8 /* School.m */,
-				5DD82E8D1917137A000577F8 /* ProgramYearlyTuition.h */,
-				5DD82E8E1917137A000577F8 /* ProgramYearlyTuition.m */,
-				5DD82E8A1917137A000577F8 /* ProgramRating.h */,
-				5DD82E8B1917137A000577F8 /* ProgramRating.m */,
-				5DD82E871917137A000577F8 /* Program.h */,
-				5DD82E881917137A000577F8 /* Program.m */,
-				5DD82E841917137A000577F8 /* HighschoolCourse.h */,
-				5DD82E851917137A000577F8 /* HighschoolCourse.m */,
-				5DD82E811917137A000577F8 /* User.h */,
-				5DD82E821917137A000577F8 /* User.m */,
-				5DD82E7E1917137A000577F8 /* ProgramCourse.h */,
-				5DD82E7F1917137A000577F8 /* ProgramCourse.m */,
-				5DD82E7B19171379000577F8 /* SchoolLocation.h */,
-				5DD82E7C19171379000577F8 /* SchoolLocation.m */,
+				5DD82EEF19173C81000577F8 /* SchoolRanking.h */,
+				5DD82EF019173C81000577F8 /* SchoolRanking.m */,
+				5DD82EEC19173C81000577F8 /* ImageLink.h */,
+				5DD82EED19173C81000577F8 /* ImageLink.m */,
+				5DD82EE919173C81000577F8 /* HighschoolCourse.h */,
+				5DD82EEA19173C81000577F8 /* HighschoolCourse.m */,
+				5DD82EE619173C81000577F8 /* Program.h */,
+				5DD82EE719173C81000577F8 /* Program.m */,
+				5DD82EE319173C81000577F8 /* User.h */,
+				5DD82EE419173C81000577F8 /* User.m */,
+				5DD82EE019173C81000577F8 /* Faculty.h */,
+				5DD82EE119173C81000577F8 /* Faculty.m */,
+				5DD82EDD19173C81000577F8 /* Banner.h */,
+				5DD82EDE19173C81000577F8 /* Banner.m */,
+				5DD82EDA19173C81000577F8 /* School.h */,
+				5DD82EDB19173C81000577F8 /* School.m */,
+				5DD82ED719173C81000577F8 /* ProgramYearlyTuition.h */,
+				5DD82ED819173C81000577F8 /* ProgramYearlyTuition.m */,
+				5DD82ED419173C81000577F8 /* SchoolLocation.h */,
+				5DD82ED519173C81000577F8 /* SchoolLocation.m */,
+				5DD82ED119173C81000577F8 /* ProgramRating.h */,
+				5DD82ED219173C81000577F8 /* ProgramRating.m */,
+				5DD82ECE19173C80000577F8 /* ProgramCourse.h */,
+				5DD82ECF19173C80000577F8 /* ProgramCourse.m */,
+				5DD82ECB19173C80000577F8 /* ProgramApplicationStat.h */,
+				5DD82ECC19173C80000577F8 /* ProgramApplicationStat.m */,
 			);
 			name = NSManagedObjects;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				5D36C4A51915FA1B00A5A7D8 /* getAllUniversitiesInfo.json in Resources */,
 				5DA82D7718C2FE430011AC26 /* MPCheckmark.png in Resources */,
 				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
+				5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */,
 				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
 				5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */,
 				5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */,
@@ -740,22 +744,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
-				5DD82E801917137A000577F8 /* ProgramCourse.m in Sources */,
-				5DD82E9E1917137A000577F8 /* Faculty.m in Sources */,
-				5DD82E981917137A000577F8 /* ProgramApplicationStat.m in Sources */,
+				5DD82ED019173C80000577F8 /* ProgramCourse.m in Sources */,
+				5DD82ECD19173C80000577F8 /* ProgramApplicationStat.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5D16762F18560E580041993E /* iPadFilterBarView.m in Sources */,
+				5DD82EEB19173C81000577F8 /* HighschoolCourse.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
-				5DD82E8F1917137A000577F8 /* ProgramYearlyTuition.m in Sources */,
+				5DD82ED919173C81000577F8 /* ProgramYearlyTuition.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
-				5DD82E8C1917137A000577F8 /* ProgramRating.m in Sources */,
+				5DD82ED319173C81000577F8 /* ProgramRating.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
-				5DD82E951917137A000577F8 /* Banners.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
-				5DD82EA11917137A000577F8 /* ImageLink.m in Sources */,
-				5DD82E7D19171379000577F8 /* SchoolLocation.m in Sources */,
+				5DD82EE519173C81000577F8 /* User.m in Sources */,
+				5DD82ED619173C81000577F8 /* SchoolLocation.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5D70562518BA061D002941B3 /* iPadFacultySelectViewController.m in Sources */,
 				5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */,
@@ -763,30 +766,31 @@
 				5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
-				5DD82E831917137A000577F8 /* User.m in Sources */,
+				5DD82EF119173C81000577F8 /* SchoolRanking.m in Sources */,
 				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
 				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
+				5DD82EE219173C81000577F8 /* Faculty.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
 				5D2664D618BB268D00C8CC91 /* iPadCollegeViewController.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
+				5DD82EDF19173C81000577F8 /* Banner.m in Sources */,
 				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
 				5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
 				5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */,
-				5DD82E9B1917137A000577F8 /* SchoolRanking.m in Sources */,
+				5DD82EEE19173C81000577F8 /* ImageLink.m in Sources */,
+				5DD82EE819173C81000577F8 /* Program.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
-				5DD82E891917137A000577F8 /* Program.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
-				5DD82E861917137A000577F8 /* HighschoolCourse.m in Sources */,
 				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
-				5DD82E921917137A000577F8 /* School.m in Sources */,
+				5DD82EDC19173C81000577F8 /* School.m in Sources */,
 				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
 				5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */,
