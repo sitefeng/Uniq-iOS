@@ -9,14 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "iPadSearchBarView.h"
 #import "iPadMainCollectionViewCell.h"
+#import "sortViewController.h"
 
 
 @class iPadSearchBarView, iPadSearchBarView, iPadFacultyBannerView;
 
-@interface iPadFacultySelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPDashletInfoDelegate, UIPopoverControllerDelegate>
-
-
-
+@interface iPadFacultySelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPDashletInfoDelegate, JPSortDelegate, UIPopoverControllerDelegate>
 {
 @private
     

@@ -12,7 +12,7 @@
 #import "iPadMainCollectionViewCell.h"
 #import "iPadFacultyBannerView.h"
 #import "sortViewController.h"
-#import "iPadFacultySelectViewController.h"
+#import "iPadProgramSelectViewController.h"
 #import "iPadCollegeViewController.h"
 #import "iPadMainCollectionViewCell.h"
 #import "Faculty.h"
@@ -121,7 +121,6 @@
 {
     //Core Data id and dashlet id are different
     NSInteger coreDataSchoolId = (NSInteger)self.schoolId/pow(10,6);
-    NSLog(@"coreDataSchoolIdcoreDataSchoolId: %i", coreDataSchoolId);
     
     NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
     dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -169,7 +168,7 @@
     if([self.dashlets count]>indexPath.item)
     {
         cell.dashletInfo = self.dashlets[indexPath.item];
-        NSLog(@"ROW:%i, ITEM:%i", indexPath.row, indexPath.item);
+        
     }
     
     cell.delegate = self;
@@ -214,6 +213,20 @@
 
 
 #pragma mark - JPSearchBar Delegate Methods
+
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    iPadProgramSelectViewController* viewController = [[iPadProgramSelectViewController alloc] init];
+    
+    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
+    
+    viewController.title = selectedDashlet.title;
+    viewController.facultyId = selectedDashlet.dashletUid;
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -276,19 +289,6 @@
 
 
 #pragma mark - JPSearchBar Delegate Methods
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    iPadFacultySelectViewController* viewController = [[iPadFacultySelectViewController alloc] initWithNibName:@"iPadFacultySelectViewController" bundle:nil];
-    
-    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
-    
-    viewController.title = selectedDashlet.title;
-    viewController.schoolId = selectedDashlet.dashletUid;
-    
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {

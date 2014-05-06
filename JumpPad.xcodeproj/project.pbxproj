@@ -23,6 +23,14 @@
 		5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */; };
 		5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */; };
 		5D338A17191896EE00A62AC0 /* iPadProgramBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A16191896EE00A62AC0 /* iPadProgramBannerView.m */; };
+		5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */; };
+		5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */; };
+		5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */; };
+		5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2319189DA700A62AC0 /* iPadProgramContactViewController.m */; };
+		5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */; };
+		5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2919189DCB00A62AC0 /* iPadProgramRatingsViewController.m */; };
+		5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */; };
+		5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */; };
 		5D36C3DB1915793700A5A7D8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D36C3DA1915793700A5A7D8 /* CoreData.framework */; };
 		5D36C4A51915FA1B00A5A7D8 /* getAllUniversitiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */; };
 		5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */; };
@@ -147,6 +155,22 @@
 		5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSelectViewController.m; sourceTree = "<group>"; };
 		5D338A15191896EE00A62AC0 /* iPadProgramBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramBannerView.h; sourceTree = "<group>"; };
 		5D338A16191896EE00A62AC0 /* iPadProgramBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramBannerView.m; sourceTree = "<group>"; };
+		5D338A1819189B5D00A62AC0 /* iPadProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramViewController.h; sourceTree = "<group>"; };
+		5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramViewController.m; sourceTree = "<group>"; };
+		5D338A1C19189D8100A62AC0 /* iPadProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramHomeViewController.h; sourceTree = "<group>"; };
+		5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramHomeViewController.m; sourceTree = "<group>"; };
+		5D338A1F19189D9600A62AC0 /* iPadProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramAcademicsViewController.h; sourceTree = "<group>"; };
+		5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramAcademicsViewController.m; sourceTree = "<group>"; };
+		5D338A2219189DA700A62AC0 /* iPadProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramContactViewController.h; sourceTree = "<group>"; };
+		5D338A2319189DA700A62AC0 /* iPadProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramContactViewController.m; sourceTree = "<group>"; };
+		5D338A2519189DB900A62AC0 /* iPadProgramCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramCompareViewController.h; sourceTree = "<group>"; };
+		5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramCompareViewController.m; sourceTree = "<group>"; };
+		5D338A2819189DCB00A62AC0 /* iPadProgramRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramRatingsViewController.h; sourceTree = "<group>"; };
+		5D338A2919189DCB00A62AC0 /* iPadProgramRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramRatingsViewController.m; sourceTree = "<group>"; };
+		5D338A2B19189E3800A62AC0 /* iPadProgramLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramLabelView.h; sourceTree = "<group>"; };
+		5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramLabelView.m; sourceTree = "<group>"; };
+		5D338A3019189EC100A62AC0 /* iPadProgramImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramImagesViewController.h; sourceTree = "<group>"; };
+		5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramImagesViewController.m; sourceTree = "<group>"; };
 		5D36C3DA1915793700A5A7D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfo.json; sourceTree = "<group>"; };
 		5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFacultiesInfo.json; sourceTree = "<group>"; };
@@ -330,6 +354,29 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		5D338A1B19189B6500A62AC0 /* iPadProgramViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5D338A1819189B5D00A62AC0 /* iPadProgramViewController.h */,
+				5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */,
+				5D338A1C19189D8100A62AC0 /* iPadProgramHomeViewController.h */,
+				5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */,
+				5D338A3019189EC100A62AC0 /* iPadProgramImagesViewController.h */,
+				5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */,
+				5D338A1F19189D9600A62AC0 /* iPadProgramAcademicsViewController.h */,
+				5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */,
+				5D338A2219189DA700A62AC0 /* iPadProgramContactViewController.h */,
+				5D338A2319189DA700A62AC0 /* iPadProgramContactViewController.m */,
+				5D338A2519189DB900A62AC0 /* iPadProgramCompareViewController.h */,
+				5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */,
+				5D338A2819189DCB00A62AC0 /* iPadProgramRatingsViewController.h */,
+				5D338A2919189DCB00A62AC0 /* iPadProgramRatingsViewController.m */,
+				5D338A2B19189E3800A62AC0 /* iPadProgramLabelView.h */,
+				5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */,
+			);
+			name = iPadProgramViewController;
+			sourceTree = "<group>";
+		};
 		5D36C4A61915FA2100A5A7D8 /* Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +504,7 @@
 				5D2664D318BB268D00C8CC91 /* iPadCollegeViewController.h */,
 				5D2664D418BB268D00C8CC91 /* iPadCollegeViewController.m */,
 				5D2664D518BB268D00C8CC91 /* iPadCollegeViewController.xib */,
+				5D338A1B19189B6500A62AC0 /* iPadProgramViewController */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -756,6 +804,7 @@
 			files = (
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
 				5DD82ED019173C80000577F8 /* ProgramCourse.m in Sources */,
+				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5DD82ECD19173C80000577F8 /* ProgramApplicationStat.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */,
@@ -767,10 +816,12 @@
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5DD82ED319173C81000577F8 /* ProgramRating.m in Sources */,
+				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
 				5DD82EE519173C81000577F8 /* User.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
+				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
 				5DD82ED619173C81000577F8 /* SchoolLocation.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */,
@@ -781,14 +832,17 @@
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
 				5DD82EF119173C81000577F8 /* SchoolRanking.m in Sources */,
 				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
+				5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */,
 				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5DD82EE219173C81000577F8 /* Faculty.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
+				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
 				5D2664D618BB268D00C8CC91 /* iPadCollegeViewController.m in Sources */,
 				5D338A17191896EE00A62AC0 /* iPadProgramBannerView.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
+				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
 				5DD82EDF19173C81000577F8 /* Banner.m in Sources */,
 				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
@@ -798,9 +852,11 @@
 				5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */,
 				5DD82EEE19173C81000577F8 /* ImageLink.m in Sources */,
 				5DD82EE819173C81000577F8 /* Program.m in Sources */,
+				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
+				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
 				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
