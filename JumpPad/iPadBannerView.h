@@ -26,13 +26,15 @@
 @property (nonatomic, strong) NSMutableArray* imgArrayURL;
 
 
-//Array of UIImage
-//@property (nonatomic, strong) NSMutableArray* imgArray;
 
 //Array of UIImageView
 @property (nonatomic, strong) NSMutableArray* bannerArray;
 
 
+
+- (void)pauseAutoscroll;
+
+- (void)activateAutoscroll; //Autoscroll by Default
 
 
 

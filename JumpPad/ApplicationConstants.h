@@ -22,13 +22,33 @@
 
 #pragma mark - Default Names
 
-#define kSearchBarPlaceholderText @"Filter Universities (search coming soon)"
+#define kSearchBarPlaceholderText @"Filter for Name"
 
 
 
 #define MIXPANEL_TOKEN @"5b5fabc80437ba330dd37ae889f26dae"
 
 
+
+
+#pragma mark - Typedef Enums
+
+typedef enum
+{
+    JPSortTypeAlphabetical = 0,
+    JPSortTypeClosest,
+    JPSortTypeHighestEntryAvg,
+    JPSortTypeLargestCollege
+}JPSortType;
+
+
+typedef enum
+{
+    JPDashletTypeSchool,
+    JPDashletTypeFaculty,
+    JPDashletTypeProgram
+    
+}JPDashletType;
 
 
 

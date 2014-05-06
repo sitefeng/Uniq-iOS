@@ -1,14 +1,14 @@
 //
-//  iPadFilterBarView.m
+//  iPadFacultyBannerView.m
 //  JumpPad
 //
-//  Created by Si Te Feng on 12/9/2013.
-//  Copyright (c) 2013 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 2014-05-05.
+//  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadFilterBarView.h"
+#import "iPadFacultyBannerView.h"
 
-@implementation iPadFilterBarView
+@implementation iPadFacultyBannerView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -16,27 +16,11 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor blueColor];
         
     }
     return self;
 }
-
-- (void) setFrame:(CGRect)frame
-{
-    [super setFrame:frame];
-    
-    self.backgroundColor = [UIColor whiteColor];
-    
-    
-}
-
-
-
-
-
-
-
 
 /*
 // Only override drawRect: if you perform custom drawing.

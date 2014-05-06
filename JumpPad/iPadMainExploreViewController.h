@@ -11,13 +11,7 @@
 #import "sortViewController.h"
 #import "iPadMainCollectionViewCell.h"
 
-typedef enum
-{
-    JPSortTypeAlphabetical = 0,
-    JPSortTypeClosest,
-    JPSortTypeHighestEntryAvg,
-    JPSortTypeLargestCollege
-}JPSortType;
+
 
 @class iPadBannerView;
 

@@ -9,16 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "JPLocation.h"
 
-typedef enum
-{
-    JPDashletTypeSchool,
-    JPDashletTypeFaculty,
-    JPDashletTypeProgram
-
-} JPDashletType;
 
 
-@class School;
+@class School, Faculty, Program;
 
 
 @interface JPDashlet : NSObject <NSCopying>
@@ -27,27 +20,35 @@ typedef enum
 
 @property (nonatomic, assign) NSInteger dashletUid;
 
-@property (nonatomic, strong) JPLocation* location;
-//Includes the country, city, and coordinates
 
 
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) NSUInteger type;
 @property (nonatomic, strong) NSMutableArray*  backgroundImages;
-                               //Array of NSURLs
+                             //Array of NSURLs
+
 
 //For dashlet grid detail view
 @property (nonatomic, strong) NSNumber* yearEstablished;
 @property (nonatomic, strong) NSNumber* population;
 
-//Not Applicable to Faculties and Programs
+
+//******************
+//For Schools Only
+
+@property (nonatomic, strong) JPLocation* location;
+//Includes the country, city, and coordinates
+
 @property (nonatomic, strong) NSURL* icon;
 
+//******************
 
 
+- (instancetype)initWithDashletUid: (NSInteger)uid; //Do Not Use
 
-- (instancetype)initWithDashletUid: (NSInteger)uid;
 - (instancetype)initWithSchool: (School*)school;
+- (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletId;
+- (instancetype)initWithProgram: (Program*)program fromFaculty: (NSInteger)facultyDashletId; //Full ID
 
 - (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet;
 

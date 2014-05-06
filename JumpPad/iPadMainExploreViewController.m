@@ -98,7 +98,7 @@
     //Initialize banner
     self.bannerURLs = [NSMutableArray array];
     
-    //CORE LOCATION
+
     
     
 
@@ -110,10 +110,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self updateDashletsInfo];
-
+    [self.bannerView activateAutoscroll];
     [self.cv reloadData];
     [self updateBannerInfo];
-
 }
 
 
@@ -263,12 +262,22 @@
 
 //Header and Footer
 //-(UICollectionReusableView*) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//
-//
-//}
 
-#pragma mark - UICollectionView Delegate FlowLayout
+
+#pragma mark - UICollectionView Delegate Methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    iPadFacultySelectViewController* viewController = [[iPadFacultySelectViewController alloc] init];
+    
+    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
+    
+    viewController.title = selectedDashlet.title;
+    viewController.schoolId = selectedDashlet.dashletUid;
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 //Dashlet Size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -320,21 +329,18 @@
 - (void)sortButtonPressed:(UIButton*)button
 {
 
-//    sortViewController* vc = [[sortViewController alloc] init];
-//    vc.delegate = self;
-//    vc.sortType = self.sortType;
-//    
-//    UIPopoverController* popover = [[UIPopoverController alloc] initWithContentViewController:vc];
-//    
-//    popover.popoverContentSize = CGSizeMake(220, 4 * 45);
-//    popover.delegate = self;
-//    
-//    self.localPopoverController = popover;
-//    
-//    [self.localPopoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    sortViewController* vc = [[sortViewController alloc] init];
+    vc.delegate = self;
+    vc.sortType = self.sortType;
     
-    [self updateDashletsInfo];
+    UIPopoverController* popover = [[UIPopoverController alloc] initWithContentViewController:vc];
     
+    popover.popoverContentSize = CGSizeMake(220, 4 * 45);
+    popover.delegate = self;
+    
+    self.localPopoverController = popover;
+    
+    [self.localPopoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
 
@@ -363,17 +369,6 @@
 
 #pragma mark - JPSearchBar Delegate Methods
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    iPadFacultySelectViewController* viewController = [[iPadFacultySelectViewController alloc] initWithNibName:@"iPadFacultySelectViewController" bundle:nil];
-    
-    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
-    
-    viewController.title = selectedDashlet.title;
-    viewController.itemUid = selectedDashlet.dashletUid;
-    
-    [self.navigationController pushViewController:viewController animated:YES];
-}
 
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -418,6 +413,13 @@
 {
     [self.view endEditing:YES];
 }
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.bannerView pauseAutoscroll];
+}
+
 
 
 

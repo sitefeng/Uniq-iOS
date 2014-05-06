@@ -8,7 +8,6 @@
 
 #import "iPadMainFeaturedViewController.h"
 #import "JPDashlet.h"
-#import "iPadFilterBarView.h"
 #import "iPadMainCollectionViewCell.h"
 
 

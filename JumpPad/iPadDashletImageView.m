@@ -47,10 +47,7 @@
 - (void)setImageURLs:(NSMutableArray *)imageUrls //NSURL array
 {
     _imageURLs = imageUrls;
-    
     _imagesToLoad = [imageUrls count];
-    
-//    for(NSURL* url in _imageURLs)
    
     if([self.imageURLs count] == 0 || !self.imageURLs)
     {
@@ -62,10 +59,7 @@
     {
         [[AsyncImageLoader sharedLoader] loadImageWithURL:[_imageURLs firstObject] target:self action:@selector(imageLoaded)];
     
-    
     }
-  
-    
    
 }
 
@@ -86,7 +80,6 @@
     
     if(_imagesToLoad == 0)
     {
-        
         if([self.imageURLs count] == 1)
         {
             self.backgroundView.animationImages = nil;

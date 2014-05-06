@@ -76,6 +76,71 @@
 
 
 
+- (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletId
+{
+    
+    self = [super init];
+    if(self)
+    {
+        int partialFaculty = (int)([faculty.facultyId floatValue] * pow(10, 3));
+        self.dashletUid = schoolDashletId + partialFaculty;
+        
+        self.title = faculty.name;
+        self.type = JPDashletTypeFaculty;
+        
+        self.backgroundImages = [NSMutableArray array];
+        
+        NSArray* imageLinks = [faculty.images allObjects];
+        for(ImageLink* link in imageLinks)
+        {
+            NSURL* url = [NSURL URLWithString:link.imageLink];
+            if(url)
+                [self.backgroundImages addObject:url];
+        }
+        
+        self.yearEstablished = faculty.yearEstablished;
+        self.population = faculty.population;
+        
+    }
+    
+    return self;
+
+}
+
+
+
+- (instancetype)initWithProgram: (Program*)program fromFaculty:(NSInteger)facultyDashletId {
+    
+    self = [super init];
+    if(self)
+    {
+        int partialprogram = (int)[program.programId floatValue];
+        
+        self.dashletUid = facultyDashletId + partialprogram;
+        
+        self.title = program.name;
+        self.type = JPDashletTypeProgram;
+        
+        self.backgroundImages = [NSMutableArray array];
+        
+        NSArray* imageLinks = [program.images allObjects];
+        for(ImageLink* link in imageLinks)
+        {
+            NSURL* url = [NSURL URLWithString:link.imageLink];
+            if(url)
+                [self.backgroundImages addObject:url];
+        }
+        
+        self.yearEstablished = program.yearEstablished;
+        self.population = program.population;
+
+    }
+    
+    return self;
+}
+
+
+
 - (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet {
     return [self.title compare:otherDashlet.title];
     
@@ -99,7 +164,7 @@
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"Dashlet for %@[%ld]", self.title, (long)self.dashletUid];
+    return [NSString stringWithFormat:@"Dashlet-> %@[%ld]", self.title, (long)self.dashletUid];
 }
 
 - (instancetype)copyWithZone:(NSZone *)zone
