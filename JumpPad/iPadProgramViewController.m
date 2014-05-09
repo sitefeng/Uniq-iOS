@@ -60,11 +60,6 @@
         self.vc5.tabBarItem.title = @"Ratings";
         
         
-        
-        
-        
-        
-        
     }
     return self;
 }

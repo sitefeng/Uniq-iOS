@@ -137,16 +137,16 @@
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HighschoolCourse" inverseName="user" inverseEntity="HighschoolCourse" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Banner" positionX="556" positionY="-99" width="128" height="103"/>
+        <element name="Banner" positionX="556" positionY="-99" width="128" height="105"/>
         <element name="Faculty" positionX="-2" positionY="-117" width="128" height="253"/>
         <element name="HighschoolCourse" positionX="900" positionY="-108" width="128" height="103"/>
+        <element name="ImageLink" positionX="34" positionY="189" width="128" height="118"/>
         <element name="Program" positionX="250" positionY="263" width="128" height="358"/>
         <element name="ProgramApplicationStat" positionX="450" positionY="261" width="128" height="118"/>
         <element name="ProgramCourse" positionX="450" positionY="425" width="128" height="133"/>
         <element name="ProgramRating" positionX="-9" positionY="342" width="128" height="193"/>
         <element name="ProgramYearlyTuition" positionX="-11" positionY="557" width="128" height="118"/>
         <element name="School" positionX="223" positionY="-117" width="128" height="298"/>
-        <element name="ImageLink" positionX="34" positionY="189" width="128" height="118"/>
         <element name="SchoolLocation" positionX="376" positionY="-52" width="128" height="193"/>
         <element name="SchoolRanking" positionX="529" positionY="104" width="128" height="103"/>
         <element name="User" positionX="738" positionY="-118" width="128" height="118"/>

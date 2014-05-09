@@ -125,7 +125,7 @@
                 [self.context deleteObject:banner];
             }
 
-        if([bannerDict valueForKey:@"toDelete"]==[NSNumber numberWithBool:false])
+        if([[bannerDict valueForKey:@"toDelete"] isEqual:[NSNumber numberWithBool:false]])
         {
             Banner* newBanner = [NSEntityDescription insertNewObjectForEntityForName:@"Banner" inManagedObjectContext:self.context];
             
@@ -139,6 +139,7 @@
     }
     
     NSError* error = nil;
+    
     [self.context save:&error];
     if(error)
     {

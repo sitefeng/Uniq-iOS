@@ -11,6 +11,7 @@
 @interface JPFont : UIFont
 
 
++ (UIFont*)coolFontOfSize: (CGFloat)size;
 + (UIFont*)dashletTitleFont;
 
 

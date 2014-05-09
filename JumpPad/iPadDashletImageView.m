@@ -10,6 +10,8 @@
 #import "UIImage+ImageEffects.h"
 #import "AsyncImageView.h"
 
+#import "AFNetworkReachabilityManager.h"
+
 @implementation iPadDashletImageView
 
 - (id)initWithFrame:(CGRect)frame
@@ -48,8 +50,10 @@
 {
     _imageURLs = imageUrls;
     _imagesToLoad = [imageUrls count];
+    
+    BOOL _isReachable = [[AFNetworkReachabilityManager sharedManager] isReachable];
    
-    if([self.imageURLs count] == 0 || !self.imageURLs)
+    if([self.imageURLs count] == 0 || !self.imageURLs || !_isReachable)
     {
         UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
         self.backgroundView.animationImages = nil;

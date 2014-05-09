@@ -10,6 +10,15 @@
 
 @implementation JPFont
 
+
++ (UIFont*)coolFontOfSize: (CGFloat)size
+{
+    NSString *ledFontName = @"DBLCDTempBlack";
+    
+    return [UIFont fontWithName:ledFontName size:size];
+    
+}
+
 + (UIFont*)dashletTitleFont
 {
     return [UIFont fontWithName:@"HelveticaNeue" size:17];

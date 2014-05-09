@@ -35,6 +35,9 @@
 		5D36C4A51915FA1B00A5A7D8 /* getAllUniversitiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */; };
 		5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */; };
 		5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */; };
+		5D592B30191C740B00ECDCF7 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B2F191C740B00ECDCF7 /* XYPieChart.m */; };
+		5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */; };
+		5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */; };
 		5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F118B9B240002941B3 /* iPadSearchBarView.m */; };
 		5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F618B9C779002941B3 /* iPadBannerView.m */; };
 		5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055FA18B9E10D002941B3 /* AFHTTPRequestOperation.m */; };
@@ -175,6 +178,12 @@
 		5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfo.json; sourceTree = "<group>"; };
 		5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFacultiesInfo.json; sourceTree = "<group>"; };
 		5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllProgramsInfo.json; sourceTree = "<group>"; };
+		5D592B2E191C740B00ECDCF7 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		5D592B2F191C740B00ECDCF7 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
+		5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSummaryView.h; sourceTree = "<group>"; };
+		5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSummaryView.m; sourceTree = "<group>"; };
+		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailView.h; sourceTree = "<group>"; };
+		5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailView.m; sourceTree = "<group>"; };
 		5D7055F018B9B240002941B3 /* iPadSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSearchBarView.h; sourceTree = "<group>"; };
 		5D7055F118B9B240002941B3 /* iPadSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSearchBarView.m; sourceTree = "<group>"; };
 		5D7055F518B9C779002941B3 /* iPadBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadBannerView.h; sourceTree = "<group>"; };
@@ -371,8 +380,6 @@
 				5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */,
 				5D338A2819189DCB00A62AC0 /* iPadProgramRatingsViewController.h */,
 				5D338A2919189DCB00A62AC0 /* iPadProgramRatingsViewController.m */,
-				5D338A2B19189E3800A62AC0 /* iPadProgramLabelView.h */,
-				5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */,
 			);
 			name = iPadProgramViewController;
 			sourceTree = "<group>";
@@ -386,6 +393,24 @@
 				5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */,
 			);
 			name = Files;
+			sourceTree = "<group>";
+		};
+		5D592B2D191C740B00ECDCF7 /* XYPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				5D592B2E191C740B00ECDCF7 /* XYPieChart.h */,
+				5D592B2F191C740B00ECDCF7 /* XYPieChart.m */,
+			);
+			path = XYPieChart;
+			sourceTree = "<group>";
+		};
+		5D592B31191C741F00ECDCF7 /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				5DD82EF219175029000577F8 /* AsyncImageView.h */,
+				5DD82EF319175029000577F8 /* AsyncImageView.m */,
+			);
+			name = AsyncImageView;
 			sourceTree = "<group>";
 		};
 		5D7055F818B9E10D002941B3 /* AFNetworking */ = {
@@ -512,12 +537,12 @@
 		5DAC8FAB18555F0100FE3B5B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5DE0BA61191910DA00B97514 /* View in Program VC */,
 				5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */,
 				5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */,
 				5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */,
 				5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */,
-				5DD82EF219175029000577F8 /* AsyncImageView.h */,
-				5DD82EF319175029000577F8 /* AsyncImageView.m */,
+				5D592B31191C741F00ECDCF7 /* AsyncImageView */,
 				5D7055F018B9B240002941B3 /* iPadSearchBarView.h */,
 				5D7055F118B9B240002941B3 /* iPadSearchBarView.m */,
 				5D7055F518B9C779002941B3 /* iPadBannerView.h */,
@@ -530,10 +555,24 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		5DE0BA61191910DA00B97514 /* View in Program VC */ = {
+			isa = PBXGroup;
+			children = (
+				5D338A2B19189E3800A62AC0 /* iPadProgramLabelView.h */,
+				5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */,
+				5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */,
+				5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */,
+				5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */,
+				5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */,
+			);
+			name = "View in Program VC";
+			sourceTree = "<group>";
+		};
 		5DE5B7A3184ACBB700EFCE0A = {
 			isa = PBXGroup;
 			children = (
 				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5D592B2D191C740B00ECDCF7 /* XYPieChart */,
 				5DA82D2718C2FE430011AC26 /* Mixpanel */,
 				5D70561818B9E122002941B3 /* Image Blurring */,
 				5D7055F818B9E10D002941B3 /* AFNetworking */,
@@ -844,6 +883,7 @@
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
+				5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */,
 				5DD82EDF19173C81000577F8 /* Banner.m in Sources */,
 				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
 				5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */,
@@ -855,6 +895,7 @@
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
+				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
@@ -870,6 +911,7 @@
 				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
+				5D592B30191C740B00ECDCF7 /* XYPieChart.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

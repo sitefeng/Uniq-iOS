@@ -1,15 +1,15 @@
 //
-//  iPadProgramLabelView.m
+//  iPadProgramSummaryView.m
 //  JumpPad
 //
-//  Created by Si Te Feng on 2014-05-06.
+//  Created by Si Te Feng on 2014-05-08.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadProgramLabelView.h"
+#import "iPadProgramSummaryView.h"
 #import "Program.h"
 
-@implementation iPadProgramLabelView
+@implementation iPadProgramSummaryView //for basic information on top in a program
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -17,7 +17,7 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor blackColor];
         
         
     }

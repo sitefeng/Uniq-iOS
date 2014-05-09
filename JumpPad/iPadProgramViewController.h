@@ -23,8 +23,6 @@
 
 
 @property (nonatomic, strong)iPadProgramHomeViewController *vc1 ;
-
-
 @property (nonatomic, strong)iPadProgramAcademicsViewController *vc2 ;
 @property (nonatomic, strong)iPadProgramContactViewController *vc3;
 @property (nonatomic, strong)iPadProgramCompareViewController *vc4 ;

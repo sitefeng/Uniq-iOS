@@ -9,6 +9,9 @@
 #import "iPadBannerView.h"
 #import "AsyncImageView.h"
 
+#import "AFNetworkReachabilityManager.h"
+
+
 @implementation iPadBannerView
 
 - (id)initWithFrame:(CGRect)frame
@@ -52,9 +55,10 @@
     
     CGRect frame = _frame;
     
+    
     if([_imgArrayURL count]==0)
     {
-        UIImage* defaultImage = [UIImage imageNamed:@"defaultBanner.png"];
+        UIImage* defaultImage = [UIImage imageNamed:@"defaultBanner"];
     
         UIImageView* imgView = [[UIImageView alloc] initWithImage:defaultImage];
         imgView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);

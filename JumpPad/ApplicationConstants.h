@@ -33,22 +33,22 @@
 
 #pragma mark - Typedef Enums
 
-typedef enum
+typedef NS_ENUM(NSInteger, JPSortType)
 {
     JPSortTypeAlphabetical = 0,
     JPSortTypeClosest,
     JPSortTypeHighestEntryAvg,
     JPSortTypeLargestCollege
-}JPSortType;
+};
 
 
-typedef enum
+typedef NS_ENUM(NSInteger, JPDashletType)
 {
     JPDashletTypeSchool,
     JPDashletTypeFaculty,
     JPDashletTypeProgram
     
-}JPDashletType;
+};
 
 
 

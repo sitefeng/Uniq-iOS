@@ -8,6 +8,10 @@
 
 #import "JumpPadAppDelegate.h"
 
+
+#import "iPadProgramHomeViewController.h"
+
+
 #import "Mixpanel.h"
 
 @implementation JumpPadAppDelegate
@@ -19,10 +23,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    //Adding Mixpanel
-    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
-    Mixpanel* mixpanel = [Mixpanel sharedInstance];
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UITabBarController* tabController = [[UITabBarController alloc] init];
+    iPadProgramHomeViewController* homeController = [[iPadProgramHomeViewController alloc] init];
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:homeController];
+    
+    tabController.viewControllers = @[navController];
+    
+    self.window.rootViewController = tabController;
+    
+    
+    
+    
+    
+    //Adding Mixpanel
+//    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+//    Mixpanel* mixpanel = [Mixpanel sharedInstance];
+//    
 //    if (debugMode)
 //    {
 //        [mixpanel track:@"App Launches Debug"
@@ -35,9 +55,15 @@
 //        [mixpanel track:@"App Launches"];
 //    }
     
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
     //Tab bar change to 3rd element
-    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
-    tabBar.selectedIndex = 2;
+//    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
+//    tabBar.selectedIndex = 2;
+    
     
     return YES;
 }

@@ -22,7 +22,7 @@
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
     float       _screenWidth;
     
-   
+    BOOL        _isReachable;
     
 }
 

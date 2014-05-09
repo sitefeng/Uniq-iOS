@@ -19,10 +19,12 @@
     NSTimer*       _scrollTimer;
     CGRect         _frame;
     
+    BOOL           _isReachable;
+    
 }
 
 
-//Array of NSURL
+//Array of NSURL: Mandatory
 @property (nonatomic, strong) NSMutableArray* imgArrayURL;
 
 

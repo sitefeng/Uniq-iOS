@@ -8,20 +8,51 @@
 
 #import "iPadProgramImagesViewController.h"
 
+#import "JumpPadAppDelegate.h"
+#import "AsyncImageView.h"
+#import "Program.h"
+
 @interface iPadProgramImagesViewController ()
 
 @end
 
+
+//ImageSize (364,273) within  ProgImgVCSize (384x308)
+
+
 @implementation iPadProgramImagesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
         
-        self.tabBarItem.image = [UIImage imageNamed:@"images"];
-        self.view.backgroundColor = [UIColor yellowColor];
+        self.view.backgroundColor = [UIColor blackColor];
+        
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 364, 273)];
+        
+        [self.scrollView setPagingEnabled:YES];
+        [self.scrollView setShowsHorizontalScrollIndicator:NO];
+        self.scrollView.delegate = self;
+        
+        //////**************************
+        self.urls = [NSMutableArray array];
+        self.asyncImageViews = [NSMutableArray array];
+        
+//       [self reloadImages] // wait until Program is set
+
+        /////*****************************
+        
+        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 294, 364, 10)];
+        self.pageControl.currentPage = 0;
+        [self.pageControl setCenter:CGPointMake(384/2, 294)];
+        self.pageControl.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin);
+        
+        
+        [self.view addSubview:self.scrollView];
+        [self.view addSubview:self.pageControl];
+        
     }
     return self;
 }
@@ -30,7 +61,94 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+
+
+- (void)setProgram:(Program *)program
+{
+    _program = program;
+    
+    [self reloadImages];
+    
+}
+
+
+
+
+
+
+- (void)reloadImages
+{
+    
+    [self.urls removeAllObjects];
+    [self.asyncImageViews removeAllObjects];
+    
+    
+    NSArray* imageDict = [self.program.images allObjects];
+    
+    int i =0;
+    
+    for(NSDictionary* dict in imageDict)
+    {
+        NSString* path = [dict valueForKey:@"imageLink"];
+        
+        NSURL* url = [NSURL URLWithString: path];
+        
+        if(url)
+        {
+            [self.urls addObject:url];
+        }
+        else
+        {
+            JPLog(@"Invalid URL[%@]", path);
+        }
+  
+        AsyncImageView* asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*364, -62, 364, 273)];
+        
+        asyncImageView.imageURL = url;
+        asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
+        asyncImageView.showActivityIndicator = YES;
+        asyncImageView.backgroundColor = [UIColor lightGrayColor];
+        
+        [self.asyncImageViews addObject:asyncImageView];
+        
+        [self.scrollView addSubview:self.asyncImageViews[i]];
+        
+        i++;
+    }
+    
+    [self.scrollView setContentSize:CGSizeMake(i*364, 1)];//273
+    
+    [self.scrollView setNeedsDisplay];
+    
+    
+    self.pageControl.numberOfPages = i;
+    
+}
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    float position = self.scrollView.contentOffset.x;
+    
+    int pageNumber = (int)position/364; //starts from 0
+    
+    self.pageControl.currentPage = pageNumber;
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

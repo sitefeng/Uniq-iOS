@@ -23,7 +23,8 @@
 
 
 @property (nonatomic, strong) NSString* title;
-@property (nonatomic, assign) NSUInteger type;
+@property (nonatomic, assign) JPDashletType type;
+
 @property (nonatomic, strong) NSMutableArray*  backgroundImages;
                              //Array of NSURLs
 

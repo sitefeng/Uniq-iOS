@@ -19,6 +19,8 @@
 #import "School.h"
 #import "Banner.h"
 
+#import "AFNetworkReachabilityManager.h"
+
 
 @interface iPadMainExploreViewController ()
 
@@ -49,10 +51,24 @@
     }
 
     
-    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
+    _isReachable = false;
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
-    //Creating all the Views with CGRectZero Frame Size
-    ///////////////////////
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if(status == AFNetworkReachabilityStatusReachableViaWiFi || status == AFNetworkReachabilityStatusReachableViaWWAN)
+        {
+            [self networkAvailable];
+        }
+        else
+        {
+            _isReachable = false;
+        }
+    }];
+    
+    
+    //UI Setup
+    
+    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     
     //UICollectionView
     self.cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight)
@@ -138,7 +154,6 @@
 //Retrieving College info from Core Data and put into featuredDashelts
 - (void)updateDashletsInfo
 {
-    
     NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
     dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
 
@@ -156,7 +171,6 @@
     }
     
     self.dashlets = dashletArray;
-    
 }
 
 
@@ -177,7 +191,6 @@
     }
 
     [self.bannerView setImgArrayURL:self.bannerURLs];
-    
     
 }
 
@@ -398,6 +411,16 @@
 
 
 
+- (void)networkAvailable
+{
+    _isReachable = true;
+    
+    [self updateDashletsInfo];
+    [self.cv reloadData];
+    [self updateBannerInfo];
+    
+    JPLog(@"Reconnected to Internet");
+}
 
 
 #pragma mark - Keyboard Dismissal with touchRecognizer

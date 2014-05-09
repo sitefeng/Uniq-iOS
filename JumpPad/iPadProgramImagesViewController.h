@@ -8,6 +8,35 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadProgramImagesViewController : UIViewController
+
+@class AsyncImageView, Program;
+
+@interface iPadProgramImagesViewController : UIViewController <UIScrollViewDelegate>
+{
+    
+    
+}
+
+
+
+@property (nonatomic, assign) Program* program;
+
+
+
+@property (nonatomic, strong) NSMutableArray* urls; //array of NSURL
+
+@property (nonatomic, strong) NSMutableArray* asyncImageViews;
+
+@property (nonatomic, strong) UIScrollView* scrollView;
+
+
+
+
+
+
+@property (nonatomic, strong) UIPageControl* pageControl;
+
+
+
 
 @end
