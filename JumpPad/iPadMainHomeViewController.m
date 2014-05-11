@@ -726,29 +726,7 @@
     {
         JPLog(@"Faculty Failed To Save");
     }
-    
-    //    NSEntityDescription* programDescription = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:self.context];
-    //
-    //    NSManagedObject *newProgram = [[NSManagedObject alloc] initWithEntity:programDescription insertIntoManagedObjectContext:self.context];
-    //
-    //    [newProgram setValue:@"Mechatronics" forKey:@"name"];
-    //    [newProgram setValue:@"tron@yahoo.com" forKey:@"email"];
-    //    [newProgram setValue:[NSNumber numberWithInt:(int)(arc4random()%10000)] forKey:@"fax"];
-    //
-    //    NSError* error;
-    //
-    //    if(![self.context save:&error])
-    //    {
-    //        NSLog(@"Not saved");
-    //
-    //    }
-    //    else
-    //    {
-    //        NSLog(@"saved");
-    //    }
-    //
 
-    
 }
 
 
@@ -773,7 +751,6 @@
             NSFetchRequest* updateReq = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
             updateReq.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"programId" ascending:YES]];
             
-            
             updateReq.predicate = [NSPredicate predicateWithFormat:@"(faculty.facultyId = %@) && (programId = %@)", school.schoolId, faculty.facultyId, [dict valueForKey:@"id"]];
             
             NSArray* deletePrograms = [self.context executeFetchRequest:updateReq error:nil];
@@ -786,6 +763,8 @@
             
             //Adding all objects with toDelete = false
             /////////////////////////////////////////
+            
+            
             if([dict valueForKey:@"id"] != [NSNull null])
                 [newProgram setValue:[dict valueForKey:@"id"] forKey:@"programId"];
             if([dict valueForKey:@"name"] != [NSNull null])
@@ -816,6 +795,9 @@
                 [newProgram setValue:[dict valueForKey:@"facebookLink"] forKey:@"facebookLink"];
             if([dict valueForKey:@"twitterLink"] != [NSNull null])
                 [newProgram setValue:[dict valueForKey:@"twitterLink"] forKey:@"twitterLink"];
+            if([dict valueForKey:@"about"] != [NSNull null])
+                [newProgram setValue:[dict valueForKey:@"about"] forKey:@"about"];
+            
             
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             //Sync Images
@@ -834,12 +816,161 @@
                     
                     [newImage setValue:newProgram forKey:@"program"];
                     
-                    if([dict valueForKey:@"imageLink"] != [NSNull null])
+                    if([imageDict valueForKey:@"imageLink"] != [NSNull null])
                         [newImage setValue:[imageDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-                    if([dict valueForKey:@"descriptor"] != [NSNull null])
+                    if([imageDict valueForKey:@"descriptor"] != [NSNull null])
                         [newImage setValue:[imageDict valueForKey:@"descriptor"] forKey:@"descriptor"];
                 }
             }
+            
+            /////////////////////////////////////////////
+            
+
+            
+            if([dict valueForKey:@"rating"] != [NSNull null])
+            {
+                NSEntityDescription* ratingDescription = [NSEntityDescription entityForName:@"ProgramRating" inManagedObjectContext:self.context];
+                NSManagedObject *newRating = [[NSManagedObject alloc] initWithEntity:ratingDescription insertIntoManagedObjectContext:self.context];
+                [newRating setValue:newProgram forKey:@"program"];
+                NSDictionary* ratingDict = [dict valueForKey:@"rating"];
+                
+                if([ratingDict valueForKey:@"ratingOverall"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"ratingOverall"] forKey:@"ratingOverall"];
+                if([ratingDict valueForKey:@"professors"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"professors"] forKey:@"professor"];
+                if([ratingDict valueForKey:@"difficulty"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"difficulty"] forKey:@"difficulty"];
+                if([ratingDict valueForKey:@"schedule"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"schedule"] forKey:@"schedule"];
+                if([ratingDict valueForKey:@"classmates"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"classmates"] forKey:@"classmates"];
+                if([ratingDict valueForKey:@"socialEnjoyment"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"socialEnjoyment"] forKey:@"socialEnjoyments"];
+                if([ratingDict valueForKey:@"studyEnv"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"studyEnv"] forKey:@"studyEnv"];
+                if([ratingDict valueForKey:@"guyRatio"] != [NSNull null])
+                    [newRating setValue:[ratingDict valueForKey:@"guyRatio"] forKey:@"guyToGirlRatio"];
+            }
+            
+            //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            //TUITION
+            if([dict valueForKey:@"domesticTuition"] != [NSNull null] || [dict valueForKey:@"internationalTuition"] != [NSNull null])
+            {
+                NSEntityDescription* tuitionDescription = [NSEntityDescription entityForName:@"ProgramYearlyTuition" inManagedObjectContext:self.context];
+                NSManagedObject *newTuition = [[NSManagedObject alloc] initWithEntity:tuitionDescription insertIntoManagedObjectContext:self.context];
+                [newTuition setValue:newProgram forKey:@"program"];
+                ////////////////////////////
+                
+                NSNumberFormatter* formatter = [[NSNumberFormatter alloc] init];
+                [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+
+                id domTuition = [dict valueForKey:@"domesticTuition"];
+                if(domTuition != [NSNull null])
+                {
+                    if([domTuition isKindOfClass:[NSString class]])
+                    {
+                        NSNumber* tuition = [formatter numberFromString: domTuition];
+                        [newTuition setValue:tuition forKey:@"domesticTuition"];
+                    }
+                    else
+                    {
+                        [newTuition setValue:[dict valueForKey:@"domesticTuition"] forKey:@"domesticTuition"];
+                    }
+                }
+                
+                id intTuition = [dict valueForKey:@"internationalTuition"];
+                if(intTuition != [NSNull null])
+                {
+                    if([intTuition isKindOfClass:[NSString class]])
+                    {
+                        NSNumber* tuition = [formatter numberFromString: intTuition];
+                        [newTuition setValue:tuition forKey:@"internationalTuition"];
+                    }
+                    else
+                    {
+                        [newTuition setValue:[dict valueForKey:@"internationalTuition"] forKey:@"internationalTuition"];
+                    }
+                    
+                }
+            
+            }
+            
+            //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            
+            id coursesDictId = [dict valueForKey:@"courses"];
+            
+            if(coursesDictId != [NSNull null])
+            {
+                NSDictionary* coursesDict =(NSDictionary*)coursesDictId;
+                
+                if([coursesDict valueForKey:@"firstYear"] != [NSNull null])
+                {
+                    NSArray* yearArray = [coursesDict valueForKey:@"firstYear"];
+                    
+                    
+                    for(NSString* courseName in yearArray)
+                    {
+                        NSEntityDescription* courseDescription = [NSEntityDescription entityForName:@"ProgramCourse" inManagedObjectContext:self.context];
+                        
+                        NSManagedObject *newCourse = [[NSManagedObject alloc] initWithEntity:courseDescription insertIntoManagedObjectContext:self.context];
+                        
+                        [newCourse setValue:courseName forKey:@"courseName"];
+                        
+                        [newCourse setValue:newProgram forKey:@"program"];
+                    }
+                }
+                    
+                if([coursesDict valueForKey:@"secondYear"] != [NSNull null])
+                {
+                    NSArray* yearArray = [coursesDict valueForKey:@"secondYear"];
+                    
+                    for(NSString* courseName in yearArray)
+                    {
+                        NSEntityDescription* courseDescription = [NSEntityDescription entityForName:@"ProgramCourse" inManagedObjectContext:self.context];
+                        
+                        NSManagedObject *newCourse = [[NSManagedObject alloc] initWithEntity:courseDescription insertIntoManagedObjectContext:self.context];
+                        
+                        [newCourse setValue:courseName forKey:@"courseName"];
+                        
+                        [newCourse setValue:newProgram forKey:@"program"];
+                    }
+                }
+                
+                if([coursesDict valueForKey:@"thirdYear"] != [NSNull null])
+                {
+                    NSArray* yearArray = [coursesDict valueForKey:@"thirdYear"];
+                    
+                    
+                    for(NSString* courseName in yearArray)
+                    {
+                        NSEntityDescription* courseDescription = [NSEntityDescription entityForName:@"ProgramCourse" inManagedObjectContext:self.context];
+                        
+                        NSManagedObject *newCourse = [[NSManagedObject alloc] initWithEntity:courseDescription insertIntoManagedObjectContext:self.context];
+                        
+                        [newCourse setValue:courseName forKey:@"courseName"];
+                        
+                        [newCourse setValue:newProgram forKey:@"program"];
+                    }
+                }
+                
+                if([coursesDict valueForKey:@"fourthYear"] != [NSNull null])
+                {
+                    NSArray* yearArray = [coursesDict valueForKey:@"fourthYear"];
+                    
+                    
+                    for(NSString* courseName in yearArray)
+                    {
+                        NSEntityDescription* courseDescription = [NSEntityDescription entityForName:@"ProgramCourse" inManagedObjectContext:self.context];
+                        
+                        NSManagedObject *newCourse = [[NSManagedObject alloc] initWithEntity:courseDescription insertIntoManagedObjectContext:self.context];
+                        
+                        [newCourse setValue:courseName forKey:@"courseName"];
+                        
+                        [newCourse setValue:newProgram forKey:@"program"];
+                    }
+                }
+            }
+            
             
             //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             

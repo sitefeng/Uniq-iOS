@@ -21,9 +21,11 @@
      "website":"google.com",
      "toDelete":false, 
 
+     "domesticTuition":"11111.00",
+      "internationalTuition":"22222.00",
+
      "rating":{
-         "domesticTuition":"11111.00",
-         "internationalTuition":"22222.00",
+         
          "ratingOverall":90,
          "professors":58,
          "difficulty":50,
@@ -34,20 +36,21 @@
          "guyRatio":53
       },
      "courses":{
-        "firstYear":{
-           "course1":"Designing Functional Programs"
-        },
-        "secondYear":{
-           "course1":"Computational Logic",
-           "course2":"Object Oriented Programming"
-        },
-        "thirdYear":{
-           "course1":"Operating Systems"
-        },
-        "fourthYear":{
-           "course1":"Algorithm Design and Analysis"
-        }
-     }
+        "firstYear":[
+           "Calculus 1"
+        ],
+        "secondYear":[
+           "Ordinary Differential Equations",
+           "Mechanics of Deformable Solids",
+           "Real Time Operating Systems"
+        ],
+        "thirdYear":[
+           "Advanced Embedded Power Electronics"
+        ],
+        "fourthYear":[
+           "Final Year Design Project"
+        ]
+      }
   },
   
    
@@ -82,8 +85,6 @@
      "website":"google.com",
 
      "rating":{
-         "domesticTuition":"11111.00",
-         "internationalTuition":"22222.00",
          "ratingOverall":90,
          "professors":58,
          "difficulty":50,
@@ -99,20 +100,20 @@
       "toDelete":false, 
 
      "courses":{
-        "firstYear":{
-           "course1":"Calculus 1"
-        },
-        "secondYear":{
-           "course1":"Ordinary Differential Equations",
-           "course2":"Mechanics of Deformable Solids",
-           "course3":"Real Time Operating Systems"
-        },
-        "thirdYear":{
-           "course1":"Advanced Embedded Power Electronics"
-        },
-        "fourthYear":{
-           "course1":"Final Year Design Project"
-        }
+        "firstYear":[
+           "Calculus 1"
+        ],
+        "secondYear":[
+           "Ordinary Differential Equations",
+           "Mechanics of Deformable Solids",
+           "Real Time Operating Systems"
+        ],
+        "thirdYear":[
+           "Advanced Embedded Power Electronics"
+        ],
+        "fourthYear":[
+           "Final Year Design Project"
+        ]
       }
     }
    

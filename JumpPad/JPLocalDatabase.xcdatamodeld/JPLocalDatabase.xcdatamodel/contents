@@ -41,11 +41,11 @@
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ext" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fax" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fax" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="isCoop" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numFavorites" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="phone" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="population" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="programId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
@@ -86,8 +86,8 @@
         <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="rating" inverseEntity="Program" syncable="YES"/>
     </entity>
     <entity name="ProgramYearlyTuition" representedClassName="ProgramYearlyTuition" syncable="YES">
-        <attribute name="domesticTuition" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
-        <attribute name="internationalTuition" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="domesticTuition" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="internationalTuition" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="pYearlyTuitionId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="tuitions" inverseEntity="Program" syncable="YES"/>
@@ -145,7 +145,7 @@
         <element name="ProgramApplicationStat" positionX="450" positionY="261" width="128" height="118"/>
         <element name="ProgramCourse" positionX="450" positionY="425" width="128" height="133"/>
         <element name="ProgramRating" positionX="-9" positionY="342" width="128" height="193"/>
-        <element name="ProgramYearlyTuition" positionX="-11" positionY="557" width="128" height="118"/>
+        <element name="ProgramYearlyTuition" positionX="-11" positionY="557" width="128" height="120"/>
         <element name="School" positionX="223" positionY="-117" width="128" height="298"/>
         <element name="SchoolLocation" positionX="376" positionY="-52" width="128" height="193"/>
         <element name="SchoolRanking" positionX="529" positionY="104" width="128" height="103"/>

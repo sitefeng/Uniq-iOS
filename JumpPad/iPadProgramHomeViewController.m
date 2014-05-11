@@ -42,7 +42,6 @@ const float kProgramImageWidth  = 384;
         // Custom initialization
         
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
-        
         self.view.backgroundColor = [UIColor greenColor];
         
         
@@ -98,8 +97,7 @@ const float kProgramImageWidth  = 384;
         
         float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+44+kProgramImageHeight;
         
-        self.detailView = [[iPadProgramDetailView alloc] initWithFrame:CGRectMake(0,otherTopHeights , _screenWidth, kiPadHeightPortrait - otherTopHeights)];
-        self.detailView.program = self.program;
+        self.detailView = [[iPadProgramDetailView alloc] initWithFrame:CGRectMake(0,otherTopHeights , _screenWidth, kiPadHeightPortrait - otherTopHeights) andProgram: self.program];
         
         
         [self addChildViewController:self.imageController];

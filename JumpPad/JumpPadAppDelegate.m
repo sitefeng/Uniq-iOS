@@ -11,6 +11,7 @@
 
 #import "iPadProgramHomeViewController.h"
 
+#import "iPadMainHomeViewController.h"
 
 #import "Mixpanel.h"
 
