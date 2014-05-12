@@ -12,6 +12,13 @@
 #import "JPStyle.h"
 #import "JPFont.h"
 
+#import "iPadProgramDetailInfoView.h"
+#import "iPadProgramDetailGraphView.h"
+
+#import "ApplicationConstants.h"
+
+
+#define kProgramGraphBarOffset  0.1
 
 @implementation iPadProgramDetailView 
 
@@ -28,52 +35,25 @@
         
         //////////////////////////////////////////////////
         //Start Creating Views
-        UITextView* aboutView = [[UITextView alloc] initWithFrame:CGRectMake(250, 20, 500, 200)];
         
-        aboutView.font = [JPFont fontWithName:[JPFont defaultFont] size:15];
-        aboutView.textColor = [UIColor blackColor];
-        aboutView.userInteractionEnabled = NO;
-        aboutView.editable = NO;
+        iPadProgramDetailInfoView* infoView = [[iPadProgramDetailInfoView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, kiPadWidthPortrait) title:@"About" paragraph:self.program.about];
+        [infoView sizeToFit];
+        _currentHeight = _currentHeight + infoView.frame.size.height;
         
-        aboutView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
-        aboutView.backgroundColor = [JPStyle colorWith8BitRed:0 green:0 blue:0 alpha:0.1];
-        
-        aboutView.text = self.program.about;
-        
-        if(aboutView.text == nil || [aboutView.text isEqualToString:@""])
-        {
-            aboutView.text = @"Description not available.";
-        }
-        
-        [aboutView sizeToFit];
-        
-        CGSize aboutViewSize = aboutView.frame.size;
-        
-        
-        float aboutLabelY = 20 + aboutViewSize.height/2.0 - 55/2.0 ;
-        
-        UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, aboutLabelY - 10, 136, 55)];
-        aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
-        aboutLabel.textColor = [JPStyle colorWithHex:@"6100CC" alpha:1];
-        aboutLabel.text = @"About";
-        
-        [aboutLabel sizeToFit];
 
-        UIImageView* aboutImgView = [[UIImageView alloc] initWithFrame:CGRectMake(16, aboutLabelY, 55, 55)];
-        aboutImgView.contentMode = UIViewContentModeScaleToFill;
-        aboutImgView.image = [UIImage imageNamed:@"academics"];
         
-        if(aboutViewSize.height >= aboutLabel.frame.size.height)
-        {
-            _currentHeight = _currentHeight + 40 + aboutViewSize.height;
-        }
-        else
-        {
-            _currentHeight = _currentHeight + 40 + aboutLabel.frame.size.height;
-        }
+        //340!!! 300 is the height of the actually graph, 20 is margin top and bottom
+        iPadProgramDetailGraphView* tuitionView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 340) title:@"Tuition" program:self.program];
+        
+        _currentHeight = _currentHeight + tuitionView.frame.size.height;
+        
+        ///////****************************
         
         
+        iPadProgramDetailGraphView* whyView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 420) title:@"Why" program:self.program];
         
+        
+        _currentHeight = _currentHeight + whyView.frame.size.height;
         
         
         
@@ -81,22 +61,23 @@
         
         
         
-        self.contentSize = CGSizeMake(768, _currentHeight + 150) ;
         
-        [self addSubview:aboutLabel];
-        [self addSubview:aboutView];
-        [self addSubview:aboutImgView];
-    
+        
+        
+        
+        
+        
+        
+        self.contentSize = CGSizeMake(768, _currentHeight + 150);
+        
+        
+        [self addSubview:infoView];
+        [self addSubview:tuitionView];
+        [self addSubview:whyView];
+            
     }
     return self;
 }
-
-
-
-
-
-
-
 
 
 

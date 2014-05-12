@@ -154,6 +154,56 @@
 }
 
 
+
+
+
++ (UIColor*)rainbowColorWithIndex: (NSUInteger)index //7 colors
+{
+    UIColor* color = nil;
+    
+    switch (index%7)
+    {
+        
+        case 0:
+            color = [self colorWithHex:@"FF617B" alpha:1];
+            break;
+        
+        case 1:
+            color = [self colorWithHex:@"D291FF" alpha:1];
+            break;
+        
+        case 2:
+            color = [self colorWithHex:@"80ABFF" alpha:1];
+            break;
+        case 3:
+            color = [self colorWithHex:@"8AFFCD" alpha:1];
+            break;
+        case 4:
+            color = [self colorWithHex:@"00CE32" alpha:1];
+            break;
+        case 5:
+            color = [self colorWithHex:@"FFA73D" alpha:1];
+            break;
+        case 6:
+            color = [self colorWithHex:@"B2E004" alpha:1];
+            break;
+            
+        default:
+            NSLog(@"--Error--");
+    }
+
+    
+    return  color;
+}
+
+
+
+
+
+
+
+
+
 //// Colours
 //#define kWhiteText 				0xFFFFFF
 //#define kDeactiveText 			0xB0B0B0

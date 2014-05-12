@@ -69,3 +69,19 @@
 - (void)setSliceDeselectedAtIndex:(NSInteger)index;
 
 @end;
+
+
+
+@interface SliceLayer : CAShapeLayer
+@property (nonatomic, assign) CGFloat   value;
+@property (nonatomic, assign) CGFloat   percentage;
+@property (nonatomic, assign) double    startAngle;
+@property (nonatomic, assign) double    endAngle;
+@property (nonatomic, assign) BOOL      isSelected;
+@property (nonatomic, strong) NSString  *text;
+- (void)createArcAnimationForKey:(NSString *)key fromValue:(NSNumber *)from toValue:(NSNumber *)to Delegate:(id)delegate;
+
+
+
+
+@end

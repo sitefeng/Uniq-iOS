@@ -22,13 +22,13 @@
      "toDelete":false, 
 
      "domesticTuition":"11111.00",
-      "internationalTuition":"22222.00",
+     "internationalTuition":"22222.00",
 
      "rating":{
          
          "ratingOverall":90,
-         "professors":58,
          "difficulty":50,
+         "professors":58,
          "schedule":80,
          "classmates":70,
          "socialEnjoyment":60,

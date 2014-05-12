@@ -51,6 +51,20 @@ typedef NS_ENUM(NSInteger, JPDashletType)
 };
 
 
+typedef NS_ENUM(NSInteger, JPRatingType)
+{
+    JPRatingTypeDifficulty = 0,
+    JPRatingTypeProfessors,
+    JPRatingTypeSchedule,
+    JPRatingTypeClassmates,
+    JPRatingTypeSocialEnjoyment,
+    JPRatingTypeStudyEnvironment,
+    JPRatingTypeOverall,
+    JPRatingTypeGuyRatio,
+    
+};
+
+
 
 
 

@@ -8,6 +8,49 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadProgramDetailGraphView : UIView
+#import "CorePlot-CocoaTouch.h"
+#import "XYPieChart.h"
+
+@class Program, ProgramRating;
+
+@interface iPadProgramDetailGraphView : UIView <CPTBarPlotDataSource, CPTPlotSpaceDelegate, CPTBarPlotDelegate, XYPieChartDataSource, XYPieChartDelegate>
+
+{
+    CPTXYGraph*  barChart;
+    
+    ProgramRating* programRating;
+    
+}
+
+
+
+
+
+
+@property (nonatomic, assign) Program* program;
+
+
+
+@property (nonatomic, strong) NSString* title;
+
+
+@property (nonatomic, strong) CPTGraphHostingView* barChartView;
+
+
+@property (nonatomic, strong) XYPieChart* whyPieChart;
+
+
+
+
+
+- (id)initWithFrame:(CGRect)frame  title:(NSString*)title  program:(Program*) program;
+
+
+
+
+
+
+
+
 
 @end

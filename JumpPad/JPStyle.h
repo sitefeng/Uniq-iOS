@@ -49,5 +49,7 @@
 +(UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
 +(UIColor*)colorWithHex:(NSString*)hex alpha:(CGFloat)alpha;
 
+//Beatiful colors
++ (UIColor*)rainbowColorWithIndex: (NSUInteger)index; //7 colors
 
 @end
