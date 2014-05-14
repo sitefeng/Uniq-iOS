@@ -18,7 +18,8 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [JPStyle colorWithHex:@"D1FFE3" alpha:1];
+//        self.backgroundColor = [JPStyle colorWithHex:@"D1FFE3" alpha:1];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
         
         if([title isEqualToString:@"About"])
         {
@@ -32,7 +33,7 @@
             
 //            aboutView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
             
-            aboutView.backgroundColor = [JPStyle colorWith8BitRed:0 green:0 blue:0 alpha:0.1];
+            aboutView.backgroundColor = [JPStyle colorWith8BitRed:255 green:255 blue:255 alpha:0.45];
             
             aboutView.text = paragraph;
             
@@ -40,7 +41,6 @@
             {
                 aboutView.text = @"Description not available.";
             }
-            
             
             
             [aboutView sizeToFit];
@@ -55,7 +55,8 @@
             
             UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, aboutLabelY - 10, 136, 55)];
             aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
-            aboutLabel.textColor = [JPStyle colorWithHex:@"6100CC" alpha:1];
+//            aboutLabel.textColor = [JPStyle colorWithHex:@"6100CC" alpha:1];
+            aboutLabel.textColor = [JPStyle colorWithHex:@"000000" alpha:1];
             aboutLabel.text = @"About";
             
             [aboutLabel sizeToFit];

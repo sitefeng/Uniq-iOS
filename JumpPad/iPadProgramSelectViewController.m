@@ -220,7 +220,7 @@
 {
     iPadProgramViewController* viewController =[[iPadProgramViewController alloc] init];
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
-    viewController.programId = selectedDashlet.dashletUid;
+    viewController.dashletUid = selectedDashlet.dashletUid;
     
     [self presentViewController:viewController animated:YES completion:nil];
     

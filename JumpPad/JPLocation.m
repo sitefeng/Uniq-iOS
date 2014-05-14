@@ -11,12 +11,13 @@
 @implementation JPLocation
 
 //Designated Initializer
--(instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city
+-(instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city province:(NSString *)province
 {
     self = [self init];
     
     self.coordinates = coord;
     self.cityName = city;
+    self.provinceName = province;
     
     return self;
 }

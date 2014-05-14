@@ -56,7 +56,6 @@
 		5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */; };
 		5D592BA4191FF29400ECDCF7 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592BA3191FF29400ECDCF7 /* DejalActivityView.m */; };
 		5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592BA8191FF2D300ECDCF7 /* LBActionSheet.m */; };
-		5D592C04191FF7DF00ECDCF7 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D592C03191FF7DF00ECDCF7 /* libCorePlot-CocoaTouch.a */; };
 		5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */; };
 		5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592C0819207CB900ECDCF7 /* XYPieChart.m */; };
 		5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F118B9B240002941B3 /* iPadSearchBarView.m */; };
@@ -124,6 +123,10 @@
 		5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */; };
 		5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */; };
+		5DE5C2FF1921962F00F7F01B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C2FE1921962F00F7F01B /* libCorePlot-CocoaTouch.a */; };
+		5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5C306192338B100F7F01B /* JPGlobal.m */; };
+		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
+		5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C30A1923449000F7F01B /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -307,7 +310,6 @@
 		5D592C00191FF79A00ECDCF7 /* NSCoderExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCoderExtensions.h; sourceTree = "<group>"; };
 		5D592C01191FF79A00ECDCF7 /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		5D592C02191FF79A00ECDCF7 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
-		5D592C03191FF7DF00ECDCF7 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		5D592C0719207CB900ECDCF7 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
 		5D592C0819207CB900ECDCF7 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		5D7055F018B9B240002941B3 /* iPadSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSearchBarView.h; sourceTree = "<group>"; };
@@ -415,6 +417,11 @@
 		5DE5B83518504D0300EFCE0A /* iPadMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFeaturedViewController.h; sourceTree = "<group>"; };
 		5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFeaturedViewController.m; sourceTree = "<group>"; };
 		5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5DE5C2FE1921962F00F7F01B /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		5DE5C305192338B100F7F01B /* JPGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGlobal.h; sourceTree = "<group>"; };
+		5DE5C306192338B100F7F01B /* JPGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGlobal.m; sourceTree = "<group>"; };
+		5DE5C3081923448900F7F01B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5DE5C30A1923449000F7F01B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,13 +429,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */,
+				5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */,
 				5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */,
 				5D36C3DB1915793700A5A7D8 /* CoreData.framework in Frameworks */,
 				5DA82D9618C310630011AC26 /* CoreLocation.framework in Frameworks */,
 				5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */,
 				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
 				5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */,
-				5D592C04191FF7DF00ECDCF7 /* libCorePlot-CocoaTouch.a in Frameworks */,
+				5DE5C2FF1921962F00F7F01B /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +556,7 @@
 		5D592BB2191FF65E00ECDCF7 /* CorePlot */ = {
 			isa = PBXGroup;
 			children = (
-				5D592C03191FF7DF00ECDCF7 /* libCorePlot-CocoaTouch.a */,
+				5DE5C2FE1921962F00F7F01B /* libCorePlot-CocoaTouch.a */,
 				5D592BB3191FF79A00ECDCF7 /* CorePlotHeaders */,
 			);
 			name = CorePlot;
@@ -828,6 +837,8 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DE5C30A1923449000F7F01B /* Social.framework */,
+				5DE5C3081923448900F7F01B /* MessageUI.framework */,
 				5D36C3DA1915793700A5A7D8 /* CoreData.framework */,
 				5DA82D9518C310630011AC26 /* CoreLocation.framework */,
 				5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */,
@@ -946,6 +957,8 @@
 			isa = PBXGroup;
 			children = (
 				5D167647185D6A750041993E /* UserInterfaceConstants.h */,
+				5DE5C305192338B100F7F01B /* JPGlobal.h */,
+				5DE5C306192338B100F7F01B /* JPGlobal.m */,
 				5DAC8F8C185525C500FE3B5B /* JPStyle.h */,
 				5DAC8F8D185525C500FE3B5B /* JPStyle.m */,
 				5D16763B1858D3CB0041993E /* JPFont.h */,
@@ -1136,6 +1149,7 @@
 				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
 				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
+				5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
 				5D592B81191F357200ECDCF7 /* SchoolRanking.m in Sources */,
 				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,

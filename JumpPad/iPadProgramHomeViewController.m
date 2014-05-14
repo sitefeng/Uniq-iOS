@@ -19,8 +19,11 @@
 #import "iPadProgramViewController.h"
 
 #import "Program.h"
+#import "JPLocation.h"
+#import "School.h"
+#import "SchoolLocation.h"
 
-
+#import <MessageUI/MessageUI.h>
 
 
 @interface iPadProgramHomeViewController ()
@@ -46,11 +49,14 @@ const float kProgramImageWidth  = 384;
         self.view.backgroundColor = [JPStyle colorWith8BitRed:50 green:0 blue:20 alpha:1];
         
         
+    
+        
+        
+        
 //        iPadProgramViewController* tabController = (iPadProgramViewController*)self.tabBarController;
-//        self.programId = tabController.programId;
+//        self.dashletUid = tabController.dashletUid;
         
-        self.programId = 221;
-        
+        self.dashletUid = 1003221;
         
         JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
@@ -88,12 +94,22 @@ const float kProgramImageWidth  = 384;
             self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+ kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight);
         }
         
-        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 44)];
-        self.labelView.program = self.program;
+        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 44) dashletNum:self.dashletUid program:self.program];
         
         
-        self.summaryView = [[iPadProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight)];
-        self.summaryView.program = self.program;
+        
+        //Init Summary View
+        NSInteger schoolId = self.dashletUid / 1000000;
+        
+        NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+        req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];
+        School* school = [[context executeFetchRequest:req error:nil] firstObject];
+        
+        CGPoint coord = jpp([school.location.lattitude floatValue], [school.location.longitude floatValue]);
+        JPLocation* programLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
+        
+        self.summaryView = [[iPadProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program location:programLocation];
+        self.summaryView.delegate =self;
         
         
         float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+44+kProgramImageHeight;
@@ -134,8 +150,10 @@ const float kProgramImageWidth  = 384;
 {
     self.program = nil;
     
+    _programId = self.dashletUid % 1000;
+    
     NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
-    request.predicate = [NSPredicate predicateWithFormat:@"programId = %i", self.programId];
+    request.predicate = [NSPredicate predicateWithFormat:@"programId = %i", _programId];
     
     NSError* error = nil;
     NSArray* results = [context executeFetchRequest:request error:&error];
@@ -144,9 +162,81 @@ const float kProgramImageWidth  = 384;
         JPLog(@"update Program ERROR: %@", error);
     }
     
+
     self.program = results[0];
     
+    
 }
+
+
+
+
+//
+//- (void)emailButtonPressed: (NSNotification*)noti
+//{
+//    
+//    MFMailComposeViewController* controller = [noti.userInfo objectForKey:@"controller"];
+//    
+//    [self.navigationController presentViewController:controller animated:YES completion:nil];
+//    
+//    
+//}
+
+
+#pragma mark - JPProgramSummaryView Delegate methods
+
+- (void)emailButtonTapped
+{
+    if([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        
+        NSString* recipient = self.program.email;
+        
+        [controller setToRecipients: @[recipient]];
+        
+        [self presentViewController:controller animated:YES completion:nil];
+        
+        
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Send Mail" message:@"Please Add a mail account in Settings app and ensure valid Internet Connection" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    }
+
+}
+
+
+
+- (void)websiteButtonTapped
+{
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: self.program.website]])
+    {
+       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.program.website]];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Open Webpage" message:@"URL information might not be available" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    }
+    
+}
+
+
+
+- (void)facebookButtonTapped
+{
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: self.program.facebookLink]])
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.program.facebookLink]];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Open Webpage" message:@"URL information might not be available" delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil] show];
+    }
+}
+
+
 
 
 
@@ -172,11 +262,19 @@ const float kProgramImageWidth  = 384;
 
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+}
 
 
 
-
-
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

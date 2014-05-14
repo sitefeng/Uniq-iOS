@@ -29,7 +29,7 @@
         // Initialization code
     
         self.program = prog;
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
     
         _currentHeight = 0;
         

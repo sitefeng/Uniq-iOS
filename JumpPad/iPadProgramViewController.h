@@ -18,7 +18,7 @@
 
 
 
-@property (nonatomic, assign) NSInteger programId;
+@property (nonatomic, assign) NSInteger dashletUid;
 
 
 

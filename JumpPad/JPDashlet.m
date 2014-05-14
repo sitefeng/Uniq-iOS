@@ -47,7 +47,7 @@
         float lat = [sLoc.lattitude doubleValue];
         float lon = [sLoc.longitude doubleValue];
         
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city ];
+        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
         
         self.title = school.name;
         self.type = JPDashletTypeSchool;

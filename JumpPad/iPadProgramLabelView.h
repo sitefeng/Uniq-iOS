@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class Program;
+@class Program, AsyncImageView;
 
 @interface iPadProgramLabelView : UIView
+{
+    NSManagedObjectContext* context;
+}
 
 
 
@@ -19,15 +22,17 @@
 
 
 
+@property (nonatomic, strong) Program* program;
+@property (nonatomic, assign) NSInteger dashletUid;
 
-@property (nonatomic, assign) Program* program;
+@property (nonatomic, strong) AsyncImageView* imageView;
+@property (nonatomic, strong) UILabel* label;
+
+@property (nonatomic, strong) NSString* schoolName;
 
 
 
-
-
-
-
+- (id)initWithFrame:(CGRect)frame dashletNum:(NSInteger)number program: (Program*)program;
 
 
 

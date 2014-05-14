@@ -27,7 +27,7 @@
 
 
 
-@property (nonatomic, assign) Program* program;
+@property (nonatomic, strong) Program* program;
 
 
 

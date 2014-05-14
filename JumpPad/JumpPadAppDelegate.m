@@ -25,20 +25,18 @@
 {
     // Override point for customization after application launch.
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    UITabBarController* tabController = [[UITabBarController alloc] init];
-    iPadProgramHomeViewController* homeController = [[iPadProgramHomeViewController alloc] init];
-    
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:homeController];
-    
-    tabController.viewControllers = @[navController];
-    
-    self.window.rootViewController = tabController;
-    
-    
-    
-    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    
+//    UITabBarController* tabController = [[UITabBarController alloc] init];
+//    iPadProgramHomeViewController* homeController = [[iPadProgramHomeViewController alloc] init];
+//    
+//    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:homeController];
+//    
+//    tabController.viewControllers = @[navController];
+//    
+//    self.window.rootViewController = tabController;
+//    
+//    
     
     //Adding Mixpanel
 //    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
@@ -183,7 +181,6 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
 }
-
 
 
 

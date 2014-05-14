@@ -23,6 +23,7 @@
         
 
          self.vc1 = [[iPadProgramHomeViewController alloc] init];
+        
          self.vc2 = [[iPadProgramAcademicsViewController alloc] init];
          self.vc3 = [[iPadProgramContactViewController alloc] init];
          self.vc4 = [[iPadProgramCompareViewController alloc] init];

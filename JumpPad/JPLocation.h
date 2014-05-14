@@ -12,13 +12,14 @@
 
 @property (nonatomic, retain) NSString* countryName;
 @property (nonatomic, retain) NSString* cityName;
+@property (nonatomic, retain) NSString* provinceName;
 
 @property (nonatomic, assign) CGPoint coordinates;
 
 
 
 
-- (instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city;
+- (instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city  province: (NSString*)province;
 
 - (BOOL)isEqual: (JPLocation*) location;
 

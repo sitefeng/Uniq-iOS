@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "iPadProgramSummaryView.h"
+#import <MessageUI/MessageUI.h>
+
 
 
 @class iPadProgramImagesViewController, iPadProgramLabelView, iPadProgramSummaryView, iPadProgramDetailView, Program;
 
-@interface iPadProgramHomeViewController : UIViewController
+
+@interface iPadProgramHomeViewController : UIViewController <JPProgramSummaryDelegate, MFMailComposeViewControllerDelegate>
 {
     
     BOOL    _isOrientationPortrait;
@@ -21,15 +25,16 @@
     
     NSManagedObjectContext* context;
     
+    NSUInteger   _programId;
+    
 }
 
 
 
 
 
+@property (nonatomic, assign) NSUInteger dashletUid;
 
-
-@property (nonatomic, assign) NSInteger programId;
 @property (nonatomic, strong) Program* program;
 
 
@@ -39,7 +44,6 @@
 @property (nonatomic, strong) iPadProgramLabelView* labelView;
 @property (nonatomic, strong) iPadProgramSummaryView* summaryView;
 @property (nonatomic, strong) iPadProgramDetailView* detailView;
-
 
 
 

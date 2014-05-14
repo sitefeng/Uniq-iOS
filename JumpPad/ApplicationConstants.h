@@ -60,9 +60,11 @@ typedef NS_ENUM(NSInteger, JPRatingType)
     JPRatingTypeSocialEnjoyment,
     JPRatingTypeStudyEnvironment,
     JPRatingTypeOverall,
-    JPRatingTypeGuyRatio,
+    JPRatingTypeGuyRatio
     
 };
+
+
 
 
 

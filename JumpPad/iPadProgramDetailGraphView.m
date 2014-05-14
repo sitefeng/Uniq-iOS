@@ -10,6 +10,7 @@
 
 #import "Program.h"
 #import "ProgramRating.h"
+#import "CorePlot-CocoaTouch.h"
 
 #import "ApplicationConstants.h"
 #import "JPStyle.h"
