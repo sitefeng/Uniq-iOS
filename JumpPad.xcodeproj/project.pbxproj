@@ -35,6 +35,7 @@
 		5D36C4A51915FA1B00A5A7D8 /* getAllUniversitiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */; };
 		5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */; };
 		5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */; };
+		5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4897F11925CC400062DD54 /* RPRadarChart.m */; };
 		5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */; };
 		5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */; };
 		5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */; };
@@ -189,6 +190,8 @@
 		5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfo.json; sourceTree = "<group>"; };
 		5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFacultiesInfo.json; sourceTree = "<group>"; };
 		5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllProgramsInfo.json; sourceTree = "<group>"; };
+		5D4897F01925CC400062DD54 /* RPRadarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPRadarChart.h; sourceTree = "<group>"; };
+		5D4897F11925CC400062DD54 /* RPRadarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPRadarChart.m; sourceTree = "<group>"; };
 		5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSummaryView.h; sourceTree = "<group>"; };
 		5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSummaryView.m; sourceTree = "<group>"; };
 		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailView.h; sourceTree = "<group>"; };
@@ -506,6 +509,15 @@
 			name = Files;
 			sourceTree = "<group>";
 		};
+		5D4897EF1925CC400062DD54 /* RPRadarChart */ = {
+			isa = PBXGroup;
+			children = (
+				5D4897F01925CC400062DD54 /* RPRadarChart.h */,
+				5D4897F11925CC400062DD54 /* RPRadarChart.m */,
+			);
+			path = RPRadarChart;
+			sourceTree = "<group>";
+		};
 		5D592B2D191C740B00ECDCF7 /* XYPieChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,6 +824,7 @@
 			children = (
 				5D592BB2191FF65E00ECDCF7 /* CorePlot */,
 				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5D4897EF1925CC400062DD54 /* RPRadarChart */,
 				5D592B9B191FF26700ECDCF7 /* DPMeterView */,
 				5D592B2D191C740B00ECDCF7 /* XYPieChart */,
 				5DA82D2718C2FE430011AC26 /* Mixpanel */,
@@ -1159,6 +1172,7 @@
 				5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */,
 				5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */,
 				5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */,
+				5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */,
 				5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */,
 				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
 				5D592B78191F357200ECDCF7 /* ProgramApplicationStat.m in Sources */,

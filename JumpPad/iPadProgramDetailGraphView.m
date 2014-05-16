@@ -15,7 +15,8 @@
 #import "ApplicationConstants.h"
 #import "JPStyle.h"
 #import "JPFont.h"
-
+#import "JPGlobal.h"
+#import "UIBezierPath+BasicShapes.h"
 
 
 @implementation iPadProgramDetailGraphView //For one detail graph element in a program
@@ -39,20 +40,90 @@
         
         if([self.title isEqualToString:@"Tuition"])
         {
-            self.backgroundColor = [UIColor blackColor];
+            self.backgroundColor = [UIColor whiteColor];
             [self initializeTuition];
         }
         
 
         if([self.title isEqualToString:@"Why"])
         {
-            self.backgroundColor = [JPStyle colorWithHex:@"FFFFB3" alpha:1];
+//            self.backgroundColor = [JPStyle colorWithHex:@"FFFFB3" alpha:1];
+
+            self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+            
             [self initializeWhy];
 
         }
         
         
-        
+        if([self.title isEqualToString:@"Ratings"])
+        {
+            self.backgroundColor = [UIColor whiteColor];
+            
+            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake(435, 20, 300, 300)];
+            
+            self.radarChart.delegate = self;
+            self.radarChart.dataSource = self;
+            
+            self.radarChart.backgroundColor = [UIColor whiteColor];
+            self.radarChart.guideLineSteps = 4;
+            
+            self.radarChart.showGuideNumbers = NO;
+            self.radarChart.showValues = YES;
+            
+            self.radarChart.dotRadius = 6;
+            
+            [self addSubview:self.radarChart];
+            
+       
+            UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 150, 55)];
+            titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
+            titleLabel.text = self.title;
+            [titleLabel sizeToFit];
+            titleLabel.textColor = [JPStyle programViewTitleColor];
+            
+            [self addSubview:titleLabel];
+            
+            
+            UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 115, 110, 50)];
+            overallLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+
+            overallLabel.text = @"Overall";
+            overallLabel.textColor = [UIColor blackColor];
+            
+            
+            UILabel* byCategories = [[UILabel alloc] initWithFrame:CGRectMake(329, 115, 150, 50)];
+            byCategories.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+
+            byCategories.text = @"By Categories";
+            byCategories.textColor = [UIColor blackColor];
+            
+            
+            [self addSubview:overallLabel];
+            [self addSubview:byCategories];
+            /////////////////////////////////////////////////////
+            
+            UIBezierPath* bezierPath = [UIBezierPath heartShape:CGRectMake(100, 130, 200, 200)];
+            CGPathRef pathRef = bezierPath.CGPath;
+            
+            self.overallRatingView = [[DPMeterView alloc] initWithFrame:CGRectMake(100, 130, 200, 200) shape:pathRef gravity:YES];
+            self.overallRatingView.meterType = DPMeterTypeLinearVertical;
+            
+            self.overallRatingView.trackTintColor = [JPStyle translucentRainbowColorWithIndex:0];
+            self.overallRatingView.progressTintColor = [JPStyle rainbowColorWithIndex:0];
+            
+            self.overallRatingView.progress = [programRating.ratingOverall floatValue] / 103.0f;
+    
+            [self addSubview:self.overallRatingView];
+            
+            
+            UILabel* overallPercent = [[UILabel alloc] initWithFrame:CGRectMake(173, 200, 100, 50)];
+            overallPercent.textColor = [UIColor blackColor];
+            overallPercent.font = [JPFont coolFontOfSize:29];
+            overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
+            [self addSubview:overallPercent];
+            
+        }
         
         
         
@@ -83,22 +154,24 @@
     titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
-    titleLabel.textColor = [JPStyle colorWithHex:@"B5FFA6" alpha:1];
+    titleLabel.textColor = [JPStyle programViewTitleColor];
     [self addSubview:titleLabel];
     
     UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 45, 70, 40)];
     localLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:12];
     localLabel.text = @"Domestic";
-    localLabel.textColor = [UIColor whiteColor];
+    localLabel.textColor = [UIColor blackColor];
     UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 125, 70, 40)];
     intLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:12];
     intLabel.text = @"International";
-    intLabel.textColor = [UIColor whiteColor];
+    intLabel.textColor = [UIColor blackColor];
     
     [self addSubview:localLabel];
     [self addSubview:intLabel];
     
     
+    
+    //Tuition Values
     UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 70, 150,70)];
     localLabelVal.font = [JPFont coolFontOfSize:35];
     
@@ -106,24 +179,24 @@
     NSDecimalNumber *domesticT = (NSDecimalNumber*)[tuitionDict valueForKey:@"domesticTuition"];
     
     localLabelVal.text = [NSString stringWithFormat:@"$ %@", [domesticT stringValue]];
-    localLabelVal.textColor = [UIColor yellowColor];
+    localLabelVal.textColor = [UIColor blackColor];
     
     //----------
     UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 150, 150, 70)];
     intLabelVal.font = [JPFont coolFontOfSize:35];
     NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
     intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
-    intLabelVal.textColor = [UIColor orangeColor];
+    intLabelVal.textColor = [UIColor blackColor];
     
     [self addSubview:localLabelVal];
     [self addSubview:intLabelVal];
     
     
-    //chart
+    //Chart
     
     barChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero xScaleType:CPTScaleTypeLinear yScaleType:CPTScaleTypeLinear];
     
-    CPTTheme* theme = [CPTTheme themeNamed:kCPTStocksTheme];
+    CPTTheme* theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
     [barChart applyTheme:theme];
     
     self.barChartView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(250, 20, 500, 300)];
@@ -142,11 +215,11 @@
     
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
     majorGridLineStyle.lineWidth = 1.0;
-    majorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:0.75];
+    majorGridLineStyle.lineColor = [[CPTColor blackColor] colorWithAlphaComponent:0.75];
     
     CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
     minorGridLineStyle.lineWidth = 1.0;
-    minorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:0.25];
+    minorGridLineStyle.lineColor = [[CPTColor blackColor] colorWithAlphaComponent:0.25];
     
     
     
@@ -179,7 +252,7 @@
     CPTMutableTextStyle* labelTextStyle = [CPTMutableTextStyle textStyle];
     labelTextStyle.fontSize = 16;
     labelTextStyle.fontName = [JPFont defaultBoldFont];
-    labelTextStyle.color = [CPTColor colorWithComponentRed:166/255.0f green:255.0/255.0f blue:156/255.0f alpha:1];
+    labelTextStyle.color = [CPTColor colorWithComponentRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:1];
     
     x.titleTextStyle = labelTextStyle;
     x.titleLocation = CPTDecimalFromDouble(1.5);
@@ -511,7 +584,6 @@
 {
     
     //Title
-    
     float titleLabelY = 20;
     
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(35, titleLabelY, 700, 55)];
@@ -529,12 +601,8 @@
     }
     
     titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
-    
-    
     [titleLabel sizeToFit];
-    
-    
-    titleLabel.textColor = [JPStyle colorWithHex:@"750A09" alpha:1];
+    titleLabel.textColor = [JPStyle programViewTitleColor];
     [self addSubview:titleLabel];
     
     
@@ -673,6 +741,80 @@
     [self addSubview:textView];
     [self addSubview:percentageLabel];
 }
+
+
+
+
+
+#pragma mark Radar Chart Data Source and Delegate Methods
+
+- (NSInteger)numberOfSopkesInRadarChart:(RPRadarChart *)chart
+{
+    return 6;
+}
+
+
+- (NSInteger)numberOfDatasInRadarChart:(RPRadarChart *)chart
+{
+    return 1;
+}
+
+
+- (float)maximumValueInRadarChart:(RPRadarChart *)chart
+{
+    return 100;
+}
+
+
+- (NSString*)radarChart:(RPRadarChart *)chart titleForSpoke:(NSInteger)atIndex
+{
+    if(atIndex != JPRatingTypeStudyEnvironment)
+        return [JPGlobal ratingStringWithIndex:atIndex];
+    else
+        return @"Study Env.";
+}
+
+
+- (float)radarChart:(RPRadarChart *)chart valueForData:(NSInteger)dataIndex forSpoke:(NSInteger)spokeIndex
+{
+    
+    switch (spokeIndex) {
+        case 0:
+            return [programRating.difficulty floatValue];
+            break;
+        case 1:
+            return [programRating.professor floatValue];
+            break;
+        case 2:
+            return [programRating.schedule floatValue];
+            break;
+        case 3:
+            return [programRating.classmates floatValue];
+            break;
+        case 4:
+            return [programRating.socialEnjoyments floatValue];
+            break;
+        case 5:
+            return [programRating.studyEnv floatValue];
+            break;
+        default:
+            return 0.0f;
+            break;
+    }
+    
+}
+
+
+- (UIColor*)radarChart:(RPRadarChart *)chart colorForData:(NSInteger)atIndex
+{
+    NSInteger randomInt = arc4random() % 6;
+    return [JPStyle rainbowColorWithIndex: randomInt];
+}
+
+
+
+
+
 
 
 

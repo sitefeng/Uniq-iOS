@@ -42,6 +42,12 @@
 //Search Bar
 +(UIColor*) searchBarBackgroundColor;
 
+
+//New Methods
++ (UIColor*) programViewTitleColor;
+
+
+
 //Default app theme
 +(void)applyGlobalStyle;
 
@@ -51,5 +57,7 @@
 
 //Beatiful colors
 + (UIColor*)rainbowColorWithIndex: (NSUInteger)index; //7 colors
++ (UIColor*)translucentRainbowColorWithIndex: (NSUInteger)index;
+
 
 @end

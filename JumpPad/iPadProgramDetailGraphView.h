@@ -10,10 +10,13 @@
 
 #import "CorePlot-CocoaTouch.h"
 #import "XYPieChart.h"
+#import "RPRadarChart.h"
+
+#import "DPMeterView.h"
 
 @class Program, ProgramRating;
 
-@interface iPadProgramDetailGraphView : UIView <CPTBarPlotDataSource, CPTPlotSpaceDelegate, CPTBarPlotDelegate, XYPieChartDataSource, XYPieChartDelegate>
+@interface iPadProgramDetailGraphView : UIView <CPTBarPlotDataSource, CPTPlotSpaceDelegate, CPTBarPlotDelegate, XYPieChartDataSource, XYPieChartDelegate, RPRadarChartDelegate, RPRadarChartDataSource>
 
 {
     CPTXYGraph*  barChart;
@@ -40,6 +43,8 @@
 @property (nonatomic, strong) XYPieChart* whyPieChart;
 
 
+@property (nonatomic, strong) RPRadarChart* radarChart;
+@property (nonatomic, strong) DPMeterView* overallRatingView;
 
 
 

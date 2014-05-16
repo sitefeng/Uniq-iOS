@@ -93,6 +93,21 @@
 }
 
 
+//New Methods
++ (UIColor*) programViewTitleColor
+{
+    return [self colorWithHex:@"500000" alpha:1];
+}
+
+
+
+
+
+
+
+
+
+
 +(void)applyGlobalStyle
 {
 	[[UINavigationBar appearance] setTintColor:[JPStyle interfaceTintColor]];
@@ -199,7 +214,44 @@
 
 
 
-
++ (UIColor*)translucentRainbowColorWithIndex: (NSUInteger)index //7 colors
+{
+    UIColor* color = nil;
+    
+    switch (index%7)
+    {
+            
+        case 0:
+            color = [self colorWithHex:@"FF617B" alpha:0.4];
+            break;
+            
+        case 1:
+            color = [self colorWithHex:@"D291FF" alpha:0.4];
+            break;
+            
+        case 2:
+            color = [self colorWithHex:@"80ABFF" alpha:0.4];
+            break;
+        case 3:
+            color = [self colorWithHex:@"8AFFCD" alpha:0.4];
+            break;
+        case 4:
+            color = [self colorWithHex:@"00CE32" alpha:0.4];
+            break;
+        case 5:
+            color = [self colorWithHex:@"FFA73D" alpha:0.4];
+            break;
+        case 6:
+            color = [self colorWithHex:@"B2E004" alpha:0.4];
+            break;
+            
+        default:
+            NSLog(@"--Error--");
+    }
+    
+    
+    return  color;
+}
 
 
 

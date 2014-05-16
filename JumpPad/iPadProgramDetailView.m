@@ -55,7 +55,13 @@
         
         _currentHeight = _currentHeight + whyView.frame.size.height;
         
+        ////////////////////////////
         
+        iPadProgramDetailGraphView* ratingsView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 340) title:@"Ratings" program:self.program];
+        
+        
+        
+        _currentHeight += ratingsView.frame.size.height;
         
         
         
@@ -74,6 +80,7 @@
         [self addSubview:infoView];
         [self addSubview:tuitionView];
         [self addSubview:whyView];
+        [self addSubview:ratingsView];
             
     }
     return self;

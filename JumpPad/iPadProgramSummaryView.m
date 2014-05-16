@@ -90,21 +90,29 @@
         
         //**************************************
         
-        UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(80, 240, 54, 54)];
+        UIButton* favorite = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
+        [favorite setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+        [favorite addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(30+ 87, 240, 54, 54)];
         [email setImage:[UIImage imageNamed:@"iOSMailIcon"] forState:UIControlStateNormal];
         [email addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(200-54/2.0, 240, 54, 54)];
+        UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(30+ 174, 240, 54, 54)];
         [website setImage:[UIImage imageNamed:@"iOSSafariIcon"] forState:UIControlStateNormal];
         [website addTarget:self action:@selector(websiteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(2*(200-54/2.0)-80, 240, 54, 54)];
+        UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(30+261, 240, 54, 54)];
         [facebook setImage:[UIImage imageNamed:@"facebookIcon"] forState:UIControlStateNormal];
         [facebook addTarget:self action:@selector(facebookButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
+
+        
+        [self addSubview:favorite];
         [self addSubview:email];
         [self addSubview:website];
         [self addSubview:facebook];
+        
         
         [self addSubview:self.summary];
   
@@ -217,7 +225,11 @@
 
 
 
-
+- (void)favoriteButtonTapped: (UIButton*)sender
+{
+    
+    
+}
 
 
 
@@ -247,7 +259,7 @@
 
     CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
     CGContextSetLineWidth(context, 2);
-    CGPoint dividerLineVert[] = {jpp(200, 50),jpp(200, 180)};
+    CGPoint dividerLineVert[] = {jpp(195, 50),jpp(195, 180)};
     
     CGContextAddLines(context, dividerLineVert, 2);
     CGContextDrawPath(context, kCGPathStroke);

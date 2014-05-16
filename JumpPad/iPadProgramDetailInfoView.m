@@ -18,8 +18,7 @@
     if (self) {
         // Initialization code
         
-//        self.backgroundColor = [JPStyle colorWithHex:@"D1FFE3" alpha:1];
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
         
         if([title isEqualToString:@"About"])
         {
@@ -56,7 +55,7 @@
             UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, aboutLabelY - 10, 136, 55)];
             aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
 //            aboutLabel.textColor = [JPStyle colorWithHex:@"6100CC" alpha:1];
-            aboutLabel.textColor = [JPStyle colorWithHex:@"000000" alpha:1];
+            aboutLabel.textColor = [JPStyle programViewTitleColor];
             aboutLabel.text = @"About";
             
             [aboutLabel sizeToFit];

@@ -52,7 +52,29 @@
 }
 
 
-
++ (NSString*)ratingStringWithIndex: (NSInteger)index
+{
+    
+    switch (index)
+    {
+        case 0:
+            return @"Difficulty";
+        case 1:
+            return @"Professors";
+        case 2:
+            return @"Schedule";
+        case 3:
+            return @"Classmates";
+        case 4:
+            return @"Social";
+        case 5:
+            return @"Study Environment";
+        default:
+            return @"";
+            
+    }
+    
+}
 
 
 

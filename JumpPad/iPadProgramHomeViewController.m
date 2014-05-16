@@ -46,7 +46,7 @@ const float kProgramImageWidth  = 384;
         // Custom initialization
         
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
-        self.view.backgroundColor = [JPStyle colorWith8BitRed:50 green:0 blue:20 alpha:1];
+        self.view.backgroundColor = [JPStyle colorWith8BitRed:50 green:0 blue:0 alpha:1];
         
         
     

@@ -14,7 +14,7 @@
 
 + (NSString*)monthStringWithInt: (int)month;
 
-
++ (NSString*)ratingStringWithIndex: (NSInteger)index;
 
 
 
