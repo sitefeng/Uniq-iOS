@@ -48,6 +48,9 @@
 
 
 
+@property (nonatomic, strong) XYPieChart *ratioPieChart;
+
+
 - (id)initWithFrame:(CGRect)frame  title:(NSString*)title  program:(Program*) program;
 
 

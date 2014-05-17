@@ -15,7 +15,7 @@
          "province":"Ontario",
          "country":"Canada",
          "lattitude":"43.46890000",
-         "longitude":"80.54000000"
+         "longitude":"-80.54000000"
       },
       "numPrograms": 999,
       "logoUrl":"http:\/\/sitefeng.com\/images\/Jump\/waterloo.png",
@@ -62,7 +62,7 @@
          "province":"Ontario",
          "country":"Canada",
          "lattitude":"43.46890000",
-         "longitude":"80.54000000"
+         "longitude":"-80.54000000"
       },
       "numPrograms":999,
       "logoUrl":"http:\/\/sitefeng.com\/images\/Jump\/toronto.png",

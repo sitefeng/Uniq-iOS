@@ -60,73 +60,66 @@
         {
             self.backgroundColor = [UIColor whiteColor];
             
-            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake(435, 20, 300, 300)];
-            
-            self.radarChart.delegate = self;
-            self.radarChart.dataSource = self;
-            
-            self.radarChart.backgroundColor = [UIColor whiteColor];
-            self.radarChart.guideLineSteps = 4;
-            
-            self.radarChart.showGuideNumbers = NO;
-            self.radarChart.showValues = YES;
-            
-            self.radarChart.dotRadius = 6;
-            
-            [self addSubview:self.radarChart];
-            
-       
-            UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 150, 55)];
-            titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
-            titleLabel.text = self.title;
-            [titleLabel sizeToFit];
-            titleLabel.textColor = [JPStyle programViewTitleColor];
-            
-            [self addSubview:titleLabel];
-            
-            
-            UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 115, 110, 50)];
-            overallLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
-
-            overallLabel.text = @"Overall";
-            overallLabel.textColor = [UIColor blackColor];
-            
-            
-            UILabel* byCategories = [[UILabel alloc] initWithFrame:CGRectMake(329, 115, 150, 50)];
-            byCategories.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
-
-            byCategories.text = @"By Categories";
-            byCategories.textColor = [UIColor blackColor];
-            
-            
-            [self addSubview:overallLabel];
-            [self addSubview:byCategories];
-            /////////////////////////////////////////////////////
-            
-            UIBezierPath* bezierPath = [UIBezierPath heartShape:CGRectMake(100, 130, 200, 200)];
-            CGPathRef pathRef = bezierPath.CGPath;
-            
-            self.overallRatingView = [[DPMeterView alloc] initWithFrame:CGRectMake(100, 130, 200, 200) shape:pathRef gravity:YES];
-            self.overallRatingView.meterType = DPMeterTypeLinearVertical;
-            
-            self.overallRatingView.trackTintColor = [JPStyle translucentRainbowColorWithIndex:0];
-            self.overallRatingView.progressTintColor = [JPStyle rainbowColorWithIndex:0];
-            
-            self.overallRatingView.progress = [programRating.ratingOverall floatValue] / 103.0f;
-    
-            [self addSubview:self.overallRatingView];
-            
-            
-            UILabel* overallPercent = [[UILabel alloc] initWithFrame:CGRectMake(173, 200, 100, 50)];
-            overallPercent.textColor = [UIColor blackColor];
-            overallPercent.font = [JPFont coolFontOfSize:29];
-            overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
-            [self addSubview:overallPercent];
-            
+            [self initializeRatings];
         }
         
         
-        
+        if([self.title isEqualToString:@"Ratio"])
+        {
+            self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+            
+            self.ratioPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(450, 50, 200, 200) Center:CGPointMake(100, 100) Radius:100];
+            self.ratioPieChart.dataSource = self;
+            self.ratioPieChart.delegate = self;
+            self.ratioPieChart.labelFont = [JPFont coolFontOfSize:20];
+            self.ratioPieChart.labelColor = [UIColor whiteColor];
+            self.ratioPieChart.showPercentage = YES;
+            self.ratioPieChart.showLabel = YES;
+            
+            self.ratioPieChart.animationSpeed = 1;
+            self.ratioPieChart.startPieAngle = M_PI_2;
+            self.ratioPieChart.labelShadowColor = [UIColor blackColor];
+            self.ratioPieChart.labelRadius = 66;
+            
+            self.ratioPieChart.accessibilityLabel = @"ratioPieChart";
+            [self.ratioPieChart setPieBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]]];
+            
+            [self setUserInteractionEnabled:NO];
+            
+            [self.ratioPieChart reloadData];
+            [self addSubview:self.ratioPieChart];
+            
+            
+            UILabel* percentageLabel = [[UILabel alloc] init];
+            
+            [percentageLabel setFrame:CGRectMake(0, 0, 70, 70)];
+            [percentageLabel setCenter:self.ratioPieChart.center];
+            
+            [percentageLabel setFont:[JPFont coolFontOfSize:35]];
+            percentageLabel.text = @"%";
+            percentageLabel.textColor = [UIColor blackColor];
+            percentageLabel.clipsToBounds = YES;
+            percentageLabel.textAlignment = NSTextAlignmentCenter;
+            percentageLabel.backgroundColor = self.backgroundColor;
+            [percentageLabel.layer setCornerRadius:percentageLabel.frame.size.width/2.0f];
+            
+            [self addSubview:percentageLabel];
+            
+            
+            UILabel* ratioTitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 350, 200)];
+            ratioTitle.textAlignment = NSTextAlignmentCenter;
+      
+            ratioTitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:55];
+            ratioTitle.textColor = [JPStyle programViewTitleColor];
+            ratioTitle.text = @"Gals vs Guys\nRatio";
+            ratioTitle.numberOfLines = 2;
+            
+            [self addSubview:ratioTitle];
+            
+            
+            
+            
+        }
         
         
         
@@ -138,8 +131,7 @@
     return self;
 }
 
-    
-    
+
     
            
            
@@ -157,12 +149,12 @@
     titleLabel.textColor = [JPStyle programViewTitleColor];
     [self addSubview:titleLabel];
     
-    UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 45, 70, 40)];
-    localLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:12];
+    UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 55, 70, 40)];
+    localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
     localLabel.text = @"Domestic";
     localLabel.textColor = [UIColor blackColor];
-    UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 125, 70, 40)];
-    intLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:12];
+    UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 145, 100, 40)];
+    intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
     intLabel.text = @"International";
     intLabel.textColor = [UIColor blackColor];
     
@@ -172,7 +164,7 @@
     
     
     //Tuition Values
-    UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 70, 150,70)];
+    UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 80, 150,70)];
     localLabelVal.font = [JPFont coolFontOfSize:35];
     
     NSDictionary* tuitionDict = [self.program.tuitions anyObject];
@@ -182,7 +174,7 @@
     localLabelVal.textColor = [UIColor blackColor];
     
     //----------
-    UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 150, 150, 70)];
+    UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 170, 150, 70)];
     intLabelVal.font = [JPFont coolFontOfSize:35];
     NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
     intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
@@ -514,10 +506,6 @@
     
 
 
-
-
-
-
 #pragma mark - Why Pie Chart View Methods
 
 - (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
@@ -526,7 +514,10 @@
     {
         return 6;
     }
-    
+    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
+    {
+        return 2;
+    }
     
     return 0;
 }
@@ -535,8 +526,6 @@
 - (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
 {
     CGFloat value = 0.0;
-    
-
     
     if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
     {
@@ -565,7 +554,17 @@
             
         }
         
-        
+    }
+    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
+    {
+        if(index == 0)//Girls
+        {
+            return (100 - [programRating.guyToGirlRatio floatValue]);
+        }
+        else
+        {
+            return [programRating.guyToGirlRatio floatValue];
+        }
     }
     
     return value;
@@ -574,7 +573,26 @@
 
 - (UIColor*)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
 {
-    return [JPStyle rainbowColorWithIndex:index];
+    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
+    {
+        return [JPStyle rainbowColorWithIndex:index];
+    }
+    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
+    {
+        if(index ==0) //girl
+        {
+            return [JPStyle rainbowColorWithIndex:0];//pink
+        }
+        else
+        {
+            return [JPStyle rainbowColorWithIndex:2];//blue
+        }
+    }
+    else
+    {
+        return [UIColor whiteColor];
+    }
+    
 }
 
 
@@ -694,7 +712,7 @@
     
     
     UITextView* textView = [[UITextView alloc] initWithFrame:CGRectMake(30, 150, 300, 250)];
-    textView.font = [UIFont fontWithName:[JPFont defaultLightFont] size:30];
+    textView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
     
     textView.textAlignment = NSTextAlignmentCenter;
     textView.textColor = [UIColor blackColor];
@@ -746,7 +764,60 @@
 
 
 
-#pragma mark Radar Chart Data Source and Delegate Methods
+#pragma mark Radar Chart Method and Data Source and Delegate Methods
+
+- (void)initializeRatings
+{
+    self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake(435, 20, 300, 300)];
+    
+    self.radarChart.delegate = self;
+    self.radarChart.dataSource = self;
+    
+    self.radarChart.userInteractionEnabled = NO;
+    self.radarChart.backgroundColor = [UIColor whiteColor];
+    self.radarChart.guideLineSteps = 4;
+    self.radarChart.showGuideNumbers = NO;
+    self.radarChart.showValues = YES;
+    self.radarChart.dotRadius = 6;
+    [self addSubview:self.radarChart];
+    
+    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 150, 55)];
+    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
+    titleLabel.text = self.title;
+    [titleLabel sizeToFit];
+    titleLabel.textColor = [JPStyle programViewTitleColor];
+    [self addSubview:titleLabel];
+    
+    UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 115, 110, 50)];
+    overallLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+    overallLabel.text = @"Overall";
+    overallLabel.textColor = [UIColor blackColor];
+    
+    UILabel* byCategories = [[UILabel alloc] initWithFrame:CGRectMake(329, 115, 150, 50)];
+    byCategories.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+    byCategories.text = @"By Categories";
+    byCategories.textColor = [UIColor blackColor];
+    
+    [self addSubview:overallLabel];
+    [self addSubview:byCategories];
+    /////////////////////////////////////////////////////
+    
+    UIBezierPath* bezierPath = [UIBezierPath heartShape:CGRectMake(100, 130, 200, 200)];
+    CGPathRef pathRef = bezierPath.CGPath;
+    
+    self.overallRatingView = [[DPMeterView alloc] initWithFrame:CGRectMake(100, 130, 200, 200) shape:pathRef gravity:YES];
+    self.overallRatingView.meterType = DPMeterTypeLinearVertical;
+    self.overallRatingView.trackTintColor = [JPStyle translucentRainbowColorWithIndex:0];
+    self.overallRatingView.progressTintColor = [JPStyle rainbowColorWithIndex:0];
+    self.overallRatingView.progress = [programRating.ratingOverall floatValue] / 103.0f;
+    [self addSubview:self.overallRatingView];
+    
+    UILabel* overallPercent = [[UILabel alloc] initWithFrame:CGRectMake(173, 200, 100, 50)];
+    overallPercent.textColor = [UIColor blackColor];
+    overallPercent.font = [JPFont coolFontOfSize:29];
+    overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
+    [self addSubview:overallPercent];
+}
 
 - (NSInteger)numberOfSopkesInRadarChart:(RPRadarChart *)chart
 {

@@ -29,7 +29,7 @@
         // Initialization code
     
         self.program = prog;
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
     
         _currentHeight = 0;
         
@@ -65,10 +65,11 @@
         
         
         
+        iPadProgramDetailGraphView* ratioView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 300) title:@"Ratio" program:self.program];
         
         
         
-        
+        _currentHeight += ratioView.frame.size.height;
         
         
         
@@ -81,6 +82,7 @@
         [self addSubview:tuitionView];
         [self addSubview:whyView];
         [self addSubview:ratingsView];
+        [self addSubview:ratioView];
             
     }
     return self;

@@ -11,6 +11,7 @@
 		5D16763A18583D250041993E /* JumpPad-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* JumpPad-Explaination.txt */; };
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
+		5D2443FB1926F30900E7E8E0 /* MMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */; };
 		5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* icon-180.png */; };
 		5D2540AB18B6FAFA00FAB887 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540AA18B6FAFA00FAB887 /* icon-76.png */; };
 		5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */; };
@@ -150,6 +151,8 @@
 		5D16763F18591AE10041993E /* iOSDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletDetailsView.m; sourceTree = "<group>"; };
 		5D167646185D6A6C0041993E /* ApplicationConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
+		5D2443F91926F30900E7E8E0 /* MMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationManager.h; sourceTree = "<group>"; };
+		5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationManager.m; sourceTree = "<group>"; };
 		5D2540A818B6FAB000FAB887 /* icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-180.png"; sourceTree = "<group>"; };
 		5D2540AA18B6FAFA00FAB887 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76.png"; sourceTree = "<group>"; };
 		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainCollectionViewCell.h; sourceTree = "<group>"; };
@@ -466,6 +469,15 @@
 				5D16763F18591AE10041993E /* iOSDashletDetailsView.m */,
 			);
 			name = Shared;
+			sourceTree = "<group>";
+		};
+		5D2443F81926F30900E7E8E0 /* MMLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				5D2443F91926F30900E7E8E0 /* MMLocationManager.h */,
+				5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */,
+			);
+			path = MMLocationManager;
 			sourceTree = "<group>";
 		};
 		5D2540AC18B6FB0400FAB887 /* Images */ = {
@@ -824,6 +836,7 @@
 			children = (
 				5D592BB2191FF65E00ECDCF7 /* CorePlot */,
 				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5D2443F81926F30900E7E8E0 /* MMLocationManager */,
 				5D4897EF1925CC400062DD54 /* RPRadarChart */,
 				5D592B9B191FF26700ECDCF7 /* DPMeterView */,
 				5D592B2D191C740B00ECDCF7 /* XYPieChart */,
@@ -1132,6 +1145,7 @@
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5D592B6F191F357200ECDCF7 /* ProgramCourse.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
+				5D2443FB1926F30900E7E8E0 /* MMLocationManager.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,

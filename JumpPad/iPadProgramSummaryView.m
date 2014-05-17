@@ -33,7 +33,7 @@
         
         self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 200, 35)];
         self.summary.textColor = [JPStyle colorWithHex:@"C7E8FF" alpha:1];
-        self.summary.font = [UIFont fontWithName:[JPFont defaultBoldFont] size:20];
+        self.summary.font = [UIFont fontWithName:[JPFont defaultLightFont] size:20];
         self.summary.shadowColor = [UIColor yellowColor];
         self.summary.text = @"SUMMARY";
         
@@ -56,7 +56,7 @@
                 [self addSubview:view];
                 
                 UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50+ horizDist*j, 65+vertDist*i, 160, 30)];
-                label.font = [UIFont fontWithName:[JPFont defaultMediumFont] size:15];
+                label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
                 label.textColor = [UIColor whiteColor];
                 label.shadowColor = [UIColor yellowColor];
                 label.text = [[self labelTextForRow:i column:j] uppercaseString];
