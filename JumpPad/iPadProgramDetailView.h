@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@class Program;
+@class Program, iPadProgramDetailInfoView, iPadProgramDetailGraphView;
 
 @interface iPadProgramDetailView : UIScrollView
 {
@@ -17,8 +17,9 @@
     
     float _currentHeight;
     
+    iPadProgramDetailInfoView* infoView;
     
-    
+    NSMutableArray* graphViews;
     
     
     
@@ -39,7 +40,7 @@
 - (id)initWithFrame:(CGRect)frame andProgram: (Program*)prog;
 
 
-
+- (void)reloadData;
 
 
 

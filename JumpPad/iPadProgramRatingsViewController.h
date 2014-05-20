@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@class Program;
 @interface iPadProgramRatingsViewController : UIViewController
+
+
+
+
+@property (nonatomic, assign) NSUInteger dashletUid;
+
+@property (nonatomic, strong) Program* program;
+
+
+
+
+
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+
+
+
 
 @end

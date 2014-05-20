@@ -15,7 +15,7 @@
 
 @class iPadSearchBarView, iPadSearchBarView, iPadProgramBannerView;
 
-@interface iPadProgramSelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPDashletInfoDelegate, JPSortDelegate, UIPopoverControllerDelegate>
+@interface iPadProgramSelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPSortDelegate, JPDashletInfoDelegate, UIPopoverControllerDelegate>
 
 
 

@@ -7,6 +7,10 @@
 //
 
 #import "iPadProgramCompareViewController.h"
+#import "Program.h"
+
+
+
 
 @interface iPadProgramCompareViewController ()
 
@@ -14,7 +18,7 @@
 
 @implementation iPadProgramCompareViewController
 
-- (id)init
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
 {
     self = [super init];
     if (self) {
@@ -22,6 +26,14 @@
         
         self.tabBarItem.image = [UIImage imageNamed:@"compare"];
         self.view.backgroundColor = [UIColor greenColor];
+        
+        self.program = program;
+        self.dashletUid = dashletUid;
+        
+        
+        
+        
+        
         
         
     }

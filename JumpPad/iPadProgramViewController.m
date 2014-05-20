@@ -15,19 +15,34 @@
 
 @implementation iPadProgramViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithDashletUid: (NSUInteger) dashletUid
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
         
-
-         self.vc1 = [[iPadProgramHomeViewController alloc] init];
         
-         self.vc2 = [[iPadProgramAcademicsViewController alloc] init];
-         self.vc3 = [[iPadProgramContactViewController alloc] init];
-         self.vc4 = [[iPadProgramCompareViewController alloc] init];
-         self.vc5 = [[iPadProgramRatingsViewController alloc] init];
+        self.dashletUid = dashletUid;
+        
+        
+        JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        context = [delegate managedObjectContext];
+        
+        
+        //Update Program Info from Core Data
+        [self updateProgram];
+        
+        
+         self.vc1 = [[iPadProgramHomeViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
+        
+        self.vc2 = [[iPadProgramAcademicsViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
+
+        self.vc3 = [[iPadProgramContactViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
+
+        self.vc4 = [[iPadProgramCompareViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
+
+        self.vc5 = [[iPadProgramRatingsViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
+
      
         UINavigationController* nc1 = [[UINavigationController alloc]initWithRootViewController:self.vc1];
         UINavigationController* nc2 = [[UINavigationController alloc]initWithRootViewController:self.vc2];
@@ -75,6 +90,33 @@
     
     
 }
+
+
+
+- (void)updateProgram
+{
+    self.program = nil;
+    
+    _programId = self.dashletUid % 1000;
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
+    request.predicate = [NSPredicate predicateWithFormat:@"programId = %i", _programId];
+    
+    NSError* error = nil;
+    NSArray* results = [context executeFetchRequest:request error:&error];
+    if(error)
+    {
+        JPLog(@"update Program ERROR: %@", error);
+    }
+    
+    self.program = results[0];
+}
+
+
+
+
+
+
 
 - (void)dismissViewController
 {

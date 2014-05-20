@@ -8,6 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+@class MKMapView, Program;
 @interface iPadProgramContactViewController : UIViewController
+
+
+
+
+
+
+@property (nonatomic, assign) NSUInteger dashletUid;
+
+@property (nonatomic, strong) Program* program;
+
+
+@property (nonatomic, strong) MKMapView* mapView;
+
+
+
+
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+
 
 @end

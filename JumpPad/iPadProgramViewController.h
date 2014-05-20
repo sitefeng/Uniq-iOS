@@ -13,13 +13,21 @@
 #import "iPadProgramRatingsViewController.h"
 #import "iPadProgramHomeViewController.h"
 
+
+@class Program;
+
 @interface iPadProgramViewController : UITabBarController
+{
+    NSManagedObjectContext* context;
+    
+    NSInteger               _programId;
+}
 
 
 
+@property (nonatomic, assign) NSUInteger dashletUid;
 
-@property (nonatomic, assign) NSInteger dashletUid;
-
+@property (nonatomic, strong) Program* program;
 
 
 @property (nonatomic, strong)iPadProgramHomeViewController *vc1 ;
@@ -31,6 +39,8 @@
 
 
 
+
+- (id)initWithDashletUid: (NSUInteger) dashletUid;
 
 
 

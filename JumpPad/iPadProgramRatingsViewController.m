@@ -7,6 +7,9 @@
 //
 
 #import "iPadProgramRatingsViewController.h"
+#import "Program.h"
+
+
 
 @interface iPadProgramRatingsViewController ()
 
@@ -14,16 +17,21 @@
 
 @implementation iPadProgramRatingsViewController
 
-- (id)init
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
 {
     self = [super init];
     if (self) {
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"ratings"];
-        
         self.view.backgroundColor = [UIColor blueColor];
     
-
+        self.program = program;
+        self.dashletUid = dashletUid;
+        
+        
+        
+        
+        
         
     }
     return self;

@@ -32,8 +32,6 @@
 
 @property (nonatomic, strong) Program* program;
 
-
-
 @property (nonatomic, strong) NSString* title;
 
 
@@ -54,7 +52,7 @@
 - (id)initWithFrame:(CGRect)frame  title:(NSString*)title  program:(Program*) program;
 
 
-
+- (void)reloadData;
 
 
 

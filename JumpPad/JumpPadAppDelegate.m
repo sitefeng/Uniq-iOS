@@ -11,7 +11,8 @@
 
 #import "iPadProgramHomeViewController.h"
 
-#import "iPadProgramContactViewController.h"
+#import "iPadProgramViewController.h"
+#import "iPadMainHomeViewController.h"
 
 #import "Mixpanel.h"
 
@@ -27,14 +28,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UITabBarController* tabController = [[UITabBarController alloc] init];
-    iPadProgramContactViewController* homeController = [[iPadProgramContactViewController alloc] init];
     
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:homeController];
+    iPadProgramViewController* programController = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
+    [programController setSelectedIndex:2];
     
-    tabController.viewControllers = @[navController];
+//    iPadMainHomeViewController* homeController = [[iPadMainHomeViewController alloc] init];
     
-    self.window.rootViewController = tabController;
+    self.window.rootViewController = programController;
     
     
     

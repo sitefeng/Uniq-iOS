@@ -12,6 +12,7 @@
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
 		5D2443FB1926F30900E7E8E0 /* MMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */; };
+		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
 		5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* icon-180.png */; };
 		5D2540AB18B6FAFA00FAB887 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540AA18B6FAFA00FAB887 /* icon-76.png */; };
 		5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */; };
@@ -153,6 +154,7 @@
 		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
 		5D2443F91926F30900E7E8E0 /* MMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationManager.h; sourceTree = "<group>"; };
 		5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationManager.m; sourceTree = "<group>"; };
+		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D2540A818B6FAB000FAB887 /* icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-180.png"; sourceTree = "<group>"; };
 		5D2540AA18B6FAFA00FAB887 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76.png"; sourceTree = "<group>"; };
 		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainCollectionViewCell.h; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */,
 				5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */,
 				5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */,
 				5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */,
@@ -863,6 +866,7 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D2443FC192AABF500E7E8E0 /* MapKit.framework */,
 				5DE5C30A1923449000F7F01B /* Social.framework */,
 				5DE5C3081923448900F7F01B /* MessageUI.framework */,
 				5D36C3DA1915793700A5A7D8 /* CoreData.framework */,

@@ -227,7 +227,7 @@
 
 - (void)favoriteButtonTapped: (UIButton*)sender
 {
-    
+    [self.delegate favoriteButtonTapped];
     
 }
 

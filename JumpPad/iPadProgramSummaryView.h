@@ -53,5 +53,6 @@
 - (void)emailButtonTapped;
 - (void)websiteButtonTapped;
 - (void)facebookButtonTapped;
+- (void)favoriteButtonTapped;
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation iPadProgramAcademicsViewController
 
-- (id)init
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
 {
     self = [super init];
     if (self) {
@@ -22,6 +22,16 @@
         
         self.tabBarItem.image = [UIImage imageNamed:@"academics"];
         self.view.backgroundColor = [UIColor brownColor];
+        
+        self.program = program;
+        self.dashletUid = dashletUid;
+        
+        
+        
+        
+        
+        
+        
         
     }
     return self;

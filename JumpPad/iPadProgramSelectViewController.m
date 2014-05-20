@@ -218,9 +218,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] init];
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
-    viewController.dashletUid = selectedDashlet.dashletUid;
+    
+    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithDashletUid:selectedDashlet.dashletUid];
     
     [self presentViewController:viewController animated:YES completion:nil];
     

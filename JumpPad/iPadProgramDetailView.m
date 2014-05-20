@@ -36,14 +36,19 @@
         //////////////////////////////////////////////////
         //Start Creating Views
         
-        iPadProgramDetailInfoView* infoView = [[iPadProgramDetailInfoView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, kiPadWidthPortrait) title:@"About" paragraph:self.program.about];
+        infoView = [[iPadProgramDetailInfoView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, kiPadWidthPortrait) title:@"About" paragraph:self.program.about];
         [infoView sizeToFit];
         _currentHeight = _currentHeight + infoView.frame.size.height;
         
 
         
+        //Graph Views
+        graphViews = [NSMutableArray array];
+        
         //340!!! 300 is the height of the actually graph, 20 is margin top and bottom
         iPadProgramDetailGraphView* tuitionView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 340) title:@"Tuition" program:self.program];
+        
+        [graphViews addObject:tuitionView];
         
         _currentHeight = _currentHeight + tuitionView.frame.size.height;
         
@@ -51,14 +56,14 @@
         
         
         iPadProgramDetailGraphView* whyView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 420) title:@"Why" program:self.program];
-        
+        [graphViews addObject:whyView];
         
         _currentHeight = _currentHeight + whyView.frame.size.height;
         
         ////////////////////////////
         
         iPadProgramDetailGraphView* ratingsView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 340) title:@"Ratings" program:self.program];
-        
+        [graphViews addObject:ratingsView];
         
         
         _currentHeight += ratingsView.frame.size.height;
@@ -66,7 +71,7 @@
         
         
         iPadProgramDetailGraphView* ratioView = [[iPadProgramDetailGraphView alloc] initWithFrame:CGRectMake(0, _currentHeight, kiPadWidthPortrait, 300) title:@"Ratio" program:self.program];
-        
+        [graphViews addObject:ratioView];
         
         
         _currentHeight += ratioView.frame.size.height;
@@ -91,7 +96,14 @@
 
 
 
-
+- (void)reloadData
+{
+    for(iPadProgramDetailGraphView* graphView in graphViews)
+    {
+        [graphView reloadData];
+    }
+    
+}
 
 
 

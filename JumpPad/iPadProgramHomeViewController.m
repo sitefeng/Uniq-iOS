@@ -39,7 +39,7 @@ const float kProgramImageWidth  = 384;
 
 @implementation iPadProgramHomeViewController
 
-- (id)init
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
 {
     self = [super init];
     if (self) {
@@ -48,24 +48,8 @@ const float kProgramImageWidth  = 384;
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
         self.view.backgroundColor = [JPStyle colorWith8BitRed:50 green:0 blue:0 alpha:1];
         
-        
-    
-        
-        
-        
-//        iPadProgramViewController* tabController = (iPadProgramViewController*)self.tabBarController;
-//        self.dashletUid = tabController.dashletUid;
-        
-        self.dashletUid = 1003221;
-        
-        JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-        context = [delegate managedObjectContext];
-        
-        
-        //Update Program Info from Core Data
-        [self updateProgram];
-        
-        
+        self.program = program;
+        self.dashletUid = dashletUid;
         
         
         //Getting current device orientation
@@ -139,48 +123,18 @@ const float kProgramImageWidth  = 384;
     // Do any additional setup after loading the view.
     
     
-    
 }
 
 
-
-
-
-- (void)updateProgram
+- (void)viewDidAppear:(BOOL)animated
 {
-    self.program = nil;
+    [super viewDidAppear:animated];
     
-    _programId = self.dashletUid % 1000;
-    
-    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
-    request.predicate = [NSPredicate predicateWithFormat:@"programId = %i", _programId];
-    
-    NSError* error = nil;
-    NSArray* results = [context executeFetchRequest:request error:&error];
-    if(error)
-    {
-        JPLog(@"update Program ERROR: %@", error);
-    }
-    
-
-    self.program = results[0];
-    
-    
+    [self.detailView reloadData];
 }
 
 
 
-
-//
-//- (void)emailButtonPressed: (NSNotification*)noti
-//{
-//    
-//    MFMailComposeViewController* controller = [noti.userInfo objectForKey:@"controller"];
-//    
-//    [self.navigationController presentViewController:controller animated:YES completion:nil];
-//    
-//    
-//}
 
 
 #pragma mark - JPProgramSummaryView Delegate methods
@@ -236,6 +190,12 @@ const float kProgramImageWidth  = 384;
     }
 }
 
+
+- (void)favoriteButtonTapped
+{
+    [self.detailView reloadData];
+    
+}
 
 
 

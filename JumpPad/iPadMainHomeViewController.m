@@ -494,26 +494,50 @@
             
             [newLocation setValue:newSchool forKey:@"school"];
             
-            NSDictionary* locationDict = [newSchool valueForKey:@"location"];
+            NSDictionary* locationDict = [dict valueForKey:@"location"];
             
-            if([dict valueForKey:@"streetNum"] != [NSNull null])
+            if([locationDict valueForKey:@"streetNum"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"streetNum"] forKey:@"streetNum"];
-            if([dict valueForKey:@"streetName"] != [NSNull null])
+            if([locationDict valueForKey:@"streetName"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"streetName"] forKey:@"streetName"];
-            if([dict valueForKey:@"apt"] != [NSNull null])
+            if([locationDict valueForKey:@"apt"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"apt"] forKey:@"apt"];
-            if([dict valueForKey:@"unit"] != [NSNull null])
+            if([locationDict valueForKey:@"unit"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"unit"] forKey:@"unit"];
-            if([dict valueForKey:@"city"] != [NSNull null])
+            if([locationDict valueForKey:@"city"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"city"] forKey:@"city"];
-            if([dict valueForKey:@"province"] != [NSNull null])
+            if([locationDict valueForKey:@"province"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"province"] forKey:@"province"];
-            if([dict valueForKey:@"country"] != [NSNull null])
+            if([locationDict valueForKey:@"country"] != [NSNull null])
                 [newLocation setValue:[locationDict valueForKey:@"country"] forKey:@"country"];
 
                 //TODO: fix this parsing to accommodate from integers in quotations
-            [newLocation setValue:[locationDict valueForKey:@"lattitude"] forKey:@"lattitude"];
-            [newLocation setValue:[locationDict valueForKey:@"longitude"] forKey:@"longitude"];
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            
+            id lattitudeValue = [locationDict valueForKey:@"lattitude"];
+            
+            if(lattitudeValue != [NSNull null])
+            {
+                if([lattitudeValue isKindOfClass:[NSString class]])
+                {
+                    NSString* latString =(NSString*)lattitudeValue;
+                    [newLocation setValue:[formatter numberFromString:latString] forKey:@"lattitude"];
+                }
+                
+            }
+            
+            id longitudeValue = [locationDict valueForKey:@"longitude"];
+            
+            if(longitudeValue != [NSNull null])
+            {
+                if([longitudeValue isKindOfClass:[NSString class]])
+                {
+                    NSString* lonString =(NSString*)longitudeValue;
+                    [newLocation setValue:[formatter numberFromString:lonString] forKey:@"longitude"];
+                }
+                
+            }
             
             
             //****************************************************

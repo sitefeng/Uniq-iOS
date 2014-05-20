@@ -887,7 +887,14 @@
 
 
 
+#pragma mark - Other Methods
 
+- (void)reloadData
+{
+    [self.whyPieChart reloadData];
+    [self.ratioPieChart reloadData];
+    
+}
 
 
 

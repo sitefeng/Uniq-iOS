@@ -33,6 +33,7 @@
 
 @protocol JPDashletInfoDelegate <NSObject>
 
+@optional
 - (void)infoButtonPressed: (iPadMainCollectionViewCell*)sender;
 
 
