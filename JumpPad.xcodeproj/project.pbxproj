@@ -13,6 +13,7 @@
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
 		5D2443FB1926F30900E7E8E0 /* MMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */; };
 		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
+		5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D24472D192B20B500E7E8E0 /* core_plot_all.a */; };
 		5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* icon-180.png */; };
 		5D2540AB18B6FAFA00FAB887 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540AA18B6FAFA00FAB887 /* icon-76.png */; };
 		5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */; };
@@ -126,7 +127,6 @@
 		5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */; };
 		5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */; };
-		5DE5C2FF1921962F00F7F01B /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C2FE1921962F00F7F01B /* libCorePlot-CocoaTouch.a */; };
 		5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5C306192338B100F7F01B /* JPGlobal.m */; };
 		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
 		5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C30A1923449000F7F01B /* Social.framework */; };
@@ -155,6 +155,8 @@
 		5D2443F91926F30900E7E8E0 /* MMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationManager.h; sourceTree = "<group>"; };
 		5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationManager.m; sourceTree = "<group>"; };
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5D24472D192B20B500E7E8E0 /* core_plot_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = core_plot_all.a; sourceTree = "<group>"; };
 		5D2540A818B6FAB000FAB887 /* icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-180.png"; sourceTree = "<group>"; };
 		5D2540AA18B6FAFA00FAB887 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76.png"; sourceTree = "<group>"; };
 		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainCollectionViewCell.h; sourceTree = "<group>"; };
@@ -425,7 +427,6 @@
 		5DE5B83518504D0300EFCE0A /* iPadMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFeaturedViewController.h; sourceTree = "<group>"; };
 		5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFeaturedViewController.m; sourceTree = "<group>"; };
 		5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5DE5C2FE1921962F00F7F01B /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		5DE5C305192338B100F7F01B /* JPGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGlobal.h; sourceTree = "<group>"; };
 		5DE5C306192338B100F7F01B /* JPGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGlobal.m; sourceTree = "<group>"; };
 		5DE5C3081923448900F7F01B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -438,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */,
+				5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */,
 				5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */,
 				5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */,
 				5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */,
@@ -446,7 +448,6 @@
 				5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */,
 				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
 				5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */,
-				5DE5C2FF1921962F00F7F01B /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +584,7 @@
 		5D592BB2191FF65E00ECDCF7 /* CorePlot */ = {
 			isa = PBXGroup;
 			children = (
-				5DE5C2FE1921962F00F7F01B /* libCorePlot-CocoaTouch.a */,
+				5D24472D192B20B500E7E8E0 /* core_plot_all.a */,
 				5D592BB3191FF79A00ECDCF7 /* CorePlotHeaders */,
 			);
 			name = CorePlot;
@@ -866,6 +867,7 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */,
 				5D2443FC192AABF500E7E8E0 /* MapKit.framework */,
 				5DE5C30A1923449000F7F01B /* Social.framework */,
 				5DE5C3081923448900F7F01B /* MessageUI.framework */,
@@ -1057,6 +1059,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = 5DE5B7A3184ACBB700EFCE0A;
 			productRefGroup = 5DE5B7AD184ACBB700EFCE0A /* Products */;
@@ -1333,6 +1336,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
 				INFOPLIST_FILE = "JumpPad/JumpPad-Info.plist";
@@ -1353,6 +1360,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
 				INFOPLIST_FILE = "JumpPad/JumpPad-Info.plist";

@@ -4,6 +4,9 @@
 
 
 
+//to use pre-ARC: -fno-objc-arc
+//to get a build for all architectures
+ lipo -create ./Debug-iphoneos/libCorePlot-CocoaTouch.a ./Debug-iphonesimulator/libCorePlot-CocoaTouch.a -output core_plot_all.a
 
 What is iPadDashletView?
 
