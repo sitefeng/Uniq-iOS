@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class MKMapView, Program;
+@class MKMapView, Program, School, SchoolLocation, iPadProgramLabelView;
 @interface iPadProgramContactViewController : UIViewController
-
+{
+    School*          _school;
+    SchoolLocation*  _schoolLocation;
+}
 
 
 
@@ -19,6 +22,10 @@
 @property (nonatomic, assign) NSUInteger dashletUid;
 
 @property (nonatomic, strong) Program* program;
+
+
+@property (nonatomic, strong) iPadProgramLabelView* labelView;
+
 
 
 @property (nonatomic, strong) MKMapView* mapView;
