@@ -33,7 +33,7 @@
         [self updateProgram];
         
         
-         self.vc1 = [[iPadProgramHomeViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
+        self.vc1 = [[iPadProgramHomeViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
         
         self.vc2 = [[iPadProgramAcademicsViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
 

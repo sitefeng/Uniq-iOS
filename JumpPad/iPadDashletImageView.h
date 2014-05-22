@@ -13,7 +13,7 @@
 
 @interface iPadDashletImageView : UIView
 {
-    int   _imagesToLoad;
+    NSUInteger   _imagesToLoad;
 }
 
 @property (nonatomic, strong) NSURL* logoURL; // set this

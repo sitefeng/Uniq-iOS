@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class Program;
+@class Program, iPadMainCollectionViewCell;
 @interface iPadProgramCompareViewController : UIViewController
-
+{
+    iPadMainCollectionViewCell* _squareView;
+    iPadMainCollectionViewCell* _compSquareView;
+}
 
 
 
 @property (nonatomic, assign) NSUInteger dashletUid;
-
 @property (nonatomic, strong) Program* program;
+
+
+@property (nonatomic, strong) Program* compProgram;
 
 
 

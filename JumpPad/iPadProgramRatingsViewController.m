@@ -17,7 +17,7 @@
 
 @implementation iPadProgramRatingsViewController
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
 {
     self = [super init];
     if (self) {

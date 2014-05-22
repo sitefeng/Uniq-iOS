@@ -7,12 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @class MKMapView, Program, School, SchoolLocation, iPadProgramLabelView;
 @interface iPadProgramContactViewController : UIViewController
 {
     School*          _school;
     SchoolLocation*  _schoolLocation;
+    
+    UIView*          _mapBarView;
+    CGFloat          _mapBarPosition; //for pull up
+    
+    CLLocationCoordinate2D _mapCenterCoord;
+    
 }
 
 

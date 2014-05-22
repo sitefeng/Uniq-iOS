@@ -170,7 +170,6 @@
     if([self.dashlets count]>indexPath.item)
     {
         cell.dashletInfo = self.dashlets[indexPath.item];
-        
     }
     
     cell.delegate = self;
