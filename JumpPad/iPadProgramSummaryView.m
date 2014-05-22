@@ -36,7 +36,6 @@
         self.summary.textColor = [UIColor whiteColor];
         
         self.summary.font = [UIFont fontWithName:[JPFont defaultLightFont] size:20];
-        self.summary.shadowColor = [UIColor yellowColor];
         self.summary.text = @"SUMMARY";
         
         

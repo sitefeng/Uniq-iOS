@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface iPadMainFeaturedViewController : UIViewController
+@class JBParallaxCell;
+
+@interface iPadMainFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     @private
     
@@ -20,7 +22,7 @@
 
 
 
-
+@property (nonatomic, strong) UITableView* tableView;
 
 
 

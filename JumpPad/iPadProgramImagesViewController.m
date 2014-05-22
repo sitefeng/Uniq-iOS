@@ -31,6 +31,7 @@
         self.view.backgroundColor = [UIColor clearColor];
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 364, 273)];
+        self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackBackground"]];
         
         [self.scrollView setPagingEnabled:YES];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];
@@ -112,7 +113,7 @@
             JPLog(@"Invalid URL[%@]", path);
         }
   
-        AsyncImageView* asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*364, -62, 364, 273)];
+        AsyncImageView* asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*364, -64, 364, 273)];
         
         asyncImageView.imageURL = url;
         asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;

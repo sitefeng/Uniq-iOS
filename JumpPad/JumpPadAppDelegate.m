@@ -7,14 +7,16 @@
 //
 
 #import "JumpPadAppDelegate.h"
+#import "Mixpanel.h"
+
 
 
 #import "iPadProgramHomeViewController.h"
-
 #import "iPadProgramViewController.h"
 #import "iPadMainHomeViewController.h"
+#import "iPadMainFeaturedViewController.h"
 
-#import "Mixpanel.h"
+
 
 @implementation JumpPadAppDelegate
 
@@ -29,12 +31,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-    iPadProgramViewController* programController = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
-    [programController setSelectedIndex:3];
+//    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
+//    [program setSelectedIndex:3];
     
-    iPadMainHomeViewController* homeController = [[iPadMainHomeViewController alloc] init];
+    iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
     
-    self.window.rootViewController = programController;
+    iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
+    
+    self.window.rootViewController = feature;
     
     
     
