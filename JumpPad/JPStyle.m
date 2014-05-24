@@ -266,6 +266,10 @@
     {
         returnColor = [self colorWithHex:@"00CF03" alpha:1];
     }
+    else if([colorName isEqualToString:@"darkRed"])
+    {
+        returnColor = [self colorWithHex:@"500000" alpha:1];
+    }
     
     return returnColor;
 }

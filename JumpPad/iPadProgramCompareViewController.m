@@ -71,10 +71,6 @@
     [compareButton addTarget:self action:@selector(compareButtonPressed:event:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    
-    [compareButton setEnabled:YES];
-    
-    
     //Blue Middle Line
     UIView*  blueLine = [[UIView alloc] initWithFrame:CGRectMake(0, 450, kiPadWidthPortrait, 6)];
     blueLine.backgroundColor = [JPStyle colorWithName:@"blue"];
@@ -103,13 +99,9 @@
         [blueLine addSubview:progIcon];
     }
     
-    
-    
     _squareView2 = [[iPadMainCollectionViewCell alloc] initWithFrame:CGRectMake(_squareView1.frame.origin.x, 550, kiPadDashletSizePortrait.width, kiPadDashletSizePortrait.height)];
     JPDashlet* dashletInfo2 = [[JPDashlet alloc] initWithDashletUid:0];
     _squareView2.dashletInfo = dashletInfo2;
-    
-    
     
     _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(350, 570, 300, 50)];
     _searchBar.searchBarStyle = UISearchBarStyleMinimal;
@@ -117,33 +109,24 @@
     _searchBar.delegate = self;
     _searchBar.placeholder = @"Program Name";
     _searchBar.autocapitalizationType = UITextAutocapitalizationTypeWords;
-    
-
-    _searchBar.showsSearchResultsButton = YES;
+    _searchBar.showsSearchResultsButton = NO;
     [self.view addSubview: _searchBar];
-    
     
     UILabel* promptLabel = [[UILabel alloc] initWithFrame:CGRectMake(_searchBar.frame.origin.x + 15, _searchBar.frame.origin.y-15, 300, 20)];
     promptLabel.textColor = [UIColor whiteColor];
     promptLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:14];
     promptLabel.text = @"Search for Programs to Compare";
-    
     [self.view addSubview:promptLabel];
-    
     
     UIButton* searchButton = [[UIButton alloc] initWithFrame:CGRectMake(_searchBar.frame.origin.x + _searchBar.frame.size.width, _searchBar.frame.origin.y + 3, 44, 44)];
     [searchButton setImage:[UIImage imageNamed:@"rightArrow"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: searchButton];
     
-    
-    
-    
+
     [self.view addSubview:_squareView1];
     [self.view addSubview:_squareView2];
-
     [self.view addSubview:compareButton];
-    
 }
 
 
@@ -158,7 +141,6 @@
         
     [self reloadDashlets];
     [self reloadLabels];
-    
 }
 
 - (void)reloadDashlets
@@ -171,12 +153,9 @@
     {
         _squareView1 = [[iPadMainCollectionViewCell alloc] initWithFrame:CGRectMake(100, 100, kiPadDashletSizePortrait.width, kiPadDashletSizePortrait.height)];
     }
-    
     _squareView1.dashletInfo = dashletInfo1;
     
     //Dashlet 2
-    
-    
     
     
     

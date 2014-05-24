@@ -242,7 +242,6 @@
         
         if((translation.y >= 0 && yPosition > 55) || (translation.y <= 0 && yPosition < 130)) //going down||going up
         {
-            NSLog(@"Y: %f", translation.y);
             [_mapBarView setFrame:CGRectMake(pastFrame.origin.x, _mapBarPosition + translation.y, pastFrame.size.width, pastFrame.size.height)];
         }
         

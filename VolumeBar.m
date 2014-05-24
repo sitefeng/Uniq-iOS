@@ -7,6 +7,7 @@
 //
 
 #import "VolumeBar.h"
+#import "JPFont.h"
 
 #define CIRCLE_X                        (67.0f)
 #define CIRCLE_Y                        (66.0f)
@@ -24,7 +25,7 @@
 
 @optional
 - (void)circleSlide:(CircleSlide *)circleSlide withProgress:(float)progress;
-
+- (void)leaveCircle;
 @end
 
 #pragma mark - CircleSlide
@@ -145,6 +146,13 @@
     }
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [_delegate leaveCircle];
+    
+}
+
+
 @end
 
 #pragma mark - VolumeBar
@@ -193,6 +201,16 @@
         _contentView = [[UIImageView alloc] initWithFrame:_backgroundView.bounds];
         [self addSubview:_contentView];
         _progress = 1;
+        
+        
+        self.valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width/2 - 25, self.frame.size.height/2 - 15, 50, 50)];
+        self.valueLabel.textColor = [UIColor whiteColor];
+        self.valueLabel.font = [JPFont coolFontOfSize:20];
+        self.valueLabel.textAlignment = NSTextAlignmentCenter;
+        self.valueLabel.text = @"?";
+        
+        [self addSubview:self.valueLabel];
+        
     }
     return self;
 }
@@ -265,6 +283,7 @@
 - (void)circleSlide:(CircleSlide *)circleSlide withProgress:(float)progress
 {
     [self sendActionsForControlEvents:UIControlEventValueChanged];
+    self.valueLabel.text = [NSString stringWithFormat:@"%i",self.currentVolume];
     _progress = progress;
     [self setNeedsDisplay];
     
@@ -273,7 +292,20 @@
     if (_currentVolume != volume) {
         _currentVolume = volume;
         [self sendActionsForControlEvents:UIControlEventValueChanged];
+        self.valueLabel.text = [NSString stringWithFormat:@"%i",self.currentVolume];
     }
+    
+}
+
+
+
+
+
+
+- (void)leaveCircle
+{
+    [self sendActionsForControlEvents:UIControlEventTouchCancel];
+    
 }
 
 @end

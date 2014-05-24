@@ -18,6 +18,9 @@
 }
 @property (nonatomic, assign) NSInteger currentVolume;
 
+
+@property (nonatomic, strong) UILabel *valueLabel;
+
 - (id)initWithFrame:(CGRect)frame minimumVolume:(NSInteger)minimumVolume maximumVolume:(NSInteger)maximumVolume;
 
 @end

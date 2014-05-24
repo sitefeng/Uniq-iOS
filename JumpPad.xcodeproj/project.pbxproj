@@ -115,6 +115,8 @@
 		5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */; };
 		5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAD18556A9900FE3B5B /* JPLocation.m */; };
 		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
+		5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */; };
+		5DAD989E1931476B00FA8FF5 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DAD989D1931476B00FA8FF5 /* volumeBar.bundle */; };
 		5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */; };
 		5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EF319175029000577F8 /* AsyncImageView.m */; };
 		5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
@@ -416,6 +418,9 @@
 		5DAC8FAC18556A9900FE3B5B /* JPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPLocation.h; sourceTree = "<group>"; };
 		5DAC8FAD18556A9900FE3B5B /* JPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocation.m; sourceTree = "<group>"; };
 		5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocationTest.m; sourceTree = "<group>"; };
+		5DAD989A19312E6A00FA8FF5 /* SFGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFGaugeView.h; sourceTree = "<group>"; };
+		5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFGaugeView.m; sourceTree = "<group>"; };
+		5DAD989D1931476B00FA8FF5 /* volumeBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = volumeBar.bundle; sourceTree = "<group>"; };
 		5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllBannersInfo.json; sourceTree = "<group>"; };
 		5DD82EF219175029000577F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5DD82EF319175029000577F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
@@ -552,6 +557,7 @@
 		5D49AAF0192DBFAB00BA125B /* VolumeBar */ = {
 			isa = PBXGroup;
 			children = (
+				5DAD989D1931476B00FA8FF5 /* volumeBar.bundle */,
 				5D49AAED192DBFA600BA125B /* VolumeBar.h */,
 				5D49AAEE192DBFA600BA125B /* VolumeBar.m */,
 			);
@@ -860,6 +866,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		5DAD989919312E6A00FA8FF5 /* SFGaugeView */ = {
+			isa = PBXGroup;
+			children = (
+				5DAD989A19312E6A00FA8FF5 /* SFGaugeView.h */,
+				5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */,
+			);
+			path = SFGaugeView;
+			sourceTree = "<group>";
+		};
 		5DE0BA61191910DA00B97514 /* View in Program VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -884,6 +899,7 @@
 				5D9253211930831300BE5BA3 /* DXAlertView */,
 				5D92531B1930708E00BE5BA3 /* Reachability */,
 				5D49AAF0192DBFAB00BA125B /* VolumeBar */,
+				5DAD989919312E6A00FA8FF5 /* SFGaugeView */,
 				5D22646A192DB96E004B3B42 /* JBParallaxCell */,
 				5D4897EF1925CC400062DD54 /* RPRadarChart */,
 				5D592B9B191FF26700ECDCF7 /* DPMeterView */,
@@ -1130,6 +1146,7 @@
 				5DA82D7718C2FE430011AC26 /* MPCheckmark.png in Resources */,
 				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
 				5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */,
+				5DAD989E1931476B00FA8FF5 /* volumeBar.bundle in Resources */,
 				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
 				5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */,
 				5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */,
@@ -1187,6 +1204,7 @@
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
+				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
 				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */,
