@@ -1,4 +1,5 @@
 Lines of Code
 
-May 22, 2014 - 6097 lines of code not including comments or spaces
-May 24, 2014 - 6262
+May 22, 2014 - 5460 lines of code not including comments or spaces
+May 23, 2014 - 5625
+May 24, 2014 - 5741 (saturday) 

@@ -11,6 +11,10 @@
 		5D16763A18583D250041993E /* JumpPad-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* JumpPad-Explaination.txt */; };
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
+		5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */; };
+		5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DE04219315DD400C36935 /* volumeBar.bundle */; };
+		5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04419315DD400C36935 /* VolumeBar.m */; };
+		5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04819315DEF00C36935 /* DejalActivityView.m */; };
 		5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D22646C192DB96E004B3B42 /* JBParallaxCell.m */; };
 		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
 		5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D24472D192B20B500E7E8E0 /* core_plot_all.a */; };
@@ -39,7 +43,6 @@
 		5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */; };
 		5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */; };
 		5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4897F11925CC400062DD54 /* RPRadarChart.m */; };
-		5D49AAEF192DBFA600BA125B /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D49AAEE192DBFA600BA125B /* VolumeBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */; };
 		5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */; };
 		5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */; };
@@ -59,7 +62,6 @@
 		5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B8C191F426800ECDCF7 /* iPadProgramDetailInfoView.m */; };
 		5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9D191FF26700ECDCF7 /* DPMeterView.m */; };
 		5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */; };
-		5D592BA4191FF29400ECDCF7 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592BA3191FF29400ECDCF7 /* DejalActivityView.m */; };
 		5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592BA8191FF2D300ECDCF7 /* LBActionSheet.m */; };
 		5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */; };
 		5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592C0819207CB900ECDCF7 /* XYPieChart.m */; };
@@ -74,7 +76,6 @@
 		5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70560718B9E10D002941B3 /* AFURLRequestSerialization.m */; };
 		5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70560918B9E10D002941B3 /* AFURLResponseSerialization.m */; };
 		5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70560B18B9E10D002941B3 /* AFURLSessionManager.m */; };
-		5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */; };
 		5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561F18B9EAB2002941B3 /* sortViewController.m */; };
 		5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */; };
 		5D925311192E4C4100BE5BA3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D925310192E4C4100BE5BA3 /* AVFoundation.framework */; };
@@ -116,7 +117,6 @@
 		5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAD18556A9900FE3B5B /* JPLocation.m */; };
 		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
 		5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */; };
-		5DAD989E1931476B00FA8FF5 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DAD989D1931476B00FA8FF5 /* volumeBar.bundle */; };
 		5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */; };
 		5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EF319175029000577F8 /* AsyncImageView.m */; };
 		5DE5B7B0184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
@@ -159,6 +159,13 @@
 		5D16763F18591AE10041993E /* iOSDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletDetailsView.m; sourceTree = "<group>"; };
 		5D167646185D6A6C0041993E /* ApplicationConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
+		5D1DE03F19315DB500C36935 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		5D1DE04219315DD400C36935 /* volumeBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = volumeBar.bundle; path = VolumeBar/volumeBar.bundle; sourceTree = "<group>"; };
+		5D1DE04319315DD400C36935 /* VolumeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeBar.h; path = VolumeBar/VolumeBar.h; sourceTree = "<group>"; };
+		5D1DE04419315DD400C36935 /* VolumeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeBar.m; path = VolumeBar/VolumeBar.m; sourceTree = "<group>"; };
+		5D1DE04719315DEF00C36935 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DejalActivityView.h; path = DejalActivityView/DejalActivityView.h; sourceTree = "<group>"; };
+		5D1DE04819315DEF00C36935 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DejalActivityView.m; path = DejalActivityView/DejalActivityView.m; sourceTree = "<group>"; };
 		5D22646B192DB96E004B3B42 /* JBParallaxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxCell.h; sourceTree = "<group>"; };
 		5D22646C192DB96E004B3B42 /* JBParallaxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxCell.m; sourceTree = "<group>"; };
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -206,8 +213,6 @@
 		5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllProgramsInfo.json; sourceTree = "<group>"; };
 		5D4897F01925CC400062DD54 /* RPRadarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPRadarChart.h; sourceTree = "<group>"; };
 		5D4897F11925CC400062DD54 /* RPRadarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPRadarChart.m; sourceTree = "<group>"; };
-		5D49AAED192DBFA600BA125B /* VolumeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VolumeBar.h; sourceTree = "<group>"; };
-		5D49AAEE192DBFA600BA125B /* VolumeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VolumeBar.m; sourceTree = "<group>"; };
 		5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSummaryView.h; sourceTree = "<group>"; };
 		5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSummaryView.m; sourceTree = "<group>"; };
 		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailView.h; sourceTree = "<group>"; };
@@ -246,8 +251,6 @@
 		5D592B9D191FF26700ECDCF7 /* DPMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMeterView.m; sourceTree = "<group>"; };
 		5D592B9E191FF26700ECDCF7 /* UIBezierPath+BasicShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+BasicShapes.h"; sourceTree = "<group>"; };
 		5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+BasicShapes.m"; sourceTree = "<group>"; };
-		5D592BA2191FF29400ECDCF7 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
-		5D592BA3191FF29400ECDCF7 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		5D592BA7191FF2D300ECDCF7 /* LBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBActionSheet.h; sourceTree = "<group>"; };
 		5D592BA8191FF2D300ECDCF7 /* LBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBActionSheet.m; sourceTree = "<group>"; };
 		5D592BB4191FF79A00ECDCF7 /* _CPTConstraintsFixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTConstraintsFixed.h; sourceTree = "<group>"; };
@@ -354,8 +357,6 @@
 		5D70560918B9E10D002941B3 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		5D70560A18B9E10D002941B3 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		5D70560B18B9E10D002941B3 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		5D70561518B9E11A002941B3 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		5D70561E18B9EAB2002941B3 /* sortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sortViewController.h; sourceTree = "<group>"; };
 		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sortViewController.m; sourceTree = "<group>"; };
 		5D84161319108D20005A8D74 /* iPadMainSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainSearchViewController.h; sourceTree = "<group>"; };
@@ -420,7 +421,6 @@
 		5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocationTest.m; sourceTree = "<group>"; };
 		5DAD989A19312E6A00FA8FF5 /* SFGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFGaugeView.h; sourceTree = "<group>"; };
 		5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFGaugeView.m; sourceTree = "<group>"; };
-		5DAD989D1931476B00FA8FF5 /* volumeBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = volumeBar.bundle; sourceTree = "<group>"; };
 		5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllBannersInfo.json; sourceTree = "<group>"; };
 		5DD82EF219175029000577F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5DD82EF319175029000577F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
@@ -557,9 +557,9 @@
 		5D49AAF0192DBFAB00BA125B /* VolumeBar */ = {
 			isa = PBXGroup;
 			children = (
-				5DAD989D1931476B00FA8FF5 /* volumeBar.bundle */,
-				5D49AAED192DBFA600BA125B /* VolumeBar.h */,
-				5D49AAEE192DBFA600BA125B /* VolumeBar.m */,
+				5D1DE04219315DD400C36935 /* volumeBar.bundle */,
+				5D1DE04319315DD400C36935 /* VolumeBar.h */,
+				5D1DE04419315DD400C36935 /* VolumeBar.m */,
 			);
 			name = VolumeBar;
 			sourceTree = "<group>";
@@ -596,8 +596,8 @@
 		5D592BA5191FF29D00ECDCF7 /* DejalActivityView */ = {
 			isa = PBXGroup;
 			children = (
-				5D592BA2191FF29400ECDCF7 /* DejalActivityView.h */,
-				5D592BA3191FF29400ECDCF7 /* DejalActivityView.m */,
+				5D1DE04719315DEF00C36935 /* DejalActivityView.h */,
+				5D1DE04819315DEF00C36935 /* DejalActivityView.m */,
 			);
 			name = DejalActivityView;
 			sourceTree = "<group>";
@@ -735,8 +735,8 @@
 		5D70561818B9E122002941B3 /* Image Blurring */ = {
 			isa = PBXGroup;
 			children = (
-				5D70561518B9E11A002941B3 /* UIImage+ImageEffects.h */,
-				5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */,
+				5D1DE03F19315DB500C36935 /* UIImage+ImageEffects.h */,
+				5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */,
 			);
 			name = "Image Blurring";
 			sourceTree = "<group>";
@@ -1146,7 +1146,7 @@
 				5DA82D7718C2FE430011AC26 /* MPCheckmark.png in Resources */,
 				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
 				5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */,
-				5DAD989E1931476B00FA8FF5 /* volumeBar.bundle in Resources */,
+				5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */,
 				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
 				5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */,
 				5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */,
@@ -1199,8 +1199,10 @@
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				5D592B72191F357200ECDCF7 /* SchoolLocation.m in Sources */,
 				5D592B8A191F357300ECDCF7 /* Faculty.m in Sources */,
+				5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
+				5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
@@ -1212,6 +1214,7 @@
 				5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */,
 				5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
+				5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
 				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
 				5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */,
@@ -1223,7 +1226,6 @@
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
 				5D592B69191F357200ECDCF7 /* ImageLink.m in Sources */,
-				5D49AAEF192DBFA600BA125B /* VolumeBar.m in Sources */,
 				5D592B87191F357300ECDCF7 /* HighschoolCourse.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
 				5D2664D618BB268D00C8CC91 /* iPadCollegeViewController.m in Sources */,
@@ -1240,7 +1242,6 @@
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
 				5D592B7E191F357200ECDCF7 /* ProgramYearlyTuition.m in Sources */,
-				5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
@@ -1269,7 +1270,6 @@
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
-				5D592BA4191FF29400ECDCF7 /* DejalActivityView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
