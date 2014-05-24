@@ -69,8 +69,8 @@ const float kProgramImageWidth  = 384;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"redBackground2"]];
-    
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"redBackground2"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
     //Getting current device orientation
     if(UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))

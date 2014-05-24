@@ -28,6 +28,11 @@
         
         //Code!!!!!!!!!!!!!!!!
         
+        if(uid == 0)
+        {
+            self.title = @"Program Not Set";
+        }
+        
         
     }
     
@@ -138,6 +143,16 @@
     
     return self;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

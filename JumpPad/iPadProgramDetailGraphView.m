@@ -40,16 +40,16 @@
         
         if([self.title isEqualToString:@"Tuition"])
         {
-            self.backgroundColor = [UIColor whiteColor];
+            self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
             [self initializeTuition];
         }
         
 
         if([self.title isEqualToString:@"Why"])
         {
-//            self.backgroundColor = [JPStyle colorWithHex:@"FFFFB3" alpha:1];
-
-            self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+//            self.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.8];
+            
+            self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
             
             [self initializeWhy];
 
@@ -58,7 +58,7 @@
         
         if([self.title isEqualToString:@"Ratings"])
         {
-            self.backgroundColor = [UIColor whiteColor];
+            self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
             
             [self initializeRatings];
         }
@@ -66,7 +66,9 @@
         
         if([self.title isEqualToString:@"Ratio"])
         {
-            self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+//            self.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.8];
+             self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+            
             
             self.ratioPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(450, 50, 200, 200) Center:CGPointMake(100, 100) Radius:100];
             self.ratioPieChart.dataSource = self;
@@ -82,7 +84,7 @@
             self.ratioPieChart.labelRadius = 66;
             
             self.ratioPieChart.accessibilityLabel = @"ratioPieChart";
-            [self.ratioPieChart setPieBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]]];
+            [self.ratioPieChart setPieBackgroundColor: self.backgroundColor];
             
             [self setUserInteractionEnabled:NO];
             
@@ -117,14 +119,13 @@
             [self addSubview:ratioTitle];
             
             
-            
-            
         }
         
         
-        
-        
-        
+//        UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kiPadWidthPortrait, 4)];
+//        blueBar.backgroundColor = [JPStyle colorWithHex:@"00A5FF" alpha:1];
+//        
+//        [self addSubview:blueBar];
         
         
     }
@@ -377,7 +378,8 @@
     barChart.legendAnchor = CPTRectAnchorTopLeft;
     barChart.legendDisplacement = CGPointMake(80, -28);
     
-    
+    self.barChartView.layer.cornerRadius = 20;
+    self.barChartView.clipsToBounds = YES;
     
     [self addSubview:self.barChartView];
 }
@@ -640,7 +642,7 @@
     self.whyPieChart.labelColor = [UIColor whiteColor];
     
     self.whyPieChart.labelShadowColor = [UIColor blackColor];
-    [self.whyPieChart setPieBackgroundColor: self.backgroundColor];
+    [self.whyPieChart setPieBackgroundColor: [UIColor clearColor]];
     
     self.whyPieChart.labelRadius = 100;
     self.whyPieChart.showPercentage = YES;
@@ -649,9 +651,9 @@
     
     [self addSubview:self.whyPieChart];
     
-    [self.whyPieChart reloadData];
+//    [self.whyPieChart reloadData];
     
-    int indexOfLargestValue = 0;
+    _indexOfLargestSlice = 0;
     float largestValue = 0;
     float totalValue = 0;
     
@@ -664,11 +666,11 @@
         if([array[i] floatValue]>largestValue)
         {
             largestValue = [array[i] floatValue];
-            indexOfLargestValue = i;
+            _indexOfLargestSlice = i;
         }
     }
     
-    [self.whyPieChart setSliceSelectedAtIndex: indexOfLargestValue];
+    [self.whyPieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
     
     
     
@@ -707,7 +709,7 @@
     percentageLabel.textAlignment = NSTextAlignmentCenter;
     
     
-    float largestPercentage = [array[indexOfLargestValue] floatValue]/totalValue*100;
+    float largestPercentage = [array[_indexOfLargestSlice] floatValue]/totalValue*100;
     percentageLabel.text = [[NSMutableString stringWithFormat:@"%.0f", largestPercentage] stringByAppendingString:@"%"];
     
     
@@ -729,7 +731,7 @@
             wordToUse = [NSString stringWithFormat:@"%@ %@", @"people", wordToUse];
     }
     
-    switch (indexOfLargestValue)
+    switch (_indexOfLargestSlice)
     {
         case JPRatingTypeDifficulty:
             textView.text = [NSString stringWithFormat:@"%@ %@ is difficult", wordToUse, self.program.name];
@@ -779,6 +781,8 @@
     self.radarChart.showGuideNumbers = NO;
     self.radarChart.showValues = YES;
     self.radarChart.dotRadius = 6;
+    self.radarChart.backgroundColor = [UIColor clearColor];
+    
     [self addSubview:self.radarChart];
     
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 150, 55)];
@@ -878,8 +882,7 @@
 
 - (UIColor*)radarChart:(RPRadarChart *)chart colorForData:(NSInteger)atIndex
 {
-    NSInteger randomInt = arc4random() % 6;
-    return [JPStyle rainbowColorWithIndex: randomInt];
+    return [JPStyle rainbowColorWithIndex: 4];
 }
 
 
@@ -892,6 +895,8 @@
 - (void)reloadData
 {
     [self.whyPieChart reloadData];
+    [self.whyPieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
+    
     [self.ratioPieChart reloadData];
     
 }

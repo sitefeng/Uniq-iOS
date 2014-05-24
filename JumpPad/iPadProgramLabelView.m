@@ -23,7 +23,8 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+        self.backgroundColor = [JPStyle colorWithHex:@"D1F5FF" alpha:0.7];
         
         self.program = program;
         self.dashletUid = number;
@@ -47,7 +48,7 @@
         
         //UILabel
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(70, 5, 730, 34)];
-        self.label.textColor = [UIColor orangeColor];
+        self.label.textColor = [JPStyle colorWithHex:@"C06300" alpha:1];
         self.label.shadowColor = [UIColor blackColor];
         self.label.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
         self.label.text = [NSString stringWithFormat:@"%@", self.program.name];

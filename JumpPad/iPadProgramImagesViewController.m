@@ -32,6 +32,8 @@
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 364, 273)];
         self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackBackground"]];
+        self.scrollView.layer.cornerRadius = 60;
+        self.scrollView.clipsToBounds = YES;
         
         [self.scrollView setPagingEnabled:YES];
         [self.scrollView setShowsHorizontalScrollIndicator:NO];

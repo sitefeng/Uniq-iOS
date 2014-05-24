@@ -361,10 +361,10 @@ static double colorDistance(RGB e1, RGB e2)
 
     float mvr = (2 * M_PI) / numberOfSpokes;
     float spcr = maxSize / guideLineSteps;
-    
+       //JP: Web Color Area
     //Index Lines
     if (drawGuideLines) {
-        CGContextSetStrokeColorWithColor(cx, [UIColor colorWithWhite:0.8 alpha:1].CGColor);
+        CGContextSetStrokeColorWithColor(cx, [UIColor colorWithWhite:0.5 alpha:1].CGColor);
         for (int j = 0; j <= guideLineSteps; j++) {
              float cur = j*spcr;
             CGContextStrokeEllipseInRect(cx, CGRectMake(-cur, -cur, cur*2, cur*2));
@@ -373,7 +373,7 @@ static double colorDistance(RGB e1, RGB e2)
     }
     
     //Base lines
-    CGContextSetStrokeColorWithColor(cx, [UIColor darkGrayColor].CGColor);
+    CGContextSetStrokeColorWithColor(cx, [UIColor blackColor].CGColor);
     for (int i = 0; i < numberOfSpokes; i++) {
         float a = (mvr * i) - M_PI_2;
         float x = maxSize * cos(a);
@@ -383,12 +383,13 @@ static double colorDistance(RGB e1, RGB e2)
         
         CGContextStrokePath(cx);
         
+     
         NSString *tx = [dataSource radarChart:self titleForSpoke:i];
         CGSize s =[tx sizeWithFont:[UIFont fontWithName:@"Helvetica-Bold" size:11]];
         x -= s.width/2;
         x += 5;
         y += (y>0) ? 10 : -20;        
-        CGContextSetFillColorWithColor(cx, [UIColor darkGrayColor].CGColor);
+        CGContextSetFillColorWithColor(cx, [UIColor blackColor].CGColor);
         [tx drawAtPoint:CGPointMake(x, y) withFont: [UIFont fontWithName:@"Helvetica-Bold" size:11]];
     }
     

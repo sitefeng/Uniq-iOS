@@ -60,4 +60,16 @@
 + (UIColor*)translucentRainbowColorWithIndex: (NSUInteger)index;
 
 
+//Colors
++ (UIColor*) colorWithName: (NSString*)colorName;
+
+
+@end
+
+
+
+@interface UIImage (colorful)
+
++ (UIImage *)imageWithColor:(UIColor *)color;
+
 @end

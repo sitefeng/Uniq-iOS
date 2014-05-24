@@ -20,6 +20,8 @@
     
     CLLocationCoordinate2D _mapCenterCoord;
     
+    
+    CGFloat          _prevMapDragBarPosition;
 }
 
 

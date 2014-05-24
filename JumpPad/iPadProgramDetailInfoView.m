@@ -18,7 +18,9 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+//        self.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.8];
+        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
+        
         
         if([title isEqualToString:@"About"])
         {
@@ -33,6 +35,8 @@
 //            aboutView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
             
             aboutView.backgroundColor = [JPStyle colorWith8BitRed:255 green:255 blue:255 alpha:0.45];
+            aboutView.layer.cornerRadius = 10;
+            aboutView.clipsToBounds = YES;
             
             aboutView.text = paragraph;
             

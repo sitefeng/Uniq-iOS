@@ -9,10 +9,20 @@
 #import <UIKit/UIKit.h>
 
 @class Program, iPadMainCollectionViewCell;
-@interface iPadProgramCompareViewController : UIViewController
+@interface iPadProgramCompareViewController : UIViewController <UISearchBarDelegate>
 {
-    iPadMainCollectionViewCell* _squareView;
+    iPadMainCollectionViewCell* _squareView1;
+    iPadMainCollectionViewCell* _squareView2;
+    
+    
+    UILabel*    _square1Label;
+    UILabel*    _square2Label;
+    
+    
     iPadMainCollectionViewCell* _compSquareView;
+    
+    UISearchBar*   _searchBar;
+    
 }
 
 

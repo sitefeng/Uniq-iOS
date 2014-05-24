@@ -23,6 +23,7 @@
     
     ProgramRating* programRating;
     
+    NSInteger    _indexOfLargestSlice;
 }
 
 

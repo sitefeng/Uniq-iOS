@@ -19,5 +19,6 @@
     #import "UserInterfaceConstants.h"
     #import "JPStyle.h"
     #import "Mixpanel.h"
+    #import "DXAlertView.h"
 
 #endif

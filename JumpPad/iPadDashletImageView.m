@@ -10,7 +10,6 @@
 #import "UIImage+ImageEffects.h"
 #import "AsyncImageView.h"
 
-#import "AFNetworkReachabilityManager.h"
 
 @implementation iPadDashletImageView
 
@@ -51,23 +50,24 @@
     _imageURLs = imageUrls;
     _imagesToLoad = [imageUrls count];
     
-    BOOL _isReachable = [[AFNetworkReachabilityManager sharedManager] isReachable];
+
    
-    if([self.imageURLs count] == 0 || !self.imageURLs || !_isReachable)
-    {
-        UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
-        self.backgroundView.animationImages = nil;
-        self.backgroundView.image = [[UIImage imageNamed:@"defaultSchool"] applyBlurWithRadius:8 tintColor: tintColor saturationDeltaFactor:1.8 maskImage:nil];
-    }
-    else
-    {
-        [[AsyncImageLoader sharedLoader] loadImageWithURL:[_imageURLs firstObject] target:self action:@selector(imageLoaded)];
-    
-    }
+    [self reloadImages];
    
 }
 
-
+- (void)reloadImages
+{
+    UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
+    self.backgroundView.animationImages = nil;
+    self.backgroundView.image = [[UIImage imageNamed:@"defaultSchool"] applyBlurWithRadius:8 tintColor: tintColor saturationDeltaFactor:1.8 maskImage:nil];
+    
+    if([self.imageURLs count] != 0)
+    {
+        [[AsyncImageLoader sharedLoader] loadImageWithURL:[_imageURLs firstObject] target:self action:@selector(imageLoaded)];
+    }
+    
+}
 
 
 - (void)imageLoaded
@@ -143,6 +143,12 @@
     self.logoView.image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:self.logoURL];
     
 }
+
+
+
+
+
+
 
 
 /*

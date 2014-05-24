@@ -254,6 +254,25 @@
 }
 
 
++ (UIColor*)colorWithName: (NSString*)colorName
+{
+    UIColor* returnColor = [UIColor blackColor];
+    
+    if([colorName isEqualToString:@"blue"])
+    {
+        returnColor = [self colorWithHex:@"00A5FF" alpha:1];
+    }
+    else if([colorName isEqualToString:@"green"])
+    {
+        returnColor = [self colorWithHex:@"00CF03" alpha:1];
+    }
+    
+    return returnColor;
+}
+
+
+
+@end
 
 
 
@@ -262,7 +281,24 @@
 
 
 
+@implementation UIImage (colorful)
 
++ (UIImage *)imageWithColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+@end
 
 
 
@@ -304,4 +340,3 @@
 
 
 
-@end

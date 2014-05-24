@@ -14,6 +14,8 @@
 @interface iPadDashletImageView : UIView
 {
     NSUInteger   _imagesToLoad;
+    
+//    BOOL         _isReachable;
 }
 
 @property (nonatomic, strong) NSURL* logoURL; // set this

@@ -16,7 +16,7 @@
 #import "iPadMainHomeViewController.h"
 #import "iPadMainFeaturedViewController.h"
 
-
+#import "AFNetworkReachabilityManager.h"
 
 @implementation JumpPadAppDelegate
 
@@ -29,18 +29,22 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+ 
     
-    
-//    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
-//    [program setSelectedIndex:3];
+    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
+    [program setSelectedIndex:3];
     
     iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
     
     iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
     
-    self.window.rootViewController = feature;
+    self.window.rootViewController = program;
     
     
+    
+    
+    //TRY
+    [[AFNetworkReachabilityManager sharedManager] isReachable];
     
     //Adding Mixpanel
 //    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
@@ -188,12 +192,10 @@
 
 
 
-
-
-
-
-
-
+- (BOOL)_isReachable
+{
+    return [[AFNetworkReachabilityManager sharedManager] isReachable];
+}
 
 
 

@@ -17,6 +17,11 @@
 @property (strong, nonatomic, readonly) NSPersistentStoreCoordinator* persistentStoreCoordinator;
 
 
+@property (assign, nonatomic) BOOL _isReachable;
+
+
+
+
 - (NSURL *)applicationDocumentsDirectory;
 
 - (void)saveContext;

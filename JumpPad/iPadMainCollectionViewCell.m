@@ -14,6 +14,7 @@
 
 #import "iPadCollegeViewController.h"
 
+
 @implementation iPadMainCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
@@ -55,7 +56,14 @@
 {
     _dashletInfo = dashletInfo;
     
-    self.title.text = [_dashletInfo.title uppercaseString];
+    if(_dashletInfo.title)
+    {
+        self.title.text = [_dashletInfo.title uppercaseString];
+    }
+    else
+    {
+        self.title.text = @"- - - - -";
+    }
     
     self.imageView.logoURL = _dashletInfo.icon;
     

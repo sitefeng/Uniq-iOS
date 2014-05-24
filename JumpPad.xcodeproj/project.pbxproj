@@ -12,7 +12,6 @@
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
 		5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D22646C192DB96E004B3B42 /* JBParallaxCell.m */; };
-		5D2443FB1926F30900E7E8E0 /* MMLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */; };
 		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
 		5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D24472D192B20B500E7E8E0 /* core_plot_all.a */; };
 		5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* icon-180.png */; };
@@ -78,6 +77,10 @@
 		5D70561718B9E11A002941B3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561618B9E11A002941B3 /* UIImage+ImageEffects.m */; };
 		5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561F18B9EAB2002941B3 /* sortViewController.m */; };
 		5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */; };
+		5D925311192E4C4100BE5BA3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D925310192E4C4100BE5BA3 /* AVFoundation.framework */; };
+		5D92531A1930708A00BE5BA3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9253191930708A00BE5BA3 /* Reachability.m */; };
+		5D92531D1930718B00BE5BA3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */; };
+		5D9253201930830C00BE5BA3 /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D92531F1930830C00BE5BA3 /* DXAlertView.m */; };
 		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
 		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
 		5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */; };
@@ -156,8 +159,6 @@
 		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
 		5D22646B192DB96E004B3B42 /* JBParallaxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxCell.h; sourceTree = "<group>"; };
 		5D22646C192DB96E004B3B42 /* JBParallaxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxCell.m; sourceTree = "<group>"; };
-		5D2443F91926F30900E7E8E0 /* MMLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLocationManager.h; sourceTree = "<group>"; };
-		5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLocationManager.m; sourceTree = "<group>"; };
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D24472D192B20B500E7E8E0 /* core_plot_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = core_plot_all.a; sourceTree = "<group>"; };
@@ -357,6 +358,12 @@
 		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sortViewController.m; sourceTree = "<group>"; };
 		5D84161319108D20005A8D74 /* iPadMainSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainSearchViewController.h; sourceTree = "<group>"; };
 		5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainSearchViewController.m; sourceTree = "<group>"; };
+		5D925310192E4C4100BE5BA3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		5D9253181930708A00BE5BA3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5D9253191930708A00BE5BA3 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5D92531E1930830C00BE5BA3 /* DXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXAlertView.h; sourceTree = "<group>"; };
+		5D92531F1930830C00BE5BA3 /* DXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXAlertView.m; sourceTree = "<group>"; };
 		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5DA82D2918C2FE430011AC26 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowLeft.png; sourceTree = "<group>"; };
@@ -444,6 +451,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D92531D1930718B00BE5BA3 /* SystemConfiguration.framework in Frameworks */,
+				5D925311192E4C4100BE5BA3 /* AVFoundation.framework in Frameworks */,
 				5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */,
 				5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */,
 				5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */,
@@ -488,15 +497,6 @@
 				5D22646C192DB96E004B3B42 /* JBParallaxCell.m */,
 			);
 			path = JBParallaxCell;
-			sourceTree = "<group>";
-		};
-		5D2443F81926F30900E7E8E0 /* MMLocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				5D2443F91926F30900E7E8E0 /* MMLocationManager.h */,
-				5D2443FA1926F30900E7E8E0 /* MMLocationManager.m */,
-			);
-			path = MMLocationManager;
 			sourceTree = "<group>";
 		};
 		5D2540AC18B6FB0400FAB887 /* Images */ = {
@@ -735,6 +735,24 @@
 			name = "Image Blurring";
 			sourceTree = "<group>";
 		};
+		5D92531B1930708E00BE5BA3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				5D9253181930708A00BE5BA3 /* Reachability.h */,
+				5D9253191930708A00BE5BA3 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		5D9253211930831300BE5BA3 /* DXAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5D92531E1930830C00BE5BA3 /* DXAlertView.h */,
+				5D92531F1930830C00BE5BA3 /* DXAlertView.m */,
+			);
+			name = DXAlertView;
+			sourceTree = "<group>";
+		};
 		5DA82D2718C2FE430011AC26 /* Mixpanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,9 +881,10 @@
 			isa = PBXGroup;
 			children = (
 				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5D9253211930831300BE5BA3 /* DXAlertView */,
+				5D92531B1930708E00BE5BA3 /* Reachability */,
 				5D49AAF0192DBFAB00BA125B /* VolumeBar */,
 				5D22646A192DB96E004B3B42 /* JBParallaxCell */,
-				5D2443F81926F30900E7E8E0 /* MMLocationManager */,
 				5D4897EF1925CC400062DD54 /* RPRadarChart */,
 				5D592B9B191FF26700ECDCF7 /* DPMeterView */,
 				5D592B2D191C740B00ECDCF7 /* XYPieChart */,
@@ -893,6 +912,8 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */,
+				5D925310192E4C4100BE5BA3 /* AVFoundation.framework */,
 				5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */,
 				5D2443FC192AABF500E7E8E0 /* MapKit.framework */,
 				5DE5C30A1923449000F7F01B /* Social.framework */,
@@ -1157,6 +1178,7 @@
 				5D592B84191F357300ECDCF7 /* User.m in Sources */,
 				5D592B6C191F357200ECDCF7 /* Banner.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
+				5D92531A1930708A00BE5BA3 /* Reachability.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				5D592B72191F357200ECDCF7 /* SchoolLocation.m in Sources */,
 				5D592B8A191F357300ECDCF7 /* Faculty.m in Sources */,
@@ -1179,7 +1201,6 @@
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5D592B6F191F357200ECDCF7 /* ProgramCourse.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
-				5D2443FB1926F30900E7E8E0 /* MMLocationManager.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
@@ -1222,6 +1243,7 @@
 				5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */,
 				5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */,
 				5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */,
+				5D9253201930830C00BE5BA3 /* DXAlertView.m in Sources */,
 				5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */,
 				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
 				5D592B78191F357200ECDCF7 /* ProgramApplicationStat.m in Sources */,
