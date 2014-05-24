@@ -14,6 +14,7 @@
 
 #import "JPDashlet.h"
 #import "JPFont.h"
+#import "DXAlertView.h"
 
 
 @interface iPadProgramCompareViewController ()
@@ -130,7 +131,7 @@
     [self.view addSubview:promptLabel];
     
     
-    UIButton* searchButton = [[UIButton alloc] initWithFrame:CGRectMake(_searchBar.frame.origin.x + _searchBar.frame.size.width, _searchBar.frame.origin.y, 60, 50)];
+    UIButton* searchButton = [[UIButton alloc] initWithFrame:CGRectMake(_searchBar.frame.origin.x + _searchBar.frame.size.width, _searchBar.frame.origin.y + 3, 44, 44)];
     [searchButton setImage:[UIImage imageNamed:@"rightArrow"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(searchButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: searchButton];
