@@ -13,7 +13,7 @@
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
 		5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */; };
 		5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DE04219315DD400C36935 /* volumeBar.bundle */; };
-		5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04419315DD400C36935 /* VolumeBar.m */; };
+		5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04419315DD400C36935 /* VolumeBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04819315DEF00C36935 /* DejalActivityView.m */; };
 		5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D22646C192DB96E004B3B42 /* JBParallaxCell.m */; };
 		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
@@ -137,6 +137,8 @@
 		5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5C306192338B100F7F01B /* JPGlobal.m */; };
 		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
 		5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C30A1923449000F7F01B /* Social.framework */; };
+		5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* iOSDateView.m */; };
+		5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -449,6 +451,10 @@
 		5DE5C306192338B100F7F01B /* JPGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGlobal.m; sourceTree = "<group>"; };
 		5DE5C3081923448900F7F01B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5DE5C30A1923449000F7F01B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5DF6503A1933D7AE003E0490 /* iOSDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDateView.h; sourceTree = "<group>"; };
+		5DF6503B1933D7AE003E0490 /* iOSDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDateView.m; sourceTree = "<group>"; };
+		5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPDateStringParser.h"; sourceTree = "<group>"; };
+		5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +497,8 @@
 				5D167631185787750041993E /* iOSDashletTitleView.m */,
 				5D16763E18591AE10041993E /* iOSDashletDetailsView.h */,
 				5D16763F18591AE10041993E /* iOSDashletDetailsView.m */,
+				5DF6503A1933D7AE003E0490 /* iOSDateView.h */,
+				5DF6503B1933D7AE003E0490 /* iOSDateView.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -814,6 +822,8 @@
 				5D2664C618BB1ED800C8CC91 /* NSString+JPItemUid.m */,
 				5DAC8FAC18556A9900FE3B5B /* JPLocation.h */,
 				5DAC8FAD18556A9900FE3B5B /* JPLocation.m */,
+				5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */,
+				5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1200,7 +1210,9 @@
 				5D592B72191F357200ECDCF7 /* SchoolLocation.m in Sources */,
 				5D592B8A191F357300ECDCF7 /* Faculty.m in Sources */,
 				5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */,
+				5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
+				5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
 				5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,

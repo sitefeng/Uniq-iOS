@@ -244,7 +244,8 @@
 }
 
 - (void)drawRect:(CGRect)rect
-{    
+{
+    
     CGContextRef context = CGBitmapContextCreate(NULL, self.bounds.size.width, self.bounds.size.height, 8, 4 * self.bounds.size.width, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedFirst);
     
     float endAngle = (END_ANGLE-START_ANGLE)*_progress+START_ANGLE;

@@ -45,7 +45,7 @@
         case 12:
             return @"December";
         default:
-            return @"";
+            return @"-----";
 
     }
 

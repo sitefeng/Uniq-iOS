@@ -29,6 +29,7 @@
         // Custom initialization
         
         self.view.backgroundColor = [UIColor clearColor];
+        self.view.clipsToBounds = YES;
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 364, 273)];
         self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackBackground"]];
@@ -114,17 +115,23 @@
         {
             JPLog(@"Invalid URL[%@]", path);
         }
-  
+        
+        
         AsyncImageView* asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*364, -64, 364, 273)];
+                                        
         
         asyncImageView.imageURL = url;
         asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
         asyncImageView.showActivityIndicator = YES;
-        asyncImageView.backgroundColor = [UIColor lightGrayColor];
         
         [self.asyncImageViews addObject:asyncImageView];
         
         [self.scrollView addSubview:self.asyncImageViews[i]];
+        
+        //Placeholder image
+        UIImageView* placeholderView = [[UIImageView alloc] initWithFrame:asyncImageView.frame];
+        placeholderView.image = [UIImage imageNamed:@"placeholderWhite"];
+        [self.scrollView addSubview:placeholderView];
         
         i++;
     }

@@ -270,6 +270,10 @@
     {
         returnColor = [self colorWithHex:@"500000" alpha:1];
     }
+    else if([colorName isEqualToString:@"red"])
+    {
+        returnColor = [self colorWithHex:@"FF5F5C" alpha:1];
+    }
     
     return returnColor;
 }

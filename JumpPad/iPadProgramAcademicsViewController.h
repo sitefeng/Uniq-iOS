@@ -8,16 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@class Program;
+@class Program, iPadProgramLabelView, iOSDateView;
 @interface iPadProgramAcademicsViewController : UIViewController
-
+{
+    iOSDateView*      _dateView;
+    
+    
+}
 
 
 
 
 @property (nonatomic, assign) NSUInteger dashletUid;
-
 @property (nonatomic, strong) Program* program;
+
+
+
+@property (nonatomic, strong) iPadProgramLabelView* labelView;
+
+
+
 
 
 

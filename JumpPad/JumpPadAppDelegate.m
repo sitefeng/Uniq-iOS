@@ -32,7 +32,7 @@
  
     
     iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
-    [program setSelectedIndex:4];
+    [program setSelectedIndex:1];
     
     iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
     

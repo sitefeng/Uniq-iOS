@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (JPItemUid)
+@interface NSString (JPItemUid) //Depricated
 
 
 

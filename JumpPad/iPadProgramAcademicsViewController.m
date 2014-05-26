@@ -7,6 +7,16 @@
 //
 
 #import "iPadProgramAcademicsViewController.h"
+#import "iPadProgramLabelView.h"
+#import "NSString+JPDateStringParser.h"
+
+#import "JPFont.h"
+#import "JPStyle.h"
+
+#import "iOSDateView.h"
+
+#import "Program.h"
+
 
 @interface iPadProgramAcademicsViewController ()
 
@@ -27,11 +37,9 @@
         self.dashletUid = dashletUid;
         
         
-        
-        
-        
-        
-        
+        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
+        [self.view addSubview:self.labelView];
+
         
     }
     return self;
@@ -41,7 +49,51 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    UIScrollView* mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, kiPadWidthPortrait, kiPadHeightPortrait-(44+kiPadTabBarHeight))];
+    
+    
+    mainScrollView.backgroundColor = [UIColor yellowColor];
+    mainScrollView.contentSize = CGSizeMake(kiPadWidthPortrait, 1000);
+    
+    mainScrollView.clipsToBounds = YES;
+    
+    _dateView = [[iOSDateView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    
+    _dateView.month = [self.program.admissionDeadline monthIntegerValue];
+    _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
+    
+    [mainScrollView addSubview:_dateView];
+    
+    
+    
+    
+    
+    [self.view addSubview:mainScrollView];
+    
+    
 }
+
+
+- (void)setProgram:(Program *)program
+{
+    _program = program;
+    
+    _dateView.month = [self.program.admissionDeadline monthIntegerValue];
+    _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
+    
+    
+    
+}
+
+
+
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -59,5 +111,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+
+
 
 @end
