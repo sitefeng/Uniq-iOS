@@ -133,10 +133,12 @@
         placeholderView.image = [UIImage imageNamed:@"placeholderWhite"];
         [self.scrollView addSubview:placeholderView];
         
+        [self.scrollView exchangeSubviewAtIndex:0+ i*2 withSubviewAtIndex:1 + i*2];
+        
         i++;
     }
     
-    [self.scrollView setContentSize:CGSizeMake(i*364, 1)];//273
+    [self.scrollView setContentSize:CGSizeMake(i*364, 10)];//273
     
     [self.scrollView setNeedsDisplay];
     

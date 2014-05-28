@@ -1,0 +1,32 @@
+[
+	{
+		"name": "map",
+		"category": "map",
+		"keywords":["map", "direction"]
+	},
+	{
+		"name": "program",
+		"category": "collection",
+		"keywords":["program"]
+	},
+	{
+		"name": "calculation",
+		"category": "text",
+		"keywords":["+", "-", "/", "*"]
+	},
+	{
+		"name": "tuitions",
+		"category": "program",
+		"keywords":["international tuition", "domestic tuition", "tuition"]
+	},
+	{
+		"name": "admission rate",
+		"category": "program",
+		"keywords":["admission rate", "admission"]
+	},
+
+
+
+
+
+]

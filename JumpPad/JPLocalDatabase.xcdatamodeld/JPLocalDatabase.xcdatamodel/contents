@@ -129,6 +129,19 @@
         <attribute name="schoolRankingId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="rankings" inverseEntity="School" syncable="YES"/>
     </entity>
+    <entity name="UniqKEFunction" representedClassName="UniqKEFunction" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keywords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UniqKEKeyword" inverseName="function" inverseEntity="UniqKEKeyword" syncable="YES"/>
+        <relationship name="knowledgeEngine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UniqKEOne" inverseName="functions" inverseEntity="UniqKEOne" syncable="YES"/>
+    </entity>
+    <entity name="UniqKEKeyword" representedClassName="UniqKEKeyword" syncable="YES">
+        <attribute name="keyword" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="function" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UniqKEFunction" inverseName="keywords" inverseEntity="UniqKEFunction" syncable="YES"/>
+    </entity>
+    <entity name="UniqKEOne" representedClassName="UniqKEOne" syncable="YES">
+        <relationship name="functions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UniqKEFunction" inverseName="knowledgeEngine" inverseEntity="UniqKEFunction" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="currentAvg" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
@@ -150,5 +163,8 @@
         <element name="SchoolLocation" positionX="376" positionY="-52" width="128" height="193"/>
         <element name="SchoolRanking" positionX="529" positionY="104" width="128" height="103"/>
         <element name="User" positionX="738" positionY="-118" width="128" height="118"/>
+        <element name="UniqKEFunction" positionX="693" positionY="284" width="128" height="103"/>
+        <element name="UniqKEKeyword" positionX="853" positionY="287" width="128" height="73"/>
+        <element name="UniqKEOne" positionX="711" positionY="189" width="128" height="58"/>
     </elements>
 </model>

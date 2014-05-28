@@ -424,7 +424,6 @@
             //Delete the Entities to be updated if it already exists in Core Data DB
             NSFetchRequest* updateRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
             updateRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"schoolId" ascending:YES]];
-            updateRequest.fetchLimit = 100;
             updateRequest.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@",[dict valueForKey:@"id"]];
             
             NSArray* schoolArray = [self.context executeFetchRequest:updateRequest error:nil];

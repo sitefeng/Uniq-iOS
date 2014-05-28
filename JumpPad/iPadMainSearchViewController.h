@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadMainSearchViewController : UIViewController
+@class iPadSearchResultsView;
+@interface iPadMainSearchViewController : UIViewController <UISearchBarDelegate>
+{
+    NSString*     _queryString;
+}
+
+
+
+
+@property (nonatomic, strong) UISearchBar* searchBar;
+
+@property (nonatomic, strong) iPadSearchResultsView* resultView;
+
 
 @end
