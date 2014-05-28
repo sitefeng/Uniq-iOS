@@ -19,7 +19,7 @@
         
         self.backgroundColor = [UIColor whiteColor];
         
-        self.interpreter = [[JPKnowledgeEngineInterpreter alloc] init];
+        self.interpreter = [[JPKnowledgeEngineInterpreter alloc] initWithQueryString:nil];
         
     }
     return self;
@@ -36,8 +36,6 @@
     self.interpreter.queryString = queryString;
     
     [self.interpreter interpret];
-    
-    
     
 }
 

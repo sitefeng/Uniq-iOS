@@ -2,26 +2,28 @@
 //  UniqKEFunction.h
 //  JumpPad
 //
-//  Created by Si Te Feng on 2014-05-27.
+//  Created by Si Te Feng on 2014-05-28.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class UniqKEKeyword, UniqKEOne;
 
 @interface UniqKEFunction : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * category;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * priority;
 @property (nonatomic, retain) NSSet *keywords;
-@property (nonatomic, retain) NSManagedObject *knowledgeEngine;
+@property (nonatomic, retain) UniqKEOne *knowledgeEngine;
 @end
 
 @interface UniqKEFunction (CoreDataGeneratedAccessors)
 
-- (void)addKeywordsObject:(NSManagedObject *)value;
-- (void)removeKeywordsObject:(NSManagedObject *)value;
+- (void)addKeywordsObject:(UniqKEKeyword *)value;
+- (void)removeKeywordsObject:(UniqKEKeyword *)value;
 - (void)addKeywords:(NSSet *)values;
 - (void)removeKeywords:(NSSet *)values;
 

@@ -41,7 +41,7 @@
     
     iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
     
-    self.window.rootViewController = search;
+    self.window.rootViewController = home;
     
     
     

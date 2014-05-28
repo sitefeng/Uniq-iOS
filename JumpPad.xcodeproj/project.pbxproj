@@ -85,10 +85,10 @@
 		5D9C99D519357D1C004EFC47 /* iPadDebugMainSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99D419357D1C004EFC47 /* iPadDebugMainSyncViewController.m */; };
 		5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99D81935806B004EFC47 /* iPadSearchResultsView.m */; };
 		5D9C99DB19358D3C004EFC47 /* UniqKnowledgeEngineOne.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */; };
-		5D9C99DE19359245004EFC47 /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99DD19359245004EFC47 /* UniqKEFunction.m */; };
-		5D9C99E119359245004EFC47 /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E019359245004EFC47 /* UniqKEKeyword.m */; };
-		5D9C99E419359245004EFC47 /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E319359245004EFC47 /* UniqKEOne.m */; };
 		5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */; };
+		5D9C99EA19363337004EFC47 /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E919363337004EFC47 /* UniqKEKeyword.m */; };
+		5D9C99ED19363338004EFC47 /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99EC19363338004EFC47 /* UniqKEOne.m */; };
+		5D9C99F019363338004EFC47 /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99EF19363338004EFC47 /* UniqKEFunction.m */; };
 		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
 		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
 		5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */; };
@@ -382,14 +382,14 @@
 		5D9C99D71935806B004EFC47 /* iPadSearchResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSearchResultsView.h; sourceTree = "<group>"; };
 		5D9C99D81935806B004EFC47 /* iPadSearchResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSearchResultsView.m; sourceTree = "<group>"; };
 		5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UniqKnowledgeEngineOne.json; sourceTree = "<group>"; };
-		5D9C99DC19359245004EFC47 /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEFunction.h; sourceTree = "<group>"; };
-		5D9C99DD19359245004EFC47 /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEFunction.m; sourceTree = "<group>"; };
-		5D9C99DF19359245004EFC47 /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEKeyword.h; sourceTree = "<group>"; };
-		5D9C99E019359245004EFC47 /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEKeyword.m; sourceTree = "<group>"; };
-		5D9C99E219359245004EFC47 /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEOne.h; sourceTree = "<group>"; };
-		5D9C99E319359245004EFC47 /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
 		5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPKnowledgeEngine.h"; sourceTree = "<group>"; };
 		5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPKnowledgeEngine.m"; sourceTree = "<group>"; };
+		5D9C99E819363337004EFC47 /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEKeyword.h; sourceTree = "<group>"; };
+		5D9C99E919363337004EFC47 /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEKeyword.m; sourceTree = "<group>"; };
+		5D9C99EB19363338004EFC47 /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEOne.h; sourceTree = "<group>"; };
+		5D9C99EC19363338004EFC47 /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
+		5D9C99EE19363338004EFC47 /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEFunction.h; sourceTree = "<group>"; };
+		5D9C99EF19363338004EFC47 /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEFunction.m; sourceTree = "<group>"; };
 		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5DA82D2918C2FE430011AC26 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowLeft.png; sourceTree = "<group>"; };
@@ -1068,12 +1068,12 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				5D9C99E219359245004EFC47 /* UniqKEOne.h */,
-				5D9C99E319359245004EFC47 /* UniqKEOne.m */,
-				5D9C99DF19359245004EFC47 /* UniqKEKeyword.h */,
-				5D9C99E019359245004EFC47 /* UniqKEKeyword.m */,
-				5D9C99DC19359245004EFC47 /* UniqKEFunction.h */,
-				5D9C99DD19359245004EFC47 /* UniqKEFunction.m */,
+				5D9C99EE19363338004EFC47 /* UniqKEFunction.h */,
+				5D9C99EF19363338004EFC47 /* UniqKEFunction.m */,
+				5D9C99EB19363338004EFC47 /* UniqKEOne.h */,
+				5D9C99EC19363338004EFC47 /* UniqKEOne.m */,
+				5D9C99E819363337004EFC47 /* UniqKEKeyword.h */,
+				5D9C99E919363337004EFC47 /* UniqKEKeyword.m */,
 				5D592B88191F357300ECDCF7 /* Faculty.h */,
 				5D592B89191F357300ECDCF7 /* Faculty.m */,
 				5D592B85191F357300ECDCF7 /* HighschoolCourse.h */,
@@ -1242,11 +1242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D9C99E119359245004EFC47 /* UniqKEKeyword.m in Sources */,
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
-				5D9C99E419359245004EFC47 /* UniqKEOne.m in Sources */,
-				5D9C99DE19359245004EFC47 /* UniqKEFunction.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
@@ -1257,6 +1254,7 @@
 				5D592B6C191F357200ECDCF7 /* Banner.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D94204219308AD40033D57B /* Reachability.m in Sources */,
+				5D9C99ED19363338004EFC47 /* UniqKEOne.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				5D592B72191F357200ECDCF7 /* SchoolLocation.m in Sources */,
 				5D592B8A191F357300ECDCF7 /* Faculty.m in Sources */,
@@ -1283,6 +1281,7 @@
 				5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */,
 				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
+				5D9C99EA19363337004EFC47 /* UniqKEKeyword.m in Sources */,
 				5D592B6F191F357200ECDCF7 /* ProgramCourse.m in Sources */,
 				5D9C99D519357D1C004EFC47 /* iPadDebugMainSyncViewController.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
@@ -1335,6 +1334,7 @@
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
+				5D9C99F019363338004EFC47 /* UniqKEFunction.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

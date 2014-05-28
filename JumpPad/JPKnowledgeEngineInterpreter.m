@@ -35,8 +35,7 @@
 
 @implementation JPKnowledgeEngineInterpreter
 
-
-- (id)initWithQueryString: (NSString*)string
+- (id)init
 {
     self = [super init];
     if(self)
@@ -45,12 +44,21 @@
         context = delegate.managedObjectContext;
         
         _functionArray = [NSMutableArray array];
+        [self syncKnowledgeEngine];
+    }
+    
+    return self;
+}
+
+- (id)initWithQueryString: (NSString*)string
+{
+    self = [super init];
+    if(self)
+    {
         
+        self = [self init];
         
         self.queryString = string;
-        
-        [self syncKnowledgeEngine];
-        
         
     }
     
@@ -83,7 +91,7 @@
     
     //Delete the Entities to be updated if it already exists in Core Data DB
     NSFetchRequest* functionRequest = [NSFetchRequest fetchRequestWithEntityName:@"UniqKEFunction"];
-    functionRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"schoolId" ascending:YES]];
+    functionRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     
     NSArray* response = [context executeFetchRequest:functionRequest error:nil];
     
@@ -95,11 +103,15 @@
     
     //Readding the file contents
     NSError* error = nil;
-    NSArray* jsonEngineArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:@"UniqKnowledgeEngineOne.json"] options:NSJSONReadingMutableContainers error: &error];
+    NSURL* fileURL = [[NSBundle mainBundle] URLForResource:@"UniqKnowledgeEngineOne" withExtension:@"json"];
+    NSData* fileData = [NSData dataWithContentsOfURL:fileURL];
+    NSArray* jsonEngineArray = [NSJSONSerialization JSONObjectWithData:fileData options:NSJSONReadingAllowFragments error:&error];
+    
+    /*100 priority being very high*/
     
     if(error)
     {
-        JPLog(@"KE sync error: %@", error);
+        JPLog(@"KE sync file parsing error: %@", error);
     }
     
     for(NSDictionary* functionDict in jsonEngineArray)
@@ -110,25 +122,25 @@
         UniqKEFunction *newFunction = (UniqKEFunction*)[[NSManagedObject alloc] initWithEntity:schoolDescription insertIntoManagedObjectContext:context];
         
         if([functionDict valueForKey:@"name"] != [NSNull null])
-           [newFunction setValue:@"name" forKey:@"name"];
+           [newFunction setValue:[functionDict valueForKey:@"name"] forKey:@"name"];
         if([functionDict valueForKey:@"category"] != [NSNull null])
-            [newFunction setValue:@"category" forKey:@"category"];
-        if([functionDict valueForKey:@"keywords"] != [NSNull null])
-            [newFunction setValue:@"keywords" forKey:@"keywords"];
+            [newFunction setValue:[functionDict valueForKey:@"category"] forKey:@"category"];
+        
+        if([functionDict valueForKey:@"priority"] != [NSNull null])
+            [newFunction setValue:[functionDict valueForKey:@"priority"] forKey:@"priority"];
         
         [newFunction setValue:knowledgeOne forKey:@"knowledgeEngine"];
-        
         
         
         for(id keyword in [functionDict valueForKey:@"keywords"])
         {
             NSEntityDescription* keywordDisc = [NSEntityDescription entityForName:@"UniqKEKeyword" inManagedObjectContext:context];
             
-            NSManagedObject* keywordObj = [[NSManagedObject alloc] initWithEntity:keywordDisc insertIntoManagedObjectContext:context];
+            UniqKEKeyword* keywordObj = (UniqKEKeyword*)[[NSManagedObject alloc] initWithEntity:keywordDisc insertIntoManagedObjectContext:context];
             
             if(keyword != [NSNull null])
             {
-                [keywordObj setValue:@"keyword" forKey:@"keyword"];
+                [keywordObj setValue:keyword forKey:@"keyword"];
                 [newFunction addKeywordsObject:keywordObj];
             }
             
@@ -145,6 +157,24 @@
     {
         JPLog(@"KE sync save error: %@", error);
     }
+    
+    
+    
+    //For Debug purposes
+    NSFetchRequest* functionRequest2 = [NSFetchRequest fetchRequestWithEntityName:@"UniqKEFunction"];
+    functionRequest2.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    
+    NSArray* testFunctions = [context executeFetchRequest:functionRequest2 error:nil];
+    
+    for(UniqKEFunction* function in testFunctions)
+    {
+        
+        NSLog(@"FFFFFFFFFFFF:[%@][%@][%@]", function.name, function.priority, function.category);
+        
+        NSLog(@"ex KEYWORD: %@", [[function.keywords anyObject] valueForKey:@"keyword"]);
+        
+    }
+    
     
 }
 
@@ -267,7 +297,14 @@
 
 
 
+- (void)setQueryString:(NSString *)queryString
+{
+    
+    _queryString = queryString;
+    
 
+    
+}
 
 
 

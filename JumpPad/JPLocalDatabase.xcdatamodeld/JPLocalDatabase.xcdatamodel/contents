@@ -132,6 +132,7 @@
     <entity name="UniqKEFunction" representedClassName="UniqKEFunction" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="keywords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UniqKEKeyword" inverseName="function" inverseEntity="UniqKEKeyword" syncable="YES"/>
         <relationship name="knowledgeEngine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UniqKEOne" inverseName="functions" inverseEntity="UniqKEOne" syncable="YES"/>
     </entity>
@@ -162,9 +163,9 @@
         <element name="School" positionX="223" positionY="-117" width="128" height="298"/>
         <element name="SchoolLocation" positionX="376" positionY="-52" width="128" height="193"/>
         <element name="SchoolRanking" positionX="529" positionY="104" width="128" height="103"/>
-        <element name="User" positionX="738" positionY="-118" width="128" height="118"/>
-        <element name="UniqKEFunction" positionX="693" positionY="284" width="128" height="103"/>
+        <element name="UniqKEFunction" positionX="693" positionY="284" width="128" height="118"/>
         <element name="UniqKEKeyword" positionX="853" positionY="287" width="128" height="73"/>
         <element name="UniqKEOne" positionX="711" positionY="189" width="128" height="58"/>
+        <element name="User" positionX="738" positionY="-118" width="128" height="118"/>
     </elements>
 </model>
