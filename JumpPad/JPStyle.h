@@ -58,7 +58,8 @@
 //Beatiful colors
 + (UIColor*)rainbowColorWithIndex: (NSUInteger)index; //7 colors
 + (UIColor*)translucentRainbowColorWithIndex: (NSUInteger)index;
-
++ (UIColor*)whiteTranslucentRainbowColorWithIndex: (NSUInteger)index;
++ (UIColor*)backgroundRainbowColorWithIndex: (NSUInteger)index;
 
 //Colors
 + (UIColor*) colorWithName: (NSString*)colorName;

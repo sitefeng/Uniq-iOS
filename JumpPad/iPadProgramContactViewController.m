@@ -17,7 +17,7 @@
 #import "JPStyle.h"
 
 #import "iPadProgramLabelView.h"
-#import "UIImage+ImageEffects.h" //TODO: delete
+
 
 @interface iPadProgramContactViewController ()
 

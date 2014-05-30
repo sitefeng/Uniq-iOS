@@ -1,32 +1,11 @@
 
 [
-	{
-		"name": "map",
-		"category": "map",
-        "priority": 100, 
-		"keywords":["map", "direction"]
-	},
-	{
-		"name": "program",
-		"category": "collection",
-        "priority": 50,
-		"keywords":["program"]
-	},
-	{
-		"name": "calculation",
-		"category": "text",
-        "priority": 60,
-		"keywords":["+", "-", "/", "*"]
-	},
-	{
-		"name": "admission rate",
-		"category": "program",
-        "priority": 75,
-		"keywords":["admission rate", "admission"]
-	},
+
+
     {
 		"name": "tuitions",
-		"category": "program",
+		"category": "text",
+        "type": "program tuitions",
 		"priority": 80,
 		"keywords":["international tuition", "domestic tuition", "tuition"]
     }

@@ -13,6 +13,7 @@
 {
     iOSDateView*      _dateView;
     
+    NSMutableArray*   _calButtonSelected;
     
 }
 

@@ -32,8 +32,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
  
     
-//    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
-//    [program setSelectedIndex:1];
+    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
+    [program setSelectedIndex:1];
     
     iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
     
@@ -41,7 +41,7 @@
     
     iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
     
-    self.window.rootViewController = home;
+    self.window.rootViewController = program;
     
     
     

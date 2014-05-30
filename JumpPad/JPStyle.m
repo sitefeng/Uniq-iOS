@@ -172,15 +172,15 @@
 
 
 
-+ (UIColor*)rainbowColorWithIndex: (NSUInteger)index //7 colors
++ (UIColor*)rainbowColorWithIndex: (NSUInteger)index //6 colors
 {
-    UIColor* color = nil;
+    UIColor* color = [UIColor lightGrayColor];
     
     switch (index%7)
     {
         
         case 0:
-            color = [self colorWithHex:@"FF617B" alpha:1];
+            color = [self colorWithHex:@"FF617B" alpha:1]; //pink
             break;
         
         case 1:
@@ -204,7 +204,8 @@
             break;
             
         default:
-            NSLog(@"--Error--");
+            NSLog(@"--Error--No Color Available");
+            break;
     }
 
     
@@ -214,65 +215,96 @@
 
 
 
-+ (UIColor*)translucentRainbowColorWithIndex: (NSUInteger)index //7 colors
++ (UIColor*)translucentRainbowColorWithIndex: (NSUInteger)index
 {
-    UIColor* color = nil;
+    UIColor* color = [self rainbowColorWithIndex:index];
+    
+    return  [color colorWithAlphaComponent:0.4];
+}
+
+
++ (UIColor*)whiteTranslucentRainbowColorWithIndex: (NSUInteger)index
+{
+    CGFloat red,green,blue, a;
+    UIColor* tempColor = [self rainbowColorWithIndex:index];
+    
+    BOOL returnColor = [tempColor getRed:&red green:&green blue:&blue alpha:&a];
+    
+    if(returnColor)
+    {
+        tempColor = [UIColor colorWithRed:red+0.2 green:green+0.2 blue:blue+0.2 alpha:a];
+    }
+  
+    return tempColor;
+}
+
+
++ (UIColor*)backgroundRainbowColorWithIndex: (NSUInteger)index
+{
+    UIColor* color = [UIColor lightGrayColor];
     
     switch (index%7)
     {
-            
         case 0:
-            color = [self colorWithHex:@"FF617B" alpha:0.4];
+            color = [self colorWithHex:@"B50400" alpha:1]; //red
             break;
             
         case 1:
-            color = [self colorWithHex:@"D291FF" alpha:0.4];
+            color = [self colorWithHex:@"B45E00" alpha:1];//orange
             break;
             
         case 2:
-            color = [self colorWithHex:@"80ABFF" alpha:0.4];
+            color = [self colorWithHex:@"00ADC5" alpha:1];//indigo
             break;
         case 3:
-            color = [self colorWithHex:@"8AFFCD" alpha:0.4];
+            color = [self colorWithHex:@"C97A00" alpha:1];//orange
             break;
         case 4:
-            color = [self colorWithHex:@"00CE32" alpha:0.4];
+            color = [self colorWithHex:@"009E1F" alpha:1];//green
             break;
         case 5:
-            color = [self colorWithHex:@"FFA73D" alpha:0.4];
+            color = [self colorWithHex:@"0006B9" alpha:1];//dark blue
             break;
         case 6:
-            color = [self colorWithHex:@"B2E004" alpha:0.4];
+            color = [self colorWithHex:@"B900D9" alpha:1]; //purple
             break;
             
         default:
-            NSLog(@"--Error--");
+            NSLog(@"--Error--No Color Available");
+            break;
     }
     
     
     return  color;
 }
+
+
+
 
 
 + (UIColor*)colorWithName: (NSString*)colorName
 {
     UIColor* returnColor = [UIColor blackColor];
     
-    if([colorName isEqualToString:@"blue"])
+    if([colorName isEqualToString:@"blue"]) //light blue bars
     {
         returnColor = [self colorWithHex:@"00A5FF" alpha:1];
     }
-    else if([colorName isEqualToString:@"green"])
+    else if([colorName isEqualToString:@"green"]) //light green button
     {
         returnColor = [self colorWithHex:@"00CF03" alpha:1];
     }
-    else if([colorName isEqualToString:@"darkRed"])
+    else if([colorName isEqualToString:@"darkRed"]) //dark red text
     {
         returnColor = [self colorWithHex:@"500000" alpha:1];
     }
-    else if([colorName isEqualToString:@"red"])
+    else if([colorName isEqualToString:@"red"]) //calendar header
     {
         returnColor = [self colorWithHex:@"FF5F5C" alpha:1];
+    }
+    else
+    {
+        NSLog(@"--Error--No Color Available");
     }
     
     return returnColor;
