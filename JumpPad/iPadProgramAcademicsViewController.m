@@ -16,6 +16,7 @@
 #import "iOSDateView.h"
 
 #import "Program.h"
+#import "NSString+JPDateStringParser.h"
 
 
 @interface iPadProgramAcademicsViewController ()
@@ -65,23 +66,21 @@
     _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
     
     [mainScrollView addSubview:_dateView];
+    /////////////////////////////////////////
     
     
+    //Calendar Label View
     UIView* calendarBackground = [[UIView alloc] initWithFrame:CGRectMake(_dateView.frame.size.width, 0, kiPadWidthPortrait - _dateView.frame.size.width, _dateView.frame.size.height)];
     calendarBackground.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
     
+    _calendarLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 14, 500, 40)];
+    _calendarLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
+    _calendarLabel.textColor = [UIColor blackColor];
+    _calendarLabel.textAlignment = NSTextAlignmentLeft;
     
-    UILabel* calendarLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 14, 400, 40)];
+    [calendarBackground addSubview:_calendarLabel];
     
-    calendarLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
-    
-    calendarLabel.textColor = [UIColor blackColor];
-    
-    calendarLabel.textAlignment = NSTextAlignmentLeft;
-    calendarLabel.text = @"Application Process";
-    
-    [calendarBackground addSubview:calendarLabel];
-    
+    //Processes
     NSArray* processNames = [NSArray arrayWithObjects: @"Favorited",@"Researched",@"Applied",@"Response",@"Got Offer", nil];
     
     for(int i= 0; i<5; i++)
@@ -118,14 +117,20 @@
     [self.view addSubview:mainScrollView];
     
     
-    
-    
-    
     _calButtonSelected = [NSMutableArray arrayWithObjects:@0,@0,@0,@0,@0, nil];
     
+    ///////////////////////////////////////////////////////////////////
     
     
-   
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -140,7 +145,7 @@
     _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
     
     
-    
+    [self reloadData];
 }
 
 
@@ -168,7 +173,25 @@
 
 
 
+- (void)reloadData
+{
+    NSInteger daysLeft = [self.program.admissionDeadline daysLeftFromToday];
+    
+    _calendarLabel.text = @"Application Process: ";
+    
+    if(daysLeft < 90)
+    {
+        _calendarLabel.text = [_calendarLabel.text stringByAppendingString: [NSString stringWithFormat: @"%li days left to apply", (long)daysLeft]];
+    }
+    else if(daysLeft > 350)
+    {
+        _calendarLabel.text = [_calendarLabel.text stringByAppendingString: @"Application Period Ended"];
+    }
 
+    
+    
+    
+}
 
 
 - (void)didReceiveMemoryWarning

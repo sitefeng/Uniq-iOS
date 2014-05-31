@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class JPMainSync;
 @interface iPadDebugMainSyncViewController : UIViewController
+
+
+
+@property (nonatomic, strong) JPMainSync* syncer;
+
+
+
+
 
 @end

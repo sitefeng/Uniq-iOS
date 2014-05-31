@@ -69,8 +69,10 @@
 
 
 
-@interface UIImage (colorful)
+@interface UIImage (Beautify)
 
 + (UIImage *)imageWithColor:(UIColor *)color;
+
+- (UIImage*)imageWithAlpha: (CGFloat) alpha;
 
 @end

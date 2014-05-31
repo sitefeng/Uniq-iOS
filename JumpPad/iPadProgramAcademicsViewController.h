@@ -15,6 +15,7 @@
     
     NSMutableArray*   _calButtonSelected;
     
+    UILabel*         _calendarLabel;
 }
 
 

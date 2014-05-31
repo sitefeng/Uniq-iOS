@@ -16,6 +16,9 @@
 #import "iPadMainHomeViewController.h"
 #import "iPadMainFeaturedViewController.h"
 #import "iPadMainSearchViewController.h"
+#import "iPadDebugMainSyncViewController.h"
+
+#import "JPMainSync.h"
 
 #import "AFNetworkReachabilityManager.h"
 
@@ -28,18 +31,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
  
+    
+    JPMainSync* syncer = [[JPMainSync alloc] init];
+    [syncer sync];
     
     iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
     [program setSelectedIndex:1];
     
     iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
+    iPadDebugMainSyncViewController* sync = [[iPadDebugMainSyncViewController alloc] init];
     
     iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
-    
     iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
+    
+    
     
     self.window.rootViewController = program;
     

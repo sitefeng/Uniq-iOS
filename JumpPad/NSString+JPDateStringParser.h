@@ -17,4 +17,7 @@
 - (NSUInteger)dateIntegerValue;
 
 
+- (NSInteger)daysLeftFromToday;
+
+
 @end

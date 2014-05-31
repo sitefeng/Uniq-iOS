@@ -89,6 +89,7 @@
 		5D9C99EA19363337004EFC47 /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E919363337004EFC47 /* UniqKEKeyword.m */; };
 		5D9C99ED19363338004EFC47 /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99EC19363338004EFC47 /* UniqKEOne.m */; };
 		5D9C99F019363338004EFC47 /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99EF19363338004EFC47 /* UniqKEFunction.m */; };
+		5DA1465219397E63004A53EB /* JPMainSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1465119397E63004A53EB /* JPMainSync.m */; };
 		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
 		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
 		5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */; };
@@ -390,6 +391,8 @@
 		5D9C99EC19363338004EFC47 /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
 		5D9C99EE19363338004EFC47 /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEFunction.h; sourceTree = "<group>"; };
 		5D9C99EF19363338004EFC47 /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEFunction.m; sourceTree = "<group>"; };
+		5DA1465019397E63004A53EB /* JPMainSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainSync.h; sourceTree = "<group>"; };
+		5DA1465119397E63004A53EB /* JPMainSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainSync.m; sourceTree = "<group>"; };
 		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5DA82D2918C2FE430011AC26 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowLeft.png; sourceTree = "<group>"; };
@@ -849,6 +852,8 @@
 		5DAC8FA918555EE500FE3B5B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5DA1465019397E63004A53EB /* JPMainSync.h */,
+				5DA1465119397E63004A53EB /* JPMainSync.m */,
 				5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */,
 				5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */,
 				5D2664C518BB1ED800C8CC91 /* NSString+JPItemUid.h */,
@@ -1245,6 +1250,7 @@
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
+				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */,

@@ -39,7 +39,7 @@
         
         
         NSLog(@"self.program: %@[%@]", self.program, self.program.name);
-        NSLog(@"prog Uid: %i", self.dashletUid);
+        NSLog(@"prog Uid: %lu", (unsigned long)self.dashletUid);
         
     }
         

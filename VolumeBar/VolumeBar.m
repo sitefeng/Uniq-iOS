@@ -240,12 +240,16 @@
     [_contentImage release];
     _contentImage = nil;
     
+    [self.valueLabel release];
+    self.valueLabel = nil;
+    
     [super dealloc];
 }
 
 - (void)drawRect:(CGRect)rect
 {
-    
+
+    _contentImage = [UIImage imageNamed:@"volumeBar.bundle/vol_full.png"];
     CGContextRef context = CGBitmapContextCreate(NULL, self.bounds.size.width, self.bounds.size.height, 8, 4 * self.bounds.size.width, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedFirst);
     
     float endAngle = (END_ANGLE-START_ANGLE)*_progress+START_ANGLE;
@@ -284,7 +288,7 @@
 - (void)circleSlide:(CircleSlide *)circleSlide withProgress:(float)progress
 {
     [self sendActionsForControlEvents:UIControlEventValueChanged];
-    self.valueLabel.text = [NSString stringWithFormat:@"%i",self.currentVolume];
+    self.valueLabel.text = [NSString stringWithFormat:@"%li",(long)self.currentVolume];
     _progress = progress;
     [self setNeedsDisplay];
     
@@ -293,7 +297,7 @@
     if (_currentVolume != volume) {
         _currentVolume = volume;
         [self sendActionsForControlEvents:UIControlEventValueChanged];
-        self.valueLabel.text = [NSString stringWithFormat:@"%i",self.currentVolume];
+        self.valueLabel.text = [NSString stringWithFormat:@"%li",(long)self.currentVolume];
     }
     
 }

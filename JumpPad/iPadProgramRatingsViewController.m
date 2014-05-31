@@ -219,7 +219,7 @@
     _saveLabel.text = @"Ratings Saved";
     
     
-    NSLog(@"Overall: %i", [self.overallSelector currentLevel]);
+    NSLog(@"Overall: %li", (long)[self.overallSelector currentLevel]);
     
     
     

@@ -210,7 +210,7 @@
     
     
     
-    NSLog(@"Number of Functions associated: %i", [_functionArray count]);
+    NSLog(@"Number of Functions associated: %lu", (unsigned long)[_functionArray count]);
     
     UniqKEFunction* function = [_functionArray firstObject];
     
