@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JumpPadAppDelegate : UIResponder <UIApplicationDelegate>
+@interface UniqAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

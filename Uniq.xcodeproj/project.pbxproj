@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D167632185787750041993E /* iOSDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* iOSDashletTitleView.m */; };
-		5D16763A18583D250041993E /* JumpPad-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* JumpPad-Explaination.txt */; };
+		5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* Uniq-Explaination.txt */; };
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
 		5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */; };
@@ -18,8 +18,8 @@
 		5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D22646C192DB96E004B3B42 /* JBParallaxCell.m */; };
 		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
 		5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D24472D192B20B500E7E8E0 /* core_plot_all.a */; };
-		5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* icon-180.png */; };
-		5D2540AB18B6FAFA00FAB887 /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540AA18B6FAFA00FAB887 /* icon-76.png */; };
+		5D2540A918B6FAB000FAB887 /* oldicon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* oldicon-180.png */; };
+		5D2540AB18B6FAFA00FAB887 /* oldicon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540AA18B6FAFA00FAB887 /* oldicon-76.png */; };
 		5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */; };
 		5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */; };
 		5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2664C618BB1ED800C8CC91 /* NSString+JPItemUid.m */; };
@@ -132,7 +132,7 @@
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BB184ACBB700EFCE0A /* main.m */; };
-		5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */; };
+		5DE5B7C0184ACBB700EFCE0A /* UniqAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */; };
 		5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */; };
 		5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */; };
 		5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */; };
@@ -140,7 +140,7 @@
 		5DE5B7D6184ACBB700EFCE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		5DE5B7D7184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */; };
-		5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */; };
+		5DE5B7E1184ACBB700EFCE0A /* UniqTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* UniqTests.m */; };
 		5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */; };
 		5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5C306192338B100F7F01B /* JPGlobal.m */; };
 		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
@@ -163,7 +163,7 @@
 /* Begin PBXFileReference section */
 		5D167630185787750041993E /* iOSDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletTitleView.h; sourceTree = "<group>"; };
 		5D167631185787750041993E /* iOSDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletTitleView.m; sourceTree = "<group>"; };
-		5D16763918583D250041993E /* JumpPad-Explaination.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "JumpPad-Explaination.txt"; sourceTree = "<group>"; };
+		5D16763918583D250041993E /* Uniq-Explaination.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Uniq-Explaination.txt"; sourceTree = "<group>"; };
 		5D16763B1858D3CB0041993E /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFont.h; sourceTree = "<group>"; };
 		5D16763C1858D3CB0041993E /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
 		5D16763E18591AE10041993E /* iOSDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletDetailsView.h; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D24472D192B20B500E7E8E0 /* core_plot_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = core_plot_all.a; sourceTree = "<group>"; };
-		5D2540A818B6FAB000FAB887 /* icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-180.png"; sourceTree = "<group>"; };
-		5D2540AA18B6FAFA00FAB887 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76.png"; sourceTree = "<group>"; };
+		5D2540A818B6FAB000FAB887 /* oldicon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldicon-180.png"; sourceTree = "<group>"; };
+		5D2540AA18B6FAFA00FAB887 /* oldicon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldicon-76.png"; sourceTree = "<group>"; };
 		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainCollectionViewCell.h; sourceTree = "<group>"; };
 		5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainCollectionViewCell.m; sourceTree = "<group>"; };
 		5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletImageView.h; sourceTree = "<group>"; };
@@ -450,24 +450,24 @@
 		5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllBannersInfo.json; sourceTree = "<group>"; };
 		5DD82EF219175029000577F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		5DD82EF319175029000577F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
-		5DE5B7AC184ACBB700EFCE0A /* Jump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jump.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE5B7AC184ACBB700EFCE0A /* Uniq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uniq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5DE5B7B7184ACBB700EFCE0A /* JumpPad-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JumpPad-Info.plist"; sourceTree = "<group>"; };
+		5DE5B7B7184ACBB700EFCE0A /* Uniq-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Uniq-Info.plist"; sourceTree = "<group>"; };
 		5DE5B7B9184ACBB700EFCE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DE5B7BB184ACBB700EFCE0A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5DE5B7BD184ACBB700EFCE0A /* JumpPad-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JumpPad-Prefix.pch"; sourceTree = "<group>"; };
-		5DE5B7BE184ACBB700EFCE0A /* JumpPadAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JumpPadAppDelegate.h; sourceTree = "<group>"; };
-		5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadAppDelegate.m; sourceTree = "<group>"; };
+		5DE5B7BD184ACBB700EFCE0A /* Uniq-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uniq-Prefix.pch"; sourceTree = "<group>"; };
+		5DE5B7BE184ACBB700EFCE0A /* UniqAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UniqAppDelegate.h; sourceTree = "<group>"; };
+		5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniqAppDelegate.m; sourceTree = "<group>"; };
 		5DE5B7C2184ACBB700EFCE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5DE5B7C5184ACBB700EFCE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumpPadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE5B7D3184ACBB700EFCE0A /* UniqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5DE5B7DC184ACBB700EFCE0A /* JumpPadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JumpPadTests-Info.plist"; sourceTree = "<group>"; };
+		5DE5B7DC184ACBB700EFCE0A /* UniqTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UniqTests-Info.plist"; sourceTree = "<group>"; };
 		5DE5B7DE184ACBB700EFCE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JumpPadTests.m; sourceTree = "<group>"; };
+		5DE5B7E0184ACBB700EFCE0A /* UniqTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniqTests.m; sourceTree = "<group>"; };
 		5DE5B83518504D0300EFCE0A /* iPadMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFeaturedViewController.h; sourceTree = "<group>"; };
 		5DE5B83618504D0300EFCE0A /* iPadMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFeaturedViewController.m; sourceTree = "<group>"; };
 		5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -541,8 +541,8 @@
 		5D2540AC18B6FB0400FAB887 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				5D2540A818B6FAB000FAB887 /* icon-180.png */,
-				5D2540AA18B6FAFA00FAB887 /* icon-76.png */,
+				5D2540A818B6FAB000FAB887 /* oldicon-180.png */,
+				5D2540AA18B6FAFA00FAB887 /* oldicon-76.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -949,7 +949,7 @@
 		5DE5B7A3184ACBB700EFCE0A = {
 			isa = PBXGroup;
 			children = (
-				5DE5B7B5184ACBB700EFCE0A /* JumpPad */,
+				5DE5B7B5184ACBB700EFCE0A /* Uniq */,
 				5D9253211930831300BE5BA3 /* DXAlertView */,
 				5D92531B1930708E00BE5BA3 /* Reachability */,
 				5D49AAF0192DBFAB00BA125B /* VolumeBar */,
@@ -973,8 +973,8 @@
 		5DE5B7AD184ACBB700EFCE0A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5DE5B7AC184ACBB700EFCE0A /* Jump.app */,
-				5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */,
+				5DE5B7AC184ACBB700EFCE0A /* Uniq.app */,
+				5DE5B7D3184ACBB700EFCE0A /* UniqTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -999,12 +999,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5DE5B7B5184ACBB700EFCE0A /* JumpPad */ = {
+		5DE5B7B5184ACBB700EFCE0A /* Uniq */ = {
 			isa = PBXGroup;
 			children = (
-				5D16763918583D250041993E /* JumpPad-Explaination.txt */,
-				5DE5B7BE184ACBB700EFCE0A /* JumpPadAppDelegate.h */,
-				5DE5B7BF184ACBB700EFCE0A /* JumpPadAppDelegate.m */,
+				5D16763918583D250041993E /* Uniq-Explaination.txt */,
+				5DE5B7BE184ACBB700EFCE0A /* UniqAppDelegate.h */,
+				5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
 				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
 				5D167646185D6A6C0041993E /* ApplicationConstants.h */,
@@ -1021,16 +1021,17 @@
 				5D2540AC18B6FB0400FAB887 /* Images */,
 				5DE5B7B6184ACBB700EFCE0A /* Supporting Files */,
 			);
+			name = Uniq;
 			path = JumpPad;
 			sourceTree = "<group>";
 		};
 		5DE5B7B6184ACBB700EFCE0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5DE5B7B7184ACBB700EFCE0A /* JumpPad-Info.plist */,
+				5DE5B7B7184ACBB700EFCE0A /* Uniq-Info.plist */,
 				5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */,
 				5DE5B7BB184ACBB700EFCE0A /* main.m */,
-				5DE5B7BD184ACBB700EFCE0A /* JumpPad-Prefix.pch */,
+				5DE5B7BD184ACBB700EFCE0A /* Uniq-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1039,7 +1040,7 @@
 			isa = PBXGroup;
 			children = (
 				5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */,
-				5DE5B7E0184ACBB700EFCE0A /* JumpPadTests.m */,
+				5DE5B7E0184ACBB700EFCE0A /* UniqTests.m */,
 				5DE5B7DB184ACBB700EFCE0A /* Supporting Files */,
 			);
 			path = JumpPadTests;
@@ -1048,7 +1049,7 @@
 		5DE5B7DB184ACBB700EFCE0A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5DE5B7DC184ACBB700EFCE0A /* JumpPadTests-Info.plist */,
+				5DE5B7DC184ACBB700EFCE0A /* UniqTests-Info.plist */,
 				5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -1126,9 +1127,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5DE5B7AB184ACBB700EFCE0A /* Jump */ = {
+		5DE5B7AB184ACBB700EFCE0A /* Uniq */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "Jump" */;
+			buildConfigurationList = 5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "Uniq" */;
 			buildPhases = (
 				5DE5B7A8184ACBB700EFCE0A /* Sources */,
 				5DE5B7A9184ACBB700EFCE0A /* Frameworks */,
@@ -1138,14 +1139,14 @@
 			);
 			dependencies = (
 			);
-			name = Jump;
+			name = Uniq;
 			productName = JumpPad;
-			productReference = 5DE5B7AC184ACBB700EFCE0A /* Jump.app */;
+			productReference = 5DE5B7AC184ACBB700EFCE0A /* Uniq.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5DE5B7D2184ACBB700EFCE0A /* JumpPadTests */ = {
+		5DE5B7D2184ACBB700EFCE0A /* UniqTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPadTests" */;
+			buildConfigurationList = 5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "UniqTests" */;
 			buildPhases = (
 				5DE5B7CF184ACBB700EFCE0A /* Sources */,
 				5DE5B7D0184ACBB700EFCE0A /* Frameworks */,
@@ -1156,9 +1157,9 @@
 			dependencies = (
 				5DE5B7D9184ACBB700EFCE0A /* PBXTargetDependency */,
 			);
-			name = JumpPadTests;
+			name = UniqTests;
 			productName = JumpPadTests;
-			productReference = 5DE5B7D3184ACBB700EFCE0A /* JumpPadTests.xctest */;
+			productReference = 5DE5B7D3184ACBB700EFCE0A /* UniqTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1176,7 +1177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5DE5B7A7184ACBB700EFCE0A /* Build configuration list for PBXProject "JumpPad" */;
+			buildConfigurationList = 5DE5B7A7184ACBB700EFCE0A /* Build configuration list for PBXProject "Uniq" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1190,8 +1191,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5DE5B7AB184ACBB700EFCE0A /* Jump */,
-				5DE5B7D2184ACBB700EFCE0A /* JumpPadTests */,
+				5DE5B7AB184ACBB700EFCE0A /* Uniq */,
+				5DE5B7D2184ACBB700EFCE0A /* UniqTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1216,7 +1217,7 @@
 				5DA82D7E18C2FE430011AC26 /* MPLogo@2x.png in Resources */,
 				5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */,
 				5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */,
-				5D2540A918B6FAB000FAB887 /* icon-180.png in Resources */,
+				5D2540A918B6FAB000FAB887 /* oldicon-180.png in Resources */,
 				5D9C99DB19358D3C004EFC47 /* UniqKnowledgeEngineOne.json in Resources */,
 				5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */,
 				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
@@ -1226,8 +1227,8 @@
 				5D2664D718BB268D00C8CC91 /* iPadCollegeViewController.xib in Resources */,
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
 				5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */,
-				5D16763A18583D250041993E /* JumpPad-Explaination.txt in Resources */,
-				5D2540AB18B6FAFA00FAB887 /* icon-76.png in Resources */,
+				5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */,
+				5D2540AB18B6FAFA00FAB887 /* oldicon-76.png in Resources */,
 				5DA82D7618C2FE430011AC26 /* MPArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1326,7 +1327,7 @@
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
 				5D592B81191F357200ECDCF7 /* SchoolRanking.m in Sources */,
 				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,
-				5DE5B7C0184ACBB700EFCE0A /* JumpPadAppDelegate.m in Sources */,
+				5DE5B7C0184ACBB700EFCE0A /* UniqAppDelegate.m in Sources */,
 				5D592B66191F357100ECDCF7 /* Program.m in Sources */,
 				5D592B75191F357200ECDCF7 /* School.m in Sources */,
 				5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */,
@@ -1350,7 +1351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */,
-				5DE5B7E1184ACBB700EFCE0A /* JumpPadTests.m in Sources */,
+				5DE5B7E1184ACBB700EFCE0A /* UniqTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1359,7 +1360,7 @@
 /* Begin PBXTargetDependency section */
 		5DE5B7D9184ACBB700EFCE0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5DE5B7AB184ACBB700EFCE0A /* Jump */;
+			target = 5DE5B7AB184ACBB700EFCE0A /* Uniq */;
 			targetProxy = 5DE5B7D8184ACBB700EFCE0A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1475,14 +1476,15 @@
 		5DE5B7E5184ACBB700EFCE0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
-				INFOPLIST_FILE = "JumpPad/JumpPad-Info.plist";
+				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
+				INFOPLIST_FILE = "JumpPad/Uniq-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1499,14 +1501,15 @@
 		5DE5B7E6184ACBB700EFCE0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
-				INFOPLIST_FILE = "JumpPad/JumpPad-Info.plist";
+				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
+				INFOPLIST_FILE = "JumpPad/Uniq-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1535,8 +1538,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "JumpPadTests/JumpPadTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "JumpPadTests/UniqTests-Info.plist";
+				PRODUCT_NAME = UniqTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1553,8 +1556,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
-				INFOPLIST_FILE = "JumpPadTests/JumpPadTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "JumpPadTests/UniqTests-Info.plist";
+				PRODUCT_NAME = UniqTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1563,7 +1566,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5DE5B7A7184ACBB700EFCE0A /* Build configuration list for PBXProject "JumpPad" */ = {
+		5DE5B7A7184ACBB700EFCE0A /* Build configuration list for PBXProject "Uniq" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DE5B7E2184ACBB700EFCE0A /* Debug */,
@@ -1572,7 +1575,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "Jump" */ = {
+		5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "Uniq" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DE5B7E5184ACBB700EFCE0A /* Debug */,
@@ -1581,7 +1584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "JumpPadTests" */ = {
+		5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "UniqTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5DE5B7E8184ACBB700EFCE0A /* Debug */,

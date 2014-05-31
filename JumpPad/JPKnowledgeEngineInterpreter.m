@@ -40,7 +40,7 @@
     self = [super init];
     if(self)
     {
-        JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = delegate.managedObjectContext;
         
         _functionArray = [NSMutableArray array];

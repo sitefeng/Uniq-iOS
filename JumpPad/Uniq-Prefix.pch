@@ -15,7 +15,7 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "ApplicationConstants.h"
-    #import "JumpPadAppDelegate.h"
+    #import "UniqAppDelegate.h"
     #import "UserInterfaceConstants.h"
     #import "JPStyle.h"
     #import "Mixpanel.h"

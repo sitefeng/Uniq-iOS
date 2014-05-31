@@ -94,7 +94,7 @@
 
     
     //Core Data NS Managed Object Context
-    JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     self.context = [delegate managedObjectContext];
     
 }

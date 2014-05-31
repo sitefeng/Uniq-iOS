@@ -25,7 +25,7 @@
         self.dashletUid = dashletUid;
         
         
-        JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
         

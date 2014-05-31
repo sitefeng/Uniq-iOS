@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-               BuildableName = "Jump.app"
-               BlueprintName = "Jump"
-               ReferencedContainer = "container:JumpPad.xcodeproj">
+               BuildableName = "Uniq.app"
+               BlueprintName = "Uniq"
+               ReferencedContainer = "container:Uniq.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5DE5B7D2184ACBB700EFCE0A"
-               BuildableName = "JumpPadTests.xctest"
-               BlueprintName = "JumpPadTests"
-               ReferencedContainer = "container:JumpPad.xcodeproj">
+               BuildableName = "UniqTests.xctest"
+               BlueprintName = "UniqTests"
+               ReferencedContainer = "container:Uniq.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-            BuildableName = "Jump.app"
-            BlueprintName = "Jump"
-            ReferencedContainer = "container:JumpPad.xcodeproj">
+            BuildableName = "Uniq.app"
+            BlueprintName = "Uniq"
+            ReferencedContainer = "container:Uniq.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-            BuildableName = "Jump.app"
-            BlueprintName = "Jump"
-            ReferencedContainer = "container:JumpPad.xcodeproj">
+            BuildableName = "Uniq.app"
+            BlueprintName = "Uniq"
+            ReferencedContainer = "container:Uniq.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5DE5B7AB184ACBB700EFCE0A"
-            BuildableName = "Jump.app"
-            BlueprintName = "Jump"
-            ReferencedContainer = "container:JumpPad.xcodeproj">
+            BuildableName = "Uniq.app"
+            BlueprintName = "Uniq"
+            ReferencedContainer = "container:Uniq.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

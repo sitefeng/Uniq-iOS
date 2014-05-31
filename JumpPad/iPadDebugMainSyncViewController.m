@@ -8,7 +8,7 @@
 
 #import "iPadDebugMainSyncViewController.h"
 
-#import "JumpPadAppDelegate.h"
+#import "UniqAppDelegate.h"
 #import "Program.h"
 #import "School.h"
 #import "ImageLink.h"
@@ -49,7 +49,7 @@
 	
     self.view.backgroundColor = [JPStyle mainViewControllerDefaultBackgroundColor];
     
-    JumpPadAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    UniqAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     self.context = [appDelegate managedObjectContext];
 
     

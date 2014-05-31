@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface JumpPadTests : XCTestCase
+@interface UniqTests : XCTestCase
 
 @end
 
-@implementation JumpPadTests
+@implementation UniqTests
 
 - (void)setUp
 {

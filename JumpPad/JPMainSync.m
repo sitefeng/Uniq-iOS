@@ -8,7 +8,7 @@
 
 #import "JPMainSync.h"
 
-#import "JumpPadAppDelegate.h"
+#import "UniqAppDelegate.h"
 #import "Program.h"
 #import "School.h"
 #import "ImageLink.h"
@@ -29,7 +29,7 @@
     if(self)
     {
         
-        JumpPadAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+        UniqAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
         self.context = [appDelegate managedObjectContext];
         
         NSError* timeModifiedError = nil;

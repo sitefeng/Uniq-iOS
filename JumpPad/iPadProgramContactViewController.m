@@ -59,7 +59,7 @@
     UIImage* backgroundImage = [UIImage imageNamed:@"blueBackground2"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
-    JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [delegate managedObjectContext];
     
     NSInteger schoolId = self.dashletUid / 1000000;

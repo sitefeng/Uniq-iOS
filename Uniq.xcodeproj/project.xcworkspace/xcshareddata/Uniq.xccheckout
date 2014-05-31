@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>656D2F4E-9B38-4DBB-B8B7-26ECF2CD5F21</string>
+	<string>3E55F304-1424-4986-BFC2-1870D9E99B19</string>
 	<key>IDESourceControlProjectName</key>
-	<string>JumpPad</string>
+	<string>Uniq</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F197DDFC-3728-49A8-95D2-63F047E44061</key>
+		<key>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</key>
 		<string>ssh://bitbucket.org/sitefeng/jump-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>JumpPad.xcodeproj/project.xcworkspace</string>
+	<string>Uniq.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F197DDFC-3728-49A8-95D2-63F047E44061</key>
+		<key>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,16 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F197DDFC-3728-49A8-95D2-63F047E44061</string>
+	<string>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F197DDFC-3728-49A8-95D2-63F047E44061</string>
+			<string>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>jump-ios</string>
+			<string>uniq-ios</string>
 		</dict>
 	</array>
 </dict>

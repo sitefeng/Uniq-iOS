@@ -8,7 +8,7 @@
 
 #import "iPadProgramImagesViewController.h"
 
-#import "JumpPadAppDelegate.h"
+#import "UniqAppDelegate.h"
 #import "AsyncImageView.h"
 #import "Program.h"
 

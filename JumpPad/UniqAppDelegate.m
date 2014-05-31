@@ -6,10 +6,8 @@
 //  Copyright (c) 2013 Si Te Feng. All rights reserved.
 //
 
-#import "JumpPadAppDelegate.h"
+#import "UniqAppDelegate.h"
 #import "Mixpanel.h"
-
-
 
 #import "iPadProgramHomeViewController.h"
 #import "iPadProgramViewController.h"
@@ -22,7 +20,7 @@
 
 #import "AFNetworkReachabilityManager.h"
 
-@implementation JumpPadAppDelegate
+@implementation UniqAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;

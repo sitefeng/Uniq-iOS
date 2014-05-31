@@ -8,7 +8,7 @@
 
 #import "iPadProgramLabelView.h"
 #import "AsyncImageView.h"
-#import "JumpPadAppDelegate.h"
+#import "UniqAppDelegate.h"
 
 #import "Program.h"
 #import "School.h"
@@ -29,7 +29,7 @@
         self.program = program;
         self.dashletUid = number;
         
-        JumpPadAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
         NSInteger schoolId = self.dashletUid / 1000000;
