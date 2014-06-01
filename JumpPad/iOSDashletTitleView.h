@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UIImage* titleIconImage;
 @property (nonatomic, strong) NSString* titleIconName;
 
-@property (nonatomic, assign) BOOL iconPositionLeft;
+
 
 
 

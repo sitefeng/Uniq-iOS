@@ -23,16 +23,16 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground2"]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
         
         //Creating the Subviews
-        CGRect imageFrame = CGRectMake(kiPadDashletImagePadding, kiPadDashletImagePadding, frame.size.width - 2*kiPadDashletImagePadding, frame.size.height/4*3 - 2*kiPadDashletImagePadding);
+        CGRect imageFrame = CGRectMake(0, 0, frame.size.width, frame.size.height/4*3 );
         
         self.imageView = [[iPadDashletImageView alloc] initWithFrame:imageFrame];
         
-        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(12, frame.size.height/4.0*3 , frame.size.width - 18, frame.size.height/8.0 - 4 )];
+        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(2, frame.size.height/4.0*3 , frame.size.width - 2, frame.size.height/8.0 - 4 )];
   
-        self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(12, frame.size.height/8.0*7 -2 , frame.size.width - 24, frame.size.height/8.0 - 1)];
+        self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(6, frame.size.height/8.0*7 -2 , frame.size.width - 12, frame.size.height/8.0 - 1)];
         
         self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         self.infoButton.frame = CGRectMake(frame.size.width - 40, frame.size.height - 40, 40, 40);
@@ -46,6 +46,9 @@
         [self addSubview:self.details];
         
         [self addSubview:self.infoButton];
+        
+        self.clipsToBounds = YES;
+        self.layer.cornerRadius = 10;
         
     }
     return self;

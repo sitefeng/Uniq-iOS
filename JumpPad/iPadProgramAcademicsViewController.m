@@ -16,8 +16,14 @@
 #import "iOSDateView.h"
 
 #import "Program.h"
+#import "ProgramCourse.h"
 #import "NSString+JPDateStringParser.h"
 
+#import "iPadProgramHexCollectionView.h"
+#import "iPadProgramHexView.h"
+
+#import "iPadProgramRelatedView.h"
+#import "iPadProgramCoursesViewController.h"
 
 @interface iPadProgramAcademicsViewController ()
 
@@ -32,7 +38,7 @@
         // Custom initialization
         
         self.tabBarItem.image = [UIImage imageNamed:@"academics"];
-        self.view.backgroundColor = [UIColor brownColor];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         
         self.program = program;
         self.dashletUid = dashletUid;
@@ -50,12 +56,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    _yPositionForScrollView = 0;
     
     UIScrollView* mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, kiPadWidthPortrait, kiPadHeightPortrait-44)];
     
     
-    mainScrollView.backgroundColor = [UIColor yellowColor];
+    mainScrollView.backgroundColor = [UIColor clearColor];
     mainScrollView.contentSize = CGSizeMake(kiPadWidthPortrait, 1000);
     
     mainScrollView.clipsToBounds = YES;
@@ -110,29 +116,58 @@
     
     [calendarBackground addSubview:blueBar];
     [calendarBackground addSubview:blueBar2];
-    
-    
     [mainScrollView addSubview:calendarBackground];
-    
-    [self.view addSubview:mainScrollView];
-    
     
     _calButtonSelected = [NSMutableArray arrayWithObjects:@0,@0,@0,@0,@0, nil];
     
     ///////////////////////////////////////////////////////////////////
+    _yPositionForScrollView += _dateView.frame.size.height;//140
+    /////////////////////////////////////
+    
+    _numHexViews = 2;
+
+    iPadProgramHexCollectionView* hexCV = [[iPadProgramHexCollectionView alloc] initWithFrame:CGRectZero];
+    
+    if(_numHexViews%3 == 0)
+    {
+        hexCV.frame = CGRectMake(0, _yPositionForScrollView, kiPadWidthPortrait, kHexHeight/4*7 * (_numHexViews-1)/3 + kHexHeight/4);
+    }
+    else if(_numHexViews%3 == 1)
+    {
+        hexCV.frame = CGRectMake(0, _yPositionForScrollView, kiPadWidthPortrait, kHexHeight/4*7 * (_numHexViews-2)/3 + kHexHeight/4);
+    }
+    else
+    {
+        hexCV.frame = CGRectMake(0, _yPositionForScrollView, kiPadWidthPortrait, kHexHeight/4*7 * _numHexViews/3);
+    }
+
+    
+    hexCV.dataSource = self;
+    
+    [mainScrollView addSubview:hexCV];
+    
+    _yPositionForScrollView += hexCV.frame.size.height - 133;
+    
+    
+    
+    //Related Controller
+    
+    self.relatedView = [[iPadProgramRelatedView alloc] initWithFrame:CGRectMake(0, _yPositionForScrollView, kiPadWidthPortrait, kHexHeight)];
+    
+    self.relatedView.dataSource = self;
+    
+    
+    [mainScrollView addSubview:self.relatedView];
+    
+    _yPositionForScrollView += self.relatedView.frame.size.height;
     
     
     
     
     
     
-    
-    
-    
-    
-    
-    
-    
+    mainScrollView.contentSize = CGSizeMake(mainScrollView.contentSize.width, _yPositionForScrollView + 50);
+    [self.view addSubview:mainScrollView];
     
 }
 
@@ -188,10 +223,142 @@
         _calendarLabel.text = [_calendarLabel.text stringByAppendingString: @"Application Period Ended"];
     }
 
+}
+
+
+
+
+
+#pragma mark - Program Hex Collection View DataSource
+
+- (NSUInteger)numberOfCellsInHexCollectionView:(iPadProgramHexCollectionView *)cv
+{
+    return _numHexViews;
+}
+
+
+- (iPadProgramHexView*)hexCollectionView:(iPadProgramHexCollectionView *)cv hexViewForCellAtPosition:(NSUInteger)position
+{
+    CGFloat contentStartYPosition = kHexHeight/4 + 5;
+    
+    iPadProgramHexView* hexView = [[iPadProgramHexView alloc] initWithFrame:CGRectMake(0, 0, kHexWidth, kHexWidth)];
+    
+    switch (position) {
+        case 0:{
+            hexView.titleLabel.text = @"Courses";
+            NSArray* titles = @[@"1st Year", @"2nd Year", @"3rd Year", @"4th Year"];
+            
+            for(int i=0; i<2; i++)
+            {
+                for(int j=0; j<2; j++)
+                {
+                    UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(28 + 156*(j%2), contentStartYPosition + 10 + 105*(i%2), 150, 90)];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"darkRed"]] forState:UIControlStateNormal];
+                    
+                    yearButton.layer.cornerRadius = 10;
+                    yearButton.clipsToBounds = YES;
+                    
+                    [yearButton setTitle:titles[j+i*2] forState:UIControlStateNormal];
+                    yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+                    [yearButton setTintColor:[UIColor whiteColor]];
+                    [yearButton setShowsTouchWhenHighlighted:NO];
+                    yearButton.tag = i;
+                    [yearButton addTarget:self action:@selector(yearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                    [hexView addSubview:yearButton];
+                }
+                
+            }
+            
+            
+            break;
+        }
+        case 1:
+            hexView.titleLabel.text = @"+";
+            hexView.titleLabel.font = [UIFont fontWithName:[JPFont defaultBoldFont] size:40];
+            break;
+        case 2:
+            hexView.titleLabel.text = @"+";
+            hexView.titleLabel.font = [UIFont fontWithName:[JPFont defaultBoldFont] size:40];
+            break;
+        default:
+            hexView.titleLabel.text = @"Unknown";
+            break;
+    }
     
     
+    
+    
+    
+    return hexView;
     
 }
+
+
+- (void)yearButtonPressed: (UIButton*)button
+{
+    
+    NSUInteger year = button.tag;
+    
+    iPadProgramCoursesViewController* viewController = [[iPadProgramCoursesViewController alloc] init];
+    
+    viewController.coursesYear = year;
+    viewController.programCourses = self.program.courses;
+    
+    [self presentViewController:viewController animated:YES completion:nil];
+    
+}
+
+
+
+
+
+
+
+#pragma mark - Program Related View Data Source
+
+- (NSUInteger)numberOfCellsForRelatedView:(iPadProgramRelatedView *)relatedView
+{
+    
+    return 6;
+    
+}
+
+
+- (NSString*)relatedView:(iPadProgramRelatedView *)relatedView cellTitleForCellAtPosition:(NSUInteger)position
+{
+    
+    
+    return @"Mechanical Engineering";
+}
+
+
+- (NSString*)relatedView:(iPadProgramRelatedView *)relatedView cellSubtitleForCellAtPosition:(NSUInteger)position
+{
+    
+    return @"Ryerson University";
+}
+
+
+- (NSString*)relatedView:(iPadProgramRelatedView *)relatedView cellBackgroundImageURLStringForCellAtPosition:(NSUInteger)position
+{
+    if(position==1)
+        return @"http://sitefeng.com/images/Jump/ryerson1.png";
+    
+    else
+        return @"http://sitefeng.com/images/Jump/ryerson2.png";
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning

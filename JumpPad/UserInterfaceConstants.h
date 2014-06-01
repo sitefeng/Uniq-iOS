@@ -67,6 +67,20 @@
 //#define kiPadSizeDashletCollegeTitleIcon  CGSizeMake(kiPadDashletTitleHeight * 1.5, kiPadDashletTitleHeight * 0.9)
 
 
+//////////////////////////////////////
+//Program Academic View Controller
+
+const CGFloat kGapWidth = 15;
+const CGFloat kHexWidth = (kiPadWidthPortrait-3*kGapWidth)/2.0;
+const CGFloat kHexHeight = kHexWidth* 1.154700538;
+
+const CGFloat kHexLineWidth = 4;
+
+
+
+
+
+
 
 ///////////////////////////////////
 #pragma mark - Resource Image Sizes

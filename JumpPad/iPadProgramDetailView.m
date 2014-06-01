@@ -29,8 +29,9 @@
         // Initialization code
     
         self.program = prog;
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
-    
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+        self.backgroundColor = [UIColor clearColor];
+        
         _currentHeight = 0;
         
         //////////////////////////////////////////////////

@@ -18,16 +18,9 @@
         
         [self setUserInteractionEnabled:NO];
 
-        self.iconPositionLeft = NO;
         
-        if(self.iconPositionLeft)
-        {
-           
-        }
-        else
-        {
-            self.titleLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        }
+
+        self.titleLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frame.size.width, frame.size.height)];
         
      
         [self addSubview:self.titleLabel];

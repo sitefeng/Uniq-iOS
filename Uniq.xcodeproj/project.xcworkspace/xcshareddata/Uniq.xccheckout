@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3E55F304-1424-4986-BFC2-1870D9E99B19</string>
+	<string>00F16494-0E26-46FA-B905-C18E62998AC7</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Uniq</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</key>
-		<string>ssh://bitbucket.org/sitefeng/jump-ios.git</string>
+		<key>33E81A92-6BF6-4B64-BBCE-5E51C327E4A8</key>
+		<string>ssh://bitbucket.org/sitefeng/uniq-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Uniq.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</key>
+		<key>33E81A92-6BF6-4B64-BBCE-5E51C327E4A8</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/sitefeng/jump-ios.git</string>
+	<string>ssh://bitbucket.org/sitefeng/uniq-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</string>
+	<string>33E81A92-6BF6-4B64-BBCE-5E51C327E4A8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1A2F3266-6B0A-4918-98EF-7F7625B33B7D</string>
+			<string>33E81A92-6BF6-4B64-BBCE-5E51C327E4A8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>uniq-ios</string>
 		</dict>

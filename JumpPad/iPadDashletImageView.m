@@ -50,8 +50,6 @@
     _imageURLs = imageUrls;
     _imagesToLoad = [imageUrls count];
     
-
-   
     [self reloadImages];
    
 }

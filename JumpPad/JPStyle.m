@@ -246,27 +246,25 @@
     switch (index%7)
     {
         case 0:
-            color = [self colorWithHex:@"B50400" alpha:1]; //red
+            color = [self colorWithHex:@"FF5733" alpha:1]; //red
             break;
-            
         case 1:
-            color = [self colorWithHex:@"B45E00" alpha:1];//orange
+            color = [self colorWithHex:@"FFA230" alpha:1];//orange
             break;
-            
         case 2:
-            color = [self colorWithHex:@"00ADC5" alpha:1];//indigo
+            color = [self colorWithHex:@"13D8BF" alpha:1];//indigo
             break;
         case 3:
-            color = [self colorWithHex:@"C97A00" alpha:1];//orange
+            color = [self colorWithHex:@"13D8BF" alpha:1];//blue
             break;
         case 4:
-            color = [self colorWithHex:@"009E1F" alpha:1];//green
+            color = [self colorWithHex:@"7EB98D" alpha:1];//green
             break;
         case 5:
-            color = [self colorWithHex:@"0006B9" alpha:1];//dark blue
+            color = [self colorWithHex:@"7187C7" alpha:1];//dark blue
             break;
         case 6:
-            color = [self colorWithHex:@"B900D9" alpha:1]; //purple
+            color = [self colorWithHex:@"7E43E0" alpha:1]; //purple
             break;
             
         default:
@@ -284,7 +282,7 @@
 
 + (UIColor*)colorWithName: (NSString*)colorName
 {
-    UIColor* returnColor = [UIColor blackColor];
+    UIColor* returnColor = [UIColor darkGrayColor];
     
     if([colorName isEqualToString:@"blue"]) //light blue bars
     {
@@ -301,6 +299,10 @@
     else if([colorName isEqualToString:@"red"]) //calendar header
     {
         returnColor = [self colorWithHex:@"FF5F5C" alpha:1];
+    }
+    else if([colorName isEqual:@"grey"])
+    {
+        returnColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.5];
     }
     else
     {

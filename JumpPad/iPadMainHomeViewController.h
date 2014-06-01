@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadMainHomeViewController : UIViewController
+@interface iPadMainHomeViewController : UISplitViewController
 
 
 
