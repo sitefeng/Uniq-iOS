@@ -9,15 +9,23 @@
 #import <UIKit/UIKit.h>
 
 
-@interface iPadProgramCoursesViewController : UIViewController
+@interface iPadProgramCoursesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    
+    NSIndexPath* _selectedIndexPath;
+}
 
 
 
-
-@property (nonatomic, assign) NSUInteger coursesYear;
+@property (nonatomic, assign) NSUInteger coursesYear;//1,2,3,4
 
 @property (nonatomic, strong) NSSet* programCourses;
 
+
+
+@property (nonatomic, strong) NSMutableArray* coursesToDisplay;//ProgramCourses
+
+@property (nonatomic, strong) UITableView* tableView;
 
 
 

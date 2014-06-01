@@ -262,7 +262,7 @@
                     yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
                     [yearButton setTintColor:[UIColor whiteColor]];
                     [yearButton setShowsTouchWhenHighlighted:NO];
-                    yearButton.tag = i;
+                    yearButton.tag = j+2*i;
                     [yearButton addTarget:self action:@selector(yearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
                     
                     [hexView addSubview:yearButton];
@@ -274,9 +274,20 @@
             break;
         }
         case 1:
+        {
             hexView.titleLabel.text = @"+";
             hexView.titleLabel.font = [UIFont fontWithName:[JPFont defaultBoldFont] size:40];
+            
+            UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(20, contentStartYPosition + 30, kHexWidth - 40, 170)];
+            
+            [button setTintColor:[UIColor whiteColor]];
+            button.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:36];
+            [button setTitle:@"More Info Soon!" forState:UIControlStateNormal];
+            
+            [hexView addSubview:button];
+            
             break;
+        }
         case 2:
             hexView.titleLabel.text = @"+";
             hexView.titleLabel.font = [UIFont fontWithName:[JPFont defaultBoldFont] size:40];
@@ -298,14 +309,21 @@
 - (void)yearButtonPressed: (UIButton*)button
 {
     
-    NSUInteger year = button.tag;
+    NSUInteger year = button.tag + 1;
     
     iPadProgramCoursesViewController* viewController = [[iPadProgramCoursesViewController alloc] init];
     
     viewController.coursesYear = year;
     viewController.programCourses = self.program.courses;
     
-    [self presentViewController:viewController animated:YES completion:nil];
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    
+    
+    [self presentViewController:navController animated:YES completion:nil];
     
 }
 

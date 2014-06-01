@@ -66,10 +66,6 @@ typedef NS_ENUM(NSInteger, JPRatingType)
 
 
 
-
-
-
-
 #pragma mark - Debug Tools
 
 #ifdef DEBUG

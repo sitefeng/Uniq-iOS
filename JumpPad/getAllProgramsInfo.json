@@ -37,18 +37,47 @@
       },
      "courses":{
         "firstYear":[
-           "Calculus 1"
+           {
+            "name":"Software Intro 1",
+            "code":"SE 108",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            },
+            {
+            "name":"Calculus 2",
+            "code":"MATH 168",
+            "descriptor":"This Course is another boring course taught by a confused professor"
+            }
         ],
         "secondYear":[
-           "Ordinary Differential Equations",
-           "Mechanics of Deformable Solids",
-           "Real Time Operating Systems"
+            {
+            "name":"Ordinary Equations",
+            "code":"MATH 219",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            },
+            {
+            "name":"Mechanics of Deformable Solids",
+            "code":"MODS 101",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            },
+            {
+            "name":"Real Time Operating Systems",
+            "code":"RTOS 291",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            }
         ],
         "thirdYear":[
-           "Advanced Embedded Power Electronics"
+            {
+            "name":"Advanced Embedded Power Electronics",
+            "code":"MTE 320",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            }
         ],
         "fourthYear":[
-           "Final Year Design Project"
+            {
+            "name":"Final Year Design Project",
+            "code":"MTE 410",
+            "descriptor":"This Course is interesting! .... It's not really a course though..."
+            }
         ]
       }
   },
@@ -101,18 +130,47 @@
 
      "courses":{
         "firstYear":[
-           "Calculus 1"
+           {
+            "name":"Calculus 1",
+            "code":"MATH 118",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            },
+            {
+            "name":"Calculus 2",
+            "code":"MATH 168",
+            "descriptor":"This Course is another boring course taught by a confused professor"
+            }
         ],
         "secondYear":[
-           "Ordinary Differential Equations",
-           "Mechanics of Deformable Solids",
-           "Real Time Operating Systems"
+            {
+            "name":"Ordinary Differential Equations",
+            "code":"MATH 219",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            },
+            {
+            "name":"Mechanics of Deformable Solids",
+            "code":"MODS 101",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            },
+            {
+            "name":"Real Time Operating Systems",
+            "code":"RTOS 291",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            }
         ],
         "thirdYear":[
-           "Advanced Embedded Power Electronics"
+            {
+            "name":"Advanced Embedded Power Electronics",
+            "code":"MTE 320",
+            "descriptor":"This Course is a very boring course taught by a very confused professor"
+            }
         ],
         "fourthYear":[
-           "Final Year Design Project"
+            {
+            "name":"Final Year Design Project",
+            "code":"MTE 410",
+            "descriptor":"This Course is interesting! .... It's not really a course though..."
+            }
         ]
       }
     }

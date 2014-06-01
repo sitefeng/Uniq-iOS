@@ -49,6 +49,7 @@
 		5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */; };
 		5D555523193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */; };
 		5D555526193B140900BF6F20 /* iPadProgramCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555525193B140900BF6F20 /* iPadProgramCoursesViewController.m */; };
+		5D555529193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555528193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m */; };
 		5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */; };
 		5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */; };
 		5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */; };
@@ -241,6 +242,8 @@
 		5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPadProgramRelatedViewCell.xib; sourceTree = "<group>"; };
 		5D555524193B140900BF6F20 /* iPadProgramCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramCoursesViewController.h; sourceTree = "<group>"; };
 		5D555525193B140900BF6F20 /* iPadProgramCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramCoursesViewController.m; sourceTree = "<group>"; };
+		5D555527193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramCoursesTableViewCell.h; sourceTree = "<group>"; };
+		5D555528193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramCoursesTableViewCell.m; sourceTree = "<group>"; };
 		5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSummaryView.h; sourceTree = "<group>"; };
 		5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSummaryView.m; sourceTree = "<group>"; };
 		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailView.h; sourceTree = "<group>"; };
@@ -970,6 +973,8 @@
 				5D55551F193AF98500BF6F20 /* iPadProgramRelatedViewCell.h */,
 				5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */,
 				5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */,
+				5D555527193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.h */,
+				5D555528193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m */,
 			);
 			name = "View in Program VC";
 			sourceTree = "<group>";
@@ -1352,6 +1357,7 @@
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
+				5D555529193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m in Sources */,
 				5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */,
 				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
 				5D55551B193A9E5A00BF6F20 /* iPadProgramRelatedView.m in Sources */,

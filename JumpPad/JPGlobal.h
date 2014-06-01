@@ -17,7 +17,7 @@
 + (NSString*)ratingStringWithIndex: (NSInteger)index;
 
 
-
++ (NSString*)schoolYearStringWithInteger: (NSUInteger)year;
 
 
 @end

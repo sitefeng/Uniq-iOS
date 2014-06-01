@@ -61,8 +61,9 @@
 + (UIColor*)whiteTranslucentRainbowColorWithIndex: (NSUInteger)index;
 + (UIColor*)backgroundRainbowColorWithIndex: (NSUInteger)index;
 
-//Colors
+//Colors from String
 + (UIColor*) colorWithName: (NSString*)colorName;
++ (UIColor*)colorWithLetter: (NSString*)letter;
 
 
 @end

@@ -191,7 +191,7 @@
             color = [self colorWithHex:@"80ABFF" alpha:1];
             break;
         case 3:
-            color = [self colorWithHex:@"8AFFCD" alpha:1];
+            color = [self colorWithHex:@"36E0AC" alpha:1];
             break;
         case 4:
             color = [self colorWithHex:@"00CE32" alpha:1];
@@ -311,6 +311,126 @@
     
     return returnColor;
 }
+
+
+
++ (UIColor*)colorWithLetter: (NSString*)letter
+{
+    
+    UIColor* color = [self rainbowColorWithIndex:(arc4random()%6)];
+    
+    if([[[letter substringToIndex:1] lowercaseString] isEqual:@"a"])
+    {
+        color = [self rainbowColorWithIndex:0];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"b"])
+    {
+        color = [self rainbowColorWithIndex:1];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"c"])
+    {
+        color = [self rainbowColorWithIndex:2];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"d"])
+    {
+        color = [self rainbowColorWithIndex:3];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"e"])
+    {
+        color = [self rainbowColorWithIndex:4];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"f"])
+    {
+        color = [self rainbowColorWithIndex:5];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"g"])
+    {
+        color = [UIColor grayColor];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"h"])
+    {
+        color = [self backgroundRainbowColorWithIndex:0];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"i"])
+    {
+        color = [self backgroundRainbowColorWithIndex:1];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"j"])
+    {
+        color = [self backgroundRainbowColorWithIndex:2];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"k"])
+    {
+        color = [self backgroundRainbowColorWithIndex:3];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"l"])
+    {
+        color = [self backgroundRainbowColorWithIndex:4];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"m"])
+    {
+        color = [self backgroundRainbowColorWithIndex:5];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"n"])
+    {
+        color = [self rainbowColorWithIndex:0];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"o"])
+    {
+        color = [self rainbowColorWithIndex:1];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"p"])
+    {
+        color = [self rainbowColorWithIndex:2];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"q"])
+    {
+        color = [self rainbowColorWithIndex:3];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"r"])
+    {
+        color = [self rainbowColorWithIndex:4];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"s"])
+    {
+        color = [self rainbowColorWithIndex:5];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"t"])
+    {
+        color = [UIColor grayColor];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"u"])
+    {
+        color = [self backgroundRainbowColorWithIndex:0];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"v"])
+    {
+        color = [self backgroundRainbowColorWithIndex:1];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"w"])
+    {
+        color = [self backgroundRainbowColorWithIndex:2];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"x"])
+    {
+        color = [self backgroundRainbowColorWithIndex:3];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"y"])
+    {
+        color = [self backgroundRainbowColorWithIndex:4];
+    }
+    else if([[[letter substringToIndex:1] lowercaseString] isEqual:@"z"])
+    {
+        color = [self backgroundRainbowColorWithIndex:5];
+    }
+    else
+    {
+        color = [UIColor darkGrayColor];
+    }
+    
+    return  color;
+}
+
 
 
 

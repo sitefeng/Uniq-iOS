@@ -30,6 +30,7 @@
 
 + (NSString*)defaultLightFont;
 + (NSString*)defaultThinFont;
+
 + (NSString*)defaultUltraLightFont;
 
 @end
