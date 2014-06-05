@@ -43,6 +43,7 @@
 		5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */; };
 		5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */; };
 		5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4897F11925CC400062DD54 /* RPRadarChart.m */; };
+		5D54097B193C111E001D5776 /* iPadSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D54097A193C111E001D5776 /* iPadSettingsViewController.m */; };
 		5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555517193A9D0100BF6F20 /* iPadProgramHexCollectionView.m */; };
 		5D55551B193A9E5A00BF6F20 /* iPadProgramRelatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55551A193A9E5A00BF6F20 /* iPadProgramRelatedView.m */; };
 		5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55551D193A9EB300BF6F20 /* iPadProgramHexView.m */; };
@@ -231,6 +232,8 @@
 		5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllProgramsInfo.json; sourceTree = "<group>"; };
 		5D4897F01925CC400062DD54 /* RPRadarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPRadarChart.h; sourceTree = "<group>"; };
 		5D4897F11925CC400062DD54 /* RPRadarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPRadarChart.m; sourceTree = "<group>"; };
+		5D540979193C111E001D5776 /* iPadSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSettingsViewController.h; sourceTree = "<group>"; };
+		5D54097A193C111E001D5776 /* iPadSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSettingsViewController.m; sourceTree = "<group>"; };
 		5D555516193A9D0100BF6F20 /* iPadProgramHexCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramHexCollectionView.h; sourceTree = "<group>"; };
 		5D555517193A9D0100BF6F20 /* iPadProgramHexCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramHexCollectionView.m; sourceTree = "<group>"; };
 		5D555519193A9E5A00BF6F20 /* iPadProgramRelatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramRelatedView.h; sourceTree = "<group>"; };
@@ -905,6 +908,8 @@
 				5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */,
 				5DAC8F891855254200FE3B5B /* iPadMainHomeViewController.h */,
 				5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */,
+				5D540979193C111E001D5776 /* iPadSettingsViewController.h */,
+				5D54097A193C111E001D5776 /* iPadSettingsViewController.m */,
 				5D70561E18B9EAB2002941B3 /* sortViewController.h */,
 				5D70561F18B9EAB2002941B3 /* sortViewController.m */,
 				5D338A0C1918747D00A62AC0 /* iPadFacultySelectViewController.h */,
@@ -1383,6 +1388,7 @@
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
 				5D9C99F019363338004EFC47 /* UniqKEFunction.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
+				5D54097B193C111E001D5776 /* iPadSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

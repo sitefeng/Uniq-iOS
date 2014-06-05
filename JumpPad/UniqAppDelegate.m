@@ -35,8 +35,8 @@
     JPMainSync* syncer = [[JPMainSync alloc] init];
     [syncer sync];
     
-    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
-    [program setSelectedIndex:1];
+//    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
+//    [program setSelectedIndex:1];
     
     iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
     iPadDebugMainSyncViewController* sync = [[iPadDebugMainSyncViewController alloc] init];
@@ -46,7 +46,7 @@
     
     
     
-    self.window.rootViewController = program;
+    self.window.rootViewController = home;
     
     
     
