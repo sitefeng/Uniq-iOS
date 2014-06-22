@@ -70,11 +70,11 @@
 //////////////////////////////////////
 //Program Academic View Controller
 
-const CGFloat kGapWidth = 15;
-const CGFloat kHexWidth = (kiPadWidthPortrait-3*kGapWidth)/2.0;
-const CGFloat kHexHeight = kHexWidth* 1.154700538;
+static const CGFloat kGapWidth = 15;
+static const CGFloat kHexWidth = (kiPadWidthPortrait-3*kGapWidth)/2.0;
+static const CGFloat kHexHeight = kHexWidth* 1.154700538;
 
-const CGFloat kHexLineWidth = 4;
+static const CGFloat kHexLineWidth = 4;
 
 
 

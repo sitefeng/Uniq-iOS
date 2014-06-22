@@ -59,10 +59,12 @@ const NSUInteger kIconLabelTag = 341;
         [self.iconView addSubview:iconLabel];
         [self addSubview:self.iconView];
         
+        CGSize contentSize = self.contentView.frame.size;
         
-        self.courseDescriptionView = [[UITextView alloc] initWithFrame:CGRectMake(25, 70, 510, 115)];
+        self.courseDescriptionView = [[UITextView alloc] initWithFrame:CGRectMake(25, 70, contentSize.width -10, 115)];
         self.courseDescriptionView.backgroundColor = [UIColor clearColor];
         self.courseDescriptionView.editable = NO;
+        self.courseDescriptionView.selectable = NO;
         self.courseDescriptionView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
         
         [self addSubview:self.courseDescriptionView]; 
@@ -119,3 +121,6 @@ const NSUInteger kIconLabelTag = 341;
 
 
 @end
+
+
+

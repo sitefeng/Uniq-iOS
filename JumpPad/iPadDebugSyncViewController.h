@@ -10,7 +10,7 @@
 
 
 @class JPMainSync;
-@interface iPadDebugMainSyncViewController : UIViewController
+@interface iPadDebugSyncViewController : UIViewController
 
 
 

@@ -14,7 +14,7 @@
 #import "iPadMainHomeViewController.h"
 #import "iPadMainFeaturedViewController.h"
 #import "iPadMainSearchViewController.h"
-#import "iPadDebugMainSyncViewController.h"
+#import "iPadDebugSyncViewController.h"
 
 #import "JPMainSync.h"
 
@@ -39,7 +39,7 @@
 //    [program setSelectedIndex:1];
     
     iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
-    iPadDebugMainSyncViewController* sync = [[iPadDebugMainSyncViewController alloc] init];
+    iPadDebugSyncViewController* sync = [[iPadDebugSyncViewController alloc] init];
     
     iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
     iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
@@ -72,6 +72,7 @@
     
     
     self.window.backgroundColor = [UIColor whiteColor];
+    
     [self.window makeKeyAndVisible];
     
     

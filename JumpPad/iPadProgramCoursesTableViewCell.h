@@ -17,16 +17,13 @@
 
 
 
-@property (nonatomic, strong) NSString* courseCode;
+@property (nonatomic, strong) NSString* courseCode; // first row
+@property (nonatomic, strong) UILabel* courseNameLabel;  //second row
+@property (nonatomic, strong) UITextView* courseDescriptionView;  //Third element
 
 
-
-@property (nonatomic, strong) UILabel* courseCodeLabel;
-
-@property (nonatomic, strong) UILabel* courseNameLabel;
-@property (nonatomic, strong) UITextView* courseDescriptionView;
-
-@property (nonatomic, strong) UIView* iconView;
+@property (nonatomic, strong) UILabel* courseCodeLabel; //Automatically set
+@property (nonatomic, strong) UIView* iconView; //Automatically set
 
 
 

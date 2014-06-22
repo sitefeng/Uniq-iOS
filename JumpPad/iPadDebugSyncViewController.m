@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadDebugMainSyncViewController.h"
+#import "iPadDebugSyncViewController.h"
 
 #import "UniqAppDelegate.h"
 #import "Program.h"
@@ -19,7 +19,7 @@
 
 #import "JPMainSync.h"
 
-@interface iPadDebugMainSyncViewController ()
+@interface iPadDebugSyncViewController ()
 
 @property (nonatomic, strong) NSManagedObjectContext* context;
 
@@ -31,7 +31,7 @@
 
 @end
 
-@implementation iPadDebugMainSyncViewController
+@implementation iPadDebugSyncViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

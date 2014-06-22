@@ -1,0 +1,121 @@
+//
+//  iPadSettingsSplitViewController.swift
+//  Uniq
+//
+//  Created by Si Te Feng on 6/15/14.
+//  Copyright (c) 2014 Si Te Feng. All rights reserved.
+//
+
+import UIKit
+
+class iPadSettingsSplitViewController: UISplitViewController {
+
+    var _navController: UINavigationController!
+    
+    
+    var originalTabBarController : UITabBarController?
+    
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        // Custom initialization
+        
+//        self.originalTabBarController = self.storyboard.instantiateViewControllerWithIdentifier("MainTabBarController") as? UITabBarController
+//        self.originalTabBarController!.selectedIndex = 4
+        
+        
+        //Navigation Controller
+        var tableController : iPadSettingsTableViewController = iPadSettingsTableViewController(style: UITableViewStyle.Grouped)
+        tableController.title = "Settings"
+
+        let dismissBarButtonItem: UIBarButtonItem! = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.Done, target: self, action: "dismissButtonPressed")
+        tableController.navigationItem.setLeftBarButtonItem(dismissBarButtonItem, animated: false)
+        _navController = UINavigationController(rootViewController: tableController)
+        
+        //Detail View Controller
+        var aboutController = iPadSettingsAboutViewController(nibName: nil, bundle: nil)
+        
+        var detailNavController: UINavigationController! = UINavigationController(rootViewController: aboutController)
+        
+        self.delegate = aboutController
+        self.viewControllers = [_navController, detailNavController]
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        
+        
+        
+        
+    }
+
+    
+    
+    func dismissButtonPressed() {
+        
+//        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+        var app = UIApplication.sharedApplication().delegate as UIApplicationDelegate!
+        
+        var currentController : UIViewController! = app.window!.rootViewController
+        app.window!.rootViewController = self.originalTabBarController
+        app.window!.rootViewController = currentController
+        
+//        UIView.transitionWithView(self.navigationController.view.window, duration: 1, options: UIViewAnimationOptions.TransitionCurlUp, animations:
+//            {
+//                () -> Void in
+        app.window!.rootViewController = self.originalTabBarController
+                
+//            }, completion: nil)
+        
+    }
+    
+    
+    
+    
+    func changeDetailViewControllerWithName(name: String!)
+    {
+        var detailNavController: UINavigationController!
+        
+        if name == "Authors" {
+            var detailController = iPadSettingsAuthorsTableViewController(style: UITableViewStyle.Plain)
+          
+            detailController.title = name
+            detailNavController = UINavigationController(rootViewController: detailController)
+        }
+        else {
+            var detailController = iPadSettingsAboutViewController(nibName: nil, bundle: nil)
+            detailController.title = name
+            detailNavController = UINavigationController(rootViewController: detailController)
+            self.delegate = detailController
+            
+        }
+        
+        
+        self.viewControllers = [_navController, detailNavController]
+        
+    }
+    
+    
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // #pragma mark - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue?, sender: AnyObject?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}

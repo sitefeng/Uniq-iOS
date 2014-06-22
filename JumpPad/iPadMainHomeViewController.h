@@ -8,14 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadMainHomeViewController : UISplitViewController
+@class iPadHomeProfileBanner, iPadHomeToolbarView;
+@interface iPadMainHomeViewController : UIViewController
 
 
 
 
+@property (nonatomic, strong) iPadHomeProfileBanner* profileBanner;
 
-
-
+@property (nonatomic, strong) iPadHomeToolbarView* toolbar;
 
 
 

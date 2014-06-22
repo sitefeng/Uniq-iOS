@@ -8,6 +8,10 @@
 //to get a build for all architectures
  lipo -create ./Debug-iphoneos/libCorePlot-CocoaTouch.a ./Debug-iphonesimulator/libCorePlot-CocoaTouch.a -output core_plot_all.a
 
+//Showing execption message when breakpoint is hit:
+If your target is the iOS simulator, or 32-bit OS X, you can print the exception by typing po ((id*)$esp)[1] in the debug console when your breakpoint exception is hit. If your target is an iOS device, you can type po $r0. And if your target is 64-bit OS X, you can type po $rdi.
+
+//
 What is iPadDashletView?
 
 Dashlets are the square views that shows information about a college, faculty, or program. They are interactive and can be tappable
@@ -49,7 +53,23 @@ http://icons8.com/free-ios-7-icons-in-vector/
 
 
 
+//Local Notifications code
 
+UIApplication *app = [UIApplication sharedApplication];
+        // Remove all prior notifications
+        NSArray *scheduled = [app scheduledLocalNotifications]; 
+        if (scheduled.count)
+            [app cancelAllLocalNotifications];
+        // Create a new notification
+    UILocalNotification* alarm =[[UILocalNotification alloc] init];
+    if (alarm)
+        {
+            alarm.fireDate = [NSDate dateWithTimeIntervalSinceNow:3.0f]; alarm.timeZone = [NSTimeZone defaultTimeZone];
+            alarm.repeatInterval = 0;
+            alarm.alertBody = @"Five Seconds Have Passed"; [app scheduleLocalNotification:alarm];
+            // Force quit. Never do this in App Store code.
+            exit(0);
+        }
 
 
 
