@@ -24,10 +24,15 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         self.tableView.allowsMultipleSelection = false;
             
         _authorsInfo = [
-        ["name": "Si Te Feng", "position": "iOS Developer", "description" : "Si Te is a 2nd year student studying at University of Waterloo Mechatronics Engineering program."],
-        ["name": "Christopher Luc", "position": "Server Developer", "description" : "Christopher is a 2nd year student studying at University of Waterloo Software Engineering program."],
-        ["name": "Andre Lee", "position": "Web Developer", "description" : "Andre is a 2nd year student studying at University of Waterloo Mechatronics program."]
+            ["name": "Si Te Feng", "position": "iOS Developer", "description" : "Si Te is a 2nd year student studying at University of Waterloo Mechatronics Engineering program."],
+            ["name": "Christopher Luc", "position": "Server Developer", "description" : "Christopher is a 2nd year student studying at University of Waterloo Software Engineering program."],
+            ["name": "Andre Lee", "position": "Web Developer", "description" : "Andre is a 2nd year student studying at University of Waterloo Mechatronics program."],
+            ["name": "Jack Yang", "position": "Server Developer", "description" : "Jack is a 3rd year student studying at University of Waterloo Computer Science program."],
+            ["name": "Aaron Te", "position": "UI Designer", "description" : "Aaron is a 2nd year student studying at University of Waterloo."],
+            ["name": "Wesley Fisher", "position": "Android Developer", "description" : "Wesley is a 2nd year student studying at University of Waterloo Mechatronics Engineering program."],
         ]
+        
+        
         
     }
     
@@ -40,7 +45,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -64,7 +69,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 3
+        return _authorsInfo.count
     }
 
     

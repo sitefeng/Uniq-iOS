@@ -29,6 +29,8 @@ class iPadSettingsSplitViewController: UISplitViewController {
 
         let dismissBarButtonItem: UIBarButtonItem! = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.Done, target: self, action: "dismissButtonPressed")
         tableController.navigationItem.setLeftBarButtonItem(dismissBarButtonItem, animated: false)
+        self.delegate = tableController
+        
         _navController = UINavigationController(rootViewController: tableController)
         
         //Detail View Controller
@@ -36,7 +38,7 @@ class iPadSettingsSplitViewController: UISplitViewController {
         
         var detailNavController: UINavigationController! = UINavigationController(rootViewController: aboutController)
         
-        self.delegate = aboutController
+        
         self.viewControllers = [_navController, detailNavController]
     }
 
@@ -54,21 +56,15 @@ class iPadSettingsSplitViewController: UISplitViewController {
     
     func dismissButtonPressed() {
         
-//        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        
         var app = UIApplication.sharedApplication().delegate as UIApplicationDelegate!
         
         var currentController : UIViewController! = app.window!.rootViewController
         app.window!.rootViewController = self.originalTabBarController
         app.window!.rootViewController = currentController
         
-//        UIView.transitionWithView(self.navigationController.view.window, duration: 1, options: UIViewAnimationOptions.TransitionCurlUp, animations:
-//            {
-//                () -> Void in
         app.window!.rootViewController = self.originalTabBarController
-                
-//            }, completion: nil)
+//      UIView.transitionWithView
+
         
     }
     
@@ -77,24 +73,31 @@ class iPadSettingsSplitViewController: UISplitViewController {
     
     func changeDetailViewControllerWithName(name: String!)
     {
+        
         var detailNavController: UINavigationController!
         
         if name == "Authors" {
             var detailController = iPadSettingsAuthorsTableViewController(style: UITableViewStyle.Plain)
-          
             detailController.title = name
             detailNavController = UINavigationController(rootViewController: detailController)
         }
-        else {
-            var detailController = iPadSettingsAboutViewController(nibName: nil, bundle: nil)
+        else if name == "About" || name=="Special Thanks"
+        {
+            var detailController = iPadSettingsAboutViewController(nameOrNil: name)
             detailController.title = name
             detailNavController = UINavigationController(rootViewController: detailController)
-            self.delegate = detailController
-            
+
+        }
+        else
+        {
+            var detailController: UIViewController! = UIViewController(nibName: nil, bundle: nil)
+            detailController.title = name
+            detailNavController = UINavigationController(rootViewController: detailController)
         }
         
         
         self.viewControllers = [_navController, detailNavController]
+
         
     }
     

@@ -102,12 +102,6 @@
 
 
 
-
-
-
-
-
-
 +(void)applyGlobalStyle
 {
 	[[UINavigationBar appearance] setTintColor:[JPStyle interfaceTintColor]];
@@ -178,29 +172,28 @@
     
     switch (index%7)
     {
-        
         case 0:
             color = [self colorWithHex:@"FF617B" alpha:1]; //pink
             break;
         
         case 1:
-            color = [self colorWithHex:@"D291FF" alpha:1];
+            color = [self colorWithHex:@"D291FF" alpha:1]; //purple
             break;
         
         case 2:
-            color = [self colorWithHex:@"80ABFF" alpha:1];
+            color = [self colorWithHex:@"80ABFF" alpha:1]; //blue
             break;
         case 3:
-            color = [self colorWithHex:@"36E0AC" alpha:1];
+            color = [self colorWithHex:@"13D8BF" alpha:1]; //indigo
             break;
         case 4:
-            color = [self colorWithHex:@"00CE32" alpha:1];
+            color = [self colorWithHex:@"00C732" alpha:1]; //green
             break;
         case 5:
-            color = [self colorWithHex:@"FFA73D" alpha:1];
+            color = [self colorWithHex:@"FFA73D" alpha:1]; //orange
             break;
         case 6:
-            color = [self colorWithHex:@"B2E004" alpha:1];
+            color = [self colorWithHex:@"AFAFAF" alpha:1]; //grey
             break;
             
         default:
@@ -239,6 +232,7 @@
 }
 
 
+#warning take out this method and use a consistent color scheme
 + (UIColor*)backgroundRainbowColorWithIndex: (NSUInteger)index
 {
     UIColor* color = [UIColor lightGrayColor];
@@ -258,7 +252,7 @@
             color = [self colorWithHex:@"13D8BF" alpha:1];//blue
             break;
         case 4:
-            color = [self colorWithHex:@"7EB98D" alpha:1];//green
+            color = [self colorWithHex:@"00BD2F" alpha:1];//green
             break;
         case 5:
             color = [self colorWithHex:@"7187C7" alpha:1];//dark blue

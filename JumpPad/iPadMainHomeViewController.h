@@ -9,14 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @class iPadHomeProfileBanner, iPadHomeToolbarView;
-@interface iPadMainHomeViewController : UIViewController
-
+@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    
+}
 
 
 
 @property (nonatomic, strong) iPadHomeProfileBanner* profileBanner;
 
 @property (nonatomic, strong) iPadHomeToolbarView* toolbar;
+
+@property (nonatomic, strong) UITableView* tableView;
 
 
 

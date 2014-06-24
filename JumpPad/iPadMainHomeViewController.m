@@ -16,6 +16,8 @@
 #import "Uniq-Swift.h"
 #import "UniqAppDelegate.h"
 
+#import "iPadHomeMarkTableViewCell.h"
+
 
 @interface iPadMainHomeViewController ()
 
@@ -23,6 +25,8 @@
 
 
 @end
+
+NSString* const reuseIdentifier = @"reuseIdentifier";
 
 @implementation iPadMainHomeViewController
 
@@ -32,16 +36,16 @@
     
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.profileBanner = [[iPadHomeProfileBanner alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 300)];
     self.profileBanner.clipsToBounds = YES;
     self.profileBanner.userImage = [UIImage imageNamed:@"profileIcon"];
     
-    self.profileBanner.userNameLabel.text = @"Perter Pan";
-    self.profileBanner.userHighschoolLabel.text = @"Sir John A MacDonald High School";
+    self.profileBanner.userNameLabel.text = @"Peter Parker";
     self.profileBanner.userLocationLabel.text = @"San Francisco";
-    
+    self.profileBanner.userAverage = 91.3f;
+    self.profileBanner.homeViewController = self;
     [self.view addSubview:self.profileBanner];
     
     
@@ -49,12 +53,14 @@
     self.toolbar = [[iPadHomeToolbarView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight+ self.profileBanner.frame.size.height, kiPadWidthPortrait, 50)];
     
     self.toolbar.delegate = self;
-    
     [self.view addSubview:self.toolbar];
     
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.toolbar.frame), kiPadWidthPortrait, kiPadHeightPortrait - CGRectGetMaxY(self.toolbar.frame)-kiPadTabBarHeight) style:UITableViewStyleGrouped];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[iPadHomeMarkTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
     
-    
-    
+    [self.view addSubview:self.tableView];
     
 }
 
@@ -78,6 +84,82 @@
     
     
 }
+
+
+
+
+- (void)locationButtonPressed: (UIButton*)button
+{
+    NSLog(@"Pressed");
+    
+}
+
+
+
+#pragma mark - Table View DataSource and Delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    iPadHomeMarkTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: reuseIdentifier];
+    
+    if(!cell)
+    {
+        cell = [[iPadHomeMarkTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+    }
+    
+    return cell;
+    
+    
+}
+
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if(section ==0)
+    {
+        return @"Courses Taking";
+    }
+    else if(section ==1)
+    {
+        return @"SAT Scores";
+    }
+    
+    return @"";
+}
+
+
+- (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+
+    if(section==0)
+    {
+        return @"Only for senior level courses with course code recognized by the college/university";
+    }
+    else if(section ==1)
+    {
+        return @"Fill out this information if you have taken the test";
+    }
+
+    return @"";
+    
+}
+
+
+
+
+
+
 
 
 

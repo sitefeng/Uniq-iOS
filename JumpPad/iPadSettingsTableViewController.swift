@@ -8,7 +8,7 @@
 
 import UIKit
 
-class iPadSettingsTableViewController: UITableViewController {
+class iPadSettingsTableViewController: UITableViewController, UISplitViewControllerDelegate {
 
     let defaultCellIdentifier : String! = "defaultCell"
 
@@ -46,6 +46,7 @@ class iPadSettingsTableViewController: UITableViewController {
     {
         super.viewDidAppear(animated)
         
+        self.tableView(self.tableView, didSelectRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 1))
         self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1), animated: true, scrollPosition: UITableViewScrollPosition.None)
     }
 
@@ -80,6 +81,8 @@ class iPadSettingsTableViewController: UITableViewController {
     {
         var cell : UITableViewCell = tableView?.dequeueReusableCellWithIdentifier(defaultCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
+//        cell.font = UIFont(name: JPFont.defaultThinFont(), size: 20)
+        
         var cellTitle: String
         
         if indexPath!.section == 0
@@ -113,7 +116,8 @@ class iPadSettingsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, accessoryTypeForRowWithIndexPath indexPath: NSIndexPath!) -> UITableViewCellAccessoryType
     {
-        if indexPath.section==1 && indexPath.row == 3
+        
+        if (indexPath.section==1 && (indexPath.row==1||indexPath.row==2||indexPath.row==3 || indexPath.row == 6||indexPath.row==7))
         {
             return UITableViewCellAccessoryType.DisclosureIndicator
         }
@@ -129,50 +133,8 @@ class iPadSettingsTableViewController: UITableViewController {
     
         var parentCV: iPadSettingsSplitViewController = self.splitViewController as iPadSettingsSplitViewController
         
-        let cellTitleStringLowercase = cellTitles[indexPath.section][indexPath.row]
-        parentCV.changeDetailViewControllerWithName(cellTitleStringLowercase)
-        
-        
-        if indexPath.section == 0
-        {
-            switch(indexPath.row){
-                case 0:
-                    println("row tapped")
-                case 1:
-                    println("row tapped")
-                default:
-                    println("table View tap out of bounds")
-            }
-            
-        }
-        else //section == 1
-        {
-            switch(indexPath.row){
-            case 0:
-                println("row tapped")
-            case 1:
-                println("row tapped")
-            case 2:
-                println("row tapped")
-            case 3:
-                println("row tapped")
-            case 4:
-                println("row tapped")
-                
-            case 5:
-                println("row tapped")
-            case 6:
-                println("row tapped")
-            case 7:
-                println("row tapped")
-            default:
-                println("table View tap out of bounds")
-            }
-            
-            
-            
-        }
-        
+        let cellTitleString = cellTitles[indexPath.section][indexPath.row]
+        parentCV.changeDetailViewControllerWithName(cellTitleString)
         
     }
     
@@ -184,6 +146,14 @@ class iPadSettingsTableViewController: UITableViewController {
     }
     
 
+    func splitViewController(svc: UISplitViewController!, shouldHideViewController vc: UIViewController!, inOrientation orientation: UIInterfaceOrientation) -> Bool
+    {
+        return false
+    }
+    
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView?, canEditRowAtIndexPath indexPath: NSIndexPath?) -> Bool {

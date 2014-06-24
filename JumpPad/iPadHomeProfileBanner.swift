@@ -10,13 +10,14 @@ import UIKit
 
 class iPadHomeProfileBanner: UIView {
 
+    var homeViewController: UIViewController?
+    
     var userImage: UIImage! {
     get{
         let retImg = userImageView.image
         return retImg
     }
     set(imageToSet){
-        
         self.userImageView.image = imageToSet
     }
     
@@ -25,8 +26,22 @@ class iPadHomeProfileBanner: UIView {
     var userImageView: UIImageView!
     
     var userNameLabel: UILabel!
-    var userHighschoolLabel: UILabel!
     var userLocationLabel: UILabel!
+    
+    
+    var userAverage: Float {
+    get{
+        return self.averageProgressView.progress*100.0
+    }
+    set (average) {
+//        self.averageLabel.text = "\(average)%"
+        self.averageProgressView.progress = average/100.0
+    }
+    
+    }
+    
+    var averageProgressView: LDProgressView!
+//    var averageLabel : UILabel!
     
     var backgroundView: UIView!
     
@@ -54,24 +69,41 @@ class iPadHomeProfileBanner: UIView {
         self.addSubview(userImageView)
         
         //UILabels
-        userNameLabel = UILabel(frame: CGRect(x: 280, y: 70, width: 300, height: 30))
-        userNameLabel.font = UIFont(name: JPFont.defaultBoldFont(), size: 26)
+        userNameLabel = UILabel(frame: CGRect(x: 280, y: 60, width: 300, height: 40))
+        userNameLabel.font = UIFont(name: JPFont.defaultThinFont(), size: 38)
         self.addSubview(userNameLabel)
         
-        userHighschoolLabel = UILabel(frame: CGRect(x: 280, y: 120, width: 350, height: 30))
-        userHighschoolLabel.font = UIFont(name: JPFont.defaultBoldFont(), size: 18)
-        self.addSubview(userHighschoolLabel)
-
-        userLocationLabel = UILabel(frame: CGRect(x: 280, y: 160, width: 300, height: 30))
-        userLocationLabel.font = UIFont(name: JPFont.defaultBoldFont(), size: 18)
+        var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
+        userLocationButton.font = UIFont(name: JPFont.defaultFont(), size: 22)
+        userLocationButton.setTitle("Location:", forState: UIControlState.Normal)
+        userLocationButton.addTarget(self.homeViewController, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        userLocationButton.setTitleColor(JPStyle.colorWithHex("0007CF", alpha: 1), forState: UIControlState.Normal)
+        userLocationButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+        self.addSubview(userLocationButton)
+        
+        userLocationLabel = UILabel(frame: CGRect(x: 280 + 100, y: 100, width: 300, height: 30))
+        userLocationLabel.font = userLocationButton.font
         self.addSubview(userLocationLabel)
+        
+        
+        //Average Progress View 
+        var avgTitle = UILabel(frame: CGRect(x: 280, y: 150, width: 300, height: 30))
+        avgTitle.font = UIFont(name: JPFont.defaultThinFont(), size: 22)
+        avgTitle.text = "Overall Average"
+        self.addSubview(avgTitle)
+        
+        self.averageProgressView = LDProgressView(frame: CGRect(x: 280, y: 185, width: 340, height: 27))
+        self.averageProgressView.color = JPStyle.colorWithName("green")
+        self.averageProgressView.flat = true
+        self.averageProgressView.animate = false
+        self.addSubview(self.averageProgressView)
+        
         
         
     }
     
     
-  
-    
+
     
     
     

@@ -154,6 +154,9 @@
 		5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */; };
 		5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* iOSDateView.m */; };
 		5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */; };
+		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
+		AA222B4519592DE900820BCD /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4219592DE900820BCD /* LDProgressView.m */; };
+		AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4419592DE900820BCD /* UIColor+RGBValues.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
 		AA3BEC54194D57BF001482D7 /* iPadHomeToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC53194D57BF001482D7 /* iPadHomeToolbarView.swift */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
@@ -507,6 +510,12 @@
 		5DF6503B1933D7AE003E0490 /* iOSDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDateView.m; sourceTree = "<group>"; };
 		5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPDateStringParser.h"; sourceTree = "<group>"; };
 		5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
+		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
+		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
+		AA222B4119592DE900820BCD /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDProgressView.h; path = JumpPad/LDProgressView.h; sourceTree = "<group>"; };
+		AA222B4219592DE900820BCD /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDProgressView.m; path = JumpPad/LDProgressView.m; sourceTree = "<group>"; };
+		AA222B4319592DE900820BCD /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGBValues.h"; path = "JumpPad/UIColor+RGBValues.h"; sourceTree = "<group>"; };
+		AA222B4419592DE900820BCD /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+RGBValues.m"; path = "JumpPad/UIColor+RGBValues.m"; sourceTree = "<group>"; };
 		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeProfileBanner.swift; sourceTree = "<group>"; };
 		AA3BEC53194D57BF001482D7 /* iPadHomeToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeToolbarView.swift; sourceTree = "<group>"; };
 		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -924,6 +933,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE5B7B5184ACBB700EFCE0A /* Uniq */,
+				AA222B3919591C2E00820BCD /* LDProgressView (avg) */,
 				5D9253211930831300BE5BA3 /* DXAlertView */,
 				5D92531B1930708E00BE5BA3 /* Reachability */,
 				5D49AAF0192DBFAB00BA125B /* VolumeBar */,
@@ -1098,6 +1108,17 @@
 			name = "UI Specifications";
 			sourceTree = "<group>";
 		};
+		AA222B3919591C2E00820BCD /* LDProgressView (avg) */ = {
+			isa = PBXGroup;
+			children = (
+				AA222B4119592DE900820BCD /* LDProgressView.h */,
+				AA222B4219592DE900820BCD /* LDProgressView.m */,
+				AA222B4319592DE900820BCD /* UIColor+RGBValues.h */,
+				AA222B4419592DE900820BCD /* UIColor+RGBValues.m */,
+			);
+			name = "LDProgressView (avg)";
+			sourceTree = "<group>";
+		};
 		AAEF0255194A9246008F8BA8 /* Home View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1109,6 +1130,8 @@
 				AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */,
 				AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */,
 				AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */,
+				AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */,
+				AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */,
 			);
 			name = "Home View Controller";
 			sourceTree = "<group>";
@@ -1367,12 +1390,14 @@
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
+				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
 				5D592B84191F357300ECDCF7 /* User.m in Sources */,
 				5D592B6C191F357200ECDCF7 /* Banner.m in Sources */,
+				AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D94204219308AD40033D57B /* Reachability.m in Sources */,
 				5D9C99ED19363338004EFC47 /* UniqKEOne.m in Sources */,
@@ -1439,6 +1464,7 @@
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
+				AA222B4519592DE900820BCD /* LDProgressView.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
