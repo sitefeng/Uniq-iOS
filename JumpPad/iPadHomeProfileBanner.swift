@@ -28,20 +28,17 @@ class iPadHomeProfileBanner: UIView {
     var userNameLabel: UILabel!
     var userLocationLabel: UILabel!
     
-    
+    var averageProgressView: LDProgressView!
+
     var userAverage: Float {
     get{
-        return self.averageProgressView.progress*100.0
+        return Float(self.averageProgressView.progress*100.0)
     }
     set (average) {
-//        self.averageLabel.text = "\(average)%"
-        self.averageProgressView.progress = average/100.0
+        self.averageProgressView.progress = CGFloat(average/100.0)
     }
     
     }
-    
-    var averageProgressView: LDProgressView!
-//    var averageLabel : UILabel!
     
     var backgroundView: UIView!
     

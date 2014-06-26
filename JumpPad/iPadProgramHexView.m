@@ -48,8 +48,6 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGColorRef strokeColor = [UIColor whiteColor].CGColor;

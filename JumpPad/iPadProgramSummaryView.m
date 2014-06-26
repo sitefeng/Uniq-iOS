@@ -60,7 +60,7 @@
                 label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
                 label.textColor = [UIColor whiteColor];
                 label.shadowColor = [UIColor whiteColor];
-                label.text = [[self labelTextForRow:i column:j] uppercaseString];
+                label.text = [self labelTextForRow:i column:j];
                 [self addSubview:label];
             
             }
@@ -75,9 +75,8 @@
         deadlineView.image = deadlineImg;
         
         UILabel* deadlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 187, 300, 40)];
-        deadlineLabel.font = [UIFont fontWithName:[JPFont defaultItalicFont] size:19];
-        deadlineLabel.textColor = [JPStyle colorWithHex:@"FFD6D9" alpha:1];
-        
+        deadlineLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:19];
+        deadlineLabel.textColor = [UIColor whiteColor];
         
         NSString* monthString = [self.program.admissionDeadline substringToIndex:2];//@"02"
         

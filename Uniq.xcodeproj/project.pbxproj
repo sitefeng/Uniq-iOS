@@ -158,7 +158,6 @@
 		AA222B4519592DE900820BCD /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4219592DE900820BCD /* LDProgressView.m */; };
 		AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4419592DE900820BCD /* UIColor+RGBValues.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
-		AA3BEC54194D57BF001482D7 /* iPadHomeToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC53194D57BF001482D7 /* iPadHomeToolbarView.swift */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
 		AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */; };
@@ -517,7 +516,6 @@
 		AA222B4319592DE900820BCD /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGBValues.h"; path = "JumpPad/UIColor+RGBValues.h"; sourceTree = "<group>"; };
 		AA222B4419592DE900820BCD /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+RGBValues.m"; path = "JumpPad/UIColor+RGBValues.m"; sourceTree = "<group>"; };
 		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeProfileBanner.swift; sourceTree = "<group>"; };
-		AA3BEC53194D57BF001482D7 /* iPadHomeToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeToolbarView.swift; sourceTree = "<group>"; };
 		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAboutViewController.swift; sourceTree = "<group>"; };
 		AA7B5350194AA2F10090F113 /* Uniq-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uniq-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1125,7 +1123,6 @@
 				5DAC8F891855254200FE3B5B /* iPadMainHomeViewController.h */,
 				5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */,
 				AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */,
-				AA3BEC53194D57BF001482D7 /* iPadHomeToolbarView.swift */,
 				AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */,
 				AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */,
 				AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */,
@@ -1438,7 +1435,6 @@
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
-				AA3BEC54194D57BF001482D7 /* iPadHomeToolbarView.swift in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
 				5D592B69191F357200ECDCF7 /* ImageLink.m in Sources */,
 				5D592B87191F357300ECDCF7 /* HighschoolCourse.m in Sources */,

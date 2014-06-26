@@ -18,9 +18,8 @@
     if (self) {
         // Initialization code
         
-//        self.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.8];
         self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
-        
+        self.clipsToBounds = YES;
         
         if([title isEqualToString:@"About"])
         {
@@ -58,15 +57,12 @@
             
             UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, aboutLabelY - 10, 136, 55)];
             aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
-//            aboutLabel.textColor = [JPStyle colorWithHex:@"6100CC" alpha:1];
-            aboutLabel.textColor = [JPStyle programViewTitleColor];
+
+            aboutLabel.textColor = [UIColor blackColor];
             aboutLabel.text = @"About";
             
             [aboutLabel sizeToFit];
             
-            UIImageView* aboutImgView = [[UIImageView alloc] initWithFrame:CGRectMake(16, aboutLabelY, 55, 55)];
-            aboutImgView.contentMode = UIViewContentModeScaleToFill;
-            aboutImgView.image = [UIImage imageNamed:@"infoIcon"];
             
             if(aboutViewSize.height >= aboutLabel.frame.size.height)
             {
@@ -80,8 +76,6 @@
 
             [self addSubview:aboutLabel];
             [self addSubview:aboutView];
-            [self addSubview:aboutImgView];
-
    
         }
         
@@ -101,7 +95,7 @@
 
 - (void)sizeToFit
 {
-    [self setFrame:CGRectMake(0, 0, 768, self.viewHeight)];
+    [self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.viewHeight)];
 }
 
 
@@ -113,18 +107,5 @@
 
 
 
-
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

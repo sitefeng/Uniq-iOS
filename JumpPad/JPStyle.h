@@ -34,19 +34,6 @@
 +(UIColor*) dashletDefaultDetailsTextColor;
 
 
-//set the main background color
-+(UIColor*) mainViewControllerDefaultBackgroundColor;
-+(UIColor*) mainViewControllerPromotionalBackgroundColor;
-
-
-//Search Bar
-+(UIColor*) searchBarBackgroundColor;
-
-
-//New Methods
-+ (UIColor*) programViewTitleColor;
-
-
 
 //Default app theme
 +(void)applyGlobalStyle;

@@ -62,8 +62,12 @@ class iPadSettingsSplitViewController: UISplitViewController {
         app.window!.rootViewController = self.originalTabBarController
         app.window!.rootViewController = currentController
         
-        app.window!.rootViewController = self.originalTabBarController
-//      UIView.transitionWithView
+        UIView.transitionWithView(self.view.window, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations:
+            {
+                () in
+                app.window!.rootViewController = self.originalTabBarController
+            }, completion: nil)
+        
 
         
     }

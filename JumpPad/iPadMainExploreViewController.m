@@ -36,6 +36,7 @@
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     self.sortType = JPSortTypeAlphabetical;
     
     //Getting current device orientation
@@ -79,7 +80,7 @@
     self.cv.delegate = self;
     self.cv.dataSource = self;
     
-    self.cv.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
+    self.cv.backgroundColor = [UIColor clearColor];
 
     
     //Search Bar

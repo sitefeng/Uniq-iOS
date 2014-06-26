@@ -26,6 +26,7 @@
 
 #import "JBParallaxCell.h"
 #import "JPFont.h"
+#import "JPStyle.h"
 
 @implementation JBParallaxCell //768: 483
 
@@ -60,7 +61,7 @@
         
         //Bottom Bar
         _bottomBarView = [[UIView alloc] init];
-        _bottomBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+        _bottomBarView.backgroundColor = [JPStyle colorWithName: @"tBlack"];
         
         [_bottomBarView addSubview:self.titleLabel];
         [_bottomBarView addSubview:self.subtitleLabel];
@@ -68,17 +69,15 @@
         
         
         //Top Bar
-        
         _topBarView = [[UIView alloc] init];
-        _topBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+        _topBarView.backgroundColor = [UIColor whiteColor];
         
         UILabel* topLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 100, 2, 100, 16)];
-        
+        topLabel1.tag = 101;
         topLabel1.font = [UIFont fontWithName:[JPFont defaultLightFont] size:16];
-        topLabel1.text = @"273 Favorited";
+        topLabel1.text = @"0 Favorited";
         
         [_topBarView addSubview:topLabel1];
-        
         
         
         [self addSubview:self.parallaxImage];
@@ -114,6 +113,12 @@
 }
 
 
+- (void)setNumFavorited:(NSUInteger)numFavorited
+{
+    _numFavorited = numFavorited;
+    UILabel* topBarLabel = (UILabel*)[_topBarView viewWithTag:101];
+    topBarLabel.text = [NSString stringWithFormat:@"%i Favorited", numFavorited];
+}
 
 
 

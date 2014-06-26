@@ -77,7 +77,7 @@
     
     //Calendar Label View
     UIView* calendarBackground = [[UIView alloc] initWithFrame:CGRectMake(_dateView.frame.size.width, 0, kiPadWidthPortrait - _dateView.frame.size.width, _dateView.frame.size.height)];
-    calendarBackground.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+    calendarBackground.backgroundColor = [UIColor whiteColor];
     
     _calendarLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 14, 500, 40)];
     _calendarLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
@@ -109,13 +109,6 @@
     }
     
     
-    UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, calendarBackground.frame.size.width, 5)];
-    blueBar.backgroundColor = [JPStyle colorWithName:@"blue"];
-    UIView* blueBar2 = [[UIView alloc] initWithFrame:CGRectMake(0, calendarBackground.frame.size.height - 5, calendarBackground.frame.size.width, 5)];
-    blueBar2.backgroundColor = [JPStyle colorWithName:@"blue"];
-    
-    [calendarBackground addSubview:blueBar];
-    [calendarBackground addSubview:blueBar2];
     [mainScrollView addSubview:calendarBackground];
     
     _calButtonSelected = [NSMutableArray arrayWithObjects:@0,@0,@0,@0,@0, nil];
@@ -253,12 +246,14 @@
                 for(int j=0; j<2; j++)
                 {
                     UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(28 + 156*(j%2), contentStartYPosition + 10 + 105*(i%2), 150, 90)];
-                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"darkRed"]] forState:UIControlStateNormal];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"tBlack"]] forState:UIControlStateNormal];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forState:UIControlStateHighlighted];
                     
                     yearButton.layer.cornerRadius = 10;
                     yearButton.clipsToBounds = YES;
                     
                     [yearButton setTitle:titles[j+i*2] forState:UIControlStateNormal];
+                    
                     yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
                     [yearButton setTintColor:[UIColor whiteColor]];
                     [yearButton setShowsTouchWhenHighlighted:NO];
@@ -296,10 +291,6 @@
             hexView.titleLabel.text = @"Unknown";
             break;
     }
-    
-    
-    
-    
     
     return hexView;
     

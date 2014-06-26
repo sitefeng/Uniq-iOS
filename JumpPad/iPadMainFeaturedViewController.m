@@ -34,7 +34,7 @@
         _isOrientationPortrait = NO;
     }
     
-    self.view.backgroundColor = [JPStyle mainViewControllerDefaultBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight-kiPadNavigationBarHeight-kiPadTabBarHeight) style:UITableViewStylePlain];
@@ -97,12 +97,6 @@
 {
     return NO;
 }
-
-
-
-
-
-
 
 
 

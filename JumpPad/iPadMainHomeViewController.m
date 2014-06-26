@@ -49,13 +49,17 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     [self.view addSubview:self.profileBanner];
     
     
+    //Settings Button
+    UIButton* settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 55, CGRectGetMaxY(self.profileBanner.frame)-55,  44,  44)];
+    
+    [settingsButton setImage:[UIImage imageNamed:@"settingsIcon"] forState:UIControlStateNormal];
+    [settingsButton setImage:[[UIImage imageNamed:@"settingsIcon"] imageWithAlpha:0.5] forState:UIControlStateHighlighted];
+    [settingsButton addTarget:self action:@selector(settingsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:settingsButton];
+    
 
-    self.toolbar = [[iPadHomeToolbarView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight+ self.profileBanner.frame.size.height, kiPadWidthPortrait, 50)];
-    
-    self.toolbar.delegate = self;
-    [self.view addSubview:self.toolbar];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.toolbar.frame), kiPadWidthPortrait, kiPadHeightPortrait - CGRectGetMaxY(self.toolbar.frame)-kiPadTabBarHeight) style:UITableViewStyleGrouped];
+    //tableView
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.profileBanner.frame), kiPadWidthPortrait, kiPadHeightPortrait - CGRectGetMaxY(self.profileBanner.frame)-kiPadTabBarHeight) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[iPadHomeMarkTableViewCell class] forCellReuseIdentifier:reuseIdentifier];
@@ -78,7 +82,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     app.window.rootViewController = settingsVC;
     app.window.rootViewController = currentController;
 
-    [UIView transitionWithView:self.navigationController.view.window duration:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+    [UIView transitionWithView:self.navigationController.view.window duration:1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         app.window.rootViewController = settingsVC;
     } completion:nil];
     
@@ -195,4 +199,6 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 //              location.coordinate.longitude);
 //    }
 //}
+- (IBAction)EditButtonPressed:(id)sender {
+}
 @end

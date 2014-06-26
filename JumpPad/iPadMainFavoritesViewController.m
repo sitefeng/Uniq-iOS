@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 	
-    self.view.backgroundColor = [JPStyle mainViewControllerPromotionalBackgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     

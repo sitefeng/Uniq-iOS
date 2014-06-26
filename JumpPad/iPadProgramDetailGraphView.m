@@ -35,8 +35,7 @@
         self.title = title;
         programRating = self.program.rating;
         
-        
-
+        self.clipsToBounds = YES;
         
         if([self.title isEqualToString:@"Tuition"])
         {
@@ -47,7 +46,6 @@
 
         if([self.title isEqualToString:@"Why"])
         {
-//            self.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.8];
             
             self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
             
@@ -66,14 +64,12 @@
         
         if([self.title isEqualToString:@"Ratio"])
         {
-//            self.backgroundColor = [[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.8];
-             self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
-            
+            self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
             
             self.ratioPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(450, 50, 200, 200) Center:CGPointMake(100, 100) Radius:100];
             self.ratioPieChart.dataSource = self;
             self.ratioPieChart.delegate = self;
-            self.ratioPieChart.labelFont = [JPFont coolFontOfSize:20];
+            self.ratioPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
             self.ratioPieChart.labelColor = [UIColor whiteColor];
             self.ratioPieChart.showPercentage = YES;
             self.ratioPieChart.showLabel = YES;
@@ -97,7 +93,7 @@
             [percentageLabel setFrame:CGRectMake(0, 0, 70, 70)];
             [percentageLabel setCenter:self.ratioPieChart.center];
             
-            [percentageLabel setFont:[JPFont coolFontOfSize:35]];
+            [percentageLabel setFont:[UIFont fontWithName:[JPFont defaultThinFont] size:35]];
             percentageLabel.text = @"%";
             percentageLabel.textColor = [UIColor blackColor];
             percentageLabel.clipsToBounds = YES;
@@ -112,7 +108,7 @@
             ratioTitle.textAlignment = NSTextAlignmentCenter;
       
             ratioTitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:55];
-            ratioTitle.textColor = [JPStyle programViewTitleColor];
+            ratioTitle.textColor = [UIColor blackColor];
             ratioTitle.text = @"Gals vs Guys\nRatio";
             ratioTitle.numberOfLines = 2;
             
@@ -147,7 +143,7 @@
     titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
-    titleLabel.textColor = [JPStyle programViewTitleColor];
+    titleLabel.textColor = [UIColor blackColor];
     [self addSubview:titleLabel];
     
     UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 55, 70, 40)];
@@ -166,7 +162,7 @@
     
     //Tuition Values
     UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 80, 150,70)];
-    localLabelVal.font = [JPFont coolFontOfSize:35];
+    localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
     
     NSDictionary* tuitionDict = [self.program.tuitions anyObject];
     NSDecimalNumber *domesticT = (NSDecimalNumber*)[tuitionDict valueForKey:@"domesticTuition"];
@@ -176,7 +172,7 @@
     
     //----------
     UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 170, 150, 70)];
-    intLabelVal.font = [JPFont coolFontOfSize:35];
+    intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
     NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
     intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
     intLabelVal.textColor = [UIColor blackColor];
@@ -192,7 +188,7 @@
     CPTTheme* theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
     [barChart applyTheme:theme];
     
-    self.barChartView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(250, 20, 500, 300)];
+    self.barChartView = [[CPTGraphHostingView alloc] initWithFrame:CGRectMake(240, 20, 490, 300)];
     
     self.barChartView.allowPinchScaling = YES;
     self.barChartView.hostedGraph = barChart;
@@ -347,8 +343,8 @@
     
     CPTLegend* legend = [CPTLegend legendWithPlots:@[barPlot4, barPlot5, barPlot6]];
     
-    
-    CPTGradient* gradient = [CPTGradient gradientWithBeginningColor:[CPTColor colorWithComponentRed:94/255.0 green:158/255.0 blue:255/255.0 alpha:1] endingColor:[CPTColor colorWithComponentRed:81/255.0 green:70/255.0 blue:180/255.0 alpha:1]];
+    CPTColor* gradientColor = [CPTColor colorWithComponentRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6];
+    CPTGradient* gradient = [CPTGradient gradientWithBeginningColor:gradientColor endingColor:gradientColor];
     
     legend.fill =[CPTFill fillWithGradient:gradient];;
     
@@ -622,7 +618,7 @@
     
     titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
     [titleLabel sizeToFit];
-    titleLabel.textColor = [JPStyle programViewTitleColor];
+    titleLabel.textColor = [UIColor blackColor];
     [self addSubview:titleLabel];
     
     
@@ -638,7 +634,7 @@
     self.whyPieChart.startPieAngle = M_PI_2;
     self.whyPieChart.animationSpeed = 1.0;
     
-    self.whyPieChart.labelFont = [JPFont coolFontOfSize:20];
+    self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
     self.whyPieChart.labelColor = [UIColor whiteColor];
     
     self.whyPieChart.labelShadowColor = [UIColor blackColor];
@@ -683,7 +679,7 @@
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(720, 115 + 30*i, 48, 15)];
         view.backgroundColor = [JPStyle rainbowColorWithIndex:i];
         
-        UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(640, 112 + 30*i, 74, 20)];
+        UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(640, 112 + 30*i, 64, 20)];
         
         legendLabel.text = legendTexts[i];
         legendLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:13];
@@ -705,7 +701,7 @@
     
     UILabel* percentageLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 90, 270, 60)];
     percentageLabel.textColor = [UIColor blackColor];
-    percentageLabel.font = [JPFont coolFontOfSize:50];
+    percentageLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:50];
     percentageLabel.textAlignment = NSTextAlignmentCenter;
     
     
@@ -789,7 +785,7 @@
     titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
-    titleLabel.textColor = [JPStyle programViewTitleColor];
+    titleLabel.textColor = [UIColor blackColor];
     [self addSubview:titleLabel];
     
     UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 115, 110, 50)];
@@ -811,14 +807,14 @@
     
     self.overallRatingView = [[DPMeterView alloc] initWithFrame:CGRectMake(100, 130, 200, 200) shape:pathRef gravity:YES];
     self.overallRatingView.meterType = DPMeterTypeLinearVertical;
-    self.overallRatingView.trackTintColor = [JPStyle translucentRainbowColorWithIndex:0];
-    self.overallRatingView.progressTintColor = [JPStyle rainbowColorWithIndex:0];
+    self.overallRatingView.progressTintColor = [JPStyle colorWithName:@"red"];
+    self.overallRatingView.trackTintColor = [self.overallRatingView.progressTintColor colorWithAlphaComponent:0.5];
     self.overallRatingView.progress = [programRating.ratingOverall floatValue] / 103.0f;
     [self addSubview:self.overallRatingView];
     
     UILabel* overallPercent = [[UILabel alloc] initWithFrame:CGRectMake(173, 200, 100, 50)];
     overallPercent.textColor = [UIColor blackColor];
-    overallPercent.font = [JPFont coolFontOfSize:29];
+    overallPercent.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
     overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
     [self addSubview:overallPercent];
 }

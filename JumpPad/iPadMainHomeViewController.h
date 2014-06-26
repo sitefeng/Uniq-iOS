@@ -17,11 +17,12 @@
 
 
 @property (nonatomic, strong) iPadHomeProfileBanner* profileBanner;
-
 @property (nonatomic, strong) iPadHomeToolbarView* toolbar;
-
 @property (nonatomic, strong) UITableView* tableView;
 
+
+
+- (IBAction)EditButtonPressed:(id)sender;
 
 
 @end

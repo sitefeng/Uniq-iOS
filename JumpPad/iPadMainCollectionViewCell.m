@@ -23,7 +23,7 @@
     if (self) {
         // Initialization code
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
+        self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         
         //Creating the Subviews
         CGRect imageFrame = CGRectMake(0, 0, frame.size.width, frame.size.height/4*3 );

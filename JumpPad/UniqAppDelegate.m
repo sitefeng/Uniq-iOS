@@ -29,7 +29,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
  
     
     JPMainSync* syncer = [[JPMainSync alloc] init];
@@ -38,15 +38,15 @@
 //    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
 //    [program setSelectedIndex:1];
     
-    iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
-    iPadDebugSyncViewController* sync = [[iPadDebugSyncViewController alloc] init];
-    
-    iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
-    iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
-    
-    
-    
-    self.window.rootViewController = home;
+//    iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
+//    iPadDebugSyncViewController* sync = [[iPadDebugSyncViewController alloc] init];
+//    
+//    iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
+//    iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
+//    
+//    
+//    
+//    self.window.rootViewController = home;
     
     
     
@@ -71,9 +71,9 @@
 //    }
     
     
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    [self.window makeKeyAndVisible];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    
+//    [self.window makeKeyAndVisible];
     
     
     //Tab bar change to 3rd element

@@ -75,7 +75,12 @@
     UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
     NSMutableArray* blurredImages = [NSMutableArray array];
     
-    UIImage* image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
+    UIImage* image;
+    
+    if (self.imageURLs.count > 0)
+    {
+        image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
+    }
     
     self.backgroundView.image = [image applyBlurWithRadius:9 tintColor: tintColor saturationDeltaFactor:2.5 maskImage:nil];
 

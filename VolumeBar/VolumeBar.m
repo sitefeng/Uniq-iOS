@@ -237,7 +237,7 @@
     [_contentView release];
     _contentView = nil;
     
-    [_contentImage release];
+//    [_contentImage release];
     _contentImage = nil;
     
     [self.valueLabel release];

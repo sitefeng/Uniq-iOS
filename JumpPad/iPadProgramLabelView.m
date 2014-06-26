@@ -23,8 +23,7 @@
     if (self) {
         // Initialization code
         
-//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]];
-        self.backgroundColor = [JPStyle colorWithHex:@"D1F5FF" alpha:0.7];
+        self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         
         self.program = program;
         self.dashletUid = number;

@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor = [JPStyle searchBarBackgroundColor];
+        self.backgroundColor = [JPStyle colorWithName: @"tBlack"];
         
         self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 360, 44)];
         
@@ -48,15 +48,11 @@
 
 - (void)setupSearchBar
 {
-    
     self.searchBar.placeholder = kSearchBarPlaceholderText;
-//    self.searchBar.text = @"Show All Universities";
-    
+
     self.searchBar.showsCancelButton = NO;
-    
-    self.searchBar.barTintColor = [JPStyle searchBarBackgroundColor];
-    
-    
+    self.searchBar.barTintColor = [UIColor clearColor];
+    self.searchBar.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setDelegate:(id<JPSearchBarDelegate>)delegate
