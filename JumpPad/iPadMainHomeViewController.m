@@ -17,10 +17,15 @@
 #import "UniqAppDelegate.h"
 
 #import "iPadHomeMarkTableViewCell.h"
+#import "User.h"
+#import "HighschoolCourse.h"
+#import "JPUserLocator.h"
 
 
 @interface iPadMainHomeViewController ()
-
+{
+    NSArray* _courseLevelStrings;
+}
 
 
 
@@ -28,30 +33,43 @@
 
 NSString* const reuseIdentifier = @"reuseIdentifier";
 
+
 @implementation iPadMainHomeViewController
 
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    _isEditing = NO;
+    _addedNewCourse = NO;
+    _coursesToSave = [NSMutableArray array];
+    _courseCellsToSave = [NSMutableArray array];
     
+    _courseLevelStrings = @[@"4C", @"4M", @"4U"];
+    
+    UniqAppDelegate* app = [[UIApplication sharedApplication] delegate];
+    context = [app managedObjectContext];
+    
+    [self loadInfoFromCoreData];
+    
+    //Initializing UI elements
     self.profileBanner = [[iPadHomeProfileBanner alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 300)];
     self.profileBanner.clipsToBounds = YES;
     self.profileBanner.userImage = [UIImage imageNamed:@"profileIcon"];
     
     self.profileBanner.userNameLabel.text = @"Peter Parker";
-    self.profileBanner.userLocationLabel.text = @"San Francisco";
-    self.profileBanner.userAverage = 91.3f;
+    self.profileBanner.userLocationLabel.text = _user.locationString;
+    self.profileBanner.userAverage = 0.0f;
+    [self reloadUserOverallAverage];
+    
     self.profileBanner.homeViewController = self;
     [self.view addSubview:self.profileBanner];
     
     
     //Settings Button
     UIButton* settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 55, CGRectGetMaxY(self.profileBanner.frame)-55,  44,  44)];
-    
     [settingsButton setImage:[UIImage imageNamed:@"settingsIcon"] forState:UIControlStateNormal];
     [settingsButton setImage:[[UIImage imageNamed:@"settingsIcon"] imageWithAlpha:0.5] forState:UIControlStateHighlighted];
     [settingsButton addTarget:self action:@selector(settingsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,6 +84,79 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     
     [self.view addSubview:self.tableView];
     
+}
+
+- (void)reloadUserOverallAverage
+{
+    //Overall course average
+    float accumulator = 0;
+    for(HighschoolCourse* course in _highschoolCourses)
+    {
+        float courseMark = [course.courseMark floatValue];
+        accumulator += courseMark;
+    }
+    
+    float userAverage = accumulator / [_highschoolCourses count];
+    _user.currentAvg = [NSNumber numberWithFloat:userAverage];
+    self.profileBanner.userAverage = [_user.currentAvg floatValue];
+}
+
+
+- (float)overallSATAverage
+{
+    float average = 0;
+    average += [_user.satReading floatValue];
+    average += [_user.satMath floatValue];
+    average += [_user.satGrammar floatValue];
+    
+    return average;
+}
+
+
+- (void)loadInfoFromCoreData
+{
+    //Making Sure One and Only one user exists
+    NSFetchRequest* userReq = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    
+    NSError *error = nil;
+    NSArray* userResponse= [context executeFetchRequest:userReq error:&error];
+    if(error)
+    {
+        NSLog(@"user error");
+    }
+    if(!userResponse||[userResponse count] != 1)
+    {
+        for(User* user in userResponse)
+        {
+            [context deleteObject:user];
+        }
+        
+        NSEntityDescription* userDesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+        User* newUser = (User*)[[NSManagedObject alloc] initWithEntity: userDesc insertIntoManagedObjectContext:context];
+        newUser.satMath    = @0;
+        newUser.satReading = @0;
+        newUser.satGrammar = @0;
+        _user = newUser;
+        [context insertObject:newUser];
+    }
+    else
+    {
+        _user = [userResponse firstObject];
+    }
+    
+    
+    //Retrieve User Course Data
+    NSFetchRequest* courseReq = [[NSFetchRequest alloc] initWithEntityName:@"HighschoolCourse"];
+    courseReq.predicate = [NSPredicate predicateWithFormat:@"user != %@", [NSNull null]];
+    
+    error = nil;
+    _highschoolCourses = [[context executeFetchRequest:courseReq error:&error] mutableCopy];
+    
+    if(error)
+    {
+        NSLog(@"courses error");
+    }
+
 }
 
 
@@ -86,21 +177,12 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         app.window.rootViewController = settingsVC;
     } completion:nil];
     
-    
 }
 
 
 
 
-- (void)locationButtonPressed: (UIButton*)button
-{
-    NSLog(@"Pressed");
-    
-}
-
-
-
-#pragma mark - Table View DataSource and Delegate
+#pragma mark - Table View DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -110,20 +192,101 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    NSInteger numCourses = 0;
+    
+    if(section==0)
+    {
+        numCourses = [_highschoolCourses count];
+        
+        numCourses = _isEditing ? numCourses+1 : numCourses;
+    }
+    else if(section==1)
+    {
+        numCourses = 3;
+    }
+    
+    return numCourses;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    iPadHomeMarkTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier: reuseIdentifier];
-    
+    iPadHomeMarkTableViewCell* cell = (iPadHomeMarkTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier: reuseIdentifier];
     if(!cell)
     {
         cell = [[iPadHomeMarkTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     
-    return cell;
+    if(indexPath.section == 0)
+    {
+        cell.cellType = @"course";
+        
+        if(_isEditing)
+        {
+            if(indexPath.row == [_highschoolCourses count])
+            {
+                [cell addNewCourseMode];
+            }
+            else
+            {
+                [cell editMode];
+                
+                if(indexPath.row < [_highschoolCourses count])//must
+                {
+                    HighschoolCourse* course = _highschoolCourses[indexPath.row];
+                    cell.courseTitle = course.courseCode;
+                    cell.courseLevel = course.courseLevel;
+                    cell.coursePercentage = [course.courseMark floatValue];
+                }
+                
+                //Include the new course cell into array so values in the cell can later be stored
+                if(_addedNewCourse)
+                {
+                    [_courseCellsToSave addObject:cell];
+                    _addedNewCourse = NO;
+                }
+            }
+            
+        }
+        else //not editing
+        {
+            HighschoolCourse* course = _highschoolCourses[indexPath.row];
+            cell.courseTitle = course.courseCode;
+            cell.courseLevel = course.courseLevel;
+            cell.coursePercentage = [course.courseMark floatValue];
+        }
+
+        
+    }
+    else if(indexPath.section == 1)
+    {
+        cell.cellType = @"sat";
+        
+        if(_isEditing)
+            [cell editMode];
+        
+        switch (indexPath.row) {
+            case 0:
+                cell.courseTitle = @"Reading";
+                cell.coursePercentage = [_user.satReading floatValue];
+                break;
+            case 1:
+                cell.courseTitle = @"Mathematics";
+                cell.coursePercentage = [_user.satMath floatValue];
+                break;
+            case 2:
+                cell.courseTitle = @"Grammar";
+                cell.coursePercentage = [_user.satGrammar floatValue];
+                break;
+            default:
+                break;
+        }
+        
+        
+        
+    }
+
     
+    return cell;
     
 }
 
@@ -136,7 +299,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     }
     else if(section ==1)
     {
-        return @"SAT Scores";
+        float satAverage = [self overallSATAverage];
+        return [NSString stringWithFormat:@"SAT Score (Total: %.00f/2400)", satAverage];
     }
     
     return @"";
@@ -150,9 +314,13 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     {
         return @"Only for senior level courses with course code recognized by the college/university";
     }
-    else if(section ==1)
+    else if(section == 1)
     {
-        return @"Fill out this information if you have taken the test";
+        float satAverage = [self overallSATAverage];
+        if(satAverage > (2307 + arc4random()%30))
+            return [NSString stringWithFormat:@"WOW! Actually got %.00f on the SATs??? Congrats!!", satAverage];
+        else
+            return @"Exam is out of 800 for each section";
     }
 
     return @"";
@@ -160,45 +328,191 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 }
 
 
-
-
-
-
-
-
-
-#pragma mark - location services
-//- (void)startStandardUpdates
-//{
-//    // Create the location manager if this object does not
-//    // already have one.
-//    if (nil == locationManager)
-//        locationManager = [[CLLocationManager alloc] init];
-//
-//        locationManager.delegate = self;
-//        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
-//
-//        // Set a movement threshold for new events.
-//        locationManager.distanceFilter = 500; // meters
-//
-//        [locationManager startUpdatingLocation];
-//}
-
-
-// Delegate method from the CLLocationManagerDelegate protocol.
-//- (void)locationManager:(CLLocationManager *)manager
-//didUpdateLocations:(NSArray *)locations {
-//    // If it's a relatively recent event, turn off updates to save power.
-//    CLLocation* location = [locations lastObject];
-//    NSDate* eventDate = location.timestamp;
-//    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-//    if (abs(howRecent) < 15.0) {
-//        // If the event is recent, do something with it.
-//        NSLog(@"latitude %+.6f, longitude %+.6f\n",
-//              location.coordinate.latitude,
-//              location.coordinate.longitude);
-//    }
-//}
-- (IBAction)EditButtonPressed:(id)sender {
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(_isEditing && indexPath.section == 0 && indexPath.row != [_highschoolCourses count])
+    {
+        return YES;
+    }
+    
+    return NO;
 }
+
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0 && indexPath.row == [_highschoolCourses count])
+    {
+        return YES;
+    }
+    
+    return NO;
+}
+
+
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if(_isEditing && indexPath.section==0 && indexPath.row == [_highschoolCourses count])
+    {
+        //Save Whatever is from before first
+        [self saveCoursesFromTableView];
+        
+        _addedNewCourse = YES;
+        NSLog(@"add new Course");
+        
+        NSEntityDescription* courseDisc = [NSEntityDescription entityForName:@"HighschoolCourse" inManagedObjectContext:context];
+        HighschoolCourse* course = (HighschoolCourse*)[[NSManagedObject alloc] initWithEntity:courseDisc insertIntoManagedObjectContext:context];
+        
+        course.courseCode = @"New Course";
+        course.courseLevel = @"4C";
+        course.courseMark = @0.0f;
+        
+        [_highschoolCourses addObject:course];
+        [_coursesToSave addObject:course];
+        
+        [self.tableView reloadData];
+    }
+    
+    
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        
+        if(indexPath.section == 0)
+        {
+            HighschoolCourse* course = (HighschoolCourse*)[_highschoolCourses objectAtIndex:indexPath.row];
+            [_highschoolCourses removeObject:course];
+            
+            if([_coursesToSave containsObject:course])
+                [_coursesToSave removeObject:course];
+            
+            [_user removeCoursesObject:course];
+            
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        
+    }
+    
+    [self.tableView reloadData];
+    
+}
+
+
+
+#pragma mark - UIBarButtonItem Callback Methods
+
+- (IBAction)EditButtonPressed:(id)sender {
+    
+    UIBarButtonItem* editButton = (UIBarButtonItem*)sender;
+    
+    if([editButton.title isEqual:@"Edit"])
+    {
+        editButton.title = @"Save";
+        _isEditing = YES;
+        
+    }
+    else //is Save
+    {
+        editButton.title = @"Edit";
+        _isEditing = NO;
+
+        [self saveCoursesFromTableView];
+        
+        //Saving SAT Scores
+        iPadHomeMarkTableViewCell* satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+        _user.satReading = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
+        satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+        _user.satMath = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
+        satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
+        _user.satGrammar = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
+    }
+    
+    [self.tableView reloadData];
+    
+}
+
+
+- (void)saveCoursesFromTableView
+{
+    for(HighschoolCourse* course in _coursesToSave)
+    {
+        //Getting Cell Information and Store in Core Data
+        iPadHomeMarkTableViewCell* cell = [_courseCellsToSave objectAtIndex:[_coursesToSave indexOfObject:course]];
+        
+        course.courseCode = cell.titleField.text;
+        course.courseLevel = _courseLevelStrings[cell.levelSegControl.selectedSegmentIndex];
+        course.courseMark = [NSNumber numberWithFloat:[cell.markField.text floatValue]];
+        course.user = _user;
+        [context insertObject:course];
+        
+    }
+    [_courseCellsToSave removeAllObjects];
+    [_coursesToSave removeAllObjects];
+    
+    //Add changes to original array
+    for(unsigned long i = 0; i<[_highschoolCourses count]; i++)
+    {
+        HighschoolCourse* origCourse = _highschoolCourses[i];
+        iPadHomeMarkTableViewCell* cell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        
+        origCourse.courseCode = cell.titleField.text;
+        origCourse.courseLevel = _courseLevelStrings[cell.levelSegControl.selectedSegmentIndex];
+        origCourse.courseMark = [NSNumber numberWithFloat:[cell.markField.text floatValue]];
+        
+        _highschoolCourses[i] = origCourse;
+    }
+    
+    [self reloadUserOverallAverage];
+    
+    NSError* error;
+    [context save:&error];
+    if(error)
+    {
+        NSLog(@"Save Error");
+    }
+    
+}
+
+
+
+#pragma mark - Location Services
+
+- (void)locationButtonPressed: (UIButton*)button
+{
+    if(!_userLocator)
+    {
+        _userLocator = [[JPUserLocator alloc] init];
+        _userLocator.delegate = self;
+        [_userLocator startLocating];
+        
+    }
+}
+
+
+- (void)userLocatedWithLocationName: (NSString*)name coordinates: (CLLocationCoordinate2D)coord
+{
+    if(name && ![name isEqual: @""])
+        self.profileBanner.userLocationLabel.text = name;
+    _user.locationString = name;
+    
+    _user.longitude = [NSNumber numberWithFloat:coord.longitude];
+    _user.latitude = [NSNumber numberWithFloat:coord.latitude];
+    
+    [context save:nil];
+}
+
+
+
+
+
+
+
+
 @end

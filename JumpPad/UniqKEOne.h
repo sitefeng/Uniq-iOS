@@ -1,8 +1,8 @@
 //
 //  UniqKEOne.h
-//  JumpPad
+//  Uniq
 //
-//  Created by Si Te Feng on 2014-05-28.
+//  Created by Si Te Feng on 6/26/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 

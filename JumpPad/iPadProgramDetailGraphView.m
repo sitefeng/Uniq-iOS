@@ -107,21 +107,14 @@
             UILabel* ratioTitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 350, 200)];
             ratioTitle.textAlignment = NSTextAlignmentCenter;
       
-            ratioTitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:55];
+            ratioTitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             ratioTitle.textColor = [UIColor blackColor];
             ratioTitle.text = @"Gals vs Guys\nRatio";
             ratioTitle.numberOfLines = 2;
             
             [self addSubview:ratioTitle];
             
-            
         }
-        
-        
-//        UIView* blueBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kiPadWidthPortrait, 4)];
-//        blueBar.backgroundColor = [JPStyle colorWithHex:@"00A5FF" alpha:1];
-//        
-//        [self addSubview:blueBar];
         
         
     }
@@ -140,7 +133,7 @@
     //Title
     float titleLabelY = 20 + 30;
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY, 136, 55)];
-    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
+    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
     titleLabel.textColor = [UIColor blackColor];
@@ -240,7 +233,7 @@
     x.title  = @"Tuition Type";
     CPTMutableTextStyle* labelTextStyle = [CPTMutableTextStyle textStyle];
     labelTextStyle.fontSize = 16;
-    labelTextStyle.fontName = [JPFont defaultBoldFont];
+    labelTextStyle.fontName = [JPFont defaultFont];
     labelTextStyle.color = [CPTColor colorWithComponentRed:0/255.0f green:0/255.0f blue:0/255.0f alpha:1];
     
     x.titleTextStyle = labelTextStyle;
@@ -334,11 +327,11 @@
     
     
     /////////////Legend
-    CPTBarPlot* barPlot4 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor greenColor] horizontalBars:NO];
+    CPTBarPlot* barPlot4 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"green"].CGColor] horizontalBars:NO];
     barPlot4.identifier = self.program.name;
-    CPTBarPlot* barPlot5 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithComponentRed:99/255.0 green:188/255.0 blue:255/255.0 alpha:1] horizontalBars:NO];
+    CPTBarPlot* barPlot5 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"blue"].CGColor] horizontalBars:NO];
     barPlot5.identifier = @"School Avg";
-    CPTBarPlot* barPlot6 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithComponentRed:255/255.0 green:94/255.0 blue:127/255.0 alpha:1] horizontalBars:NO];
+    CPTBarPlot* barPlot6 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"red"].CGColor] horizontalBars:NO];
     barPlot6.identifier = @"National Avg";
     
     CPTLegend* legend = [CPTLegend legendWithPlots:@[barPlot4, barPlot5, barPlot6]];
@@ -358,7 +351,7 @@
     
     CPTMutableTextStyle* textStyle = [CPTMutableTextStyle textStyle];
     textStyle.color = [CPTColor whiteColor];
-    textStyle.fontName = [JPFont defaultBoldFont];
+    textStyle.fontName = [JPFont defaultFont];
     textStyle.fontSize = 13;
     legend.textStyle = textStyle;
     
@@ -382,16 +375,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 - (NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
     return 2;
@@ -405,8 +388,6 @@
     float intTuition = (36892.00f)/1000;
     
     NSNumber *num = nil;
-    
-    
     
     if ( [plot isKindOfClass:[CPTBarPlot class]] ) {
         switch ( fieldEnum ) {
@@ -472,17 +453,21 @@
     
     if([barPlot.identifier isEqual:@"name"] || [barPlot.identifier isEqual:self.program.name])
     {
-        gradient = [CPTGradient gradientWithBeginningColor:[CPTColor colorWithComponentRed:0/255.0 green:200/255.0 blue:0/255.0 alpha:1] endingColor:[CPTColor colorWithComponentRed:0/255.0 green:200/255.0 blue:0/255.0 alpha:0.2]];
+        CPTColor *barColor = [CPTColor colorWithCGColor:[JPStyle colorWithName:@"green"].CGColor];
+                               
+        gradient = [CPTGradient gradientWithBeginningColor:barColor endingColor:barColor];
         
     }
     else if([barPlot.identifier isEqual:@"School Aveg"]||[barPlot.identifier isEqual:@"School Avg"])
     {
-        gradient = [CPTGradient gradientWithBeginningColor:[CPTColor colorWithComponentRed:99/255.0 green:188/255.0 blue:255/255.0 alpha:1] endingColor:[CPTColor colorWithComponentRed:99/255.0 green:188/255.0 blue:255/255.0 alpha:0.2]];
+        CPTColor *barColor = [CPTColor colorWithCGColor:[JPStyle colorWithName:@"blue"].CGColor];
+        gradient = [CPTGradient gradientWithBeginningColor:barColor endingColor:barColor];
         
     }
     else if([barPlot.identifier isEqual:@"National Aveg"]||[barPlot.identifier isEqual:@"National Avg"]) //National Avg
     {
-        gradient = [CPTGradient gradientWithBeginningColor:[CPTColor colorWithComponentRed:255/255.0 green:94/255.0 blue:127/255.0 alpha:1] endingColor:[CPTColor colorWithComponentRed:255/255.0 green:94/255.0 blue:127/255.0 alpha:0.2]];
+        CPTColor *barColor = [CPTColor colorWithCGColor:[JPStyle colorWithName:@"red"].CGColor];
+        gradient = [CPTGradient gradientWithBeginningColor:barColor endingColor:barColor];
         
     }
     
@@ -499,8 +484,6 @@
     
 }
 
-    
-    
     
 
 
@@ -782,7 +765,7 @@
     [self addSubview:self.radarChart];
     
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 150, 55)];
-    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
+    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
     titleLabel.textColor = [UIColor blackColor];

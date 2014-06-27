@@ -17,7 +17,7 @@
 #import "JPStyle.h"
 
 #import "iPadProgramLabelView.h"
-
+#import "UIImage+ImageEffects.h"
 
 @interface iPadProgramContactViewController ()
 
@@ -33,17 +33,8 @@
         
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
-        
         self.program = program;
         self.dashletUid = dashletUid;
-        
-        
-        
-        
-        
-        
-        
-        
         
     }
     return self;
@@ -54,9 +45,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    UIImage* backgroundImage = [[UIImage imageNamed:@"blueBackground"] applyBlurWithRadius:8 tintColor:[[UIColor whiteColor] colorWithAlphaComponent:0.3]  saturationDeltaFactor:1.5 maskImage:nil];
-    
-    UIImage* backgroundImage = [UIImage imageNamed:@"blueBackground2"];
+    UIImage* backgroundImage = [[UIImage imageNamed:@"edgeBackground"] applyBlurWithRadius:0 tintColor:[[UIColor whiteColor] colorWithAlphaComponent: 0.5f] saturationDeltaFactor:1 maskImage:nil];
+
     self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];

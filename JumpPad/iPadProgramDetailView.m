@@ -42,7 +42,7 @@
         //////////////////////////////////////////////////
         //Start Creating Views
         
-        infoView = [[iPadProgramDetailInfoView alloc] initWithFrame:CGRectMake(kDetailViewLRMargin, _currentHeight, kDetailViewWidth, kiPadWidthPortrait) title:@"About" paragraph:self.program.about];
+        infoView = [[iPadProgramDetailInfoView alloc] initWithFrame:CGRectMake(kDetailViewLRMargin, _currentHeight, kDetailViewWidth, 700) title:@"About" paragraph:self.program.about];
         [infoView sizeToFit];
         _currentHeight = _currentHeight + infoView.frame.size.height + kDetailViewGap;
         

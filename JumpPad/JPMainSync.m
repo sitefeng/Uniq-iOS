@@ -88,9 +88,7 @@
     {
         JPLog(@"ERROR:%@", error);
     }
-    
 }
-
 
 
 #pragma mark - UIButton Target Action Methods

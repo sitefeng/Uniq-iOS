@@ -11,7 +11,6 @@
 		5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* Uniq-Explaination.txt */; };
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
-		5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */; };
 		5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DE04219315DD400C36935 /* volumeBar.bundle */; };
 		5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04419315DD400C36935 /* VolumeBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04819315DEF00C36935 /* DejalActivityView.m */; };
@@ -53,19 +52,6 @@
 		5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */; };
 		5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */; };
 		5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */; };
-		5D592B66191F357100ECDCF7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B65191F357100ECDCF7 /* Program.m */; };
-		5D592B69191F357200ECDCF7 /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B68191F357200ECDCF7 /* ImageLink.m */; };
-		5D592B6C191F357200ECDCF7 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B6B191F357200ECDCF7 /* Banner.m */; };
-		5D592B6F191F357200ECDCF7 /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B6E191F357200ECDCF7 /* ProgramCourse.m */; };
-		5D592B72191F357200ECDCF7 /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B71191F357200ECDCF7 /* SchoolLocation.m */; };
-		5D592B75191F357200ECDCF7 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B74191F357200ECDCF7 /* School.m */; };
-		5D592B78191F357200ECDCF7 /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B77191F357200ECDCF7 /* ProgramApplicationStat.m */; };
-		5D592B7B191F357200ECDCF7 /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B7A191F357200ECDCF7 /* ProgramRating.m */; };
-		5D592B7E191F357200ECDCF7 /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B7D191F357200ECDCF7 /* ProgramYearlyTuition.m */; };
-		5D592B81191F357200ECDCF7 /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B80191F357200ECDCF7 /* SchoolRanking.m */; };
-		5D592B84191F357300ECDCF7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B83191F357300ECDCF7 /* User.m */; };
-		5D592B87191F357300ECDCF7 /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B86191F357300ECDCF7 /* HighschoolCourse.m */; };
-		5D592B8A191F357300ECDCF7 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B89191F357300ECDCF7 /* Faculty.m */; };
 		5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B8C191F426800ECDCF7 /* iPadProgramDetailInfoView.m */; };
 		5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9D191FF26700ECDCF7 /* DPMeterView.m */; };
 		5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */; };
@@ -93,9 +79,6 @@
 		5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99D81935806B004EFC47 /* iPadSearchResultsView.m */; };
 		5D9C99DB19358D3C004EFC47 /* UniqKnowledgeEngineOne.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */; };
 		5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */; };
-		5D9C99EA19363337004EFC47 /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E919363337004EFC47 /* UniqKEKeyword.m */; };
-		5D9C99ED19363338004EFC47 /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99EC19363338004EFC47 /* UniqKEOne.m */; };
-		5D9C99F019363338004EFC47 /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99EF19363338004EFC47 /* UniqKEFunction.m */; };
 		5DA1465219397E63004A53EB /* JPMainSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1465119397E63004A53EB /* JPMainSync.m */; };
 		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
 		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
@@ -154,6 +137,10 @@
 		5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */; };
 		5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* iOSDateView.m */; };
 		5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */; };
+		AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */; };
+		AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544E195DF94D00C56E2B /* JPUserLocator.m */; };
+		AA115455195DFF4100C56E2B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115454195DFF4100C56E2B /* User.m */; };
+		AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115456195E024000C56E2B /* AddressBook.framework */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA222B4519592DE900820BCD /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4219592DE900820BCD /* LDProgressView.m */; };
 		AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4419592DE900820BCD /* UIColor+RGBValues.m */; };
@@ -161,6 +148,22 @@
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
 		AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */; };
+		AA9C20A1195D19C500148675 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20A0195D19C500148675 /* School.m */; };
+		AA9C20A4195D19C600148675 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20A3195D19C600148675 /* Banner.m */; };
+		AA9C20A7195D19C600148675 /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20A6195D19C600148675 /* ProgramCourse.m */; };
+		AA9C20B0195D19C600148675 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20AF195D19C600148675 /* Program.m */; };
+		AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20B2195D19C600148675 /* UniqKEFunction.m */; };
+		AA9C20B6195D19C700148675 /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20B5195D19C700148675 /* UniqKEOne.m */; };
+		AA9C20B9195D19C700148675 /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20B8195D19C700148675 /* UniqKEKeyword.m */; };
+		AA9C20BC195D19C700148675 /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20BB195D19C700148675 /* ProgramApplicationStat.m */; };
+		AA9C20BF195D19C700148675 /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20BE195D19C700148675 /* SchoolLocation.m */; };
+		AA9C20C2195D19C700148675 /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20C1195D19C700148675 /* ProgramRating.m */; };
+		AA9C20C5195D19C700148675 /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20C4195D19C700148675 /* SchoolRanking.m */; };
+		AA9C20C8195D19C700148675 /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20C7195D19C700148675 /* ImageLink.m */; };
+		AA9C20CB195D19C700148675 /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20CA195D19C700148675 /* ProgramYearlyTuition.m */; };
+		AA9C20CE195D19C700148675 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20CD195D19C700148675 /* Faculty.m */; };
+		AA9C20D4195DA47D00148675 /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20D3195DA47C00148675 /* HighschoolCourse.m */; };
+		AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */; };
 		AAEF023D1948DD87008F8BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */; };
 /* End PBXBuildFile section */
@@ -185,8 +188,6 @@
 		5D16763F18591AE10041993E /* iOSDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletDetailsView.m; sourceTree = "<group>"; };
 		5D167646185D6A6C0041993E /* ApplicationConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
-		5D1DE03F19315DB500C36935 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		5D1DE04219315DD400C36935 /* volumeBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = volumeBar.bundle; path = VolumeBar/volumeBar.bundle; sourceTree = "<group>"; };
 		5D1DE04319315DD400C36935 /* VolumeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeBar.h; path = VolumeBar/VolumeBar.h; sourceTree = "<group>"; };
 		5D1DE04419315DD400C36935 /* VolumeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeBar.m; path = VolumeBar/VolumeBar.m; sourceTree = "<group>"; };
@@ -258,32 +259,6 @@
 		5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailView.m; sourceTree = "<group>"; };
 		5D592B3A191F050D00ECDCF7 /* iPadProgramDetailGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailGraphView.h; sourceTree = "<group>"; };
 		5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailGraphView.m; sourceTree = "<group>"; };
-		5D592B64191F357100ECDCF7 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
-		5D592B65191F357100ECDCF7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
-		5D592B67191F357200ECDCF7 /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLink.h; sourceTree = "<group>"; };
-		5D592B68191F357200ECDCF7 /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLink.m; sourceTree = "<group>"; };
-		5D592B6A191F357200ECDCF7 /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
-		5D592B6B191F357200ECDCF7 /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
-		5D592B6D191F357200ECDCF7 /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCourse.h; sourceTree = "<group>"; };
-		5D592B6E191F357200ECDCF7 /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCourse.m; sourceTree = "<group>"; };
-		5D592B70191F357200ECDCF7 /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolLocation.h; sourceTree = "<group>"; };
-		5D592B71191F357200ECDCF7 /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolLocation.m; sourceTree = "<group>"; };
-		5D592B73191F357200ECDCF7 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
-		5D592B74191F357200ECDCF7 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
-		5D592B76191F357200ECDCF7 /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramApplicationStat.h; sourceTree = "<group>"; };
-		5D592B77191F357200ECDCF7 /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramApplicationStat.m; sourceTree = "<group>"; };
-		5D592B79191F357200ECDCF7 /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramRating.h; sourceTree = "<group>"; };
-		5D592B7A191F357200ECDCF7 /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramRating.m; sourceTree = "<group>"; };
-		5D592B7C191F357200ECDCF7 /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramYearlyTuition.h; sourceTree = "<group>"; };
-		5D592B7D191F357200ECDCF7 /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramYearlyTuition.m; sourceTree = "<group>"; };
-		5D592B7F191F357200ECDCF7 /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolRanking.h; sourceTree = "<group>"; };
-		5D592B80191F357200ECDCF7 /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolRanking.m; sourceTree = "<group>"; };
-		5D592B82191F357300ECDCF7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		5D592B83191F357300ECDCF7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		5D592B85191F357300ECDCF7 /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighschoolCourse.h; sourceTree = "<group>"; };
-		5D592B86191F357300ECDCF7 /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighschoolCourse.m; sourceTree = "<group>"; };
-		5D592B88191F357300ECDCF7 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
-		5D592B89191F357300ECDCF7 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
 		5D592B8B191F426800ECDCF7 /* iPadProgramDetailInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailInfoView.h; sourceTree = "<group>"; };
 		5D592B8C191F426800ECDCF7 /* iPadProgramDetailInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailInfoView.m; sourceTree = "<group>"; };
 		5D592B9C191FF26700ECDCF7 /* DPMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPMeterView.h; sourceTree = "<group>"; };
@@ -413,12 +388,6 @@
 		5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UniqKnowledgeEngineOne.json; sourceTree = "<group>"; };
 		5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPKnowledgeEngine.h"; sourceTree = "<group>"; };
 		5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPKnowledgeEngine.m"; sourceTree = "<group>"; };
-		5D9C99E819363337004EFC47 /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEKeyword.h; sourceTree = "<group>"; };
-		5D9C99E919363337004EFC47 /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEKeyword.m; sourceTree = "<group>"; };
-		5D9C99EB19363338004EFC47 /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEOne.h; sourceTree = "<group>"; };
-		5D9C99EC19363338004EFC47 /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
-		5D9C99EE19363338004EFC47 /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEFunction.h; sourceTree = "<group>"; };
-		5D9C99EF19363338004EFC47 /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEFunction.m; sourceTree = "<group>"; };
 		5DA1465019397E63004A53EB /* JPMainSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainSync.h; sourceTree = "<group>"; };
 		5DA1465119397E63004A53EB /* JPMainSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainSync.m; sourceTree = "<group>"; };
 		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
@@ -509,6 +478,13 @@
 		5DF6503B1933D7AE003E0490 /* iOSDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDateView.m; sourceTree = "<group>"; };
 		5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPDateStringParser.h"; sourceTree = "<group>"; };
 		5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
+		AA11544A195DF63600C56E2B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		AA11544D195DF94D00C56E2B /* JPUserLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUserLocator.h; sourceTree = "<group>"; };
+		AA11544E195DF94D00C56E2B /* JPUserLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPUserLocator.m; sourceTree = "<group>"; };
+		AA115453195DFF4100C56E2B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		AA115454195DFF4100C56E2B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		AA115456195E024000C56E2B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
 		AA222B4119592DE900820BCD /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDProgressView.h; path = JumpPad/LDProgressView.h; sourceTree = "<group>"; };
@@ -520,6 +496,38 @@
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAboutViewController.swift; sourceTree = "<group>"; };
 		AA7B5350194AA2F10090F113 /* Uniq-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uniq-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAuthorsTableViewController.swift; sourceTree = "<group>"; };
+		AA9C209F195D19C500148675 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		AA9C20A0195D19C500148675 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		AA9C20A2195D19C600148675 /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
+		AA9C20A3195D19C600148675 /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
+		AA9C20A5195D19C600148675 /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCourse.h; sourceTree = "<group>"; };
+		AA9C20A6195D19C600148675 /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCourse.m; sourceTree = "<group>"; };
+		AA9C20AE195D19C600148675 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		AA9C20AF195D19C600148675 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		AA9C20B1195D19C600148675 /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEFunction.h; sourceTree = "<group>"; };
+		AA9C20B2195D19C600148675 /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEFunction.m; sourceTree = "<group>"; };
+		AA9C20B4195D19C700148675 /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEOne.h; sourceTree = "<group>"; };
+		AA9C20B5195D19C700148675 /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
+		AA9C20B7195D19C700148675 /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEKeyword.h; sourceTree = "<group>"; };
+		AA9C20B8195D19C700148675 /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEKeyword.m; sourceTree = "<group>"; };
+		AA9C20BA195D19C700148675 /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramApplicationStat.h; sourceTree = "<group>"; };
+		AA9C20BB195D19C700148675 /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramApplicationStat.m; sourceTree = "<group>"; };
+		AA9C20BD195D19C700148675 /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolLocation.h; sourceTree = "<group>"; };
+		AA9C20BE195D19C700148675 /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolLocation.m; sourceTree = "<group>"; };
+		AA9C20C0195D19C700148675 /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramRating.h; sourceTree = "<group>"; };
+		AA9C20C1195D19C700148675 /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramRating.m; sourceTree = "<group>"; };
+		AA9C20C3195D19C700148675 /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolRanking.h; sourceTree = "<group>"; };
+		AA9C20C4195D19C700148675 /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolRanking.m; sourceTree = "<group>"; };
+		AA9C20C6195D19C700148675 /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLink.h; sourceTree = "<group>"; };
+		AA9C20C7195D19C700148675 /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLink.m; sourceTree = "<group>"; };
+		AA9C20C9195D19C700148675 /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramYearlyTuition.h; sourceTree = "<group>"; };
+		AA9C20CA195D19C700148675 /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramYearlyTuition.m; sourceTree = "<group>"; };
+		AA9C20CC195D19C700148675 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
+		AA9C20CD195D19C700148675 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
+		AA9C20D2195DA47C00148675 /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighschoolCourse.h; sourceTree = "<group>"; };
+		AA9C20D3195DA47C00148675 /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighschoolCourse.m; sourceTree = "<group>"; };
+		AACD610D195CC7D300FCC8A4 /* JPImageRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageRetriever.h; sourceTree = "<group>"; };
+		AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageRetriever.m; sourceTree = "<group>"; };
 		AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -528,6 +536,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */,
 				AAEF023D1948DD87008F8BA8 /* Foundation.framework in Frameworks */,
 				5D92531D1930718B00BE5BA3 /* SystemConfiguration.framework in Frameworks */,
 				5D925311192E4C4100BE5BA3 /* AVFoundation.framework in Frameworks */,
@@ -792,8 +801,8 @@
 		5D70561818B9E122002941B3 /* Image Blurring */ = {
 			isa = PBXGroup;
 			children = (
-				5D1DE03F19315DB500C36935 /* UIImage+ImageEffects.h */,
-				5D1DE04019315DB500C36935 /* UIImage+ImageEffects.m */,
+				AA11544A195DF63600C56E2B /* UIImage+ImageEffects.h */,
+				AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */,
 			);
 			name = "Image Blurring";
 			sourceTree = "<group>";
@@ -882,6 +891,10 @@
 				5D2664C618BB1ED800C8CC91 /* NSString+JPItemUid.m */,
 				5DAC8FAC18556A9900FE3B5B /* JPLocation.h */,
 				5DAC8FAD18556A9900FE3B5B /* JPLocation.m */,
+				AACD610D195CC7D300FCC8A4 /* JPImageRetriever.h */,
+				AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */,
+				AA11544D195DF94D00C56E2B /* JPUserLocator.h */,
+				AA11544E195DF94D00C56E2B /* JPUserLocator.m */,
 				5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */,
 				5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */,
 				5DF25F8A19357B6E00474B45 /* JPKnowledgeEngineInterpreter.h */,
@@ -965,6 +978,7 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA115456195E024000C56E2B /* AddressBook.framework */,
 				5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */,
 				5D925310192E4C4100BE5BA3 /* AVFoundation.framework */,
 				5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */,
@@ -1056,38 +1070,38 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				5D9C99EE19363338004EFC47 /* UniqKEFunction.h */,
-				5D9C99EF19363338004EFC47 /* UniqKEFunction.m */,
-				5D9C99EB19363338004EFC47 /* UniqKEOne.h */,
-				5D9C99EC19363338004EFC47 /* UniqKEOne.m */,
-				5D9C99E819363337004EFC47 /* UniqKEKeyword.h */,
-				5D9C99E919363337004EFC47 /* UniqKEKeyword.m */,
-				5D592B88191F357300ECDCF7 /* Faculty.h */,
-				5D592B89191F357300ECDCF7 /* Faculty.m */,
-				5D592B85191F357300ECDCF7 /* HighschoolCourse.h */,
-				5D592B86191F357300ECDCF7 /* HighschoolCourse.m */,
-				5D592B82191F357300ECDCF7 /* User.h */,
-				5D592B83191F357300ECDCF7 /* User.m */,
-				5D592B7F191F357200ECDCF7 /* SchoolRanking.h */,
-				5D592B80191F357200ECDCF7 /* SchoolRanking.m */,
-				5D592B7C191F357200ECDCF7 /* ProgramYearlyTuition.h */,
-				5D592B7D191F357200ECDCF7 /* ProgramYearlyTuition.m */,
-				5D592B79191F357200ECDCF7 /* ProgramRating.h */,
-				5D592B7A191F357200ECDCF7 /* ProgramRating.m */,
-				5D592B76191F357200ECDCF7 /* ProgramApplicationStat.h */,
-				5D592B77191F357200ECDCF7 /* ProgramApplicationStat.m */,
-				5D592B73191F357200ECDCF7 /* School.h */,
-				5D592B74191F357200ECDCF7 /* School.m */,
-				5D592B70191F357200ECDCF7 /* SchoolLocation.h */,
-				5D592B71191F357200ECDCF7 /* SchoolLocation.m */,
-				5D592B6D191F357200ECDCF7 /* ProgramCourse.h */,
-				5D592B6E191F357200ECDCF7 /* ProgramCourse.m */,
-				5D592B6A191F357200ECDCF7 /* Banner.h */,
-				5D592B6B191F357200ECDCF7 /* Banner.m */,
-				5D592B67191F357200ECDCF7 /* ImageLink.h */,
-				5D592B68191F357200ECDCF7 /* ImageLink.m */,
-				5D592B64191F357100ECDCF7 /* Program.h */,
-				5D592B65191F357100ECDCF7 /* Program.m */,
+				AA115453195DFF4100C56E2B /* User.h */,
+				AA115454195DFF4100C56E2B /* User.m */,
+				AA9C20D2195DA47C00148675 /* HighschoolCourse.h */,
+				AA9C20D3195DA47C00148675 /* HighschoolCourse.m */,
+				AA9C20CC195D19C700148675 /* Faculty.h */,
+				AA9C20CD195D19C700148675 /* Faculty.m */,
+				AA9C20C9195D19C700148675 /* ProgramYearlyTuition.h */,
+				AA9C20CA195D19C700148675 /* ProgramYearlyTuition.m */,
+				AA9C20C6195D19C700148675 /* ImageLink.h */,
+				AA9C20C7195D19C700148675 /* ImageLink.m */,
+				AA9C20C3195D19C700148675 /* SchoolRanking.h */,
+				AA9C20C4195D19C700148675 /* SchoolRanking.m */,
+				AA9C20C0195D19C700148675 /* ProgramRating.h */,
+				AA9C20C1195D19C700148675 /* ProgramRating.m */,
+				AA9C20BD195D19C700148675 /* SchoolLocation.h */,
+				AA9C20BE195D19C700148675 /* SchoolLocation.m */,
+				AA9C20BA195D19C700148675 /* ProgramApplicationStat.h */,
+				AA9C20BB195D19C700148675 /* ProgramApplicationStat.m */,
+				AA9C20B7195D19C700148675 /* UniqKEKeyword.h */,
+				AA9C20B8195D19C700148675 /* UniqKEKeyword.m */,
+				AA9C20B4195D19C700148675 /* UniqKEOne.h */,
+				AA9C20B5195D19C700148675 /* UniqKEOne.m */,
+				AA9C20B1195D19C600148675 /* UniqKEFunction.h */,
+				AA9C20B2195D19C600148675 /* UniqKEFunction.m */,
+				AA9C20AE195D19C600148675 /* Program.h */,
+				AA9C20AF195D19C600148675 /* Program.m */,
+				AA9C20A5195D19C600148675 /* ProgramCourse.h */,
+				AA9C20A6195D19C600148675 /* ProgramCourse.m */,
+				AA9C20A2195D19C600148675 /* Banner.h */,
+				AA9C20A3195D19C600148675 /* Banner.m */,
+				AA9C209F195D19C500148675 /* School.h */,
+				AA9C20A0195D19C500148675 /* School.m */,
 			);
 			name = NSManagedObjects;
 			sourceTree = "<group>";
@@ -1388,31 +1402,31 @@
 				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
+				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
-				5D592B84191F357300ECDCF7 /* User.m in Sources */,
-				5D592B6C191F357200ECDCF7 /* Banner.m in Sources */,
 				AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D94204219308AD40033D57B /* Reachability.m in Sources */,
-				5D9C99ED19363338004EFC47 /* UniqKEOne.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
-				5D592B72191F357200ECDCF7 /* SchoolLocation.m in Sources */,
 				AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */,
-				5D592B8A191F357300ECDCF7 /* Faculty.m in Sources */,
 				5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */,
 				5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */,
 				5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
-				5D1DE04119315DB500C36935 /* UIImage+ImageEffects.m in Sources */,
+				AA9C20D4195DA47D00148675 /* HighschoolCourse.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
+				AA9C20C8195D19C700148675 /* ImageLink.m in Sources */,
+				AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */,
 				AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */,
 				AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */,
+				AA9C20B9195D19C700148675 /* UniqKEKeyword.m in Sources */,
+				AA9C20CB195D19C700148675 /* ProgramYearlyTuition.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
 				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,
@@ -1429,26 +1443,26 @@
 				5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */,
 				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
-				5D9C99EA19363337004EFC47 /* UniqKEKeyword.m in Sources */,
-				5D592B6F191F357200ECDCF7 /* ProgramCourse.m in Sources */,
 				5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */,
+				AA9C20A4195D19C600148675 /* Banner.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
-				5D592B69191F357200ECDCF7 /* ImageLink.m in Sources */,
-				5D592B87191F357300ECDCF7 /* HighschoolCourse.m in Sources */,
+				AA9C20CE195D19C700148675 /* Faculty.m in Sources */,
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
 				5D2664D618BB268D00C8CC91 /* iPadCollegeViewController.m in Sources */,
+				AA9C20C2195D19C700148675 /* ProgramRating.m in Sources */,
 				5D555526193B140900BF6F20 /* iPadProgramCoursesViewController.m in Sources */,
 				5D338A17191896EE00A62AC0 /* iPadProgramBannerView.m in Sources */,
-				5D592B7B191F357200ECDCF7 /* ProgramRating.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
+				AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
 				AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */,
 				5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */,
+				AA9C20A7195D19C600148675 /* ProgramCourse.m in Sources */,
 				5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */,
 				5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */,
 				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
@@ -1456,40 +1470,42 @@
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
-				5D592B7E191F357200ECDCF7 /* ProgramYearlyTuition.m in Sources */,
+				AA115455195DFF4100C56E2B /* User.m in Sources */,
+				AA9C20BC195D19C700148675 /* ProgramApplicationStat.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
 				AA222B4519592DE900820BCD /* LDProgressView.m in Sources */,
+				AA9C20BF195D19C700148675 /* SchoolLocation.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
+				AA9C20A1195D19C500148675 /* School.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D555529193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m in Sources */,
+				AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */,
 				5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */,
 				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
+				AA9C20B6195D19C700148675 /* UniqKEOne.m in Sources */,
 				5D55551B193A9E5A00BF6F20 /* iPadProgramRelatedView.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
 				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
 				5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
-				5D592B81191F357200ECDCF7 /* SchoolRanking.m in Sources */,
 				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* UniqAppDelegate.m in Sources */,
-				5D592B66191F357100ECDCF7 /* Program.m in Sources */,
-				5D592B75191F357200ECDCF7 /* School.m in Sources */,
 				5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */,
 				5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */,
 				5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */,
 				5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */,
 				5D94203F19308AA10033D57B /* DXAlertView.m in Sources */,
+				AA9C20B0195D19C600148675 /* Program.m in Sources */,
 				5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */,
 				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
-				5D592B78191F357200ECDCF7 /* ProgramApplicationStat.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
-				5D9C99F019363338004EFC47 /* UniqKEFunction.m in Sources */,
+				AA9C20C5195D19C700148675 /* SchoolRanking.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

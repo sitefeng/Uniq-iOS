@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPUserLocator.h"
+#import <CoreLocation/CoreLocation.h>
 
-@class iPadHomeProfileBanner, iPadHomeToolbarView;
-@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@class iPadHomeProfileBanner, iPadHomeToolbarView, User;
+@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate>
 {
+    NSManagedObjectContext* context;
+
+    BOOL             _isEditing;
+    BOOL             _addedNewCourse;
+    
+    NSMutableArray*  _highschoolCourses; 
+    User          *  _user;
+    
+    NSMutableArray*  _coursesToSave;
+    NSMutableArray*  _courseCellsToSave;
+    
+    JPUserLocator *  _userLocator;
     
 }
 

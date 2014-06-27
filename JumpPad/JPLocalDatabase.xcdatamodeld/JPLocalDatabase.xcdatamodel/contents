@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="iOS 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="13E19" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="iOS 7.0">
     <entity name="Banner" representedClassName="Banner" syncable="YES">
         <attribute name="bannerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bannerLink" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,7 +24,8 @@
     </entity>
     <entity name="HighschoolCourse" representedClassName="HighschoolCourse" syncable="YES">
         <attribute name="courseCode" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="courseId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="courseLevel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseMark" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="courses" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -145,15 +146,20 @@
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="currentAvg" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="interest" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="locationString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="satGrammar" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="satMath" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="satReading" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HighschoolCourse" inverseName="user" inverseEntity="HighschoolCourse" syncable="YES"/>
     </entity>
     <elements>
         <element name="Banner" positionX="556" positionY="-99" width="128" height="105"/>
         <element name="Faculty" positionX="-2" positionY="-117" width="128" height="253"/>
-        <element name="HighschoolCourse" positionX="900" positionY="-108" width="128" height="103"/>
+        <element name="HighschoolCourse" positionX="900" positionY="-108" width="128" height="118"/>
         <element name="ImageLink" positionX="34" positionY="189" width="128" height="118"/>
         <element name="Program" positionX="250" positionY="263" width="128" height="358"/>
         <element name="ProgramApplicationStat" positionX="450" positionY="261" width="128" height="118"/>
@@ -166,6 +172,6 @@
         <element name="UniqKEFunction" positionX="693" positionY="284" width="128" height="118"/>
         <element name="UniqKEKeyword" positionX="853" positionY="287" width="128" height="73"/>
         <element name="UniqKEOne" positionX="711" positionY="189" width="128" height="58"/>
-        <element name="User" positionX="738" positionY="-118" width="128" height="118"/>
+        <element name="User" positionX="738" positionY="-118" width="128" height="195"/>
     </elements>
 </model>

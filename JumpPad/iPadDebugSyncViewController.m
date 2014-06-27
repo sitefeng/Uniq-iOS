@@ -47,7 +47,7 @@
 {
     [super viewDidLoad];
 	
-    self.view.backgroundColor = [JPStyle mainViewControllerDefaultBackgroundColor];
+    self.view.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     
     UniqAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     self.context = [appDelegate managedObjectContext];
@@ -56,14 +56,14 @@
     self.syncer = [[JPMainSync alloc] init];
 
 
-    self.textView =[[UITextView alloc] initWithFrame:CGRectMake(50, 50, 660, 700)];
+    self.textView =[[UITextView alloc] initWithFrame:CGRectMake(50, 50, 450, 700)];
     self.textView.text = @"Stored Information: \n";
     self.textView.contentSize = CGSizeMake(300, 3300);
     [self.textView setUserInteractionEnabled:YES];
     self.textView.editable = NO;
     
     
-    self.button = [[UIButton alloc] initWithFrame:CGRectMake(100, 800, 100, 50)];
+    self.button = [[UIButton alloc] initWithFrame:CGRectMake(50, 800, 100, 50)];
     self.button.tintColor = [UIColor blackColor];
     self.button.backgroundColor = [UIColor yellowColor];
     self.button.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -73,7 +73,7 @@
     [self.button addTarget:self action:@selector(sync:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    self.button2 = [[UIButton alloc] initWithFrame:CGRectMake(240, 800, 150, 50)];
+    self.button2 = [[UIButton alloc] initWithFrame:CGRectMake(200, 800, 150, 50)];
     self.button2.tintColor = [UIColor blackColor];
     
     self.button2.backgroundColor = [UIColor yellowColor];
@@ -83,7 +83,7 @@
     
     [self.button2 addTarget:self action:@selector(fetchStuff:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.button3 = [[UIButton alloc] initWithFrame:CGRectMake(430, 800, 100, 50)];
+    self.button3 = [[UIButton alloc] initWithFrame:CGRectMake(350, 800, 100, 50)];
     self.button3.tintColor = [UIColor blackColor];
     
     self.button3.backgroundColor = [UIColor yellowColor];

@@ -117,7 +117,7 @@
 {
     _numFavorited = numFavorited;
     UILabel* topBarLabel = (UILabel*)[_topBarView viewWithTag:101];
-    topBarLabel.text = [NSString stringWithFormat:@"%i Favorited", numFavorited];
+    topBarLabel.text = [NSString stringWithFormat:@"%lu Favorited", (unsigned long)numFavorited];
 }
 
 

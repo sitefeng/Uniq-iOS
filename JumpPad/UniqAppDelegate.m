@@ -77,9 +77,8 @@
     
     
     //Tab bar change to 3rd element
-//    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
-//    tabBar.selectedIndex = 2;
-    
+    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
+    tabBar.selectedIndex = 3;
     
     return YES;
 }

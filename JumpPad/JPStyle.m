@@ -149,16 +149,14 @@
         case 0:
             color = [self colorWithName:@"red"]; //red
             break;
-        
         case 1:
             color = [self colorWithName:@"purple"]; //purple
             break;
-        
         case 2:
             color = [self colorWithName:@"blue"]; //blue
             break;
         case 3:
-            color = [self colorWithHex:@"04CAB0" alpha:1]; //indigo
+            color = [self colorWithName:@"indigo"]; //indigo
             break;
         case 4:
             color = [self colorWithName:@"green"]; //green
@@ -242,6 +240,10 @@
     else if([colorName isEqual:@"purple"])
     {
         returnColor = [self colorWithHex:@"D291FF" alpha:1];
+    }
+    else if([colorName isEqual:@"indigo"])
+    {
+        returnColor = [self colorWithHex:@"04CAB0" alpha:1];
     }
     else if([colorName isEqual:@"orange"])
     {
@@ -395,9 +397,6 @@
 
 
 
-
-
-
 @implementation UIImage (Beautify)
 
 + (UIImage *)imageWithColor:(UIColor *)color
@@ -421,7 +420,6 @@
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
     CGRect area = CGRectMake(0,0, self.size.width, self.size.height);
     
     CGContextScaleCTM(context, 1, -1);
@@ -433,12 +431,10 @@
     CGContextDrawImage(context, area, self.CGImage);
     
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-    
     UIGraphicsEndImageContext();
-    
     return newImage;
-    
 }
+
 
 
 

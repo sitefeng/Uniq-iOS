@@ -60,7 +60,7 @@ const NSUInteger kIconLabelTag = 341;
         [self addSubview:self.iconView];
 
         
-        self.courseDescriptionView = [[UITextView alloc] initWithFrame:CGRectMake(25, 70, 400, 115)];
+        self.courseDescriptionView = [[UITextView alloc] initWithFrame:CGRectMake(25, 70, 410, 115)];
         self.courseDescriptionView.backgroundColor = [UIColor clearColor];
         self.courseDescriptionView.editable = NO;
         self.courseDescriptionView.selectable = NO;

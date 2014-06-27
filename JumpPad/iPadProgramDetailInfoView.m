@@ -52,7 +52,6 @@
             
             CGSize aboutViewSize = aboutView.frame.size;
             
-            
             float aboutLabelY = 20 + aboutViewSize.height/2.0 - 55/2.0 ;
             
             UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, aboutLabelY - 10, 136, 55)];
@@ -66,26 +65,16 @@
             
             if(aboutViewSize.height >= aboutLabel.frame.size.height)
             {
-                self.viewHeight = 40 + aboutViewSize.height;
+                self.viewHeight = 10 + aboutViewSize.height;
             }
             else
             {
-                self.viewHeight = 40 + aboutLabel.frame.size.height;
+                self.viewHeight = 10 + aboutLabel.frame.size.height;
             }
             
-
             [self addSubview:aboutLabel];
             [self addSubview:aboutView];
-   
         }
-        
-        
-        
-        
-        
-        
-        
-    
         
     }
     return self;
