@@ -17,28 +17,69 @@
 @implementation JPDashlet
 
 
-- (instancetype)initWithDashletUid: (NSInteger)uid
+#pragma mark - initialization with item id only
+
+- (instancetype)initWithDashletUid: (NSUInteger)uid
 {
+
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    
+    NSInteger schoolInt = uid / 1000000;
+    
+    NSInteger facultyInt = (uid % 1000000) / 1000;
+    NSInteger programInt = uid % 1000;
+    
+    NSUInteger facultyUid = schoolInt*1000 + facultyInt;
+    
     self = [super init];
+    
     if(self)
     {
-        self.dashletUid = uid;
-        
-        //Retrieve Info from CoreData and fill in ALL Properties Automatically
-        
-        //Code!!!!!!!!!!!!!!!!
-        
-        if(uid == 0)
+        if(programInt == 0) //not a program
         {
-            self.title = @"Program Not Set";
+            if(facultyInt == 0) //not a faculty, should be a school
+            {
+                NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+                
+                schoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@", [NSNumber numberWithInteger:schoolInt]];
+                
+                NSArray* schoolResult = [context executeFetchRequest:schoolReq error:nil];
+                
+                self = [self initWithSchool:(School *)[schoolResult firstObject]];
+                
+            }
+            else //is a faculty
+            {
+                
+                NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+                facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@", [NSNumber numberWithInteger:facultyInt]];
+                NSArray* facultyResult = [context executeFetchRequest:facultyReq error:nil];
+                
+                self = [self initWithFaculty:(Faculty *)[facultyResult firstObject] fromSchool:schoolInt];
+            }
         }
-        
-        
+        else //is a program
+        {
+//            NSUInteger programUid = schoolInt*1000000 + facultyInt*1000 + programInt;
+            NSFetchRequest* programReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
+            programReq.predicate = [NSPredicate predicateWithFormat:@"programId = %@", [NSNumber numberWithInteger:programInt]];
+            NSArray* programResult = [context executeFetchRequest:programReq error:nil];
+            
+            self = [self initWithProgram:(Program*)[programResult firstObject] fromFaculty:facultyUid];
+            
+        }
+    
     }
+    
     
     return self;
 }
 
+
+
+
+#pragma mark - initialization with retrieved data
 
 - (instancetype)initWithSchool:(School *)school
 {

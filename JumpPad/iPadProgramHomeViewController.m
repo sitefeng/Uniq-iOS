@@ -22,7 +22,7 @@
 #import "JPLocation.h"
 #import "School.h"
 #import "SchoolLocation.h"
-
+#import "UserFavItem.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -48,16 +48,13 @@ const float kProgramImageWidth  = 384;
         // Custom initialization
         
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
-//        self.view.backgroundColor = [JPStyle colorWith8BitRed:50 green:0 blue:0 alpha:1];
-        
 
+        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        context = [delegate managedObjectContext];
+        
         self.program = program;
         self.dashletUid = dashletUid;
-        
-        
-        
 
-        
     }
     return self;
 }
@@ -69,8 +66,7 @@ const float kProgramImageWidth  = 384;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"redBackground2"]];
+
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
     //Getting current device orientation
@@ -102,7 +98,6 @@ const float kProgramImageWidth  = 384;
     self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 44) dashletNum:self.dashletUid program:self.program];
     
     
-    
     //Init Summary View
     NSInteger schoolId = self.dashletUid / 1000000;
     
@@ -113,8 +108,27 @@ const float kProgramImageWidth  = 384;
     CGPoint coord = jpp([school.location.lattitude floatValue], [school.location.longitude floatValue]);
     JPLocation* programLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
     
+    //Summary View
     self.summaryView = [[iPadProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program location:programLocation];
-    self.summaryView.delegate =self;
+    self.summaryView.delegate = self;
+    
+    //Check if program is favorited
+    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    NSArray* result = [context executeFetchRequest:favReq error:nil];
+    
+    if(!result || [result count] == 0)
+    {
+        self.summaryView.isFavorited = NO;
+    }
+    else if(result.count == 1)
+    {
+        self.summaryView.isFavorited = YES;
+    }
+    else
+    {
+        NSLog(@"Error: TOO many results!");
+    }
     
     
     float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+44+kProgramImageHeight;
@@ -198,9 +212,52 @@ const float kProgramImageWidth  = 384;
 }
 
 
-- (void)favoriteButtonTapped
+- (void)favoriteButtonSelected:(BOOL)isSelected
 {
-    [self.detailView reloadData];
+    if(isSelected)
+    {
+        NSEntityDescription* newFavItemDes = [NSEntityDescription  entityForName:@"UserFavItem" inManagedObjectContext:context];
+        UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
+        
+        newItem.itemId = [NSNumber numberWithInteger:self.dashletUid];
+        newItem.type = [NSNumber numberWithInteger:JPDashletTypeProgram];
+        
+        [context insertObject:newItem];
+        
+        self.summaryView.isFavorited = YES;
+    }
+    else //deselected
+    {
+        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+        NSArray* results = [context executeFetchRequest:favReq error:nil];
+        
+        for(UserFavItem* item in results)
+        {
+            [context deleteObject:item];
+        }
+        
+        self.summaryView.isFavorited = NO;
+    }
+    
+    NSError* error = nil;
+    [context save:&error];
+    if(error)
+    {
+        NSLog(@"fav error: %@\n", error);
+    }
+    
+    
+//    //Test adding Favorite to core data
+//    NSFetchRequest* allfavReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+//    NSArray* allresults = [context executeFetchRequest:allfavReq error:nil];
+//    
+//    for(UserFavItem* item in allresults)
+//    {
+//        NSLog(@"ALL FAV#: [%@], type[%@] \n", item.itemId, item.type);
+//    }
+//    
+//    NSLog(@">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     
 }
 

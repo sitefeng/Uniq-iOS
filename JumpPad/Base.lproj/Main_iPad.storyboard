@@ -16,7 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="KbM-LR-zMc" kind="relationship" relationship="viewControllers" id="h1v-q5-aOA"/>
-                        <segue destination="HvZ-19-hP3" kind="relationship" relationship="viewControllers" id="3eH-V6-vgQ"/>
+                        <segue destination="fMJ-xL-eF2" kind="relationship" relationship="viewControllers" id="3eH-V6-vgQ"/>
                         <segue destination="rz1-BX-P0e" kind="relationship" relationship="viewControllers" id="4Or-De-y6H"/>
                         <segue destination="R43-jN-Xik" kind="relationship" relationship="viewControllers" id="8mS-6e-Tor"/>
                         <segue destination="ryh-FL-WnV" kind="relationship" relationship="viewControllers" id="HRr-UA-9Fe"/>
@@ -58,12 +58,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="favorites" id="C8g-5U-vgL"/>
-                    <navigationItem key="navigationItem" title="Favorites" id="bLv-rV-ah9"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="bLv-rV-ah9">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="t7f-tR-cJP">
+                            <connections>
+                                <action selector="editBarButtonPressed:" destination="HvZ-19-hP3" id="gAU-x4-9pO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAd-4R-CNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="738" y="450"/>
+            <point key="canvasLocation" x="1718" y="450"/>
         </scene>
         <!--I Pad Main Explore View Controller - Explore-->
         <scene sceneID="iRi-ES-lXc">
@@ -184,6 +189,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFn-hr-Vu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="716" y="4043"/>
+        </scene>
+        <!--Navigation Controller - Favorites-->
+        <scene sceneID="aR2-DK-rdY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fMJ-xL-eF2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="favorites" id="C8g-5U-vgL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="abz-MO-ppi">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HvZ-19-hP3" kind="relationship" relationship="rootViewController" id="Bxn-GK-ZkP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4My-P9-kRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="450"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1mV-Xj-f1s">
+            <objects>
+                <viewController id="qvN-GM-VrW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lFi-7B-TBF"/>
+                        <viewControllerLayoutGuide type="bottom" id="5O0-Kv-pOy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X0L-Sf-Nwm">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I32-Lt-QAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

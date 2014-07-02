@@ -107,7 +107,7 @@
             UILabel* ratioTitle = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 350, 200)];
             ratioTitle.textAlignment = NSTextAlignmentCenter;
       
-            ratioTitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
+            ratioTitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:50];
             ratioTitle.textColor = [UIColor blackColor];
             ratioTitle.text = @"Gals vs Guys\nRatio";
             ratioTitle.numberOfLines = 2;
@@ -133,7 +133,7 @@
     //Title
     float titleLabelY = 20 + 30;
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY, 136, 55)];
-    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
+    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:50];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
     titleLabel.textColor = [UIColor blackColor];
@@ -731,11 +731,9 @@
             textView.text = [NSString stringWithFormat: @"%@ the study environment is enjoyable",wordToUse];
             break;
             
-            
     }
     
     textView.userInteractionEnabled = NO;
-    
     
     [self addSubview:textView];
     [self addSubview:percentageLabel];
@@ -765,7 +763,7 @@
     [self addSubview:self.radarChart];
     
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 150, 55)];
-    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:35];
+    titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:50];
     titleLabel.text = self.title;
     [titleLabel sizeToFit];
     titleLabel.textColor = [UIColor blackColor];

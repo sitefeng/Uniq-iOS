@@ -45,7 +45,7 @@
 //******************
 
 
-- (instancetype)initWithDashletUid: (NSInteger)uid; //Do Not Use
+- (instancetype)initWithDashletUid: (NSUInteger)uid;
 
 - (instancetype)initWithSchool: (School*)school;
 - (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletId;

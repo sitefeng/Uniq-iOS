@@ -9,7 +9,7 @@
     <entity name="Faculty" representedClassName="Faculty" syncable="YES">
         <attribute name="alumniNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="facultyId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="facultyId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="logoUrl" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numPrograms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -48,7 +48,7 @@
         <attribute name="numFavorites" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="population" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="programId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="programId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="yearEstablished" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -101,7 +101,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numPrograms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="population" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="schoolId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="schoolId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="timeModified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="totalFunding" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="twitterLink" optional="YES" attributeType="String" syncable="YES"/>
@@ -155,23 +155,30 @@
         <attribute name="satMath" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="satReading" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="courses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HighschoolCourse" inverseName="user" inverseEntity="HighschoolCourse" syncable="YES"/>
+        <relationship name="favItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserFavItem" inverseName="user" inverseEntity="UserFavItem" syncable="YES"/>
+    </entity>
+    <entity name="UserFavItem" representedClassName="UserFavItem" syncable="YES">
+        <attribute name="itemId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favItems" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
         <element name="Banner" positionX="556" positionY="-99" width="128" height="105"/>
         <element name="Faculty" positionX="-2" positionY="-117" width="128" height="253"/>
-        <element name="HighschoolCourse" positionX="900" positionY="-108" width="128" height="118"/>
+        <element name="HighschoolCourse" positionX="882" positionY="-82" width="128" height="118"/>
         <element name="ImageLink" positionX="34" positionY="189" width="128" height="118"/>
         <element name="Program" positionX="250" positionY="263" width="128" height="358"/>
-        <element name="ProgramApplicationStat" positionX="450" positionY="261" width="128" height="118"/>
-        <element name="ProgramCourse" positionX="450" positionY="425" width="128" height="133"/>
+        <element name="ProgramApplicationStat" positionX="432" positionY="261" width="128" height="118"/>
+        <element name="ProgramCourse" positionX="432" positionY="425" width="128" height="133"/>
         <element name="ProgramRating" positionX="-9" positionY="342" width="128" height="193"/>
         <element name="ProgramYearlyTuition" positionX="-11" positionY="557" width="128" height="120"/>
         <element name="School" positionX="223" positionY="-117" width="128" height="298"/>
         <element name="SchoolLocation" positionX="376" positionY="-52" width="128" height="193"/>
-        <element name="SchoolRanking" positionX="529" positionY="104" width="128" height="103"/>
-        <element name="UniqKEFunction" positionX="693" positionY="284" width="128" height="118"/>
-        <element name="UniqKEKeyword" positionX="853" positionY="287" width="128" height="73"/>
-        <element name="UniqKEOne" positionX="711" positionY="189" width="128" height="58"/>
-        <element name="User" positionX="738" positionY="-118" width="128" height="195"/>
+        <element name="SchoolRanking" positionX="513" positionY="104" width="128" height="103"/>
+        <element name="UniqKEFunction" positionX="648" positionY="287" width="128" height="118"/>
+        <element name="UniqKEKeyword" positionX="801" positionY="287" width="128" height="73"/>
+        <element name="UniqKEOne" positionX="666" positionY="189" width="128" height="58"/>
+        <element name="User" positionX="727" positionY="-81" width="128" height="208"/>
+        <element name="UserFavItem" positionX="880" positionY="101" width="128" height="88"/>
     </elements>
 </model>

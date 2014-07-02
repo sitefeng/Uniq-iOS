@@ -90,9 +90,11 @@
         
         //**************************************
         
-        UIButton* favorite = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
-        [favorite setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        [favorite addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
+        _favoriteButton.selected = NO;
+        [_favoriteButton addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(30+ 87, 240, 54, 54)];
         [email setImage:[UIImage imageNamed:@"iOSMailIcon"] forState:UIControlStateNormal];
@@ -108,7 +110,7 @@
         
 
         
-        [self addSubview:favorite];
+        [self addSubview:_favoriteButton];
         [self addSubview:email];
         [self addSubview:website];
         [self addSubview:facebook];
@@ -227,7 +229,16 @@
 
 - (void)favoriteButtonTapped: (UIButton*)sender
 {
-    [self.delegate favoriteButtonTapped];
+    if(sender.selected == NO)
+    {
+        [self.delegate favoriteButtonSelected:YES];
+        sender.selected = YES;
+    }
+    else //Deselect
+    {
+        [self.delegate favoriteButtonSelected:NO];
+        sender.selected = NO;
+    }
     
 }
 
@@ -235,7 +246,12 @@
 
 
 
-
+- (void)setIsFavorited:(BOOL)isFavorited
+{
+    _isFavorited = isFavorited;
+    
+    _favoriteButton.selected = isFavorited;
+}
 
 
 

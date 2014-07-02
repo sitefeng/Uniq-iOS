@@ -19,18 +19,19 @@
 {
     BOOL    _readyToCalculateDistance;
     
+    UIButton* _favoriteButton;
+    
 }
 
 
 
 
-
+@property (nonatomic, assign) BOOL isFavorited;
 
 @property (nonatomic, strong) Program* program;
 @property (nonatomic, strong) JPLocation* location;
 
 @property (nonatomic, strong) UILabel* summary;
-
 
 @property (nonatomic, strong) NSMutableArray* iconImages; //UIImageViews
 
@@ -53,6 +54,6 @@
 - (void)emailButtonTapped;
 - (void)websiteButtonTapped;
 - (void)facebookButtonTapped;
-- (void)favoriteButtonTapped;
+- (void)favoriteButtonSelected: (BOOL)isSelected;
 
 @end

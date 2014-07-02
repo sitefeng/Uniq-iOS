@@ -17,7 +17,6 @@
 
 @interface iPadMainExploreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate, JPDashletInfoDelegate>
 {
-    @private
     
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
     float       _screenWidth;

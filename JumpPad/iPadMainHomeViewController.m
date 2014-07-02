@@ -59,7 +59,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     self.profileBanner.clipsToBounds = YES;
     self.profileBanner.userImage = [UIImage imageNamed:@"profileIcon"];
     
-    self.profileBanner.userNameLabel.text = @"Peter Parker";
+    self.profileBanner.userNameLabel.text = @"User";
     self.profileBanner.userLocationLabel.text = _user.locationString;
     self.profileBanner.userAverage = 0.0f;
     [self reloadUserOverallAverage];
