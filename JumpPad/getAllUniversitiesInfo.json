@@ -1,5 +1,4 @@
 
-    
     [
      {
       "id":1,
@@ -88,9 +87,7 @@
       "totalFunding":null,
        "toDelete":false
    },
-   
-     
-     
+
      {
       "id":3,
       "name":"Ryersonnn University",
@@ -132,8 +129,6 @@
       "totalFunding":null,
        "toDelete":false
    },
-   
-     
      {
       "id":4,
       "name":"University of Western Ontario",
@@ -161,6 +156,4 @@
       "totalFunding":1340321,
        "toDelete":false
      }
-     
-     
     ]

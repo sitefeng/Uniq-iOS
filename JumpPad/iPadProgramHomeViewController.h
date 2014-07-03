@@ -20,7 +20,6 @@
 {
     
     BOOL    _isOrientationPortrait;
-    
     float   _screenWidth;
     
     NSManagedObjectContext* context;
@@ -28,8 +27,6 @@
     NSUInteger   _programId;
     
 }
-
-
 
 
 
@@ -43,8 +40,6 @@
 @property (nonatomic, strong) iPadProgramLabelView* labelView;
 @property (nonatomic, strong) iPadProgramSummaryView* summaryView;
 @property (nonatomic, strong) iPadProgramDetailView* detailView;
-
-
 
 
 

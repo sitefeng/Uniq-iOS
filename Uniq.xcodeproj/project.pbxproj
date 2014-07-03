@@ -23,8 +23,6 @@
 		5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */; };
 		5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2664C618BB1ED800C8CC91 /* NSString+JPItemUid.m */; };
 		5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D2664CF18BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld */; };
-		5D2664D618BB268D00C8CC91 /* iPadCollegeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2664D418BB268D00C8CC91 /* iPadCollegeViewController.m */; };
-		5D2664D718BB268D00C8CC91 /* iPadCollegeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2664D518BB268D00C8CC91 /* iPadCollegeViewController.xib */; };
 		5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */; };
 		5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */; };
 		5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */; };
@@ -165,6 +163,8 @@
 		AAE509CC1963BEE0000C6899 /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509CB1963BEE0000C6899 /* UserFavItem.m */; };
 		AAE509CF1963BEE0000C6899 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509CE1963BEE0000C6899 /* School.m */; };
 		AAE509D21963BEE0000C6899 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D11963BEE0000C6899 /* Faculty.m */; };
+		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
+		AAE50A5D1965A3D3000C6899 /* iPadSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */; };
 		AAEF023D1948DD87008F8BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */; };
 /* End PBXBuildFile section */
@@ -208,9 +208,6 @@
 		5D2664C518BB1ED800C8CC91 /* NSString+JPItemUid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPItemUid.h"; sourceTree = "<group>"; };
 		5D2664C618BB1ED800C8CC91 /* NSString+JPItemUid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPItemUid.m"; sourceTree = "<group>"; };
 		5D2664D018BB249100C8CC91 /* JPLocalDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JPLocalDatabase.xcdatamodel; sourceTree = "<group>"; };
-		5D2664D318BB268D00C8CC91 /* iPadCollegeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadCollegeViewController.h; sourceTree = "<group>"; };
-		5D2664D418BB268D00C8CC91 /* iPadCollegeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadCollegeViewController.m; sourceTree = "<group>"; };
-		5D2664D518BB268D00C8CC91 /* iPadCollegeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPadCollegeViewController.xib; sourceTree = "<group>"; };
 		5D338A0C1918747D00A62AC0 /* iPadFacultySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultySelectViewController.h; sourceTree = "<group>"; };
 		5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultySelectViewController.m; sourceTree = "<group>"; };
 		5D338A0F191878D200A62AC0 /* iPadFacultyBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultyBannerView.h; sourceTree = "<group>"; };
@@ -531,6 +528,10 @@
 		AAE509CE1963BEE0000C6899 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
 		AAE509D01963BEE0000C6899 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
 		AAE509D11963BEE0000C6899 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
+		AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolHomeViewController.h; sourceTree = "<group>"; };
+		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolHomeViewController.m; sourceTree = "<group>"; };
+		AAE50A5B1965A3D3000C6899 /* iPadSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolSummaryView.h; sourceTree = "<group>"; };
+		AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolSummaryView.m; sourceTree = "<group>"; };
 		AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -915,7 +916,7 @@
 				AAEF0256194A9269008F8BA8 /* Explore View Controller */,
 				AAEF0257194A928C008F8BA8 /* Search View Controller */,
 				AAEF0255194A9246008F8BA8 /* Home View Controller */,
-				AAEF025D194A9586008F8BA8 /* College View Controller */,
+				AAE509D919644779000C6899 /* School/Faculty View Controllers */,
 				5D338A1B19189B6500A62AC0 /* Program View Controller */,
 			);
 			name = "Main Tab View Controller";
@@ -1136,6 +1137,17 @@
 			name = "LDProgressView (avg)";
 			sourceTree = "<group>";
 		};
+		AAE509D919644779000C6899 /* School/Faculty View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */,
+				AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */,
+				AAE50A5B1965A3D3000C6899 /* iPadSchoolSummaryView.h */,
+				AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */,
+			);
+			name = "School/Faculty View Controllers";
+			sourceTree = "<group>";
+		};
 		AAEF0255194A9246008F8BA8 /* Home View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1263,16 +1275,6 @@
 			name = "Featured and Favorites";
 			sourceTree = "<group>";
 		};
-		AAEF025D194A9586008F8BA8 /* College View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				5D2664D318BB268D00C8CC91 /* iPadCollegeViewController.h */,
-				5D2664D418BB268D00C8CC91 /* iPadCollegeViewController.m */,
-				5D2664D518BB268D00C8CC91 /* iPadCollegeViewController.xib */,
-			);
-			name = "College View Controller";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1377,7 +1379,6 @@
 				5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */,
 				5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */,
 				5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */,
-				5D2664D718BB268D00C8CC91 /* iPadCollegeViewController.xib in Resources */,
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
 				5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */,
 				5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */,
@@ -1405,6 +1406,7 @@
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
+				AAE50A5D1965A3D3000C6899 /* iPadSchoolSummaryView.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
@@ -1452,13 +1454,13 @@
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */,
 				AA9C20A4195D19C600148675 /* Banner.m in Sources */,
+				AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */,
 				5D7055F718B9C779002941B3 /* iPadBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
-				5D2664D618BB268D00C8CC91 /* iPadCollegeViewController.m in Sources */,
 				AA9C20C2195D19C700148675 /* ProgramRating.m in Sources */,
 				AAE509CF1963BEE0000C6899 /* School.m in Sources */,
 				5D555526193B140900BF6F20 /* iPadProgramCoursesViewController.m in Sources */,

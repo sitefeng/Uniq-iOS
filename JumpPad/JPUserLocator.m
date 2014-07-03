@@ -10,6 +10,7 @@
 #import "User.h"
 #import <MapKit/MapKit.h>
 #import <AddressBook/AddressBook.h>
+#import "DXAlertView.h"
 
 @implementation JPUserLocator
 
@@ -65,6 +66,12 @@
     CLGeocoder* geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
     {
+        if(error)
+        {
+            [self showErrorAlert:error];
+            return;
+        }
+        
         CLPlacemark* placeMark = [placemarks firstObject];
         
         NSString* city = @"--";
@@ -89,7 +96,13 @@
     
 }
 
-
+- (void)showErrorAlert: (NSError*)error
+{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Cannot Find Location" message:@"Cannot determine location, please check internet connection and try again" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                          
+    [alert show];
+    
+}
 
 
 

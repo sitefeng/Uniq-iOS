@@ -12,6 +12,8 @@
 @class MKMapView, Program, School, SchoolLocation, iPadProgramLabelView;
 @interface iPadProgramContactViewController : UIViewController
 {
+    JPDashletType    _informationType;
+    
     School*          _school;
     SchoolLocation*  _schoolLocation;
     
@@ -43,6 +45,6 @@
 
 
 - (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
-
+- (id)initWithSchool: (School*)school;
 
 @end

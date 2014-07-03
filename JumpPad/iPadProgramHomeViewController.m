@@ -34,8 +34,8 @@
 
 
 
-const float kProgramImageHeight = 308;
-const float kProgramImageWidth  = 384;
+static const float kProgramImageHeight = 308;
+static const float kProgramImageWidth  = 384;
 
 
 @implementation iPadProgramHomeViewController
@@ -86,14 +86,7 @@ const float kProgramImageWidth  = 384;
     self.imageController.program = self.program;
     
     
-    if(_isOrientationPortrait)
-    {
-        self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 44, kProgramImageWidth, kProgramImageHeight);
-    }
-    else
-    {
-        self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+ kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight);
-    }
+    self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 44, kProgramImageWidth, kProgramImageHeight);
     
     self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 44) dashletNum:self.dashletUid program:self.program];
     
@@ -125,8 +118,8 @@ const float kProgramImageWidth  = 384;
     {
         self.summaryView.isFavorited = YES;
     }
-    else
-    {
+    else {
+        self.summaryView.isFavorited = YES;
         NSLog(@"Error: TOO many results!");
     }
     
@@ -262,39 +255,6 @@ const float kProgramImageWidth  = 384;
 }
 
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
-
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-}
-
-
-
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -302,11 +262,10 @@ const float kProgramImageWidth  = 384;
 
 
 
-
-
-
-
-
-
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

@@ -9,17 +9,20 @@
 #import <UIKit/UIKit.h>
 
 
-@class AsyncImageView, Program;
+@class AsyncImageView, Program, School, Faculty;
 
 @interface iPadProgramImagesViewController : UIViewController <UIScrollViewDelegate>
 {
-    
+    NSInteger   _currentType;
     
 }
 
 
 
-@property (nonatomic, assign) Program* program;
+@property (nonatomic, strong) Program* program;
+@property (nonatomic, strong) School * school;
+@property (nonatomic, strong) Faculty* faculty;
+
 
 
 

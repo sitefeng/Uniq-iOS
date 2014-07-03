@@ -13,22 +13,16 @@
 @interface iPadProgramLabelView : UIView
 {
     NSManagedObjectContext* context;
+    Program* _program;
+    
 }
 
 
 
-
-
-
-
-
-@property (nonatomic, strong) Program* program;
 @property (nonatomic, assign) NSInteger dashletUid;
 
 @property (nonatomic, strong) AsyncImageView* imageView;
 @property (nonatomic, strong) UILabel* label;
-
-@property (nonatomic, strong) NSString* schoolName;
 
 
 

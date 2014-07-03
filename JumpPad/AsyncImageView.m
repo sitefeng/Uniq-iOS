@@ -608,9 +608,26 @@ NSString *const AsyncImageErrorKey = @"error";
 {
     if ((self = [super initWithFrame:frame]))
     {
-        [self setUp];
+        self = [self initWithFrame:frame withPlaceholder:NO];
     }
     return self;
+}
+
+- (id)initWithFrame:(CGRect)frame withPlaceholder:(BOOL)showPlaceholder
+{
+    if ((self = [super initWithFrame:frame]))
+    {
+        [self setUp];
+        self.contentMode = UIViewContentModeScaleAspectFill;
+        
+        if(showPlaceholder)
+        {
+            UIImage* placeholder = [UIImage imageNamed:@"placeholderWhite"];
+            self.image = placeholder;
+        }
+    }
+    return self;
+    
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder

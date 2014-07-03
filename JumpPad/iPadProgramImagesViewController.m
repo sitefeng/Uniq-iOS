@@ -11,6 +11,8 @@
 #import "UniqAppDelegate.h"
 #import "AsyncImageView.h"
 #import "Program.h"
+#import "School.h"
+#import "Faculty.h"
 
 @interface iPadProgramImagesViewController ()
 
@@ -27,13 +29,15 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        _currentType = -1;
         
         self.view.backgroundColor = [UIColor clearColor];
         self.view.clipsToBounds = YES;
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 364, 273)];
         self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackBackground"]];
-        self.scrollView.layer.cornerRadius = 60;
+//        self.scrollView.layer.cornerRadius = 60;
+        self.scrollView.layer.cornerRadius = 15;
         self.scrollView.clipsToBounds = YES;
         
         [self.scrollView setPagingEnabled:YES];
@@ -43,16 +47,12 @@
         //////**************************
         self.urls = [NSMutableArray array];
         self.asyncImageViews = [NSMutableArray array];
-        
-//       [self reloadImages] // wait until Program is set
 
         /////*****************************
         
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 294, 364, 10)];
         self.pageControl.currentPage = 0;
-        [self.pageControl setCenter:CGPointMake(384/2, 294)];
         self.pageControl.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin);
-        
         
         [self.view addSubview:self.scrollView];
         [self.view addSubview:self.pageControl];
@@ -75,33 +75,57 @@
 }
 
 
-
-
 - (void)setProgram:(Program *)program
 {
     _program = program;
     
+    _currentType = JPDashletTypeProgram;
     [self reloadImages];
-    
 }
 
 
+- (void)setSchool:(School *)school
+{
+    _school = school;
+    _currentType = JPDashletTypeSchool;
+    [self reloadImages];
+}
 
+- (void)setFaculty:(Faculty *)faculty
+{
+    _faculty = faculty;
+    _currentType = JPDashletTypeFaculty;
+    [self reloadImages];
+}
 
 
 
 - (void)reloadImages
 {
-    
     [self.urls removeAllObjects];
     [self.asyncImageViews removeAllObjects];
     
+    NSArray* imageDictArray = [NSArray array];
     
-    NSArray* imageDict = [self.program.images allObjects];
+    //Setting the images(imgLink, descriptor) from the Core Data managed object
+    if(_currentType == JPDashletTypeProgram)
+    {
+        imageDictArray = [self.program.images allObjects];
+    }
+    else if(_currentType == JPDashletTypeSchool)
+    {
+        imageDictArray = [self.school.images allObjects];
+    }
+    else if(_currentType == JPDashletTypeFaculty)
+    {
+        imageDictArray = [self.faculty.images allObjects];
+    }
+    else
+        NSLog(@"Detail Image wrong item type");
     
     int i =0;
     
-    for(NSDictionary* dict in imageDict)
+    for(NSDictionary* dict in imageDictArray)
     {
         NSString* path = [dict valueForKey:@"imageLink"];
         
@@ -118,12 +142,11 @@
         
         
         AsyncImageView* asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*364, -64, 364, 273)];
-                                        
         
         asyncImageView.imageURL = url;
         asyncImageView.activityIndicatorStyle = UIActivityIndicatorViewStyleWhiteLarge;
         asyncImageView.showActivityIndicator = YES;
-        
+        asyncImageView.clipsToBounds = YES;
         [self.asyncImageViews addObject:asyncImageView];
         
         [self.scrollView addSubview:self.asyncImageViews[i]];

@@ -30,68 +30,102 @@
     self = [super init];
     if (self) {
         // Custom initialization
-        
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
         self.program = program;
         self.dashletUid = dashletUid;
+        _informationType = JPDashletTypeProgram;
         
     }
     return self;
 }
+
+- (id)initWithSchool:(School *)school
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        self.tabBarItem.image = [UIImage imageNamed:@"contact"];
+        
+        _school = school;
+        _informationType = JPDashletTypeSchool;
+        
+    }
+    return self;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage* backgroundImage = [[UIImage imageNamed:@"edgeBackground"] applyBlurWithRadius:0 tintColor:[[UIColor whiteColor] colorWithAlphaComponent: 0.5f] saturationDeltaFactor:1 maskImage:nil];
-
-    self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    if(_informationType == JPDashletTypeProgram)
+    {
+        UIImage* backgroundImage = [[UIImage imageNamed:@"edgeBackground"] applyBlurWithRadius:0 tintColor:[[UIColor whiteColor] colorWithAlphaComponent: 0.5f] saturationDeltaFactor:1 maskImage:nil];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    }
+    else{
+        self.view.backgroundColor = [JPStyle colorWithName:@"tWhite"];
+    }
     
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [delegate managedObjectContext];
     
-    NSInteger schoolId = self.dashletUid / 1000000;
+    //Getting School Location info
+    School* school = nil;
     
-    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-    req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];
-    School* school = [[context executeFetchRequest:req error:nil] firstObject];
-    _school = school;
-    SchoolLocation* location = school.location;
+    if(_informationType == JPDashletTypeProgram)
+    {
+        NSInteger schoolId = self.dashletUid / 1000000;
+        
+        NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+        req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];
+        school = [[context executeFetchRequest:req error:nil] firstObject];
+        _school = school;
+    }
+    else if(_informationType == JPDashletTypeSchool)
+    {
+        //Do nothing, _school is already set
+    }
+    
+    
+    SchoolLocation* location = _school.location;
     _schoolLocation = location;
     CGPoint coord = jpp([location.lattitude floatValue], [location.longitude floatValue]);
+    
 
     ////////////////////////////////////////
-    
-    
-    self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
-    
-    [self.view addSubview:self.labelView];
-    
+    //Program Label: only show if it's a program
+    if(_informationType == JPDashletTypeProgram)
+    {
+        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
+        
+        [self.view addSubview:self.labelView];
+    }
     
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(10, kiPadStatusBarHeight+kiPadNavigationBarHeight+44 + 10, 462 -20, 502 - 20)];
+    if (_informationType != JPDashletTypeProgram)
+    {
+        self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y - 90, self.mapView.frame.size.width, self.mapView.frame.size.height);
+    }
+    
     self.mapView.layer.cornerRadius = 20;
     self.mapView.clipsToBounds = YES;
     self.mapView.mapType = MKMapTypeStandard;
     _mapCenterCoord = CLLocationCoordinate2DMake(coord.x, coord.y);
-    
     self.mapView.region = MKCoordinateRegionMakeWithDistance(_mapCenterCoord, 1500, 1500);
     self.mapView.clipsToBounds = YES;
-    
     [self.view addSubview:self.mapView];
     
     
-    NSArray* imageNames = @[@"address-50", @"distance-50",@"phone-50",@"fax-50",@"email-50",@"safari-50",@"facebook-50",@"twitter-50"];
-    NSArray* labelNames = @[_school.name, @"Distance",@"Phone",@"Fax",@"Email",@"Website",@"Facebook Group",@"Twitter"];
+    NSArray* imageNames = [self getInformationArrayOfType:@"imageNames"];
+    NSArray* labelNames = [self getInformationArrayOfType:@"labelNames"];
     
-    
-    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",_schoolLocation.streetNum, _schoolLocation.streetName, _schoolLocation.city, _schoolLocation.province, _schoolLocation.country];
-    //TODO: add Postal Code and unit/ apt
-    
-    NSArray* values   = @[address, @"35kms away", [NSString stringWithFormat:@"%i", [self.program.phone intValue]], [NSString stringWithFormat:@"%i", [self.program.fax intValue]], self.program.email, self.program.website, self.program.facebookLink, self.program.twitterLink];
+    NSArray* values  = [self getInformationArrayOfType:@"values"];
 
-    float y2 = 125;
+    //iconButton Y start coord
+    float y2 = CGRectGetMinY(self.mapView.frame) + 7;
     
     for(int i=2; i<[imageNames count]; i++)
     {
@@ -108,6 +142,7 @@
         UITextView* textView = [[UITextView alloc] init];
         textView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
         [textView setEditable:NO];
+        textView.showsVerticalScrollIndicator = NO;
         textView.text = values[i];
         textView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
         
@@ -123,10 +158,7 @@
             float textViewHeight = textView.frame.size.height;
             y2 += 16 + textViewHeight + 15;
         }
-        
-        
-        
-        
+
         [self.view addSubview:iconButton];
         [self.view addSubview:label];
         [self.view addSubview:textView];
@@ -210,6 +242,54 @@
 }
 
 
+- (NSArray*)getInformationArrayOfType: (NSString*)arrayType
+{
+    
+    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",_schoolLocation.streetNum, _schoolLocation.streetName, _schoolLocation.city, _schoolLocation.province, _schoolLocation.country];
+    //TODO: add Postal Code and unit/ apt
+    
+    if(_informationType == JPDashletTypeProgram)
+    {
+        if([arrayType isEqual:@"imageNames"])
+        {
+            return @[@"address-50", @"distance-50",@"phone-50",@"fax-50",@"email-50",@"safari-50",@"facebook-50",@"twitter-50"];
+        }
+        else if([arrayType isEqual:@"labelNames"])
+        {
+            return @[_school.name, @"Distance",@"Phone",@"Fax",@"Email",@"Website",@"Facebook Group",@"Twitter"];
+        }
+        else //Array of Values
+        {
+            return @[address, @"35kms away", [NSString stringWithFormat:@"%i", [self.program.phone intValue]], [NSString stringWithFormat:@"%i", [self.program.fax intValue]], self.program.email, self.program.website, self.program.facebookLink, self.program.twitterLink];
+        }
+    
+    }
+    else if(_informationType == JPDashletTypeSchool)
+    {
+        if([arrayType isEqual:@"imageNames"])
+        {
+            return @[@"address-50", @"distance-50",@"safari-50",@"facebook-50",@"twitter-50"];
+        }
+        else if([arrayType isEqual:@"labelNames"])
+        {
+            return @[_school.name, @"Distance",@"Website",@"Facebook Group",@"Twitter"];
+        }
+        else //Array of Values
+        {
+            return @[address, @"35kms away", _school.website, _school.facebookLink, _school.twitterLink];
+        }
+        
+    }
+    else
+    {
+        return @[];
+    }
+    
+    
+}
+
+
+
 
 - (void)iconTappedWithIndex: (UIButton*) button
 {
@@ -219,7 +299,7 @@
 }
 
 
-
+#pragma mark - Map Controls
 
 - (void)mapDescriptionPan: (UIPanGestureRecognizer*)recognizer
 {

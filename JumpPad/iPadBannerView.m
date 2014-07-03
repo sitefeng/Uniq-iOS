@@ -71,7 +71,7 @@
     }
     else if([_imgArrayURL count]==1)
     {
-        AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) withPlaceholder:YES];
         imgView.imageURL = [_imgArrayURL firstObject];
         
         [self.bannerArray addObject:imgView];
@@ -85,7 +85,7 @@
         //Adding all the banners to the view
         for(int i=0; i< [_imgArrayURL count]; i++)
         {
-            AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height)];
+            AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height) withPlaceholder:YES];
             
             imgView.imageURL = _imgArrayURL[i];
             
@@ -108,8 +108,6 @@
         [self setContentSize:CGSizeMake(frame.size.width*([_imgArrayURL count]+2), 200)];
         
     }
-    
-    
     
 }
 

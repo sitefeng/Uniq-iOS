@@ -12,7 +12,7 @@
 #import "iOSDashletTitleView.h"
 #import "iOSDashletDetailsView.h"
 
-#import "iPadCollegeViewController.h"
+
 
 
 @implementation iPadMainCollectionViewCell
@@ -36,7 +36,7 @@
         
         self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         self.infoButton.frame = CGRectMake(frame.size.width - 40, frame.size.height - 40, 40, 40);
-        
+        self.infoButton.hidden = YES;
         [self.infoButton addTarget:self action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchDown];
         
         //Adding the Subviews
@@ -54,6 +54,8 @@
     return self;
 }
 
+
+#pragma mark - Setter Methods
 
 - (void)setDashletInfo:(JPDashlet *)dashletInfo
 {
@@ -75,11 +77,22 @@
 }
 
 
+- (void)setDelegate:(id<JPDashletInfoDelegate>)delegate
+{
+    _delegate = delegate;
+    
+    if([_delegate respondsToSelector:@selector(infoButtonPressed:)])
+    {
+        self.infoButton.hidden = NO;
+    }
+}
+
 
 
 - (void)infoButtonPressed: (id)sender
 {
-    [self.delegate infoButtonPressed:self];
+    if([self.delegate respondsToSelector:@selector(infoButtonPressed:)])
+        [self.delegate infoButtonPressed:self];
 }
 
 

@@ -13,7 +13,6 @@
 #import "iPadProgramBannerView.h"
 #import "sortViewController.h"
 
-#import "iPadCollegeViewController.h"
 #import "iPadMainCollectionViewCell.h"
 #import "Program.h"
 #import "iPadProgramViewController.h"

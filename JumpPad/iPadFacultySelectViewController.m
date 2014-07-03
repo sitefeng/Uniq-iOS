@@ -13,7 +13,7 @@
 #import "iPadFacultyBannerView.h"
 #import "sortViewController.h"
 #import "iPadProgramSelectViewController.h"
-#import "iPadCollegeViewController.h"
+#import "iPadSchoolHomeViewController.h"
 #import "iPadMainCollectionViewCell.h"
 #import "Faculty.h"
 
@@ -310,11 +310,11 @@
 
 - (void)infoButtonPressed:(iPadMainCollectionViewCell *)sender
 {
-    iPadCollegeViewController* viewController = [[iPadCollegeViewController alloc] initWithNibName:@"iPadCollegeViewController" bundle:[NSBundle mainBundle]];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:sender.dashletInfo.dashletUid];
     
-    viewController.itemUid = sender.dashletInfo.dashletUid;
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
-    [self presentViewController:viewController animated:YES completion:nil];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 
@@ -323,9 +323,6 @@
 
 
 
-////************************************************************************
-
-////************************************************************************
 
 ////************************************************************************
 

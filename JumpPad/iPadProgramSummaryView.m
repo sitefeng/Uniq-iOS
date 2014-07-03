@@ -26,13 +26,12 @@
         self.backgroundColor = [UIColor clearColor];
         
         self.program = program;
-        
         self.location = location;
+        
         _readyToCalculateDistance = false;
         
         
         self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 200, 35)];
-//        self.summary.textColor = [JPStyle colorWithHex:@"C7E8FF" alpha:1];
         self.summary.textColor = [UIColor whiteColor];
         
         self.summary.font = [UIFont fontWithName:[JPFont defaultLightFont] size:20];
@@ -66,7 +65,7 @@
             }
             
         }
-        
+
         //*************************************
         
         UIImage* deadlineImg = [UIImage imageNamed:@"iOSCalendarIcon"];
@@ -89,6 +88,7 @@
         [self addSubview:deadlineLabel];
         
         //**************************************
+        
         
         _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
@@ -187,7 +187,9 @@
             return @"--- kms Away";
         }
         case 12:
-            return @"Avg Unknown";
+        {
+            return @"Avg Unkown";
+        }
             
         default:
             return @"";
@@ -200,13 +202,9 @@
 
 
 
-
-
 - (void)emailButtonTapped: (UIButton*)sender
 {
-    
     [self.delegate emailButtonTapped];
-    
 }
 
 
@@ -232,12 +230,12 @@
     if(sender.selected == NO)
     {
         [self.delegate favoriteButtonSelected:YES];
-        sender.selected = YES;
+        self.isFavorited = YES;
     }
     else //Deselect
     {
         [self.delegate favoriteButtonSelected:NO];
-        sender.selected = NO;
+        self.isFavorited = NO;
     }
     
 }
@@ -279,14 +277,10 @@
     
     CGContextAddLines(context, dividerLineVert, 2);
     CGContextDrawPath(context, kCGPathStroke);
-
-    
-    
-    
-    
-    
     
 }
+
+
 
 
 @end

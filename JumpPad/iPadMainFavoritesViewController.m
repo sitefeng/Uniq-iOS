@@ -13,7 +13,7 @@
 #import "iPadBannerView.h"
 #import "sortViewController.h"
 #import "iPadFacultySelectViewController.h"
-#import "iPadCollegeViewController.h"
+
 #import "iPadMainCollectionViewCell.h"
 #import "School.h"
 #import "Banner.h"
@@ -365,16 +365,6 @@
 
 
 
-#pragma mark - JPDashlet Info Delegate
-
-- (void)infoButtonPressed:(iPadMainCollectionViewCell *)sender
-{
-    iPadCollegeViewController* viewController = [[iPadCollegeViewController alloc] initWithNibName:@"iPadCollegeViewController" bundle:[NSBundle mainBundle]];
-    
-    viewController.itemUid = sender.dashletInfo.dashletUid;
-    
-    [self presentViewController:viewController animated:YES completion:nil];
-}
 
 
 #pragma mark - Editing Mode
