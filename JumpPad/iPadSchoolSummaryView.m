@@ -10,10 +10,15 @@
 #import "JPFont.h"
 #import "JPLocation.h"
 #import "JPGlobal.h"
+#import "School.h"
+#import "Faculty.h"
+#import "SchoolLocation.h"
+
+static const NSInteger kLabelConst =321;
 
 @implementation iPadSchoolSummaryView
 
-- (instancetype)initWithFrame:(CGRect)frame school:(School *)school
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -22,8 +27,7 @@
         self.backgroundColor = [UIColor clearColor];
         
         _readyToCalculateDistance = false;
-        
-        _school = school;
+        _itemType = -1;
         
         self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 200, 35)];
         self.summary.textColor = [UIColor whiteColor];
@@ -43,14 +47,13 @@
         {
             for(int j=0; j<2; j++)
             {
-                if(i==2&&j==1) break;
-                
                 UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(15+ horizDist*j, 65+ vertDist*i, 30, 30)];
                 view.image = [UIImage imageNamed:@"infoIcon"];
                 [self.iconImages addObject:view];
                 [self addSubview:view];
                 
                 UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50+ horizDist*j, 65+vertDist*i, 160, 30)];
+                label.tag = j*10 + i + kLabelConst;
                 label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
                 label.textColor = [UIColor whiteColor];
                 label.shadowColor = [UIColor whiteColor];
@@ -58,7 +61,6 @@
                 [self addSubview:label];
                 
             }
-            
         }
         
         float iconHeight = 210;
@@ -99,11 +101,91 @@
 
 
 
-- (NSString*)labelTextForRow: (NSInteger)row column: (NSInteger)column
+- (NSString*)labelTextForRow: (NSInteger)row column: (NSInteger)col
 {
+    NSUInteger num = col*10 + row;
     
-    return @"Not Set";
+    switch (num)
+    {
+        case 0:
+        {
+            if(_itemType == JPDashletTypeSchool)
+                return [NSString stringWithFormat:@"%@ Students", self.school.population];
+            else
+                return [NSString stringWithFormat:@"%@ Students", self.faculty.population];
+        }
+        case 1:
+        {
+            if(_itemType == JPDashletTypeSchool)
+                return [NSString stringWithFormat:@"%@ Alumni", self.school.alumniNumber];
+            else //faculty
+                return [NSString stringWithFormat:@"%@ Alumni", self.faculty.alumniNumber];
+            
+        }
+        case 2:
+        {
+            if(_itemType == JPDashletTypeSchool)
+                return [NSString stringWithFormat:@"%@ Programs", self.school.numPrograms];
+            else //faculty
+                return [NSString stringWithFormat:@"%@ Programs", self.faculty.numPrograms];
+        }
+        case 10:
+        {
+            NSMutableString* location = [NSMutableString string];
+            
+            if(self.location.cityName)
+            {
+                location = [NSMutableString stringWithFormat:@"%@, ",self.location.cityName];
+            }
+            else
+            {
+                location = [@"Unknown, " mutableCopy];
+            }
+            if(self.location.provinceName)
+            {
+                [location appendString:self.location.provinceName];
+            }
+            else
+            {
+                [location appendString:@"--"];
+            }
+            
+            return location;
+        }
+        case 11:
+        {
+            return @"--- kms Away";
+        }
+        case 12:
+        {
+            if(_itemType == JPDashletTypeSchool)
+                return [NSString stringWithFormat:@"$%@ Funding", self.school.totalFunding];
+            else //faculty
+                return [NSString stringWithFormat:@"$%@ Funding", self.faculty.totalFunding];
+        }
+            
+        default:
+            return @"";
+    }
+    return @"";
 }
+
+
+- (void)reloadLabelInfo
+{
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<2; j++)
+        {
+            UILabel* label = (UILabel*)[self viewWithTag:j*10 + i + kLabelConst];
+            
+            label.text = [self labelTextForRow:i column:j];
+        }
+        
+    }
+}
+
+
 
 
 - (void)twitterButtonTapped: (UIButton*)sender
@@ -140,15 +222,33 @@
     
 }
 
+
 #pragma mark - Setter Methods
 
 - (void)setIsFavorited:(BOOL)isFavorited
 {
     _isFavorited = isFavorited;
-    
     _favoriteButton.selected = isFavorited;
 }
 
+- (void)setSchool:(School *)school
+{
+    _school = school;
+    CGPoint coord = CGPointMake([school.location.lattitude floatValue], [school.location.longitude floatValue]);
+    self.location = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
+    _itemType = JPDashletTypeSchool;
+    [self reloadLabelInfo];
+}
+
+- (void)setFaculty:(Faculty *)faculty
+{
+    _faculty = faculty;
+    _school = faculty.school;
+    CGPoint coord = CGPointMake([_school.location.lattitude floatValue], [_school.location.longitude floatValue]);
+    self.location = [[JPLocation alloc] initWithCooridinates:coord city:_school.location.city province:_school.location.province];
+    _itemType = JPDashletTypeFaculty;
+    [self reloadLabelInfo];
+}
 
 
 // Only override drawRect: if you perform custom drawing.

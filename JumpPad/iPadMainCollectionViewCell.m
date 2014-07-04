@@ -25,6 +25,8 @@
         
         self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         
+        self.showFavButton = NO;
+        
         //Creating the Subviews
         CGRect imageFrame = CGRectMake(0, 0, frame.size.width, frame.size.height/4*3 );
         
@@ -37,15 +39,23 @@
         self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         self.infoButton.frame = CGRectMake(frame.size.width - 40, frame.size.height - 40, 40, 40);
         self.infoButton.hidden = YES;
-        [self.infoButton addTarget:self action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchDown];
+        [self.infoButton addTarget:self action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //Favorite View
+        self.favButton = [[UIButton alloc] init];
+        self.favButton.frame = CGRectMake(frame.size.width - 45, 5, 40, 40);
+        self.favButton.hidden = YES;
+        self.favButton.selected = NO;
+        [self.favButton setImage:[UIImage imageNamed:@"favorite2"] forState:UIControlStateNormal];
+        [self.favButton setImage:[UIImage imageNamed:@"favoriteFilled2"] forState:UIControlStateSelected];
+        [self.favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         //Adding the Subviews
         [self addSubview:self.imageView];
-        
         [self addSubview:self.title];
         [self addSubview:self.details];
-        
         [self addSubview:self.infoButton];
+        [self addSubview:self.favButton];
         
         self.clipsToBounds = YES;
         self.layer.cornerRadius = 10;
@@ -71,8 +81,9 @@
     }
     
     self.imageView.logoURL = _dashletInfo.icon;
-    
     self.imageView.imageURLs = _dashletInfo.backgroundImages;
+    
+    self.favButton.selected = [dashletInfo isFavorited];
     
 }
 
@@ -93,6 +104,40 @@
 {
     if([self.delegate respondsToSelector:@selector(infoButtonPressed:)])
         [self.delegate infoButtonPressed:self];
+}
+
+
+- (void)favButtonPressed: (id)sender
+{
+    if([self.delegate respondsToSelector:@selector(favButtonPressed:favorited:)])
+    {
+        if(!self.favButton.selected) //Selecting the fav button
+        {
+            [self.delegate favButtonPressed:self favorited:YES];
+            self.favButton.selected = YES;
+        }
+        else
+        {
+            [self.delegate favButtonPressed:self favorited:NO];
+            self.favButton.selected = NO;
+        }
+        
+    }
+    
+}
+
+- (void)setShowFavButton:(BOOL)showFavButton
+{
+    _showFavButton = showFavButton;
+    
+    if(_showFavButton)
+    {
+        self.favButton.hidden = NO;
+    }
+    else
+    {
+        self.favButton.hidden = YES;
+    }
 }
 
 

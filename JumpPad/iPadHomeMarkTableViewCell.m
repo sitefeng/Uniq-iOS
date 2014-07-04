@@ -112,8 +112,9 @@
         {
             self.titleField = [[UITextField alloc] initWithFrame:CGRectMake(self.titleLabel.frame.origin.x, self.titleLabel.frame.origin.y, 150, self.titleLabel.frame.size.height)];
             self.titleField.font = self.titleLabel.font;
+            self.titleField.autocorrectionType = UITextAutocorrectionTypeNo;
             [self.titleField setBorderStyle:UITextBorderStyleNone];
-            [self.titleField setClearsOnBeginEditing:YES];
+            [self.titleField setClearsOnInsertion:YES];
             [self addSubview:self.titleField];
         }
         self.titleField.hidden = NO;
@@ -135,7 +136,7 @@
     {
         self.markField = [[UITextField alloc] initWithFrame:self.percentageLabel.frame];
         self.markField.font = self.percentageLabel.font;
-        [self.markField setClearsOnBeginEditing:YES];
+        [self.markField setClearsOnInsertion:YES];
         self.markField.textAlignment = NSTextAlignmentRight;
         self.markField.keyboardType = UIKeyboardTypeDecimalPad;
         self.markField.borderStyle = UITextBorderStyleNone;

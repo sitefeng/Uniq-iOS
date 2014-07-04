@@ -15,15 +15,16 @@
 
 
 @interface JPDashlet : NSObject <NSCopying>
-
+{
+    NSManagedObjectContext* context;
+}
 //Item Unique Idenntifier for the exact item
 
-@property (nonatomic, assign) NSInteger dashletUid;
-
-
+@property (nonatomic, assign) NSUInteger dashletUid;
 
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) JPDashletType type;
+
 
 @property (nonatomic, strong) NSMutableArray*  backgroundImages;
                              //Array of NSURLs
@@ -51,8 +52,9 @@
 - (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletId;
 - (instancetype)initWithProgram: (Program*)program fromFaculty: (NSInteger)facultyDashletId; //Full ID
 
-- (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet;
+- (BOOL)isFavorited;
 
+- (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet;
 - (NSComparisonResult)compareWithLocation:(JPDashlet *)otherDashlet;
 - (NSComparisonResult)compareWithAverage:(JPDashlet *)otherDashlet;
 - (NSComparisonResult)compareWithPopulation:(JPDashlet *)otherDashlet;

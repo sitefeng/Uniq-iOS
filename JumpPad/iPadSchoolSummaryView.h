@@ -16,29 +16,30 @@
     
     UIButton* _favoriteButton;
     
-    School*   _school;
+    JPDashletType _itemType;
+    
 }
 
 
 
 
 @property (nonatomic, assign) BOOL isFavorited;
+@property (nonatomic, strong) School* school;
+@property (nonatomic, strong) Faculty* faculty;
+
 
 @property (nonatomic, strong) JPLocation* location;
 
+
+
 @property (nonatomic, strong) UILabel* summary;
-
 @property (nonatomic, strong) NSMutableArray* iconImages; //UIImageViews
-
 @property (nonatomic, strong) NSMutableArray* iconLabels; //UILabels
-
-
 @property (nonatomic, strong) id<JPSchoolSummaryDelegate> delegate;
 
 
 
-- (instancetype)initWithFrame:(CGRect)frame school: (School*)school;
-
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end
 

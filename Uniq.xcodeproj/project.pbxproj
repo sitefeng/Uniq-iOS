@@ -165,6 +165,8 @@
 		AAE509D21963BEE0000C6899 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D11963BEE0000C6899 /* Faculty.m */; };
 		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
 		AAE50A5D1965A3D3000C6899 /* iPadSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */; };
+		AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */ = {isa = PBXBuildFile; fileRef = AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */; };
+		AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */; };
 		AAEF023D1948DD87008F8BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */; };
 /* End PBXBuildFile section */
@@ -532,6 +534,9 @@
 		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolHomeViewController.m; sourceTree = "<group>"; };
 		AAE50A5B1965A3D3000C6899 /* iPadSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolSummaryView.h; sourceTree = "<group>"; };
 		AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolSummaryView.m; sourceTree = "<group>"; };
+		AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfoTry.json; sourceTree = "<group>"; };
+		AAE50A631966685E000C6899 /* iPadProgramComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramComparisonViewController.h; sourceTree = "<group>"; };
+		AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramComparisonViewController.m; sourceTree = "<group>"; };
 		AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -606,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */,
+				AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */,
 				5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */,
 				5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */,
 				5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */,
@@ -1260,6 +1266,8 @@
 			children = (
 				5D338A2519189DB900A62AC0 /* iPadProgramCompareViewController.h */,
 				5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */,
+				AAE50A631966685E000C6899 /* iPadProgramComparisonViewController.h */,
+				AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */,
 			);
 			name = "Program Compare";
 			sourceTree = "<group>";
@@ -1377,6 +1385,7 @@
 				5D555523193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib in Resources */,
 				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
 				5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */,
+				AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */,
 				5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */,
 				5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */,
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
@@ -1426,6 +1435,7 @@
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
+				AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */,
 				AA9C20D4195DA47D00148675 /* HighschoolCourse.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,

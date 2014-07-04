@@ -69,14 +69,14 @@
             self.ratioPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(450, 50, 200, 200) Center:CGPointMake(100, 100) Radius:100];
             self.ratioPieChart.dataSource = self;
             self.ratioPieChart.delegate = self;
-            self.ratioPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+            self.ratioPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
             self.ratioPieChart.labelColor = [UIColor whiteColor];
             self.ratioPieChart.showPercentage = YES;
             self.ratioPieChart.showLabel = YES;
             
             self.ratioPieChart.animationSpeed = 1;
             self.ratioPieChart.startPieAngle = M_PI_2;
-            self.ratioPieChart.labelShadowColor = [UIColor blackColor];
+//            self.ratioPieChart.labelShadowColor = [UIColor blackColor];
             self.ratioPieChart.labelRadius = 66;
             
             self.ratioPieChart.accessibilityLabel = @"ratioPieChart";
@@ -617,10 +617,10 @@
     self.whyPieChart.startPieAngle = M_PI_2;
     self.whyPieChart.animationSpeed = 1.0;
     
-    self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+    self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
     self.whyPieChart.labelColor = [UIColor whiteColor];
     
-    self.whyPieChart.labelShadowColor = [UIColor blackColor];
+//    self.whyPieChart.labelShadowColor = [UIColor blackColor];
     [self.whyPieChart setPieBackgroundColor: [UIColor clearColor]];
     
     self.whyPieChart.labelRadius = 100;
@@ -662,8 +662,7 @@
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(720, 115 + 30*i, 48, 15)];
         view.backgroundColor = [JPStyle rainbowColorWithIndex:i];
         
-        UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(640, 112 + 30*i, 64, 20)];
-        
+        UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(640, 112 + 30*i, 70, 20)];
         legendLabel.text = legendTexts[i];
         legendLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:13];
         legendLabel.textColor = [JPStyle colorWithHex:@"750A09" alpha:1];
@@ -672,7 +671,7 @@
         if(i==5)
         {
             legendLabel.numberOfLines = 2;
-            legendLabel.frame = CGRectMake(640, 112 + 30*i - 10, 74, 40);
+            legendLabel.frame = CGRectMake(640, 112 + 30*i - 10, 70, 40);
         }
         
         [self addSubview:view];
@@ -794,7 +793,7 @@
     [self addSubview:self.overallRatingView];
     
     UILabel* overallPercent = [[UILabel alloc] initWithFrame:CGRectMake(173, 200, 100, 50)];
-    overallPercent.textColor = [UIColor blackColor];
+    overallPercent.textColor = [UIColor whiteColor];
     overallPercent.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
     overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
     [self addSubview:overallPercent];

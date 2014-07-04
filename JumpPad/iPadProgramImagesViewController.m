@@ -7,7 +7,7 @@
 //
 
 #import "iPadProgramImagesViewController.h"
-
+#import "JPFont.h"
 #import "UniqAppDelegate.h"
 #import "AsyncImageView.h"
 #import "Program.h"
@@ -36,7 +36,6 @@
         
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(10, 10, 364, 273)];
         self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackBackground"]];
-//        self.scrollView.layer.cornerRadius = 60;
         self.scrollView.layer.cornerRadius = 15;
         self.scrollView.clipsToBounds = YES;
         
@@ -47,15 +46,26 @@
         //////**************************
         self.urls = [NSMutableArray array];
         self.asyncImageViews = [NSMutableArray array];
-
+        
         /////*****************************
         
-        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 294, 364, 10)];
+        self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 290, 364 + 10, 10)];
         self.pageControl.currentPage = 0;
         self.pageControl.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin);
         
         [self.view addSubview:self.scrollView];
         [self.view addSubview:self.pageControl];
+        
+        //No Photo Label
+        _noPhotoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 150)];
+        _noPhotoLabel.center = self.scrollView.center;
+        _noPhotoLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
+        _noPhotoLabel.textColor = [UIColor whiteColor];
+        _noPhotoLabel.numberOfLines = 2;
+        _noPhotoLabel.textAlignment = NSTextAlignmentCenter;
+        _noPhotoLabel.text = @"No Photos\nAvailable";
+        _noPhotoLabel.hidden = NO;
+        [self.view addSubview:_noPhotoLabel];
         
     }
     return self;
@@ -65,12 +75,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    
-    
-    
-    
+    //Never called because of adding the view controller manually
     
 }
 
@@ -123,7 +128,7 @@
     else
         NSLog(@"Detail Image wrong item type");
     
-    int i =0;
+    int i = 0;
     
     for(NSDictionary* dict in imageDictArray)
     {
@@ -162,11 +167,15 @@
     }
     
     [self.scrollView setContentSize:CGSizeMake(i*364, 10)];//273
-    
     [self.scrollView setNeedsDisplay];
     
-    
     self.pageControl.numberOfPages = i;
+    
+    //Hide No Photos Label;
+    if(i>0)
+        _noPhotoLabel.hidden = YES;
+    else
+        _noPhotoLabel.hidden = NO;
     
 }
 

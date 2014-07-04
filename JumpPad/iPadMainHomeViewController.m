@@ -59,7 +59,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     self.profileBanner.clipsToBounds = YES;
     self.profileBanner.userImage = [UIImage imageNamed:@"profileIcon"];
     
-    self.profileBanner.userNameLabel.text = @"User";
+    self.profileBanner.userNameLabel.text = _user.name;
     self.profileBanner.userLocationLabel.text = _user.locationString;
     self.profileBanner.userAverage = 0.0f;
     [self reloadUserOverallAverage];
@@ -136,6 +136,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         newUser.satMath    = @0;
         newUser.satReading = @0;
         newUser.satGrammar = @0;
+        newUser.name = @"Nickname";
         _user = newUser;
         [context insertObject:newUser];
     }
@@ -416,13 +417,25 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     {
         editButton.title = @"Save";
         _isEditing = YES;
-        
+        self.profileBanner.userNameLabel.userInteractionEnabled = YES;
     }
     else //is Save
     {
         editButton.title = @"Edit";
         _isEditing = NO;
-
+        self.profileBanner.userNameLabel.userInteractionEnabled = NO;
+        
+        //Saving Name
+        if([self.profileBanner.userNameLabel.text isEqual:@""]
+        || [self.profileBanner.userNameLabel.text isEqual:@" "]) {
+            _user.name = @"Nickname";
+            self.profileBanner.userNameLabel.text = _user.name;
+        }
+        else {
+            _user.name = self.profileBanner.userNameLabel.text;
+        }
+        
+        //Saving Course Marks
         [self saveCoursesFromTableView];
         
         //Saving SAT Scores

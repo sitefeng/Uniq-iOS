@@ -13,6 +13,8 @@
 #import "SchoolLocation.h"
 #import "School.h"
 
+#import "Faculty.h"
+
 #import "JPFont.h"
 #import "JPStyle.h"
 
@@ -34,7 +36,7 @@
         
         self.program = program;
         self.dashletUid = dashletUid;
-        _informationType = JPDashletTypeProgram;
+        _itemType = JPDashletTypeProgram;
         
     }
     return self;
@@ -48,7 +50,22 @@
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
         _school = school;
-        _informationType = JPDashletTypeSchool;
+        _itemType = JPDashletTypeSchool;
+        
+    }
+    return self;
+}
+
+- (id)initWithFaculty: (Faculty *)faculty
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        self.tabBarItem.image = [UIImage imageNamed:@"contact"];
+        
+        _faculty = faculty;
+        _school  = faculty.school;
+        _itemType = JPDashletTypeFaculty;
         
     }
     return self;
@@ -60,7 +77,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if(_informationType == JPDashletTypeProgram)
+    if(_itemType == JPDashletTypeProgram)
     {
         UIImage* backgroundImage = [[UIImage imageNamed:@"edgeBackground"] applyBlurWithRadius:0 tintColor:[[UIColor whiteColor] colorWithAlphaComponent: 0.5f] saturationDeltaFactor:1 maskImage:nil];
         self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
@@ -75,7 +92,7 @@
     //Getting School Location info
     School* school = nil;
     
-    if(_informationType == JPDashletTypeProgram)
+    if(_itemType == JPDashletTypeProgram)
     {
         NSInteger schoolId = self.dashletUid / 1000000;
         
@@ -84,7 +101,7 @@
         school = [[context executeFetchRequest:req error:nil] firstObject];
         _school = school;
     }
-    else if(_informationType == JPDashletTypeSchool)
+    else if(_itemType == JPDashletTypeSchool)
     {
         //Do nothing, _school is already set
     }
@@ -97,7 +114,7 @@
 
     ////////////////////////////////////////
     //Program Label: only show if it's a program
-    if(_informationType == JPDashletTypeProgram)
+    if(_itemType == JPDashletTypeProgram)
     {
         self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
         
@@ -105,7 +122,7 @@
     }
     
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(10, kiPadStatusBarHeight+kiPadNavigationBarHeight+44 + 10, 462 -20, 502 - 20)];
-    if (_informationType != JPDashletTypeProgram)
+    if (_itemType != JPDashletTypeProgram)
     {
         self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y - 90, self.mapView.frame.size.width, self.mapView.frame.size.height);
     }
@@ -248,7 +265,7 @@
     NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",_schoolLocation.streetNum, _schoolLocation.streetName, _schoolLocation.city, _schoolLocation.province, _schoolLocation.country];
     //TODO: add Postal Code and unit/ apt
     
-    if(_informationType == JPDashletTypeProgram)
+    if(_itemType == JPDashletTypeProgram)
     {
         if([arrayType isEqual:@"imageNames"])
         {
@@ -264,7 +281,7 @@
         }
     
     }
-    else if(_informationType == JPDashletTypeSchool)
+    else if(_itemType == JPDashletTypeSchool)
     {
         if([arrayType isEqual:@"imageNames"])
         {
@@ -280,12 +297,24 @@
         }
         
     }
-    else
+    else // type faculty
     {
-        return @[];
+        if([arrayType isEqual:@"imageNames"])
+        {
+            return @[@"address-50", @"distance-50",@"safari-50",@"facebook-50",@"twitter-50"];
+        }
+        else if([arrayType isEqual:@"labelNames"])
+        {
+            return @[_school.name, @"Distance",@"Website",@"Facebook Group",@"Twitter"];
+        }
+        else //Array of Values
+        {
+            return @[address, @"35kms away", _faculty.website, _faculty.facebookLink, _faculty.twitterLink];
+        }
+        
     }
     
-    
+    return @[];
 }
 
 

@@ -54,7 +54,7 @@
         self.subtitleLabel.frame = CGRectMake(20, 45, 400, 30);
         
         
-        _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 60, 28, 30, 30)];
+        _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 65, 23, 40, 40)];
         [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite2"] forState:UIControlStateNormal];
         
         [_favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];

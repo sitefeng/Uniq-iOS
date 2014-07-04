@@ -13,7 +13,9 @@
 @protocol JPDashletInfoDelegate;
 
 @interface iPadMainCollectionViewCell : UICollectionViewCell
-
+{
+   
+}
 
 @property (nonatomic, strong) iPadDashletImageView* imageView;
 
@@ -23,6 +25,8 @@
 @property (nonatomic, strong) iOSDashletDetailsView* details;
 
 @property (nonatomic, strong) UIButton* infoButton;
+@property (nonatomic, strong) UIButton* favButton;
+@property (nonatomic, assign) BOOL      showFavButton;
 
 @property (nonatomic, weak) id<JPDashletInfoDelegate> delegate;
 
@@ -35,7 +39,7 @@
 
 @optional
 - (void)infoButtonPressed: (iPadMainCollectionViewCell*)sender;
-
+- (void)favButtonPressed: (iPadMainCollectionViewCell*)sender favorited: (BOOL)fav;
 
 
 

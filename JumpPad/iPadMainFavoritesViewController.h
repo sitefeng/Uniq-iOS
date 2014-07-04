@@ -23,6 +23,8 @@
     
     NSMutableArray*    _dashletTypeCounts;
     
+    BOOL        _isEditing;
+    NSMutableArray*    _favDashletsToDelete;
 }
 
 

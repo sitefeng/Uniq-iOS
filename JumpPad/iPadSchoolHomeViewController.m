@@ -20,6 +20,7 @@
 #import "iPadProgramViewController.h"
 #import "JPLocation.h"
 #import "School.h"
+#import "Faculty.h"
 #import "SchoolLocation.h"
 #import "UserFavItem.h"
 
@@ -53,19 +54,43 @@ static const float kProgramImageWidth  = 384;
         
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
         
+        _itemType = -1;
+        //Getting School/Faculty Info based on dashletUid
         NSUInteger schoolInt = dashletUid/1000000;
-        NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-        schoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolInt];
+        NSUInteger facultyInt = (dashletUid % 1000000) / 1000;
         
-        NSArray* schoolResults = [context executeFetchRequest:schoolReq error:nil];
+        if(facultyInt == 0) // item is a school
+        {
+            NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+            schoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolInt];
+            
+            NSArray* schoolResults = [context executeFetchRequest:schoolReq error:nil];
+            School* school = [schoolResults firstObject];
+            self.school = school;
 
+        }
+        else //should be faculty, although a program is possible
+        {
+            NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+            facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %i", facultyInt];
+            
+            NSArray* facultyResults = [context executeFetchRequest:facultyReq error:nil];
+            Faculty* faculty = [facultyResults firstObject];
+            self.faculty = faculty;
+        }
         
-        School* school = [schoolResults firstObject];
         
-        self.school = school;
+        //Set Properties
         self.dashletUid = dashletUid;
         
-        self.title = self.school.name;
+        if(_itemType == JPDashletTypeFaculty)
+        {
+            self.title = self.faculty.name;
+        }
+        else
+        {
+            self.title = self.school.name;
+        }
         
     }
     return self;
@@ -79,7 +104,7 @@ static const float kProgramImageWidth  = 384;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor darkGrayColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
 
     self.imageController = [[iPadProgramImagesViewController alloc] init];
     self.imageController.school = self.school;
@@ -94,8 +119,12 @@ static const float kProgramImageWidth  = 384;
     _schoolLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
     
     //Summary View
-    self.summaryView = [[iPadSchoolSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight) school:self.school];
+    self.summaryView = [[iPadSchoolSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight)];
     self.summaryView.delegate = self;
+    if(_itemType == JPDashletTypeSchool)
+        self.summaryView.school = self.school;
+    else
+        self.summaryView.faculty = self.faculty;
     
     //Check if program is favorited
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
@@ -122,7 +151,13 @@ static const float kProgramImageWidth  = 384;
     
     //**********************************************
     //Map View Controller
-    self.contactVC = [[iPadProgramContactViewController alloc] initWithSchool:self.school];
+    if(_itemType == JPDashletTypeFaculty)
+    {
+        self.contactVC = [[iPadProgramContactViewController alloc] initWithFaculty:_faculty];
+    }
+    else {
+        self.contactVC = [[iPadProgramContactViewController alloc] initWithSchool:self.school];
+    }
     
     self.contactVC.view.frame = CGRectMake(0, CGRectGetMaxY(self.summaryView.frame), kiPadWidthPortrait, kiPadHeightPortrait-CGRectGetMaxY(self.summaryView.frame));
     
@@ -224,18 +259,6 @@ static const float kProgramImageWidth  = 384;
         NSLog(@"fav error: %@\n", error);
     }
     
-    
-    //    //Test adding Favorite to core data
-    //    NSFetchRequest* allfavReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    //    NSArray* allresults = [context executeFetchRequest:allfavReq error:nil];
-    //
-    //    for(UserFavItem* item in allresults)
-    //    {
-    //        NSLog(@"ALL FAV#: [%@], type[%@] \n", item.itemId, item.type);
-    //    }
-    //
-    //    NSLog(@">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    
 }
 
 
@@ -244,6 +267,22 @@ static const float kProgramImageWidth  = 384;
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
+#pragma mark - Setter Methods
+- (void)setSchool:(School *)school
+{
+    _school = school;
+    _itemType = JPDashletTypeSchool;
+}
+
+- (void)setFaculty:(Faculty *)faculty
+{
+    _faculty = faculty;
+    _itemType = JPDashletTypeFaculty;
+    _school = faculty.school;
+}
+
 
 
 - (void)didReceiveMemoryWarning

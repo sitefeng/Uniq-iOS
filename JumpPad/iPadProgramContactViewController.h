@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@class MKMapView, Program, School, SchoolLocation, iPadProgramLabelView;
+@class MKMapView, Program, School, Faculty, SchoolLocation, iPadProgramLabelView;
 @interface iPadProgramContactViewController : UIViewController
 {
-    JPDashletType    _informationType;
+    JPDashletType    _itemType;
     
     School*          _school;
     SchoolLocation*  _schoolLocation;
+    
+    Faculty*         _faculty;
     
     UIView*          _mapBarView;
     CGFloat          _mapBarPosition; //for pull up
@@ -46,5 +48,6 @@
 
 - (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
 - (id)initWithSchool: (School*)school;
+- (id)initWithFaculty: (Faculty *)faculty;
 
 @end

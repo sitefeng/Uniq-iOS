@@ -108,7 +108,7 @@
     [self sendGetAllUniversitiesInfoRequestWithLastModifiedTime:self.timeModified];
     
     //Simulated Data
-    NSURL* uniInfoURL = [[NSBundle mainBundle] URLForResource:@"getAllUniversitiesInfo" withExtension:@"json"];
+    NSURL* uniInfoURL = [[NSBundle mainBundle] URLForResource:@"getAllUniversitiesInfoTry" withExtension:@"json"];
     ////////////////
     NSData* uniInfoData = [NSData dataWithContentsOfURL:uniInfoURL];
     

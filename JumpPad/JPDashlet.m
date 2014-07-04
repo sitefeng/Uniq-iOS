@@ -21,16 +21,15 @@
 
 - (instancetype)initWithDashletUid: (NSUInteger)uid
 {
-
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = [delegate managedObjectContext];
+    context = [delegate managedObjectContext];
     
-    NSInteger schoolInt = uid / 1000000;
+    NSUInteger schoolInt = uid / 1000000;
     
-    NSInteger facultyInt = (uid % 1000000) / 1000;
-    NSInteger programInt = uid % 1000;
+    NSUInteger facultyInt = (uid % 1000000) / 1000;
+    NSUInteger programInt = uid % 1000;
     
-    NSUInteger facultyUid = schoolInt*1000 + facultyInt;
+    NSUInteger facultyUid = schoolInt*1000000 + facultyInt * 1000;
     
     self = [super init];
     
@@ -61,7 +60,6 @@
         }
         else //is a program
         {
-//            NSUInteger programUid = schoolInt*1000000 + facultyInt*1000 + programInt;
             NSFetchRequest* programReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
             programReq.predicate = [NSPredicate predicateWithFormat:@"programId = %@", [NSNumber numberWithInteger:programInt]];
             NSArray* programResult = [context executeFetchRequest:programReq error:nil];
@@ -128,8 +126,8 @@
     self = [super init];
     if(self)
     {
-        int partialFaculty = (int)([faculty.facultyId floatValue] * pow(10, 3));
-        self.dashletUid = schoolDashletId + partialFaculty;
+        NSUInteger partialFaculty = [faculty.facultyId integerValue];
+        self.dashletUid = schoolDashletId + partialFaculty * 1000;
         
         self.title = faculty.name;
         self.type = JPDashletTypeFaculty;
@@ -160,7 +158,7 @@
     self = [super init];
     if(self)
     {
-        int partialprogram = (int)[program.programId floatValue];
+        NSUInteger partialprogram = [program.programId integerValue];
         
         self.dashletUid = facultyDashletId + partialprogram;
         
@@ -186,15 +184,22 @@
 }
 
 
-
-
-
-
-
-
-
-
-
+- (BOOL)isFavorited
+{
+    NSFetchRequest* favItemReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+    favItemReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    NSArray* favResult = [context executeFetchRequest:favItemReq error:nil];
+    
+    if([favResult count]>0)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+    
+}
 
 
 - (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet {

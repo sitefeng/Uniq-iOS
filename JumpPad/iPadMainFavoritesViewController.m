@@ -13,12 +13,15 @@
 #import "iPadBannerView.h"
 #import "sortViewController.h"
 #import "iPadFacultySelectViewController.h"
-
+#import "iPadSchoolHomeViewController.h"
+#import "iPadProgramViewController.h"
 #import "iPadMainCollectionViewCell.h"
 #import "School.h"
 #import "Banner.h"
 #import "UserFavItem.h"
 #import "JPFont.h"
+
+
 
 @interface iPadMainFavoritesViewController ()
 
@@ -36,6 +39,8 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     self.sortType = JPSortTypeAlphabetical;
+    
+    _isEditing = NO;
     
     //Core Data NS Managed Object Context
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
@@ -59,8 +64,7 @@
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     
     //UICollectionView
-    self.cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight)
-                                 collectionViewLayout:layout];
+    self.cv = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     
     [self.cv registerClass:[iPadMainCollectionViewCell class] forCellWithReuseIdentifier:@"featuredItem"];
     [self.cv registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"suppView"];
@@ -107,6 +111,8 @@
     [self updateDashletsInfo];
     [self.bannerView activateAutoscroll];
     [self.cv reloadData];
+    self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
+               
     [self updateBannerInfo];
 }
 
@@ -150,8 +156,8 @@
         JPDashlet* dashlet = [[JPDashlet alloc] initWithDashletUid:[favItem.itemId integerValue]];
         
         //Knowing which type exists for displaying dashelts
-        int typeCount = [[_dashletTypeCounts objectAtIndex:dashlet.type] integerValue];
-        [_dashletTypeCounts replaceObjectAtIndex:dashlet.type withObject: [NSNumber numberWithInt:1+typeCount]];
+        NSInteger typeCount = [[_dashletTypeCounts objectAtIndex:dashlet.type] integerValue];
+        [_dashletTypeCounts replaceObjectAtIndex:dashlet.type withObject: [NSNumber numberWithInteger:1+typeCount]];
         
         [dashletArray[dashlet.type] addObject:dashlet];
     }
@@ -206,6 +212,11 @@
     cell.dashletInfo = self.dashlets[indexPath.section][indexPath.item];
     cell.delegate = self;
     
+    if(_isEditing)
+        cell.showFavButton = YES;
+    else
+        cell.showFavButton = NO;
+    
     return cell;
 }
 
@@ -213,7 +224,6 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
     return CGSizeMake(kiPadWidthPortrait, 35);
-    
 }
 
 
@@ -249,8 +259,25 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    iPadMainCollectionViewCell* dashlet = (iPadMainCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
+    NSUInteger dashletUid  = dashlet.dashletInfo.dashletUid;
+    JPDashletType dashletType = dashlet.dashletInfo.type;
 
+    if(dashletType == JPDashletTypeProgram)
+    {
+        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithDashletUid:dashletUid];
+        [self presentViewController:programVC animated:YES
+                         completion:nil];
+    }
+    else //dashlet is School or Faculty
+    {
+        iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithDashletUid:dashletUid];
+        UINavigationController* switchViewController = [[UINavigationController alloc] initWithRootViewController:schoolVC];
+        [self presentViewController:switchViewController animated:YES completion:nil];
+    }
+    
+    
 }
 
 
@@ -276,8 +303,6 @@
 {
     return UIEdgeInsetsMake(kiPadDashletMargin, kiPadDashletMargin, kiPadDashletMargin, kiPadDashletMargin);
 }
-
-
 
 
 #pragma mark - JPSearchBar Delegate Methods
@@ -364,25 +389,75 @@
 }
 
 
-
+#pragma mark - JPDashletInfo Delegate (favButton)
+- (void)favButtonPressed: (iPadMainCollectionViewCell*)sender favorited: (BOOL)fav
+{
+    NSUInteger dashletUid = sender.dashletInfo.dashletUid;
+    
+    if(fav)
+    {
+        if([_favDashletsToDelete containsObject:[NSNumber numberWithInteger:dashletUid]])
+        {
+            [_favDashletsToDelete removeObject:[NSNumber numberWithInteger:dashletUid]];
+        }
+        
+    }
+    else //unfavorited the cell, add to delete list
+    {
+        [_favDashletsToDelete addObject:[NSNumber numberWithInteger:dashletUid]];
+    }
+    
+}
 
 
 #pragma mark - Editing Mode
 
 - (IBAction)editBarButtonPressed:(id)sender {
     
+    UIBarButtonItem* button = (UIBarButtonItem*)sender;
     
+    if(_isEditing)
+    {
+        _isEditing = NO;
+        button.title = @"Edit";
+        
+        [self removeUnselectedFavoritesFromCoreData];
+    }
+    else //start Editing
+    {
+        _isEditing = YES;
+        button.title = @"Save";
+        
+        _favDashletsToDelete = [NSMutableArray array];
+    }
     
+    [self.cv reloadData];
+}
+
+- (void)removeUnselectedFavoritesFromCoreData
+{
+    
+    for (NSNumber* dashletUid in _favDashletsToDelete)
+    {
+        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", dashletUid];
+        NSArray* results = [context executeFetchRequest:favReq error:nil];
+        
+        for(UserFavItem* item in results)
+        {
+            [context deleteObject:item];
+        }
+    }
+    
+    [self updateDashletsInfo];
+    [_favDashletsToDelete removeAllObjects];
 }
 
 
-
- 
 #pragma mark - Keyboard Dismissal with touchRecognizer
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
     [self.view endEditing:YES];
 }
 

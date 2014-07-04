@@ -21,14 +21,12 @@
     if (self) {
         // Custom initialization
         
-        
         self.dashletUid = dashletUid;
-        
         
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        
+        NSLog(@"MAX: %li", NSIntegerMax);
         //Update Program Info from Core Data
         [self updateProgram];
         
@@ -86,8 +84,6 @@
     // Do any additional setup after loading the view.
     
 
-    
-    
     
 }
 

@@ -16,6 +16,7 @@
 #import "JPFont.h"
 #import "DXAlertView.h"
 
+#import "iPadProgramComparisonViewController.h"
 
 @interface iPadProgramCompareViewController ()
 
@@ -219,7 +220,13 @@
     {
         DXAlertView* alertView = [[DXAlertView alloc] initWithTitle:@"Cannot Compare" contentText:@"Please select a program first." leftButtonTitle:nil rightButtonTitle:@"Okay"];
         [alertView show];
+        return;
     }
+    
+    iPadProgramComparisonViewController* comparison = [[iPadProgramComparisonViewController alloc] initWithPrograms:@[self.program, self.compProgram]];
+    
+    [self.navigationController pushViewController:comparison animated:YES];
+    
 
 }
 

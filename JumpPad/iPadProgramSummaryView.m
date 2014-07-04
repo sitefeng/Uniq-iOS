@@ -133,7 +133,7 @@
     switch (num)
     {
         case 0:
-            return [NSString stringWithFormat:@"Students: %@", self.program.population];
+            return [NSString stringWithFormat:@"%@ Students", self.program.population];
         case 1:
         {
             int yearNum = 0;

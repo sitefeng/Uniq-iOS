@@ -71,8 +71,7 @@
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     
     //UICollectionView
-    self.cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight)
-                                 collectionViewLayout:layout];
+    self.cv = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     
     [self.cv registerClass:[iPadMainCollectionViewCell class] forCellWithReuseIdentifier:@"featuredItem"];
     
@@ -115,11 +114,6 @@
     self.bannerURLs = [NSMutableArray array];
     
 
-    
-    
-
-    
-    
 }
 
 
@@ -128,6 +122,7 @@
     [self updateDashletsInfo];
     [self.bannerView activateAutoscroll];
     [self.cv reloadData];
+    self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
     [self updateBannerInfo];
 }
 
@@ -256,7 +251,6 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return [self.dashlets count];
-    //    return 44;
     
 }
 

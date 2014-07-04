@@ -15,6 +15,7 @@
 {
     NSInteger   _currentType;
     
+    UILabel*    _noPhotoLabel;
 }
 
 

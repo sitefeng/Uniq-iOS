@@ -25,7 +25,7 @@ class iPadHomeProfileBanner: UIView {
     
     var userImageView: UIImageView!
     
-    var userNameLabel: UILabel!
+    var userNameLabel: UITextField!
     var userLocationLabel: UILabel!
     
     var averageProgressView: LDProgressView!
@@ -66,8 +66,12 @@ class iPadHomeProfileBanner: UIView {
         self.addSubview(userImageView)
         
         //UILabels
-        userNameLabel = UILabel(frame: CGRect(x: 280, y: 60, width: 300, height: 40))
+        userNameLabel = UITextField(frame: CGRect(x: 280, y: 60, width: 300, height: 44))
         userNameLabel.font = UIFont(name: JPFont.defaultThinFont(), size: 38)
+        userNameLabel.userInteractionEnabled = false
+        userNameLabel.clearsOnInsertion = true
+        userNameLabel.autocapitalizationType = UITextAutocapitalizationType.Words
+        userNameLabel.autocorrectionType = UITextAutocorrectionType.No
         self.addSubview(userNameLabel)
         
         var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
