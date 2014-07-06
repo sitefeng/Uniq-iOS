@@ -77,13 +77,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if(_itemType == JPDashletTypeProgram)
-    {
-        UIImage* backgroundImage = [[UIImage imageNamed:@"edgeBackground"] applyBlurWithRadius:0 tintColor:[[UIColor whiteColor] colorWithAlphaComponent: 0.5f] saturationDeltaFactor:1 maskImage:nil];
-        self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+    if(_itemType == JPDashletTypeProgram) {
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     }
     else{
-        self.view.backgroundColor = [JPStyle colorWithName:@"tWhite"];
+        self.view.backgroundColor = [UIColor clearColor];
     }
     
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
@@ -152,8 +150,8 @@
         [iconButton addTarget:self action:@selector(iconTappedWithIndex:) forControlEvents:UIControlEventTouchUpInside];
         
         UILabel* label = [[UILabel alloc] init];
-        label.textColor = [UIColor blackColor];
-        label.font = [UIFont fontWithName:[JPFont defaultThinFont] size:19];
+        label.textColor = [UIColor whiteColor];
+        label.font = [UIFont fontWithName:[JPFont defaultThinFont] size:21];
         label.text = labelNames[i];
         
         UITextView* textView = [[UITextView alloc] init];
@@ -161,19 +159,20 @@
         [textView setEditable:NO];
         textView.showsVerticalScrollIndicator = NO;
         textView.text = values[i];
-        textView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.2];
+        textView.textColor = [UIColor whiteColor];
+        textView.backgroundColor = [JPStyle colorWithName:@"tBlack"];
         
         if(i>=2)
         {
             iconButton.frame = CGRectMake(470, y2 , 40, 40);
             label.frame = CGRectMake(524, y2-5, 210, 25);
-            textView.frame  = CGRectMake(524, y2+16, 230, 95);
+            textView.frame  = CGRectMake(524, y2+19, 230, 95);
             textView.layer.cornerRadius = 10;
             textView.clipsToBounds = YES;
             [textView sizeToFit];
             
             float textViewHeight = textView.frame.size.height;
-            y2 += 16 + textViewHeight + 15;
+            y2 += 20 + textViewHeight + 17;
         }
 
         [self.view addSubview:iconButton];
@@ -269,7 +268,7 @@
     {
         if([arrayType isEqual:@"imageNames"])
         {
-            return @[@"address-50", @"distance-50",@"phone-50",@"fax-50",@"email-50",@"safari-50",@"facebook-50",@"twitter-50"];
+            return @[@"address-50", @"distance-50",@"phoneIcon",@"faxIcon",@"email",@"safariIcon",@"facebookIcon",@"twitterIcon"];
         }
         else if([arrayType isEqual:@"labelNames"])
         {

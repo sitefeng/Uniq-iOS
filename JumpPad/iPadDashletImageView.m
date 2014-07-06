@@ -20,7 +20,6 @@
         
         // Initialize the views first
         self.logoView = [[AsyncImageView alloc] initWithFrame:CGRectMake(frame.size.width/5.0, frame.size.height/7.6, frame.size.width*3/5, frame.size.height*6/7.6)];
-        
         self.logoView.contentMode = UIViewContentModeScaleAspectFit;
     
         self.backgroundView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];

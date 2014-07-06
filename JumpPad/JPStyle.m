@@ -261,6 +261,10 @@
     {
         returnColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     }
+    else if([colorName isEqual:@"white"])
+    {
+        returnColor = [UIColor whiteColor];
+    }
     else
     {
         NSLog(@"--Error--No Color Available");

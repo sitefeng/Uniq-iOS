@@ -93,7 +93,7 @@
         
     }];
     
-    
+    [locationManager stopUpdatingLocation];
 }
 
 - (void)showErrorAlert: (NSError*)error

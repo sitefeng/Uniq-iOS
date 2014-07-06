@@ -23,15 +23,12 @@
         
         if([title isEqualToString:@"About"])
         {
-            
             UITextView* aboutView = [[UITextView alloc] initWithFrame:CGRectMake(250, 20, 500, 1000)];
             
             aboutView.font = [JPFont fontWithName:[JPFont defaultFont] size:15];
             aboutView.textColor = [UIColor blackColor];
             aboutView.userInteractionEnabled = NO;
             aboutView.editable = NO;
-            
-//            aboutView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
             
             aboutView.backgroundColor = [JPStyle colorWith8BitRed:255 green:255 blue:255 alpha:0.45];
             aboutView.layer.cornerRadius = 10;
@@ -49,12 +46,12 @@
             
 
             ///////////////////////////////
+            //About Label
             
             CGSize aboutViewSize = aboutView.frame.size;
-            
             float aboutLabelY = 20 + aboutViewSize.height/2.0 - 55/2.0 ;
             
-            UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, aboutLabelY - 10, 136, 55)];
+            UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, aboutLabelY - 10, 136, 55)];
             aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
 
             aboutLabel.textColor = [UIColor blackColor];

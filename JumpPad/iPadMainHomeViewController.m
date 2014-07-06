@@ -355,15 +355,15 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //if add new course row is tapped
     if(_isEditing && indexPath.section==0 && indexPath.row == [_highschoolCourses count])
     {
         //Save Whatever is from before first
         [self saveCoursesFromTableView];
+        [self saveSATsFromTableView];
         
+        //Add a New Course Row
         _addedNewCourse = YES;
-        NSLog(@"add new Course");
-        
         NSEntityDescription* courseDisc = [NSEntityDescription entityForName:@"HighschoolCourse" inManagedObjectContext:context];
         HighschoolCourse* course = (HighschoolCourse*)[[NSManagedObject alloc] initWithEntity:courseDisc insertIntoManagedObjectContext:context];
         
@@ -376,9 +376,6 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         
         [self.tableView reloadData];
     }
-    
-    
-    
 }
 
 
@@ -437,14 +434,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         
         //Saving Course Marks
         [self saveCoursesFromTableView];
+        [self saveSATsFromTableView];
         
-        //Saving SAT Scores
-        iPadHomeMarkTableViewCell* satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
-        _user.satReading = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
-        satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
-        _user.satMath = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
-        satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
-        _user.satGrammar = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
     }
     
     [self.tableView reloadData];
@@ -491,6 +482,18 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         NSLog(@"Save Error");
     }
     
+}
+
+
+- (void)saveSATsFromTableView
+{
+    //Saving SAT Scores
+    iPadHomeMarkTableViewCell* satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    _user.satReading = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
+    satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
+    _user.satMath = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
+    satCell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:1]];
+    _user.satGrammar = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
 }
 
 

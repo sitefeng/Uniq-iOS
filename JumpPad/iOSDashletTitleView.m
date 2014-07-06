@@ -18,13 +18,8 @@
         
         [self setUserInteractionEnabled:NO];
 
-        
-
         self.titleLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        
-     
         [self addSubview:self.titleLabel];
-        
     }
     return self;
 }

@@ -75,7 +75,7 @@ static const NSInteger kLabelConst =321;
         [_favoriteButton addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(30+ 87, iconHeight, 54, 54)];
-        [website setImage:[UIImage imageNamed:@"iOSSafariIcon"] forState:UIControlStateNormal];
+        [website setImage:[UIImage imageNamed:@"safariIcon"] forState:UIControlStateNormal];
         [website addTarget:self action:@selector(websiteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton* twitter = [[UIButton alloc] initWithFrame:CGRectMake(30+ 174, iconHeight, 54, 54)];

@@ -152,7 +152,6 @@
     [self addSubview:intLabel];
     
     
-    
     //Tuition Values
     UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 80, 150,70)];
     localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
@@ -202,7 +201,6 @@
     CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
     minorGridLineStyle.lineWidth = 1.0;
     minorGridLineStyle.lineColor = [[CPTColor blackColor] colorWithAlphaComponent:0.25];
-    
     
     
     //////////////////////
@@ -327,18 +325,36 @@
     
     
     /////////////Legend
-    CPTBarPlot* barPlot4 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"green"].CGColor] horizontalBars:NO];
+    CPTBarPlot* barPlot4 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"white"].CGColor] horizontalBars:NO];
     barPlot4.identifier = self.program.name;
-    CPTBarPlot* barPlot5 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"blue"].CGColor] horizontalBars:NO];
+    CPTBarPlot* barPlot5 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"white"].CGColor] horizontalBars:NO];
     barPlot5.identifier = @"School Avg";
-    CPTBarPlot* barPlot6 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"red"].CGColor] horizontalBars:NO];
+    CPTBarPlot* barPlot6 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"white"].CGColor] horizontalBars:NO];
     barPlot6.identifier = @"National Avg";
     
     CPTLegend* legend = [CPTLegend legendWithPlots:@[barPlot4, barPlot5, barPlot6]];
     
+    //Square Views that fix the legend
+    {
+        UIView* legend1View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 241.5, 19, 19)];
+        legend1View.backgroundColor = [JPStyle colorWithName:@"green"];
+        legend1View.layer.cornerRadius = 2;
+        legend1View.layer.masksToBounds = YES;
+        [self.barChartView addSubview:legend1View];
+        UIView* legend2View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 216.5, 19, 19)];
+        legend2View.layer.cornerRadius = 2;
+        legend2View.layer.masksToBounds = YES;
+        legend2View.backgroundColor = [JPStyle colorWithName:@"blue"];
+        [self.barChartView addSubview:legend2View];
+        UIView* legend3View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 191.5, 19, 19)];
+        legend3View.layer.cornerRadius = 2;
+        legend3View.layer.masksToBounds = YES;
+        legend3View.backgroundColor = [JPStyle colorWithName:@"red"];
+        [self.barChartView addSubview:legend3View];
+    }
+    
     CPTColor* gradientColor = [CPTColor colorWithComponentRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6];
     CPTGradient* gradient = [CPTGradient gradientWithBeginningColor:gradientColor endingColor:gradientColor];
-    
     legend.fill =[CPTFill fillWithGradient:gradient];;
     
     CPTMutableLineStyle* lineStyle = [CPTMutableLineStyle lineStyle];
@@ -619,8 +635,6 @@
     
     self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
     self.whyPieChart.labelColor = [UIColor whiteColor];
-    
-//    self.whyPieChart.labelShadowColor = [UIColor blackColor];
     [self.whyPieChart setPieBackgroundColor: [UIColor clearColor]];
     
     self.whyPieChart.labelRadius = 100;
@@ -629,8 +643,6 @@
     self.whyPieChart.accessibilityLabel = @"whyPieChart";
     
     [self addSubview:self.whyPieChart];
-    
-//    [self.whyPieChart reloadData];
     
     _indexOfLargestSlice = 0;
     float largestValue = 0;

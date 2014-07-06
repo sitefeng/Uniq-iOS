@@ -15,11 +15,6 @@
 
 
 
-
-@property (nonatomic, strong) NSMutableDictionary* elementTitleDict; //a dict of UILabels
-@property (nonatomic, strong) NSMutableDictionary* elementValueDict; //a dict of UILabels
-
-
 @property (nonatomic, assign) float  viewHeight;
 
 

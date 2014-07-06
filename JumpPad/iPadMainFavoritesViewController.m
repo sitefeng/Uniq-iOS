@@ -259,6 +259,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(_isEditing)
+    {
+        return;
+    }
+    
     iPadMainCollectionViewCell* dashlet = (iPadMainCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
     NSUInteger dashletUid  = dashlet.dashletInfo.dashletUid;
@@ -276,7 +281,6 @@
         UINavigationController* switchViewController = [[UINavigationController alloc] initWithRootViewController:schoolVC];
         [self presentViewController:switchViewController animated:YES completion:nil];
     }
-    
     
 }
 

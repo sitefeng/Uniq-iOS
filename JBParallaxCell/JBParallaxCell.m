@@ -55,7 +55,7 @@
         
         
         _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 65, 23, 40, 40)];
-        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite2"] forState:UIControlStateNormal];
+        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
         
         [_favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -143,13 +143,12 @@
     
     if(!_favorited)
     {
-        JPLog(@"Favorited");
-        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteFilled2"] forState:UIControlStateNormal];
+        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateNormal];
         _favorited = YES;
     }
     else
     {
-        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite2"] forState:UIControlStateNormal];
+        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
         _favorited = NO;
     }
     

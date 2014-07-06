@@ -16,7 +16,8 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     var selectedIndex : NSIndexPath! = NSIndexPath(forRow: 0, inSection: 1)
     
     //General
-    let cellTitles : String[][] = [["Sync", "Notifications"],["About", "Rate Uniq on App Store", "Contact Us", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter"]]
+    let cellTitles     : String[][] = [["Download Contents", "Notifications"],["About", "Rate Uniq on App Store", "Contact Us", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter"]]
+    let cellImgStrings : String[][] = [["download-75","tones-75"],["info-75","thumb_up-75","email-50","share-75","groups-75","thanks-75","facebook-50","twitter-50"]];
     
     init(style: UITableViewStyle) {
         super.init(style: style)
@@ -84,17 +85,24 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
 //        cell.font = UIFont(name: JPFont.defaultThinFont(), size: 20)
         
         var cellTitle: String
+        var cellImageName: String
         
         if indexPath!.section == 0
         {
             cellTitle = cellTitles[0][indexPath!.row]
+            cellImageName = cellImgStrings[0][indexPath!.row]
         }
         else
         {
             cellTitle = cellTitles[1][indexPath!.row]
+            cellImageName = cellImgStrings[1][indexPath!.row]
         }
         
         cell.textLabel.text = cellTitle
+        var cellImage : UIImage = UIImage(named: cellImageName).imageWithAlignmentRectInsets(UIEdgeInsetsMake(5,5,5,5))
+
+        cell.imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        cell.imageView.image = cellImage
         
         return cell
     }

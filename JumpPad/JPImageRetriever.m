@@ -44,7 +44,7 @@
     }
     else if([sub rangeOfString:@"new course" ].length!=0)
     {
-        image = [UIImage imageNamed:@"plus-48"];
+        image = [UIImage imageNamed:@"courses-64"];
     }
     else if([sub rangeOfString:@"financ"].length!=0||[sub rangeOfString:@"econ"].length!=0)
     {

@@ -30,10 +30,6 @@
 
 @property (nonatomic, strong) UILabel* summary;
 
-@property (nonatomic, strong) NSMutableArray* iconImages; //UIImageViews
-
-@property (nonatomic, strong) NSMutableArray* iconLabels; //UILabels
-
 
 @property (nonatomic, strong) id<JPProgramSummaryDelegate> delegate;
 

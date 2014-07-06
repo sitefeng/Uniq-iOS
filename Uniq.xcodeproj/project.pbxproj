@@ -920,6 +920,7 @@
 			children = (
 				AAEF025C194A94E4008F8BA8 /* Featured and Favorites */,
 				AAEF0256194A9269008F8BA8 /* Explore View Controller */,
+				AA894BD71968ABE800F457F8 /* Dashlet */,
 				AAEF0257194A928C008F8BA8 /* Search View Controller */,
 				AAEF0255194A9246008F8BA8 /* Home View Controller */,
 				AAE509D919644779000C6899 /* School/Faculty View Controllers */,
@@ -1143,6 +1144,21 @@
 			name = "LDProgressView (avg)";
 			sourceTree = "<group>";
 		};
+		AA894BD71968ABE800F457F8 /* Dashlet */ = {
+			isa = PBXGroup;
+			children = (
+				5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */,
+				5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */,
+				5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */,
+				5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */,
+				5D167630185787750041993E /* iOSDashletTitleView.h */,
+				5D167631185787750041993E /* iOSDashletTitleView.m */,
+				5D16763E18591AE10041993E /* iOSDashletDetailsView.h */,
+				5D16763F18591AE10041993E /* iOSDashletDetailsView.m */,
+			);
+			name = Dashlet;
+			sourceTree = "<group>";
+		};
 		AAE509D919644779000C6899 /* School/Faculty View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1179,14 +1195,6 @@
 				5D7055F118B9B240002941B3 /* iPadSearchBarView.m */,
 				5D70561E18B9EAB2002941B3 /* sortViewController.h */,
 				5D70561F18B9EAB2002941B3 /* sortViewController.m */,
-				5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */,
-				5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */,
-				5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */,
-				5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */,
-				5D167630185787750041993E /* iOSDashletTitleView.h */,
-				5D167631185787750041993E /* iOSDashletTitleView.m */,
-				5D16763E18591AE10041993E /* iOSDashletDetailsView.h */,
-				5D16763F18591AE10041993E /* iOSDashletDetailsView.m */,
 				5DAC8FAB18555F0100FE3B5B /* Banner Views */,
 				5D338A0C1918747D00A62AC0 /* iPadFacultySelectViewController.h */,
 				5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */,

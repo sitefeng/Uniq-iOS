@@ -29,11 +29,8 @@
         
         //Creating the Subviews
         CGRect imageFrame = CGRectMake(0, 0, frame.size.width, frame.size.height/4*3 );
-        
         self.imageView = [[iPadDashletImageView alloc] initWithFrame:imageFrame];
-        
-        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(2, frame.size.height/4.0*3 , frame.size.width - 2, frame.size.height/8.0 - 4 )];
-  
+        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(4, frame.size.height/4.0*3 , frame.size.width - 4, frame.size.height/8.0 - 4 )];
         self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(6, frame.size.height/8.0*7 -2 , frame.size.width - 12, frame.size.height/8.0 - 1)];
         
         self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
@@ -46,8 +43,8 @@
         self.favButton.frame = CGRectMake(frame.size.width - 45, 5, 40, 40);
         self.favButton.hidden = YES;
         self.favButton.selected = NO;
-        [self.favButton setImage:[UIImage imageNamed:@"favorite2"] forState:UIControlStateNormal];
-        [self.favButton setImage:[UIImage imageNamed:@"favoriteFilled2"] forState:UIControlStateSelected];
+        [self.favButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+        [self.favButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         [self.favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         //Adding the Subviews

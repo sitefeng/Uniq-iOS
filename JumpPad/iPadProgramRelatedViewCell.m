@@ -22,7 +22,7 @@
     NSURL* url = [NSURL URLWithString:_imageURLString];
     
     self.asyncImageView.imageURL = url;
-    
+    self.asyncImageView.showActivityIndicator = NO;
     
 }
 

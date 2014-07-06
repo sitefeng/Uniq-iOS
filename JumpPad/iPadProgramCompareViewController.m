@@ -77,29 +77,6 @@
     blueLine.backgroundColor = [JPStyle colorWithName:@"blue"];
     [self.view addSubview:blueLine];
     
-    for(int i = 0; i<2; i++)
-    {
-        UILabel* progIcon = [[UILabel alloc] initWithFrame:CGRectMake(150 + 450*i, -18, 40, 40)];
-        progIcon.backgroundColor = [JPStyle colorWithName:@"blue"];
-        progIcon.layer.cornerRadius = progIcon.frame.size.width/2;
-        progIcon.clipsToBounds = YES;
-        
-        progIcon.textAlignment = NSTextAlignmentCenter;
-        progIcon.textColor = [UIColor whiteColor];
-        progIcon.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
-        
-        if(i == 0)
-        {
-            progIcon.text = @"M";
-        }
-        else
-        {
-            progIcon.text = @"?";
-        }
-        
-        [blueLine addSubview:progIcon];
-    }
-    
     _squareView2 = [[iPadMainCollectionViewCell alloc] initWithFrame:CGRectMake(_squareView1.frame.origin.x, 550, kiPadDashletSizePortrait.width, kiPadDashletSizePortrait.height)];
     JPDashlet* dashletInfo2 = [[JPDashlet alloc] initWithDashletUid:0];
     _squareView2.dashletInfo = dashletInfo2;

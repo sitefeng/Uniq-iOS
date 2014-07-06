@@ -40,7 +40,7 @@ class iPadSettingsAboutViewController: UIViewController {
             }
             else
             {
-                textViewString = "Information Not Available at the moment"
+                textViewString = "Information not available at the moment"
             }
         }
     }
