@@ -13,7 +13,7 @@
 
 
 
-@class iPadSearchBarView, iPadSearchBarView, iPadProgramBannerView;
+@class iPadSearchBarView, iPadSearchBarView, iPadFacultyBannerView;
 
 @interface iPadProgramSelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPSortDelegate, JPDashletInfoDelegate, UIPopoverControllerDelegate>
 
@@ -46,7 +46,7 @@
 //---View---
 @property (nonatomic, strong) UICollectionView* cv;
 
-@property (nonatomic, strong) iPadProgramBannerView* bannerView;
+@property (nonatomic, strong) iPadFacultyBannerView* bannerView;
 
 @property (nonatomic, strong) iPadSearchBarView* searchBarView;
 

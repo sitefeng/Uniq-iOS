@@ -28,6 +28,12 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        
+        UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithTitle:@"School Info" style:UIBarButtonItemStyleDone target:self action:@selector(schoolInfoPressed)];
+        self.navigationItem.rightBarButtonItem = infoItem;
+        
+        
+        
     }
     return self;
 }
@@ -69,7 +75,8 @@
     self.searchBarView.delegate = self;
     
     //Facuty Banner View
-    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
+    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200) withPlaceholder:YES];
+    self.bannerView.dashletUid = self.schoolUid;
     
     //Adding subviews
     [self.view addSubview: self.cv];
@@ -317,9 +324,17 @@
 }
 
 
-
-
-
+- (void)schoolInfoPressed
+{
+    
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:self.schoolUid];
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
+}
 
 
 

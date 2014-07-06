@@ -50,13 +50,15 @@
     
     [self.view addSubview:self.tableView];
     
-    
-    
-    
-    
-    
-    
+
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
+}
+
 
 
 
@@ -123,13 +125,11 @@
 
 
 
-
-
-
-
-
-
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+     //Prevent transparent tab bar
+     self.tabBarController.tabBar.translucent = NO;
+}
 
 
 

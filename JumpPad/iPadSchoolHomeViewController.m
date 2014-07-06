@@ -106,7 +106,10 @@ static const float kProgramImageWidth  = 384;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
 
     self.imageController = [[iPadProgramImagesViewController alloc] init];
-    self.imageController.school = self.school;
+    if(_itemType == JPDashletTypeSchool)
+        self.imageController.school = self.school;
+    else if(_itemType == JPDashletTypeFaculty)
+        self.imageController.faculty = self.faculty;
     
     self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight);
     

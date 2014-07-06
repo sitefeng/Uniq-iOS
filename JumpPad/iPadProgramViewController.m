@@ -26,10 +26,8 @@
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        NSLog(@"MAX: %li", NSIntegerMax);
         //Update Program Info from Core Data
         [self updateProgram];
-        
         
         self.vc1 = [[iPadProgramHomeViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
         
@@ -83,7 +81,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
     
 }
 

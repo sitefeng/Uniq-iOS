@@ -26,7 +26,6 @@
 		5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */; };
 		5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */; };
 		5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */; };
-		5D338A17191896EE00A62AC0 /* iPadProgramBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A16191896EE00A62AC0 /* iPadProgramBannerView.m */; };
 		5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */; };
 		5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */; };
 		5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */; };
@@ -216,8 +215,6 @@
 		5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultyBannerView.m; sourceTree = "<group>"; };
 		5D338A12191896CA00A62AC0 /* iPadProgramSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSelectViewController.h; sourceTree = "<group>"; };
 		5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSelectViewController.m; sourceTree = "<group>"; };
-		5D338A15191896EE00A62AC0 /* iPadProgramBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramBannerView.h; sourceTree = "<group>"; };
-		5D338A16191896EE00A62AC0 /* iPadProgramBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramBannerView.m; sourceTree = "<group>"; };
 		5D338A1819189B5D00A62AC0 /* iPadProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramViewController.h; sourceTree = "<group>"; };
 		5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramViewController.m; sourceTree = "<group>"; };
 		5D338A1C19189D8100A62AC0 /* iPadProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramHomeViewController.h; sourceTree = "<group>"; };
@@ -937,8 +934,6 @@
 				5D7055F618B9C779002941B3 /* iPadBannerView.m */,
 				5D338A0F191878D200A62AC0 /* iPadFacultyBannerView.h */,
 				5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */,
-				5D338A15191896EE00A62AC0 /* iPadProgramBannerView.h */,
-				5D338A16191896EE00A62AC0 /* iPadProgramBannerView.m */,
 			);
 			name = "Banner Views";
 			sourceTree = "<group>";
@@ -1482,7 +1477,6 @@
 				AA9C20C2195D19C700148675 /* ProgramRating.m in Sources */,
 				AAE509CF1963BEE0000C6899 /* School.m in Sources */,
 				5D555526193B140900BF6F20 /* iPadProgramCoursesViewController.m in Sources */,
-				5D338A17191896EE00A62AC0 /* iPadProgramBannerView.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
 				AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */,

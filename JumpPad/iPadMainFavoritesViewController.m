@@ -114,6 +114,9 @@
     self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
                
     [self updateBannerInfo];
+    
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 
@@ -474,11 +477,6 @@
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.bannerView pauseAutoscroll];
-}
-
 
 
 #pragma mark - Handle View Frame Change
@@ -524,6 +522,15 @@
                          
                      }];
     
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.bannerView pauseAutoscroll];
+
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = NO;
 }
 
 

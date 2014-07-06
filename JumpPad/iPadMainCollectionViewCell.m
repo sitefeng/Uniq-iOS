@@ -79,6 +79,7 @@
     }
     
     self.imageView.logoURL = _dashletInfo.icon;
+    //Load only one image at this time
     self.imageView.imageURLs = _dashletInfo.backgroundImages;
     
     self.favButton.selected = [_dashletInfo isFavorited];

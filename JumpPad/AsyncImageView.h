@@ -82,7 +82,7 @@ extern NSString *const AsyncImageErrorKey;
 @property (nonatomic, assign) NSTimeInterval crossfadeDuration;
 
 - (id)initWithFrame:(CGRect)frame withPlaceholder: (BOOL)showPlaceholder;
-
+- (id)initWithFrame:(CGRect)frame withPlaceholderImgName: (NSString*)img;
 @end
 
 

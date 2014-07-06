@@ -124,6 +124,8 @@
     [self.cv reloadData];
     self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
     [self updateBannerInfo];
+    
+
 }
 
 
@@ -435,6 +437,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.bannerView pauseAutoscroll];
+
 }
 
 

@@ -1,4 +1,4 @@
-//
+  //
 //  iPadFacultyBannerView.h
 //  JumpPad
 //
@@ -7,7 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
-@interface iPadFacultyBannerView : UIImageView
+@class JPDashlet;
+@interface iPadFacultyBannerView : AsyncImageView
+{
+    JPDashlet*  _dashletInfo;
+}
+
+
+
+@property (nonatomic, assign) NSUInteger dashletUid;
+
+
+@property (nonatomic, strong) UILabel* titleLabel;
+
+
+
+- (id)initWithFrame:(CGRect)frame withPlaceholder: (BOOL)showPlaceholder;
+
 
 @end

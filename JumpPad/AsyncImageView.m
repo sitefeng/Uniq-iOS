@@ -627,8 +627,23 @@ NSString *const AsyncImageErrorKey = @"error";
         }
     }
     return self;
-    
 }
+
+- (id)initWithFrame:(CGRect)frame withPlaceholderImgName:(NSString*)img
+{
+    if ((self = [super initWithFrame:frame]))
+    {
+        [self setUp];
+        self.contentMode = UIViewContentModeScaleAspectFill;
+        if(img)
+        {
+            UIImage* placeholder = [UIImage imageNamed:img];
+            self.image = placeholder;
+        }
+    }
+    return self;
+}
+
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {

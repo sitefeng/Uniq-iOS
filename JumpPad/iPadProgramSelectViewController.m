@@ -10,9 +10,9 @@
 #import "JPDashlet.h"
 #import "iPadSearchBarView.h"
 #import "iPadMainCollectionViewCell.h"
-#import "iPadProgramBannerView.h"
+#import "iPadFacultyBannerView.h"
 #import "sortViewController.h"
-
+#import "iPadSchoolHomeViewController.h"
 #import "iPadMainCollectionViewCell.h"
 #import "Program.h"
 #import "iPadProgramViewController.h"
@@ -29,6 +29,9 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        
+        UIBarButtonItem* facultyInfobutton = [[UIBarButtonItem alloc] initWithTitle:@"Faculty Info" style:UIBarButtonItemStyleDone target:self action:@selector(facultyInfoPressed)];
+        self.navigationItem.rightBarButtonItem = facultyInfobutton;
     }
     return self;
 }
@@ -71,7 +74,8 @@
     self.searchBarView.delegate = self;
     
     //Facuty Banner View
-    self.bannerView = [[iPadProgramBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
+    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200) withPlaceholder:YES];
+    self.bannerView.dashletUid = self.facultyUid;
     
     //Adding subviews
     [self.view addSubview: self.cv];
@@ -107,6 +111,8 @@
 {
     [self updateDashletsInfo];
     
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 
@@ -224,7 +230,6 @@
     iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithDashletUid:selectedDashlet.dashletUid];
     
     [self presentViewController:viewController animated:YES completion:nil];
-    
 }
 
 
@@ -286,8 +291,6 @@
 }
 
 
-
-
 #pragma mark - JPSearchBar Delegate Methods
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -304,7 +307,14 @@
 
 
 
-
+- (void)facultyInfoPressed
+{
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:self.facultyUid];
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+}
 
 ////************************************************************************
 
@@ -380,6 +390,11 @@
 }
 
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = NO;
+}
 
 - (void)didReceiveMemoryWarning
 {
