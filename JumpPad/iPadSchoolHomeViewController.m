@@ -98,7 +98,6 @@ static const float kProgramImageWidth  = 384;
 
 
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -232,7 +231,7 @@ static const float kProgramImageWidth  = 384;
         UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
         
         newItem.itemId = [NSNumber numberWithInteger:self.dashletUid];
-        newItem.type = [NSNumber numberWithInteger:JPDashletTypeSchool];
+        newItem.type = [NSNumber numberWithInteger:_itemType];
         
         [context insertObject:newItem];
         

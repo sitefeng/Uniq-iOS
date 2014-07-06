@@ -55,8 +55,9 @@
         
         
         _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 65, 23, 40, 40)];
-        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         [_favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         //Bottom Bar
@@ -101,7 +102,6 @@
     
     _topBarView.frame = CGRectMake(0, 0, kiPadWidthPortrait, 20);
     
-    
 }
 
 
@@ -141,15 +141,14 @@
 - (void)favoriteButtonPressed: (UIButton*)button
 {
     
-    if(!_favorited)
+    if(!button.selected) //Selecting the button
     {
-        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateNormal];
-        _favorited = YES;
+        button.selected = YES;
+
     }
-    else
+    else //Deselecting
     {
-        [_favoriteButton setBackgroundImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        _favorited = NO;
+        button.selected = NO;
     }
     
 }

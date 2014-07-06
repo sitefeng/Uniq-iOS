@@ -920,9 +920,10 @@
 			children = (
 				AAEF025C194A94E4008F8BA8 /* Featured and Favorites */,
 				AAEF0256194A9269008F8BA8 /* Explore View Controller */,
+				5DAC8FAB18555F0100FE3B5B /* Banner Views */,
 				AA894BD71968ABE800F457F8 /* Dashlet */,
-				AAEF0257194A928C008F8BA8 /* Search View Controller */,
 				AAEF0255194A9246008F8BA8 /* Home View Controller */,
+				AAEF0257194A928C008F8BA8 /* Search View Controller */,
 				AAE509D919644779000C6899 /* School/Faculty View Controllers */,
 				5D338A1B19189B6500A62AC0 /* Program View Controller */,
 			);
@@ -1195,7 +1196,6 @@
 				5D7055F118B9B240002941B3 /* iPadSearchBarView.m */,
 				5D70561E18B9EAB2002941B3 /* sortViewController.h */,
 				5D70561F18B9EAB2002941B3 /* sortViewController.m */,
-				5DAC8FAB18555F0100FE3B5B /* Banner Views */,
 				5D338A0C1918747D00A62AC0 /* iPadFacultySelectViewController.h */,
 				5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */,
 				5D338A12191896CA00A62AC0 /* iPadProgramSelectViewController.h */,

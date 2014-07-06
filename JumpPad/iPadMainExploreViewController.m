@@ -280,7 +280,7 @@
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
     viewController.title = selectedDashlet.title;
-    viewController.schoolId = selectedDashlet.dashletUid;
+    viewController.schoolUid = selectedDashlet.dashletUid;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

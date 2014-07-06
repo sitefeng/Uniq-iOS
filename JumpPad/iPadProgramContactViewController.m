@@ -284,7 +284,7 @@
     {
         if([arrayType isEqual:@"imageNames"])
         {
-            return @[@"address-50", @"distance-50",@"safari-50",@"facebook-50",@"twitter-50"];
+            return @[@"address-50", @"distance-50",@"safariIcon",@"facebookIcon",@"twitterIcon"];
         }
         else if([arrayType isEqual:@"labelNames"])
         {
@@ -300,7 +300,7 @@
     {
         if([arrayType isEqual:@"imageNames"])
         {
-            return @[@"address-50", @"distance-50",@"safari-50",@"facebook-50",@"twitter-50"];
+            return @[@"address-50", @"distance-50",@"safariIcon",@"facebookIcon",@"twitterIcon"];
         }
         else if([arrayType isEqual:@"labelNames"])
         {

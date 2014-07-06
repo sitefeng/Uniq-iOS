@@ -36,9 +36,7 @@ static const NSInteger kLabelConst =321;
         self.summary.text = @"SUMMARY";
         
         
-        //Icon images and labels;
-        self.iconImages = [NSMutableArray array];
-        self.iconLabels = [NSMutableArray array];
+        NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SAlumni",@"SDistance",@"SPrograms",@"SFunding", nil];
         
         const int horizDist =200;
         const int vertDist = 40;
@@ -48,15 +46,13 @@ static const NSInteger kLabelConst =321;
             for(int j=0; j<2; j++)
             {
                 UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(15+ horizDist*j, 65+ vertDist*i, 30, 30)];
-                view.image = [UIImage imageNamed:@"infoIcon"];
-                [self.iconImages addObject:view];
+                view.image = [UIImage imageNamed:iconImageNames[i*2+j]];
                 [self addSubview:view];
                 
                 UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50+ horizDist*j, 65+vertDist*i, 160, 30)];
                 label.tag = j*10 + i + kLabelConst;
                 label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
                 label.textColor = [UIColor whiteColor];
-                label.shadowColor = [UIColor whiteColor];
                 label.text = [self labelTextForRow:i column:j];
                 [self addSubview:label];
                 
@@ -67,6 +63,7 @@ static const NSInteger kLabelConst =321;
         
         _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, iconHeight, 54, 54)];
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         _favoriteButton.selected = NO;
         if(self.isFavorited)

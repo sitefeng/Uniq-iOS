@@ -50,12 +50,11 @@
             }
             else //is a faculty
             {
-                
                 NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
                 facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@", [NSNumber numberWithInteger:facultyInt]];
                 NSArray* facultyResult = [context executeFetchRequest:facultyReq error:nil];
                 
-                self = [self initWithFaculty:(Faculty *)[facultyResult firstObject] fromSchool:schoolInt];
+                self = [self initWithFaculty:(Faculty *)[facultyResult firstObject] fromSchool:schoolInt*1000000];
             }
         }
         else //is a program
@@ -84,7 +83,7 @@
     self = [super init];
     if(self)
     {
-        self.dashletUid = (int)([school.schoolId floatValue] * pow(10, 6));
+        self.dashletUid = [school.schoolId integerValue] * 1000000;
         
         SchoolLocation* sLoc = school.location;
         
@@ -120,14 +119,14 @@
 
 
 
-- (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletId
+- (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletUid
 {
     
     self = [super init];
     if(self)
     {
         NSUInteger partialFaculty = [faculty.facultyId integerValue];
-        self.dashletUid = schoolDashletId + partialFaculty * 1000;
+        self.dashletUid = schoolDashletUid + partialFaculty * 1000;
         
         self.title = faculty.name;
         self.type = JPDashletTypeFaculty;
@@ -153,14 +152,14 @@
 
 
 
-- (instancetype)initWithProgram: (Program*)program fromFaculty:(NSInteger)facultyDashletId {
+- (instancetype)initWithProgram: (Program*)program fromFaculty:(NSInteger)facultyDashletUid {
     
     self = [super init];
     if(self)
     {
         NSUInteger partialprogram = [program.programId integerValue];
         
-        self.dashletUid = facultyDashletId + partialprogram;
+        self.dashletUid = facultyDashletUid + partialprogram;
         
         self.title = program.name;
         self.type = JPDashletTypeProgram;

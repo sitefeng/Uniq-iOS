@@ -158,7 +158,6 @@
         //Knowing which type exists for displaying dashelts
         NSInteger typeCount = [[_dashletTypeCounts objectAtIndex:dashlet.type] integerValue];
         [_dashletTypeCounts replaceObjectAtIndex:dashlet.type withObject: [NSNumber numberWithInteger:1+typeCount]];
-        
         [dashletArray[dashlet.type] addObject:dashlet];
     }
     
@@ -438,6 +437,7 @@
     [self.cv reloadData];
 }
 
+
 - (void)removeUnselectedFavoritesFromCoreData
 {
     
@@ -449,6 +449,7 @@
         
         for(UserFavItem* item in results)
         {
+            NSLog(@"Userfav: %@, %@", item.itemId, item.type);
             [context deleteObject:item];
         }
     }
@@ -456,6 +457,7 @@
     [self updateDashletsInfo];
     [_favDashletsToDelete removeAllObjects];
 }
+
 
 
 #pragma mark - Keyboard Dismissal with touchRecognizer

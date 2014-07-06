@@ -570,19 +570,17 @@
 - (void)saveAllProgramsInfoForSchool: (School*)school faculty: (Faculty*)faculty fromArray: (NSArray*) array
 {
     
-    
     for(NSDictionary* dict in array)
     {
         if([dict valueForKey:@"toDelete"] != [NSNumber numberWithBool:true])
         {
-            
             //The file returned contains only Faculties to be updated, inserted, or deleted.
             //Delete any existing Faculties in Core Data first and add back in later for ones to be updated.
             
             NSFetchRequest* updateReq = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
             updateReq.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"programId" ascending:YES]];
             
-            updateReq.predicate = [NSPredicate predicateWithFormat:@"(faculty.facultyId = %@) && (programId = %@)", school.schoolId, faculty.facultyId, [dict valueForKey:@"id"]];
+            updateReq.predicate = [NSPredicate predicateWithFormat:@"(faculty.school.schoolId = %@) && (faculty.facultyId = %@) && (programId = %@)", school.schoolId, faculty.facultyId, [dict valueForKey:@"id"]];
             
             NSArray* deletePrograms = [self.context executeFetchRequest:updateReq error:nil];
             

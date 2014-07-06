@@ -33,9 +33,6 @@
     UIView*   _bottomBarView;
     UIButton*   _favoriteButton;
     
-    
-    BOOL      _favorited;
-    
 }
 
 @property (strong, nonatomic)  UIImageView *parallaxImage;

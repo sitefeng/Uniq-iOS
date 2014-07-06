@@ -31,7 +31,7 @@
 
 //---Model---
 
-@property (nonatomic, assign) NSInteger facultyId;  //Initially set by FacultySelectVC (dashletUid)
+@property (nonatomic, assign) NSInteger facultyUid;  //Initially set by FacultySelectVC (dashletUid)
 
 
 //Array of JPDashlets of type JPDashletTypeFaculty

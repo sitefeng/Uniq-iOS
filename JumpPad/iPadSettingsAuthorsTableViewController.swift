@@ -30,6 +30,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
             ["name": "Jack Yang", "position": "Server Developer", "description" : "Jack is a 3rd year student studying at University of Waterloo Computer Science program."],
             ["name": "Aaron Te", "position": "UI Designer", "description" : "Aaron is a 2nd year student studying at University of Waterloo."],
             ["name": "Wesley Fisher", "position": "Android Developer", "description" : "Wesley is a 2nd year student studying at University of Waterloo Mechatronics Engineering program."],
+            ["name": "Richard Lee", "position": "App Icon Designer", "description" : "Richard is a graphics designer who loves to make games for Flash and iOS. He is currently working at Avoca Technologies as an iOS Developer."],
         ]
         
         
@@ -53,12 +54,8 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // #pragma mark - Table view data source
+    
+//MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
         // #warning Potentially incomplete method implementation.
@@ -125,14 +122,10 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
 
     
     
-    
-    
-    
-    
-    
-    
-    
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 
 }

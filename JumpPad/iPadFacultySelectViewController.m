@@ -122,7 +122,7 @@
 - (void)updateDashletsInfo
 {
     //Core Data id and dashlet id are different
-    NSInteger coreDataSchoolId = self.schoolId / 1000000;
+    NSInteger coreDataSchoolId = self.schoolUid / 1000000;
     
     NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
     dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -137,7 +137,7 @@
     
     for(Faculty* faculty in fArray)
     {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithFaculty:faculty fromSchool:self.schoolId];
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithFaculty:faculty fromSchool:self.schoolUid];
         
         [dashletArray addObject:dashlet];
     }
@@ -213,11 +213,6 @@
 }
 
 
-
-
-#pragma mark - JPSearchBar Delegate Methods
-
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     iPadProgramSelectViewController* viewController = [[iPadProgramSelectViewController alloc] init];
@@ -225,11 +220,14 @@
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
     viewController.title = selectedDashlet.title;
-    viewController.facultyId = selectedDashlet.dashletUid;
+    viewController.facultyUid = selectedDashlet.dashletUid;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+
+
+#pragma mark - JPSearchBar Delegate Methods
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {

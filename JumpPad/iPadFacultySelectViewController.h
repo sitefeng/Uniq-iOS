@@ -27,7 +27,7 @@
 
 //---Model---
 
-@property (nonatomic, assign) NSInteger schoolId;  //Initially set by exploreVC, (dashletUid)
+@property (nonatomic, assign) NSInteger schoolUid;  //Initially set by exploreVC, (dashletUid)
 
 
 //Array of JPDashlets of type JPDashletTypeFaculty

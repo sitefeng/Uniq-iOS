@@ -163,22 +163,22 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favItems" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Banner" positionX="556" positionY="-99" width="128" height="105"/>
-        <element name="Faculty" positionX="-2" positionY="-117" width="128" height="253"/>
-        <element name="HighschoolCourse" positionX="882" positionY="-82" width="128" height="118"/>
-        <element name="ImageLink" positionX="34" positionY="189" width="128" height="118"/>
-        <element name="Program" positionX="250" positionY="263" width="128" height="358"/>
-        <element name="ProgramApplicationStat" positionX="432" positionY="261" width="128" height="118"/>
-        <element name="ProgramCourse" positionX="432" positionY="425" width="128" height="133"/>
-        <element name="ProgramRating" positionX="-9" positionY="342" width="128" height="193"/>
-        <element name="ProgramYearlyTuition" positionX="-11" positionY="557" width="128" height="120"/>
-        <element name="School" positionX="223" positionY="-117" width="128" height="298"/>
-        <element name="SchoolLocation" positionX="376" positionY="-52" width="128" height="193"/>
-        <element name="SchoolRanking" positionX="513" positionY="104" width="128" height="103"/>
-        <element name="UniqKEFunction" positionX="648" positionY="287" width="128" height="118"/>
-        <element name="UniqKEKeyword" positionX="801" positionY="287" width="128" height="73"/>
-        <element name="UniqKEOne" positionX="666" positionY="189" width="128" height="58"/>
-        <element name="User" positionX="727" positionY="-81" width="128" height="208"/>
-        <element name="UserFavItem" positionX="880" positionY="101" width="128" height="88"/>
+        <element name="Banner" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Faculty" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="HighschoolCourse" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ImageLink" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Program" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProgramApplicationStat" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProgramCourse" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProgramRating" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ProgramYearlyTuition" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="School" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SchoolLocation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SchoolRanking" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="UniqKEFunction" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="UniqKEKeyword" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="UniqKEOne" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="UserFavItem" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

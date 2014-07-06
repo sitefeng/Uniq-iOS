@@ -124,7 +124,7 @@
 - (void)updateDashletsInfo
 {
     //Core Data id and dashlet id are different
-    NSInteger coreDataFacultyId = (NSInteger)self.facultyId/pow(10,6);
+    NSInteger coreDataFacultyId = self.facultyUid % 1000000 /1000;
     
     NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
     dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -139,7 +139,7 @@
     
     for(Program* program in fArray)
     {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithProgram:program fromFaculty:self.facultyId];
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithProgram:program fromFaculty:self.facultyUid];
         [dashletArray addObject:dashlet];
     }
     
