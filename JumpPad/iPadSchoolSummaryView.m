@@ -165,6 +165,8 @@ static const NSInteger kLabelConst =321;
             if([userArray count] >0)
             {
                 user = [userArray firstObject];
+                if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
+                    return @"-- kms Away";
                 self.distanceToHome = [self.location distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
                 return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
             }

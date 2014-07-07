@@ -87,6 +87,8 @@
     if([userArray count] >0)
     {
         user = [userArray firstObject];
+        if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
+            self.distanceToHome = -1;
         self.distanceToHome = [schoolLocation distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
     }
     else
