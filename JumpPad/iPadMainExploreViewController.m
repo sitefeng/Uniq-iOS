@@ -125,13 +125,8 @@
     self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
     [self updateBannerInfo];
     
-
-}
-
-
-- (void)dismissKeyboard
-{
-    [self.searchBarView resignFirstResponder];
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 
@@ -332,12 +327,13 @@
     
     self.dashlets = array;
     [self.cv reloadData];
+    
+    [self.view endEditing:YES];
 }
 
 
 - (void)sortButtonPressed:(UIButton*)button
 {
-
     sortViewController* vc = [[sortViewController alloc] init];
     vc.delegate = self;
     vc.sortType = self.sortType;
@@ -423,7 +419,6 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-
     [self.view endEditing:YES];
 }
 

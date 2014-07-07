@@ -87,22 +87,7 @@
     mainLabel.attributedText = labelString;
     
     [self.view addSubview:mainLabel];
-    
-    
-//    UIButton* compareButton = [[UIButton alloc] initWithFrame:CGRectMake(self.searchBar.frame.origin.x + 4, self.searchBar.frame.origin.y - 60, self.searchBar.frame.size.width + 30, 55)];
-//    [compareButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"green"]] forState:UIControlStateNormal];
-//    
-//    compareButton.layer.cornerRadius = 10;
-//    compareButton.clipsToBounds = YES;
-//    
-//    [compareButton setTitle:@"Ask Question" forState:UIControlStateNormal];
-//    compareButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
-//    [compareButton setTintColor:[UIColor whiteColor]];
-//    [compareButton setShowsTouchWhenHighlighted:NO];
-//    [compareButton addTarget:self action:@selector(askButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-//    
-    
-    
+
     
     self.resultView = [[iPadSearchResultsView alloc] initWithFrame:CGRectMake(0, 180, kiPadWidthPortrait, kiPadHeightPortrait-kiPadTabBarHeight- 180)];
     
@@ -114,7 +99,11 @@
     
 }
 
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
+}
 
 
 

@@ -108,6 +108,22 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //temp
+    {
+        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+        favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:10001221]];
+        NSArray* favArray = [context executeFetchRequest:favReq error:nil];
+        
+        if([favArray count] > 0)
+        {
+            UserFavItem* item = [favArray firstObject];
+            
+            NSLog(@"Butto: %@,%@,%@,%@", item.researched, item.applied, item.response, item.gotOffer);
+        }
+        
+    }
+    
+    
     [self updateDashletsInfo];
     [self.bannerView activateAutoscroll];
     [self.cv reloadData];

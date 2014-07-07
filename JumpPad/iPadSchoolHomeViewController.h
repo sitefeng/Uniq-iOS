@@ -18,6 +18,7 @@
     JPLocation*     _schoolLocation;
     
     JPDashletType   _itemType;
+    
 }
 
 

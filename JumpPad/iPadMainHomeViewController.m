@@ -46,6 +46,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     _addedNewCourse = NO;
     _coursesToSave = [NSMutableArray array];
     _courseCellsToSave = [NSMutableArray array];
+    _userLocated = NO;
     
     _courseLevelStrings = @[@"4C", @"4M", @"4U"];
     
@@ -84,6 +85,12 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     
     [self.view addSubview:self.tableView];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 - (void)reloadUserOverallAverage
@@ -310,10 +317,12 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 - (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
-
     if(section==0)
     {
-        return @"Only for senior level courses with course code recognized by the college/university";
+        if([_highschoolCourses count] <= 1)
+            return [@"                                         (Tap \"Edit\" on top right corner to add a new course)" uppercaseString];
+        else
+            return @"Only for senior level courses with course code recognized by the college/university";
     }
     else if(section == 1)
     {
@@ -502,12 +511,14 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 - (void)locationButtonPressed: (UIButton*)button
 {
+    if(_userLocated)
+        [self.profileBanner stopAnimatingAactivityIndicator];
+    
     if(!_userLocator)
     {
         _userLocator = [[JPUserLocator alloc] init];
         _userLocator.delegate = self;
         [_userLocator startLocating];
-        
     }
 }
 
@@ -517,11 +528,15 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     if(name && ![name isEqual: @""])
         self.profileBanner.userLocationLabel.text = name;
     _user.locationString = name;
-    
     _user.longitude = [NSNumber numberWithFloat:coord.longitude];
     _user.latitude = [NSNumber numberWithFloat:coord.latitude];
     
+    NSLog(@"User latz: %@, lonz: %@", _user.latitude, _user.longitude);
+    
     [context save:nil];
+    
+    _userLocated = YES;
+    [self.profileBanner stopAnimatingAactivityIndicator];
 }
 
 

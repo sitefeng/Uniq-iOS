@@ -75,12 +75,15 @@
     }
     else
     {
-        self.title.text = @"- - - - -";
+        self.title.text = @"Information Not Set";
     }
     
     self.imageView.logoURL = _dashletInfo.icon;
     //Load only one image at this time
     self.imageView.imageURLs = _dashletInfo.backgroundImages;
+    
+    self.details.label.text = [NSString stringWithFormat:@"%@",self.dashletInfo.population];
+    self.details.label2.text = [NSString stringWithFormat:@"%@", self.dashletInfo.location.cityName];
     
     self.favButton.selected = [_dashletInfo isFavorited];
     

@@ -11,7 +11,7 @@
 #import "ProgramCourse.h"
 #import "JPFont.h"
 #import "JPLocation.h"
-
+#import "User.h"
 #import "JPGlobal.h"
 
 
@@ -174,7 +174,21 @@
         }
         case 11:
         {
-            return @"--- kms Away";
+            UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext* context = [delegate managedObjectContext];
+            NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+            NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
+            User* user = nil;
+            if([userArray count] >0)
+            {
+                user = [userArray firstObject];
+                self.distanceToHome = [self.location distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
+                return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
+            }
+            else
+            {
+                return @"-- kms Away";
+            }
         }
         case 12:
         {

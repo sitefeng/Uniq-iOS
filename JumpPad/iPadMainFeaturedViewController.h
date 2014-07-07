@@ -7,16 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "JBParallaxCell.h"
 
 @class JBParallaxCell;
-
-@interface iPadMainFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface iPadMainFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPFavoriteButtonDelegate>
 {
     @private
     
+    NSManagedObjectContext* context;
+    
     BOOL      _isOrientationPortrait; //or will be portrait for resizing frames
-
+    
+    
     
 }
 
@@ -24,7 +26,7 @@
 
 @property (nonatomic, strong) UITableView* tableView;
 
-
+@property (nonatomic, strong) NSMutableArray* featuredArray;
 
 
 @end

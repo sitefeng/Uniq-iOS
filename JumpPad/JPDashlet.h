@@ -25,22 +25,19 @@
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) JPDashletType type;
 
+@property (nonatomic, strong) NSString* featuredTitle; //for featured only
 
 @property (nonatomic, strong) NSMutableArray*  backgroundImages;
                              //Array of NSURLs
 
 
 //For dashlet grid detail view
-@property (nonatomic, strong) NSNumber* yearEstablished;
 @property (nonatomic, strong) NSNumber* population;
-
-
-//******************
-//For Schools Only
-
 @property (nonatomic, strong) JPLocation* location;
 //Includes the country, city, and coordinates
 
+//For School Only
+//***************************
 @property (nonatomic, strong) NSURL* icon;
 
 //******************

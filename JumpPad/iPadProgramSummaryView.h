@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong) Program* program;
 @property (nonatomic, strong) JPLocation* location;
+@property (nonatomic, assign) float distanceToHome;
 
 @property (nonatomic, strong) UILabel* summary;
 

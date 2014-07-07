@@ -31,8 +31,7 @@
         
         UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithTitle:@"School Info" style:UIBarButtonItemStyleDone target:self action:@selector(schoolInfoPressed)];
         self.navigationItem.rightBarButtonItem = infoItem;
-        
-        
+
         
     }
     return self;
@@ -112,6 +111,8 @@
 {
     [self updateDashletsInfo];
     
+    //Prevent transparent tab bar
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 

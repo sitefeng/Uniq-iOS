@@ -25,6 +25,8 @@
 #import "iPadProgramRelatedView.h"
 #import "iPadProgramCoursesViewController.h"
 
+#import "UserFavItem.h"
+
 @interface iPadProgramAcademicsViewController ()
 
 @end
@@ -36,6 +38,8 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
+        context = [del managedObjectContext];
         
         self.tabBarItem.image = [UIImage imageNamed:@"academics"];
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
@@ -43,11 +47,9 @@
         self.program = program;
         self.dashletUid = dashletUid;
         
-        
         self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
         [self.view addSubview:self.labelView];
 
-        
     }
     return self;
 }
@@ -76,42 +78,41 @@
     
     
     //Calendar Label View
-    UIView* calendarBackground = [[UIView alloc] initWithFrame:CGRectMake(_dateView.frame.size.width, 0, kiPadWidthPortrait - _dateView.frame.size.width, _dateView.frame.size.height)];
-    calendarBackground.backgroundColor = [UIColor whiteColor];
+    _calendarBackground = [[UIView alloc] initWithFrame:CGRectMake(_dateView.frame.size.width, 0, kiPadWidthPortrait - _dateView.frame.size.width, _dateView.frame.size.height)];
+    _calendarBackground.backgroundColor = [UIColor whiteColor];
     
     _calendarLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 14, 500, 40)];
     _calendarLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
     _calendarLabel.textColor = [UIColor blackColor];
     _calendarLabel.textAlignment = NSTextAlignmentLeft;
     
-    [calendarBackground addSubview:_calendarLabel];
+    [_calendarBackground addSubview:_calendarLabel];
     
     //Processes
     NSArray* processNames = [NSArray arrayWithObjects: @"Favorited",@"Researched",@"Applied",@"Response",@"Got Offer", nil];
     
+    _applicationButtons = [NSMutableArray array];
     for(int i= 0; i<5; i++)
     {
-        UIButton* processButton = [[UIButton alloc] initWithFrame:CGRectMake(30 + i*calendarBackground.frame.size.width/5, 65, 44, 44)];
+        UIButton* processButton = [[UIButton alloc] initWithFrame:CGRectMake(30 + i*_calendarBackground.frame.size.width/5, 65, 44, 44)];
         
-        [processButton setBackgroundImage:[UIImage imageNamed:@"itemIncomplete"] forState:UIControlStateNormal];
+        [processButton setImage:[UIImage imageNamed:@"itemIncomplete"] forState:UIControlStateNormal];
+        [processButton setImage:[UIImage imageNamed:@"itemComplete"] forState:UIControlStateSelected];
+        [processButton setImage:[UIImage imageNamed:@"itemOverdue"] forState:UIControlStateHighlighted];
         processButton.tag = i;
-        
         [processButton addTarget:self action:@selector(calendarButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [calendarBackground addSubview:processButton];
-        
+        [_applicationButtons addObject:processButton];
+        [_calendarBackground addSubview:processButton];
         
         UILabel* processLabel = [[UILabel alloc] initWithFrame:CGRectMake(processButton.frame.origin.x - 20, processButton.frame.origin.y + processButton.frame.size.height + 4, processButton.frame.size.width + 40, 20)];
         processLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
         processLabel.textAlignment = NSTextAlignmentCenter;
         processLabel.text = [processNames objectAtIndex:i];
-        [calendarBackground addSubview:processLabel];
+        [_calendarBackground addSubview:processLabel];
     }
     
-    
-    [mainScrollView addSubview:calendarBackground];
-    
-    _calButtonSelected = [NSMutableArray arrayWithObjects:@0,@0,@0,@0,@0, nil];
+    [mainScrollView addSubview:_calendarBackground];
+
     
     ///////////////////////////////////////////////////////////////////
     _yPositionForScrollView += _dateView.frame.size.height;//140
@@ -134,36 +135,28 @@
         hexCV.frame = CGRectMake(0, _yPositionForScrollView, kiPadWidthPortrait, kHexHeight/4*7 * _numHexViews/3);
     }
 
-    
     hexCV.dataSource = self;
-    
     [mainScrollView addSubview:hexCV];
-    
     _yPositionForScrollView += hexCV.frame.size.height - 133;
     
-    
-    
     //Related Controller
-    
     self.relatedView = [[iPadProgramRelatedView alloc] initWithFrame:CGRectMake(0, _yPositionForScrollView, kiPadWidthPortrait, kHexHeight)];
-    
     self.relatedView.dataSource = self;
     
     
     [mainScrollView addSubview:self.relatedView];
-    
     _yPositionForScrollView += self.relatedView.frame.size.height;
-    
-    
-    
-    
-    
-    
+
     mainScrollView.contentSize = CGSizeMake(mainScrollView.contentSize.width, _yPositionForScrollView + 50);
     [self.view addSubview:mainScrollView];
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self selectCalendarButtonsFromCoreData];
+}
 
 - (void)setProgram:(Program *)program
 {
@@ -177,26 +170,141 @@
 }
 
 
+- (void)selectCalendarButtonsFromCoreData
+{
+        
+    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    NSArray* favArray = [context executeFetchRequest:favReq error:nil];
+    
+    if([favArray count] > 0)
+    {
+        _userFav = [favArray firstObject];
+        
+        for(int i=0; i<5; i++)
+        {
+            UIButton* button = (UIButton*)_applicationButtons[i];
+            
+            switch (i) {
+                case 0:
+                    button.selected = YES;
+                    break;
+                case 1:
+                    button.selected = [_userFav.researched boolValue];
+                    break;
+                case 2:
+                    button.selected = [_userFav.applied boolValue];
+                    break;
+                case 3:
+                    button.selected = [_userFav.response boolValue];
+                    break;
+                case 4:
+                    button.selected = [_userFav.gotOffer boolValue];
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+    }
+    else
+    {
+        for(UIButton* button in _applicationButtons)
+        {
+            button.selected = NO;
+        }
+    }
+}
+
 - (void)calendarButtonPressed: (UIButton*)button
 {
     
-    [UIView animateWithDuration:1500 animations:^{
+    [UIView animateWithDuration:0.9 animations:^{
         
-        if([_calButtonSelected[button.tag] boolValue] == false)
+        if(button.selected == false)
         {
-            [button setBackgroundImage:[UIImage imageNamed:@"itemComplete"] forState:UIControlStateNormal];
-            [_calButtonSelected replaceObjectAtIndex:button.tag withObject:[NSNumber numberWithBool:YES]];
+            //Delete duplicates from before
+            [self deletePastDuplicateFavItems];
+            //Add one new fav item
+            [self createNewFavItem];
+            
+            switch (button.tag) {
+                case 4:{
+                    _userFav.gotOffer = [NSNumber numberWithBool:YES];
+                }
+                case 3:
+                {
+                    _userFav.response = [NSNumber numberWithBool:YES];
+                }
+                case 2:
+                {
+                    _userFav.applied = [NSNumber numberWithBool:YES];
+                }
+                case 1:
+                {
+                    _userFav.researched = [NSNumber numberWithBool:YES];
+                    break;
+                }
+                default:
+                    break;
+            }
+            
         }
-        else
+        else //deselect button
         {
-            [button setBackgroundImage:[UIImage imageNamed:@"itemIncomplete"] forState:UIControlStateNormal];
-            [_calButtonSelected replaceObjectAtIndex:button.tag withObject:[NSNumber numberWithBool:NO]];
+            switch (button.tag) {
+                case 0:
+                    [self deletePastDuplicateFavItems];
+                    break;
+                case 1:
+                    _userFav.researched = [NSNumber numberWithBool:NO];
+                case 2:
+                    _userFav.applied = [NSNumber numberWithBool:NO];
+                case 3:
+                    _userFav.response = [NSNumber numberWithBool:NO];
+                case 4:
+                    _userFav.gotOffer = [NSNumber numberWithBool:NO];
+                    break;
+                default:
+                    break;
+            }
+
         }
+        
+        [context save:nil];
+        [self selectCalendarButtonsFromCoreData];
         
     } completion:nil];
 
     
 
+}
+
+
+- (void)deletePastDuplicateFavItems
+{
+    _userFav = nil;
+    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    NSArray* favArray = [context executeFetchRequest:favReq error:nil];
+    for(UserFavItem* item in favArray)
+    {
+        [context deleteObject:item];
+    }
+}
+
+- (void)createNewFavItem
+{
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"UserFavItem" inManagedObjectContext:context];
+    _userFav = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:description insertIntoManagedObjectContext:context];
+    
+    _userFav.itemId = [NSNumber numberWithInteger:self.dashletUid];
+    _userFav.type = [NSNumber numberWithInteger:JPDashletTypeProgram];
+    _userFav.researched = @NO;
+    _userFav.applied = @NO;
+    _userFav.response = @NO;
+    _userFav.gotOffer = @NO;
+    [context insertObject:_userFav];
 }
 
 
@@ -360,13 +468,11 @@
 }
 
 
-
-
-
-
-
-
-
+- (void)setDashletUid:(NSUInteger)dashletUid
+{
+    _dashletUid = dashletUid;
+    [self selectCalendarButtonsFromCoreData];
+}
 
 
 

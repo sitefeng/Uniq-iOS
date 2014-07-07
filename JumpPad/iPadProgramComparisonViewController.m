@@ -9,6 +9,7 @@
 #import "iPadProgramComparisonViewController.h"
 
 #import "Program.h"
+#import "JPFont.h"
 
 @interface iPadProgramComparisonViewController ()
 
@@ -37,6 +38,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    UILabel* overviewLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, kiPadStatusBarHeight + kiPadNavigationBarHeight + 30, 500, 30)];
+    [self.view addSubview:overviewLabel];
+    
+    self.descriptionTextView = [[UITextView alloc] initWithFrame:CGRectMake(50, kiPadStatusBarHeight + kiPadNavigationBarHeight + 80, kiPadWidthPortrait - 100, 200)];
+    self.descriptionTextView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+    self.descriptionTextView.userInteractionEnabled = NO;
+    self.descriptionTextView.backgroundColor = [UIColor clearColor];
+    
+    [self.view addSubview:self.descriptionTextView];
     
     
     

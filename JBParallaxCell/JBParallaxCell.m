@@ -40,7 +40,11 @@
         
         self.parallaxImage = [[UIImageView alloc] init];
         self.parallaxImage.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        self.parallaxImage.image = [UIImage imageNamed:@"defaultProgram"];
         
+        _asyncImageView = [[AsyncImageView alloc] initWithFrame:CGRectZero];
+        _asyncImageView.autoresizesSubviews = UIViewAutoresizingFlexibleWidth;
+        [self.parallaxImage addSubview:_asyncImageView];
         
         self.titleLabel = [[UILabel alloc] init];
         self.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
@@ -50,15 +54,15 @@
         self.subtitleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
         self.subtitleLabel.textColor = [UIColor whiteColor];
         
-        self.titleLabel.frame =CGRectMake(20, 10, 400, 40);
-        self.subtitleLabel.frame = CGRectMake(20, 45, 400, 30);
+        self.titleLabel.frame =CGRectMake(20, 10, 700, 40);
+        self.subtitleLabel.frame = CGRectMake(20, 45, 700, 30);
         
         
-        _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 65, 23, 40, 40)];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
-        [_favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        self.favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 65, 23, 40, 40)];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
+        [self.favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         //Bottom Bar
         _bottomBarView = [[UIView alloc] init];
@@ -66,7 +70,7 @@
         
         [_bottomBarView addSubview:self.titleLabel];
         [_bottomBarView addSubview:self.subtitleLabel];
-        [_bottomBarView addSubview:_favoriteButton];
+        [_bottomBarView addSubview:self.favoriteButton];
         
         
         //Top Bar
@@ -82,7 +86,6 @@
         
         
         [self addSubview:self.parallaxImage];
-        
         [self addSubview:_topBarView];
         [self addSubview:_bottomBarView];
         
@@ -96,7 +99,7 @@
     [super layoutSubviews];
  
     self.parallaxImage.frame = CGRectMake(0, -116, kiPadWidthPortrait, 483);
- 
+    _asyncImageView.frame = CGRectMake(0, 0, self.parallaxImage.frame.size.width, self.parallaxImage.frame.size.height);
     
     _bottomBarView.frame= CGRectMake(0, 270 - 80, kiPadWidthPortrait, 80);
     
@@ -144,11 +147,12 @@
     if(!button.selected) //Selecting the button
     {
         button.selected = YES;
-
+        [self.delegate favoriteButtonSelected:YES forCell:self];
     }
     else //Deselecting
     {
         button.selected = NO;
+        [self.delegate favoriteButtonSelected:NO forCell:self];
     }
     
 }
@@ -160,7 +164,13 @@
 
 
 
-
+- (void)setAsyncImageUrl:(NSURL *)asyncImageUrl
+{
+    _asyncImageUrl = asyncImageUrl;
+    
+    if(asyncImageUrl)
+        _asyncImageView.imageURL = asyncImageUrl;
+}
 
 
 

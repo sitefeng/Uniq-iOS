@@ -118,7 +118,7 @@ static const CGFloat CUTOFF = 0.5;
     [bgPathInner addArcWithCenter:[self center] radius:innerRadius startAngle:starttime endAngle:endtime clockwise:YES];
     [bgPathInner addLineToPoint:[self center]];
 
-    self.backgroundColor ? [self.backgroundColor set] : [[[UIColor colorWithPatternImage:[UIImage imageNamed:@"whiteBackground"]] colorWithAlphaComponent:0.7] set];
+    self.backgroundColor ? [self.backgroundColor set] : [[JPStyle colorWithName:@"tWhite"] set];
     [bgPathInner stroke];
     [bgPathInner fill];
 }

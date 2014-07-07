@@ -25,24 +25,39 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
+@protocol JPFavoriteButtonDelegate, AsyncImageView;
 @interface JBParallaxCell : UITableViewCell
 {
     UIView*   _topBarView;
     
     UIView*   _bottomBarView;
-    UIButton*   _favoriteButton;
+    
+    AsyncImageView* _asyncImageView;
     
 }
 
+@property (strong, nonatomic) NSURL* asyncImageUrl;
 @property (strong, nonatomic)  UIImageView *parallaxImage;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subtitleLabel;
-
 @property (nonatomic) NSUInteger numFavorited;
 
+@property (nonatomic, weak) id<JPFavoriteButtonDelegate> delegate;
+
 @property (assign, nonatomic) NSUInteger dashletUid;
+@property (assign, nonatomic) JPDashletType type;
+
+@property (strong, nonatomic) UIButton* favoriteButton;
 
 - (void)cellOnTableView:(UITableView *)tableView didScrollOnView:(UIView *)view;
+
+@end
+
+
+@protocol JPFavoriteButtonDelegate <NSObject>
+
+- (void)favoriteButtonSelected: (BOOL)selected forCell: (id)sender;
 
 @end

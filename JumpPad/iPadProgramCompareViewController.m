@@ -31,19 +31,13 @@
     if(self)
     {
         // Custom initialization
-        
         self.tabBarItem.image = [UIImage imageNamed:@"compare"];
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         
         self.program = program;
         self.dashletUid = dashletUid;
         
-        
-        NSLog(@"self.program: %@[%@]", self.program, self.program.name);
-        NSLog(@"prog Uid: %lu", (unsigned long)self.dashletUid);
-        
     }
-        
     
     return self;
 }

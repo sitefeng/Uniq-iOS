@@ -105,6 +105,25 @@ static const float kProgramImageWidth  = 384;
     self.summaryView = [[iPadProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program location:programLocation];
     self.summaryView.delegate = self;
     
+    //Detail View
+    float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+44+kProgramImageHeight;
+    self.detailView = [[iPadProgramDetailView alloc] initWithFrame:CGRectMake(0,otherTopHeights , _screenWidth, kiPadHeightPortrait - otherTopHeights) andProgram: self.program];
+    
+    
+    [self addChildViewController:self.imageController];
+    [self.view addSubview:self.imageController.view];
+    
+    [self.view addSubview:self.labelView];
+    [self.view addSubview:self.summaryView];
+    [self.view addSubview:self.detailView];
+
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     //Check if program is favorited
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
     favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
@@ -122,21 +141,6 @@ static const float kProgramImageWidth  = 384;
         self.summaryView.isFavorited = YES;
         NSLog(@"Error: TOO many results!");
     }
-    
-    
-    float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+44+kProgramImageHeight;
-    
-    self.detailView = [[iPadProgramDetailView alloc] initWithFrame:CGRectMake(0,otherTopHeights , _screenWidth, kiPadHeightPortrait - otherTopHeights) andProgram: self.program];
-    
-    
-    [self addChildViewController:self.imageController];
-    [self.view addSubview:self.imageController.view];
-    
-    [self.view addSubview:self.labelView];
-    [self.view addSubview:self.summaryView];
-    [self.view addSubview:self.detailView];
-
-    
 }
 
 

@@ -28,8 +28,8 @@
 @property (nonatomic, strong) Faculty* faculty;
 
 
-@property (nonatomic, strong) JPLocation* location;
-
+@property (nonatomic, strong, readonly) JPLocation* location;
+@property (nonatomic, readonly) float distanceToHome;
 
 
 @property (nonatomic, strong) UILabel* summary;

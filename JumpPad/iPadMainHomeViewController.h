@@ -25,7 +25,7 @@
     NSMutableArray*  _courseCellsToSave;
     
     JPUserLocator *  _userLocator;
-    
+    BOOL             _userLocated; //temp
 }
 
 
@@ -37,6 +37,6 @@
 
 
 - (IBAction)EditButtonPressed:(id)sender;
-
+- (void)locationButtonPressed: (UIButton*)button;
 
 @end

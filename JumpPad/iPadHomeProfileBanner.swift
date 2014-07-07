@@ -10,7 +10,7 @@ import UIKit
 
 class iPadHomeProfileBanner: UIView {
 
-    var homeViewController: UIViewController?
+    var homeViewController: iPadMainHomeViewController!
     
     var userImage: UIImage! {
     get{
@@ -27,7 +27,7 @@ class iPadHomeProfileBanner: UIView {
     
     var userNameLabel: UITextField!
     var userLocationLabel: UILabel!
-    
+    var activityIndicator: UIActivityIndicatorView!
     var averageProgressView: LDProgressView!
 
     var userAverage: Float {
@@ -77,10 +77,14 @@ class iPadHomeProfileBanner: UIView {
         var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
         userLocationButton.font = UIFont(name: JPFont.defaultFont(), size: 22)
         userLocationButton.setTitle("Location:", forState: UIControlState.Normal)
-        userLocationButton.addTarget(self.homeViewController, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        userLocationButton.addTarget(self, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         userLocationButton.setTitleColor(JPStyle.colorWithHex("0007CF", alpha: 1), forState: UIControlState.Normal)
         userLocationButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
         self.addSubview(userLocationButton)
+        
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 280 + 100, y: 100, width: 30, height: 30))
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        self.addSubview(activityIndicator)
         
         userLocationLabel = UILabel(frame: CGRect(x: 280 + 100, y: 100, width: 300, height: 30))
         userLocationLabel.font = userLocationButton.font
@@ -99,42 +103,24 @@ class iPadHomeProfileBanner: UIView {
         self.averageProgressView.animate = false
         self.addSubview(self.averageProgressView)
         
-        
-        
     }
     
     
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect)
+    func locationButtonPressed(button: UIButton)
     {
-        // Drawing code
+        activityIndicator.startAnimating()
+        self.homeViewController.locationButtonPressed(button)
     }
-    */
+    
+    
+    func stopAnimatingAactivityIndicator()
+    {
+        activityIndicator.stopAnimating()
+    }
+    
+
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

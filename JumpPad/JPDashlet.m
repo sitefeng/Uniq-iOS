@@ -93,6 +93,7 @@
         self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
         
         self.title = school.name;
+        self.featuredTitle = self.title;
         self.type = JPDashletTypeSchool;
         
         self.backgroundImages = [NSMutableArray array];
@@ -105,7 +106,6 @@
                 [self.backgroundImages addObject:url];
         }
         
-        self.yearEstablished = school.yearEstablished;
         self.population = school.population;
         
         NSURL* url = [NSURL URLWithString:school.logoUrl];
@@ -121,7 +121,6 @@
 
 - (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletUid
 {
-    
     self = [super init];
     if(self)
     {
@@ -129,7 +128,13 @@
         self.dashletUid = schoolDashletUid + partialFaculty * 1000;
         
         self.title = faculty.name;
+        self.featuredTitle = [faculty.name stringByAppendingString:[NSString stringWithFormat:@", %@", faculty.school.name]];
         self.type = JPDashletTypeFaculty;
+        
+        SchoolLocation* sLoc = faculty.school.location;
+        float lat = [sLoc.lattitude doubleValue];
+        float lon = [sLoc.longitude doubleValue];
+        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
         
         self.backgroundImages = [NSMutableArray array];
         
@@ -141,7 +146,6 @@
                 [self.backgroundImages addObject:url];
         }
         
-        self.yearEstablished = faculty.yearEstablished;
         self.population = faculty.population;
         
     }
@@ -162,8 +166,13 @@
         self.dashletUid = facultyDashletUid + partialprogram;
         
         self.title = program.name;
+        self.featuredTitle = [program.name stringByAppendingString:[NSString stringWithFormat:@", %@", program.faculty.school.name]];
         self.type = JPDashletTypeProgram;
         
+        SchoolLocation* sLoc = program.faculty.school.location;
+        float lat = [sLoc.lattitude doubleValue];
+        float lon = [sLoc.longitude doubleValue];
+        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
         self.backgroundImages = [NSMutableArray array];
         
         NSArray* imageLinks = [program.images allObjects];
@@ -174,7 +183,6 @@
                 [self.backgroundImages addObject:url];
         }
         
-        self.yearEstablished = program.yearEstablished;
         self.population = program.population;
 
     }

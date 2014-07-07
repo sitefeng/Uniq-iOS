@@ -18,6 +18,16 @@
 @property (nonatomic, strong) NSArray* programs; //Programs to Compare
 
 
+@property (nonatomic, strong) UITextView* descriptionTextView;
+
+
+
 - (instancetype)initWithPrograms: (NSArray*)programs;
+
+
+
+
+
+
 
 @end

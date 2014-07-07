@@ -47,13 +47,13 @@
 - (void)setDashletUid:(NSUInteger)dashletUid
 {
     _dashletUid = dashletUid;
-    
     _dashletInfo = [[JPDashlet alloc] initWithDashletUid:_dashletUid];
     
-    NSURL* url = [_dashletInfo.backgroundImages firstObject];
-    
-    if(url)
-        self.imageURL = url;
+    if([_dashletInfo.backgroundImages count] > 0)
+    {
+        NSUInteger randomPhotoIndex = arc4random() % [_dashletInfo.backgroundImages count];
+        self.imageURL = [_dashletInfo.backgroundImages objectAtIndex:randomPhotoIndex];
+    }
     
     if(_dashletInfo.type == JPDashletTypeFaculty)
     {

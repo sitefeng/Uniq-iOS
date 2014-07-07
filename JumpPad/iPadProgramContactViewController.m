@@ -12,7 +12,7 @@
 #import "Program.h"
 #import "SchoolLocation.h"
 #import "School.h"
-
+#import "User.h"
 #import "Faculty.h"
 
 #import "JPFont.h"
@@ -20,6 +20,8 @@
 
 #import "iPadProgramLabelView.h"
 #import "UIImage+ImageEffects.h"
+
+#import "JPLocation.h"
 
 @interface iPadProgramContactViewController ()
 
@@ -35,6 +37,7 @@
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
         self.program = program;
+        self.school = program.faculty.school;
         self.dashletUid = dashletUid;
         _itemType = JPDashletTypeProgram;
         
@@ -49,9 +52,7 @@
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
-        _school = school;
-        _itemType = JPDashletTypeSchool;
-        
+        self.school = school;
     }
     return self;
 }
@@ -64,11 +65,34 @@
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
         _faculty = faculty;
-        _school  = faculty.school;
+        self.school  = faculty.school;
         _itemType = JPDashletTypeFaculty;
         
     }
     return self;
+}
+
+- (void)setSchool:(School *)school
+{
+    _school = school;
+    _itemType = JPDashletTypeSchool;
+    
+    JPLocation* schoolLocation = [[JPLocation alloc] initWithCooridinates:CGPointMake([school.location.lattitude floatValue], [school.location.longitude floatValue]) city:school.location.city province:school.location.province];
+    
+    UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
+    User* user = nil;
+    if([userArray count] >0)
+    {
+        user = [userArray firstObject];
+        self.distanceToHome = [schoolLocation distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
+    }
+    else
+    {
+        self.distanceToHome = -1;
+    }
 }
 
 
@@ -106,7 +130,6 @@
     
     
     SchoolLocation* location = _school.location;
-    _schoolLocation = location;
     CGPoint coord = jpp([location.lattitude floatValue], [location.longitude floatValue]);
     
 
@@ -260,9 +283,14 @@
 
 - (NSArray*)getInformationArrayOfType: (NSString*)arrayType
 {
-    
-    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",_schoolLocation.streetNum, _schoolLocation.streetName, _schoolLocation.city, _schoolLocation.province, _schoolLocation.country];
+    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",self.school.location.streetNum, self.school.location.streetName, self.school.location.city, self.school.location.province, self.school.location.country];
     //TODO: add Postal Code and unit/ apt
+    
+    NSString* distanceToHomeString = @"-- kms Away";
+    if(self.distanceToHome >= 0)
+    {
+        distanceToHomeString = [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
+    }
     
     if(_itemType == JPDashletTypeProgram)
     {
@@ -276,7 +304,7 @@
         }
         else //Array of Values
         {
-            return @[address, @"35kms away", [NSString stringWithFormat:@"%i", [self.program.phone intValue]], [NSString stringWithFormat:@"%i", [self.program.fax intValue]], self.program.email, self.program.website, self.program.facebookLink, self.program.twitterLink];
+            return @[address, distanceToHomeString, [NSString stringWithFormat:@"%i", [self.program.phone intValue]], [NSString stringWithFormat:@"%i", [self.program.fax intValue]], self.program.email, self.program.website, self.program.facebookLink, self.program.twitterLink];
         }
     
     }
@@ -292,7 +320,7 @@
         }
         else //Array of Values
         {
-            return @[address, @"35kms away", _school.website, _school.facebookLink, _school.twitterLink];
+            return @[address, distanceToHomeString, _school.website, _school.facebookLink, _school.twitterLink];
         }
         
     }
@@ -308,7 +336,7 @@
         }
         else //Array of Values
         {
-            return @[address, @"35kms away", _faculty.website, _faculty.facebookLink, _faculty.twitterLink];
+            return @[address, distanceToHomeString, _faculty.website, _faculty.facebookLink, _faculty.twitterLink];
         }
         
     }

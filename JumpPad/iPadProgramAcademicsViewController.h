@@ -10,18 +10,23 @@
 #import "iPadProgramHexCollectionView.h"
 #import "iPadProgramRelatedView.h"
 
-@class Program, iPadProgramLabelView, iOSDateView, iPadProgramRelatedView;
+@class Program, iPadProgramLabelView, iOSDateView, iPadProgramRelatedView, UserFavItem;
 @interface iPadProgramAcademicsViewController : UIViewController <JPProgramHexCollectionViewDataSource, JPProgramRelatedViewDataSource>
 {
+    NSManagedObjectContext* context;
+    
     iOSDateView*      _dateView;
     
-    NSMutableArray*   _calButtonSelected;
     UILabel*         _calendarLabel;
+    NSMutableArray*  _applicationButtons;
     
     CGFloat        _yPositionForScrollView;
     
     NSUInteger     _numHexViews;
     
+    UserFavItem*    _userFav;
+    
+    UIView*        _calendarBackground;
 }
 
 

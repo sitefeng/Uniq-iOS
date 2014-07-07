@@ -74,7 +74,7 @@
     
     
     //Month
-    NSString* monthString = [[JPGlobal monthStringWithInt:self.month] uppercaseString];
+    NSString* monthString = [[JPGlobal monthStringWithInt:(int)self.month] uppercaseString];
     
     CGRect monthRect = CGRectMake(contentRect.origin.x, rect.size.height* 0.13, contentRect.size.width, rect.size.height* 0.2);
     

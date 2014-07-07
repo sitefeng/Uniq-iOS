@@ -29,7 +29,6 @@
     if (self) {
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"ratings"];
-//        self.view.backgroundColor = [JPStyle colorWithHex:@"FFE6EF" alpha:1];
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
         self.program = program;
@@ -74,7 +73,6 @@
     self.overallSelector.maxImage = @"thumbsUp";
     self.overallSelector.userInteractionEnabled = YES;
     self.overallSelector.exclusiveTouch =  YES;
-//    self.overallSelector.bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"greyBackground"]];
     
     self.overallSelector.bgColor = [JPStyle colorWithName:@"blue"];
     self.overallSelector.backgroundColor = self.view.backgroundColor;

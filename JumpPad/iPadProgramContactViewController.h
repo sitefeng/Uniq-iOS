@@ -14,9 +14,6 @@
 {
     JPDashletType    _itemType;
     
-    School*          _school;
-    SchoolLocation*  _schoolLocation;
-    
     Faculty*         _faculty;
     
     UIView*          _mapBarView;
@@ -33,14 +30,13 @@
 
 
 @property (nonatomic, assign) NSUInteger dashletUid;
-
 @property (nonatomic, strong) Program* program;
 
+@property (nonatomic, strong) School* school;
+
+@property (nonatomic, assign) float distanceToHome;
 
 @property (nonatomic, strong) iPadProgramLabelView* labelView;
-
-
-
 @property (nonatomic, strong) MKMapView* mapView;
 
 

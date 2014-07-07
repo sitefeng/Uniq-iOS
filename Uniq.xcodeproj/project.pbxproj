@@ -113,7 +113,6 @@
 		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
 		5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */; };
 		5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */; };
-		5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD82EF319175029000577F8 /* AsyncImageView.m */; };
 		5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */; };
@@ -144,6 +143,10 @@
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
+		AA894BDB1969CFF200F457F8 /* getAllFeaturedInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */; };
+		AA894BE11969D3DB00F457F8 /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AA894BE01969D3DB00F457F8 /* Featured.m */; };
+		AA894BE41969E6D600F457F8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA894BE31969E6D600F457F8 /* AsyncImageView.m */; };
+		AA894BE71969FB1700F457F8 /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA894BE61969FB1700F457F8 /* UserFavItem.m */; };
 		AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */; };
 		AA9C20A4195D19C600148675 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20A3195D19C600148675 /* Banner.m */; };
 		AA9C20A7195D19C600148675 /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20A6195D19C600148675 /* ProgramCourse.m */; };
@@ -159,7 +162,6 @@
 		AA9C20D4195DA47D00148675 /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20D3195DA47C00148675 /* HighschoolCourse.m */; };
 		AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */; };
 		AAE509C91963BEDF000C6899 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509C81963BEDF000C6899 /* Program.m */; };
-		AAE509CC1963BEE0000C6899 /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509CB1963BEE0000C6899 /* UserFavItem.m */; };
 		AAE509CF1963BEE0000C6899 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509CE1963BEE0000C6899 /* School.m */; };
 		AAE509D21963BEE0000C6899 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D11963BEE0000C6899 /* Faculty.m */; };
 		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
@@ -442,8 +444,6 @@
 		5DAD989A19312E6A00FA8FF5 /* SFGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFGaugeView.h; sourceTree = "<group>"; };
 		5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFGaugeView.m; sourceTree = "<group>"; };
 		5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllBannersInfo.json; sourceTree = "<group>"; };
-		5DD82EF219175029000577F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
-		5DD82EF319175029000577F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		5DE5B7AC184ACBB700EFCE0A /* Uniq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uniq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -492,6 +492,13 @@
 		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAboutViewController.swift; sourceTree = "<group>"; };
 		AA7B5350194AA2F10090F113 /* Uniq-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uniq-Bridging-Header.h"; sourceTree = "<group>"; };
+		AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFeaturedInfo.json; sourceTree = "<group>"; };
+		AA894BDF1969D3DB00F457F8 /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Featured.h; sourceTree = "<group>"; };
+		AA894BE01969D3DB00F457F8 /* Featured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Featured.m; sourceTree = "<group>"; };
+		AA894BE21969E6D600F457F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		AA894BE31969E6D600F457F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		AA894BE51969FB1700F457F8 /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavItem.h; sourceTree = "<group>"; };
+		AA894BE61969FB1700F457F8 /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavItem.m; sourceTree = "<group>"; };
 		AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAuthorsTableViewController.swift; sourceTree = "<group>"; };
 		AA9C20A2195D19C600148675 /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
 		AA9C20A3195D19C600148675 /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
@@ -521,8 +528,6 @@
 		AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageRetriever.m; sourceTree = "<group>"; };
 		AAE509C71963BEDF000C6899 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		AAE509C81963BEDF000C6899 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
-		AAE509CA1963BEE0000C6899 /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavItem.h; sourceTree = "<group>"; };
-		AAE509CB1963BEE0000C6899 /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavItem.m; sourceTree = "<group>"; };
 		AAE509CD1963BEE0000C6899 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
 		AAE509CE1963BEE0000C6899 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
 		AAE509D01963BEE0000C6899 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
@@ -612,6 +617,7 @@
 				5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */,
 				5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */,
 				5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */,
+				AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */,
 				5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */,
 			);
 			name = Files;
@@ -648,8 +654,8 @@
 		5D592B31191C741F00ECDCF7 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
-				5DD82EF219175029000577F8 /* AsyncImageView.h */,
-				5DD82EF319175029000577F8 /* AsyncImageView.m */,
+				AA894BE21969E6D600F457F8 /* AsyncImageView.h */,
+				AA894BE31969E6D600F457F8 /* AsyncImageView.m */,
 			);
 			name = AsyncImageView;
 			path = JumpPad;
@@ -921,8 +927,6 @@
 				AA894BD71968ABE800F457F8 /* Dashlet */,
 				AAEF0255194A9246008F8BA8 /* Home View Controller */,
 				AAEF0257194A928C008F8BA8 /* Search View Controller */,
-				AAE509D919644779000C6899 /* School/Faculty View Controllers */,
-				5D338A1B19189B6500A62AC0 /* Program View Controller */,
 			);
 			name = "Main Tab View Controller";
 			sourceTree = "<group>";
@@ -1070,6 +1074,8 @@
 			isa = PBXGroup;
 			children = (
 				5DAC8FAA18555EF700FE3B5B /* Main Tab View Controller */,
+				AAE509D919644779000C6899 /* School/Faculty View Controllers */,
+				5D338A1B19189B6500A62AC0 /* Program View Controller */,
 			);
 			name = "iPad User Interface";
 			sourceTree = "<group>";
@@ -1077,12 +1083,14 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				AA894BE51969FB1700F457F8 /* UserFavItem.h */,
+				AA894BE61969FB1700F457F8 /* UserFavItem.m */,
+				AA894BDF1969D3DB00F457F8 /* Featured.h */,
+				AA894BE01969D3DB00F457F8 /* Featured.m */,
 				AAE509D01963BEE0000C6899 /* Faculty.h */,
 				AAE509D11963BEE0000C6899 /* Faculty.m */,
 				AAE509CD1963BEE0000C6899 /* School.h */,
 				AAE509CE1963BEE0000C6899 /* School.m */,
-				AAE509CA1963BEE0000C6899 /* UserFavItem.h */,
-				AAE509CB1963BEE0000C6899 /* UserFavItem.m */,
 				AAE509C71963BEDF000C6899 /* Program.h */,
 				AAE509C81963BEDF000C6899 /* Program.m */,
 				AA11545B195E106700C56E2B /* User.h */,
@@ -1389,6 +1397,7 @@
 				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
 				5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */,
 				AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */,
+				AA894BDB1969CFF200F457F8 /* getAllFeaturedInfo.json in Resources */,
 				5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */,
 				5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */,
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
@@ -1423,8 +1432,9 @@
 				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
-				5DD82EF419175029000577F8 /* AsyncImageView.m in Sources */,
+				AA894BE11969D3DB00F457F8 /* Featured.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
+				AA894BE71969FB1700F457F8 /* UserFavItem.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
 				AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */,
 				AAE509D21963BEE0000C6899 /* Faculty.m in Sources */,
@@ -1445,6 +1455,7 @@
 				AA9C20C8195D19C700148675 /* ImageLink.m in Sources */,
 				AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */,
 				AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */,
+				AA894BE41969E6D600F457F8 /* AsyncImageView.m in Sources */,
 				AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */,
 				AA9C20B9195D19C700148675 /* UniqKEKeyword.m in Sources */,
 				AA9C20CB195D19C700148675 /* ProgramYearlyTuition.m in Sources */,
@@ -1499,7 +1510,6 @@
 				AA222B4519592DE900820BCD /* LDProgressView.m in Sources */,
 				AA9C20BF195D19C700148675 /* SchoolLocation.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
-				AAE509CC1963BEE0000C6899 /* UserFavItem.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D555529193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m in Sources */,

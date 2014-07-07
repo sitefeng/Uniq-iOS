@@ -22,6 +22,13 @@
         <relationship name="programs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Program" inverseName="faculty" inverseEntity="Program" syncable="YES"/>
         <relationship name="school" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="School" inverseName="faculties" inverseEntity="School" syncable="YES"/>
     </entity>
+    <entity name="Featured" representedClassName="Featured" syncable="YES">
+        <attribute name="featuredId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkedUid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="linkedUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="HighschoolCourse" representedClassName="HighschoolCourse" syncable="YES">
         <attribute name="courseCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="courseLevel" optional="YES" attributeType="String" syncable="YES"/>
@@ -158,27 +165,32 @@
         <relationship name="favItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserFavItem" inverseName="user" inverseEntity="UserFavItem" syncable="YES"/>
     </entity>
     <entity name="UserFavItem" representedClassName="UserFavItem" syncable="YES">
+        <attribute name="applied" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="gotOffer" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="itemId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="researched" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="response" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favItems" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Banner" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Faculty" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="HighschoolCourse" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ImageLink" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Program" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ProgramApplicationStat" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ProgramCourse" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ProgramRating" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ProgramYearlyTuition" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="School" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="SchoolLocation" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="SchoolRanking" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="UniqKEFunction" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="UniqKEKeyword" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="UniqKEOne" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="UserFavItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Banner" positionX="207" positionY="327" width="128" height="105"/>
+        <element name="Faculty" positionX="142" positionY="-27" width="128" height="255"/>
+        <element name="HighschoolCourse" positionX="306" positionY="108" width="128" height="120"/>
+        <element name="ImageLink" positionX="-63" positionY="42" width="128" height="120"/>
+        <element name="Program" positionX="-263" positionY="144" width="128" height="360"/>
+        <element name="ProgramApplicationStat" positionX="-506" positionY="162" width="128" height="120"/>
+        <element name="ProgramCourse" positionX="-531" positionY="288" width="128" height="135"/>
+        <element name="ProgramRating" positionX="-11" positionY="345" width="128" height="195"/>
+        <element name="ProgramYearlyTuition" positionX="-533" positionY="447" width="128" height="120"/>
+        <element name="School" positionX="-261" positionY="-189" width="128" height="300"/>
+        <element name="SchoolLocation" positionX="-423" positionY="-198" width="128" height="195"/>
+        <element name="SchoolRanking" positionX="-425" positionY="3" width="128" height="105"/>
+        <element name="UniqKEFunction" positionX="-783" positionY="-171" width="128" height="120"/>
+        <element name="UniqKEKeyword" positionX="-945" positionY="-45" width="128" height="75"/>
+        <element name="UniqKEOne" positionX="-774" positionY="-6" width="128" height="60"/>
+        <element name="User" positionX="466" positionY="42" width="128" height="210"/>
+        <element name="UserFavItem" positionX="484" positionY="-90" width="128" height="148"/>
+        <element name="Featured" positionX="45" positionY="252" width="128" height="118"/>
     </elements>
 </model>

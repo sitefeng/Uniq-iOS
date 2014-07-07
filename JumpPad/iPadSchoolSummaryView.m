@@ -13,8 +13,14 @@
 #import "School.h"
 #import "Faculty.h"
 #import "SchoolLocation.h"
+#import "User.h"
 
 static const NSInteger kLabelConst =321;
+
+@interface iPadSchoolSummaryView()
+@property (nonatomic, strong) JPLocation* location;
+@property (nonatomic) float distanceToHome;
+@end
 
 @implementation iPadSchoolSummaryView
 
@@ -151,7 +157,21 @@ static const NSInteger kLabelConst =321;
         }
         case 11:
         {
-            return @"--- kms Away";
+            UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext* context = [delegate managedObjectContext];
+            NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+            NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
+            User* user = nil;
+            if([userArray count] >0)
+            {
+                user = [userArray firstObject];
+                self.distanceToHome = [self.location distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
+                return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
+            }
+            else
+            {
+                return @"-- kms Away";
+            }
         }
         case 12:
         {
