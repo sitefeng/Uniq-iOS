@@ -10,7 +10,7 @@
 #import "JPDashlet.h"
 #import "iPadSearchBarView.h"
 #import "iPadMainCollectionViewCell.h"
-#import "iPadBannerView.h"
+#import "JPBannerView.h"
 #import "sortViewController.h"
 #import "iPadFacultySelectViewController.h"
 #import "iPadSchoolHomeViewController.h"
@@ -18,7 +18,7 @@
 #import "iPadMainCollectionViewCell.h"
 #import "School.h"
 #import "Banner.h"
-#import "UserFavItem.h"
+
 #import "JPFont.h"
 
 
@@ -39,13 +39,7 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     self.sortType = JPSortTypeAlphabetical;
-    
-    _isEditing = NO;
-    
-    //Core Data NS Managed Object Context
-    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    context = [delegate managedObjectContext];
-    
+
     //Getting current device orientation
     if(UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
     {
@@ -80,12 +74,13 @@
     self.searchBarView.delegate = self;
     
     //Banner View
-    self.bannerView = [[iPadBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
+    self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
+    [self.view addSubview:self.bannerView];
+//    self.bannerView.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200);
     
     //Adding subviews
     [self.view addSubview: self.cv];
     [self.view addSubview:self.searchBarView];
-    [self.view addSubview:self.bannerView];
     
     //Display all subviews
     [self resizeFrames];
@@ -97,39 +92,16 @@
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewBackgroundTapped)];
     self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
-    
-    
-    //Initialize banner
-    self.bannerURLs = [NSMutableArray array];
-    
+
     
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //temp
-    {
-        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:10001221]];
-        NSArray* favArray = [context executeFetchRequest:favReq error:nil];
-        
-        if([favArray count] > 0)
-        {
-            UserFavItem* item = [favArray firstObject];
-            
-            NSLog(@"Butto: %@,%@,%@,%@", item.researched, item.applied, item.response, item.gotOffer);
-        }
-        
-    }
-    
-    
-    [self updateDashletsInfo];
-    [self.bannerView activateAutoscroll];
+    [super viewWillAppear:animated];
     [self.cv reloadData];
     self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
-               
-    [self updateBannerInfo];
     
     //Prevent transparent tab bar
     self.tabBarController.tabBar.translucent = YES;
@@ -142,76 +114,12 @@
 }
 
 
-- (void)setDashlets:(NSMutableArray *)dashlets
-{
-    if(!self.backupDashlets)
-    {
-        self.backupDashlets = [dashlets mutableCopy];
-    }
-    
-    _dashlets = dashlets;
-}
-
-
-
-#pragma mark - Update From Core Data
-//Retrieving College info from Core Data and put into featuredDashelts
-- (void)updateDashletsInfo
-{
-    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    
-    favReq.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"itemId" ascending:YES]];
-    
-    NSError* err = nil;
-    NSArray* favResults = [context executeFetchRequest:favReq error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    NSMutableArray* dashletArray = [NSMutableArray arrayWithObjects:[@[] mutableCopy],[@[] mutableCopy],[@[] mutableCopy], nil];
-    
-    _dashletTypeCounts = [NSMutableArray arrayWithObjects:@0,@0,@0, nil];
-    for(UserFavItem* favItem in favResults)
-    {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithDashletUid:[favItem.itemId integerValue]];
-        
-        //Knowing which type exists for displaying dashelts
-        NSInteger typeCount = [[_dashletTypeCounts objectAtIndex:dashlet.type] integerValue];
-        [_dashletTypeCounts replaceObjectAtIndex:dashlet.type withObject: [NSNumber numberWithInteger:1+typeCount]];
-        [dashletArray[dashlet.type] addObject:dashlet];
-    }
-    
-    self.dashlets = dashletArray;
-}
-
-
-- (void)updateBannerInfo
-{
-    NSFetchRequest* bannerRequest = [NSFetchRequest fetchRequestWithEntityName:@"Banner"];
-    bannerRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bannerId" ascending:YES]];
-    
-    NSError* err = nil;
-    NSArray* bannerArray = [context executeFetchRequest:bannerRequest error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    for(Banner* banner in bannerArray)
-    {
-        NSURL* bannerURL = [NSURL URLWithString:banner.bannerLink];
-        [self.bannerURLs addObject: bannerURL];
-    }
-    
-    [self.bannerView setImgArrayURL:self.bannerURLs];
-    
-}
-
-
 
 
 #pragma mark - UICollectionView Data Source
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    
     return 3;
 }
 
@@ -416,18 +324,7 @@
 {
     NSUInteger dashletUid = sender.dashletInfo.dashletUid;
     
-    if(fav)
-    {
-        if([_favDashletsToDelete containsObject:[NSNumber numberWithInteger:dashletUid]])
-        {
-            [_favDashletsToDelete removeObject:[NSNumber numberWithInteger:dashletUid]];
-        }
-        
-    }
-    else //unfavorited the cell, add to delete list
-    {
-        [_favDashletsToDelete addObject:[NSNumber numberWithInteger:dashletUid]];
-    }
+    [super favButtonPressedIsFavorited: fav dashletUid: dashletUid];
     
 }
 
@@ -436,46 +333,12 @@
 
 - (IBAction)editBarButtonPressed:(id)sender {
     
-    UIBarButtonItem* button = (UIBarButtonItem*)sender;
-    
-    if(_isEditing)
-    {
-        _isEditing = NO;
-        button.title = @"Edit";
-        
-        [self removeUnselectedFavoritesFromCoreData];
-    }
-    else //start Editing
-    {
-        _isEditing = YES;
-        button.title = @"Save";
-        
-        _favDashletsToDelete = [NSMutableArray array];
-    }
+    [super editBarButtonPressed: sender];
     
     [self.cv reloadData];
 }
 
 
-- (void)removeUnselectedFavoritesFromCoreData
-{
-    
-    for (NSNumber* dashletUid in _favDashletsToDelete)
-    {
-        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", dashletUid];
-        NSArray* results = [context executeFetchRequest:favReq error:nil];
-        
-        for(UserFavItem* item in results)
-        {
-            NSLog(@"Userfav: %@, %@", item.itemId, item.type);
-            [context deleteObject:item];
-        }
-    }
-    
-    [self updateDashletsInfo];
-    [_favDashletsToDelete removeAllObjects];
-}
 
 
 
@@ -543,7 +406,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.bannerView pauseAutoscroll];
+    [super viewWillDisappear:animated];
 
     //Prevent transparent tab bar
     self.tabBarController.tabBar.translucent = NO;

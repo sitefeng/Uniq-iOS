@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadBannerView : UIScrollView <UIScrollViewDelegate>
+@interface JPBannerView : UIScrollView <UIScrollViewDelegate>
 {
     @private
     

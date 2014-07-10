@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadBannerView.h"
+#import "JPBannerView.h"
 #import "AsyncImageView.h"
 
 #import "AFNetworkReachabilityManager.h"
 
 
-@implementation iPadBannerView
+@implementation JPBannerView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -49,7 +49,6 @@
 }
 
 
-
 - (void)setImgArrayURL:(NSMutableArray *)imgArrayURL
 {
     _imgArrayURL = imgArrayURL;
@@ -65,7 +64,7 @@
         imgView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
         [self.bannerArray addObject:imgView];
-        [self setContentSize:CGSizeMake(frame.size.width, 200)];
+        [self setContentSize:CGSizeMake(frame.size.width, frame.size.height)];
         
         [self addSubview: [self.bannerArray firstObject]];
     }
@@ -75,7 +74,7 @@
         imgView.imageURL = [_imgArrayURL firstObject];
         
         [self.bannerArray addObject:imgView];
-        [self setContentSize:CGSizeMake(frame.size.width, 200)];
+        [self setContentSize:CGSizeMake(frame.size.width, frame.size.height)];
         [self addSubview: [self.bannerArray firstObject]];
     }
     else
@@ -105,7 +104,7 @@
             
         }
         
-        [self setContentSize:CGSizeMake(frame.size.width*([_imgArrayURL count]+2), 200)];
+        [self setContentSize:CGSizeMake(frame.size.width*([_imgArrayURL count]+2), frame.size.height)];
         
     }
     

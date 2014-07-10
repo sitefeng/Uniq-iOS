@@ -26,27 +26,11 @@ After tapping on a Dashlet from the Featured tab or the Exlore tab, the user wil
 
 
 
-JPLocation
-
-Although the GPS coordinates can be very exact, the app will only collect location information of the user to the accuracy of a city until location framework is implemented
-
-
-
-
 iPadBannerView
 
 The image below the Navigation Bar
 
 
-iPadDashletBackgroundView
-
-Controls the image portion of a dashlet only
-
-
-
-
-Special Thanks
-http://icons8.com/free-ios-7-icons-in-vector/
 
 
 

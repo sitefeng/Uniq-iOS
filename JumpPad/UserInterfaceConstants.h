@@ -27,10 +27,16 @@
 #define kiPadTabBarHeight               56.0
 #define kiPadTopBarHeight               64.0
 
+#define kiPhoneStatusBarHeight			20.0
+#define kiPhoneNavigationBarHeight        44.0
+
 #define kiPadWidthLandscape             1024
 #define kiPadWidthPortrait              768
 #define kiPadHeightLandscape            768
 #define kiPadHeightPortrait             1024
+
+#define kiPhoneHeightPortrait           568
+#define kiPhoneWidthPortrait            320
 
 //-----------------
 

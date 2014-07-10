@@ -619,7 +619,7 @@ NSString *const AsyncImageErrorKey = @"error";
     {
         [self setUp];
         self.contentMode = UIViewContentModeScaleAspectFill;
-        
+        self.clipsToBounds = YES;
         if(showPlaceholder)
         {
             UIImage* placeholder = [UIImage imageNamed:@"placeholderWhite"];
@@ -635,6 +635,7 @@ NSString *const AsyncImageErrorKey = @"error";
     {
         [self setUp];
         self.contentMode = UIViewContentModeScaleAspectFill;
+        self.clipsToBounds = YES;
         if(img)
         {
             UIImage* placeholder = [UIImage imageNamed:img];

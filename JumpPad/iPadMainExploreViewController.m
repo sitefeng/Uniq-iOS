@@ -11,7 +11,7 @@
 #import "JPDashlet.h"
 #import "iPadSearchBarView.h"
 #import "iPadMainCollectionViewCell.h"
-#import "iPadBannerView.h"
+#import "JPBannerView.h"
 #import "sortViewController.h"
 #import "iPadFacultySelectViewController.h"
 #import "iPadSchoolHomeViewController.h"
@@ -86,7 +86,7 @@
     self.searchBarView.delegate = self;
     
     //Banner View
-    self.bannerView = [[iPadBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
+    self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200)];
     
     //Adding subviews
     [self.view addSubview: self.cv];
@@ -211,29 +211,7 @@
 }
 
 
-//when device orientation changed and view just loaded, change dashlet frames for CGRectZero to a neat layout
-- (void)resizeFrames
-{
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         //using orientation iVar to track which orientation will the frame set for
-                         if(_isOrientationPortrait)
-                         {
-                             self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight);
-                             
-                             self.searchBarView.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 200, _screenWidth, 44);
-                         }
-                         else
-                         {
-                             self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthLandscape, kiPadHeightLandscape-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight);
-                             self.searchBarView.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 200, _screenWidth, 44);
-                         }
-                         
-                     } completion:^(BOOL finished) {
-                         
-                     }];
-    
-}
+
 
 
 
@@ -373,9 +351,6 @@
 
 
 #pragma mark - JPSearchBar Delegate Methods
-
-
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     
@@ -414,6 +389,30 @@
     JPLog(@"Reconnected to Internet");
 }
 
+
+//when device orientation changed and view just loaded, change dashlet frames for CGRectZero to a neat layout
+- (void)resizeFrames
+{
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         //using orientation iVar to track which orientation will the frame set for
+                         if(_isOrientationPortrait)
+                         {
+                             self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight);
+                             
+                             self.searchBarView.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 200, _screenWidth, 44);
+                         }
+                         else
+                         {
+                             self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthLandscape, kiPadHeightLandscape-kiPadStatusBarHeight - kiPadNavigationBarHeight - 200 -kiPadFilterBarHeight);
+                             self.searchBarView.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 200, _screenWidth, 44);
+                         }
+                         
+                     } completion:^(BOOL finished) {
+                         
+                     }];
+    
+}
 
 #pragma mark - Keyboard Dismissal with touchRecognizer
 

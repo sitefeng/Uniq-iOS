@@ -336,17 +336,17 @@
     
     //Square Views that fix the legend
     {
-        UIView* legend1View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 241.5, 19, 19)];
+        UIView* legend1View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 241.7, 19, 19)];
         legend1View.backgroundColor = [JPStyle colorWithName:@"green"];
         legend1View.layer.cornerRadius = 2;
         legend1View.layer.masksToBounds = YES;
         [self.barChartView addSubview:legend1View];
-        UIView* legend2View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 216.5, 19, 19)];
+        UIView* legend2View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 216.7, 19, 19)];
         legend2View.layer.cornerRadius = 2;
         legend2View.layer.masksToBounds = YES;
         legend2View.backgroundColor = [JPStyle colorWithName:@"blue"];
         [self.barChartView addSubview:legend2View];
-        UIView* legend3View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 191.5, 19, 19)];
+        UIView* legend3View = [[UIView alloc] initWithFrame:CGRectMake(90.6, 191.7, 19, 19)];
         legend3View.layer.cornerRadius = 2;
         legend3View.layer.masksToBounds = YES;
         legend3View.backgroundColor = [JPStyle colorWithName:@"red"];

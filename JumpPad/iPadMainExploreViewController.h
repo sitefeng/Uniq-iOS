@@ -13,7 +13,7 @@
 
 
 
-@class iPadBannerView;
+@class JPBannerView;
 
 @interface iPadMainExploreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate, JPDashletInfoDelegate>
 {
@@ -45,7 +45,7 @@
 
 //---View---
 @property (nonatomic, strong) UICollectionView* cv;
-@property (nonatomic, strong) iPadBannerView* bannerView;
+@property (nonatomic, strong) JPBannerView* bannerView;
 @property (nonatomic, strong) iPadSearchBarView* searchBarView;
 
 //--Controller--
