@@ -80,6 +80,7 @@ extern NSString *const AsyncImageErrorKey;
 @property (nonatomic, assign) BOOL showActivityIndicator;
 @property (nonatomic, assign) UIActivityIndicatorViewStyle activityIndicatorStyle;
 @property (nonatomic, assign) NSTimeInterval crossfadeDuration;
+@property (nonatomic, assign) BOOL fadeEffect;
 
 - (id)initWithFrame:(CGRect)frame withPlaceholder: (BOOL)showPlaceholder;
 - (id)initWithFrame:(CGRect)frame withPlaceholderImgName: (NSString*)img;

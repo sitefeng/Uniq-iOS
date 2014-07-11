@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@class AsyncImageView;
-
 @interface iPadDashletImageView : UIView
 {
     NSUInteger   _imagesToLoad;
@@ -28,7 +26,7 @@
 @property (nonatomic, strong) UIImageView* backgroundView;
 
 
-
+@property (nonatomic, assign) BOOL fadeEffect;
 
 
 

@@ -602,6 +602,7 @@ NSString *const AsyncImageErrorKey = @"error";
 	self.showActivityIndicator = (self.image == nil);
 	self.activityIndicatorStyle = UIActivityIndicatorViewStyleGray;
 	self.crossfadeDuration = 0.4;
+    self.fadeEffect = YES;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -687,7 +688,7 @@ NSString *const AsyncImageErrorKey = @"error";
 
 - (void)setImage:(UIImage *)image
 {
-    if (image != self.image && self.crossfadeDuration)
+    if (image != self.image && self.crossfadeDuration && self.fadeEffect)
     {
         //jump through a few hoops to avoid QuartzCore framework dependency
         CAAnimation *animation = [NSClassFromString(@"CATransition") animation];

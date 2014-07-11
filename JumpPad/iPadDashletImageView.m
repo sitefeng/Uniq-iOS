@@ -148,7 +148,11 @@
 
 
 
-
+- (void)setFadeEffect:(BOOL)fadeEffect
+{
+    _fadeEffect = fadeEffect;
+    
+}
 
 
 

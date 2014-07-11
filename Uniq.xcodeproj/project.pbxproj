@@ -17,8 +17,6 @@
 		5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D22646C192DB96E004B3B42 /* JBParallaxCell.m */; };
 		5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2443FC192AABF500E7E8E0 /* MapKit.framework */; };
 		5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D24472D192B20B500E7E8E0 /* core_plot_all.a */; };
-		5D2540A918B6FAB000FAB887 /* oldicon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540A818B6FAB000FAB887 /* oldicon-180.png */; };
-		5D2540AB18B6FAFA00FAB887 /* oldicon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D2540AA18B6FAFA00FAB887 /* oldicon-76.png */; };
 		5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */; };
 		5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */; };
 		5D2664C718BB1ED800C8CC91 /* NSString+JPItemUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2664C618BB1ED800C8CC91 /* NSString+JPItemUid.m */; };
@@ -209,8 +207,6 @@
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D24472D192B20B500E7E8E0 /* core_plot_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = core_plot_all.a; sourceTree = "<group>"; };
-		5D2540A818B6FAB000FAB887 /* oldicon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldicon-180.png"; sourceTree = "<group>"; };
-		5D2540AA18B6FAFA00FAB887 /* oldicon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "oldicon-76.png"; sourceTree = "<group>"; };
 		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainCollectionViewCell.h; sourceTree = "<group>"; };
 		5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainCollectionViewCell.m; sourceTree = "<group>"; };
 		5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletImageView.h; sourceTree = "<group>"; };
@@ -609,8 +605,6 @@
 		5D2540AC18B6FB0400FAB887 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				5D2540A818B6FAB000FAB887 /* oldicon-180.png */,
-				5D2540AA18B6FAFA00FAB887 /* oldicon-76.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -1433,7 +1427,6 @@
 				5DA82D7E18C2FE430011AC26 /* MPLogo@2x.png in Resources */,
 				5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */,
 				5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */,
-				5D2540A918B6FAB000FAB887 /* oldicon-180.png in Resources */,
 				5D9C99DB19358D3C004EFC47 /* UniqKnowledgeEngineOne.json in Resources */,
 				5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */,
 				5D555523193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib in Resources */,
@@ -1446,7 +1439,6 @@
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
 				5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */,
 				5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */,
-				5D2540AB18B6FAFA00FAB887 /* oldicon-76.png in Resources */,
 				5DA82D7618C2FE430011AC26 /* MPArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
