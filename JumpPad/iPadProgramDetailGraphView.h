@@ -21,7 +21,7 @@
 {
     CPTXYGraph*  barChart;
     
-    ProgramRating* programRating;
+    ProgramRating* _programRating;
     
     NSInteger    _indexOfLargestSlice;
 }

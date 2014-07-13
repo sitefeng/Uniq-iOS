@@ -144,6 +144,13 @@
 		AA520EDA1971D6B70003EF98 /* JPMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520ED91971D6B70003EF98 /* JPMainExploreViewController.m */; };
 		AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */; };
 		AA520EE11971F6F60003EF98 /* iPhSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */; };
+		AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EE8197219070003EF98 /* iPhProgramViewController.m */; };
+		AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */; };
+		AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */; };
+		AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */; };
+		AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF4197223070003EF98 /* JPCoreDataHelper.m */; };
+		AA520EF8197236130003EF98 /* iPhImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF7197236130003EF98 /* iPhImageScrollView.m */; };
+		AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */; };
 		AA63DCE7196E4101001D9768 /* iPhMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */; };
 		AA63DCED196E4133001D9768 /* JPMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */; };
 		AA63DCF0196E4141001D9768 /* iPhMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEF196E4141001D9768 /* iPhMainHomeViewController.m */; };
@@ -502,6 +509,20 @@
 		AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhFacProgSelectViewController.m; sourceTree = "<group>"; };
 		AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSchoolHomeViewController.h; sourceTree = "<group>"; };
 		AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSchoolHomeViewController.m; sourceTree = "<group>"; };
+		AA520EE7197219070003EF98 /* iPhProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramViewController.h; sourceTree = "<group>"; };
+		AA520EE8197219070003EF98 /* iPhProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramViewController.m; sourceTree = "<group>"; };
+		AA520EEA19721A300003EF98 /* iPhProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramHomeViewController.h; sourceTree = "<group>"; };
+		AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramHomeViewController.m; sourceTree = "<group>"; };
+		AA520EED19721A410003EF98 /* iPhProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramAcademicsViewController.h; sourceTree = "<group>"; };
+		AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramAcademicsViewController.m; sourceTree = "<group>"; };
+		AA520EF019721A4F0003EF98 /* iPhProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramContactViewController.h; sourceTree = "<group>"; };
+		AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramContactViewController.m; sourceTree = "<group>"; };
+		AA520EF3197223070003EF98 /* JPCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCoreDataHelper.h; sourceTree = "<group>"; };
+		AA520EF4197223070003EF98 /* JPCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCoreDataHelper.m; sourceTree = "<group>"; };
+		AA520EF6197236130003EF98 /* iPhImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhImageScrollView.h; sourceTree = "<group>"; };
+		AA520EF7197236130003EF98 /* iPhImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhImageScrollView.m; sourceTree = "<group>"; };
+		AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramDetailView.h; sourceTree = "<group>"; };
+		AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramDetailView.m; sourceTree = "<group>"; };
 		AA63DCE5196E4101001D9768 /* iPhMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainFeaturedViewController.h; sourceTree = "<group>"; };
 		AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainFeaturedViewController.m; sourceTree = "<group>"; };
 		AA63DCEB196E4133001D9768 /* JPMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainFavoritesViewController.h; sourceTree = "<group>"; };
@@ -935,6 +956,8 @@
 				5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */,
 				5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */,
 				5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */,
+				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
+				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1043,8 +1066,6 @@
 				5DAC8FA918555EE500FE3B5B /* Model */,
 				5D9C99D619357D28004EFC47 /* Debug */,
 				5DE5B83418504A5C00EFCE0A /* iPhone User Interface */,
-				AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */,
-				AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */,
 				AA63DCF4196E508E001D9768 /* Abstract View Controllers */,
 				5DE5B83818504D0B00EFCE0A /* iPad User Interface */,
 				5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */,
@@ -1097,6 +1118,9 @@
 				AA520EDE1971F5640003EF98 /* Explore View Controller */,
 				AA63DCEE196E4141001D9768 /* iPhMainHomeViewController.h */,
 				AA63DCEF196E4141001D9768 /* iPhMainHomeViewController.m */,
+				AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */,
+				AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */,
+				AA520EE6197218C30003EF98 /* Program View Controller */,
 			);
 			name = "iPhone User Interface";
 			sourceTree = "<group>";
@@ -1190,6 +1214,25 @@
 				AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */,
 			);
 			name = "Explore View Controller";
+			sourceTree = "<group>";
+		};
+		AA520EE6197218C30003EF98 /* Program View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AA520EE7197219070003EF98 /* iPhProgramViewController.h */,
+				AA520EE8197219070003EF98 /* iPhProgramViewController.m */,
+				AA520EEA19721A300003EF98 /* iPhProgramHomeViewController.h */,
+				AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */,
+				AA520EF6197236130003EF98 /* iPhImageScrollView.h */,
+				AA520EF7197236130003EF98 /* iPhImageScrollView.m */,
+				AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */,
+				AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */,
+				AA520EED19721A410003EF98 /* iPhProgramAcademicsViewController.h */,
+				AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */,
+				AA520EF019721A4F0003EF98 /* iPhProgramContactViewController.h */,
+				AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */,
+			);
+			name = "Program View Controller";
 			sourceTree = "<group>";
 		};
 		AA63DCF4196E508E001D9768 /* Abstract View Controllers */ = {
@@ -1485,6 +1528,7 @@
 				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
+				AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */,
 				AA894BE11969D3DB00F457F8 /* Featured.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				AA894BE71969FB1700F457F8 /* UserFavItem.m in Sources */,
@@ -1497,6 +1541,7 @@
 				AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */,
 				5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */,
 				5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */,
+				AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */,
 				5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */,
@@ -1516,7 +1561,9 @@
 				AA9C20CB195D19C700148675 /* ProgramYearlyTuition.m in Sources */,
 				AA63DCF7196E55B6001D9768 /* iPhMainExploreViewController.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
+				AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */,
 				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
+				AA520EF8197236130003EF98 /* iPhImageScrollView.m in Sources */,
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,
 				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
@@ -1540,6 +1587,7 @@
 				AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */,
 				5D7055F718B9C779002941B3 /* JPBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
+				AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
@@ -1561,6 +1609,7 @@
 				5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */,
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
+				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
 				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
 				AA9C20BC195D19C700148675 /* ProgramApplicationStat.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
@@ -1598,6 +1647,7 @@
 				AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
 				AA9C20C5195D19C700148675 /* SchoolRanking.m in Sources */,
+				AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

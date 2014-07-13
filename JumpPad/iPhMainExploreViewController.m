@@ -60,6 +60,8 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     iPhMainTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
+    cell.separatorInset = UIEdgeInsetsZero;
+    
     cell.delegate = self;
     cell.dashletInfo = self.dashlets[indexPath.row];
     
@@ -76,6 +78,7 @@
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
     iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithDashletUid:selectedDashlet.dashletUid forSelectionType:JPDashletTypeFaculty];
+    selectViewController.title = selectedDashlet.title;
     
     [self.navigationController pushViewController:selectViewController animated:YES];
     

@@ -7,13 +7,16 @@
 //
 
 #import "JPLocation.h"
+#import "SchoolLocation.h"
+
+
 
 @implementation JPLocation
 
 //Designated Initializer
 -(instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city province:(NSString *)province
 {
-    self = [self init];
+    self = [super init];
     
     self.coordinates = coord;
     self.cityName = city;
@@ -21,6 +24,19 @@
     
     return self;
 }
+
+
+- (instancetype)initWithSchoolLocation: (SchoolLocation*)location
+{
+    self = [super init];
+    
+    self.coordinates = CGPointMake([location.lattitude floatValue], [location.longitude floatValue]);
+    self.cityName = location.city;
+    self.provinceName = location.province;
+    
+    return self;
+}
+
 
 
 - (BOOL)isEqual: (JPLocation*) location

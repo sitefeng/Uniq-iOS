@@ -118,6 +118,8 @@
         [cell setFrame:CGRectMake(0, 0, kiPadWidthPortrait, 270)];
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     Featured* featureItem = self.featuredArray[indexPath.row];
     JPDashlet* dashletItem = [[JPDashlet alloc] initWithDashletUid:[featureItem.linkedUid integerValue]];
     

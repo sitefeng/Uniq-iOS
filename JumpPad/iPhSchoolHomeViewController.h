@@ -14,12 +14,12 @@
 }
 
 
-
+@property (nonatomic, assign) JPDashletType type;
 @property (nonatomic, assign) NSUInteger dashletUid;
 
 
 
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid;
+- (instancetype)initWithDashletUid: (NSUInteger)dashletUid itemType: (NSUInteger)type;
 
 @end

@@ -29,6 +29,7 @@
         self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(110, 40, kiPhoneWidthPortrait- 110, 30)];
         [self addSubview:self.details];
         
+        self.separatorInset = UIEdgeInsetsZero;
         
     }
     return self;

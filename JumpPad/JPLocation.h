@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class SchoolLocation;
 @interface JPLocation : NSObject <NSCopying>
 
 @property (nonatomic, retain) NSString* countryName;
@@ -20,6 +21,8 @@
 
 
 - (instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city  province: (NSString*)province;
+- (instancetype)initWithSchoolLocation: (SchoolLocation*)location;
+
 
 - (BOOL)isEqual: (JPLocation*) location;
 

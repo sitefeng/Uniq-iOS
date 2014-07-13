@@ -33,7 +33,7 @@
         self.program = program;
         
         self.title = title;
-        programRating = self.program.rating;
+        _programRating = self.program.rating;
         
         self.clipsToBounds = YES;
         
@@ -529,22 +529,22 @@
         switch (index)
         {
             case JPRatingTypeDifficulty:
-                value = [programRating.difficulty floatValue];
+                value = [_programRating.difficulty floatValue];
                 break;
             case JPRatingTypeProfessors:
-                value = [programRating.professor floatValue];
+                value = [_programRating.professor floatValue];
                 break;
             case JPRatingTypeSchedule:
-                value = [programRating.schedule floatValue];
+                value = [_programRating.schedule floatValue];
                 break;
             case JPRatingTypeClassmates:
-                value = [programRating.classmates floatValue];
+                value = [_programRating.classmates floatValue];
                 break;
             case JPRatingTypeSocialEnjoyment:
-                value = [programRating.socialEnjoyments floatValue];
+                value = [_programRating.socialEnjoyments floatValue];
                 break;
             case JPRatingTypeStudyEnvironment:
-                value = [programRating.studyEnv floatValue];
+                value = [_programRating.studyEnv floatValue];
                 break;
             default:
                 NSLog(@"pie chart error");
@@ -556,11 +556,11 @@
     {
         if(index == 0)//Girls
         {
-            return (100 - [programRating.guyToGirlRatio floatValue]);
+            return (100 - [_programRating.guyToGirlRatio floatValue]);
         }
         else
         {
-            return [programRating.guyToGirlRatio floatValue];
+            return [_programRating.guyToGirlRatio floatValue];
         }
     }
     
@@ -648,7 +648,7 @@
     float largestValue = 0;
     float totalValue = 0;
     
-    NSArray* array = @[programRating.difficulty, programRating.professor, programRating.schedule, programRating.classmates, programRating.socialEnjoyments, programRating.studyEnv];
+    NSArray* array = @[_programRating.difficulty, _programRating.professor, _programRating.schedule, _programRating.classmates, _programRating.socialEnjoyments, _programRating.studyEnv];
     
     for(int i =0; i<[array count]; i++)
     {
@@ -689,8 +689,6 @@
         [self addSubview:view];
         [self addSubview:legendLabel];
     }
-    
-    
     
     
     UILabel* percentageLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 90, 270, 60)];
@@ -754,7 +752,7 @@
 
 
 
-#pragma mark Radar Chart Method and Data Source and Delegate Methods
+#pragma mark - Radar Chart Method and Data Source and Delegate Methods
 
 - (void)initializeRatings
 {
@@ -801,13 +799,13 @@
     self.overallRatingView.meterType = DPMeterTypeLinearVertical;
     self.overallRatingView.progressTintColor = [JPStyle colorWithName:@"red"];
     self.overallRatingView.trackTintColor = [self.overallRatingView.progressTintColor colorWithAlphaComponent:0.5];
-    self.overallRatingView.progress = [programRating.ratingOverall floatValue] / 103.0f;
+    self.overallRatingView.progress = [_programRating.ratingOverall floatValue] / 103.0f;
     [self addSubview:self.overallRatingView];
     
     UILabel* overallPercent = [[UILabel alloc] initWithFrame:CGRectMake(173, 200, 100, 50)];
     overallPercent.textColor = [UIColor whiteColor];
     overallPercent.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
-    overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
+    overallPercent.text = [[NSMutableString stringWithFormat:@"%i", [_programRating.ratingOverall intValue]] stringByAppendingString:@"%"];
     [self addSubview:overallPercent];
 }
 
@@ -843,22 +841,22 @@
     
     switch (spokeIndex) {
         case 0:
-            return [programRating.difficulty floatValue];
+            return [_programRating.difficulty floatValue];
             break;
         case 1:
-            return [programRating.professor floatValue];
+            return [_programRating.professor floatValue];
             break;
         case 2:
-            return [programRating.schedule floatValue];
+            return [_programRating.schedule floatValue];
             break;
         case 3:
-            return [programRating.classmates floatValue];
+            return [_programRating.classmates floatValue];
             break;
         case 4:
-            return [programRating.socialEnjoyments floatValue];
+            return [_programRating.socialEnjoyments floatValue];
             break;
         case 5:
-            return [programRating.studyEnv floatValue];
+            return [_programRating.studyEnv floatValue];
             break;
         default:
             return 0.0f;

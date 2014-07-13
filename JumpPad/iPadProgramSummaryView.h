@@ -18,11 +18,12 @@
 {
     BOOL    _readyToCalculateDistance;
     UIButton* _favoriteButton;
+    
 }
 
 
 
-
+@property (nonatomic, assign) BOOL isIphoneInterface;
 @property (nonatomic, assign) BOOL isFavorited;
 
 @property (nonatomic, strong) Program* program;
@@ -37,7 +38,7 @@
 
 
 - (id)initWithFrame:(CGRect)frame program: (Program*)program location:(JPLocation*)location;
-
+- (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location isPhoneInterface: (BOOL)isPhone;
 
 @end
 

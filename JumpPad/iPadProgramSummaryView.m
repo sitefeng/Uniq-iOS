@@ -19,99 +19,123 @@
 
 - (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        
-        self.backgroundColor = [UIColor clearColor];
-        
-        self.program = program;
-        self.location = location;
-        
-        _readyToCalculateDistance = false;
-        
-        self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 200, 35)];
-        self.summary.textColor = [UIColor whiteColor];
-        self.summary.font = [UIFont fontWithName:[JPFont defaultLightFont] size:20];
-        self.summary.text = @"SUMMARY";
-        
-        //Icon images and labels;
-        NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SDuration",@"SDistance",@"SCoop",@"SAverage", nil];
-        
-        const int horizDist =200;
-        const int vertDist = 40;
-        for(int i=0; i<3; i++)
-        {
-            for(int j=0; j<2; j++)
-            {
-                UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(15+ horizDist*j, 65+ vertDist*i, 30, 30)];
-                view.contentMode = UIViewContentModeScaleAspectFit;
-                view.image = [UIImage imageNamed:iconImageNames[i*2+j]];
-                [self addSubview:view];
-                
-                UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50+ horizDist*j, 65+vertDist*i, 160, 30)];
-                label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
-                label.textColor = [UIColor whiteColor];
-                label.text = [self labelTextForRow:i column:j];
-                [self addSubview:label];
-            }
-        }
+    self = [self initWithFrame:frame program:program location:location isPhoneInterface:NO];
+    return self;
+}
 
-        //*************************************
-        UIImageView* deadlineView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 190, 35, 35)];
-        deadlineView.image = [UIImage imageNamed:@"calendarIcon"];
-        
-        UILabel* deadlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 187, 300, 40)];
-        deadlineLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:19];
-        deadlineLabel.textColor = [UIColor whiteColor];
-        
-        NSString* monthString = [self.program.admissionDeadline substringToIndex:2];//@"02"
-        
-        NSString* month = [JPGlobal monthStringWithInt:[monthString intValue]];//@"Feb"
-        NSString* date = [self.program.admissionDeadline substringFromIndex:3];
-        
-        deadlineLabel.text = [NSString stringWithFormat:@"Application Deadline: %@ %@", month, date];
-        
-        [self addSubview:deadlineView];
-        [self addSubview:deadlineLabel];
-        
-        //**************************************
-        
-        
-        _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
+
+- (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location isPhoneInterface: (BOOL)isPhone
+{
+    self = [super initWithFrame:frame];
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    self.program = program;
+    self.location = location;
+    
+    self.isIphoneInterface = isPhone;
+    _readyToCalculateDistance = false;
+    
+    self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 200, 35)];
+    self.summary.textColor = [UIColor whiteColor];
+    self.summary.font = [UIFont fontWithName:[JPFont defaultLightFont] size:20];
+    self.summary.text = @"SUMMARY";
+    
+    //Icon images and labels;
+    NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SDuration",@"SDistance",@"SCoop",@"SAverage", nil];
+    
+    int horizDist =200;
+    if(self.isIphoneInterface)
+        horizDist = 165;
+    
+    const int vertDist = 40;
+    for(int i=0; i<3; i++)
+    {
+        for(int j=0; j<2; j++)
+        {
+            UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(15+ horizDist*j, 65+ vertDist*i, 30, 30)];
+            view.contentMode = UIViewContentModeScaleAspectFit;
+            view.image = [UIImage imageNamed:iconImageNames[i*2+j]];
+            [self addSubview:view];
+            
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50+ horizDist*j, 65+vertDist*i, horizDist-40, 30)];
+            label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
+            label.textColor = [UIColor whiteColor];
+            label.text = [self labelTextForRow:i column:j];
+            [self addSubview:label];
+        }
+    }
+    
+    //*************************************
+    CGFloat deadlineViewWidth = 35;
+    if(self.isIphoneInterface)
+        deadlineViewWidth = 30;
+    UIImageView* deadlineView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 190, deadlineViewWidth, deadlineViewWidth)];
+    deadlineView.image = [UIImage imageNamed:@"calendarIcon"];
+    
+    CGFloat labelXPos = 60;
+    if(self.isIphoneInterface)
+        labelXPos = 55;
+    UILabel* deadlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelXPos, 187, 300, 40)];
+    deadlineLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:19];
+    deadlineLabel.textColor = [UIColor whiteColor];
+    
+    NSString* monthString = [self.program.admissionDeadline substringToIndex:2];//@"02"
+    
+    NSString* month = [JPGlobal monthStringWithInt:[monthString intValue]];//@"Feb"
+    NSString* date = [self.program.admissionDeadline substringFromIndex:3];
+    
+    deadlineLabel.text = [NSString stringWithFormat:@"App Deadline: %@ %@", month, date];
+    
+    [self addSubview:deadlineView];
+    [self addSubview:deadlineLabel];
+    
+    //**************************************
+    CGFloat buttonStartPos = 30;
+    CGFloat buttonDistance = 87;
+    if(self.isIphoneInterface)
+    {
+        buttonStartPos = 5;
+        buttonDistance = 75;
+    }
+    //Or Phone Button
+    _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
+    
+    if(!self.isIphoneInterface)
+    {
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         _favoriteButton.selected = NO;
         [_favoriteButton addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(30+ 87, 240, 54, 54)];
-        [email setImage:[UIImage imageNamed:@"email"] forState:UIControlStateNormal];
-        [email setImage:[UIImage imageNamed:@"emailOpen"] forState:UIControlStateHighlighted];
-        [email addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(30+ 174, 240, 54, 54)];
-        [website setImage:[UIImage imageNamed:@"safariIcon"] forState:UIControlStateNormal];
-        [website addTarget:self action:@selector(websiteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(30+261, 240, 54, 54)];
-        [facebook setImage:[UIImage imageNamed:@"facebookIcon"] forState:UIControlStateNormal];
-        [facebook addTarget:self action:@selector(facebookButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-
-        
-        [self addSubview:_favoriteButton];
-        [self addSubview:email];
-        [self addSubview:website];
-        [self addSubview:facebook];
-        
-        
-        [self addSubview:self.summary];
-  
     }
+    else
+    {
+        [_favoriteButton setImage:[UIImage imageNamed:@"phoneIcon"] forState:UIControlStateNormal];
+        [_favoriteButton addTarget:self action:@selector(phoneButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(30+ buttonDistance, 240, 54, 54)];
+    [email setImage:[UIImage imageNamed:@"email"] forState:UIControlStateNormal];
+    [email setImage:[UIImage imageNamed:@"emailOpen"] forState:UIControlStateHighlighted];
+    [email addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(30+ buttonDistance*2, 240, 54, 54)];
+    [website setImage:[UIImage imageNamed:@"safariIcon"] forState:UIControlStateNormal];
+    [website addTarget:self action:@selector(websiteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(30+buttonDistance*3, 240, 54, 54)];
+    [facebook setImage:[UIImage imageNamed:@"facebookIcon"] forState:UIControlStateNormal];
+    [facebook addTarget:self action:@selector(facebookButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self addSubview:_favoriteButton];
+    [self addSubview:email];
+    [self addSubview:website];
+    [self addSubview:facebook];
+    [self addSubview:self.summary];
+    
     return self;
 }
-
 
 
 
@@ -247,7 +271,11 @@
 }
 
 
-
+- (void)phoneButtonTapped: (UIButton*)sender
+{
+    [[[UIAlertView alloc] initWithTitle:@"Feature Coming Soon" message:@"Phone number for this program is currently available under \"Contact\" section." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+    
+}
 
 
 - (void)setIsFavorited:(BOOL)isFavorited
@@ -279,7 +307,12 @@
 
     CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
     CGContextSetLineWidth(context, 2);
-    CGPoint dividerLineVert[] = {jpp(195, 50),jpp(195, 180)};
+    
+    CGFloat vertXPos = 195;
+    if(self.isIphoneInterface)
+        vertXPos = 170;
+    
+    CGPoint dividerLineVert[] = {jpp(vertXPos, 50),jpp(vertXPos, 180)};
     
     CGContextAddLines(context, dividerLineVert, 2);
     CGContextDrawPath(context, kCGPathStroke);

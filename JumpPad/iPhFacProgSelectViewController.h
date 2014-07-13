@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPhFacProgSelectViewController : UIViewController
+@interface iPhFacProgSelectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+{
+    NSManagedObjectContext* context;
+}
 
 
+@property (nonatomic, assign) JPDashletType type;
+@property (nonatomic, assign) NSUInteger dashletUid;
 
-@property(nonatomic, assign) NSUInteger dashletUid;
+@property (nonatomic, strong) NSMutableArray* dashlets;
 
+
+@property (nonatomic, strong) UITableView* tableView;
 
 
 

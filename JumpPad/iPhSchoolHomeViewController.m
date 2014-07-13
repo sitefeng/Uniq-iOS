@@ -14,11 +14,12 @@
 
 @implementation iPhSchoolHomeViewController
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid
+- (instancetype)initWithDashletUid: (NSUInteger)dashletUid itemType: (NSUInteger)type
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.dashletUid=  dashletUid;
+        self.type = type;
         
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
