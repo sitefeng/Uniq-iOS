@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iPhProgramAbstractViewController.h"
+
 
 @class Program, iPhImageScrollView, iPhProgramDetailView;
-@interface iPhProgramHomeViewController : UIViewController
+@interface iPhProgramHomeViewController : iPhProgramAbstractViewController
 {
     iPhImageScrollView*  _panImageView;
     
-    CGFloat   _imageViewYBeforePan;
+    
     
     UIScrollView*  _detailScrollView;
     
@@ -22,12 +24,13 @@
 }
 
 
-@property (nonatomic, strong) Program* program;
-
 
 
 
 - (instancetype)initWithProgram: (Program*)program;
+
+
+
 
 
 @end

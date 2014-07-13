@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iPhProgramAbstractViewController.h"
+
 
 @class Program;
-@interface iPhProgramContactViewController : UIViewController
+@interface iPhProgramContactViewController : iPhProgramAbstractViewController
 
 
 
-@property (nonatomic, strong) Program* program;
+
 
 
 

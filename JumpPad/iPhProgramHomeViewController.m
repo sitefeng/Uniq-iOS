@@ -25,7 +25,7 @@
 
 - (instancetype)initWithProgram: (Program*)program
 {
-    self = [super initWithNibName:nil bundle:nil];
+    self = [super initWithProgram: program];
     if (self)
     {
         self.program = program;
@@ -41,7 +41,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
     _panImageView = [[iPhImageScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
-    _imageViewYBeforePan = _panImageView.frame.origin.y;
+   
     _panImageView.program = self.program;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
@@ -93,49 +93,6 @@
 
 
 
-- (void)imageViewPanned: (UIPanGestureRecognizer*)recognizer
-{
-    CGRect  pastFrame = _panImageView.frame;
-    CGFloat yPosition = pastFrame.origin.y;
-    
-    if(recognizer.state == UIGestureRecognizerStateChanged)
-    {
-        CGPoint translation = [recognizer translationInView:_panImageView];
-        
-        if((translation.y >= 0 && yPosition < 64) || (translation.y <= 0 && yPosition > -176)) //going down||going up
-        {
-            [_panImageView setFrame:CGRectMake(pastFrame.origin.x, _imageViewYBeforePan + translation.y, pastFrame.size.width, pastFrame.size.height)];
-        }
-        
-    }
-    else if(recognizer.state == UIGestureRecognizerStateEnded)
-    {
-        _imageViewYBeforePan = _panImageView.frame.origin.y;
-        
-        if(fabs(_imageViewYBeforePan - 64) > 2 ||fabs(_imageViewYBeforePan - (-176)) > 2)
-        {
-            [UIView animateWithDuration:0.2 delay:0 options: UIViewAnimationOptionCurveEaseOut
-                             animations:^{
-                                 
-                                 if (yPosition > -50)
-                                 {
-                                     [_panImageView setFrame:CGRectMake(pastFrame.origin.x, 64, pastFrame.size.width, pastFrame.size.height)];
-                                 }
-                                 else
-                                 {
-                                     [_panImageView setFrame:CGRectMake(pastFrame.origin.x, -176, pastFrame.size.width, pastFrame.size.height)];
-                                 }
-                                 
-                             } completion:nil];
-        }
-        
-        _imageViewYBeforePan = _panImageView.frame.origin.y;
-        
-    }
-    
-}
-
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -150,7 +107,7 @@
 
 - (void)setProgram:(Program *)program
 {
-    _program = program;
+    super.program = program;
     
     _panImageView.program = program;
 }

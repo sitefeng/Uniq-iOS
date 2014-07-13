@@ -19,13 +19,11 @@
 
 - (instancetype)initWithProgram: (Program*)program
 {
-    self = [super initWithNibName:nil bundle:nil];
+    self = [super initWithProgram:program];
     if (self) {
-        self.program = program;
+
         
-        
-        
-        
+
     }
     return self;
 }
