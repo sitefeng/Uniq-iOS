@@ -25,13 +25,13 @@
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) JPDashletType type;
 
-@property (nonatomic, strong) NSString* featuredTitle; //for featured only
+@property (nonatomic, strong) NSString* featuredTitle; //for featured vc only
 
 @property (nonatomic, strong) NSMutableArray*  backgroundImages;
                              //Array of NSURLs
 
 
-//For dashlet grid detail view
+//For dashlet detail view elements
 @property (nonatomic, strong) NSNumber* population;
 @property (nonatomic, strong) JPLocation* location;
 //Includes the country, city, and coordinates

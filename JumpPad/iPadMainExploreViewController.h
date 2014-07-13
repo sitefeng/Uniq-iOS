@@ -10,12 +10,12 @@
 #import "iPadSearchBarView.h"
 #import "sortViewController.h"
 #import "iPadMainCollectionViewCell.h"
-
+#import "JPMainExploreViewController.h"
 
 
 @class JPBannerView;
 
-@interface iPadMainExploreViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate, JPDashletInfoDelegate>
+@interface iPadMainExploreViewController : JPMainExploreViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, UIPopoverControllerDelegate, JPSortDelegate, JPDashletInfoDelegate>
 {
     
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
@@ -26,26 +26,19 @@
 }
 
 //---Model---
-
-//Array of JPDashlets of type JPDashletTypeCollege
-//to be Displayed on Screen
-@property (nonatomic, strong) NSMutableArray* dashlets;
-
 @property (nonatomic, strong) NSMutableArray* backupDashlets; //for sort
 
 @property (nonatomic, assign) JPSortType sortType;
 
 
 
-@property (nonatomic, strong) NSMutableArray* bannerURLs;
-@property (nonatomic, strong) NSManagedObjectContext* context;
+
 
 
 
 
 //---View---
 @property (nonatomic, strong) UICollectionView* cv;
-@property (nonatomic, strong) JPBannerView* bannerView;
 @property (nonatomic, strong) iPadSearchBarView* searchBarView;
 
 //--Controller--

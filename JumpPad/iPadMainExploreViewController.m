@@ -106,9 +106,7 @@
     
     
 
-    //Core Data NS Managed Object Context
-    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    self.context = [delegate managedObjectContext];
+ 
     
     //Initialize banner
     self.bannerURLs = [NSMutableArray array];
@@ -119,12 +117,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self updateDashletsInfo];
-    [self.bannerView activateAutoscroll];
+    [super viewWillAppear:animated];
+    
     [self.cv reloadData];
     self.cv.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660);
-    [self updateBannerInfo];
-    
+
     //Prevent transparent tab bar
     self.tabBarController.tabBar.translucent = YES;
 }
@@ -137,81 +134,8 @@
         self.backupDashlets = [dashlets mutableCopy];
     }
     
-    _dashlets = dashlets;
+    [super setDashlets:dashlets];
 }
-
-
-
-#pragma mark - Update From Core Data
-//Retrieving College info from Core Data and put into featuredDashelts
-- (void)updateDashletsInfo
-{
-    NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
-    dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-
-    NSError* err = nil;
-    NSArray* schoolArray = [self.context executeFetchRequest:dashletRequest error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    NSMutableArray* dashletArray = [NSMutableArray array];
-    
-    for(School* school in schoolArray)
-    {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithSchool:school];
-        [dashletArray addObject:dashlet];
-    }
-    
-    self.dashlets = dashletArray;
-}
-
-
-- (void)updateBannerInfo
-{
-    NSFetchRequest* bannerRequest = [NSFetchRequest fetchRequestWithEntityName:@"Banner"];
-    bannerRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bannerId" ascending:YES]];
-    
-    NSError* err = nil;
-    NSArray* bannerArray = [self.context executeFetchRequest:bannerRequest error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    for(Banner* banner in bannerArray)
-    {
-        NSURL* bannerURL = [NSURL URLWithString:banner.bannerLink];
-        [self.bannerURLs addObject: bannerURL];
-    }
-
-    [self.bannerView setImgArrayURL:self.bannerURLs];
-    
-}
-
-
-
-
-
-#pragma mark - Handle View Frame Change
-
-//when device rotated, resize all subviews
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    
-    if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
-    {
-        _isOrientationPortrait = NO;
-        _screenWidth = kiPadWidthLandscape;
-    }
-    else if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
-    {
-        _isOrientationPortrait = YES;
-        _screenWidth = kiPadWidthPortrait;
-    }
-    
-    [self resizeFrames];
-}
-
-
-
 
 
 
@@ -364,10 +288,9 @@
 }
 
 
-
 #pragma mark - JPDashlet Info Delegate
 
-- (void)infoButtonPressed:(iPadMainCollectionViewCell *)sender
+- (void)infoButtonPressed:(iPadMainCollectionViewCell*)sender
 {
     iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:sender.dashletInfo.dashletUid];
     
@@ -375,6 +298,7 @@
     
     [self presentViewController:navController animated:YES completion:nil];
 }
+
 
 
 
@@ -388,6 +312,28 @@
     
     JPLog(@"Reconnected to Internet");
 }
+
+
+#pragma mark - Handle View Frame Change
+
+//when device rotated, resize all subviews
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    
+    if(UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
+    {
+        _isOrientationPortrait = NO;
+        _screenWidth = kiPadWidthLandscape;
+    }
+    else if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation))
+    {
+        _isOrientationPortrait = YES;
+        _screenWidth = kiPadWidthPortrait;
+    }
+    
+    [self resizeFrames];
+}
+
 
 
 //when device orientation changed and view just loaded, change dashlet frames for CGRectZero to a neat layout
@@ -430,7 +376,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.bannerView pauseAutoscroll];
+    [super viewWillDisappear:animated];
 
 }
 

@@ -65,7 +65,6 @@
         
         [self.bannerArray addObject:imgView];
         [self setContentSize:CGSizeMake(frame.size.width, frame.size.height)];
-        
         [self addSubview: [self.bannerArray firstObject]];
     }
     else if([_imgArrayURL count]==1)

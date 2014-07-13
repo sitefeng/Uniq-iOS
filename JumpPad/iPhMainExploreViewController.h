@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPMainExploreViewController.h"
+#import "iPhMainTableViewCell.h"
 
-@interface iPhMainExploreViewController : UIViewController
+
+@interface iPhMainExploreViewController : JPMainExploreViewController <UITableViewDataSource, UITableViewDelegate, JPDashletCellInfoDelegate>
+
+
+
+@property (nonatomic, strong) UITableView* tableView;
+
+
+
 
 @end

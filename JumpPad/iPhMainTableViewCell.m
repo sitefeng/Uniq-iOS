@@ -8,6 +8,9 @@
 
 #import "iPhMainTableViewCell.h"
 #import "iPadDashletImageView.h"
+#import "JPDashlet.h"
+#import "iOSDashletDetailsView.h"
+#import "iOSDashletTitleView.h"
 
 @implementation iPhMainTableViewCell
 
@@ -17,12 +20,36 @@
     if (self) {
         // Initialization code
         
+        self.itemImageView = [[iPadDashletImageView alloc] initWithFrame:CGRectMake(0, 0, 108, 81)];
+        [self addSubview:self.itemImageView];
         
+        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(110, 5, kiPhoneWidthPortrait-110, 30)];
+        [self addSubview:self.title];
+        
+        self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(110, 40, kiPhoneWidthPortrait- 110, 30)];
+        [self addSubview:self.details];
         
         
     }
     return self;
 }
+
+
+- (void)setDashletInfo:(JPDashlet *)dashletInfo
+{
+    _dashletInfo = dashletInfo;
+    
+    self.itemImageView.imageURLs = self.dashletInfo.backgroundImages;
+    self.itemImageView.logoURL = self.dashletInfo.icon;
+    
+    self.title.text = dashletInfo.title;
+    
+    self.details.label.text = [NSString stringWithFormat:@"%i",[dashletInfo.population intValue]];
+    self.details.label2.text = [NSString stringWithFormat:@"%@", dashletInfo.location.cityName];
+    
+}
+
+
 
 - (void)awakeFromNib
 {

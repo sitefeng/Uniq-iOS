@@ -157,10 +157,10 @@
             </objects>
             <point key="canvasLocation" x="661" y="1173"/>
         </scene>
-        <!--Main Explore View Controller - Explore-->
+        <!--I Ph Main Explore View Controller - Explore-->
         <scene sceneID="qRk-mB-PSz">
             <objects>
-                <viewController id="a5j-3A-ea9" customClass="JPMainExploreViewController" sceneMemberID="viewController">
+                <viewController id="a5j-3A-ea9" customClass="iPhMainExploreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hw1-VU-kte"/>
                         <viewControllerLayoutGuide type="bottom" id="hmG-H0-hu4"/>
