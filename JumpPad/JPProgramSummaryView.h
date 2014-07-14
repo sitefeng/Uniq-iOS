@@ -14,7 +14,7 @@
 
 @protocol JPProgramSummaryDelegate;
 
-@interface iPadProgramSummaryView : UIView <MFMailComposeViewControllerDelegate, UINavigationControllerDelegate>
+@interface JPProgramSummaryView : UIView <MFMailComposeViewControllerDelegate, UINavigationControllerDelegate>
 {
     BOOL    _readyToCalculateDistance;
     UIButton* _favoriteButton;

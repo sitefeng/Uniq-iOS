@@ -42,9 +42,9 @@
 		5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55551D193A9EB300BF6F20 /* iPadProgramHexView.m */; };
 		5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */; };
 		5D555523193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */; };
-		5D555526193B140900BF6F20 /* iPadProgramCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555525193B140900BF6F20 /* iPadProgramCoursesViewController.m */; };
+		5D555526193B140900BF6F20 /* JPProgramCoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555525193B140900BF6F20 /* JPProgramCoursesViewController.m */; };
 		5D555529193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555528193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m */; };
-		5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */; };
+		5D592B35191C893900ECDCF7 /* JPProgramSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B34191C893900ECDCF7 /* JPProgramSummaryView.m */; };
 		5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */; };
 		5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */; };
 		5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B8C191F426800ECDCF7 /* iPadProgramDetailInfoView.m */; };
@@ -129,7 +129,7 @@
 		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
 		5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C30A1923449000F7F01B /* Social.framework */; };
 		5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */; };
-		5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* iOSDateView.m */; };
+		5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* JPDateView.m */; };
 		5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */; };
 		AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */; };
 		AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544E195DF94D00C56E2B /* JPUserLocator.m */; };
@@ -149,9 +149,11 @@
 		AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */; };
 		AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */; };
 		AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF4197223070003EF98 /* JPCoreDataHelper.m */; };
-		AA520EF8197236130003EF98 /* iPhImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF7197236130003EF98 /* iPhImageScrollView.m */; };
+		AA520EF8197236130003EF98 /* iPhImagePanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF7197236130003EF98 /* iPhImagePanView.m */; };
 		AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */; };
 		AA520F011972D28B0003EF98 /* iPhProgramAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F001972D28B0003EF98 /* iPhProgramAbstractViewController.m */; };
+		AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F031972DCAD0003EF98 /* iPhMapPanView.m */; };
+		AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */; };
 		AA63DCE7196E4101001D9768 /* iPhMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */; };
 		AA63DCED196E4133001D9768 /* JPMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */; };
 		AA63DCF0196E4141001D9768 /* iPhMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEF196E4141001D9768 /* iPhMainHomeViewController.m */; };
@@ -180,7 +182,7 @@
 		AAE509CF1963BEE0000C6899 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509CE1963BEE0000C6899 /* School.m */; };
 		AAE509D21963BEE0000C6899 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D11963BEE0000C6899 /* Faculty.m */; };
 		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
-		AAE50A5D1965A3D3000C6899 /* iPadSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */; };
+		AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */; };
 		AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */ = {isa = PBXBuildFile; fileRef = AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */; };
 		AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */; };
 		AAEF023D1948DD87008F8BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
@@ -261,12 +263,12 @@
 		5D55551F193AF98500BF6F20 /* iPadProgramRelatedViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramRelatedViewCell.h; sourceTree = "<group>"; };
 		5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramRelatedViewCell.m; sourceTree = "<group>"; };
 		5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPadProgramRelatedViewCell.xib; sourceTree = "<group>"; };
-		5D555524193B140900BF6F20 /* iPadProgramCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramCoursesViewController.h; sourceTree = "<group>"; };
-		5D555525193B140900BF6F20 /* iPadProgramCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramCoursesViewController.m; sourceTree = "<group>"; };
+		5D555524193B140900BF6F20 /* JPProgramCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramCoursesViewController.h; sourceTree = "<group>"; };
+		5D555525193B140900BF6F20 /* JPProgramCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramCoursesViewController.m; sourceTree = "<group>"; };
 		5D555527193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramCoursesTableViewCell.h; sourceTree = "<group>"; };
 		5D555528193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramCoursesTableViewCell.m; sourceTree = "<group>"; };
-		5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSummaryView.h; sourceTree = "<group>"; };
-		5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSummaryView.m; sourceTree = "<group>"; };
+		5D592B33191C893900ECDCF7 /* JPProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramSummaryView.h; sourceTree = "<group>"; };
+		5D592B34191C893900ECDCF7 /* JPProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramSummaryView.m; sourceTree = "<group>"; };
 		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailView.h; sourceTree = "<group>"; };
 		5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailView.m; sourceTree = "<group>"; };
 		5D592B3A191F050D00ECDCF7 /* iPadProgramDetailGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailGraphView.h; sourceTree = "<group>"; };
@@ -484,8 +486,8 @@
 		5DE5C30A1923449000F7F01B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5DF25F8A19357B6E00474B45 /* JPKnowledgeEngineInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPKnowledgeEngineInterpreter.h; sourceTree = "<group>"; };
 		5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPKnowledgeEngineInterpreter.m; sourceTree = "<group>"; };
-		5DF6503A1933D7AE003E0490 /* iOSDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDateView.h; sourceTree = "<group>"; };
-		5DF6503B1933D7AE003E0490 /* iOSDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDateView.m; sourceTree = "<group>"; };
+		5DF6503A1933D7AE003E0490 /* JPDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDateView.h; sourceTree = "<group>"; };
+		5DF6503B1933D7AE003E0490 /* JPDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDateView.m; sourceTree = "<group>"; };
 		5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPDateStringParser.h"; sourceTree = "<group>"; };
 		5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
 		AA11544A195DF63600C56E2B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -520,12 +522,16 @@
 		AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramContactViewController.m; sourceTree = "<group>"; };
 		AA520EF3197223070003EF98 /* JPCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCoreDataHelper.h; sourceTree = "<group>"; };
 		AA520EF4197223070003EF98 /* JPCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCoreDataHelper.m; sourceTree = "<group>"; };
-		AA520EF6197236130003EF98 /* iPhImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhImageScrollView.h; sourceTree = "<group>"; };
-		AA520EF7197236130003EF98 /* iPhImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhImageScrollView.m; sourceTree = "<group>"; };
+		AA520EF6197236130003EF98 /* iPhImagePanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhImagePanView.h; sourceTree = "<group>"; };
+		AA520EF7197236130003EF98 /* iPhImagePanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhImagePanView.m; sourceTree = "<group>"; };
 		AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramDetailView.h; sourceTree = "<group>"; };
 		AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramDetailView.m; sourceTree = "<group>"; };
 		AA520EFF1972D28B0003EF98 /* iPhProgramAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramAbstractViewController.h; sourceTree = "<group>"; };
 		AA520F001972D28B0003EF98 /* iPhProgramAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramAbstractViewController.m; sourceTree = "<group>"; };
+		AA520F021972DCAD0003EF98 /* iPhMapPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMapPanView.h; sourceTree = "<group>"; };
+		AA520F031972DCAD0003EF98 /* iPhMapPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMapPanView.m; sourceTree = "<group>"; };
+		AA520F051972DD240003EF98 /* iPhAppProgressPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhAppProgressPanView.h; sourceTree = "<group>"; };
+		AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhAppProgressPanView.m; sourceTree = "<group>"; };
 		AA63DCE5196E4101001D9768 /* iPhMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainFeaturedViewController.h; sourceTree = "<group>"; };
 		AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainFeaturedViewController.m; sourceTree = "<group>"; };
 		AA63DCEB196E4133001D9768 /* JPMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainFavoritesViewController.h; sourceTree = "<group>"; };
@@ -581,8 +587,8 @@
 		AAE509D11963BEE0000C6899 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
 		AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolHomeViewController.h; sourceTree = "<group>"; };
 		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolHomeViewController.m; sourceTree = "<group>"; };
-		AAE50A5B1965A3D3000C6899 /* iPadSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolSummaryView.h; sourceTree = "<group>"; };
-		AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolSummaryView.m; sourceTree = "<group>"; };
+		AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSchoolSummaryView.h; sourceTree = "<group>"; };
+		AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSchoolSummaryView.m; sourceTree = "<group>"; };
 		AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfoTry.json; sourceTree = "<group>"; };
 		AAE50A631966685E000C6899 /* iPadProgramComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramComparisonViewController.h; sourceTree = "<group>"; };
 		AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramComparisonViewController.m; sourceTree = "<group>"; };
@@ -1228,8 +1234,12 @@
 				AA520F001972D28B0003EF98 /* iPhProgramAbstractViewController.m */,
 				AA520EEA19721A300003EF98 /* iPhProgramHomeViewController.h */,
 				AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */,
-				AA520EF6197236130003EF98 /* iPhImageScrollView.h */,
-				AA520EF7197236130003EF98 /* iPhImageScrollView.m */,
+				AA520EF6197236130003EF98 /* iPhImagePanView.h */,
+				AA520EF7197236130003EF98 /* iPhImagePanView.m */,
+				AA520F051972DD240003EF98 /* iPhAppProgressPanView.h */,
+				AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */,
+				AA520F021972DCAD0003EF98 /* iPhMapPanView.h */,
+				AA520F031972DCAD0003EF98 /* iPhMapPanView.m */,
 				AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */,
 				AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */,
 				AA520EED19721A410003EF98 /* iPhProgramAcademicsViewController.h */,
@@ -1271,8 +1281,8 @@
 			children = (
 				AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */,
 				AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */,
-				AAE50A5B1965A3D3000C6899 /* iPadSchoolSummaryView.h */,
-				AAE50A5C1965A3D3000C6899 /* iPadSchoolSummaryView.m */,
+				AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */,
+				AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */,
 			);
 			name = "School/Faculty View Controllers";
 			sourceTree = "<group>";
@@ -1328,8 +1338,8 @@
 				5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */,
 				5D338A3019189EC100A62AC0 /* iPadProgramImagesViewController.h */,
 				5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */,
-				5D592B33191C893900ECDCF7 /* iPadProgramSummaryView.h */,
-				5D592B34191C893900ECDCF7 /* iPadProgramSummaryView.m */,
+				5D592B33191C893900ECDCF7 /* JPProgramSummaryView.h */,
+				5D592B34191C893900ECDCF7 /* JPProgramSummaryView.m */,
 				5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */,
 				5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */,
 				5D592B8B191F426800ECDCF7 /* iPadProgramDetailInfoView.h */,
@@ -1345,8 +1355,8 @@
 			children = (
 				5D338A1F19189D9600A62AC0 /* iPadProgramAcademicsViewController.h */,
 				5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */,
-				5DF6503A1933D7AE003E0490 /* iOSDateView.h */,
-				5DF6503B1933D7AE003E0490 /* iOSDateView.m */,
+				5DF6503A1933D7AE003E0490 /* JPDateView.h */,
+				5DF6503B1933D7AE003E0490 /* JPDateView.m */,
 				5D55551C193A9EB300BF6F20 /* iPadProgramHexView.h */,
 				5D55551D193A9EB300BF6F20 /* iPadProgramHexView.m */,
 				5D555516193A9D0100BF6F20 /* iPadProgramHexCollectionView.h */,
@@ -1356,8 +1366,8 @@
 				5D55551F193AF98500BF6F20 /* iPadProgramRelatedViewCell.h */,
 				5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */,
 				5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */,
-				5D555524193B140900BF6F20 /* iPadProgramCoursesViewController.h */,
-				5D555525193B140900BF6F20 /* iPadProgramCoursesViewController.m */,
+				5D555524193B140900BF6F20 /* JPProgramCoursesViewController.h */,
+				5D555525193B140900BF6F20 /* JPProgramCoursesViewController.m */,
 				5D555527193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.h */,
 				5D555528193BBA9800BF6F20 /* iPadProgramCoursesTableViewCell.m */,
 			);
@@ -1528,9 +1538,10 @@
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
-				AAE50A5D1965A3D3000C6899 /* iPadSchoolSummaryView.m in Sources */,
+				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
+				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */,
@@ -1549,7 +1560,7 @@
 				AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */,
 				5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
-				5DF6503C1933D7AE003E0490 /* iOSDateView.m in Sources */,
+				5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
 				AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */,
 				AA9C20D4195DA47D00148675 /* HighschoolCourse.m in Sources */,
@@ -1557,6 +1568,7 @@
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
 				AA9C20C8195D19C700148675 /* ImageLink.m in Sources */,
 				AA520EDA1971D6B70003EF98 /* JPMainExploreViewController.m in Sources */,
+				AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */,
 				AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */,
 				AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */,
 				AA894BE41969E6D600F457F8 /* AsyncImageView.m in Sources */,
@@ -1568,7 +1580,7 @@
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
 				AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */,
 				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
-				AA520EF8197236130003EF98 /* iPhImageScrollView.m in Sources */,
+				AA520EF8197236130003EF98 /* iPhImagePanView.m in Sources */,
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,
 				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
@@ -1599,7 +1611,7 @@
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
 				AA9C20C2195D19C700148675 /* ProgramRating.m in Sources */,
 				AAE509CF1963BEE0000C6899 /* School.m in Sources */,
-				5D555526193B140900BF6F20 /* iPadProgramCoursesViewController.m in Sources */,
+				5D555526193B140900BF6F20 /* JPProgramCoursesViewController.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
 				AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */,
@@ -1609,7 +1621,7 @@
 				5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */,
 				AA9C20A7195D19C600148675 /* ProgramCourse.m in Sources */,
 				5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */,
-				5D592B35191C893900ECDCF7 /* iPadProgramSummaryView.m in Sources */,
+				5D592B35191C893900ECDCF7 /* JPProgramSummaryView.m in Sources */,
 				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
 				5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */,
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,

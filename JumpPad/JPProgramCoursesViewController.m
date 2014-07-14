@@ -6,15 +6,14 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadProgramCoursesViewController.h"
+#import "JPProgramCoursesViewController.h"
 #import "UniqAppDelegate.h"
 #import "JPGlobal.h"
-
 #import "iPadProgramCoursesTableViewCell.h"
-
 #import "ProgramCourse.h"
 
-@interface iPadProgramCoursesViewController ()
+
+@interface JPProgramCoursesViewController ()
 
 @end
 
@@ -22,7 +21,7 @@
 
 NSString* const kCoursesCellIdentifier;
 
-@implementation iPadProgramCoursesViewController
+@implementation JPProgramCoursesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

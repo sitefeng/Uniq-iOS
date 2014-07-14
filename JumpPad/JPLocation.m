@@ -9,6 +9,7 @@
 #import "JPLocation.h"
 #import "SchoolLocation.h"
 
+#import "User.h"
 
 
 @implementation JPLocation
@@ -89,6 +90,50 @@
     }
         
     return c;
+}
+
+
+
+
+- (double)distanceToUser
+{
+    double distanceToHome = -1;
+    
+    UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
+    User* user = nil;
+    if([userArray count] >0)
+    {
+        user = [userArray firstObject];
+        if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
+            distanceToHome = -1;
+        else
+            distanceToHome = [self distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
+    }
+    else
+    {
+        distanceToHome = -1;
+    }
+    
+    return distanceToHome;
+}
+
+- (NSString*)distanceToUserString
+{
+    double userDistance = [self distanceToUser];
+    
+    if(userDistance <0 )
+    {
+        return @"--kms away";
+    }
+    else
+    {
+        return [NSString stringWithFormat:@"%.00fkms away", userDistance];
+    }
+    
+    
 }
 
 

@@ -14,7 +14,7 @@
 
 #import "iPadProgramImagesViewController.h"
 #import "iPadProgramLabelView.h"
-#import "iPadProgramSummaryView.h"
+#import "JPProgramSummaryView.h"
 #import "iPadProgramDetailView.h"
 
 #import "iPadProgramViewController.h"
@@ -121,7 +121,7 @@ static const float kProgramImageWidth  = 384;
     _schoolLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
     
     //Summary View
-    self.summaryView = [[iPadSchoolSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight)];
+    self.summaryView = [[JPSchoolSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight)];
     self.summaryView.delegate = self;
     if(_itemType == JPDashletTypeSchool)
         self.summaryView.school = self.school;

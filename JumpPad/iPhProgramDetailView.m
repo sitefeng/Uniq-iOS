@@ -159,6 +159,34 @@
         {
             
         }
+        else if([title isEqual:@"Courses"])
+        {
+            NSArray* titles = @[@"1st Year", @"2nd Year", @"3rd Year", @"4th Year"];
+            
+            for(int i=0; i<2; i++)
+            {
+                for(int j=0; j<2; j++)
+                {
+                    UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(10 + 150*(j%2), 40 + 80 *(i%2), 130, 70)];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"tBlack"]] forState:UIControlStateNormal];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forState:UIControlStateHighlighted];
+                    
+                    yearButton.layer.cornerRadius = 10;
+                    yearButton.clipsToBounds = YES;
+                    
+                    [yearButton setTitle:titles[j+i*2] forState:UIControlStateNormal];
+                    
+                    yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+                    [yearButton setTintColor:[UIColor whiteColor]];
+                    [yearButton setShowsTouchWhenHighlighted:NO];
+                    yearButton.tag = j+2*i;
+                    [yearButton addTarget:self action:@selector(yearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                    [self addSubview:yearButton];
+                }
+            }
+            
+        }
         
         
         
@@ -167,6 +195,10 @@
 }
 
 
+- (void)yearButtonPressed: (UIButton*)button
+{
+    [self.delegate courseYearPressedWithYear:button.tag+1];
+}
 
 
 #pragma mark - Why Pie Chart View Methods

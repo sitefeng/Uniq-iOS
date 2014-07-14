@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadSchoolSummaryView.h"
+#import "JPSchoolSummaryView.h"
 #import "JPFont.h"
 #import "JPLocation.h"
 #import "JPGlobal.h"
@@ -17,12 +17,12 @@
 
 static const NSInteger kLabelConst =321;
 
-@interface iPadSchoolSummaryView()
+@interface JPSchoolSummaryView()
 @property (nonatomic, strong) JPLocation* location;
 @property (nonatomic) float distanceToHome;
 @end
 
-@implementation iPadSchoolSummaryView
+@implementation JPSchoolSummaryView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

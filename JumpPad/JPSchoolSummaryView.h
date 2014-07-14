@@ -10,7 +10,7 @@
 
 @class School, Faculty, JPLocation;
 @protocol JPSchoolSummaryDelegate;
-@interface iPadSchoolSummaryView : UIView
+@interface JPSchoolSummaryView : UIView
 {
     BOOL    _readyToCalculateDistance;
     

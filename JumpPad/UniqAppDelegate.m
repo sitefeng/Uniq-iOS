@@ -48,11 +48,17 @@
 //    
 //    self.window.rootViewController = home;
     
-    
-    
+//    NSURL* jsonReqUrl = [[NSURL alloc] initWithString:@"http://127.0.0.1:8000/schools/"];
+//    NSData* jsonData = [NSData dataWithContentsOfURL:jsonReqUrl];
+//    NSArray* jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
+//    NSLog(@"JSON Array: %@", jsonArray);
     
     //TRY
-    [[AFNetworkReachabilityManager sharedManager] isReachable];
+    BOOL reachability = [[AFNetworkReachabilityManager sharedManager] isReachable];
+    if(reachability)
+        NSLog(@"Reachability: Reachable");
+    else
+        NSLog(@"Reachability: Not Reachable");
     
     //Adding Mixpanel
 //    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];

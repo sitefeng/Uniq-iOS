@@ -139,7 +139,6 @@
 
 
 
-
 + (UIColor*)rainbowColorWithIndex: (NSUInteger)index //6 colors
 {
     UIColor* color = [UIColor lightGrayColor];

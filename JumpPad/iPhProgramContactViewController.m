@@ -9,7 +9,10 @@
 
 #import "iPhProgramContactViewController.h"
 #import "Program.h"
-
+#import "Faculty.h"
+#import "School.h"
+#import "JPFont.h"
+#import "iPhMapPanView.h"
 
 @interface iPhProgramContactViewController ()
 
@@ -33,7 +36,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
+    _mapPanView = [[iPhMapPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
     
+    _mapPanView.school = self.program.faculty.school;
+    
+    UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
+    [_mapPanView addGestureRecognizer:panRec];
+    [self.view addSubview:_mapPanView];
+    
+    
+    
+    
+    
+    [self.view bringSubviewToFront:_mapPanView];
     
 }
 

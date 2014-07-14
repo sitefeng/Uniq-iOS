@@ -12,8 +12,8 @@
 #import "School.h"
 #import "SchoolLocation.h"
 #import "JPLocation.h"
-#import "iPhImageScrollView.h"
-#import "iPadProgramSummaryView.h"
+#import "iPhImagePanView.h"
+#import "JPProgramSummaryView.h"
 #import "iPhProgramDetailView.h"
 
 
@@ -40,7 +40,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    _panImageView = [[iPhImageScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
+    _panImageView = [[iPhImagePanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
    
     _panImageView.program = self.program;
     
@@ -55,7 +55,7 @@
     [self.view addSubview:_detailScrollView];
 
     JPLocation* programLocation = [[JPLocation alloc] initWithSchoolLocation:self.program.faculty.school.location];
-    iPadProgramSummaryView* summaryView = [[iPadProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program location:programLocation isPhoneInterface:YES];
+    JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program location:programLocation isPhoneInterface:YES];
     [_detailScrollView addSubview:summaryView];
 
     

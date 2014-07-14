@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iPadSchoolSummaryView.h"
+#import "JPSchoolSummaryView.h"
 
 
-@class iPadProgramImagesViewController, iPadProgramLabelView, iPadSchoolSummaryView, School, iPadProgramContactViewController;
+@class iPadProgramImagesViewController, iPadProgramLabelView, JPSchoolSummaryView, School, iPadProgramContactViewController;
 
 @interface iPadSchoolHomeViewController  : UIViewController <JPSchoolSummaryDelegate>
 {
@@ -29,7 +29,7 @@
 
 
 @property (nonatomic, strong) iPadProgramImagesViewController* imageController;
-@property (nonatomic, strong) iPadSchoolSummaryView* summaryView;
+@property (nonatomic, strong) JPSchoolSummaryView* summaryView;
 
 @property (nonatomic, strong) iPadProgramContactViewController* contactVC;
 

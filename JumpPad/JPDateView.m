@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iOSDateView.h"
+#import "JPDateView.h"
 
 #import "JPGlobal.h"
 #import "JPFont.h"
 #import "JPStyle.h"
 
-@implementation iOSDateView
+@implementation JPDateView
 
 - (id)initWithFrame:(CGRect)frame
 {

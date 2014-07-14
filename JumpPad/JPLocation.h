@@ -28,6 +28,9 @@
 
 + (CGPoint)coordinatesForCity: (NSString*)city;
 
+- (double)distanceToUser;
+- (NSString*)distanceToUserString;
+
 - (double)distanceToLocation: (JPLocation*)destination;
 
 - (double)distanceToCoordinate: (CGPoint)destination;

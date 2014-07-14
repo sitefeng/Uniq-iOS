@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class Program, Faculty, School;
-@interface iPhImageScrollView : UIView
+@interface iPhImagePanView : UIView
 {
     UIImageView*   _dragBar;
    

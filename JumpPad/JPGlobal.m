@@ -12,6 +12,17 @@
 @implementation JPGlobal
 
 
++ (instancetype)instance
+{
+    static JPGlobal* _instance = nil;
+    @synchronized(self)
+    {
+        if(_instance == nil)
+            _instance = [[JPGlobal alloc] init];
+    }
+    
+    return _instance;
+}
 
 
 + (NSString*)monthStringWithInt: (int)month

@@ -303,7 +303,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 {
     if(section ==0)
     {
-        return @"Courses Taking";
+        return @"Highschool Courses Taking";
     }
     else if(section ==1)
     {

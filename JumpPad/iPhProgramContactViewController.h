@@ -10,9 +10,11 @@
 #import "iPhProgramAbstractViewController.h"
 
 
-@class Program;
+@class Program, iPhMapPanView;
 @interface iPhProgramContactViewController : iPhProgramAbstractViewController
-
+{
+    iPhMapPanView*   _mapPanView;
+}
 
 
 

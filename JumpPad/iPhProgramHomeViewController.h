@@ -10,10 +10,10 @@
 #import "iPhProgramAbstractViewController.h"
 
 
-@class Program, iPhImageScrollView, iPhProgramDetailView;
+@class Program, iPhImagePanView, iPhProgramDetailView;
 @interface iPhProgramHomeViewController : iPhProgramAbstractViewController
 {
-    iPhImageScrollView*  _panImageView;
+    iPhImagePanView*  _panImageView;
     
     
     

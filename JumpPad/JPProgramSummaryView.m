@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadProgramSummaryView.h"
+#import "JPProgramSummaryView.h"
 #import "Program.h"
 #import "ProgramCourse.h"
 #import "JPFont.h"
@@ -15,7 +15,7 @@
 #import "JPGlobal.h"
 
 
-@implementation iPadProgramSummaryView //for basic information on top in a program
+@implementation JPProgramSummaryView //for basic information on top in a program
 
 - (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location
 {

@@ -11,6 +11,7 @@
 #import "iPadProgramDetailGraphView.h"
 
 @class Program, ProgramRating;
+@protocol JPCoursesDetailViewDelegate;
 @interface iPhProgramDetailView : UIView <XYPieChartDataSource, XYPieChartDelegate>
 {
     ProgramRating* _programRating;
@@ -26,11 +27,19 @@
 @property (nonatomic, strong)XYPieChart* whyPieChart;
 
 
+@property (nonatomic, weak) id<JPCoursesDetailViewDelegate> delegate;
+
 
 - (instancetype)initWithFrame:(CGRect)frame title: (NSString*)title program: (Program*)program;
 
 
 - (void)reloadData;
 
+
+@end
+
+@protocol JPCoursesDetailViewDelegate <NSObject>
+
+- (void)courseYearPressedWithYear: (NSInteger)year;
 
 @end

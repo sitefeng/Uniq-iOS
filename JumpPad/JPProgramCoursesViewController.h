@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface iPadProgramCoursesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface JPProgramCoursesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     
     NSIndexPath* _selectedIndexPath;

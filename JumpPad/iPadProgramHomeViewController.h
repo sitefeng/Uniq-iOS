@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "iPadProgramSummaryView.h"
+#import "JPProgramSummaryView.h"
 #import <MessageUI/MessageUI.h>
 
 
 
-@class iPadProgramImagesViewController, iPadProgramLabelView, iPadProgramSummaryView, iPadProgramDetailView, Program;
+@class iPadProgramImagesViewController, iPadProgramLabelView, JPProgramSummaryView, iPadProgramDetailView, Program;
 
 
 @interface iPadProgramHomeViewController : UIViewController <JPProgramSummaryDelegate, MFMailComposeViewControllerDelegate>
@@ -38,7 +38,7 @@
 @property (nonatomic, strong) iPadProgramImagesViewController* imageController;
 
 @property (nonatomic, strong) iPadProgramLabelView* labelView;
-@property (nonatomic, strong) iPadProgramSummaryView* summaryView;
+@property (nonatomic, strong) JPProgramSummaryView* summaryView;
 @property (nonatomic, strong) iPadProgramDetailView* detailView;
 
 

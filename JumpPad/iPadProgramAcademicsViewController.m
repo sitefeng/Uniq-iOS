@@ -13,7 +13,7 @@
 #import "JPFont.h"
 #import "JPStyle.h"
 
-#import "iOSDateView.h"
+#import "JPDateView.h"
 
 #import "Program.h"
 #import "ProgramCourse.h"
@@ -23,7 +23,7 @@
 #import "iPadProgramHexView.h"
 
 #import "iPadProgramRelatedView.h"
-#import "iPadProgramCoursesViewController.h"
+#import "JPProgramCoursesViewController.h"
 
 #import "UserFavItem.h"
 
@@ -68,7 +68,7 @@
     
     mainScrollView.clipsToBounds = YES;
     
-    _dateView = [[iOSDateView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
+    _dateView = [[JPDateView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
     
     _dateView.month = [self.program.admissionDeadline monthIntegerValue];
     _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
@@ -313,7 +313,7 @@
 {
     NSInteger daysLeft = [self.program.admissionDeadline daysLeftFromToday];
     
-    _calendarLabel.text = @"Application Process: ";
+    _calendarLabel.text = @"Application Progress: ";
     
     if(daysLeft < 90)
     {
@@ -410,7 +410,7 @@
     
     NSUInteger year = button.tag + 1;
     
-    iPadProgramCoursesViewController* viewController = [[iPadProgramCoursesViewController alloc] init];
+    JPProgramCoursesViewController* viewController = [[JPProgramCoursesViewController alloc] init];
     
     viewController.coursesYear = year;
     viewController.programCourses = self.program.courses;

@@ -11,12 +11,15 @@
 @interface JPGlobal : NSObject
 
 
++ (instancetype)instance;
+
+
+
+
+
 
 + (NSString*)monthStringWithInt: (int)month;
-
 + (NSString*)ratingStringWithIndex: (NSInteger)index;
-
-
 + (NSString*)schoolYearStringWithInteger: (NSUInteger)year;
 
 

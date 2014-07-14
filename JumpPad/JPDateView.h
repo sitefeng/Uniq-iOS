@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iOSDateView : UIView
+@interface JPDateView : UIView
 
 
 @property (nonatomic, assign) NSUInteger month;

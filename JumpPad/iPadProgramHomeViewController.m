@@ -13,7 +13,7 @@
 
 #import "iPadProgramImagesViewController.h"
 #import "iPadProgramLabelView.h"
-#import "iPadProgramSummaryView.h"
+#import "JPProgramSummaryView.h"
 #import "iPadProgramDetailView.h"
 
 #import "iPadProgramViewController.h"
@@ -102,7 +102,7 @@ static const float kProgramImageWidth  = 384;
     JPLocation* programLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
     
     //Summary View
-    self.summaryView = [[iPadProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program location:programLocation];
+    self.summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program location:programLocation];
     self.summaryView.delegate = self;
     
     //Detail View

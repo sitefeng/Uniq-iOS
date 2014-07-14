@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPhImageScrollView.h"
+#import "iPhImagePanView.h"
 #import "JPFont.h"
 #import "iPadProgramImagesViewController.h"
 #import "AsyncImageView.h"
@@ -17,7 +17,7 @@
 #import "ImageLink.h"
 #import "AsyncImageView.h"
 
-@implementation iPhImageScrollView
+@implementation iPhImagePanView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
