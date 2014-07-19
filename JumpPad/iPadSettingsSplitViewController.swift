@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MessageUI
 
-class iPadSettingsSplitViewController: UISplitViewController {
+class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewControllerDelegate
+{
 
     var _navController: UINavigationController!
     
@@ -92,6 +94,23 @@ class iPadSettingsSplitViewController: UISplitViewController {
             detailNavController = UINavigationController(rootViewController: detailController)
 
         }
+        else if name == "Contact"
+        {
+            if MFMailComposeViewController.canSendMail()
+            {
+                var mailController : MFMailComposeViewController!  = MFMailComposeViewController()
+                mailController.mailComposeDelegate = self
+                var recipient = "technochimera@gmail.com"
+            
+                mailController.setToRecipients([recipient])
+                self.presentViewController(mailController, animated: true, completion: nil)
+            }
+            else
+            {
+               UIAlertView(title: "Cannot Send Message", message: "Your can setup your mail account in the Settings application", delegate: nil, cancelButtonTitle: "Okay").show()
+            }
+
+        }
         else
         {
             var detailController: UIViewController! = UIViewController(nibName: nil, bundle: nil)
@@ -106,7 +125,10 @@ class iPadSettingsSplitViewController: UISplitViewController {
     }
     
     
-    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     override func didReceiveMemoryWarning() {

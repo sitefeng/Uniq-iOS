@@ -185,7 +185,7 @@
             self.transform = CGAffineTransformMakeRotation(M_1_PI / 1.5);
         }
     } completion:^(BOOL finished) {
-        [super removeFromSuperview];
+//        [super removeFromSuperview];
     }];
 }
 

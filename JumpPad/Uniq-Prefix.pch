@@ -21,4 +21,5 @@
     #import "Mixpanel.h"
 
     #import "LDProgressView.h" // for now
+    #import "iPadMainHomeViewController.h" // for now
 #endif

@@ -7,10 +7,11 @@
 
 #import "JPFont.h"
 #import "JPStyle.h"
-#import "iPadProgramCoursestableViewCell.h"
+#import "JPProgramCoursestableViewCell.h"
 #import "ApplicationConstants.h"
 #import "UserInterfaceConstants.h"
 #import "UniqAppDelegate.h"
 #import "LDProgressView.h"
 #import "UIColor+RGBValues.h"
 #import "iPadMainHomeViewController.h"
+#import "JPGlobal.h"

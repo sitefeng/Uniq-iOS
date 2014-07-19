@@ -165,12 +165,8 @@ static const float kProgramImageWidth  = 384;
         controller.mailComposeDelegate = self;
         
         NSString* recipient = self.program.email;
-        
         [controller setToRecipients: @[recipient]];
-        
         [self presentViewController:controller animated:YES completion:nil];
-        
-        
     }
     else
     {

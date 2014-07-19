@@ -13,15 +13,16 @@
 #import "RPRadarChart.h"
 
 #import "DPMeterView.h"
+#import "JPProgramDetailView.h"
 
 @class Program, ProgramRating;
 
-@interface iPadProgramDetailGraphView : UIView <CPTBarPlotDataSource, CPTPlotSpaceDelegate, CPTBarPlotDelegate, XYPieChartDataSource, XYPieChartDelegate, RPRadarChartDelegate, RPRadarChartDataSource>
+@interface iPadProgramDetailGraphView : JPProgramDetailView <CPTBarPlotDataSource, CPTPlotSpaceDelegate, CPTBarPlotDelegate>
 
 {
     CPTXYGraph*  barChart;
     
-    ProgramRating* _programRating;
+    
     
     NSInteger    _indexOfLargestSlice;
 }

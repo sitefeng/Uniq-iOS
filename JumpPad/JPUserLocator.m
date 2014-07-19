@@ -20,7 +20,6 @@
     if(self)
     {
         _user = user;
-        
     }
     
     return self;
@@ -55,12 +54,6 @@
      didUpdateLocations:(NSArray *)locations {
     // If it's a relatively recent event, turn off updates to save power.
     CLLocation* location = [locations lastObject];
-
-    if(_user)
-    {
-        _user.longitude = [NSNumber numberWithFloat:location.coordinate.longitude];
-        _user.latitude  = [NSNumber numberWithFloat:location.coordinate.latitude];
-    }
     
     //Finding the city and province name
     CLGeocoder* geocoder = [[CLGeocoder alloc] init];
@@ -87,7 +80,15 @@
             [self.delegate userLocatedWithLocationName:locationString coordinates:placeMark.location.coordinate];
             
             //Store In database
-            _user.locationString = locationString;
+            if(_user && [self.delegate respondsToSelector:@selector(shouldSaveUserLocation)])
+            {
+                if([self.delegate shouldSaveUserLocation])
+                {
+                    _user.locationString = locationString;
+                    _user.longitude = [NSNumber numberWithFloat:location.coordinate.longitude];
+                    _user.latitude  = [NSNumber numberWithFloat:location.coordinate.latitude];
+                }
+            }
             
         }
         
@@ -95,6 +96,7 @@
     
     [locationManager stopUpdatingLocation];
 }
+
 
 - (void)showErrorAlert: (NSError*)error
 {

@@ -113,7 +113,7 @@ class iPadHomeProfileBanner: UIView {
     }
     
     
-    func stopAnimatingAactivityIndicator()
+    func stopAnimatingActivityIndicator()
     {
         activityIndicator.stopAnimating()
     }

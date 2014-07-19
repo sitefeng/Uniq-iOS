@@ -76,7 +76,6 @@
             
             self.ratioPieChart.animationSpeed = 1;
             self.ratioPieChart.startPieAngle = M_PI_2;
-//            self.ratioPieChart.labelShadowColor = [UIColor blackColor];
             self.ratioPieChart.labelRadius = 66;
             
             self.ratioPieChart.accessibilityLabel = @"ratioPieChart";
@@ -500,97 +499,7 @@
     
 }
 
-    
 
-
-#pragma mark - Why Pie Chart View Methods
-
-- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
-{
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
-    {
-        return 6;
-    }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
-    {
-        return 2;
-    }
-    
-    return 0;
-}
-
-
-- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
-{
-    CGFloat value = 0.0;
-    
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
-    {
-        switch (index)
-        {
-            case JPRatingTypeDifficulty:
-                value = [_programRating.difficulty floatValue];
-                break;
-            case JPRatingTypeProfessors:
-                value = [_programRating.professor floatValue];
-                break;
-            case JPRatingTypeSchedule:
-                value = [_programRating.schedule floatValue];
-                break;
-            case JPRatingTypeClassmates:
-                value = [_programRating.classmates floatValue];
-                break;
-            case JPRatingTypeSocialEnjoyment:
-                value = [_programRating.socialEnjoyments floatValue];
-                break;
-            case JPRatingTypeStudyEnvironment:
-                value = [_programRating.studyEnv floatValue];
-                break;
-            default:
-                NSLog(@"pie chart error");
-            
-        }
-        
-    }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
-    {
-        if(index == 0)//Girls
-        {
-            return (100 - [_programRating.guyToGirlRatio floatValue]);
-        }
-        else
-        {
-            return [_programRating.guyToGirlRatio floatValue];
-        }
-    }
-    
-    return value;
-}
-
-
-- (UIColor*)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
-{
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
-    {
-        return [JPStyle rainbowColorWithIndex:index];
-    }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
-    {
-        if(index ==0) //girl
-        {
-            return [JPStyle rainbowColorWithIndex:0];//pink
-        }
-        else
-        {
-            return [JPStyle rainbowColorWithIndex:2];//blue
-        }
-    }
-    else
-    {
-        return [UIColor whiteColor];
-    }
-    
-}
 
 
 

@@ -15,12 +15,15 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
     var _authorsInfo : Dictionary<String, String>[] = Array()
     
     var _selectedIndexPath : NSIndexPath?
+    var _deviceType: UIUserInterfaceIdiom!
     
     init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
 
-        self.tableView.registerClass(iPadProgramCoursesTableViewCell.self, forCellReuseIdentifier: authorsCellIdentifier)
+        _deviceType = UIDevice.currentDevice().userInterfaceIdiom
+        
+        self.tableView.registerClass(JPProgramCoursesTableViewCell.self, forCellReuseIdentifier: authorsCellIdentifier)
         self.tableView.allowsMultipleSelection = false;
             
         _authorsInfo = [
@@ -36,14 +39,13 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         
         
     }
-    
+
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        
     }
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,12 +74,15 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
         
-        var cell : iPadProgramCoursesTableViewCell! = tableView!.dequeueReusableCellWithIdentifier(authorsCellIdentifier, forIndexPath: indexPath) as? iPadProgramCoursesTableViewCell
+        var cell : JPProgramCoursesTableViewCell! = tableView!.dequeueReusableCellWithIdentifier(authorsCellIdentifier, forIndexPath: indexPath) as? JPProgramCoursesTableViewCell
 
         if(!cell)
         {
-            cell = iPadProgramCoursesTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: authorsCellIdentifier)
+            cell = JPProgramCoursesTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: authorsCellIdentifier)
         }
+        
+        cell.deviceType = self._deviceType
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         // Configuring the cell
         cell.courseCode = _authorsInfo[indexPath!.row]["name"]

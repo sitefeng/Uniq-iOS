@@ -512,11 +512,11 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 - (void)locationButtonPressed: (UIButton*)button
 {
     if(_userLocated)
-        [self.profileBanner stopAnimatingAactivityIndicator];
+        [self.profileBanner stopAnimatingActivityIndicator];
     
     if(!_userLocator)
     {
-        _userLocator = [[JPUserLocator alloc] init];
+        _userLocator = [[JPUserLocator alloc] initWithUser:_user];
         _userLocator.delegate = self;
         [_userLocator startLocating];
     }
@@ -527,20 +527,23 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 {
     if(name && ![name isEqual: @""])
         self.profileBanner.userLocationLabel.text = name;
-    _user.locationString = name;
-    _user.longitude = [NSNumber numberWithFloat:coord.longitude];
-    _user.latitude = [NSNumber numberWithFloat:coord.latitude];
-    
-    NSLog(@"User latz: %@, lonz: %@", _user.latitude, _user.longitude);
+//    _user.locationString = name;
+//    _user.longitude = [NSNumber numberWithFloat:coord.longitude];
+//    _user.latitude = [NSNumber numberWithFloat:coord.latitude];
     
     [context save:nil];
     
+    NSLog(@"UserLocation: %@,%@,%@", _user.locationString, _user.longitude, _user.latitude);
+    
     _userLocated = YES;
-    [self.profileBanner stopAnimatingAactivityIndicator];
+    [self.profileBanner stopAnimatingActivityIndicator];
 }
 
 
-
+- (BOOL)shouldSaveUserLocation
+{
+    return YES;
+}
 
 
 

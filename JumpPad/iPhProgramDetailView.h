@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "XYPieChart.h"
 #import "iPadProgramDetailGraphView.h"
+#import "JPProgramDetailView.h"
 
-@class Program, ProgramRating;
+@class Program, ProgramRating, RPRadarChart;
 @protocol JPCoursesDetailViewDelegate;
-@interface iPhProgramDetailView : UIView <XYPieChartDataSource, XYPieChartDelegate>
+@interface iPhProgramDetailView : JPProgramDetailView <XYPieChartDataSource, XYPieChartDelegate, RPRadarChartDataSource, RPRadarChartDelegate>
 {
-    ProgramRating* _programRating;
+
     float  _indexOfLargestSlice;
 }
 
@@ -24,8 +25,8 @@
 @property (nonatomic, strong)NSString* title;
 
 
-@property (nonatomic, strong)XYPieChart* whyPieChart;
-
+@property (nonatomic, strong)XYPieChart* pieChart;
+@property (nonatomic, strong)RPRadarChart* radarChart;
 
 @property (nonatomic, weak) id<JPCoursesDetailViewDelegate> delegate;
 

@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPadProgramCoursesTableViewCell.h"
+#import "JPProgramCoursesTableViewCell.h"
 
 #import "JPFont.h"
 #import "JPStyle.h"
 
-@interface iPadProgramCoursesTableViewCell()
+@interface JPProgramCoursesTableViewCell() //Also used as Authors Cell
 
 
 
@@ -20,14 +20,14 @@
 
 const NSUInteger kIconLabelTag = 341;
 
-@implementation iPadProgramCoursesTableViewCell
+@implementation JPProgramCoursesTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+        self.backgroundColor = [UIColor whiteColor];
         
         self.courseCodeLabel= [[UILabel alloc] initWithFrame:CGRectMake(85, 12, 450, 30)];
         self.courseCodeLabel.font = [UIFont fontWithName:[JPFont defaultItalicFont] size:20];
@@ -53,8 +53,7 @@ const NSUInteger kIconLabelTag = 341;
         iconLabel.textAlignment = NSTextAlignmentCenter;
         iconLabel.text = [[self.courseCodeLabel.text substringToIndex:1] uppercaseString];
         
-//        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI_4);
-//        iconLabel.transform = transform;
+
 
         [self.iconView addSubview:iconLabel];
         [self addSubview:self.iconView];
@@ -64,6 +63,7 @@ const NSUInteger kIconLabelTag = 341;
         self.courseDescriptionView.backgroundColor = [UIColor clearColor];
         self.courseDescriptionView.editable = NO;
         self.courseDescriptionView.selectable = NO;
+        self.courseDescriptionView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.courseDescriptionView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
         
         [self addSubview:self.courseDescriptionView]; 
@@ -88,7 +88,7 @@ const NSUInteger kIconLabelTag = 341;
     UILabel* iconLabel = (UILabel*)[self.iconView viewWithTag:kIconLabelTag];
     
     iconLabel.text = [[courseCode substringToIndex:1] uppercaseString];
-    
+
     self.iconView.backgroundColor = [JPStyle colorWithLetter: iconLabel.text];
     
 }
@@ -96,19 +96,22 @@ const NSUInteger kIconLabelTag = 341;
 
 
 
-
-
-
-
+- (void)setDeviceType:(UIUserInterfaceIdiom)deviceType
+{
+    if(deviceType == UIUserInterfaceIdiomPhone)
+    {
+        self.courseDescriptionView.frame = CGRectMake(5, 70, kiPhoneWidthPortrait-10, 115);
+        self.courseDescriptionView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:14];
+        self.courseCodeLabel.frame = CGRectMake(self.courseCodeLabel.frame.origin.x, self.courseCodeLabel.frame.origin.y, 270, 30);
+        self.courseNameLabel.frame = CGRectMake(self.courseNameLabel.frame.origin.x, self.courseNameLabel.frame.origin.y, 270, 30);
+    }
+}
 
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
- 
 }
 
 

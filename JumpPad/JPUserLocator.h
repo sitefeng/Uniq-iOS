@@ -15,11 +15,13 @@
 {
     User*      _user;
     CLLocationManager* locationManager;
+    
 }
 
 
 @property (nonatomic, weak) id<JPUserLocatorDelegate> delegate;
 
+- (id)initWithUser: (User*)user;
 
 - (void)startLocating;
 

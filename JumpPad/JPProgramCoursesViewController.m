@@ -9,7 +9,7 @@
 #import "JPProgramCoursesViewController.h"
 #import "UniqAppDelegate.h"
 #import "JPGlobal.h"
-#import "iPadProgramCoursesTableViewCell.h"
+#import "JPProgramCoursesTableViewCell.h"
 #import "ProgramCourse.h"
 
 
@@ -41,7 +41,9 @@ NSString* const kCoursesCellIdentifier;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    _deviceType = [[UIDevice currentDevice] userInterfaceIdiom];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:1];
    
     self.title = [NSString stringWithFormat:@"%@ Courses",[JPGlobal schoolYearStringWithInteger:self.coursesYear]];
@@ -52,7 +54,7 @@ NSString* const kCoursesCellIdentifier;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.tableView];
     
@@ -105,16 +107,16 @@ NSString* const kCoursesCellIdentifier;
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    iPadProgramCoursesTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:kCoursesCellIdentifier];
+    JPProgramCoursesTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:kCoursesCellIdentifier];
     
     if(!cell)
     {
-        cell = [[iPadProgramCoursesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCoursesCellIdentifier];
+        cell = [[JPProgramCoursesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCoursesCellIdentifier];
     }
     
     
     ProgramCourse* course = self.coursesToDisplay[indexPath.row];
-    
+    cell.deviceType = _deviceType;
     cell.courseCode = course.courseCode;
     cell.courseNameLabel.text = course.courseName;
     cell.courseDescriptionView.text = course.courseDescription;

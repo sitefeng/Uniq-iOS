@@ -13,6 +13,8 @@
 {
     
     NSIndexPath* _selectedIndexPath;
+    
+    UIUserInterfaceIdiom  _deviceType;
 }
 
 

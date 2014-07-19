@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iPadProgramCoursesTableViewCell : UITableViewCell
+@interface JPProgramCoursesTableViewCell : UITableViewCell
 {
     
     
@@ -16,6 +16,7 @@
 }
 
 
+@property (nonatomic, assign) UIUserInterfaceIdiom deviceType;
 
 @property (nonatomic, strong) NSString* courseCode; // first row
 @property (nonatomic, strong) UILabel* courseNameLabel;  //second row

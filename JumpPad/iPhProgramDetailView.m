@@ -83,26 +83,26 @@
         }
         else if([title isEqual:@"Highlight"])
         {
-            self.whyPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 35, 200, 200)];
+            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 35, 200, 200)];
             
-            [self.whyPieChart setDataSource:self];
-            [self.whyPieChart setDelegate:self];
+            [self.pieChart setDataSource:self];
+            [self.pieChart setDelegate:self];
             
-            self.whyPieChart.showLabel = YES;
+            self.pieChart.showLabel = YES;
             
-            self.whyPieChart.startPieAngle = M_PI_2;
-            self.whyPieChart.animationSpeed = 1.0;
+            self.pieChart.startPieAngle = M_PI_2;
+            self.pieChart.animationSpeed = 1.0;
             
-            self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
-            self.whyPieChart.labelColor = [UIColor whiteColor];
-            [self.whyPieChart setPieBackgroundColor: [UIColor clearColor]];
+            self.pieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
+            self.pieChart.labelColor = [UIColor whiteColor];
+            [self.pieChart setPieBackgroundColor: [UIColor clearColor]];
             
-            self.whyPieChart.labelRadius = 50;
-            self.whyPieChart.showPercentage = YES;
-            self.whyPieChart.backgroundColor = [UIColor clearColor];
-            self.whyPieChart.accessibilityLabel = @"whyPieChart";
+            self.pieChart.labelRadius = 50;
+            self.pieChart.showPercentage = YES;
+            self.pieChart.backgroundColor = [UIColor clearColor];
+            self.pieChart.accessibilityLabel = @"whyPieChart";
             
-            [self addSubview:self.whyPieChart];
+            [self addSubview:self.pieChart];
             
             _indexOfLargestSlice = 0;
             float largestValue = 0;
@@ -121,7 +121,7 @@
                 }
             }
             
-            [self.whyPieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
+            [self.pieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
             
             
             //Legend
@@ -152,11 +152,55 @@
         }
         else if([title isEqual:@"Ratings"])
         {
+            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake((kiPhoneWidthPortrait-220)/2, 30, 220, 220)];
             
+            self.radarChart.delegate = self;
+            self.radarChart.dataSource = self;
+            
+            self.radarChart.userInteractionEnabled = NO;
+            self.radarChart.backgroundColor = [UIColor whiteColor];
+            self.radarChart.guideLineSteps = 4;
+            self.radarChart.showGuideNumbers = NO;
+            self.radarChart.showValues = YES;
+            self.radarChart.dotRadius = 6;
+            self.radarChart.backgroundColor = [UIColor clearColor];
+            
+            [self addSubview:self.radarChart];
             
         }
         else if([title isEqual:@"Gals vs Guys Ratio"])
         {
+            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(70, 30, 170, 170) Center:CGPointMake(170/2.0, 170/2.0) Radius:72];
+            self.pieChart.dataSource = self;
+            self.pieChart.delegate = self;
+            self.pieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
+            self.pieChart.labelColor = [UIColor whiteColor];
+            self.pieChart.showPercentage = YES;
+            self.pieChart.showLabel = YES;
+            self.pieChart.animationSpeed = 1;
+            self.pieChart.startPieAngle = M_PI_2;
+            self.pieChart.labelRadius = 45;
+            
+            self.pieChart.accessibilityLabel = @"ratioPieChart";
+            [self.pieChart setPieBackgroundColor: self.backgroundColor];
+            
+            [self setUserInteractionEnabled:NO];
+            [self addSubview:self.pieChart];
+            
+            UILabel* percentageLabel = [[UILabel alloc] init];
+            
+            [percentageLabel setFrame:CGRectMake(0, 0, 40, 40)];
+            [percentageLabel setCenter:self.pieChart.center];
+            
+            [percentageLabel setFont:[UIFont fontWithName:[JPFont defaultThinFont] size:25]];
+            percentageLabel.text = @"%";
+            percentageLabel.textColor = [UIColor blackColor];
+            percentageLabel.clipsToBounds = YES;
+            percentageLabel.textAlignment = NSTextAlignmentCenter;
+            percentageLabel.backgroundColor = self.backgroundColor;
+            [percentageLabel.layer setCornerRadius:percentageLabel.frame.size.width/2.0f];
+            
+            [self addSubview:percentageLabel];
             
         }
         else if([title isEqual:@"Courses"])
@@ -203,96 +247,9 @@
 
 #pragma mark - Why Pie Chart View Methods
 
-- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
-{
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
-    {
-        return 6;
-    }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
-    {
-        return 2;
-    }
-    
-    return 0;
-}
-
-
-- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
-{
-    CGFloat value = 0.0;
-    
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
-    {
-        switch (index)
-        {
-            case JPRatingTypeDifficulty:
-                value = [_programRating.difficulty floatValue];
-                break;
-            case JPRatingTypeProfessors:
-                value = [_programRating.professor floatValue];
-                break;
-            case JPRatingTypeSchedule:
-                value = [_programRating.schedule floatValue];
-                break;
-            case JPRatingTypeClassmates:
-                value = [_programRating.classmates floatValue];
-                break;
-            case JPRatingTypeSocialEnjoyment:
-                value = [_programRating.socialEnjoyments floatValue];
-                break;
-            case JPRatingTypeStudyEnvironment:
-                value = [_programRating.studyEnv floatValue];
-                break;
-            default:
-                NSLog(@"pie chart error");
-                
-        }
-        
-    }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
-    {
-        if(index == 0)//Girls
-        {
-            return (100 - [_programRating.guyToGirlRatio floatValue]);
-        }
-        else
-        {
-            return [_programRating.guyToGirlRatio floatValue];
-        }
-    }
-    
-    return value;
-}
-
-
-- (UIColor*)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
-{
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
-    {
-        return [JPStyle rainbowColorWithIndex:index];
-    }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
-    {
-        if(index ==0) //girl
-        {
-            return [JPStyle rainbowColorWithIndex:0];//pink
-        }
-        else
-        {
-            return [JPStyle rainbowColorWithIndex:2];//blue
-        }
-    }
-    else
-    {
-        return [UIColor whiteColor];
-    }
-    
-}
-
 - (void)reloadData
 {
-    [self.whyPieChart reloadData];
+    [self.pieChart reloadData];
 }
 
 
