@@ -21,15 +21,6 @@
 
 @implementation iPhProgramContactViewController
 
-- (instancetype)initWithProgram: (Program*)program
-{
-    self = [super initWithProgram:program];
-    if (self) {
-
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

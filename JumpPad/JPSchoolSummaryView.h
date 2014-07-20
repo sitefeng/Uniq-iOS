@@ -21,7 +21,7 @@
 }
 
 
-
+@property (nonatomic, assign) BOOL isIphoneInterface;
 
 @property (nonatomic, assign) BOOL isFavorited;
 @property (nonatomic, strong) School* school;
@@ -39,6 +39,7 @@
 
 
 - (instancetype)initWithFrame:(CGRect)frame;
+- (instancetype)initWithFrame:(CGRect)frame isPhoneInterface: (BOOL)isPhone;
 
 @end
 
@@ -49,9 +50,8 @@
 @required
 - (void)websiteButtonTapped;
 - (void)facebookButtonTapped;
-- (void)favoriteButtonSelected: (BOOL)isSelected;
 - (void)twitterButtonTapped;
-
+- (void)favoriteButtonSelected: (BOOL)isSelected;
 
 @end
 

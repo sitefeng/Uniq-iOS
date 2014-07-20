@@ -7,6 +7,7 @@
 //
 
 #import "iPhProgramHomeViewController.h"
+#import "JPGlobal.h"
 #import "Program.h"
 #import "Faculty.h"
 #import "School.h"
@@ -56,6 +57,7 @@
 
     JPLocation* programLocation = [[JPLocation alloc] initWithSchoolLocation:self.program.faculty.school.location];
     JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program location:programLocation isPhoneInterface:YES];
+    summaryView.delegate = self;
     [_detailScrollView addSubview:summaryView];
 
     
@@ -101,6 +103,46 @@
     [_highlighView reloadData];
     [_ratioView reloadData];
 }
+
+
+
+- (void)facebookButtonTapped
+{
+    
+    NSURL* url = [NSURL URLWithString:self.program.facebookLink];
+    [JPGlobal openURL:url];
+}
+
+
+- (void)emailButtonTapped
+{
+    _mailController = [[MFMailComposeViewController alloc] init];
+    
+    _mailController.mailComposeDelegate = self;
+    NSString* recipient = self.program.email;
+    [_mailController setToRecipients:@[recipient]];
+    
+    [self presentViewController:_mailController animated:YES completion:nil];
+    
+}
+
+
+- (void)websiteButtonTapped
+{
+    NSURL* url = [NSURL URLWithString:self.program.website];
+    [JPGlobal openURL:url];
+}
+
+
+
+
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 

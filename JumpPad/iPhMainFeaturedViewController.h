@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JBParallaxPhoneCell.h"
 
-@interface iPhMainFeaturedViewController : UIViewController
+@class JBParallaxPhoneCell, JPCoreDataHelper;
+@interface iPhMainFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPFavoriteButtonDelegate>
+{
+    NSManagedObjectContext* context;
+    JPCoreDataHelper*  _helper;
+}
+
+
+
+
+@property (nonatomic, strong) UITableView* tableView;
+
+
+@property (nonatomic, strong) NSMutableArray* featuredArray;
+
+
 
 @end

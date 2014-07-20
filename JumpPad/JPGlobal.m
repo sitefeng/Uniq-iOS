@@ -111,5 +111,17 @@
 }
 
 
++ (void)openURL: (NSURL*)url
+{
+    if(url)
+    {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    else
+    {
+        [[[UIAlertView alloc] initWithTitle:@"Cannot Open URL" message:@"Link is currently broken, please try again later. You may report this bug to us under 'Settings', and we'll resolve this issue as soon as possible." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+    }
+}
+
 
 @end

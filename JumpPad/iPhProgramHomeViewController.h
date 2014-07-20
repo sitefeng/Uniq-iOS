@@ -7,20 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iPhProgramAbstractViewController.h"
+#import "iPhProgramSchoolAbstractViewController.h"
+#import "JPProgramSummaryView.h"
 
 
 @class Program, iPhImagePanView, iPhProgramDetailView;
-@interface iPhProgramHomeViewController : iPhProgramAbstractViewController
+@interface iPhProgramHomeViewController : iPhProgramSchoolAbstractViewController <JPProgramSummaryDelegate, MFMailComposeViewControllerDelegate>
 {
     iPhImagePanView*  _panImageView;
-    
-    
     
     UIScrollView*  _detailScrollView;
     
     iPhProgramDetailView* _highlighView;
     iPhProgramDetailView* _ratioView;
+    
+    MFMailComposeViewController* _mailController;
+    
 }
 
 

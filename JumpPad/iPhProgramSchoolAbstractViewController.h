@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class Program;
-@interface iPhProgramAbstractViewController : UIViewController
+@interface iPhProgramSchoolAbstractViewController : UIViewController
 {
     CGFloat   _imageViewYBeforePan;
     

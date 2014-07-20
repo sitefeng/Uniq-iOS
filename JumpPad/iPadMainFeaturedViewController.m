@@ -15,6 +15,7 @@
 
 #import "iPadProgramViewController.h"
 #import "iPadSchoolHomeViewController.h"
+#import "JPCoreDataHelper.h"
 
 @interface iPadMainFeaturedViewController ()
 
@@ -33,6 +34,8 @@
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
     
+    _helper = [[JPCoreDataHelper alloc] init];
+    
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight-kiPadNavigationBarHeight-kiPadTabBarHeight) style:UITableViewStylePlain];
     self.tableView.rowHeight = 250 + 20;
@@ -42,7 +45,7 @@
     [self.view addSubview:self.tableView];
     
 
-    [self retrieveFeaturedItems];
+    self.featuredArray = [[_helper retrieveFeaturedItems] mutableCopy];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,45 +57,8 @@
 }
 
 
-- (void)retrieveFeaturedItems
-{
-    //Delete Everything from before first
-    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"Featured"];
-    NSArray* results = [context executeFetchRequest:req error:nil];
-    for(Featured* object in results)
-    {
-        [context deleteObject:object];
-    }
-    
-    NSURL* fileUrl = [[NSBundle mainBundle] URLForResource:@"getAllFeaturedInfo" withExtension:@"json"];
-    NSData* featuredData = [NSData dataWithContentsOfURL:fileUrl];
-    NSError* error = nil;
-    NSArray* jsonObject = [NSJSONSerialization JSONObjectWithData:featuredData options:NSJSONReadingAllowFragments error:&error];
-    
-    if(error)
-        NSLog(@"Error: %@", error);
-    
-    self.featuredArray = [NSMutableArray array];
-    
-    for(NSDictionary* featuredDict in jsonObject)
-    {
-        NSEntityDescription* featuredDesc = [NSEntityDescription entityForName:@"Featured" inManagedObjectContext:context];
-        NSManagedObject* featured = [[NSManagedObject alloc] initWithEntity:featuredDesc insertIntoManagedObjectContext:context];
-        
-        [featured setValue:[featuredDict valueForKey:@"id"] forKey:@"featuredId"];
-        if([featuredDict valueForKey:@"linkedUrl"]!=[NSNull null])
-            [featured setValue:[featuredDict valueForKey:@"linkedUrl"] forKey:@"linkedUrl"];
-        
-        [featured setValue:[featuredDict valueForKey:@"linkedUid"] forKey:@"linkedUid"];
-        [featured setValue:[featuredDict valueForKey:@"title"] forKey:@"title"];
-        [featured setValue:[featuredDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-        
-        [self.featuredArray addObject:featured];
-        [context insertObject:featured];
-    }
-    
-    [context save:nil];
-}
+
+
 
 
 #pragma mark - Table View Data Source
@@ -104,7 +70,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return [self.featuredArray count];
 }
 
 

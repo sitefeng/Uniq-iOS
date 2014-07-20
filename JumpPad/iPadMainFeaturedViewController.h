@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "JBParallaxCell.h"
 
-@class JBParallaxCell;
+@class JBParallaxCell, JPCoreDataHelper;
 @interface iPadMainFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPFavoriteButtonDelegate>
 {
     @private
     
     NSManagedObjectContext* context;
+    JPCoreDataHelper*  _helper;
     
     BOOL      _isOrientationPortrait; //or will be portrait for resizing frames
     

@@ -21,12 +21,18 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    self = [self initWithFrame:frame offset:0];
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame offset: (float)yOff
+{
     self = [super initWithFrame:frame];
     if (self) {
         
         self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         
-        _imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.width/4*3 )];
+        _imageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, yOff, frame.size.width, frame.size.width/4*3 )];
         _imageScrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blackBackground"]];
         _imageScrollView.showsHorizontalScrollIndicator = NO;
         _imageScrollView.pagingEnabled = YES;

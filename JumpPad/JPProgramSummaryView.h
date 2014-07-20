@@ -49,9 +49,11 @@
 @required
 - (void)websiteButtonTapped;
 - (void)facebookButtonTapped;
-- (void)favoriteButtonSelected: (BOOL)isSelected;
 - (void)emailButtonTapped;
 
+@optional
+- (void)favoriteButtonSelected: (BOOL)isSelected;
+- (void)phoneButtonTapped;
 
 @end
 

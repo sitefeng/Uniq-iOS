@@ -24,12 +24,20 @@ static const NSInteger kLabelConst =321;
 
 @implementation JPSchoolSummaryView
 
-- (instancetype)initWithFrame:(CGRect)frame
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [self initWithFrame:frame isPhoneInterface:NO];
+    return self;
+}
+
+
+- (instancetype)initWithFrame:(CGRect)frame isPhoneInterface: (BOOL)isPhone
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        
+        self.isIphoneInterface = isPhone;
         self.backgroundColor = [UIColor clearColor];
         
         _readyToCalculateDistance = false;
@@ -44,7 +52,9 @@ static const NSInteger kLabelConst =321;
         
         NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SAlumni",@"SDistance",@"SPrograms",@"SFunding", nil];
         
-        const int horizDist =200;
+        int horizDist =200;
+        if(self.isIphoneInterface)
+            horizDist = 165;
         const int vertDist = 40;
         
         for(int i=0; i<3; i++)
@@ -65,27 +75,39 @@ static const NSInteger kLabelConst =321;
             }
         }
         
+        //**************************************
+        CGFloat buttonStartPos = 30;
+        CGFloat buttonDistance = 87;
+        if(self.isIphoneInterface)
+        {
+            buttonStartPos = -30;
+            buttonDistance = 87;
+        }
+        
         float iconHeight = 210;
         
-        _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, iconHeight, 54, 54)];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
-        _favoriteButton.selected = NO;
-        if(self.isFavorited)
-            _favoriteButton.selected = YES;
+        if(!self.isIphoneInterface)
+        {
+            _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos, iconHeight, 54, 54)];
+            [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
+            [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+            [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
+            _favoriteButton.selected = NO;
+            if(self.isFavorited)
+                _favoriteButton.selected = YES;
+            
+            [_favoriteButton addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        }
         
-        [_favoriteButton addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(30+ 87, iconHeight, 54, 54)];
+        UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos+buttonDistance, iconHeight, 54, 54)];
         [website setImage:[UIImage imageNamed:@"safariIcon"] forState:UIControlStateNormal];
         [website addTarget:self action:@selector(websiteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton* twitter = [[UIButton alloc] initWithFrame:CGRectMake(30+ 174, iconHeight, 54, 54)];
+        UIButton* twitter = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos+2*buttonDistance, iconHeight, 54, 54)];
         [twitter setImage:[UIImage imageNamed:@"twitterIcon"] forState:UIControlStateNormal];
         [twitter addTarget:self action:@selector(twitterButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(30+261, iconHeight, 54, 54)];
+        UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos+3*buttonDistance, iconHeight, 54, 54)];
         [facebook setImage:[UIImage imageNamed:@"facebookIcon"] forState:UIControlStateNormal];
         [facebook addTarget:self action:@selector(facebookButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -286,7 +308,10 @@ static const NSInteger kLabelConst =321;
     
     CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
     CGContextSetLineWidth(context, 2);
-    CGPoint dividerLineVert[] = {jpp(195, 50),jpp(195, 180)};
+    CGFloat vertXPos = 195;
+    if(self.isIphoneInterface)
+        vertXPos = 170;
+    CGPoint dividerLineVert[] = {jpp(vertXPos, 50),jpp(vertXPos, 180)};
     
     CGContextAddLines(context, dividerLineVert, 2);
     CGContextDrawPath(context, kCGPathStroke);

@@ -12,6 +12,9 @@
 #import "iPhProgramAcademicsViewController.h"
 #import "iPhProgramContactViewController.h"
 #import "JPCoreDataHelper.h"
+#import "UserFavItem.h"
+#import "iPhAppProgressPanView.h"
+
 
 @interface iPhProgramViewController ()
 
@@ -24,6 +27,11 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         // Custom initialization
+    
+        
+        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        context = [delegate managedObjectContext];
+        
         self.dashletUid = dashletUid;
         _helper = [[JPCoreDataHelper alloc] init];
         
@@ -33,12 +41,12 @@
         UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
         self.navigationItem.leftBarButtonItem = dismissItem;
         
-        UIButton* favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
-        [favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
-        favButton.selected = [_helper isFavoritedWithDashletUid:self.dashletUid];
-        [favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:favButton];
+        _favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
+        [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
+        _favButton.selected = [_helper isFavoritedWithDashletUid:self.dashletUid];
+        [_favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:_favButton];
         self.navigationItem.rightBarButtonItem = favoriteItem;
         
         iPhProgramHomeViewController* homeController = [[iPhProgramHomeViewController alloc] initWithProgram: self.program];
@@ -46,7 +54,7 @@
         homeController.tabBarItem.image = [UIImage imageNamed:@"home"];
         homeController.tabBarItem.title = @"Home";
         
-        iPhProgramAcademicsViewController* academicsController = [[iPhProgramAcademicsViewController alloc] initWithProgram:self.program];
+        academicsController = [[iPhProgramAcademicsViewController alloc] initWithProgram:self.program];
         academicsController.tabBarItem.title = @"Academics";
         academicsController.tabBarItem.image = [UIImage imageNamed: @"academics"];
         
@@ -73,9 +81,6 @@
 
 - (void)retrieveProgramInfo
 {
-    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = [delegate managedObjectContext];
-    
     NSInteger programId = self.dashletUid%1000;
     NSInteger facultyId = self.dashletUid%1000000 / 1000;
     NSInteger schoolId = self.dashletUid/1000000;
@@ -89,12 +94,15 @@
     
 }
          
-         
+
+- (void)reloadFavoriteButtonState
+{
+    _favButton.selected = [_helper isFavoritedWithDashletUid:self.dashletUid];
+}
          
 
 - (void)dismissButtonSelected: (UIBarButtonItem*)button
 {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -113,8 +121,9 @@
         [_helper removeFavoriteWithDashletUid:self.dashletUid];
     }
     
+    [academicsController.progressPanView selectCalendarButtonsFromCoreData];
+ 
 }
-
 
 
 - (void)didReceiveMemoryWarning

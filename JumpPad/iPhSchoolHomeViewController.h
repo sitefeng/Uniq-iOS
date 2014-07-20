@@ -7,19 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iPhProgramSchoolAbstractViewController.h"
+#import "JPSchoolSummaryView.h"
 
-@interface iPhSchoolHomeViewController : UIViewController
+@class School, Faculty, iPhImagePanView;
+@interface iPhSchoolHomeViewController : iPhProgramSchoolAbstractViewController <JPSchoolSummaryDelegate>
 {
-    NSManagedObjectContext* context;
+    iPhImagePanView*  _panImageView;
+    
+    
 }
 
 
 @property (nonatomic, assign) JPDashletType type;
-@property (nonatomic, assign) NSUInteger dashletUid;
+
+@property (nonatomic, strong) School* school;
+@property (nonatomic, strong) Faculty* faculty;
 
 
+- (instancetype)initWithFaculty: (Faculty*)faculty;
 
+- (instancetype)initWithSchool: (School*)school;
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid itemType: (NSUInteger)type;
 
 @end

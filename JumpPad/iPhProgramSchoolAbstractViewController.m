@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPhProgramAbstractViewController.h"
+#import "iPhProgramSchoolAbstractViewController.h"
 #import "Program.h"
 
-@implementation iPhProgramAbstractViewController
+@implementation iPhProgramSchoolAbstractViewController
 
 - (instancetype)initWithProgram: (Program*)program
 {

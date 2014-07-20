@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class Program, UserFavItem;
-//@protocol JPAppProgramPanDelegate;
+@protocol JPAppProgressPanDelegate;
 @interface iPhAppProgressPanView : UIView
 {
     NSManagedObjectContext* context;
@@ -23,12 +23,14 @@
 
 @property (nonatomic, strong) NSMutableArray* applicationButtons;
 
-//@property (nonatomic, weak) id<JPAppProgramPanDelegate> delegate;
+@property (nonatomic, weak) id<JPAppProgressPanDelegate> delegate;
+
+- (void)selectCalendarButtonsFromCoreData;
 
 @end
 
-//@protocol JPAppProgramPanDelegate <NSObject>
-//
-//- (void)didPressButtonAtIndex: (NSInteger)index selected: (BOOL)selected;
-//
-//@end
+@protocol JPAppProgressPanDelegate <NSObject>
+
+- (void)appProgressDidPressFavoriteButton;
+
+@end

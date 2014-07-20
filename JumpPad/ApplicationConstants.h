@@ -30,6 +30,9 @@
 
 
 
+NSString* const kProgramFavoriteStatusDidChangeNotification;
+
+
 
 #pragma mark - Typedef Enums
 

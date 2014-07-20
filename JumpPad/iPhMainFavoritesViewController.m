@@ -11,6 +11,7 @@
 #import "JPBannerView.h"
 #import "JPDashlet.h"
 #import "iPhProgramViewController.h"
+#import "iPhSchoolViewController.h"
 
 @interface iPhMainFavoritesViewController ()
 
@@ -112,8 +113,17 @@
     
     iPhMainTableViewCell* cell = (iPhMainTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     JPDashlet* dashlet = cell.dashletInfo;
-    iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithDashletUid:dashlet.dashletUid];
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:programController];
+    
+    id contentController = nil;
+    
+    if(dashlet.type == JPDashletTypeProgram)
+    {
+        contentController = [[iPhProgramViewController alloc] initWithDashletUid:dashlet.dashletUid];
+    } else {
+        contentController = [[iPhSchoolViewController alloc] initWithDashletUid:dashlet.dashletUid itemType:dashlet.type];
+    }
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:contentController];
     
     [self presentViewController:navController animated:YES completion:nil];
     

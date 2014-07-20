@@ -23,5 +23,6 @@
 + (NSString*)schoolYearStringWithInteger: (NSUInteger)year;
 
 + (NSString*)paragraphStringWithName: (NSString*)name;
++ (void)openURL: (NSURL*)url;
 
 @end

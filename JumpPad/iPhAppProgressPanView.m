@@ -17,6 +17,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectCalendarButtonsFromCoreData) name:kProgramFavoriteStatusDidChangeNotification object:nil];
         
         self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         UIView* bottomVisibleView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 30, frame.size.width, 30)];
@@ -137,7 +138,7 @@
             [self deletePastDuplicateFavItems];
             //Add one new fav item
             [self createNewFavItem];
-            
+            [self.delegate appProgressDidPressFavoriteButton];
             switch (button.tag) {
                 case 4:{
                     _userFav.gotOffer = [NSNumber numberWithBool:YES];
@@ -165,6 +166,7 @@
             switch (button.tag) {
                 case 0:
                     [self deletePastDuplicateFavItems];
+                    [self.delegate appProgressDidPressFavoriteButton];
                     break;
                 case 1:
                     _userFav.researched = [NSNumber numberWithBool:NO];
@@ -181,12 +183,11 @@
             
         }
         
-        [context save:nil];
         [self selectCalendarButtonsFromCoreData];
         
     } completion:nil];
 
-    
+ 
 }
 
 

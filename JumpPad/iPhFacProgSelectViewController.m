@@ -9,7 +9,7 @@
 #import "iPhFacProgSelectViewController.h"
 #import "JPDashlet.h"
 #import "iPhMainTableViewCell.h"
-#import "iPhSchoolHomeViewController.h"
+#import "iPhSchoolViewController.h"
 #import "iPhProgramViewController.h"
 
 
@@ -194,15 +194,15 @@
 #pragma mark - UI Navigation Item Callback Method
 - (void)infoButtonPressed: (UIBarButtonItem*)sender
 {
-    iPhSchoolHomeViewController* viewController = nil;
+    iPhSchoolViewController* viewController = nil;
     
     if(self.type == JPDashletTypeFaculty)
     {
-        viewController = [[iPhSchoolHomeViewController alloc] initWithDashletUid:self.dashletUid itemType:JPDashletTypeSchool];
+        viewController = [[iPhSchoolViewController alloc] initWithDashletUid:self.dashletUid itemType:JPDashletTypeSchool];
     }
     else //type == JPdashlet Type Program
     {
-        viewController = [[iPhSchoolHomeViewController alloc] initWithDashletUid:self.dashletUid itemType:JPDashletTypeFaculty];
+        viewController = [[iPhSchoolViewController alloc] initWithDashletUid:self.dashletUid itemType:JPDashletTypeFaculty];
     }
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];

@@ -13,6 +13,7 @@
 #import "JPProgramCoursesViewController.h"
 #import "Faculty.h"
 #import "School.h"
+#import "iPhProgramViewController.h"
 
 @interface iPhProgramAcademicsViewController ()
 
@@ -39,12 +40,13 @@
     NSInteger facultyId = [[self.program.faculty facultyId] integerValue]* 1000;
     NSInteger programId = [self.program.programId integerValue];
     
-    _progressPanView = [[iPhAppProgressPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
-    _progressPanView.dashletUid = schoolId+facultyId+programId;
+    self.progressPanView = [[iPhAppProgressPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
+    self.progressPanView.delegate = self;
+    self.progressPanView.dashletUid = schoolId+facultyId+programId;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
-    [_progressPanView addGestureRecognizer:panRec];
-    [self.view addSubview:_progressPanView];
+    [self.progressPanView addGestureRecognizer:panRec];
+    [self.view addSubview:self.progressPanView];
     
     
     
@@ -88,6 +90,13 @@
     
 }
 
+
+
+- (void)appProgressDidPressFavoriteButton
+{
+    iPhProgramViewController* tabController = (iPhProgramViewController*)self.tabBarController;
+    [tabController reloadFavoriteButtonState];
+}
 
 
 

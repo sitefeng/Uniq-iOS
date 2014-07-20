@@ -7,19 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iPhProgramAbstractViewController.h"
+#import "iPhProgramSchoolAbstractViewController.h"
 #import "iPhProgramDetailView.h"
+#import "iPhAppProgressPanView.h"
 
 @class Program, iPhAppProgressPanView;
-@interface iPhProgramAcademicsViewController : iPhProgramAbstractViewController<JPCoursesDetailViewDelegate>
+@interface iPhProgramAcademicsViewController : iPhProgramSchoolAbstractViewController<JPCoursesDetailViewDelegate, JPAppProgressPanDelegate>
 {
-    iPhAppProgressPanView* _progressPanView;
     
     UIScrollView*          _detailView;
 }
 
 
-
+@property (nonatomic, strong)iPhAppProgressPanView* progressPanView;
 
 - (instancetype)initWithProgram: (Program*)program;
 

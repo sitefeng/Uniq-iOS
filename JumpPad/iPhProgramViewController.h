@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class Program, JPCoreDataHelper;
+@class Program, JPCoreDataHelper, UserFavItem, iPhProgramAcademicsViewController;
 @interface iPhProgramViewController : UITabBarController
 {
+    NSManagedObjectContext* context;
     JPCoreDataHelper*  _helper;
+    
+    UIButton*  _favButton;
+    UserFavItem*  _userFav;
+    
+    iPhProgramAcademicsViewController* academicsController;
 }
 
 
@@ -28,6 +34,6 @@
 
 
 - (instancetype)initWithDashletUid: (NSUInteger)dashletUid;
-
+- (void)reloadFavoriteButtonState;
 
 @end

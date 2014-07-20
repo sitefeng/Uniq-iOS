@@ -12,11 +12,10 @@
 @interface iPhImagePanView : UIView
 {
     UIImageView*   _dragBar;
-   
-    UIScrollView*  _imageScrollView;
     UILabel*       _noPhotoLabel;
-    
     JPDashletType   _imageType;
+    
+    UIScrollView*  _imageScrollView;
 }
 
 
@@ -28,5 +27,8 @@
 @property (nonatomic, strong) Faculty* faculty;
 @property (nonatomic, strong) School* school;
 
+
+
+- (instancetype)initWithFrame:(CGRect)frame offset: (float)yOff;
 
 @end

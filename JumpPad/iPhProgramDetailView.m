@@ -35,7 +35,7 @@
         
         if([title isEqual:@"About"])
         {
-            UITextView* textView =[[ UITextView alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
+            UITextView* textView =[[UITextView alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
             textView.editable = NO;
             textView.selectable = NO;
             textView.backgroundColor = [UIColor clearColor];

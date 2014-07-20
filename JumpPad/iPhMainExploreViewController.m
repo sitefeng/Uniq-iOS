@@ -86,21 +86,6 @@
 
 
 
-#pragma mark - iPHone Main Table View Cell Delegate
-- (void)infoButtonPressed:(iPhMainTableViewCell *)sender
-{
-    iPhSchoolHomeViewController* viewController = [[iPhSchoolHomeViewController alloc] initWithNibName:nil bundle:nil];
-    
-    JPDashlet* dashlet = sender.dashletInfo;
-    
-    viewController.dashletUid = dashlet.dashletUid;
-    
-    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    navController.title = dashlet.title;
-    
-    [self presentViewController:navController animated:YES completion:nil];
-    
-}
 
 
 - (void)viewWillDisappear:(BOOL)animated

@@ -8,21 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+@class UserFavItem;
 @interface JPCoreDataHelper : NSObject
 {
     
     NSManagedObjectContext* context;
     
+    UserFavItem*  _userFav;
 }
 
 
 
 - (void)removeFavoriteWithDashletUid: (NSUInteger)dashletUid;
 - (void)addFavoriteWithDashletUid: (NSUInteger)dashletUid andType: (JPDashletType)type;
-
 - (BOOL)isFavoritedWithDashletUid: (NSUInteger)dashletUid;
 
 
+
+- (NSArray*)retrieveFeaturedItems;
 
 
 @end

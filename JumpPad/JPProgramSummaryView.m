@@ -95,11 +95,10 @@
     CGFloat buttonDistance = 87;
     if(self.isIphoneInterface)
     {
-        buttonStartPos = 5;
         buttonDistance = 75;
     }
     //Or Phone Button
-    _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(30, 240, 54, 54)];
+    _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos, 240, 54, 54)];
     
     if(!self.isIphoneInterface)
     {
@@ -115,16 +114,16 @@
         [_favoriteButton addTarget:self action:@selector(phoneButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(30+ buttonDistance, 240, 54, 54)];
+    UIButton* email = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos+ buttonDistance, 240, 54, 54)];
     [email setImage:[UIImage imageNamed:@"email"] forState:UIControlStateNormal];
     [email setImage:[UIImage imageNamed:@"emailOpen"] forState:UIControlStateHighlighted];
     [email addTarget:self action:@selector(emailButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(30+ buttonDistance*2, 240, 54, 54)];
+    UIButton* website = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos+ buttonDistance*2, 240, 54, 54)];
     [website setImage:[UIImage imageNamed:@"safariIcon"] forState:UIControlStateNormal];
     [website addTarget:self action:@selector(websiteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(30+buttonDistance*3, 240, 54, 54)];
+    UIButton* facebook = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos+buttonDistance*3, 240, 54, 54)];
     [facebook setImage:[UIImage imageNamed:@"facebookIcon"] forState:UIControlStateNormal];
     [facebook addTarget:self action:@selector(facebookButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
