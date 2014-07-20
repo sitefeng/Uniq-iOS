@@ -69,6 +69,13 @@
             processLabel.text = [processNames objectAtIndex:i];
             [self addSubview:processLabel];
         }
+        
+        _dragBarLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(175, 0, kiPhoneWidthPortrait - 185, 30)];
+        _dragBarLabel2.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+        _dragBarLabel2.textColor = [UIColor blackColor];
+        _dragBarLabel2.text = @"";
+        _dragBarLabel2.textAlignment = NSTextAlignmentRight;
+        [bottomVisibleView addSubview:_dragBarLabel2];
 
         
         UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, frame.size.width, 30)];
@@ -95,22 +102,32 @@
         for(int i=0; i<5; i++)
         {
             UIButton* button = (UIButton*)self.applicationButtons[i];
-            
+            NSArray* progStrs = @[@"Favorited",@"Researched",@"Applied",@"Got Response",@"Got Offer!"];
+
             switch (i) {
                 case 0:
                     button.selected = YES;
+                    _dragBarLabel2.text = progStrs[0];
                     break;
                 case 1:
                     button.selected = [_userFav.researched boolValue];
+                    if(button.selected)
+                        _dragBarLabel2.text=progStrs[1];
                     break;
                 case 2:
                     button.selected = [_userFav.applied boolValue];
+                    if(button.selected)
+                        _dragBarLabel2.text=progStrs[2];
                     break;
                 case 3:
                     button.selected = [_userFav.response boolValue];
+                    if(button.selected)
+                        _dragBarLabel2.text=progStrs[3];
                     break;
                 case 4:
                     button.selected = [_userFav.gotOffer boolValue];
+                    if(button.selected)
+                        _dragBarLabel2.text=progStrs[4];
                     break;
                 default:
                     break;
@@ -123,6 +140,7 @@
         for(UIButton* button in _applicationButtons)
         {
             button.selected = NO;
+            _dragBarLabel2.text = @"";
         }
     }
 }

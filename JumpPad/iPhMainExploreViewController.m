@@ -75,6 +75,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
     iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithDashletUid:selectedDashlet.dashletUid forSelectionType:JPDashletTypeFaculty];

@@ -14,6 +14,7 @@
 {
     NSManagedObjectContext* context;
     UIImageView*  _dragBar;
+    UILabel*      _dragBarLabel2;
     
     UserFavItem*  _userFav;
 }
