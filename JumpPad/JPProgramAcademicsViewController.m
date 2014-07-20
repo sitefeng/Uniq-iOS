@@ -1,83 +1,47 @@
 //
-//  iPhAppProgressPanView.m
+//  JPProgramAcademicsViewController.m
 //  Uniq
 //
-//  Created by Si Te Feng on 7/13/14.
+//  Created by Si Te Feng on 7/19/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "iPhAppProgressPanView.h"
-#import "JPStyle.h"
-#import "JPFont.h"
+#import "JPProgramAcademicsViewController.h"
+#import "Program.h"
 #import "UserFavItem.h"
 
-@implementation iPhAppProgressPanView
+@interface JPProgramAcademicsViewController ()
 
-- (instancetype)initWithFrame:(CGRect)frame 
+@end
+
+@implementation JPProgramAcademicsViewController
+
+- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        
-        self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
-        UIView* bottomVisibleView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 30, frame.size.width, 30)];
-        [self addSubview:bottomVisibleView];
-        
-        _dragBar = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width/2.0 - 15, 5, 30, 20)];
-        _dragBar.image = [UIImage imageNamed:@"dragBarIcon"];
-        [bottomVisibleView addSubview:_dragBar];
-        
-        UILabel* dragBarLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
-        dragBarLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
-        dragBarLabel.textColor = [UIColor blackColor];
-        dragBarLabel.text = @"Progress";
-        [bottomVisibleView addSubview:dragBarLabel];
-        
+        // Custom initialization
         
         context = [(UniqAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
         
-        UIView* whiteBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-30)];
-        whiteBackground.backgroundColor = [UIColor whiteColor];
-        [self addSubview:whiteBackground];
-        
-        //Processes
-        NSArray* processNames = [NSArray arrayWithObjects: @"Favorited",@"Researched",@"Applied",@"Response",@"Got Offer", nil];
-        
-        self.applicationButtons = [NSMutableArray array];
-        for(int i= 0; i<5; i++)
-        {
-            UIButton* processButton = [[UIButton alloc] initWithFrame:CGRectMake(35 + i*103, 70, 44, 44)];
-            
-            if(i==3)
-            {
-                processButton.frame = CGRectMake(86, 155, 44, 44);
-            } else if(i==4) {
-                processButton.frame = CGRectMake(190, 155, 44, 44);
-            }
-            
-            [processButton setImage:[UIImage imageNamed:@"itemIncomplete"] forState:UIControlStateNormal];
-            [processButton setImage:[UIImage imageNamed:@"itemComplete"] forState:UIControlStateSelected];
-            [processButton setImage:[UIImage imageNamed:@"itemOverdue"] forState:UIControlStateHighlighted];
-            processButton.tag = i;
-            [processButton addTarget:self action:@selector(calendarButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-            [self.applicationButtons addObject:processButton];
-            [self addSubview:processButton];
-            
-            UILabel* processLabel = [[UILabel alloc] initWithFrame:CGRectMake(processButton.frame.origin.x - 20, processButton.frame.origin.y + processButton.frame.size.height + 4, processButton.frame.size.width + 40, 20)];
-            processLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            processLabel.textAlignment = NSTextAlignmentCenter;
-            processLabel.text = [processNames objectAtIndex:i];
-            [self addSubview:processLabel];
-        }
-
-        
-        UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, frame.size.width, 30)];
-        titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:22];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.text = @"Application Progress";
-        [self addSubview:titleLabel];
+        self.dashletUid = dashletUid;
+        self.program = program;
         
     }
     return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self selectCalendarButtonsFromCoreData];
 }
 
 
@@ -93,7 +57,7 @@
         
         for(int i=0; i<5; i++)
         {
-            UIButton* button = (UIButton*)self.applicationButtons[i];
+            UIButton* button = (UIButton*)_applicationButtons[i];
             
             switch (i) {
                 case 0:
@@ -126,8 +90,7 @@
     }
 }
 
-
-- (void)calendarButtonPressed:(UIButton*)button
+- (void)calendarButtonPressed: (UIButton*)button
 {
     [UIView animateWithDuration:0.9 animations:^{
         
@@ -186,10 +149,7 @@
         
     } completion:nil];
 
-    
 }
-
-
 
 
 - (void)deletePastDuplicateFavItems
@@ -220,20 +180,29 @@
 
 
 
-- (void)setDashletUid:(NSInteger)dashletUid
+- (void)setDashletUid:(NSUInteger)dashletUid
 {
-    _dashletUid=  dashletUid;
+    _dashletUid = dashletUid;
     [self selectCalendarButtonsFromCoreData];
 }
 
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+
+- (void)didReceiveMemoryWarning
 {
-    // Drawing code
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 */
 

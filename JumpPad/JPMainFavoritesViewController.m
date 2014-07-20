@@ -24,7 +24,6 @@
     if (self) {
         // Custom initialization
         //Core Data NS Managed Object Context
-
         
     }
     return self;
@@ -38,6 +37,7 @@
     context = [delegate managedObjectContext];
     
     _isEditing = NO;
+    _favDashletsToDelete = [NSMutableArray array];
     
     //Initialize banner
     self.bannerURLs = [NSMutableArray array];
@@ -54,9 +54,8 @@
     [self updateBannerInfo];
     
     
-    
-    
 }
+
 
 #pragma mark - Update From Core Data
 //Retrieving College info from Core Data and put into featuredDashelts
@@ -112,7 +111,6 @@
 
 - (void)removeUnselectedFavoritesFromCoreData
 {
-    
     for (NSNumber* dashletUid in _favDashletsToDelete)
     {
         NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
@@ -157,7 +155,6 @@
 
 - (void)favButtonPressedIsFavorited: (BOOL)fav dashletUid: (NSUInteger)dashletUid
 {
-    
     if(fav)
     {
         if([_favDashletsToDelete containsObject:[NSNumber numberWithInteger:dashletUid]])

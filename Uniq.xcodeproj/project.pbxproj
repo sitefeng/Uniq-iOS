@@ -132,6 +132,8 @@
 		5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* JPDateView.m */; };
 		5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */; };
 		AA0DB937197A2943005A5665 /* JPProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB936197A2943005A5665 /* JPProgramDetailView.m */; };
+		AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */; };
+		AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */; };
 		AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */; };
 		AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544E195DF94D00C56E2B /* JPUserLocator.m */; };
 		AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115456195E024000C56E2B /* AddressBook.framework */; };
@@ -494,6 +496,10 @@
 		5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
 		AA0DB935197A2943005A5665 /* JPProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramDetailView.h; sourceTree = "<group>"; };
 		AA0DB936197A2943005A5665 /* JPProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramDetailView.m; sourceTree = "<group>"; };
+		AA0DB938197B39CD005A5665 /* JPProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramContactViewController.h; sourceTree = "<group>"; };
+		AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramContactViewController.m; sourceTree = "<group>"; };
+		AA0DB93B197B6D79005A5665 /* JPProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramAcademicsViewController.h; sourceTree = "<group>"; };
+		AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramAcademicsViewController.m; sourceTree = "<group>"; };
 		AA11544A195DF63600C56E2B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		AA11544D195DF94D00C56E2B /* JPUserLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUserLocator.h; sourceTree = "<group>"; };
@@ -1238,8 +1244,6 @@
 			children = (
 				AA520EE7197219070003EF98 /* iPhProgramViewController.h */,
 				AA520EE8197219070003EF98 /* iPhProgramViewController.m */,
-				AA520EFF1972D28B0003EF98 /* iPhProgramAbstractViewController.h */,
-				AA520F001972D28B0003EF98 /* iPhProgramAbstractViewController.m */,
 				AA520EEA19721A300003EF98 /* iPhProgramHomeViewController.h */,
 				AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */,
 				AA520EF6197236130003EF98 /* iPhImagePanView.h */,
@@ -1265,8 +1269,14 @@
 				AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */,
 				AA520ED81971D6B70003EF98 /* JPMainExploreViewController.h */,
 				AA520ED91971D6B70003EF98 /* JPMainExploreViewController.m */,
+				AA520EFF1972D28B0003EF98 /* iPhProgramAbstractViewController.h */,
+				AA520F001972D28B0003EF98 /* iPhProgramAbstractViewController.m */,
 				AA0DB935197A2943005A5665 /* JPProgramDetailView.h */,
 				AA0DB936197A2943005A5665 /* JPProgramDetailView.m */,
+				AA0DB93B197B6D79005A5665 /* JPProgramAcademicsViewController.h */,
+				AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */,
+				AA0DB938197B39CD005A5665 /* JPProgramContactViewController.h */,
+				AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */,
 			);
 			name = "Abstract View Controllers";
 			sourceTree = "<group>";
@@ -1551,6 +1561,7 @@
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
+				AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
@@ -1640,6 +1651,7 @@
 				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
 				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
 				AA9C20BC195D19C700148675 /* ProgramApplicationStat.m in Sources */,
+				AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,

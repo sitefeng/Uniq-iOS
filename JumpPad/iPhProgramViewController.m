@@ -7,7 +7,7 @@
 //
 
 #import "iPhProgramViewController.h"
-
+#import "Program.h"
 #import "iPhProgramHomeViewController.h"
 #import "iPhProgramAcademicsViewController.h"
 #import "iPhProgramContactViewController.h"
@@ -28,6 +28,7 @@
         _helper = [[JPCoreDataHelper alloc] init];
         
         [self retrieveProgramInfo];
+        self.title = self.program.name;
         
         UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
         self.navigationItem.leftBarButtonItem = dismissItem;

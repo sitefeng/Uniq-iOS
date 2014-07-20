@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "JPMainFavoritesViewController.h"
 
-@interface iPhMainFavoritesViewController : JPMainFavoritesViewController
+@interface iPhMainFavoritesViewController : JPMainFavoritesViewController <UITableViewDataSource, UITableViewDelegate>
+{
+
+}
+
+
+
+@property (nonatomic, strong) UITableView* tableView;
+
+
+
+
 
 @end

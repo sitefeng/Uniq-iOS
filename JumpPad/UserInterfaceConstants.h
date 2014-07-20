@@ -29,7 +29,7 @@
 
 #define kiPhoneStatusBarHeight			20.0
 #define kiPhoneNavigationBarHeight      44.0
-#define kiPhoneTabBarHeight             44.0
+#define kiPhoneTabBarHeight             49.0
 #define kiPhoneContentHeightPortrait    kiPhoneHeightPortrait-20-44-44
 
 

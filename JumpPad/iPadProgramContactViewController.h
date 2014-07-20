@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "JPProgramContactViewController.h"
 
 @class MKMapView, Program, School, Faculty, SchoolLocation, iPadProgramLabelView;
-@interface iPadProgramContactViewController : UIViewController
+@interface iPadProgramContactViewController : JPProgramContactViewController
 {
-    JPDashletType    _itemType;
-    
-    Faculty*         _faculty;
     
     UIView*          _mapBarView;
     CGFloat          _mapBarPosition; //for pull up
@@ -29,12 +27,8 @@
 
 
 
+
 @property (nonatomic, assign) NSUInteger dashletUid;
-@property (nonatomic, strong) Program* program;
-
-@property (nonatomic, strong) School* school;
-
-@property (nonatomic, assign) float distanceToHome;
 
 @property (nonatomic, strong) iPadProgramLabelView* labelView;
 @property (nonatomic, strong) MKMapView* mapView;

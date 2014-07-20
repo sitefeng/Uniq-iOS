@@ -7,21 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iPhProgramAbstractViewController.h"
+#import "JPProgramContactViewController.h"
 
 
 @class Program, iPhMapPanView;
-@interface iPhProgramContactViewController : iPhProgramAbstractViewController
+@interface iPhProgramContactViewController : JPProgramContactViewController <UITableViewDataSource, UITableViewDelegate>
 {
     iPhMapPanView*   _mapPanView;
+    
+    CGFloat   _imageViewYBeforePan;
+        
+        
+    
+
 }
 
 
 
+@property (nonatomic, strong) UITableView* tableView;
 
 
 
-- (instancetype)initWithProgram: (Program*)program;
 
 
 @end

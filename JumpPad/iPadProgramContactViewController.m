@@ -31,72 +31,39 @@
 
 - (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
 {
-    self = [super init];
+    self = [super initWithProgram:program];
     if (self) {
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
-        self.program = program;
-        self.school = program.faculty.school;
         self.dashletUid = dashletUid;
-        _itemType = JPDashletTypeProgram;
-        
     }
     return self;
 }
 
 - (id)initWithSchool:(School *)school
 {
-    self = [super init];
+    self = [super initWithSchool:school];
     if (self) {
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
-        
-        self.school = school;
+
     }
     return self;
 }
 
 - (id)initWithFaculty: (Faculty *)faculty
 {
-    self = [super init];
+    self = [super initWithFaculty:faculty];
     if (self) {
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
-        
-        _faculty = faculty;
-        self.school  = faculty.school;
-        _itemType = JPDashletTypeFaculty;
         
     }
     return self;
 }
 
-- (void)setSchool:(School *)school
-{
-    _school = school;
-    _itemType = JPDashletTypeSchool;
-    
-    JPLocation* schoolLocation = [[JPLocation alloc] initWithCooridinates:CGPointMake([school.location.lattitude floatValue], [school.location.longitude floatValue]) city:school.location.city province:school.location.province];
-    
-    UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = [delegate managedObjectContext];
-    NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
-    User* user = nil;
-    if([userArray count] >0)
-    {
-        user = [userArray firstObject];
-        if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
-            self.distanceToHome = -1;
-        else
-            self.distanceToHome = [schoolLocation distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
-    }
-    else
-    {
-        self.distanceToHome = -1;
-    }
-}
+
 
 
 - (void)viewDidLoad
@@ -111,28 +78,8 @@
         self.view.backgroundColor = [UIColor clearColor];
     }
     
-    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* context = [delegate managedObjectContext];
     
-    //Getting School Location info
-    School* school = nil;
-    
-    if(_itemType == JPDashletTypeProgram)
-    {
-        NSInteger schoolId = self.dashletUid / 1000000;
-        
-        NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-        req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];
-        school = [[context executeFetchRequest:req error:nil] firstObject];
-        _school = school;
-    }
-    else if(_itemType == JPDashletTypeSchool)
-    {
-        //Do nothing, _school is already set
-    }
-    
-    
-    SchoolLocation* location = _school.location;
+    SchoolLocation* location = self.school.location;
     CGPoint coord = jpp([location.lattitude floatValue], [location.longitude floatValue]);
     
 
@@ -279,72 +226,6 @@
     [self.mapView addSubview:distanceView];
     
     
-    
-    
-}
-
-
-- (NSArray*)getInformationArrayOfType: (NSString*)arrayType
-{
-    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",self.school.location.streetNum, self.school.location.streetName, self.school.location.city, self.school.location.province, self.school.location.country];
-    //TODO: add Postal Code and unit/ apt
-    
-    NSString* distanceToHomeString = @"-- kms Away";
-    if(self.distanceToHome >= 0)
-    {
-        distanceToHomeString = [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
-    }
-    
-    if(_itemType == JPDashletTypeProgram)
-    {
-        if([arrayType isEqual:@"imageNames"])
-        {
-            return @[@"address-50", @"distance-50",@"phoneIcon",@"faxIcon",@"email",@"safariIcon",@"facebookIcon",@"twitterIcon"];
-        }
-        else if([arrayType isEqual:@"labelNames"])
-        {
-            return @[_school.name, @"Distance",@"Phone",@"Fax",@"Email",@"Website",@"Facebook Group",@"Twitter"];
-        }
-        else //Array of Values
-        {
-            return @[address, distanceToHomeString, [NSString stringWithFormat:@"%i", [self.program.phone intValue]], [NSString stringWithFormat:@"%i", [self.program.fax intValue]], self.program.email, self.program.website, self.program.facebookLink, self.program.twitterLink];
-        }
-    
-    }
-    else if(_itemType == JPDashletTypeSchool)
-    {
-        if([arrayType isEqual:@"imageNames"])
-        {
-            return @[@"address-50", @"distance-50",@"safariIcon",@"facebookIcon",@"twitterIcon"];
-        }
-        else if([arrayType isEqual:@"labelNames"])
-        {
-            return @[_school.name, @"Distance",@"Website",@"Facebook Group",@"Twitter"];
-        }
-        else //Array of Values
-        {
-            return @[address, distanceToHomeString, _school.website, _school.facebookLink, _school.twitterLink];
-        }
-        
-    }
-    else // type faculty
-    {
-        if([arrayType isEqual:@"imageNames"])
-        {
-            return @[@"address-50", @"distance-50",@"safariIcon",@"facebookIcon",@"twitterIcon"];
-        }
-        else if([arrayType isEqual:@"labelNames"])
-        {
-            return @[_school.name, @"Distance",@"Website",@"Facebook Group",@"Twitter"];
-        }
-        else //Array of Values
-        {
-            return @[address, distanceToHomeString, _faculty.website, _faculty.facebookLink, _faculty.twitterLink];
-        }
-        
-    }
-    
-    return @[];
 }
 
 

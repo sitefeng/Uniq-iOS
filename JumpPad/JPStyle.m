@@ -418,6 +418,7 @@
 }
 
 
+
 - (UIImage*)imageWithAlpha: (CGFloat) alpha
 {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
@@ -441,9 +442,42 @@
 
 
 
+- (UIImage*)imageWithColor: (UIColor*)color
+{
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+   
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGRect area = CGRectMake(0,0, self.size.width, self.size.height);
+    
+    CGContextScaleCTM(context, 1, -1);
+    CGContextTranslateCTM(context, 0, -area.size.height);
+    
+    CGImageRef coloredImage = [UIImage squareImageWithColor:color width:self.size.width].CGImage;
+    
+    CGContextClipToMask(context, area, self.CGImage);
+    CGContextDrawImage(context, area, coloredImage);
+    
+    UIImage* clipedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return clipedImage;
+
+}
 
 
-
++ (UIImage *)squareImageWithColor:(UIColor *)color width: (float)width
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, width, width);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 
 
 

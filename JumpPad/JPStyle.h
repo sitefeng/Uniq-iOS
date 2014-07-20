@@ -50,7 +50,7 @@
 
 //Colors from String
 + (UIColor*) colorWithName: (NSString*)colorName;
-+ (UIColor*)colorWithLetter: (NSString*)letter;
++ (UIColor*) colorWithLetter: (NSString*)letter;
 
 
 @end
@@ -59,8 +59,8 @@
 
 @interface UIImage (Beautify)
 
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
-- (UIImage*)imageWithAlpha: (CGFloat) alpha;
++ (UIImage*)imageWithColor:(UIColor *)color;
+- (UIImage*)imageWithAlpha: (CGFloat)alpha;
+- (UIImage*)imageWithColor: (UIColor*)color;
 
 @end

@@ -102,8 +102,8 @@ const NSUInteger kIconLabelTag = 341;
     {
         self.courseDescriptionView.frame = CGRectMake(5, 70, kiPhoneWidthPortrait-10, 115);
         self.courseDescriptionView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:14];
-        self.courseCodeLabel.frame = CGRectMake(self.courseCodeLabel.frame.origin.x, self.courseCodeLabel.frame.origin.y, 270, 30);
-        self.courseNameLabel.frame = CGRectMake(self.courseNameLabel.frame.origin.x, self.courseNameLabel.frame.origin.y, 270, 30);
+        self.courseCodeLabel.frame = CGRectMake(75, self.courseCodeLabel.frame.origin.y, 245, 30);
+        self.courseNameLabel.frame = CGRectMake(75, self.courseNameLabel.frame.origin.y, 245, 30);
     }
 }
 

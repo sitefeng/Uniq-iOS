@@ -11,7 +11,8 @@
 #import "iPhAppProgressPanView.h"
 #import "iPhProgramDetailView.h"
 #import "JPProgramCoursesViewController.h"
-
+#import "Faculty.h"
+#import "School.h"
 
 @interface iPhProgramAcademicsViewController ()
 
@@ -34,13 +35,17 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    _progressPanView = [[iPhAppProgressPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
+    NSInteger schoolId = [self.program.faculty.school.schoolId integerValue]*1000000;
+    NSInteger facultyId = [[self.program.faculty facultyId] integerValue]* 1000;
+    NSInteger programId = [self.program.programId integerValue];
     
-    _progressPanView.program = self.program;
+    _progressPanView = [[iPhAppProgressPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
+    _progressPanView.dashletUid = schoolId+facultyId+programId;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
     [_progressPanView addGestureRecognizer:panRec];
     [self.view addSubview:_progressPanView];
+    
     
     
     _detailView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, kiPhoneWidthPortrait, kiPhoneHeightPortrait - kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight-30)];
@@ -52,7 +57,17 @@
     coursesView.delegate = self;
     [_detailView addSubview:coursesView];
     
-
+    currYPos += coursesView.frame.size.height + 5;
+    
+    iPhProgramDetailView* moreView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPos, kiPhoneWidthPortrait-10, 150) title:@"+" program:self.program];
+    moreView.delegate = self;
+    [_detailView addSubview:moreView];
+    
+    currYPos += coursesView.frame.size.height + 5;
+    
+    
+    
+    _detailView.contentSize=  CGSizeMake(_detailView.frame.size.width, currYPos);
     
     [self.view bringSubviewToFront:_progressPanView];
     

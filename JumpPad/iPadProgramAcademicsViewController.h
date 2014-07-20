@@ -9,22 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "iPadProgramHexCollectionView.h"
 #import "iPadProgramRelatedView.h"
+#import "JPProgramAcademicsViewController.h"
 
 @class Program, iPadProgramLabelView, JPDateView, iPadProgramRelatedView, UserFavItem;
-@interface iPadProgramAcademicsViewController : UIViewController <JPProgramHexCollectionViewDataSource, JPProgramRelatedViewDataSource>
+@interface iPadProgramAcademicsViewController : JPProgramAcademicsViewController <JPProgramHexCollectionViewDataSource, JPProgramRelatedViewDataSource>
 {
-    NSManagedObjectContext* context;
-    
+ 
     JPDateView*      _dateView;
     
     UILabel*         _calendarLabel;
-    NSMutableArray*  _applicationButtons;
     
     CGFloat        _yPositionForScrollView;
     
     NSUInteger     _numHexViews;
     
-    UserFavItem*    _userFav;
     
     UIView*        _calendarBackground;
 }
@@ -32,8 +30,7 @@
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
-@property (nonatomic, strong) Program* program;
+
 
 
 @property (nonatomic, strong) iPadProgramLabelView* labelView;

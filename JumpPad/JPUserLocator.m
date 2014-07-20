@@ -55,6 +55,15 @@
     // If it's a relatively recent event, turn off updates to save power.
     CLLocation* location = [locations lastObject];
     
+    if(_user && [self.delegate respondsToSelector:@selector(shouldSaveUserLocation)])
+    {
+        if([self.delegate shouldSaveUserLocation])
+        {
+            _user.longitude = [NSNumber numberWithFloat:location.coordinate.longitude];
+            _user.latitude  = [NSNumber numberWithFloat:location.coordinate.latitude];
+        }
+    }
+    
     //Finding the city and province name
     CLGeocoder* geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error)
@@ -85,8 +94,6 @@
                 if([self.delegate shouldSaveUserLocation])
                 {
                     _user.locationString = locationString;
-                    _user.longitude = [NSNumber numberWithFloat:location.coordinate.longitude];
-                    _user.latitude  = [NSNumber numberWithFloat:location.coordinate.latitude];
                 }
             }
             
@@ -103,7 +110,6 @@
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Cannot Find Location" message:@"Cannot determine location, please check internet connection and try again" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
                           
     [alert show];
-    
 }
 
 

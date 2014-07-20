@@ -8,16 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@class Program;
+@class Program, UserFavItem;
+//@protocol JPAppProgramPanDelegate;
 @interface iPhAppProgressPanView : UIView
 {
-    
+    NSManagedObjectContext* context;
     UIImageView*  _dragBar;
+    
+    UserFavItem*  _userFav;
 }
 
 
-@property (nonatomic, strong) Program* program;
+@property (nonatomic, assign) NSInteger dashletUid;
 
+@property (nonatomic, strong) NSMutableArray* applicationButtons;
 
+//@property (nonatomic, weak) id<JPAppProgramPanDelegate> delegate;
 
 @end
+
+//@protocol JPAppProgramPanDelegate <NSObject>
+//
+//- (void)didPressButtonAtIndex: (NSInteger)index selected: (BOOL)selected;
+//
+//@end

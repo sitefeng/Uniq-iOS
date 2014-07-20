@@ -10,11 +10,20 @@
 #import "JPUserLocator.h"
 #import <MessageUI/MessageUI.h>
 
-@interface iPhMainSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
+@class User, JPUserLocator, MFMailComposeViewController;
+@interface iPhMainSettingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate, MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UIAlertViewDelegate>
 {
+    
+    NSManagedObjectContext* context;
+    User*       _user;
+    JPUserLocator*  _userLocator;
+    
     NSArray*    _cellSectionTitles;
     NSArray*    _cellTitleStrings;
     NSArray*    _cellImageStrings;
+    
+    MFMailComposeViewController* _mailController;
+    
 }
 
 

@@ -41,6 +41,7 @@
             textView.backgroundColor = [UIColor clearColor];
             textView.font = [UIFont fontWithName:[JPFont defaultFont] size:15];
             textView.showsVerticalScrollIndicator = NO;
+            
             textView.text = program.about;
             
             [self addSubview:textView];
@@ -97,7 +98,7 @@
             self.pieChart.labelColor = [UIColor whiteColor];
             [self.pieChart setPieBackgroundColor: [UIColor clearColor]];
             
-            self.pieChart.labelRadius = 50;
+            self.pieChart.labelRadius = 60;
             self.pieChart.showPercentage = YES;
             self.pieChart.backgroundColor = [UIColor clearColor];
             self.pieChart.accessibilityLabel = @"whyPieChart";
@@ -152,7 +153,7 @@
         }
         else if([title isEqual:@"Ratings"])
         {
-            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake((kiPhoneWidthPortrait-220)/2, 30, 220, 220)];
+            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake((kiPhoneWidthPortrait-220)/2 - 5, 30, 220, 220)];
             
             self.radarChart.delegate = self;
             self.radarChart.dataSource = self;
@@ -211,7 +212,7 @@
             {
                 for(int j=0; j<2; j++)
                 {
-                    UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(10 + 150*(j%2), 40 + 80 *(i%2), 130, 70)];
+                    UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(15 + 150*(j%2), 40 + 80 *(i%2), 130, 70)];
                     [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"tBlack"]] forState:UIControlStateNormal];
                     [yearButton setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forState:UIControlStateHighlighted];
                     
@@ -229,7 +230,14 @@
                     [self addSubview:yearButton];
                 }
             }
-            
+        }
+        else if([title isEqual:@"+"])
+        {
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
+            label.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
+            label.text = @"More Info Soon!";
+            label.textAlignment = NSTextAlignmentCenter;
+            [self addSubview:label];
         }
         
         
