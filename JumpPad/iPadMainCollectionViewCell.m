@@ -9,10 +9,10 @@
 #import "iPadMainCollectionViewCell.h"
 #import "iPadDashletImageView.h"
 #import "JPDashlet.h"
-#import "iOSDashletTitleView.h"
-#import "iOSDashletDetailsView.h"
-
-
+#import "JPDashletTitleView.h"
+#import "iPadDashletDetailsView.h"
+#import "AutoScrollLabel.h"
+#import "JPFont.h"
 
 
 @implementation iPadMainCollectionViewCell
@@ -30,10 +30,13 @@
         //Creating the Subviews
         CGRect imageFrame = CGRectMake(0, 0, frame.size.width, frame.size.height/4*3 );
         self.imageView = [[iPadDashletImageView alloc] initWithFrame:imageFrame];
-        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(4, frame.size.height/4.0*3 , frame.size.width - 4, frame.size.height/8.0 - 4 )];
-        self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(6, frame.size.height/8.0*7 -2 , frame.size.width - 12, frame.size.height/8.0 - 1)];
+        self.title = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(4, self.frame.size.height/4.0*3 , self.frame.size.width - 8, self.frame.size.height/8.0 - 4 )];
+        self.title.font = [UIFont fontWithName:[JPFont defaultFont] size:17];
+
+        self.details = [[iPadDashletDetailsView alloc] initWithFrame:CGRectMake(6, frame.size.height/8.0*7 -2 , frame.size.width - 12, frame.size.height/8.0 - 1)];
         
         self.infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+        self.infoButton.tintColor = [JPStyle interfaceTintColor];
         self.infoButton.frame = CGRectMake(frame.size.width - 40, frame.size.height - 40, 40, 40);
         self.infoButton.hidden = YES;
         [self.infoButton addTarget:self action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,6 +71,10 @@
 - (void)setDashletInfo:(JPDashlet *)dashletInfo
 {
     _dashletInfo = dashletInfo;
+    
+    [self.title removeFromSuperview];
+    
+    [self addSubview:self.title];
     
     if(_dashletInfo.title)
     {
@@ -125,7 +132,6 @@
         }
         
     }
-    
 }
 
 - (void)setShowFavButton:(BOOL)showFavButton
@@ -144,6 +150,11 @@
 
 
 
+- (void)prepareForReuse
+{
+
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -104,10 +104,7 @@
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewBackgroundTapped)];
     self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
     
-    
 
- 
-    
     //Initialize banner
     self.bannerURLs = [NSMutableArray array];
     
@@ -158,7 +155,6 @@
 {
     
     iPadMainCollectionViewCell* cell = [self.cv dequeueReusableCellWithReuseIdentifier:@"featuredItem" forIndexPath:indexPath];
-    
     
     cell.dashletInfo = self.dashlets[indexPath.item];
     cell.delegate = self;

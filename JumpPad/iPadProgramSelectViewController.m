@@ -16,7 +16,7 @@
 #import "iPadMainCollectionViewCell.h"
 #import "Program.h"
 #import "iPadProgramViewController.h"
-
+#import "Mixpanel.h"
 
 @interface iPadProgramSelectViewController ()
 
@@ -84,8 +84,6 @@
     
     //Display all subviews
     [self resizeFrames];
-    
-    
     
     
     //Sort
@@ -172,7 +170,6 @@
 
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     iPadMainCollectionViewCell* cell = [self.cv dequeueReusableCellWithReuseIdentifier:@"featuredItem" forIndexPath:indexPath];
     
     if([self.dashlets count]>indexPath.item)
@@ -181,6 +178,12 @@
     }
     
     cell.delegate = self;
+    
+    
+    //Mixpanel
+    Mixpanel* mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Selected Program on iPad" properties:@{@"Cell Dashlet Info": cell.dashletInfo.description}];
+    //////////////////////////////////
     
     return cell;
 }

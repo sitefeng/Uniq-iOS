@@ -9,18 +9,23 @@
 #import <UIKit/UIKit.h>
 
 
-@class iPadDashletImageView, JPDashlet, iOSDashletDetailsView, iOSDashletTitleView;
+@class iPadDashletImageView, JPDashlet, iPadDashletDetailsView;
 @protocol JPDashletCellInfoDelegate;
 @interface iPhMainTableViewCell : UITableViewCell
-
+{
+    UIImageView* populationImgView;
+    UILabel*     populationLabel;
+    UIImageView* locationImgView;
+    UILabel*     locationLabel;
+}
 
 
 @property (nonatomic, strong) JPDashlet* dashletInfo;
 
 @property (nonatomic, strong) iPadDashletImageView* itemImageView;
 
-@property (nonatomic, strong) iOSDashletTitleView* title;
-@property (nonatomic, strong) iOSDashletDetailsView* details;
+@property (nonatomic, strong) UILabel* title;
+@property (nonatomic, strong) iPadDashletDetailsView* details;
 
 @property (nonatomic, strong) UIButton* infoButton;
 @property (nonatomic, strong) UIButton* favButton;

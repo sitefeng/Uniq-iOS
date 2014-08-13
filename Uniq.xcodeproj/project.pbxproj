@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D167632185787750041993E /* iOSDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* iOSDashletTitleView.m */; };
+		5D167632185787750041993E /* JPDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* JPDashletTitleView.m */; };
 		5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* Uniq-Explaination.txt */; };
 		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
-		5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iOSDashletDetailsView.m */; };
+		5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iPadDashletDetailsView.m */; };
 		5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DE04219315DD400C36935 /* volumeBar.bundle */; };
 		5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04419315DD400C36935 /* VolumeBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04819315DEF00C36935 /* DejalActivityView.m */; };
@@ -141,10 +141,9 @@
 		AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115456195E024000C56E2B /* AddressBook.framework */; };
 		AA11545D195E106700C56E2B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11545C195E106700C56E2B /* User.m */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
-		AA222B4519592DE900820BCD /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4219592DE900820BCD /* LDProgressView.m */; };
-		AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B4419592DE900820BCD /* UIColor+RGBValues.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
+		AA34FA5A198999B100A73292 /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA59198999B100A73292 /* AutoScrollLabel.m */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
 		AA520EDA1971D6B70003EF98 /* JPMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520ED91971D6B70003EF98 /* JPMainExploreViewController.m */; };
@@ -160,6 +159,10 @@
 		AA520F011972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F001972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m */; };
 		AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F031972DCAD0003EF98 /* iPhMapPanView.m */; };
 		AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */; };
+		AA55F9191999B762005F9F76 /* HNConnectivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F9181999B762005F9F76 /* HNConnectivityManager.m */; };
+		AA55F937199AD147005F9F76 /* iPadMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */; };
+		AA55F93A199AD160005F9F76 /* iPhMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */; };
+		AA55F93D199AF0E8005F9F76 /* HNScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F93C199AF0E8005F9F76 /* HNScrollView.m */; };
 		AA63DCE7196E4101001D9768 /* iPhMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */; };
 		AA63DCED196E4133001D9768 /* JPMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */; };
 		AA63DCF0196E4141001D9768 /* iPhMainSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEF196E4141001D9768 /* iPhMainSettingsViewController.m */; };
@@ -168,7 +171,6 @@
 		AA63DCFA196E561B001D9768 /* iPhMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCF9196E561B001D9768 /* iPhMainTableViewCell.m */; };
 		AA894BDB1969CFF200F457F8 /* getAllFeaturedInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */; };
 		AA894BE11969D3DB00F457F8 /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AA894BE01969D3DB00F457F8 /* Featured.m */; };
-		AA894BE41969E6D600F457F8 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA894BE31969E6D600F457F8 /* AsyncImageView.m */; };
 		AA894BE71969FB1700F457F8 /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA894BE61969FB1700F457F8 /* UserFavItem.m */; };
 		AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */; };
 		AA9C20A4195D19C600148675 /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9C20A3195D19C600148675 /* Banner.m */; };
@@ -191,6 +193,9 @@
 		AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */; };
 		AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */ = {isa = PBXBuildFile; fileRef = AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */; };
 		AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */; };
+		AAEC90ED197D8120006E8E1C /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEC90EC197D8120006E8E1C /* AsyncImageView.m */; };
+		AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEC90EF197D8182006E8E1C /* LDProgressView.m */; };
+		AAEC90F3197D8182006E8E1C /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEC90F1197D8182006E8E1C /* UIColor+RGBValues.m */; };
 		AAEF023D1948DD87008F8BA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */; };
 /* End PBXBuildFile section */
@@ -206,13 +211,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D167630185787750041993E /* iOSDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletTitleView.h; sourceTree = "<group>"; };
-		5D167631185787750041993E /* iOSDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletTitleView.m; sourceTree = "<group>"; };
+		5D167630185787750041993E /* JPDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDashletTitleView.h; sourceTree = "<group>"; };
+		5D167631185787750041993E /* JPDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDashletTitleView.m; sourceTree = "<group>"; };
 		5D16763918583D250041993E /* Uniq-Explaination.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Uniq-Explaination.txt"; sourceTree = "<group>"; };
 		5D16763B1858D3CB0041993E /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFont.h; sourceTree = "<group>"; };
 		5D16763C1858D3CB0041993E /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
-		5D16763E18591AE10041993E /* iOSDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDashletDetailsView.h; sourceTree = "<group>"; };
-		5D16763F18591AE10041993E /* iOSDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDashletDetailsView.m; sourceTree = "<group>"; };
+		5D16763E18591AE10041993E /* iPadDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletDetailsView.h; sourceTree = "<group>"; };
+		5D16763F18591AE10041993E /* iPadDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletDetailsView.m; sourceTree = "<group>"; };
 		5D167646185D6A6C0041993E /* ApplicationConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
 		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
 		5D1DE04219315DD400C36935 /* volumeBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = volumeBar.bundle; path = VolumeBar/volumeBar.bundle; sourceTree = "<group>"; };
@@ -515,13 +520,11 @@
 		AA11545C195E106700C56E2B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
-		AA222B4119592DE900820BCD /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDProgressView.h; path = JumpPad/LDProgressView.h; sourceTree = "<group>"; };
-		AA222B4219592DE900820BCD /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDProgressView.m; path = JumpPad/LDProgressView.m; sourceTree = "<group>"; };
-		AA222B4319592DE900820BCD /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGBValues.h"; path = "JumpPad/UIColor+RGBValues.h"; sourceTree = "<group>"; };
-		AA222B4419592DE900820BCD /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+RGBValues.m"; path = "JumpPad/UIColor+RGBValues.m"; sourceTree = "<group>"; };
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSettingsAboutViewController.h; sourceTree = "<group>"; };
 		AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSettingsAboutViewController.m; sourceTree = "<group>"; };
 		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeProfileBanner.swift; sourceTree = "<group>"; };
+		AA34FA58198999B100A73292 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
+		AA34FA59198999B100A73292 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAboutViewController.swift; sourceTree = "<group>"; };
 		AA520ED81971D6B70003EF98 /* JPMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainExploreViewController.h; sourceTree = "<group>"; };
@@ -550,6 +553,14 @@
 		AA520F031972DCAD0003EF98 /* iPhMapPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMapPanView.m; sourceTree = "<group>"; };
 		AA520F051972DD240003EF98 /* iPhAppProgressPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhAppProgressPanView.h; sourceTree = "<group>"; };
 		AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhAppProgressPanView.m; sourceTree = "<group>"; };
+		AA55F9171999B762005F9F76 /* HNConnectivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNConnectivityManager.h; sourceTree = "<group>"; };
+		AA55F9181999B762005F9F76 /* HNConnectivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNConnectivityManager.m; sourceTree = "<group>"; };
+		AA55F935199AD147005F9F76 /* iPadMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainTabBarController.h; sourceTree = "<group>"; };
+		AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainTabBarController.m; sourceTree = "<group>"; };
+		AA55F938199AD160005F9F76 /* iPhMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainTabBarController.h; sourceTree = "<group>"; };
+		AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainTabBarController.m; sourceTree = "<group>"; };
+		AA55F93B199AF0E8005F9F76 /* HNScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNScrollView.h; sourceTree = "<group>"; };
+		AA55F93C199AF0E8005F9F76 /* HNScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNScrollView.m; sourceTree = "<group>"; };
 		AA63DCE5196E4101001D9768 /* iPhMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainFeaturedViewController.h; sourceTree = "<group>"; };
 		AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainFeaturedViewController.m; sourceTree = "<group>"; };
 		AA63DCEB196E4133001D9768 /* JPMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainFavoritesViewController.h; sourceTree = "<group>"; };
@@ -566,8 +577,6 @@
 		AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFeaturedInfo.json; sourceTree = "<group>"; };
 		AA894BDF1969D3DB00F457F8 /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Featured.h; sourceTree = "<group>"; };
 		AA894BE01969D3DB00F457F8 /* Featured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Featured.m; sourceTree = "<group>"; };
-		AA894BE21969E6D600F457F8 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
-		AA894BE31969E6D600F457F8 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		AA894BE51969FB1700F457F8 /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavItem.h; sourceTree = "<group>"; };
 		AA894BE61969FB1700F457F8 /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavItem.m; sourceTree = "<group>"; };
 		AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAuthorsTableViewController.swift; sourceTree = "<group>"; };
@@ -610,6 +619,12 @@
 		AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfoTry.json; sourceTree = "<group>"; };
 		AAE50A631966685E000C6899 /* iPadProgramComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramComparisonViewController.h; sourceTree = "<group>"; };
 		AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramComparisonViewController.m; sourceTree = "<group>"; };
+		AAEC90EB197D8120006E8E1C /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		AAEC90EC197D8120006E8E1C /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		AAEC90EE197D8182006E8E1C /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDProgressView.h; path = LDProgressView/LDProgressView.h; sourceTree = "<group>"; };
+		AAEC90EF197D8182006E8E1C /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDProgressView.m; path = LDProgressView/LDProgressView.m; sourceTree = "<group>"; };
+		AAEC90F0197D8182006E8E1C /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGBValues.h"; path = "LDProgressView/UIColor+RGBValues.h"; sourceTree = "<group>"; };
+		AAEC90F1197D8182006E8E1C /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+RGBValues.m"; path = "LDProgressView/UIColor+RGBValues.m"; sourceTree = "<group>"; };
 		AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -725,8 +740,8 @@
 		5D592B31191C741F00ECDCF7 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
-				AA894BE21969E6D600F457F8 /* AsyncImageView.h */,
-				AA894BE31969E6D600F457F8 /* AsyncImageView.m */,
+				AAEC90EB197D8120006E8E1C /* AsyncImageView.h */,
+				AAEC90EC197D8120006E8E1C /* AsyncImageView.m */,
 			);
 			name = AsyncImageView;
 			path = JumpPad;
@@ -1028,6 +1043,8 @@
 			isa = PBXGroup;
 			children = (
 				5DE5B7B5184ACBB700EFCE0A /* Uniq */,
+				AA55F93E199AF0ED005F9F76 /* HNScrollView */,
+				AA34FA57198999B100A73292 /* AutoScrollLabel */,
 				AA222B3919591C2E00820BCD /* LDProgressView */,
 				5D9253211930831300BE5BA3 /* DXAlertView */,
 				5D92531B1930708E00BE5BA3 /* Reachability */,
@@ -1086,6 +1103,8 @@
 				5D16763918583D250041993E /* Uniq-Explaination.txt */,
 				5DE5B7BE184ACBB700EFCE0A /* UniqAppDelegate.h */,
 				5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */,
+				AA55F9171999B762005F9F76 /* HNConnectivityManager.h */,
+				AA55F9181999B762005F9F76 /* HNConnectivityManager.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
 				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
 				5D167646185D6A6C0041993E /* ApplicationConstants.h */,
@@ -1140,6 +1159,8 @@
 		5DE5B83418504A5C00EFCE0A /* iPhone User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				AA55F938199AD160005F9F76 /* iPhMainTabBarController.h */,
+				AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */,
 				AA63DCE5196E4101001D9768 /* iPhMainFeaturedViewController.h */,
 				AA63DCE6196E4101001D9768 /* iPhMainFeaturedViewController.m */,
 				AA63DCF1196E470E001D9768 /* iPhMainFavoritesViewController.h */,
@@ -1158,6 +1179,8 @@
 		5DE5B83818504D0B00EFCE0A /* iPad User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				AA55F935199AD147005F9F76 /* iPadMainTabBarController.h */,
+				AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */,
 				5DAC8FAA18555EF700FE3B5B /* Main Tab View Controller */,
 				AAE509D919644779000C6899 /* School/Faculty View Controllers */,
 				5D338A1B19189B6500A62AC0 /* Program View Controller */,
@@ -1236,12 +1259,21 @@
 		AA222B3919591C2E00820BCD /* LDProgressView */ = {
 			isa = PBXGroup;
 			children = (
-				AA222B4119592DE900820BCD /* LDProgressView.h */,
-				AA222B4219592DE900820BCD /* LDProgressView.m */,
-				AA222B4319592DE900820BCD /* UIColor+RGBValues.h */,
-				AA222B4419592DE900820BCD /* UIColor+RGBValues.m */,
+				AAEC90EE197D8182006E8E1C /* LDProgressView.h */,
+				AAEC90EF197D8182006E8E1C /* LDProgressView.m */,
+				AAEC90F0197D8182006E8E1C /* UIColor+RGBValues.h */,
+				AAEC90F1197D8182006E8E1C /* UIColor+RGBValues.m */,
 			);
 			name = LDProgressView;
+			sourceTree = "<group>";
+		};
+		AA34FA57198999B100A73292 /* AutoScrollLabel */ = {
+			isa = PBXGroup;
+			children = (
+				AA34FA58198999B100A73292 /* AutoScrollLabel.h */,
+				AA34FA59198999B100A73292 /* AutoScrollLabel.m */,
+			);
+			path = AutoScrollLabel;
 			sourceTree = "<group>";
 		};
 		AA520EDE1971F5640003EF98 /* Explore View Controller */ = {
@@ -1280,6 +1312,15 @@
 			name = "Program View Controller";
 			sourceTree = "<group>";
 		};
+		AA55F93E199AF0ED005F9F76 /* HNScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				AA55F93B199AF0E8005F9F76 /* HNScrollView.h */,
+				AA55F93C199AF0E8005F9F76 /* HNScrollView.m */,
+			);
+			name = HNScrollView;
+			sourceTree = "<group>";
+		};
 		AA63DCF4196E508E001D9768 /* Abstract View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,10 +1347,10 @@
 				5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */,
 				5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */,
 				5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */,
-				5D167630185787750041993E /* iOSDashletTitleView.h */,
-				5D167631185787750041993E /* iOSDashletTitleView.m */,
-				5D16763E18591AE10041993E /* iOSDashletDetailsView.h */,
-				5D16763F18591AE10041993E /* iOSDashletDetailsView.m */,
+				5D167630185787750041993E /* JPDashletTitleView.h */,
+				5D167631185787750041993E /* JPDashletTitleView.m */,
+				5D16763E18591AE10041993E /* iPadDashletDetailsView.h */,
+				5D16763F18591AE10041993E /* iPadDashletDetailsView.m */,
 			);
 			name = Dashlet;
 			sourceTree = "<group>";
@@ -1578,14 +1619,15 @@
 				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
-				AA222B4619592DE900820BCD /* UIColor+RGBValues.m in Sources */,
 				AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
+				AA55F9191999B762005F9F76 /* HNConnectivityManager.m in Sources */,
 				AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */,
 				AA894BE11969D3DB00F457F8 /* Featured.m in Sources */,
+				AAEC90ED197D8120006E8E1C /* AsyncImageView.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				AA894BE71969FB1700F457F8 /* UserFavItem.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
@@ -1611,7 +1653,6 @@
 				AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */,
 				AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */,
 				AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */,
-				AA894BE41969E6D600F457F8 /* AsyncImageView.m in Sources */,
 				AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */,
 				AA63DCF0196E4141001D9768 /* iPhMainSettingsViewController.m in Sources */,
 				AA9C20B9195D19C700148675 /* UniqKEKeyword.m in Sources */,
@@ -1624,11 +1665,12 @@
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,
 				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
 				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
+				AAEC90F3197D8182006E8E1C /* UIColor+RGBValues.m in Sources */,
 				AA63DCED196E4133001D9768 /* JPMainFavoritesViewController.m in Sources */,
 				5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */,
 				5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */,
 				5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */,
-				5D16764018591AE10041993E /* iOSDashletDetailsView.m in Sources */,
+				5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */,
 				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
 				AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */,
 				5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */,
@@ -1641,15 +1683,18 @@
 				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
 				5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */,
 				AA0DB937197A2943005A5665 /* JPProgramDetailView.m in Sources */,
+				AA55F93A199AD160005F9F76 /* iPhMainTabBarController.m in Sources */,
 				AA9C20A4195D19C600148675 /* Banner.m in Sources */,
 				AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */,
 				5D7055F718B9C779002941B3 /* JPBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
+				AA55F937199AD147005F9F76 /* iPadMainTabBarController.m in Sources */,
 				AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
+				AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */,
 				AA9C20C2195D19C700148675 /* ProgramRating.m in Sources */,
 				AAE509CF1963BEE0000C6899 /* School.m in Sources */,
 				5D555526193B140900BF6F20 /* JPProgramCoursesViewController.m in Sources */,
@@ -1669,13 +1714,13 @@
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
-				5D167632185787750041993E /* iOSDashletTitleView.m in Sources */,
+				5D167632185787750041993E /* JPDashletTitleView.m in Sources */,
 				AA9C20BC195D19C700148675 /* ProgramApplicationStat.m in Sources */,
 				AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
+				AA55F93D199AF0E8005F9F76 /* HNScrollView.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
-				AA222B4519592DE900820BCD /* LDProgressView.m in Sources */,
 				AA9C20BF195D19C700148675 /* SchoolLocation.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
@@ -1708,6 +1753,7 @@
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
+				AA34FA5A198999B100A73292 /* AutoScrollLabel.m in Sources */,
 				AA9C20C5195D19C700148675 /* SchoolRanking.m in Sources */,
 				AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
@@ -1863,6 +1909,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
 				INFOPLIST_FILE = "JumpPad/Uniq-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1896,6 +1943,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
 				INFOPLIST_FILE = "JumpPad/Uniq-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

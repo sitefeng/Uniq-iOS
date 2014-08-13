@@ -104,7 +104,7 @@
     }
     else if([name isEqual: @"Special Thanks"])
     {
-        textParagraphString = @"Thanks to everyone who provided valuable feedbacks along the way. It's been a cool journey. Thanks to Jack Yang from University of Waterloo has kindly provided help with PHP server code in the early stages and helped to shape the app that we see today. Aaron brought in his amazing talent in design, and shaped how the app look would look like. \n\nThere're websites/artworks/libraries/code snippets that provided value to the app, here are the ones that we'd like to thank:\n\n- Nick Lockwood and his AsyncImageView, available on Github: https://github.com/nicklockwood/AsyncImageView\n\n - Core Plot open sourced graph plotting library\n\n - XYFeng and his XYPieChart\n\n - Pierre Dulac and his DPMeterView\n\n - Wonil Kim (@wonkim99) and RPRadarChart\n\n - Javier Berlana (@jberlana) and JBParallaxCell\n\n - Thomas Winkler and SFGaugeView\n\n - luyf and VolumeBar\n\n - Tony Million and Reachability\n\n - 谢凯伟 and DXAlertView\n\n - Christian Di Lorenzo and LDProgressView \n\nAbove all, thank you for using this app. Contact us at technochimera@gmail.com for any questions, suggestions, or concerns. Simply tap on Contact Us from this page.\n\nUniq Team, \nJune 14, 2014\n ";
+        textParagraphString = @"Thanks to everyone who provided valuable feedbacks along the way. It's been a cool journey. Thanks to Jack Yang from University of Waterloo has kindly provided help with PHP server code in the early stages and helped to shape the app that we see today. Aaron brought in his amazing talent in design, and shaped how the app look would look like. \n\nThere're websites/artworks/libraries/code snippets that provided value to the app, here are the ones that we'd like to thank:\n\n - Nick Lockwood and his AsyncImageView, available on Github: https://github.com/nicklockwood/AsyncImageView\n\n - Core Plot open sourced graph plotting library\n\n - XYFeng and his XYPieChart\n\n - Pierre Dulac and his DPMeterView\n\n - Wonil Kim (@wonkim99) and RPRadarChart\n\n - Javier Berlana (@jberlana) and JBParallaxCell\n\n - Thomas Winkler and SFGaugeView\n\n - luyf and VolumeBar\n\n - Tony Million and Reachability\n\n - 谢凯伟 and DXAlertView\n\n - Christian Di Lorenzo and LDProgressView \n\n - Brian Stormont (Stormy Productions) for his AutoScrollLabel\n\nAbove all, thank you for using this app. Contact us at technochimera@gmail.com for any questions, suggestions, or concerns. Alternatively, tap on Contact Us from Settings.\n\nSincerely,\nUniq Team\nJune 14, 2014\n ";
     }
 
     return textParagraphString;
@@ -122,6 +122,17 @@
         [[[UIAlertView alloc] initWithTitle:@"Cannot Open URL" message:@"Link is currently broken, please try again later. You may report this bug to us under 'Settings', and we'll resolve this issue as soon as possible." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
     }
 }
+
+
+UIImage* imageFromView(UIView *view)
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, 0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 
 
 @end

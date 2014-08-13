@@ -8,16 +8,10 @@
 
 #import "UniqAppDelegate.h"
 #import "Mixpanel.h"
-
-#import "iPadProgramHomeViewController.h"
-#import "iPadProgramViewController.h"
-#import "iPadMainHomeViewController.h"
-#import "iPadMainFeaturedViewController.h"
-#import "iPadMainSearchViewController.h"
-#import "iPadDebugSyncViewController.h"
+#import "JPStyle.h"
 
 #import "JPMainSync.h"
-
+#import "HNConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
 
 @implementation UniqAppDelegate
@@ -30,57 +24,53 @@
 {
     // Override point for customization after application launch.
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
- 
+    
+    connectivityManager = [[HNConnectivityManager alloc] init];
+    [connectivityManager startUpdating];
     
     JPMainSync* syncer = [[JPMainSync alloc] init];
     [syncer sync];
     
-//    iPadProgramViewController* program = [[iPadProgramViewController alloc] initWithDashletUid:1003221];
-//    [program setSelectedIndex:1];
-    
-//    iPadMainHomeViewController* home = [[iPadMainHomeViewController alloc] init];
-//    iPadDebugSyncViewController* sync = [[iPadDebugSyncViewController alloc] init];
-//    
-//    iPadMainFeaturedViewController* feature = [[iPadMainFeaturedViewController alloc] init];
-//    iPadMainSearchViewController* search = [[iPadMainSearchViewController alloc] init];
-//    
-//    
-//    
-//    self.window.rootViewController = home;
-    
+
 //    NSURL* jsonReqUrl = [[NSURL alloc] initWithString:@"http://127.0.0.1:8000/schools/"];
 //    NSData* jsonData = [NSData dataWithContentsOfURL:jsonReqUrl];
 //    NSArray* jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
 //    NSLog(@"JSON Array: %@", jsonArray);
     
-    //TRY
-    BOOL reachability = [[AFNetworkReachabilityManager sharedManager] isReachable];
-    if(reachability)
-        NSLog(@"Reachability: Reachable");
-    else
-        NSLog(@"Reachability: Not Reachable");
+    ////////////////
+    [JPStyle applyGlobalStyle];
     
+    
+
+    ///////////////////////////////////////////////////
     //Adding Mixpanel
-//    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
-//    Mixpanel* mixpanel = [Mixpanel sharedInstance];
-//    
-//    if (debugMode)
-//    {
-//        [mixpanel track:@"App Launches Debug"
-//             properties:@{
-//                      @"Gender": @"Male",
-//                      }];
-//    }
-//    else
-//    {
-//        [mixpanel track:@"App Launches"];
-//    }
+    [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
+    Mixpanel* mixpanel = [Mixpanel sharedInstance];
     
+    NSString* device = @"iPad";
+    if([JPStyle isiPad])
+    {
+        device = @"iPad";
+    } else if([JPStyle iPhone4Inch]) {
+        device = @"iPhone 5 or 5s";
+    } else
+    {
+        device = @"iPhone";
+    }
+
     
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    
-//    [self.window makeKeyAndVisible];
-    
+    if (debugMode)
+    {
+        [mixpanel track:@"App Launches Debug"
+             properties:@{@"Device Type": device}];
+    }
+    else
+    {
+        [mixpanel track:@"App Launches"
+             properties:@{@"Device Type": device}];
+    }
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
     
     //Tab bar change to 3rd element
     UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;

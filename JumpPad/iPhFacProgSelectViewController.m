@@ -11,6 +11,7 @@
 #import "iPhMainTableViewCell.h"
 #import "iPhSchoolViewController.h"
 #import "iPhProgramViewController.h"
+#import "Mixpanel.h"
 
 
 @interface iPhFacProgSelectViewController ()
@@ -130,10 +131,16 @@
         iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithDashletUid:selectedDashlet.dashletUid];
         programController.title = selectedDashlet.title;
         
+        
+        //Mixpanel
+        Mixpanel* mixpanel = [Mixpanel sharedInstance];
+        [mixpanel track:@"Selected Program on iPhone" properties:@{@"Cell Dashlet Title": selectedDashlet.title}];
+        //////////////////////////////////
+        
+        
         UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:programController];
         
         [self presentViewController:navController animated:YES completion:nil];
-        
     }
     
 }

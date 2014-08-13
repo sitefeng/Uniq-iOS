@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class HNConnectivityManager;
 @interface UniqAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    HNConnectivityManager* connectivityManager;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

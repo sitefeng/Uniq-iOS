@@ -32,8 +32,9 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.descriptionView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
+    self.descriptionView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait-kiPhoneTabBarHeight)];
     self.descriptionView.backgroundColor = [UIColor clearColor];
+    self.descriptionView.showsVerticalScrollIndicator = NO;
     self.descriptionView.editable = NO;
     self.descriptionView.selectable = NO;
     self.descriptionView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];

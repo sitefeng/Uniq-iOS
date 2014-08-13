@@ -78,7 +78,7 @@ class iPadHomeProfileBanner: UIView {
         userLocationButton.font = UIFont(name: JPFont.defaultFont(), size: 22)
         userLocationButton.setTitle("Location:", forState: UIControlState.Normal)
         userLocationButton.addTarget(self, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        userLocationButton.setTitleColor(JPStyle.colorWithHex("0007CF", alpha: 1), forState: UIControlState.Normal)
+        userLocationButton.setTitleColor(JPStyle.interfaceTintColor(), forState: UIControlState.Normal)
         userLocationButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
         self.addSubview(userLocationButton)
         

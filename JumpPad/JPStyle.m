@@ -13,7 +13,7 @@
 
 #pragma mark - Device Verification
 
-+(BOOL) iPad
++(BOOL) isiPad
 {
 #ifdef UI_USER_INTERFACE_IDIOM
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
@@ -36,59 +36,16 @@
 
 
 #pragma mark - User Interface Colors
-
-
 +(UIColor*) interfaceTintColor
 {
-    return [UIColor colorWithRed:(148.0f/255.0f) green:(192.0/255.0f) blue:(190.0f/255.0f) alpha:1.0f];
-    
+    return [JPStyle colorWithHex:@"6600FF" alpha:1];
 }
-
-+(UIColor*) defaultBorderColor
-{
-    return [UIColor blackColor];
-}
-
-//Dashlets
-
-+ (UIImage*) dashletDefaultBackgroundImage
-{
-    return [UIImage imageNamed:@"dashletDefault"];
-}
-
-
-+(UIColor*) dashletDefaultBorderColor
-{
-    return [self colorWithHex:@"240059" alpha:1];
-}
-
-
-+(UIColor*) dashletDefaultTitleTextColor
-{
-    return [UIColor blackColor];
-}
-
-
-+(UIColor*) dashletDefaultDetailsTextColor
-{
-    return [UIColor purpleColor];
-}
-
-
-
 
 +(void)applyGlobalStyle
 {
-	[[UINavigationBar appearance] setTintColor:[JPStyle interfaceTintColor]];
-	[[UISearchBar appearance] setTintColor:[JPStyle interfaceTintColor]];
-	[[UITabBar appearance] setTintColor:[JPStyle interfaceTintColor]];
-    
-	// Set the colours of the tabbar and navbar in IOS7
-	if ( [JPStyle iOS7] && [JPStyle iPad])
-	{
-		[[UINavigationBar appearance] setBarTintColor:[JPStyle interfaceTintColor]];
-		[[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
-	}
+    [[UINavigationBar appearance] setTintColor:[JPStyle interfaceTintColor]];
+    [[UISearchBar appearance] setTintColor:[JPStyle interfaceTintColor]];
+    [[UITabBar appearance] setTintColor:[JPStyle interfaceTintColor]];
 }
 
 
@@ -460,7 +417,6 @@
     UIImage* clipedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return clipedImage;
-
 }
 
 

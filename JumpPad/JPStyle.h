@@ -14,7 +14,7 @@
 
 
 //Device Verification
-+(BOOL) iPad;
++(BOOL) isiPad;
 +(BOOL) iOS7;
 +(BOOL) iPhone4Inch;
 
@@ -22,21 +22,11 @@
 /////////////////////////////
 ////User Interface Colors
 
-// Color of Nav Bar and Search Bar
-+(UIColor*) interfaceTintColor;
-
-+(UIColor*) defaultBorderColor;
-
-//Dashslet View
-+(UIImage*) dashletDefaultBackgroundImage;
-+(UIColor*) dashletDefaultBorderColor;
-+(UIColor*) dashletDefaultTitleTextColor;
-+(UIColor*) dashletDefaultDetailsTextColor;
-
-
-
 //Default app theme
++(UIColor*) interfaceTintColor;
 +(void)applyGlobalStyle;
+
+
 
 //Color Conversion
 +(UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;

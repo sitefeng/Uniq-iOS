@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class iPadDashletImageView, JPDashlet, iOSDashletTitleView, iOSDashletDetailsView;
+@class iPadDashletImageView, JPDashlet, JPDashletTitleView, iPadDashletDetailsView, AutoScrollLabel;
 
 @protocol JPDashletInfoDelegate;
 
@@ -21,8 +21,9 @@
 
 @property (nonatomic, strong) JPDashlet* dashletInfo;
 
-@property (nonatomic, strong) iOSDashletTitleView* title;
-@property (nonatomic, strong) iOSDashletDetailsView* details;
+//JPDashletTitleView no longer used
+@property (nonatomic, strong) AutoScrollLabel* title;
+@property (nonatomic, strong) iPadDashletDetailsView* details;
 
 @property (nonatomic, strong) UIButton* infoButton;
 @property (nonatomic, strong) UIButton* favButton;

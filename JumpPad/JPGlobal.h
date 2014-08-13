@@ -25,4 +25,7 @@
 + (NSString*)paragraphStringWithName: (NSString*)name;
 + (void)openURL: (NSURL*)url;
 
+
+UIImage* imageFromView(UIView *view);
+
 @end

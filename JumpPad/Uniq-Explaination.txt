@@ -32,9 +32,27 @@ iPadBannerView
 The image below the Navigation Bar
 
 
+//Caching the most recent 30 Items in local storage
 
 
+//Table View Jittery Scrolling Fix
 
+- Blur images on the background thread
+
+//Saving Bandwidth
+- Create NSMutableDictionary in the Table View Controller class,
+- Allow the cells to load images individually, after loading finished, Store the images in the dictionary with a delegate method
+- When reloading a cell, directly assign the stored image to the cell.
+- Empty the dictionary when memory warning is received.
+
+
+You could try putting your images into an NSMutableDictionary. In the place where you build your cell, check if the image you want is already stored. If it is, use that copy, if not load it from wherever you're getting the images from originally and place it in the dictionary. I think I used an NSMutableDictionary with the image identifier as the key and the image as the value to do this and it sped up the table scrolling.
+
+You might want to unload the NSMutableDictionary if you get a memory warning.
+
+Your problem may just be that you're loading images over the network, which makes scrolling jerky. Check here for a solution to that.
+
+http://stackoverflow.com/questions/932859/preloading-images-from-url-in-tableviewcell/
 
 
 

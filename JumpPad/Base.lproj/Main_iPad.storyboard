@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E19" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ezw-0u-sbj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="ezw-0u-sbj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--I Pad Main Tab Bar Controller-->
         <scene sceneID="0OS-Gh-a4l">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" definesPresentationContext="YES" id="ezw-0u-sbj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" definesPresentationContext="YES" id="ezw-0u-sbj" customClass="iPadMainTabBarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="RAD-ws-Q4c">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>

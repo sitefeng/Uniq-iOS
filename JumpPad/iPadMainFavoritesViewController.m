@@ -126,7 +126,6 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-
     return [_dashletTypeCounts[section] integerValue];
 }
 
@@ -318,27 +317,20 @@
     
 }
 
-
-#pragma mark - JPDashletInfo Delegate (favButton)
-- (void)favButtonPressed: (iPadMainCollectionViewCell*)sender favorited: (BOOL)fav
-{
-    NSUInteger dashletUid = sender.dashletInfo.dashletUid;
-    
-    [super favButtonPressedIsFavorited: fav dashletUid: dashletUid];
-    
-}
-
-
-#pragma mark - Editing Mode
+#pragma mark - Editing Mode (JPDashletInfo Delegate: favButton)
 
 - (IBAction)editBarButtonPressed:(id)sender {
     
     [super editBarButtonPressed: sender];
-    
     [self.cv reloadData];
 }
 
 
+- (void)favButtonPressed: (iPadMainCollectionViewCell*)sender favorited: (BOOL)fav
+{
+    NSUInteger dashletUid = sender.dashletInfo.dashletUid;
+    [super favButtonPressedIsFavorited: fav dashletUid: dashletUid];
+}
 
 
 

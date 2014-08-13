@@ -9,8 +9,10 @@
 #import "iPhMainTableViewCell.h"
 #import "iPadDashletImageView.h"
 #import "JPDashlet.h"
-#import "iOSDashletDetailsView.h"
-#import "iOSDashletTitleView.h"
+#import "JPFont.h"
+#import "JPStyle.h"
+#import "iPadDashletDetailsView.h"
+
 
 @implementation iPhMainTableViewCell
 
@@ -20,14 +22,42 @@
     if (self) {
         // Initialization code
         
-        self.itemImageView = [[iPadDashletImageView alloc] initWithFrame:CGRectMake(0, 0, 108, 81)];
+        self.itemImageView = [[iPadDashletImageView alloc] initWithFrame:CGRectMake(5, 5, 108 -10, 81 -10)];
+        self.itemImageView.clipsToBounds = YES;
+        self.itemImageView.layer.cornerRadius = 15;
+        self.itemImageView.layer.borderColor = [JPStyle interfaceTintColor].CGColor;
+        self.itemImageView.layer.borderWidth = 1.0f;
         [self addSubview:self.itemImageView];
         
-        self.title = [[iOSDashletTitleView alloc] initWithFrame:CGRectMake(110, 5, kiPhoneWidthPortrait-110, 30)];
+        self.title = [[UILabel alloc] initWithFrame:CGRectMake(110, 1, kiPhoneWidthPortrait-110, 48)];
+        self.title.font = [UIFont fontWithName:[JPFont defaultFont] size:16];
+        self.title.numberOfLines = 2;
         [self addSubview:self.title];
         
-        self.details = [[iOSDashletDetailsView alloc] initWithFrame:CGRectMake(110, 40, kiPhoneWidthPortrait- 110, 30)];
-        [self addSubview:self.details];
+        
+        //Details
+        populationImgView = [[UIImageView alloc] initWithFrame:CGRectMake(110, 54, 18, 18)];
+        populationImgView.contentMode = UIViewContentModeScaleAspectFit;
+        UIImage* populationImage = [UIImage imageNamed:@"populationWireframe"];
+        populationImgView.image = populationImage;
+        [self addSubview:populationImgView];
+        
+        populationLabel = [[UILabel alloc] initWithFrame:CGRectMake(133, 50, 60, 24)];
+        populationLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:16];
+        populationLabel.textColor = [UIColor grayColor];
+        [self addSubview:populationLabel];
+        
+        locationImgView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 54, 18, 18)];
+        locationImgView.contentMode = UIViewContentModeScaleAspectFit;
+        UIImage* locationImage = [UIImage imageNamed:@"locationWireframe"];
+        locationImgView.image = locationImage;
+        [self addSubview:locationImgView];
+        
+        locationLabel = [[UILabel alloc] initWithFrame:CGRectMake(220, 50, 110, 24)];
+        locationLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:16];
+        locationLabel.textColor = [UIColor grayColor];
+        [self addSubview:locationLabel];
+        
         
         self.separatorInset = UIEdgeInsetsZero;
         
@@ -45,9 +75,8 @@
     
     self.title.text = dashletInfo.title;
     
-    self.details.label.text = [NSString stringWithFormat:@"%i",[dashletInfo.population intValue]];
-    self.details.label2.text = [NSString stringWithFormat:@"%@", dashletInfo.location.cityName];
-    
+    populationLabel.text = [NSString stringWithFormat:@"%i",[dashletInfo.population intValue]];
+    locationLabel.text = [NSString stringWithFormat:@"%@", dashletInfo.location.cityName];
 }
 
 
