@@ -86,7 +86,7 @@
     //Pages 2-4
     CGFloat currXPos = kiPhoneWidthPortrait;
     
-    NSArray*   imageNames = @[@"entranceImg1", @"entranceImg1", @"entranceImg1"];
+    NSArray*   imageNames = @[@"entranceImg2", @"entranceImg3", @"entranceImg5"];
     NSArray*   descriptions = @[@"Exploring the information you need has never been so simple and elegant", @"Experience personalized info tailored to you", @"Let’s get started!"];
     
     for(int i= 1; i<=3; i++)
@@ -95,7 +95,6 @@
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.image = [UIImage imageNamed:imageNames[i-1]];
         [imageScrollView addSubview:imageView];
-        
         
         UILabel* descriptionView = [[UILabel alloc] initWithFrame:CGRectMake(i*currXPos + 30, 340, kiPhoneWidthPortrait-60, 80)];
         descriptionView.font = [UIFont fontWithName:[JPFont defaultThinFont] size:18];
