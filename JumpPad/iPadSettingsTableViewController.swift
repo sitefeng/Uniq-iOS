@@ -16,10 +16,14 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     var selectedIndex : NSIndexPath! = NSIndexPath(forRow: 0, inSection: 1)
     
     //General
-    let cellTitles     : String[][] = [["Download Contents", "Notifications"],["About", "Rate Uniq on App Store", "Contact Us", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter"]]
-    let cellImgStrings : String[][] = [["download-75","tones-75"],["info-75","thumb_up-75","email-50","share-75","groups-75","thanks-75","facebook-50","twitter-50"]]
+    let cellTitles     : [[String]] = [["Download Contents", "Notifications"],["About", "Rate Uniq on App Store", "Contact Us", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter"]]
+    let cellImgStrings : [[String]] = [["download-75","tones-75"],["info-75","thumb_up-75","email-50","share-75","groups-75","thanks-75","facebook-50","twitter-50"]]
     
-    init(style: UITableViewStyle) {
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
         
@@ -29,7 +33,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     }
     
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -120,16 +124,16 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         
     }
     
-    override func tableView(tableView: UITableView!, accessoryTypeForRowWithIndexPath indexPath: NSIndexPath!) -> UITableViewCellAccessoryType
-    {
-        
-        if (indexPath.section==1 && (indexPath.row==0||indexPath.row==5))
-        {
-            return UITableViewCellAccessoryType.DisclosureIndicator
-        }
-        
-        return UITableViewCellAccessoryType.None
-    }
+//    override func tableView(tableView: UITableView!, accessoryTypeForRowWithIndexPath indexPath: NSIndexPath!) -> UITableViewCellAccessoryType
+//    {
+//        
+//        if (indexPath.section==1 && (indexPath.row==0||indexPath.row==5))
+//        {
+//            return UITableViewCellAccessoryType.DisclosureIndicator
+//        }
+//        
+//        return UITableViewCellAccessoryType.None
+//    }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         

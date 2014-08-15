@@ -14,6 +14,8 @@
 #import "iPhMainTableViewCell.h"
 #import "iPhFacProgSelectViewController.h"
 #import "iPhSchoolHomeViewController.h"
+#import "AsyncImageView.h"
+#import "iPadDashletImageView.h"
 
 
 @interface iPhMainExploreViewController ()
@@ -26,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _indexPathsNeedReloading = [NSMutableArray array];
 
     self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 100)];
     [self.view addSubview:self.bannerView];
@@ -62,9 +65,15 @@
     iPhMainTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
     cell.separatorInset = UIEdgeInsetsZero;
     
-    cell.delegate = self;
-    cell.dashletInfo = self.dashlets[indexPath.row];
+    JPDashlet* dashlet = self.dashlets[indexPath.row];
+    NSMutableArray* imageURLs = dashlet.backgroundImages;
+
     
+    
+    
+    cell.delegate = self;
+    cell.dashletInfo = dashlet;
+
     return cell;
 }
 
@@ -86,8 +95,13 @@
     
 }
 
-
-
+#pragma mark - Image Loaded
+- (void)imageLoaded
+{
+    [self.tableView reloadRowsAtIndexPaths:_indexPathsNeedReloading withRowAnimation:UITableViewRowAnimationFade];
+    
+    [_indexPathsNeedReloading removeAllObjects];
+}
 
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -101,17 +115,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [AsyncImageLoader sharedLoader].cache = nil;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
+
+
+
 
 @end

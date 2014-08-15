@@ -86,8 +86,13 @@
     }
     
     self.imageView.logoURL = _dashletInfo.icon;
-    //Load only one image at this time
-    self.imageView.imageURLs = _dashletInfo.backgroundImages;
+    if([_dashletInfo.backgroundImages count]>0)
+    {
+        //Load only one image at this time
+        NSURL* imgURL = _dashletInfo.backgroundImages[0];
+        self.imageView.imageURLs = _dashletInfo.backgroundImages = [@[imgURL] mutableCopy];
+    }
+    
     
     self.details.label.text = [NSString stringWithFormat:@"%@",self.dashletInfo.population];
     self.details.label2.text = [NSString stringWithFormat:@"%@", self.dashletInfo.location.cityName];

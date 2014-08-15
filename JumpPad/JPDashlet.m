@@ -24,12 +24,12 @@
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
     
-    NSUInteger schoolInt = uid / 1000000;
+    NSUInteger schoolInt = uid / 10000000;
     
-    NSUInteger facultyInt = (uid % 1000000) / 1000;
-    NSUInteger programInt = uid % 1000;
+    NSUInteger facultyInt = (uid % 10000000) / 100000;
+    NSUInteger programInt = uid % 100000;
     
-    NSUInteger facultyUid = schoolInt*1000000 + facultyInt * 1000;
+    NSUInteger facultyUid = schoolInt*10000000 + facultyInt * 100000;
     
     self = [super init];
     
@@ -54,7 +54,7 @@
                 facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@", [NSNumber numberWithInteger:facultyInt]];
                 NSArray* facultyResult = [context executeFetchRequest:facultyReq error:nil];
                 
-                self = [self initWithFaculty:(Faculty *)[facultyResult firstObject] fromSchool:schoolInt*1000000];
+                self = [self initWithFaculty:(Faculty *)[facultyResult firstObject] fromSchool:schoolInt*10000000];
             }
         }
         else //is a program
@@ -83,7 +83,7 @@
     self = [super init];
     if(self)
     {
-        self.dashletUid = [school.schoolId integerValue] * 1000000;
+        self.dashletUid = [school.schoolId integerValue] * 10000000;
         
         SchoolLocation* sLoc = school.location;
         
@@ -125,7 +125,7 @@
     if(self)
     {
         NSUInteger partialFaculty = [faculty.facultyId integerValue];
-        self.dashletUid = schoolDashletUid + partialFaculty * 1000;
+        self.dashletUid = schoolDashletUid + partialFaculty * 100000;
         
         self.title = faculty.name;
         self.featuredTitle = [faculty.name stringByAppendingString:[NSString stringWithFormat:@", %@", faculty.school.name]];

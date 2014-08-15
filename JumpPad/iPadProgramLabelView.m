@@ -32,7 +32,7 @@
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        NSInteger schoolId = self.dashletUid / 1000000;
+        NSInteger schoolId = self.dashletUid / 10000000;
         
         NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"School"];
         request.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];

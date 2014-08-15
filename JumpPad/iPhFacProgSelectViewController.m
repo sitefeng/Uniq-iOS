@@ -155,7 +155,7 @@
 {
     NSMutableArray* dashletArray = [NSMutableArray array];
     //Core Data id and dashlet id are different
-    NSInteger coreDataSchoolId = self.dashletUid / 1000000;
+    NSInteger coreDataSchoolId = self.dashletUid / 10000000;
     
     if(self.type == JPDashletTypeFaculty)
     {
@@ -176,7 +176,7 @@
     }
     else //type == JPdashletTypeProgram
     {
-        NSInteger coreDataFacultyId = self.dashletUid % 1000000 /1000;
+        NSInteger coreDataFacultyId = self.dashletUid % 10000000 /100000;
         
         NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
         dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];

@@ -2,7 +2,7 @@
      {
       "id":1,
       "title":"Top School in Engineering",
-      "linkedUid":1000000,
+      "linkedUid":10000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo1.png",
       "linkedUrl":"https:\/\/uwaterloo.ca\/",
       "toDelete":false
@@ -10,7 +10,7 @@
      {
       "id":2,
       "title":"Top School in Life Sciences",
-      "linkedUid":2000000,
+      "linkedUid":20000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto2.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false
@@ -18,7 +18,7 @@
      {
       "id":3,
       "title":"Best Engineering Program of the Year",
-      "linkedUid":1001221,
+      "linkedUid":10100221,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo3.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false
@@ -26,7 +26,7 @@
      {
       "id":4,
       "title":"Best Faculty of the Year",
-      "linkedUid":1001000,
+      "linkedUid":10100000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo2.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false
@@ -34,7 +34,7 @@
      {
       "id":5,
       "title":"Top School in Journalism",
-      "linkedUid":3000000,
+      "linkedUid":30000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto1.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false
@@ -42,7 +42,7 @@
      {
       "id":6,
       "title":"Top School in Business",
-      "linkedUid":4000000,
+      "linkedUid":40000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto3.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false

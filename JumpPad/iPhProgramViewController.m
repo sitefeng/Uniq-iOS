@@ -14,6 +14,7 @@
 #import "JPCoreDataHelper.h"
 #import "UserFavItem.h"
 #import "iPhAppProgressPanView.h"
+#import "iPhProgramRatingsViewController.h"
 
 
 @interface iPhProgramViewController ()
@@ -62,7 +63,11 @@
         contactController.tabBarItem.title = @"Contact";
         contactController.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
-        self.viewControllers = @[homeController, academicsController, contactController];
+        iPhProgramRatingsViewController* ratingsController = [[iPhProgramRatingsViewController alloc] initWithProgram:self.program];
+        ratingsController.tabBarItem.title = @"Ratings";
+        ratingsController.tabBarItem.image = [UIImage imageNamed:@"ratings"];
+        
+        self.viewControllers = @[homeController, academicsController, contactController, ratingsController];
         
         
     }
@@ -81,9 +86,9 @@
 
 - (void)retrieveProgramInfo
 {
-    NSInteger programId = self.dashletUid%1000;
-    NSInteger facultyId = self.dashletUid%1000000 / 1000;
-    NSInteger schoolId = self.dashletUid/1000000;
+    NSInteger programId = self.dashletUid%100000;
+    NSInteger facultyId = self.dashletUid%10000000 / 100000;
+    NSInteger schoolId = self.dashletUid/10000000;
     
     NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
     request.predicate = [NSPredicate predicateWithFormat: @"programId = %@ && faculty.facultyId = %@ && faculty.school.schoolId = %@", [NSNumber numberWithInteger:programId], [NSNumber numberWithInteger:facultyId], [NSNumber numberWithInteger:schoolId]];

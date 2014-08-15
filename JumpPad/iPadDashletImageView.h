@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class AsyncImageView;
 @interface iPadDashletImageView : UIView
 {
     NSUInteger   _imagesToLoad;
-    
+    UIView *  _whiteView;
 }
 
 @property (nonatomic, strong) NSURL* logoURL; // set this
 @property (nonatomic, strong) UIImage* logo;
+
 @property (nonatomic, strong) NSArray* imageURLs; // set this
 @property (nonatomic, strong) NSMutableArray* imageArray;
 
@@ -26,6 +27,7 @@
 
 
 @property (nonatomic, assign) BOOL fadeEffect;
+
 
 
 

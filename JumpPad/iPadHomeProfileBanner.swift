@@ -42,7 +42,13 @@ class iPadHomeProfileBanner: UIView {
     
     var backgroundView: UIView!
     
-    init(frame: CGRect) {
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
+    
+    override init(frame: CGRect) {
         super.init(frame: frame)
         // Initialization code
         
@@ -75,7 +81,7 @@ class iPadHomeProfileBanner: UIView {
         self.addSubview(userNameLabel)
         
         var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
-        userLocationButton.font = UIFont(name: JPFont.defaultFont(), size: 22)
+        userLocationButton.titleLabel.font = UIFont(name: JPFont.defaultFont(), size: 22)
         userLocationButton.setTitle("Location:", forState: UIControlState.Normal)
         userLocationButton.addTarget(self, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
         userLocationButton.setTitleColor(JPStyle.interfaceTintColor(), forState: UIControlState.Normal)
@@ -87,7 +93,7 @@ class iPadHomeProfileBanner: UIView {
         self.addSubview(activityIndicator)
         
         userLocationLabel = UILabel(frame: CGRect(x: 280 + 100, y: 100, width: 300, height: 30))
-        userLocationLabel.font = userLocationButton.font
+        userLocationLabel.font = userLocationButton.titleLabel.font
         self.addSubview(userLocationLabel)
         
         

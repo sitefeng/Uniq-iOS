@@ -105,7 +105,6 @@
         
     }
     
-    
     [whiteView sendSubviewToBack:logoShadowView];
     imageScrollView.contentSize = CGSizeMake(kiPhoneWidthPortrait*(1+[descriptions count]), kiPhoneHeightPortrait);
     [whiteView addSubview:imageScrollView];
@@ -133,7 +132,7 @@
 - (void)actionButtonPressed: (UIButton*)button
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     
     [UIView animateWithDuration:1 animations:^{
         whiteView.alpha = 0.0f;

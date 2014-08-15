@@ -17,7 +17,11 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
     
     var originalTabBarController : UITabBarController?
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         // Custom initialization
         
@@ -60,14 +64,14 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
         
         var app = UIApplication.sharedApplication().delegate as UIApplicationDelegate!
         
-        var currentController : UIViewController! = app.window!.rootViewController
-        app.window!.rootViewController = self.originalTabBarController
-        app.window!.rootViewController = currentController
+        var currentController : UIViewController! = app.window!!.rootViewController
+        app.window!!.rootViewController = self.originalTabBarController
+        app.window!!.rootViewController = currentController
         
-        UIView.transitionWithView(self.view.window, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations:
+        UIView.transitionWithView(self.view.window!, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromLeft, animations:
             {
                 () in
-                app.window!.rootViewController = self.originalTabBarController
+                app.window!!.rootViewController = self.originalTabBarController
             }, completion: nil)
         
 

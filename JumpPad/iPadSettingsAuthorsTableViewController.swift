@@ -12,12 +12,16 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
 
     let authorsCellIdentifier : String! = "reuseIdentifier"
     
-    var _authorsInfo : Dictionary<String, String>[] = Array()
+    var _authorsInfo : [Dictionary<String, String>] = Array()
     
     var _selectedIndexPath : NSIndexPath?
     var _deviceType: UIUserInterfaceIdiom!
     
-    init(style: UITableViewStyle) {
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
 
@@ -25,7 +29,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         
         self.tableView.registerClass(JPProgramCoursesTableViewCell.self, forCellReuseIdentifier: authorsCellIdentifier)
         self.tableView.allowsMultipleSelection = false;
-            
+        
         _authorsInfo = [
             ["name": "Si Te Feng", "position": "iOS Developer", "description" : "Si Te is a 2nd year student studying at University of Waterloo Mechatronics Engineering program."],
             ["name": "Christopher Luc", "position": "Server Developer", "description" : "Christopher is a 2nd year student studying at University of Waterloo Software Engineering program."],
@@ -40,7 +44,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         
     }
 
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }

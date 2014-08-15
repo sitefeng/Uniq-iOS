@@ -24,6 +24,7 @@
     
         self.backgroundView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.backgroundView.contentMode = UIViewContentModeScaleAspectFill;
+        self.backgroundView.image = [UIImage imageNamed:@"defaultSchoolBlurred"];
         self.backgroundView.clipsToBounds = YES;
         
         self.imageArray = [NSMutableArray array];
@@ -38,6 +39,11 @@
         
         [self setUserInteractionEnabled:NO];
         
+        _whiteView = [[UIView alloc] initWithFrame:self.backgroundView.frame];
+        _whiteView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.35];
+        _whiteView.hidden = YES;
+        [self insertSubview:_whiteView aboveSubview:self.backgroundView];
+        
     }
     return self;
 }
@@ -50,30 +56,27 @@
     _imagesToLoad = [imageUrls count];
     
     [self reloadImages];
-   
 }
+
 
 - (void)reloadImages
 {
-    UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
     self.backgroundView.animationImages = nil;
-    self.backgroundView.image = [[UIImage imageNamed:@"defaultSchool"] applyBlurWithRadius:8 tintColor: tintColor saturationDeltaFactor:1.8 maskImage:nil];
+    
+    self.backgroundView.image = [UIImage imageNamed:@"defaultSchoolBlurred"];
     
     if([self.imageURLs count] > 0)
     {
         [[AsyncImageLoader sharedLoader] loadImageWithURL:[_imageURLs firstObject] target:self action:@selector(imageLoaded)];
     }
-    
 }
+
 
 
 - (void)imageLoaded
 {
     _imagesToLoad--;
 
-    UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
-    NSMutableArray* blurredImages = [NSMutableArray array];
-    
     UIImage* image;
     
     if (self.imageURLs.count > 0)
@@ -81,51 +84,20 @@
         image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
     }
     
-    self.backgroundView.image = [image applyBlurWithRadius:9 tintColor: tintColor saturationDeltaFactor:2.5 maskImage:nil];
-
+    self.backgroundView.image = image;
     
-    if(_imagesToLoad == 0)
-    {
-        if([self.imageURLs count] == 1)
-        {
-            self.backgroundView.animationImages = nil;
-            
-            UIImage* image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
-            
-            self.backgroundView.image = [image applyBlurWithRadius:9 tintColor: tintColor saturationDeltaFactor:2.5 maskImage:nil];
-        }
-        else //[image count] >= 2
-        {
-            self.backgroundView.image = nil;
-            
-            for(int i=0; i<[self.imageURLs count]; i++)
-            {
-                
-                UIImage* image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
-                
-                UIImage* blurredImage = [image applyBlurWithRadius:9 tintColor:tintColor saturationDeltaFactor:2.5 maskImage:nil];
-                
-                [blurredImages addObject:blurredImage];
-                
-            }
-            
-            self.backgroundView.animationImages = blurredImages;
-            
-            //Setting to the image animation to an arbitrary value
-            self.backgroundView.animationDuration = arc4random() % 10 + 10;
-            self.backgroundView.animationRepeatCount = 0;
-            
-            [self.backgroundView startAnimating];
-        
-        }
-        
-        [self setNeedsDisplay];
-    }
-    
+//    UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//        
+//        __block UIImage* blurredImg = [image applyBlurWithRadius:2 tintColor: tintColor saturationDeltaFactor:0 maskImage:nil];
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            self.backgroundView.image = blurredImg;
+//            [self setNeedsDisplay];
+//            blurredImg = nil;
+//        });
+//    });
 }
-
-
-
 
 
 
@@ -133,6 +105,13 @@
 {
     _logoURL = logoURL;
     
+    if(!logoURL)
+    {
+        _whiteView.hidden = YES;
+        return;
+    }
+    
+    _whiteView.hidden = NO;
     [[AsyncImageLoader sharedLoader] loadImageWithURL:_logoURL target:self action:@selector(logoLoaded)];
     
     [self setNeedsDisplay];
@@ -156,23 +135,45 @@
 
 
 
+@end
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+//Loading Multiple Blurred Images
+//    NSMutableArray* blurredImages = [NSMutableArray array];
+//    if(_imagesToLoad == 0)
+//    {
+//        if([self.imageURLs count] == 1)
+//        {
+//            self.backgroundView.animationImages = nil;
+//
+//            UIImage* image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
+//
+//            self.backgroundView.image = [image applyBlurWithRadius:9 tintColor: tintColor saturationDeltaFactor:2.5 maskImage:nil];
+//        }
+//        else //[image count] >= 2
+//        {
+//            self.backgroundView.image = nil;
+//
+//            for(int i=0; i<[self.imageURLs count]; i++)
+//            {
+//
+//                UIImage* image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
+//
+//                UIImage* blurredImage = [image applyBlurWithRadius:9 tintColor:tintColor saturationDeltaFactor:2.5 maskImage:nil];
+//
+//                [blurredImages addObject:blurredImage];
+//
+//            }
+//
+//            self.backgroundView.animationImages = blurredImages;
+//
+//            //Setting to the image animation to an arbitrary value
+//            self.backgroundView.animationDuration = arc4random() % 10 + 10;
+//            self.backgroundView.animationRepeatCount = 0;
+//
+//            [self.backgroundView startAnimating];
+//
+//        }
+//    }
+*///Load Multiple Images
 
-
-
-
-
-
-
-
-
-
-@end

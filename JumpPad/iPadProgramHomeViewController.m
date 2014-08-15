@@ -92,7 +92,7 @@ static const float kProgramImageWidth  = 384;
     
     
     //Init Summary View
-    NSInteger schoolId = self.dashletUid / 1000000;
+    NSInteger schoolId = self.dashletUid / 10000000;
     
     NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
     req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];

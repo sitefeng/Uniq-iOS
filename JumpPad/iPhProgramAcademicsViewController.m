@@ -36,8 +36,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    NSInteger schoolId = [self.program.faculty.school.schoolId integerValue]*1000000;
-    NSInteger facultyId = [[self.program.faculty facultyId] integerValue]* 1000;
+    NSInteger schoolId = [self.program.faculty.school.schoolId integerValue]*10000000;
+    NSInteger facultyId = [[self.program.faculty facultyId] integerValue]* 100000;
     NSInteger programId = [self.program.programId integerValue];
     
     self.progressPanView = [[iPhAppProgressPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];

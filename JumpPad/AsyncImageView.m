@@ -42,13 +42,13 @@
 #endif
 
 
-NSString *const AsyncImageLoadDidFinish = @"AsyncImageLoadDidFinish";
-NSString *const AsyncImageLoadDidFail = @"AsyncImageLoadDidFail";
+static NSString *const AsyncImageLoadDidFinish = @"AsyncImageLoadDidFinish";
+static NSString *const AsyncImageLoadDidFail = @"AsyncImageLoadDidFail";
 
-NSString *const AsyncImageImageKey = @"image";
-NSString *const AsyncImageURLKey = @"URL";
-NSString *const AsyncImageCacheKey = @"cache";
-NSString *const AsyncImageErrorKey = @"error";
+static NSString *const AsyncImageImageKey = @"image";
+static NSString *const AsyncImageURLKey = @"URL";
+static NSString *const AsyncImageCacheKey = @"cache";
+static NSString *const AsyncImageErrorKey = @"error";
 
 
 @interface AsyncImageConnection : NSObject

@@ -12,6 +12,14 @@
 //Showing execption message when breakpoint is hit:
 If your target is the iOS simulator, or 32-bit OS X, you can print the exception by typing po ((id*)$esp)[1] in the debug console when your breakpoint exception is hit. If your target is an iOS device, you can type po $r0. And if your target is 64-bit OS X, you can type po $rdi.
 
+
+New School Format
+Max Number of Schools: 213
+
+XXX-XX-XXXXX
+214-74-83647 LONG_MAX
+
+
 //
 What is iPadDashletView?
 

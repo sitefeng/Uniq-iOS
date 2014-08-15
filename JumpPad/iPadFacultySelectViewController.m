@@ -130,7 +130,7 @@
 - (void)updateDashletsInfo
 {
     //Core Data id and dashlet id are different
-    NSInteger coreDataSchoolId = self.schoolUid / 1000000;
+    NSInteger coreDataSchoolId = self.schoolUid / 10000000;
     
     NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
     dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];

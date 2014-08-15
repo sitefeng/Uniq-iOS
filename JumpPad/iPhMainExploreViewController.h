@@ -12,7 +12,9 @@
 
 
 @interface iPhMainExploreViewController : JPMainExploreViewController <UITableViewDataSource, UITableViewDelegate, JPDashletCellInfoDelegate>
-
+{
+    NSMutableArray* _indexPathsNeedReloading;
+}
 
 
 @property (nonatomic, strong) UITableView* tableView;

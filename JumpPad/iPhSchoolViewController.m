@@ -29,8 +29,8 @@
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        NSNumber* schoolId = [NSNumber numberWithInteger:self.dashletUid/1000000];
-        NSNumber* facultyId = [NSNumber numberWithInteger:self.dashletUid%1000000/1000];
+        NSNumber* schoolId = [NSNumber numberWithInteger:self.dashletUid/10000000];
+        NSNumber* facultyId = [NSNumber numberWithInteger:self.dashletUid%10000000/100000];
         
         if(self.type ==  JPDashletTypeSchool)
         {

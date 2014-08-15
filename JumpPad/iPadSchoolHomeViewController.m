@@ -56,8 +56,8 @@ static const float kProgramImageWidth  = 384;
         
         _itemType = -1;
         //Getting School/Faculty Info based on dashletUid
-        NSUInteger schoolInt = dashletUid/1000000;
-        NSUInteger facultyInt = (dashletUid % 1000000) / 1000;
+        NSUInteger schoolInt = dashletUid/10000000;
+        NSUInteger facultyInt = (dashletUid % 10000000) / 100000;
         
         if(facultyInt == 0) // item is a school
         {

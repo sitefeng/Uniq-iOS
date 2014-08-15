@@ -118,7 +118,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidLoad];
-    
+
     [UIView animateWithDuration:1.5 animations:^{
         pageControl.alpha = 1;
         appTitle.alpha = 1;
@@ -132,7 +132,7 @@
 - (void)actionButtonPressed: (UIButton*)button
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
     
     [UIView animateWithDuration:1 animations:^{
         whiteView.alpha = 0.0f;

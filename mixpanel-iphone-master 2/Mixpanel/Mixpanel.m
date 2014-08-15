@@ -1385,7 +1385,7 @@ static Mixpanel *sharedInstance = nil;
 - (void)addPeopleRecordToQueueWithAction:(NSString *)action andProperties:(NSDictionary *)properties
 {
     properties = [properties copy];
-    NSNumber *epochMilliseconds = @(round([[NSDate date] timeIntervalSince1970] * 1000));
+    NSNumber *epochMilliseconds = @(round([[NSDate date] timeIntervalSince1970] *1000));
     __strong Mixpanel *strongMixpanel = _mixpanel;
     if (strongMixpanel) {
         dispatch_async(strongMixpanel.serialQueue, ^{

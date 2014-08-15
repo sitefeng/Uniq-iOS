@@ -90,7 +90,7 @@
 {
     self.program = nil;
     
-    _programId = self.dashletUid % 1000;
+    _programId = self.dashletUid % 100000;
     
     NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
     request.predicate = [NSPredicate predicateWithFormat:@"programId = %i", _programId];

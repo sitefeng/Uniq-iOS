@@ -70,7 +70,13 @@
 {
     _dashletInfo = dashletInfo;
     
-    self.itemImageView.imageURLs = self.dashletInfo.backgroundImages;
+    NSMutableArray* imageURLs = self.dashletInfo.backgroundImages;
+    if([imageURLs count]>0)
+    {
+        NSURL* imageURL = [imageURLs firstObject];
+        self.itemImageView.imageURLs = [@[imageURL]mutableCopy];
+    }
+    
     self.itemImageView.logoURL = self.dashletInfo.icon;
     
     self.title.text = dashletInfo.title;
@@ -80,10 +86,10 @@
 }
 
 
-
-- (void)awakeFromNib
+- (void)prepareForReuse
 {
-    // Initialization code
+    self.title.text = @"";
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
