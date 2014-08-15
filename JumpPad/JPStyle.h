@@ -18,6 +18,7 @@
 +(BOOL) iOS7;
 +(BOOL) iPhone4Inch;
 
++(NSString*)deviceTypeString;
 
 /////////////////////////////
 ////User Interface Colors

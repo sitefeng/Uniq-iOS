@@ -8,6 +8,7 @@
 
 #import "HNConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
+#import "SVStatusHUD.h"
 
 
 @implementation HNConnectivityManager
@@ -40,7 +41,6 @@
 
 
 
-
 - (void)networkStatusChanged: (NSNotification*)notification
 {
     NSDictionary* userInfo = notification.userInfo;
@@ -49,10 +49,12 @@
     
     if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
     {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi"] status:@"Connected"];
         NSLog(@"Reachable");
     }
     else
     {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
         NSLog(@"Not Reachable");
     }
     

@@ -11,6 +11,8 @@
 #import <MapKit/MapKit.h>
 #import <AddressBook/AddressBook.h>
 #import "DXAlertView.h"
+#import "Mixpanel.h"
+
 
 @implementation JPUserLocator
 
@@ -87,6 +89,10 @@
             
             NSString* locationString = [NSString stringWithFormat:@"%@, %@", city, state];
             [self.delegate userLocatedWithLocationName:locationString coordinates:placeMark.location.coordinate];
+            
+            //Mixpanel
+            [[Mixpanel sharedInstance] track:@"User Located"
+                                  properties:@{@"Device Type": [JPStyle deviceTypeString]}];
             
             //Store In database
             if(_user && [self.delegate respondsToSelector:@selector(shouldSaveUserLocation)])

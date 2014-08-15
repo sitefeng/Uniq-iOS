@@ -13,6 +13,8 @@
 #import "JPMainSync.h"
 #import "HNConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
+#import <Parse/Parse.h>
+
 
 @implementation UniqAppDelegate
 
@@ -40,37 +42,34 @@
     ////////////////
     [JPStyle applyGlobalStyle];
     
-    
 
     ///////////////////////////////////////////////////
     //Adding Mixpanel
     [Mixpanel sharedInstanceWithToken:MIXPANEL_TOKEN];
     Mixpanel* mixpanel = [Mixpanel sharedInstance];
     
-    NSString* device = @"iPad";
-    if([JPStyle isiPad])
-    {
-        device = @"iPad";
-    } else if([JPStyle iPhone4Inch]) {
-        device = @"iPhone 5 or 5s";
-    } else
-    {
-        device = @"iPhone";
-    }
-
-    
     if (debugMode)
     {
         [mixpanel track:@"App Launches Debug"
-             properties:@{@"Device Type": device}];
+             properties:@{@"Device Type": [JPStyle deviceTypeString]}];
     }
     else
     {
         [mixpanel track:@"App Launches"
-             properties:@{@"Device Type": device}];
+             properties:@{@"Device Type": [JPStyle deviceTypeString]}];
     }
     ////////////////////////////////////////////////
     ////////////////////////////////////////////////
+    
+    ////////////////////////////////////////
+    //Parse
+    [Parse setApplicationId:@"P7owDlPOJQHtrQxoyMUlbHZE6dpNylK9ZggTvOjL"
+                  clientKey:@"7qbh1hOkCegxe3QH86ktkxZwISBeDI2cIUUJAJlP"];
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
+    ///////////////////////////////////////////
     
     //Tab bar change to 3rd element
     UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
@@ -78,7 +77,9 @@
     
     return YES;
 }
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -108,6 +109,28 @@
     [self saveContext];
     
 }
+
+
+#pragma mark - Remote Notifications
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [PFPush handlePush:userInfo];
+}
+
+
+
 
 
 #pragma mark - Save Core Data Context

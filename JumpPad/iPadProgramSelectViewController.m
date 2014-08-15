@@ -181,8 +181,8 @@
     
     
     //Mixpanel
-    Mixpanel* mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Selected Program on iPad" properties:@{@"Cell Dashlet Info": cell.dashletInfo.description}];
+    [[Mixpanel sharedInstance] track:@"Selected Program"
+                          properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": cell.dashletInfo.title}];
     //////////////////////////////////
     
     return cell;

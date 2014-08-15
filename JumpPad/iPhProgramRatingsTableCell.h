@@ -11,8 +11,14 @@
 static const CGFloat kCellHeight = 60.0;
 
 
-@interface iPhProgramRatingsTableCell : UITableViewCell
-
+@interface iPhProgramRatingsTableCell : UITableViewCell 
+{
+    UISlider*  slider;
+    
+    UILabel*   leftLabel;
+    UILabel*   rightLabel;
+    
+}
 
 
 

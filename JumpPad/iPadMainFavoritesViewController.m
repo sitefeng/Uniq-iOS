@@ -194,6 +194,11 @@
     NSUInteger dashletUid  = dashlet.dashletInfo.dashletUid;
     JPDashletType dashletType = dashlet.dashletInfo.type;
 
+    //Mixpanel
+    [[Mixpanel sharedInstance] track:@"Favorite Selected"
+                          properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": dashlet.dashletInfo.title}];
+    
+    
     if(dashletType == JPDashletTypeProgram)
     {
         iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithDashletUid:dashletUid];
@@ -276,6 +281,7 @@
     [self.localPopoverController presentPopoverFromRect:button.bounds inView:button permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

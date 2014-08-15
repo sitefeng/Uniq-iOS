@@ -15,6 +15,7 @@
 #import "UserFavItem.h"
 #import "iPhAppProgressPanView.h"
 #import "iPhProgramRatingsViewController.h"
+#import "JPStyle.h"
 
 
 @interface iPhProgramViewController ()
@@ -119,6 +120,10 @@
     {
         button.selected = YES;
         [_helper addFavoriteWithDashletUid:self.dashletUid andType:JPDashletTypeProgram];
+        
+        //Mixpanel
+        [[Mixpanel sharedInstance] track:@"Program Favorited"
+             properties:@{@"Device Type": [JPStyle deviceTypeString]}];
     }
     else
     {

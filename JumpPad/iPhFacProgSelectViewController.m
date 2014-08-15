@@ -133,8 +133,8 @@
         
         
         //Mixpanel
-        Mixpanel* mixpanel = [Mixpanel sharedInstance];
-        [mixpanel track:@"Selected Program on iPhone" properties:@{@"Cell Dashlet Title": selectedDashlet.title}];
+        [[Mixpanel sharedInstance] track:@"Selected Program"
+                              properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": selectedDashlet.title}];
         //////////////////////////////////
         
         

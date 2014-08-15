@@ -124,6 +124,12 @@
         contentController = [[iPhSchoolViewController alloc] initWithDashletUid:dashlet.dashletUid itemType:dashlet.type];
     }
     
+    
+    //Mixpanel
+    [[Mixpanel sharedInstance] track:@"Favorite Selected"
+                          properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": dashlet.title}];
+    
+    
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:contentController];
     
     [self presentViewController:navController animated:YES completion:nil];

@@ -35,6 +35,21 @@
     return ([UIScreen mainScreen].bounds.size.height == 568.0) ? YES : NO;
 }
 
++(NSString*)deviceTypeString
+{
+    NSString* device = @"iPad";
+    if([JPStyle isiPad])
+    {
+        device = @"iPad";
+    } else if([JPStyle iPhone4Inch]) {
+        device = @"iPhone 5 or 5s";
+    } else
+    {
+        device = @"iPhone";
+    }
+    return device;
+}
+
 
 #pragma mark - User Interface Colors
 +(UIColor*) interfaceTintColor
