@@ -83,6 +83,8 @@
     {
         image = [[[AsyncImageLoader sharedLoader] cache] objectForKey:[self.imageURLs objectAtIndex:0]];
     }
+    else
+        image = [UIImage imageNamed:@"defaultSchoolBlurred"];
     
     self.backgroundView.image = image;
     

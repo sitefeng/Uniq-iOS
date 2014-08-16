@@ -57,12 +57,13 @@ class iPadHomeProfileBanner: UIView {
         
         var backgroundImgView : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: backgroundView.frame.size.width, height: backgroundView.frame.size.height))
         
-        backgroundImgView.image = UIImage(named: "defaultProgram")
+//        backgroundImgView.image = UIImage(named: "defaultProgram")
+        backgroundImgView.image = UIImage(named: "edgeBackground")
         backgroundImgView.contentMode = UIViewContentMode.ScaleAspectFill
         backgroundView.addSubview(backgroundImgView)
         
         var backgroundWhiteCoverView: UIView = UIView(frame: backgroundImgView.frame)
-        backgroundWhiteCoverView.backgroundColor = UIColor(white: 1.0, alpha: 0.7)
+        backgroundWhiteCoverView.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
         
         backgroundView.addSubview(backgroundWhiteCoverView)
         self.addSubview(backgroundView)

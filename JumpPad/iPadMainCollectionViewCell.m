@@ -157,7 +157,7 @@
 
 - (void)prepareForReuse
 {
-
+    self.imageView.imageURLs = @[];
     
 }
 

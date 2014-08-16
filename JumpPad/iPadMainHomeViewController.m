@@ -70,12 +70,17 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     
     
     //Settings Button
-    UIButton* settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 55, CGRectGetMaxY(self.profileBanner.frame)-55,  44,  44)];
+    UIButton* settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 65, CGRectGetMaxY(self.profileBanner.frame)-65,  44,  44)];
     [settingsButton setImage:[UIImage imageNamed:@"settingsIcon"] forState:UIControlStateNormal];
     [settingsButton setImage:[[UIImage imageNamed:@"settingsIcon"] imageWithAlpha:0.5] forState:UIControlStateHighlighted];
     [settingsButton addTarget:self action:@selector(settingsButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:settingsButton];
     
+    UILabel* settingsLabel = [[UILabel alloc] initWithFrame:CGRectMake(-20, settingsButton.frame.size.height, settingsButton.frame.size.width+40, 20)];
+    settingsLabel.textAlignment = NSTextAlignmentCenter;
+    settingsLabel.font = [JPFont fontWithName:[JPFont defaultFont] size:12];
+    settingsLabel.text = @"App Settings";
+    [settingsButton addSubview:settingsLabel];
 
     //tableView
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.profileBanner.frame), kiPadWidthPortrait, kiPadHeightPortrait - CGRectGetMaxY(self.profileBanner.frame)-kiPadTabBarHeight) style:UITableViewStyleGrouped];
