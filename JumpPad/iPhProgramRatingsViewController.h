@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iPhProgramRatingsTableCell.h"
+#import "JPProgramRatingHelper.h"
 
-@class Program;
-@interface iPhProgramRatingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@class Program, JPProgramRatingHelper;
+@interface iPhProgramRatingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPProgramRatingsCellDelegate, JPProgramRatingHelperDelegate>
 {
-    NSArray*   _cellTitles;
+    NSArray*        _cellTitles;
+    NSMutableArray* _cellValues; //NSNumber
+    
+    JPProgramRatingHelper* _ratingsHelper;
+    
+    BOOL            _offlineMode;
+    BOOL            _prevRatingExists;
 }
 
 

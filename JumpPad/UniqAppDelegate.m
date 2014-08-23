@@ -34,7 +34,7 @@
     [syncer sync];
     
 
-//    NSURL* jsonReqUrl = [[NSURL alloc] initWithString:@"http://127.0.0.1:8000/schools/"];
+//    NSURL* jsonReqUrl = [[NSURL alloc] initWithString:@"http://192.128.0.19:8000/schools"];
 //    NSData* jsonData = [NSData dataWithContentsOfURL:jsonReqUrl];
 //    NSArray* jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
 //    NSLog(@"JSON Array: %@", jsonArray);

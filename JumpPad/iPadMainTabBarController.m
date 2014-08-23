@@ -76,7 +76,7 @@
     appSubtitle.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
     appSubtitle.textAlignment = NSTextAlignmentCenter;
     appSubtitle.textColor = [UIColor blackColor];
-    appSubtitle.text = @"College Info Simplified";
+    appSubtitle.text = @"College Info Reimagined";
     appSubtitle.alpha = 0;
     [imageScrollView addSubview:appSubtitle];
     

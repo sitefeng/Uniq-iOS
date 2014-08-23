@@ -12,6 +12,9 @@
 //Showing execption message when breakpoint is hit:
 If your target is the iOS simulator, or 32-bit OS X, you can print the exception by typing po ((id*)$esp)[1] in the debug console when your breakpoint exception is hit. If your target is an iOS device, you can type po $r0. And if your target is 64-bit OS X, you can type po $rdi.
 
+//Specify root path in Xcode build settings: $(SRCROOT)
+//Project Path: $(PROJECT_DIR)
+
 
 New School Format
 Max Number of Schools: 213
@@ -43,9 +46,6 @@ The image below the Navigation Bar
 //Caching the most recent 30 Items in local storage
 
 
-//Table View Jittery Scrolling Fix
-
-- Blur images on the background thread
 
 //Saving Bandwidth
 - Create NSMutableDictionary in the Table View Controller class,

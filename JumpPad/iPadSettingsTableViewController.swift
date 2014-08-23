@@ -16,7 +16,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     var selectedIndex : NSIndexPath! = NSIndexPath(forRow: 0, inSection: 1)
     
     //General
-    let cellTitles     : [[String]] = [["Download Contents", "Notifications"],["About", "Rate Uniq on App Store", "Contact Us", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter"]]
+    let cellTitles     : [[String]] = [["Download Contents", "Notifications"],["About", "Rate Uniq on App Store", "Send Feedback", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter"]]
     let cellImgStrings : [[String]] = [["download-75","tones-75"],["info-75","thumb_up-75","email-50","share-75","groups-75","thanks-75","facebook-50","twitter-50"]]
     
     required init(coder aDecoder: NSCoder!) {

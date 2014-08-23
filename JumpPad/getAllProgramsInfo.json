@@ -1,12 +1,15 @@
-
-
   [
     {
      "id":132,
      "name":"Software Engineering",
      "population":99,
      "yearEstablished":1998,
-     "images":null,
+   "images":[
+             {
+             "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo2.png",
+             "descriptor":"gaeoirf iapwh fweiuhh fw efiuhawefp uh."
+             }
+             ],
      "about":"David R. Cheriton School of Engineering.",
 
      "admissionDeadline":"01/20",
@@ -81,7 +84,91 @@
         ]
       }
   },
-  
+   
+   {
+   "id":164,
+   "name":"Chemical Engineering",
+   "population":121,
+   "yearEstablished":1968,
+   "images":[
+             {
+             "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/waterloo4.png",
+             "descriptor":"gaeoirf iapwh fweiuhh fw efiuhawefp uh."
+             }
+             ],
+   
+   "about":"Chemical Engineering is a powerful set of declarative security rules, written in JSON, to control access and validation. Declarative means that the rules are defined separate from the product logic. This has a number of advantages: clients aren't responsible for enforcing security, buggy implementations will not compromise your data, and perhaps most importantly, there is no need for an intermediate referee, such as a server, to protect data from the world.",
+   "admissionDeadline":"02/10",
+   "email":"engiengChem@yahoo.com",
+   "phone":4165233910,
+   "ext":31232,
+   "facebookLink":"facebook.com",
+   "fax":4165233910,
+   "isCoop":true,
+   "numFavorites":311,
+   "twitterLink":"twitter.com",
+   "website":"google.com",
+   "toDelete":false,
+   "domesticTuition":"12341.00",
+   "internationalTuition":"31294.00",
+   
+   "rating":{
+   "ratingOverall":90,
+   "difficulty":50,
+   "professors":58,
+   "schedule":80,
+   "classmates":70,
+   "socialEnjoyment":60,
+   "studyEnv":30,
+   "guyRatio":53
+   },
+   
+   "courses":{
+   "firstYear":[
+                {
+                "name":"Chem Intro 1",
+                "code":"SE 108",
+                "descriptor":"There are a number of helpful, predefined variables that can be accessed inside a security rule definition. We'll be using most of them in the examples below. Here is a brief summary of each and a link to the appropriate API reference."
+                },
+                {
+                "name":"Calculus 2",
+                "code":"MATH 168",
+                "descriptor":"There are a number of helpful, predefined variables that can be accessed inside a security rule definition. We'll be using most of them in the examples below. Here is a brief summary of each and a link to the appropriate API reference."
+                }
+                ],
+   "secondYear":[
+                 {
+                 "name":"Ordinary Equations",
+                 "code":"MATH 219",
+                 "descriptor":"With the exception of .validate definitions, security rules work from a top-down model. If a parent node grants read or write permissions, then it also grants access to all child nodes under it. Consider the following structure:"
+                 },
+                 {
+                 "name":"Mechanics of Deformable Solids",
+                 "code":"MODS 101",
+                 "descriptor":"This is a critical concept of understanding security rules. The child rules can only grant additional privileges to what parent nodes have already declared. They cannot revoke a read or write privilege."
+                 },
+                 {
+                 "name":"Real Time Operating Systems",
+                 "code":"RTOS 291",
+                 "descriptor":"While it may not seem immediately intuitive, this is a powerful part of security rules and allows for very complex access privileges to be implemented with minimal effort. This will be illustrated when we get into user-based security rules later in this guide."
+                 }
+                 ],
+   "thirdYear":[
+                {
+                "name":"Advanced Chemical Reactions",
+                "code":"CHE 320",
+                "descriptor":"This security structure allows has no affect here, since read is already false by default, and access cannot be revoked by a child path."
+                }
+                ],
+   "fourthYear":[
+                 {
+                 "name":"Final Year Design Project",
+                 "code":"MTE 410",
+                 "descriptor":"Accessing dynamic paths in the rules can be done using a $ prefix. This serves as a wild card, and stores the value of that key for use inside the rules declarations"
+                 }
+                 ]
+   }
+   },
    
    
    {

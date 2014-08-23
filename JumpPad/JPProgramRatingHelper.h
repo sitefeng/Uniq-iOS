@@ -8,6 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JPProgramRatingHelper : NSObject
+@protocol JPProgramRatingHelperDelegate;
+@class JPRatings;
+@interface JPProgramRatingHelper : NSObject <NSURLConnectionDataDelegate>
+
+
+@property (nonatomic, weak) id<JPProgramRatingHelperDelegate> delegate;
+
+
+- (void)uploadRatingsWithProgramUid: (NSString*)uid ratings:(JPRatings*)ratings;
+
+- (void)downloadRatingsWithProgramUid: (NSString*)uid;
+
+
+@end
+
+
+@protocol JPProgramRatingHelperDelegate <NSObject>
+
+- (void)ratingHelper: (JPProgramRatingHelper*)helper didUploadRatingsForProgramUid: (NSString*)uid error: (NSError*)error;
+
+- (void)ratingHelper:(JPProgramRatingHelper *)helper didDownloadRatingsForProgramUid:(NSString *)uid ratings: (JPRatings*)ratings ratingExists: (BOOL)exists networkError: (NSError*)error;
 
 @end
