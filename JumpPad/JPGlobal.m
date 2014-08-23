@@ -7,6 +7,7 @@
 //
 
 #import "JPGlobal.h"
+#import "JPDashlet.h"
 
 
 @implementation JPGlobal
@@ -64,7 +65,6 @@
 
 + (NSString*)ratingStringWithIndex: (NSInteger)index
 {
-    
     switch (index)
     {
         case 0:
@@ -122,6 +122,30 @@
         [[[UIAlertView alloc] initWithTitle:@"Cannot Open URL" message:@"Link is currently broken, please try again later. You may report this bug to us under 'Settings', and we'll resolve this issue as soon as possible." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
     }
 }
+
+
++ (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid type: (JPDashletType)type
+{
+    //XXX-XX-XXXXX
+    NSInteger itemId = 0;
+    
+    if(JPDashletTypeProgram == type)
+    {
+        itemId = dashletUid % 100000;
+    }
+    else if(JPDashletTypeFaculty == type)
+    {
+        itemId = (dashletUid / 100000) % 100;
+    }
+    else //school
+    {
+        itemId = dashletUid / 10000000;
+    }
+    
+    return itemId;
+}
+
+
 
 
 UIImage* imageFromView(UIView *view)

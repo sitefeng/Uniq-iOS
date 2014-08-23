@@ -3,7 +3,7 @@
      {
       "id":1,
       "name":"University of Waterloo",
-      "population":39400,
+      "population":33400,
       "yearEstablished":1957,
       "location":{
          "streetNum":"200",
@@ -48,9 +48,9 @@
      
      
      {
-      "id":2,
+      "id":12,
       "name":"University of Toronto",
-      "population":39400,
+      "population":38412,
       "yearEstablished":1877,
       "location":{
          "streetNum":"200",
@@ -89,9 +89,9 @@
    },
 
      {
-      "id":3,
+      "id":13,
       "name":"Ryerson University",
-      "population":39400,
+      "population":14928,
       "yearEstablished":1957,
       "location":{
          "streetNum":"200",
@@ -130,9 +130,9 @@
        "toDelete":false
    },
      {
-      "id":4,
+      "id":14,
       "name":"University of Western Ontario",
-      "population":39400,
+      "population":22530,
       "yearEstablished":1957,
       "location":{
          "streetNum":"200",

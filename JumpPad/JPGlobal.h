@@ -25,6 +25,8 @@
 + (NSString*)paragraphStringWithName: (NSString*)name;
 + (void)openURL: (NSURL*)url;
 
++ (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid type: (JPDashletType)type;
+
 
 UIImage* imageFromView(UIView *view);
 

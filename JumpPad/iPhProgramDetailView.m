@@ -109,6 +109,9 @@
             float largestValue = 0;
             float totalValue = 0;
             
+            if(!_programRating)
+                return self;
+            
             NSArray* array = @[_programRating.difficulty, _programRating.professor, _programRating.schedule, _programRating.classmates, _programRating.socialEnjoyments, _programRating.studyEnv];
             
             for(int i =0; i<[array count]; i++)

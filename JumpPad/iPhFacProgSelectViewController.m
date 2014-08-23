@@ -45,7 +45,7 @@
     self.navigationItem.rightBarButtonItem = infoButtonItem;
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait- kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait-kiPhoneTabBarHeight) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[iPhMainTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];

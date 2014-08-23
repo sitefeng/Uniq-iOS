@@ -34,7 +34,7 @@
     [self.view addSubview:self.bannerView];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bannerView.frame), kiPhoneWidthPortrait, kiPhoneHeightPortrait- kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight - kiPhoneTabBarHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bannerView.frame), kiPhoneWidthPortrait, 355) style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[iPhMainTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
@@ -66,11 +66,7 @@
     cell.separatorInset = UIEdgeInsetsZero;
     
     JPDashlet* dashlet = self.dashlets[indexPath.row];
-    NSMutableArray* imageURLs = dashlet.backgroundImages;
 
-    
-    
-    
     cell.delegate = self;
     cell.dashletInfo = dashlet;
 

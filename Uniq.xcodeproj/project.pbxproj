@@ -143,6 +143,7 @@
 		AA115F1019A84A8F006E07C1 /* JPRatings.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F0F19A84A8F006E07C1 /* JPRatings.m */; };
 		AA115F1219A853F5006E07C1 /* uploadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1119A853F5006E07C1 /* uploadFailedHUD.png */; };
 		AA115F1419A874B3006E07C1 /* downloadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */; };
+		AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
@@ -548,6 +549,8 @@
 		AA115F0F19A84A8F006E07C1 /* JPRatings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPRatings.m; sourceTree = "<group>"; };
 		AA115F1119A853F5006E07C1 /* uploadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadFailedHUD.png; sourceTree = "<group>"; };
 		AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadFailedHUD.png; sourceTree = "<group>"; };
+		AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudFavoritesHelper.h; sourceTree = "<group>"; };
+		AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCloudFavoritesHelper.m; sourceTree = "<group>"; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSettingsAboutViewController.h; sourceTree = "<group>"; };
@@ -1048,8 +1051,6 @@
 		5DAC8FA918555EE500FE3B5B /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5DA1465019397E63004A53EB /* JPMainSync.h */,
-				5DA1465119397E63004A53EB /* JPMainSync.m */,
 				5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */,
 				5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */,
 				5D2664C518BB1ED800C8CC91 /* NSString+JPItemUid.h */,
@@ -1066,8 +1067,6 @@
 				5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */,
 				5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */,
 				5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */,
-				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
-				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
 			);
 			name = "Model Classes";
 			sourceTree = "<group>";
@@ -1181,6 +1180,8 @@
 				5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */,
 				AA55F9171999B762005F9F76 /* HNConnectivityManager.h */,
 				AA55F9181999B762005F9F76 /* HNConnectivityManager.m */,
+				5DA1465019397E63004A53EB /* JPMainSync.h */,
+				5DA1465119397E63004A53EB /* JPMainSync.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
 				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
 				5D167646185D6A6C0041993E /* ApplicationConstants.h */,
@@ -1400,6 +1401,10 @@
 			children = (
 				AA561A9B199D1B9C00967D15 /* JPProgramRatingHelper.h */,
 				AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */,
+				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
+				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
+				AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */,
+				AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */,
 				AA115F0E19A84A8F006E07C1 /* JPRatings.h */,
 				AA115F0F19A84A8F006E07C1 /* JPRatings.m */,
 			);
@@ -1771,6 +1776,7 @@
 				AA894BE11969D3DB00F457F8 /* Featured.m in Sources */,
 				AA561A9D199D1B9C00967D15 /* JPProgramRatingHelper.m in Sources */,
 				AAEC90ED197D8120006E8E1C /* AsyncImageView.m in Sources */,
+				AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				AA894BE71969FB1700F457F8 /* UserFavItem.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,

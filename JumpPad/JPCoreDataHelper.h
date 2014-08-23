@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JPCloudFavoritesHelper.h"
 
 @class UserFavItem;
-@interface JPCoreDataHelper : NSObject
+@interface JPCoreDataHelper : NSObject <JPCloudFavoritesHelperDelegate>
 {
     
     NSManagedObjectContext* context;
     
     UserFavItem*  _userFav;
+    
+    JPCloudFavoritesHelper* _cloudFav;
 }
 
 

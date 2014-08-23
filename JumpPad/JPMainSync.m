@@ -166,7 +166,7 @@
             NSData* progData = [NSData dataWithContentsOfURL:progURL];
             NSArray* progJSONArray = [NSJSONSerialization JSONObjectWithData:progData options:0 error:nil];
             
-            if(![faculty.facultyId isEqual:[NSNumber numberWithInt:1]])
+            if(![faculty.facultyId isEqual:[NSNumber numberWithInt:21]])
             {
                 progJSONArray = [NSArray array];
             }

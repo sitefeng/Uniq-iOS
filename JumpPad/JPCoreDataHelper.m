@@ -9,6 +9,8 @@
 #import "JPCoreDataHelper.h"
 #import "UserFavItem.h"
 #import "Featured.h"
+#import "JPCloudFavoritesHelper.h"
+#import "JPGlobal.h"
 
 
 @implementation JPCoreDataHelper
@@ -21,6 +23,9 @@
     {
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
+        
+        _cloudFav = [[JPCloudFavoritesHelper alloc] init];
+        _cloudFav.delegate = self;
     }
     
     return self;
@@ -58,8 +63,13 @@
     NSArray* userArray = [context executeFetchRequest:userFetch error:nil];
     _userFav.user = [userArray firstObject];
     [context insertObject:_userFav];
-    
     [context save:nil];
+    
+    ////////////////////////////////
+    //Send Favorites To Server
+    NSInteger itemId = [JPGlobal itemIdWithDashletUid:dashletUid type:type];
+    [_cloudFav uploadItemFavoritedWithUid:[NSString stringWithFormat:@"%d", itemId]];
+    
 }
 
 
@@ -76,8 +86,17 @@
 }
 
 
+#pragma mark - Cloud Favorites Helper Delegate
 
-#pragma Featured Dashlets
+- (void)cloudFavHelper:(JPCloudFavoritesHelper *)helper didFinishUploadItemFavoritedWithUid:(NSString *)uid itemExistsAlready:(BOOL)exists success:(BOOL)success
+{
+    if(success && !exists)
+        NSLog(@"Firebase Favorites successfully updated");
+}
+
+
+
+#pragma mark - Featured Dashlets
 - (NSArray*)retrieveFeaturedItems
 {
     //Delete Everything from before first
@@ -119,6 +138,8 @@
 
     return featuredArray;
 }
+
+
 
 
 @end
