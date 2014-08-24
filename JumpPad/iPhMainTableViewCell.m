@@ -89,7 +89,7 @@
 - (void)prepareForReuse
 {
     self.title.text = @"";
-
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

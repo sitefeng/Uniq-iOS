@@ -11,9 +11,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 @class iPadHomeProfileBanner, iPadHomeToolbarView, User;
-@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate>
+@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     NSManagedObjectContext* context;
+    UIImagePickerController* pickerController;
+    UIPopoverController* _popover;
 
     BOOL             _isEditing;
     BOOL             _addedNewCourse;
@@ -38,5 +40,8 @@
 
 - (IBAction)EditButtonPressed:(id)sender;
 - (void)locationButtonPressed: (UIButton*)button;
+
+- (void)profileImageAddButtonPressed: (UIButton*)button;
+
 
 @end

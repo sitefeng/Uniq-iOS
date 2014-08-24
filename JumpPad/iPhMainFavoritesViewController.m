@@ -75,8 +75,9 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    iPhMainTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
+//    iPhMainTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
     
+    iPhMainTableViewCell* cell = [[iPhMainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     cell.dashletInfo = self.dashlets[indexPath.section][indexPath.row];
     
     return cell;
@@ -98,13 +99,14 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     iPhMainTableViewCell* cell = (iPhMainTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-    
     JPDashlet* dashlet = cell.dashletInfo;
     
     [self favButtonPressedIsFavorited:NO dashletUid:dashlet.dashletUid];
     [self removeUnselectedFavoritesFromCoreData];
     
+//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     [self.tableView reloadData];
+    
 }
 
 

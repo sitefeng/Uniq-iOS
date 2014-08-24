@@ -144,6 +144,7 @@
 		AA115F1219A853F5006E07C1 /* uploadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1119A853F5006E07C1 /* uploadFailedHUD.png */; };
 		AA115F1419A874B3006E07C1 /* downloadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */; };
 		AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */; };
+		AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
@@ -551,6 +552,8 @@
 		AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadFailedHUD.png; sourceTree = "<group>"; };
 		AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudFavoritesHelper.h; sourceTree = "<group>"; };
 		AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCloudFavoritesHelper.m; sourceTree = "<group>"; };
+		AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudBannerHelper.h; sourceTree = "<group>"; };
+		AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCloudBannerHelper.m; sourceTree = "<group>"; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSettingsAboutViewController.h; sourceTree = "<group>"; };
@@ -1399,14 +1402,16 @@
 		AA561A9E199D1BAD00967D15 /* Model Classes For Program */ = {
 			isa = PBXGroup;
 			children = (
+				AA115F0E19A84A8F006E07C1 /* JPRatings.h */,
+				AA115F0F19A84A8F006E07C1 /* JPRatings.m */,
 				AA561A9B199D1B9C00967D15 /* JPProgramRatingHelper.h */,
 				AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */,
 				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
 				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
 				AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */,
 				AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */,
-				AA115F0E19A84A8F006E07C1 /* JPRatings.h */,
-				AA115F0F19A84A8F006E07C1 /* JPRatings.m */,
+				AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */,
+				AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */,
 			);
 			name = "Model Classes For Program";
 			sourceTree = "<group>";
@@ -1767,6 +1772,7 @@
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
 				AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */,
+				AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
 				AA55F9191999B762005F9F76 /* HNConnectivityManager.m in Sources */,

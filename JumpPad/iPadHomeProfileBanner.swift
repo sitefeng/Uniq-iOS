@@ -24,6 +24,7 @@ class iPadHomeProfileBanner: UIView {
     }
     
     var userImageView: UIImageView!
+    var userImageAddButton: UIButton!
     
     var userNameLabel: UITextField!
     var userLocationLabel: UILabel!
@@ -42,6 +43,7 @@ class iPadHomeProfileBanner: UIView {
     
     var backgroundView: UIView!
     
+    var setEditing: Selector!
     
     required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -70,7 +72,18 @@ class iPadHomeProfileBanner: UIView {
         
         //User Image View
         userImageView = UIImageView(frame: CGRect(x: 60, y: 40, width: 200, height: 200))
+        userImageView.layer.cornerRadius = 15
+        userImageView.layer.masksToBounds = true
+        userImageView.contentMode = UIViewContentMode.ScaleAspectFill
         self.addSubview(userImageView)
+        
+        userImageAddButton = UIButton(frame: CGRect(x: userImageView.frame.origin.x+50, y: userImageView.frame.origin.y+50, width: 100, height: 100))
+        userImageAddButton.setImage(UIImage(named: "addButtonIcon"), forState: UIControlState.Normal)
+        userImageAddButton.setImage(UIImage(named: "addButtonIcon").imageWithAlpha(0.5), forState: UIControlState.Highlighted);
+        userImageAddButton.addTarget(self, action: "imageAddButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        userImageAddButton.hidden = true
+        self.addSubview(userImageAddButton)
+        
         
         //UILabels
         userNameLabel = UITextField(frame: CGRect(x: 280, y: 60, width: 300, height: 44))
@@ -110,6 +123,20 @@ class iPadHomeProfileBanner: UIView {
         self.averageProgressView.animate = false
         self.addSubview(self.averageProgressView)
         
+    }
+    
+    
+    func setEditing(editing: Bool)
+    {
+        userImageAddButton.hidden = !editing
+        self.userNameLabel.userInteractionEnabled = editing;
+    }
+    
+    
+    func imageAddButtonPressed(button: UIButton)
+    {
+        self.homeViewController.profileImageAddButtonPressed(button)
+
     }
     
     

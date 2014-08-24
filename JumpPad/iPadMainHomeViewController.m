@@ -53,12 +53,21 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     UniqAppDelegate* app = [[UIApplication sharedApplication] delegate];
     context = [app managedObjectContext];
     
+    pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+    
     [self loadInfoFromCoreData];
     
     //Initializing UI elements
     self.profileBanner = [[iPadHomeProfileBanner alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 300)];
     self.profileBanner.clipsToBounds = YES;
-    self.profileBanner.userImage = [UIImage imageNamed:@"profileIcon"];
+    
+    NSData* profileImageData = [_user valueForKey:@"profileImage"];
+    UIImage* profileImage = [UIImage imageWithData:profileImageData];
+    if(profileImage)
+        self.profileBanner.userImage = profileImage;
+    else
+        self.profileBanner.userImage = [UIImage imageNamed:@"profileIcon"];
     
     self.profileBanner.userNameLabel.text = _user.name;
     self.profileBanner.userLocationLabel.text = _user.locationString;
@@ -428,17 +437,20 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     {
         editButton.title = @"Save";
         _isEditing = YES;
-        self.profileBanner.userNameLabel.userInteractionEnabled = YES;
+        [self.profileBanner setEditing: YES];
     }
     else //is Save
     {
         editButton.title = @"Edit";
         _isEditing = NO;
-        self.profileBanner.userNameLabel.userInteractionEnabled = NO;
+
+        [self.profileBanner setEditing: NO];
+        [self saveProfilePhoto];
         
         //Saving Name
         if([self.profileBanner.userNameLabel.text isEqual:@""]
-        || [self.profileBanner.userNameLabel.text isEqual:@" "]) {
+        || [self.profileBanner.userNameLabel.text isEqual:@" "]
+        || [self.profileBanner.userNameLabel.text isEqual:@"  "]) {
             _user.name = @"Nickname";
             self.profileBanner.userNameLabel.text = _user.name;
         }
@@ -550,6 +562,79 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     return YES;
 }
 
+
+
+#pragma mark - Profile Icon Change
+
+- (void)profileImageAddButtonPressed: (UIButton*)button
+{
+    UIActionSheet* actionSheet;
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Change Profile Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Photo Album",@"Camera", nil];
+    else
+        actionSheet = [[UIActionSheet alloc] initWithTitle:@"Add Profile Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Photo Album", nil];
+
+    
+    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) //camera
+    {
+        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        _popover = [[UIPopoverController alloc] initWithContentViewController:pickerController];
+        pickerController.allowsEditing = YES;
+        [_popover presentPopoverFromRect:self.profileBanner.userImageAddButton.frame inView:self.profileBanner permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+    else if(buttonIndex == 1)
+    {
+        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        pickerController.allowsEditing = YES;
+        [self presentViewController:pickerController animated:YES completion:nil];
+    }
+    
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage* image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    self.profileBanner.userImage = image;
+    
+    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else
+        [_popover dismissPopoverAnimated:YES];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else
+        [_popover dismissPopoverAnimated:YES];
+}
+
+
+- (void)saveProfilePhoto
+{
+    UIImage* profileImage = self.profileBanner.userImage;
+    
+    NSData* imageData = UIImagePNGRepresentation(profileImage);
+    
+    [_user setValue:imageData forKey:@"profileImage"];
+    
+    NSError* error = nil;
+    [context save:&error];
+    if(error)
+        NSLog(@"Profile Photo Error");
+    
+}
 
 
 
