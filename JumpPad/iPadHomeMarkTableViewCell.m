@@ -116,7 +116,8 @@
             [self.titleField setBorderStyle:UITextBorderStyleNone];
             self.titleField.clearsOnBeginEditing = YES;
             self.titleField.delegate = self.tableViewController;
-            self.titleField.tag = 1;
+            self.titleField.tag = 0;
+            [self.titleField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
             [self addSubview:self.titleField];
         }
         self.titleField.hidden = NO;
@@ -125,7 +126,7 @@
         {
             self.levelSegControl = [[UISegmentedControl alloc] initWithItems:@[@"4C",@"4M",@"4U"]];
             self.levelSegControl.frame = CGRectMake(CGRectGetMaxX(self.titleField.frame) + 10, 5, 200, 44-10);
-
+            [self.levelSegControl addTarget:self action:@selector(levelSegControlChanged:) forControlEvents:UIControlEventValueChanged];
             [self.levelSegControl setApportionsSegmentWidthsByContent:YES];
             [self addSubview:self.levelSegControl];
         }
@@ -143,7 +144,8 @@
         self.markField.keyboardType = UIKeyboardTypeDecimalPad;
         self.markField.borderStyle = UITextBorderStyleNone;
         self.markField.delegate = self.tableViewController;
-        self.markField.tag=2;
+        [self.markField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        self.markField.tag= 1;
         
         UILabel* percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.markField.frame.size.width + 5, self.markField.frame.origin.y, 60, self.markField.frame.size.height)];
         percentLabel.font = self.markField.font;
@@ -159,6 +161,29 @@
     else
         _staticPercentLabel.hidden = NO;
     
+}
+
+
+#pragma mark - TextField/Segmented Control Callback Method
+
+- (void)textFieldDidChange: (UITextField*)textField
+{
+    if(textField.tag == 0) //name field
+    {
+        [self.tableViewController cellValueDidChange:self toValue:textField.text forField:0];
+    }
+    else
+    {
+        NSNumber* markNumber = [NSNumber numberWithDouble:[textField.text doubleValue]];
+        [self.tableViewController cellValueDidChange:self toValue:markNumber forField:2];
+    }
+    
+}
+
+- (void)levelSegControlChanged:(UISegmentedControl*)control
+{
+    NSString* courseLevel = [self.levelSegControl titleForSegmentAtIndex:self.levelSegControl.selectedSegmentIndex];
+    [self.tableViewController cellValueDidChange:self toValue:courseLevel forField:1];
 }
 
 

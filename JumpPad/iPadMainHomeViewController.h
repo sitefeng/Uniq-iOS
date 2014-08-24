@@ -10,7 +10,7 @@
 #import "JPUserLocator.h"
 #import <CoreLocation/CoreLocation.h>
 
-@class iPadHomeProfileBanner, iPadHomeToolbarView, User;
+@class iPadHomeProfileBanner, iPadHomeToolbarView, User, iPadHomeMarkTableViewCell;
 @interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 {
     NSManagedObjectContext* context;
@@ -25,7 +25,8 @@
     
     NSMutableArray*  _coursesToSave;
     NSMutableArray*  _courseCellsToSave;
-    
+
+
     JPUserLocator *  _userLocator;
     BOOL             _userLocated; //temp
 }
@@ -43,5 +44,6 @@
 
 - (void)profileImageAddButtonPressed: (UIButton*)button;
 
+- (void)cellValueDidChange: (iPadHomeMarkTableViewCell*)cell toValue: (id)newValue forField: (NSInteger)num;
 
 @end

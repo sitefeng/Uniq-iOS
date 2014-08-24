@@ -148,6 +148,7 @@
 		AA115F2019A9BC78006E07C1 /* higlightedBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1C19A9BC78006E07C1 /* higlightedBarBackground@2x.png */; };
 		AA115F2219A9BC78006E07C1 /* trackBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1F19A9BC78006E07C1 /* trackBackground@2x.png */; };
 		AA115F2519A9BCC6006E07C1 /* TLTiltSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F2419A9BCC6006E07C1 /* TLTiltSlider.m */; };
+		AA115F2819AA7C91006E07C1 /* JPHighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
@@ -561,6 +562,8 @@
 		AA115F1F19A9BC78006E07C1 /* trackBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trackBackground@2x.png"; sourceTree = "<group>"; };
 		AA115F2319A9BCC6006E07C1 /* TLTiltSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTiltSlider.h; sourceTree = "<group>"; };
 		AA115F2419A9BCC6006E07C1 /* TLTiltSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTiltSlider.m; sourceTree = "<group>"; };
+		AA115F2619AA7C91006E07C1 /* JPHighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHighschoolCourse.h; sourceTree = "<group>"; };
+		AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHighschoolCourse.m; sourceTree = "<group>"; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSettingsAboutViewController.h; sourceTree = "<group>"; };
@@ -1073,6 +1076,8 @@
 				AA11544E195DF94D00C56E2B /* JPUserLocator.m */,
 				5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */,
 				5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */,
+				AA115F2619AA7C91006E07C1 /* JPHighschoolCourse.h */,
+				AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */,
 				5DF25F8A19357B6E00474B45 /* JPKnowledgeEngineInterpreter.h */,
 				5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */,
 				5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */,
@@ -1836,6 +1841,7 @@
 				AA63DCF7196E55B6001D9768 /* iPhMainExploreViewController.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
 				AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */,
+				AA115F2819AA7C91006E07C1 /* JPHighschoolCourse.m in Sources */,
 				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
 				AA520EF8197236130003EF98 /* iPhImagePanView.m in Sources */,
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,

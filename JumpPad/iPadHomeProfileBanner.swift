@@ -57,6 +57,9 @@ class iPadHomeProfileBanner: UIView {
         //Background View
         backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         
+        var tapRec:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "backgroundTapped")
+        backgroundView.addGestureRecognizer(tapRec)
+        
         var backgroundImgView : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: backgroundView.frame.size.width, height: backgroundView.frame.size.height))
         
 //        backgroundImgView.image = UIImage(named: "defaultProgram")
@@ -85,13 +88,15 @@ class iPadHomeProfileBanner: UIView {
         self.addSubview(userImageAddButton)
         
         
-        //UILabels
+        //User Name TextField
         userNameLabel = UITextField(frame: CGRect(x: 280, y: 60, width: 300, height: 44))
         userNameLabel.font = UIFont(name: JPFont.defaultThinFont(), size: 38)
         userNameLabel.userInteractionEnabled = false
         userNameLabel.clearsOnBeginEditing = true
         userNameLabel.autocapitalizationType = UITextAutocapitalizationType.Words
         userNameLabel.autocorrectionType = UITextAutocorrectionType.No
+        userNameLabel.addTarget(homeViewController, action: "textFieldDidBeginEditing:", forControlEvents: UIControlEvents.EditingDidBegin)
+        userNameLabel.addTarget(homeViewController, action: "textFieldDidEndEditing:", forControlEvents: UIControlEvents.EditingDidEnd)
         self.addSubview(userNameLabel)
         
         var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
@@ -153,7 +158,11 @@ class iPadHomeProfileBanner: UIView {
     }
     
 
-
+    func backgroundTapped()
+    {
+        userNameLabel.resignFirstResponder()
+    }
+    
 }
 
 

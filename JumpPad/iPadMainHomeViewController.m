@@ -20,6 +20,7 @@
 #import "User.h"
 #import "HighschoolCourse.h"
 #import "JPUserLocator.h"
+#import "JPHighschoolCourse.h"
 
 
 @interface iPadMainHomeViewController ()
@@ -250,11 +251,11 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
             {
                 [cell editMode];
                 
-                if(indexPath.row < [_highschoolCourses count])//must
+                if(indexPath.row < [_highschoolCourses count])
                 {
                     HighschoolCourse* course = _highschoolCourses[indexPath.row];
-                    cell.courseTitle = course.courseCode;
-                    cell.courseLevel = course.courseLevel;
+                    cell.courseTitle = [course.courseCode copy];
+                    cell.courseLevel = [course.courseLevel copy];
                     cell.coursePercentage = [course.courseMark floatValue];
                 }
                 
@@ -270,8 +271,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         else //not editing
         {
             HighschoolCourse* course = _highschoolCourses[indexPath.row];
-            cell.courseTitle = course.courseCode;
-            cell.courseLevel = course.courseLevel;
+            cell.courseTitle = [course.courseCode copy];
+            cell.courseLevel = [course.courseLevel copy];
             cell.coursePercentage = [course.courseMark floatValue];
         }
 
@@ -376,6 +377,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     //if add new course row is tapped
     if(_isEditing && indexPath.section==0 && indexPath.row == [_highschoolCourses count])
     {
@@ -385,8 +388,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         
         //Add a New Course Row
         _addedNewCourse = YES;
-        NSEntityDescription* courseDisc = [NSEntityDescription entityForName:@"HighschoolCourse" inManagedObjectContext:context];
-        HighschoolCourse* course = (HighschoolCourse*)[[NSManagedObject alloc] initWithEntity:courseDisc insertIntoManagedObjectContext:context];
+
+        HighschoolCourse* course = (HighschoolCourse*)[NSEntityDescription insertNewObjectForEntityForName:@"HighschoolCourse" inManagedObjectContext:context];
         
         course.courseCode = @"New Course";
         course.courseLevel = @"4C";
@@ -395,7 +398,7 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         [_highschoolCourses addObject:course];
         [_coursesToSave addObject:course];
         
-        [self.tableView reloadData];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 
@@ -414,12 +417,12 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
             
             [_user removeCoursesObject:course];
             
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         }
         
     }
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
     
 }
 
@@ -473,29 +476,31 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     {
         //Getting Cell Information and Store in Core Data
         iPadHomeMarkTableViewCell* cell = [_courseCellsToSave objectAtIndex:[_coursesToSave indexOfObject:course]];
+        NSInteger cellRow = [self.tableView indexPathForCell:cell].row;
+        HighschoolCourse* highschoolCourseChanged = [_highschoolCourses objectAtIndex:cellRow];
         
-        course.courseCode = cell.titleField.text;
-        course.courseLevel = _courseLevelStrings[cell.levelSegControl.selectedSegmentIndex];
-        course.courseMark = [NSNumber numberWithFloat:[cell.markField.text floatValue]];
+        course.courseCode = [highschoolCourseChanged.courseCode copy];
+        course.courseLevel = [highschoolCourseChanged.courseLevel copy];
+        course.courseMark = [highschoolCourseChanged.courseMark copy];
         course.user = _user;
-        [context insertObject:course];
-        
     }
+    
     [_courseCellsToSave removeAllObjects];
     [_coursesToSave removeAllObjects];
     
-    //Add changes to original array
-    for(unsigned long i = 0; i<[_highschoolCourses count]; i++)
-    {
-        HighschoolCourse* origCourse = _highschoolCourses[i];
-        iPadHomeMarkTableViewCell* cell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        
-        origCourse.courseCode = cell.titleField.text;
-        origCourse.courseLevel = _courseLevelStrings[cell.levelSegControl.selectedSegmentIndex];
-        origCourse.courseMark = [NSNumber numberWithFloat:[cell.markField.text floatValue]];
-        
-        _highschoolCourses[i] = origCourse;
-    }
+    //Add changes to original array: Depricated: _highschoolCourses is now updated for every letter change in each cell
+    //Checking the cell's content desn't work for hidden cells
+//    for(unsigned long i = 0; i<[_highschoolCourses count]; i++)
+//    {
+//        HighschoolCourse* origCourse = _highschoolCourses[i];
+//        iPadHomeMarkTableViewCell* cell = (iPadHomeMarkTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+//        
+//        origCourse.courseCode = cell.titleField.text;
+//        origCourse.courseLevel = _courseLevelStrings[cell.levelSegControl.selectedSegmentIndex];
+//        origCourse.courseMark = [NSNumber numberWithFloat:[cell.markField.text floatValue]];
+//        
+//        _highschoolCourses[i] = origCourse;
+//    }
     
     [self reloadUserOverallAverage];
     
@@ -522,6 +527,32 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 
 #pragma mark - Cell TextField Delegate
+- (void)cellValueDidChange: (iPadHomeMarkTableViewCell*)cell toValue: (id)newValue forField: (NSInteger)num;
+{
+    NSIndexPath* cellIndex = [self.tableView indexPathForCell:cell];
+    
+    if(cellIndex.section == 0)
+    {
+        HighschoolCourse* course = [_highschoolCourses objectAtIndex:cellIndex.row];
+        if(num == 0)
+            course.courseCode = newValue;
+        else if(num == 1)
+            course.courseLevel = newValue;
+        else if(num == 2)
+            course.courseMark = newValue;
+    }
+    else //sat
+    {
+        if(cellIndex.row == 0)
+            _user.satReading = newValue;
+        else if(cellIndex.row == 1)
+            _user.satMath = newValue;
+        else if(cellIndex.row == 2)
+            _user.satGrammar = newValue;
+    }
+    
+}
+
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
