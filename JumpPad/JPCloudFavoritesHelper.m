@@ -116,6 +116,40 @@
 //Returns success status
 - (BOOL)incrementProgramFavCountWithUid: (NSString*)programUid
 {
+    NSInteger numFavsBefore = [self getItemFavCountWithUid:programUid];
+    
+    if(numFavsBefore == -1)
+        return NO;
+    
+    NSNumber* numFavsAfter = [NSNumber numberWithInteger:numFavsBefore+1];
+    
+    ///////////////////////////////////////////////
+    //Write Incremented Count To Firebase
+    NSString* putURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/count/%@.json", programUid];
+    NSURL* putURL = [NSURL URLWithString:putURLStr];
+    
+    NSMutableURLRequest* putRequest = [[NSMutableURLRequest alloc] initWithURL:putURL];
+    putRequest.HTTPMethod = @"PUT";
+    
+    NSString* numAfterString = [NSString stringWithFormat:@"%@", numFavsAfter];
+    NSData* newNumData = [numAfterString dataUsingEncoding:NSUTF8StringEncoding];
+    putRequest.HTTPBody = newNumData;
+    
+    NSError* connectionError;
+    [NSURLConnection sendSynchronousRequest:putRequest returningResponse:nil error:&connectionError];
+    
+    if(connectionError)
+    {
+        NSLog(@"put new increment error: %@", connectionError.localizedDescription);
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+- (NSInteger)getItemFavCountWithUid:(NSString *)programUid
+{
     //Get Current Favorite Count
     NSString* getURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/count/%@.json", programUid];
     
@@ -130,7 +164,7 @@
     if(connectionError)
     {
         NSLog(@"Increment Connection error:%@", connectionError.localizedDescription);
-        return NO;
+        return -1;
     }
     
     ///////////////////////////////////
@@ -143,33 +177,57 @@
     if(!numFavsBefore || [numFavsBefore isEqual:[NSNull null]])
         numFavsBefore = @0;
     
-    NSNumber* numFavsAfter = [NSNumber numberWithInteger:[numFavsBefore integerValue]+1];
+    return [numFavsBefore integerValue];
     
-    ///////////////////////////////////////////////
-    //Write Incremented Count To Firebase
-    NSURL* putURL = [getURL copy];
-    
-    NSMutableURLRequest* putRequest = [[NSMutableURLRequest alloc] initWithURL:putURL];
-    putRequest.HTTPMethod = @"PUT";
-    
-    NSString* numAfterString = [NSString stringWithFormat:@"%@", numFavsAfter];
-    NSData* newNumData = [numAfterString dataUsingEncoding:NSUTF8StringEncoding];
-    putRequest.HTTPBody = newNumData;
-    
-    [NSURLConnection sendSynchronousRequest:putRequest returningResponse:nil error:&connectionError];
-    
-    if(connectionError)
-    {
-        NSLog(@"put new increment error: %@", connectionError.localizedDescription);
-        return NO;
-    }
-    
-    return YES;
 }
 
 
-
-
+- (void)getItemFavCountAsyncWithUid:(NSString *)programUid indexPath:(NSIndexPath *)indexPath
+{
+    //Get Current Favorite Count
+    NSString* getURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/count/%@.json", programUid];
+    
+    NSURL* getURL = [NSURL URLWithString:getURLStr];
+    
+    NSMutableURLRequest* getReq = [[NSMutableURLRequest alloc] initWithURL:getURL];
+    getReq.HTTPMethod = @"GET";
+    
+    [NSURLConnection sendAsynchronousRequest:getReq queue:[NSOperationQueue currentQueue] completionHandler:
+     ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+         if(connectionError)
+         {
+             NSLog(@"Increment Connection error:%@", connectionError.localizedDescription);
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 if([self.delegate respondsToSelector:@selector(cloudFavHelper:didGetItemFavCountWithUid:cellIndexPath:countNumber:)])
+                     [self.delegate cloudFavHelper:self didGetItemFavCountWithUid:programUid cellIndexPath:indexPath countNumber:-1];
+             });
+             return;
+         }
+         
+         NSData* numFavsData = data;
+         ///////////////////////////////////
+         //Calculation
+         NSNumber* numFavsBefore = @0;
+         
+         if(numFavsData)
+             numFavsBefore = [NSJSONSerialization JSONObjectWithData:numFavsData options:NSJSONReadingAllowFragments error:nil];
+         
+         if(!numFavsBefore || [numFavsBefore isEqual:[NSNull null]])
+             numFavsBefore = @0;
+         
+         NSInteger favNumInteger = [numFavsBefore integerValue];
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             if([self.delegate respondsToSelector:@selector(cloudFavHelper:didGetItemFavCountWithUid:cellIndexPath:countNumber:)])
+                 [self.delegate cloudFavHelper:self didGetItemFavCountWithUid:programUid cellIndexPath: indexPath countNumber:favNumInteger];
+             
+         });
+         
+    }];
+    
+    
+}
 
 
 @end

@@ -10,19 +10,22 @@
 
 #import "JPProgramSummaryView.h"
 #import <MessageUI/MessageUI.h>
+#import "JPCoreDataHelper.h"
 
 
-
-@class iPadProgramImagesViewController, iPadProgramLabelView, JPProgramSummaryView, iPadProgramDetailView, Program;
+@class iPadProgramImagesViewController, iPadProgramLabelView, JPProgramSummaryView, iPadProgramDetailView, Program, JPCoreDataHelper;
 
 
 @interface iPadProgramHomeViewController : UIViewController <JPProgramSummaryDelegate, MFMailComposeViewControllerDelegate>
 {
+    NSManagedObjectContext* context;
+    JPCoreDataHelper* _coreDataHelper;
+    
     
     BOOL    _isOrientationPortrait;
     float   _screenWidth;
     
-    NSManagedObjectContext* context;
+    
     
     NSUInteger   _programId;
     

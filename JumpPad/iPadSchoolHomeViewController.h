@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "JPSchoolSummaryView.h"
-
+#import "JPCoreDataHelper.h"
 
 @class iPadProgramImagesViewController, iPadProgramLabelView, JPSchoolSummaryView, School, iPadProgramContactViewController;
 
 @interface iPadSchoolHomeViewController  : UIViewController <JPSchoolSummaryDelegate>
 {
     NSManagedObjectContext* context;
+    JPCoreDataHelper* _coreDataHelper;
+    
     JPLocation*     _schoolLocation;
     
     JPDashletType   _itemType;

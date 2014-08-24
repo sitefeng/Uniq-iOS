@@ -77,12 +77,11 @@
         _topBarView = [[UIView alloc] init];
         _topBarView.backgroundColor = [UIColor whiteColor];
         
-        UILabel* topLabel1 = [[UILabel alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 100, 2, 100, 16)];
-        topLabel1.tag = 101;
-        topLabel1.font = [UIFont fontWithName:[JPFont defaultLightFont] size:16];
-        topLabel1.text = @"0 Favorited";
-        
-        [_topBarView addSubview:topLabel1];
+        _favNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 220, 2, 200, 16)];
+        _favNumLabel.font = [UIFont fontWithName:[JPFont defaultLightFont] size:16];
+        _favNumLabel.text = @"0 Favorited";
+        _favNumLabel.textAlignment = NSTextAlignmentRight;
+        [_topBarView addSubview:_favNumLabel];
         
         
         [self addSubview:self.parallaxImage];
@@ -119,8 +118,8 @@
 - (void)setNumFavorited:(NSUInteger)numFavorited
 {
     _numFavorited = numFavorited;
-    UILabel* topBarLabel = (UILabel*)[_topBarView viewWithTag:101];
-    topBarLabel.text = [NSString stringWithFormat:@"%lu Favorited", (unsigned long)numFavorited];
+    
+    _favNumLabel.text = [NSString stringWithFormat:@"%lu Favorited", (unsigned long)numFavorited];
 }
 
 

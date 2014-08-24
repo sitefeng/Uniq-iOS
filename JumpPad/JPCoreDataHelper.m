@@ -68,7 +68,7 @@
     ////////////////////////////////
     //Send Favorites To Server
     NSInteger itemId = [JPGlobal itemIdWithDashletUid:dashletUid type:type];
-    [_cloudFav uploadItemFavoritedWithUid:[NSString stringWithFormat:@"%d", itemId]];
+    [_cloudFav uploadItemFavoritedWithUid:[NSString stringWithFormat:@"%ld", (long)itemId]];
     
 }
 

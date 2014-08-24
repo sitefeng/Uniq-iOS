@@ -25,6 +25,7 @@
 + (NSString*)paragraphStringWithName: (NSString*)name;
 + (void)openURL: (NSURL*)url;
 
++ (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid;
 + (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid type: (JPDashletType)type;
 
 

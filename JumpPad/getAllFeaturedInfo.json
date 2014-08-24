@@ -10,7 +10,7 @@
      {
       "id":2,
       "title":"Top School in Life Sciences",
-      "linkedUid":20000000,
+      "linkedUid":120000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto2.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false
@@ -34,7 +34,7 @@
      {
       "id":5,
       "title":"Top School in Journalism",
-      "linkedUid":30000000,
+      "linkedUid":130000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto1.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false
@@ -42,7 +42,7 @@
      {
       "id":6,
       "title":"Top School in Business",
-      "linkedUid":40000000,
+      "linkedUid":140000000,
       "imageLink":"http:\/\/sitefeng.com\/images\/Jump\/toronto3.png",
       "linkedUrl":"https:\/\/utoronto.ca\/",
       "toDelete":false

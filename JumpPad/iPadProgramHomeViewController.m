@@ -52,6 +52,8 @@ static const float kProgramImageWidth  = 384;
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
+        _coreDataHelper = [[JPCoreDataHelper alloc] init];
+        
         self.program = program;
         self.dashletUid = dashletUid;
 
@@ -209,36 +211,40 @@ static const float kProgramImageWidth  = 384;
 {
     if(isSelected)
     {
-        NSEntityDescription* newFavItemDes = [NSEntityDescription  entityForName:@"UserFavItem" inManagedObjectContext:context];
-        UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
+        [_coreDataHelper addFavoriteWithDashletUid:self.dashletUid andType:JPDashletTypeProgram];
         
-        newItem.itemId = [NSNumber numberWithInteger:self.dashletUid];
-        newItem.type = [NSNumber numberWithInteger:JPDashletTypeProgram];
-        
-        [context insertObject:newItem];
+//        NSEntityDescription* newFavItemDes = [NSEntityDescription  entityForName:@"UserFavItem" inManagedObjectContext:context];
+//        UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
+//        
+//        newItem.itemId = [NSNumber numberWithInteger:self.dashletUid];
+//        newItem.type = [NSNumber numberWithInteger:JPDashletTypeProgram];
+//        
+//        [context insertObject:newItem];
         
         self.summaryView.isFavorited = YES;
     }
     else //deselected
     {
-        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
-        NSArray* results = [context executeFetchRequest:favReq error:nil];
+        [_coreDataHelper removeFavoriteWithDashletUid:self.dashletUid];
         
-        for(UserFavItem* item in results)
-        {
-            [context deleteObject:item];
-        }
+//        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+//        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+//        NSArray* results = [context executeFetchRequest:favReq error:nil];
+//        
+//        for(UserFavItem* item in results)
+//        {
+//            [context deleteObject:item];
+//        }
         
         self.summaryView.isFavorited = NO;
     }
     
-    NSError* error = nil;
-    [context save:&error];
-    if(error)
-    {
-        NSLog(@"fav error: %@\n", error);
-    }
+//    NSError* error = nil;
+//    [context save:&error];
+//    if(error)
+//    {
+//        NSLog(@"fav error: %@\n", error);
+//    }
     
     
 //    //Test adding Favorite to core data

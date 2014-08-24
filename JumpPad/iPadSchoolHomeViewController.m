@@ -48,6 +48,8 @@ static const float kProgramImageWidth  = 384;
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
+        _coreDataHelper = [[JPCoreDataHelper alloc] init];
+        
         //Navbar dismiss button
         UIBarButtonItem* dismissButton = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonPressed:)];
         self.navigationItem.leftBarButtonItem = dismissButton;
@@ -230,35 +232,15 @@ static const float kProgramImageWidth  = 384;
 {
     if(isSelected)
     {
-        NSEntityDescription* newFavItemDes = [NSEntityDescription  entityForName:@"UserFavItem" inManagedObjectContext:context];
-        UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
-        
-        newItem.itemId = [NSNumber numberWithInteger:self.dashletUid];
-        newItem.type = [NSNumber numberWithInteger:_itemType];
-        
-        [context insertObject:newItem];
+        [_coreDataHelper addFavoriteWithDashletUid:self.dashletUid andType:_itemType];
         
         self.summaryView.isFavorited = YES;
     }
     else //deselected
     {
-        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
-        NSArray* results = [context executeFetchRequest:favReq error:nil];
-        
-        for(UserFavItem* item in results)
-        {
-            [context deleteObject:item];
-        }
+        [_coreDataHelper removeFavoriteWithDashletUid:self.dashletUid];
         
         self.summaryView.isFavorited = NO;
-    }
-    
-    NSError* error = nil;
-    [context save:&error];
-    if(error)
-    {
-        NSLog(@"fav error: %@\n", error);
     }
     
 }

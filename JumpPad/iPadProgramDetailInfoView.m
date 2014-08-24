@@ -23,14 +23,15 @@
         
         if([title isEqualToString:@"About"])
         {
-            UITextView* aboutView = [[UITextView alloc] initWithFrame:CGRectMake(250, 20, 500, 1000)];
+            UITextView* aboutView = [[UITextView alloc] initWithFrame:CGRectMake(250, 10, 500, 1000)];
             
             aboutView.font = [JPFont fontWithName:[JPFont defaultFont] size:15];
             aboutView.textColor = [UIColor blackColor];
             aboutView.userInteractionEnabled = NO;
             aboutView.editable = NO;
-            
-            aboutView.backgroundColor = [JPStyle colorWith8BitRed:255 green:255 blue:255 alpha:0.45];
+            aboutView.textContainerInset = UIEdgeInsetsZero;
+//            aboutView.backgroundColor = [JPStyle colorWith8BitRed:255 green:255 blue:255 alpha:0.45];
+            aboutView.backgroundColor = [UIColor clearColor];
             aboutView.layer.cornerRadius = 10;
             aboutView.clipsToBounds = YES;
             
@@ -49,7 +50,7 @@
             //About Label
             
             CGSize aboutViewSize = aboutView.frame.size;
-            float aboutLabelY = 20 + aboutViewSize.height/2.0 - 55/2.0 ;
+            float aboutLabelY = 10 + aboutViewSize.height/2.0 - 55/2.0 ;
             
             UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, aboutLabelY - 10, 136, 55)];
             aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
@@ -62,11 +63,11 @@
             
             if(aboutViewSize.height >= aboutLabel.frame.size.height)
             {
-                self.viewHeight = 10 + aboutViewSize.height;
+                self.viewHeight = 20 + aboutViewSize.height;
             }
             else
             {
-                self.viewHeight = 10 + aboutLabel.frame.size.height;
+                self.viewHeight = 20 + aboutLabel.frame.size.height;
             }
             
             [self addSubview:aboutLabel];

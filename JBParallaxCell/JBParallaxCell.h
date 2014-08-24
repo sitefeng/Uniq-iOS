@@ -31,6 +31,7 @@
 @interface JBParallaxCell : UITableViewCell
 {
     UIView*   _topBarView;
+    UILabel*  _favNumLabel;
     
     UIView*   _bottomBarView;
     

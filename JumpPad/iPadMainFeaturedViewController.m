@@ -12,10 +12,11 @@
 #import "Featured.h"
 #import "JBParallaxCell.h"
 #import "UserFavItem.h"
-
+#import "JPGlobal.h"
 #import "iPadProgramViewController.h"
 #import "iPadSchoolHomeViewController.h"
 #import "JPCoreDataHelper.h"
+#import "JPCloudFavoritesHelper.h"
 
 @interface iPadMainFeaturedViewController ()
 
@@ -34,8 +35,10 @@
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
     
-    _helper = [[JPCoreDataHelper alloc] init];
+    _coreDataHelper = [[JPCoreDataHelper alloc] init];
     
+    _cloudFav = [[JPCloudFavoritesHelper alloc] init];
+    _cloudFav.delegate = self;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight-kiPadNavigationBarHeight-kiPadTabBarHeight) style:UITableViewStylePlain];
     self.tableView.rowHeight = 250 + 20;
@@ -45,9 +48,10 @@
     self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
     
-
-    self.featuredArray = [[_helper retrieveFeaturedItems] mutableCopy];
+    self.featuredArray = [[_coreDataHelper retrieveFeaturedItems] mutableCopy];
+    
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -55,11 +59,27 @@
     
     //Prevent transparent tab bar
     self.tabBarController.tabBar.translucent = YES;
+    
+    [self reloadFeaturedFavNums];
 }
 
 
-
-
+- (void)reloadFeaturedFavNums
+{
+    self.featuredFavNums = [NSMutableArray array];
+    
+    for(Featured* featured in self.featuredArray)
+    {
+        [self.featuredFavNums addObject:@0];
+        
+        NSInteger rowNum = [self.featuredArray indexOfObject:featured];
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
+        
+        NSUInteger itemUidInt = [JPGlobal itemIdWithDashletUid:[featured.linkedUid integerValue]];
+        NSString* itemUid = [NSString stringWithFormat:@"%d", itemUidInt];
+        [_cloudFav getItemFavCountAsyncWithUid:itemUid indexPath:indexPath];
+    }
+}
 
 
 #pragma mark - Table View Data Source
@@ -94,6 +114,8 @@
     cell.delegate = self;
     cell.titleLabel.text = [featureItem.title uppercaseString];
     cell.subtitleLabel.text = [dashletItem.featuredTitle uppercaseString];
+    cell.numFavorited = [[self.featuredFavNums objectAtIndex:indexPath.row] integerValue];
+    
     cell.type = dashletItem.type;
     NSURL* imageUrl = [NSURL URLWithString:featureItem.imageLink];
     if(imageUrl)
@@ -146,43 +168,31 @@
     
     if(selected)
     {
-        NSEntityDescription* newFavItemDes = [NSEntityDescription  entityForName:@"UserFavItem" inManagedObjectContext:context];
-        UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
-        
-        newItem.itemId = [NSNumber numberWithInteger:dashletUid];
-        newItem.type = [NSNumber numberWithInteger:cell.type];
-        
-        [context insertObject:newItem];
-        
+        [_coreDataHelper addFavoriteWithDashletUid:dashletUid andType:cell.type];
     }
     else //deselected
     {
-        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:dashletUid]];
-        NSArray* results = [context executeFetchRequest:favReq error:nil];
-        
-        for(UserFavItem* item in results)
-        {
-            [context deleteObject:item];
-        }
-        
+        [_coreDataHelper removeFavoriteWithDashletUid:dashletUid];
     }
     
-    NSError* error = nil;
-    [context save:&error];
-    if(error)
-    {
-        NSLog(@"fav error: %@\n", error);
-    }
 }
 
 
 
+#pragma mark - Cloud Favorites Helper
+
+- (void)cloudFavHelper:(JPCloudFavoritesHelper *)helper didGetItemFavCountWithUid:(NSString *)programUid cellIndexPath:(NSIndexPath*)indexPath countNumber:(NSInteger)count
+{
+    if(count >= 0 && count< 999999)
+    {
+        [self.featuredFavNums replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:count]];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    
     NSArray *visibleCells = [self.tableView visibleCells];
     
     for (JBParallaxCell *cell in visibleCells) {

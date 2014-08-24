@@ -159,6 +159,8 @@
 {
     self.imageView.imageURLs = @[];
     
+    self.imageView.logoURL = [NSURL URLWithString:@""];
+    
 }
 
 /*

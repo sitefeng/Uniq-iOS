@@ -145,6 +145,23 @@
     return itemId;
 }
 
++ (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid
+{
+    NSInteger programId = dashletUid % 100000;
+    NSInteger facultyId = (dashletUid / 100000) % 100;
+    NSInteger schoolId  = dashletUid / 10000000;
+    
+    JPDashletType type = -1;
+    
+    if(facultyId == 0)
+        type = JPDashletTypeSchool;
+    else if(programId == 0)
+        type = JPDashletTypeFaculty;
+    else
+        type = JPDashletTypeProgram;
+    
+    return [self itemIdWithDashletUid:dashletUid type:type];
+}
 
 
 

@@ -48,7 +48,7 @@
      
      
      {
-      "id":12,
+      "id":2,
       "name":"University of Toronto",
       "population":38412,
       "yearEstablished":1877,
@@ -89,7 +89,7 @@
    },
 
      {
-      "id":13,
+      "id":3,
       "name":"Ryerson University",
       "population":14928,
       "yearEstablished":1957,
@@ -130,7 +130,7 @@
        "toDelete":false
    },
      {
-      "id":14,
+      "id":4,
       "name":"University of Western Ontario",
       "population":22530,
       "yearEstablished":1957,

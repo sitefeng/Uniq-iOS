@@ -110,6 +110,7 @@
     if(!logoURL)
     {
         _whiteView.hidden = YES;
+        self.logoView.image = nil;
         return;
     }
     
