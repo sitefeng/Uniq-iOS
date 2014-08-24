@@ -61,13 +61,13 @@
         [self addSubview:self.progressBar];
         
         
-        self.percentageLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.progressBar.frame) + 10, 0, 60, 44)];
+        self.percentageLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.progressBar.frame) + 10, 0, 63, 44)];
         self.percentageLabel.textAlignment = NSTextAlignmentRight;
         self.percentageLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:28];
         [self addSubview:self.percentageLabel];
         
         
-        _staticPercentLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.percentageLabel.frame), self.percentageLabel.frame.origin.y, 63, self.percentageLabel.frame.size.height)];
+        _staticPercentLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.percentageLabel.frame)+3, self.percentageLabel.frame.origin.y, 63, self.percentageLabel.frame.size.height)];
         _staticPercentLabel.font = self.percentageLabel.font;
         _staticPercentLabel.text = @"%";
         
@@ -171,6 +171,8 @@
     if([self.cellType isEqual:@"course"])
     {
         self.percentageLabel.text = [NSString stringWithFormat:@"%.01f", coursePercentage];
+        if(coursePercentage >= 100)
+            self.percentageLabel.text = [NSString stringWithFormat:@"%.00f", coursePercentage];
         self.progressBar.progress = coursePercentage/100.0f;
     }
     else if([self.cellType isEqual:@"sat"])
@@ -183,6 +185,8 @@
     {
         if([self.cellType isEqual:@"course"])
             self.markField.text = [NSString stringWithFormat:@"%.01f", coursePercentage];
+        if(coursePercentage >= 100)
+            self.markField.text = [NSString stringWithFormat:@"%.00f", coursePercentage];
         else if([self.cellType isEqual:@"sat"])
             self.markField.text = [NSString stringWithFormat:@"%.0f", coursePercentage];
     }

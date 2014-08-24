@@ -232,12 +232,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    iPadHomeMarkTableViewCell* cell = (iPadHomeMarkTableViewCell*)[self.tableView dequeueReusableCellWithIdentifier: reuseIdentifier];
-    if(!cell)
-    {
-        cell = [[iPadHomeMarkTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    }
-    
+    iPadHomeMarkTableViewCell* cell  = [[iPadHomeMarkTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+   
     cell.tableViewController = self;
     
     if(indexPath.section == 0)

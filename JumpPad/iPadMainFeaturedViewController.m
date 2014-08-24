@@ -186,7 +186,7 @@
     if(count >= 0 && count< 999999)
     {
         [self.featuredFavNums replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:count]];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 
