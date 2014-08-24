@@ -207,7 +207,7 @@
         self.valueLabel.textColor = [UIColor whiteColor];
         self.valueLabel.font = [JPFont coolFontOfSize:20];
         self.valueLabel.textAlignment = NSTextAlignmentCenter;
-        self.valueLabel.text = @"?";
+        self.valueLabel.text = @"50";
         
         [self addSubview:self.valueLabel];
         
@@ -282,6 +282,8 @@
         _currentVolume = currentVolume;
         [self setNeedsDisplay];
     }
+    
+    self.valueLabel.text = [NSString stringWithFormat:@"%d", currentVolume];
 }
 
 #pragma mark - CircleSlideDelegate

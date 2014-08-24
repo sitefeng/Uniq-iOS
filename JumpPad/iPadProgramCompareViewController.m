@@ -99,6 +99,28 @@
     [self.view addSubview:_squareView1];
     [self.view addSubview:_squareView2];
     [self.view addSubview:compareButton];
+    
+    
+    /////////////////////////////
+    //Coming Soon
+    
+    UIView* backgroundView = [[UIView alloc] initWithFrame:self.view.frame];
+    backgroundView.backgroundColor = [JPStyle colorWithName:@"tBlack"];
+    [self.view addSubview:backgroundView];
+    
+    UILabel* comingLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 375, kiPadWidthPortrait-400, 150)];
+    comingLabel.text = [@"Arriving \nNext Year" uppercaseString];
+    comingLabel.textColor = [UIColor whiteColor];
+    comingLabel.textAlignment = NSTextAlignmentCenter;
+    comingLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:40];
+    comingLabel.numberOfLines = 2;
+    comingLabel.backgroundColor = [JPStyle colorWithName:@"tBlack"];
+    comingLabel.layer.cornerRadius = 15;
+    comingLabel.layer.masksToBounds = YES;
+    
+    [self.view addSubview:comingLabel];
+    
+    
 }
 
 

@@ -15,7 +15,11 @@
 
 #import "JPFont.h"
 #import "JPStyle.h"
-
+#import "JPProgramRatingHelper.h"
+#import "TLTiltSlider.h"
+#import "JPGlobal.h"
+#import "JPRatings.h"
+#import "SVStatusHUD.h"
 
 @interface iPadProgramRatingsViewController ()
 
@@ -30,13 +34,15 @@
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"ratings"];
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+        
+        _ratingsHelper = [[JPProgramRatingHelper alloc] init];
+        _ratingsHelper.delegate = self;
     
         self.program = program;
         self.dashletUid = dashletUid;
         
         
         self.programLabel = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
-        
         [self.view addSubview:self.programLabel];
 
         
@@ -52,8 +58,6 @@
     
 
     self.ratingScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight+self.programLabel.frame.size.height, kiPadWidthPortrait, kiPadHeightPortrait-(kiPadStatusBarHeight+kiPadNavigationBarHeight+self.programLabel.frame.size.height+kiPadTabBarHeight))];
-    
-    self.ratingScrollView.contentSize = CGSizeMake(kiPadWidthPortrait, 1300);
     
     
     UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 250, 50)];
@@ -79,7 +83,6 @@
     
     [self.ratingScrollView addSubview:overallLabel];
     [self.ratingScrollView addSubview:self.overallSelector];
-    
     
     
     for(int j=0; j<3; j++)//3 rows
@@ -112,46 +115,174 @@
             [self.categorySelectors addObject:categorySelector];
             [self.ratingScrollView addSubview:categorySelector];
             
-            
-            
         }
 
-        
     }
     
+    UILabel* ratioLabel = [[UILabel alloc] initWithFrame:CGRectMake(260, 1110, kiPadWidthPortrait-520, 40)];
+    ratioLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
+    ratioLabel.textColor = [UIColor whiteColor];
+    ratioLabel.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    ratioLabel.textAlignment = NSTextAlignmentCenter;
+    ratioLabel.layer.cornerRadius = 10;
+    ratioLabel.clipsToBounds = YES;
+    ratioLabel.text = @"Guy To Girl Ratio";
+    [ratioLabel sizeToFit];
+    CGRect tempFrame = ratioLabel.frame;
+    ratioLabel.frame = CGRectMake(tempFrame.origin.x, tempFrame.origin.y, tempFrame.size.width + 30, tempFrame.size.height + 10);
+    [self.ratingScrollView addSubview:ratioLabel];
     
     
-    UIButton* saveButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 1100, 270, 50)];
-    [saveButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"green"]] forState:UIControlStateNormal];
+    self.tiltSlider = [[TLTiltSlider alloc] initWithFrame:CGRectMake(100, 1170, kiPadWidthPortrait-200, 30)];
+    self.tiltSlider.tiltEnabled = YES;
+    self.tiltSlider.value = 0.5;
+    [self.tiltSlider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.ratingScrollView addSubview:self.tiltSlider];
     
-    saveButton.layer.cornerRadius = 10;
-    saveButton.clipsToBounds = YES;
-    
-    [saveButton setTitle:@"Save" forState:UIControlStateNormal];
-    saveButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
-    [saveButton setTintColor:[UIColor whiteColor]];
-    [saveButton setShowsTouchWhenHighlighted:NO];
-    [saveButton addTarget:self action:@selector(saveButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.ratingScrollView addSubview:saveButton];
-    
+    _guyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 1170, 80, 33)];
+    _guyLabel.text = @"50";
+    _guyLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:30];
+    _guyLabel.textColor = [UIColor whiteColor];
+    _guyLabel.textAlignment = NSTextAlignmentCenter;
+    [self.ratingScrollView addSubview:_guyLabel];
     
     
+    _girlLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPadWidthPortrait-90, 1170, 80, 33)];
     
+    _girlLabel.text = @"50";
+    _girlLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:30];
+    _girlLabel.textColor = [UIColor whiteColor];
+    _girlLabel.textAlignment = NSTextAlignmentCenter;
+    [self.ratingScrollView addSubview:_girlLabel];
+    
+    
+    
+    //Save Button
+    submitButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 1240, 270, 50)];
+    [submitButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"green"]] forState:UIControlStateNormal];
+    
+    submitButton.layer.cornerRadius = 10;
+    submitButton.clipsToBounds = YES;
+    
+    [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    submitButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+    [submitButton addTarget:self action:@selector(saveButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.ratingScrollView addSubview:submitButton];
+    
+    
+    self.ratingScrollView.contentSize = CGSizeMake(kiPadWidthPortrait, 1300);
     [self.view addSubview:self.ratingScrollView];
+    
+    
+    //Download User Settings
+    [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@", self.program.programId]];
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId]];
+    
+}
+
+
+
+- (void)sliderChanged: (TLTiltSlider*)slider
+{
+    CGFloat percentage = slider.value * 100;
+    
+    _guyLabel.text = [NSString stringWithFormat:@"%.00f", percentage];
+    _girlLabel.text = [NSString stringWithFormat:@"%.00f", 100-percentage];
+    
+    
+}
+
+
+- (void)saveButtonPressed
+{
+    NSInteger ratingOverall = self.overallSelector.currentLevel;
+    NSMutableArray* orderedArray = [NSMutableArray arrayWithObject:[NSNumber numberWithInteger:ratingOverall]];
+    
+    NSArray* categorySelectors = [self categorySelectors];
+    
+    for(VolumeBar* volumeBar in categorySelectors)
+    {
+        NSInteger value = volumeBar.currentVolume;
+        [orderedArray addObject:[NSNumber numberWithInteger:value]];
+    }
+    
+    [orderedArray addObject:[NSNumber numberWithInteger:self.tiltSlider.value*100]];
+    
+    JPRatings* ratings = [[JPRatings alloc] initWithOrderedArray:orderedArray];
+    
+    NSString* programUid = [NSString stringWithFormat:@"%@", self.program.programId];
+    [_ratingsHelper uploadRatingsWithProgramUid:programUid ratings:ratings];
+    
+}
+
+
+
+
+
+#pragma mark - Program Rating Helper Delegate
+
+- (void)ratingHelper:(JPProgramRatingHelper *)helper didUploadRatingsForProgramUid:(NSString *)uid error:(NSError *)error
+{
+    if(error)
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"uploadFailedHUD"] status:@"Currently Offline"];
+        return;
+    }
+    
+    [submitButton setTitle:@"Update Submission" forState:UIControlStateNormal];
+}
+
+- (void)ratingHelper:(JPProgramRatingHelper *)helper didDownloadRatingsForProgramUid:(NSString *)uid ratings:(JPRatings *)ratings ratingExists:(BOOL)exists networkError:(NSError *)error
+{
+    if(error)
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"downloadFailedHUD"] status:@"Currently Offline"];
+        return;
+    }
+    
+    if(!exists)
+        return;
+    
+    [submitButton setTitle:@"Update Submission" forState:UIControlStateNormal];
+    
+    NSArray* orderedArray = [ratings getOrderedArray];
+    
+    float maxVal = 1.0502156;
+    float minVal = -1.0482738;
+    float overallValue = [[orderedArray objectAtIndex:0] floatValue];
+    
+    self.overallSelector.currentRadian = (overallValue/100.0)*(maxVal-minVal) + minVal;
+    
+    for(int i=1; i<=6; i++)
+    {
+        NSInteger value = [[orderedArray objectAtIndex:i] integerValue];
+        VolumeBar* volume = [self.categorySelectors objectAtIndex:i-1];
+        volume.currentVolume = value;
+    }
+    
+    NSInteger ratioValue = ratings.guyRatio;
+    self.tiltSlider.value = ratioValue/100.0;
+    _guyLabel.text = [NSString stringWithFormat:@"%d", ratioValue];
+    _girlLabel.text = [NSString stringWithFormat:@"%d", 100-ratioValue];
+    
+}
+
+
+#pragma mark - Setters and Getters
 
 - (void)setProgram:(Program *)program
 {
     _program = program;
     
-    
-    
-    
-    
-    
+ 
 }
 
 
@@ -159,7 +290,6 @@
 
 - (NSMutableArray*)categorySelectors
 {
-    
     if(!_categorySelectors)
     {
         _categorySelectors = [NSMutableArray array];
@@ -173,25 +303,15 @@
 
 
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-
-    
-}
-
-
+#pragma mark - Stabilize Scroll View
 
 - (void)categorySelectorTouched:(VolumeBar*)control event:(UIControlEvents)event
 {
-    
     [self.ratingScrollView setScrollEnabled:NO];
-    _saveLabel.text = @"";
     
 
 }
+
 
 - (void)categorySelectorEnded
 {
@@ -200,28 +320,7 @@
 
 
 
-- (void)saveButtonPressed
-{
-    
-    if(!_saveLabel)
-    {
-        _saveLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _saveLabel.frame = CGRectMake(284,1076,200,22);
-        _saveLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-        _saveLabel.textColor = [JPStyle colorWithName:@"darkRed"];
-        _saveLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:18];
-        _saveLabel.textAlignment = NSTextAlignmentCenter;
-        
-        [self.ratingScrollView addSubview:_saveLabel];
-    }
-    _saveLabel.text = @"Ratings Saved";
-    
-    
-    NSLog(@"Overall: %li", (long)[self.overallSelector currentLevel]);
-    
-    
-    
-}
+
 
 
 

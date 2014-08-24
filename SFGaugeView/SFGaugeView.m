@@ -13,7 +13,7 @@
 
 @property(nonatomic) CGFloat needleRadius;
 @property(nonatomic) CGFloat bgRadius;
-@property(nonatomic) CGFloat currentRadian;
+
 
 @end
 
@@ -80,9 +80,7 @@ static const CGFloat CUTOFF = 0.5;
     
     if (!self.hideLevel) {
         fontSize = [self needleRadius] + 5;
-//        font = [UIFont fontWithName:@"Arial" size:fontSize];
         font = [JPFont coolFontOfSize:fontSize];
-//        textColor = [self bgColor];
         textColor = [UIColor blackColor];
         
         stringAttrs = @{ NSFontAttributeName : font, NSForegroundColorAttributeName : textColor };
@@ -312,5 +310,16 @@ static const CGFloat CUTOFF = 0.5;
     
     return _bgRadius;
 }
+
+
+//////////////////////////
+- (void)setCurrentRadian:(CGFloat)currentRadian
+{
+    _currentRadian = currentRadian;
+    [self setNeedsDisplay];
+    [self currentLevel];
+}
+
+
 
 @end

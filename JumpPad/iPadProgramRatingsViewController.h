@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPProgramRatingHelper.h"
 
-@class Program, iPadProgramLabelView, SFGaugeView;
-@interface iPadProgramRatingsViewController : UIViewController
+
+@class Program, iPadProgramLabelView, SFGaugeView, TLTiltSlider;
+@interface iPadProgramRatingsViewController : UIViewController <JPProgramRatingHelperDelegate>
 {
-    UILabel* _saveLabel;
+    JPProgramRatingHelper* _ratingsHelper;
+    
+    UILabel* _guyLabel;
+    UILabel* _girlLabel;
+    
+    UIButton* submitButton;
 }
 
 
@@ -27,7 +34,7 @@
 
 @property (nonatomic, strong) SFGaugeView* overallSelector;
 @property (nonatomic, strong) NSMutableArray* categorySelectors; //array of volumebars
-
+@property (nonatomic, strong) TLTiltSlider* tiltSlider;
 
 
 

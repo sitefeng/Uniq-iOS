@@ -50,9 +50,9 @@
             //About Label
             
             CGSize aboutViewSize = aboutView.frame.size;
-            float aboutLabelY = 10 + aboutViewSize.height/2.0 - 55/2.0 ;
+            float aboutLabelY = aboutViewSize.height/2.0 - 55/2.0 ;
             
-            UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, aboutLabelY - 10, 136, 55)];
+            UILabel* aboutLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, aboutLabelY, 136, 55)];
             aboutLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:55];
 
             aboutLabel.textColor = [UIColor blackColor];
@@ -67,9 +67,11 @@
             }
             else
             {
-                self.viewHeight = 20 + aboutLabel.frame.size.height;
+                self.viewHeight = 30 + aboutLabel.frame.size.height;
+                aboutLabel.frame = CGRectMake(aboutLabel.frame.origin.x, aboutLabel.frame.origin.y + 35, aboutLabel.frame.size.width, aboutLabel.frame.size.height);
+                aboutView.frame = CGRectMake(aboutView.frame.origin.x, aboutView.frame.origin.y + 30, aboutView.frame.size.width, aboutView.frame.size.height);
             }
-            
+        
             [self addSubview:aboutLabel];
             [self addSubview:aboutView];
         }
