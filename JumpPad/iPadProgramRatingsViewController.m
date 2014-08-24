@@ -97,7 +97,7 @@
             categoryLabel.textAlignment = NSTextAlignmentCenter;
             categoryLabel.layer.cornerRadius = 10;
             categoryLabel.clipsToBounds = YES;
-            categoryLabel.text = [JPGlobal ratingStringWithIndex: j*2 + i];
+            categoryLabel.text = [JPGlobal ratingFullStringWithIndex: j*2 + i];
             [categoryLabel sizeToFit];
             
             CGRect tempFrame = categoryLabel.frame;
@@ -270,8 +270,8 @@
     
     NSInteger ratioValue = ratings.guyRatio;
     self.tiltSlider.value = ratioValue/100.0;
-    _guyLabel.text = [NSString stringWithFormat:@"%d", ratioValue];
-    _girlLabel.text = [NSString stringWithFormat:@"%d", 100-ratioValue];
+    _guyLabel.text = [NSString stringWithFormat:@"%ld", (long)ratioValue];
+    _girlLabel.text = [NSString stringWithFormat:@"%ld", 100-ratioValue];
     
 }
 

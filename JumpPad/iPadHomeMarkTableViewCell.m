@@ -114,7 +114,9 @@
             self.titleField.font = self.titleLabel.font;
             self.titleField.autocorrectionType = UITextAutocorrectionTypeNo;
             [self.titleField setBorderStyle:UITextBorderStyleNone];
-            [self.titleField setClearsOnInsertion:YES];
+            self.titleField.clearsOnBeginEditing = YES;
+            self.titleField.delegate = self.tableViewController;
+            self.titleField.tag = 1;
             [self addSubview:self.titleField];
         }
         self.titleField.hidden = NO;
@@ -136,10 +138,13 @@
     {
         self.markField = [[UITextField alloc] initWithFrame:self.percentageLabel.frame];
         self.markField.font = self.percentageLabel.font;
-        [self.markField setClearsOnInsertion:YES];
+        self.markField.clearsOnBeginEditing =YES;
         self.markField.textAlignment = NSTextAlignmentRight;
         self.markField.keyboardType = UIKeyboardTypeDecimalPad;
         self.markField.borderStyle = UITextBorderStyleNone;
+        self.markField.delegate = self.tableViewController;
+        self.markField.tag=2;
+        
         UILabel* percentLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.markField.frame.size.width + 5, self.markField.frame.origin.y, 60, self.markField.frame.size.height)];
         percentLabel.font = self.markField.font;
         percentLabel.text = @"%";
@@ -267,13 +272,17 @@
 }
 
 
+
+
+
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
-
 
 - (void)prepareForReuse
 {

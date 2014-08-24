@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iPadMainHomeViewController.h"
 
 @interface iPadHomeMarkTableViewCell : UITableViewCell
 {
@@ -16,6 +17,10 @@
     
 }
 
+@property (nonatomic, weak) iPadMainHomeViewController* tableViewController;
+
+
+//Type
 @property (nonatomic, strong) NSString* cellType;
 
 //Display Mode

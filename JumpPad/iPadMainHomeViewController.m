@@ -238,6 +238,8 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
         cell = [[iPadHomeMarkTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
     
+    cell.tableViewController = self;
+    
     if(indexPath.section == 0)
     {
         cell.cellType = @"course";
@@ -522,6 +524,23 @@ NSString* const reuseIdentifier = @"reuseIdentifier";
     _user.satGrammar = [NSNumber numberWithFloat:[satCell.markField.text floatValue]];
 }
 
+
+#pragma mark - Cell TextField Delegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed animations:^{
+        self.tableView.frame = CGRectMake(0, CGRectGetMaxY(self.profileBanner.frame), kiPadWidthPortrait, kiPadHeightPortrait - CGRectGetMaxY(self.profileBanner.frame)-kiPadKeyboardHeightPortrait);
+    }];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:kKeyboardRetractAnimationSpeed animations:^{
+        self.tableView.frame = CGRectMake(0, CGRectGetMaxY(self.profileBanner.frame), kiPadWidthPortrait, kiPadHeightPortrait - CGRectGetMaxY(self.profileBanner.frame)-kiPadTabBarHeight);
+    }];
+}
 
 
 #pragma mark - Location Services

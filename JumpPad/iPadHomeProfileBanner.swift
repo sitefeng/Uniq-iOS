@@ -89,7 +89,7 @@ class iPadHomeProfileBanner: UIView {
         userNameLabel = UITextField(frame: CGRect(x: 280, y: 60, width: 300, height: 44))
         userNameLabel.font = UIFont(name: JPFont.defaultThinFont(), size: 38)
         userNameLabel.userInteractionEnabled = false
-        userNameLabel.clearsOnInsertion = true
+        userNameLabel.clearsOnBeginEditing = true
         userNameLabel.autocapitalizationType = UITextAutocapitalizationType.Words
         userNameLabel.autocorrectionType = UITextAutocorrectionType.No
         self.addSubview(userNameLabel)

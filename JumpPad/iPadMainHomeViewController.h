@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @class iPadHomeProfileBanner, iPadHomeToolbarView, User;
-@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface iPadMainHomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPUserLocatorDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 {
     NSManagedObjectContext* context;
     UIImagePickerController* pickerController;
