@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
-#import "HNConnectivityManager.h"
+#import "JPConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
 #import "SVStatusHUD.h"
 
 
-@implementation HNConnectivityManager
+@implementation JPConnectivityManager
 
 - (instancetype)init
 {

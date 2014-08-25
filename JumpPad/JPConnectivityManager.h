@@ -12,7 +12,7 @@
 static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotification";
 
 
-@interface HNConnectivityManager : NSObject
+@interface JPConnectivityManager : NSObject
 {
     BOOL   _alertDisplayed;
     AFNetworkReachabilityManager* reachability;

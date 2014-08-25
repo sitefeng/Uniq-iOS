@@ -141,14 +141,16 @@
 		AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115456195E024000C56E2B /* AddressBook.framework */; };
 		AA11545D195E106700C56E2B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11545C195E106700C56E2B /* User.m */; };
 		AA115F1019A84A8F006E07C1 /* JPRatings.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F0F19A84A8F006E07C1 /* JPRatings.m */; };
-		AA115F1219A853F5006E07C1 /* uploadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1119A853F5006E07C1 /* uploadFailedHUD.png */; };
-		AA115F1419A874B3006E07C1 /* downloadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */; };
 		AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */; };
 		AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */; };
 		AA115F2019A9BC78006E07C1 /* higlightedBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1C19A9BC78006E07C1 /* higlightedBarBackground@2x.png */; };
 		AA115F2219A9BC78006E07C1 /* trackBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1F19A9BC78006E07C1 /* trackBackground@2x.png */; };
 		AA115F2519A9BCC6006E07C1 /* TLTiltSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F2419A9BCC6006E07C1 /* TLTiltSlider.m */; };
 		AA115F2819AA7C91006E07C1 /* JPHighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */; };
+		AA115F2B19AA8B5B006E07C1 /* downloadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F2919AA8B5B006E07C1 /* downloadFailedHUD.png */; };
+		AA115F2C19AA8B5B006E07C1 /* uploadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */; };
+		AA115F2E19AAAA20006E07C1 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */; };
+		AA115F3019AAAA4D006E07C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115F2F19AAAA4D006E07C1 /* Accounts.framework */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
@@ -168,7 +170,7 @@
 		AA520F011972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F001972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m */; };
 		AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F031972DCAD0003EF98 /* iPhMapPanView.m */; };
 		AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */; };
-		AA55F9191999B762005F9F76 /* HNConnectivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F9181999B762005F9F76 /* HNConnectivityManager.m */; };
+		AA55F9191999B762005F9F76 /* JPConnectivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F9181999B762005F9F76 /* JPConnectivityManager.m */; };
 		AA55F937199AD147005F9F76 /* iPadMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */; };
 		AA55F93A199AD160005F9F76 /* iPhMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */; };
 		AA561A9D199D1B9C00967D15 /* JPProgramRatingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */; };
@@ -552,8 +554,6 @@
 		AA11545C195E106700C56E2B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		AA115F0E19A84A8F006E07C1 /* JPRatings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPRatings.h; sourceTree = "<group>"; };
 		AA115F0F19A84A8F006E07C1 /* JPRatings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPRatings.m; sourceTree = "<group>"; };
-		AA115F1119A853F5006E07C1 /* uploadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadFailedHUD.png; sourceTree = "<group>"; };
-		AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadFailedHUD.png; sourceTree = "<group>"; };
 		AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudFavoritesHelper.h; sourceTree = "<group>"; };
 		AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCloudFavoritesHelper.m; sourceTree = "<group>"; };
 		AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudBannerHelper.h; sourceTree = "<group>"; };
@@ -564,6 +564,10 @@
 		AA115F2419A9BCC6006E07C1 /* TLTiltSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTiltSlider.m; sourceTree = "<group>"; };
 		AA115F2619AA7C91006E07C1 /* JPHighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHighschoolCourse.h; sourceTree = "<group>"; };
 		AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHighschoolCourse.m; sourceTree = "<group>"; };
+		AA115F2919AA8B5B006E07C1 /* downloadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downloadFailedHUD.png; path = SVStatusHUD/downloadFailedHUD.png; sourceTree = "<group>"; };
+		AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadFailedHUD.png; path = SVStatusHUD/uploadFailedHUD.png; sourceTree = "<group>"; };
+		AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		AA115F2F19AAAA4D006E07C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSettingsAboutViewController.h; sourceTree = "<group>"; };
@@ -599,8 +603,8 @@
 		AA520F031972DCAD0003EF98 /* iPhMapPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMapPanView.m; sourceTree = "<group>"; };
 		AA520F051972DD240003EF98 /* iPhAppProgressPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhAppProgressPanView.h; sourceTree = "<group>"; };
 		AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhAppProgressPanView.m; sourceTree = "<group>"; };
-		AA55F9171999B762005F9F76 /* HNConnectivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNConnectivityManager.h; sourceTree = "<group>"; };
-		AA55F9181999B762005F9F76 /* HNConnectivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNConnectivityManager.m; sourceTree = "<group>"; };
+		AA55F9171999B762005F9F76 /* JPConnectivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPConnectivityManager.h; sourceTree = "<group>"; };
+		AA55F9181999B762005F9F76 /* JPConnectivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPConnectivityManager.m; sourceTree = "<group>"; };
 		AA55F935199AD147005F9F76 /* iPadMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainTabBarController.h; sourceTree = "<group>"; };
 		AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainTabBarController.m; sourceTree = "<group>"; };
 		AA55F938199AD160005F9F76 /* iPhMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainTabBarController.h; sourceTree = "<group>"; };
@@ -707,6 +711,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA115F3019AAAA4D006E07C1 /* Accounts.framework in Frameworks */,
+				AA115F2E19AAAA20006E07C1 /* libz.1.1.3.dylib in Frameworks */,
 				AACB7799199E5CA200C02513 /* Foundation.framework in Frameworks */,
 				AA690646199E5233007A4A6F /* CFNetwork.framework in Frameworks */,
 				AACB7782199E482F00C02513 /* StoreKit.framework in Frameworks */,
@@ -1162,6 +1168,8 @@
 		5DE5B7AE184ACBB700EFCE0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA115F2F19AAAA4D006E07C1 /* Accounts.framework */,
+				AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */,
 				AACB7797199E5C1600C02513 /* FacebookSDK.framework */,
 				AACB7781199E482F00C02513 /* StoreKit.framework */,
 				AACB777F199E482700C02513 /* Security.framework */,
@@ -1194,8 +1202,8 @@
 				5D16763918583D250041993E /* Uniq-Explaination.txt */,
 				5DE5B7BE184ACBB700EFCE0A /* UniqAppDelegate.h */,
 				5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */,
-				AA55F9171999B762005F9F76 /* HNConnectivityManager.h */,
-				AA55F9181999B762005F9F76 /* HNConnectivityManager.m */,
+				AA55F9171999B762005F9F76 /* JPConnectivityManager.h */,
+				AA55F9181999B762005F9F76 /* JPConnectivityManager.m */,
 				5DA1465019397E63004A53EB /* JPMainSync.h */,
 				5DA1465119397E63004A53EB /* JPMainSync.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
@@ -1501,20 +1509,20 @@
 		AACB775B199E3CB500C02513 /* SVStatusHUD */ = {
 			isa = PBXGroup;
 			children = (
-				AA636EA519A42BFD007FCBA4 /* downloadCompleteHUD.png */,
 				AA636EA619A42BFD007FCBA4 /* downloadHUD.png */,
+				AA636EA519A42BFD007FCBA4 /* downloadCompleteHUD.png */,
+				AA115F2919AA8B5B006E07C1 /* downloadFailedHUD.png */,
+				AA636EAF19A42BFD007FCBA4 /* wifi.png */,
+				AA636EB019A42BFD007FCBA4 /* wifi@2x.png */,
 				AA636EA719A42BFD007FCBA4 /* noWifi.png */,
-				AA115F1319A874B3006E07C1 /* downloadFailedHUD.png */,
 				AA636EA819A42BFD007FCBA4 /* noWifi@2x.png */,
 				AA636EA919A42BFD007FCBA4 /* SVStatusHUD.h */,
 				AA636EAA19A42BFD007FCBA4 /* SVStatusHUD.m */,
 				AA636EAB19A42BFD007FCBA4 /* sync.png */,
 				AA636EAC19A42BFD007FCBA4 /* sync@2x.png */,
-				AA636EAD19A42BFD007FCBA4 /* uploadCompleteHUD.png */,
 				AA636EAE19A42BFD007FCBA4 /* uploadHUD.png */,
-				AA115F1119A853F5006E07C1 /* uploadFailedHUD.png */,
-				AA636EAF19A42BFD007FCBA4 /* wifi.png */,
-				AA636EB019A42BFD007FCBA4 /* wifi@2x.png */,
+				AA636EAD19A42BFD007FCBA4 /* uploadCompleteHUD.png */,
+				AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */,
 			);
 			name = SVStatusHUD;
 			sourceTree = "<group>";
@@ -1741,12 +1749,10 @@
 				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
 				5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */,
 				5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */,
-				AA115F1219A853F5006E07C1 /* uploadFailedHUD.png in Resources */,
 				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
 				AA636EB319A42BFD007FCBA4 /* noWifi.png in Resources */,
 				AA636EBA19A42BFD007FCBA4 /* wifi.png in Resources */,
 				5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */,
-				AA115F1419A874B3006E07C1 /* downloadFailedHUD.png in Resources */,
 				5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */,
 				5DA82D7918C2FE430011AC26 /* MPCloseBtn.png in Resources */,
 				AA636EB819A42BFD007FCBA4 /* uploadCompleteHUD.png in Resources */,
@@ -1762,9 +1768,11 @@
 				5D555523193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib in Resources */,
 				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
 				AA636EB419A42BFD007FCBA4 /* noWifi@2x.png in Resources */,
+				AA115F2B19AA8B5B006E07C1 /* downloadFailedHUD.png in Resources */,
 				AA636EB919A42BFD007FCBA4 /* uploadHUD.png in Resources */,
 				5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */,
 				AA636EBB19A42BFD007FCBA4 /* wifi@2x.png in Resources */,
+				AA115F2C19AA8B5B006E07C1 /* uploadFailedHUD.png in Resources */,
 				AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */,
 				AA894BDB1969CFF200F457F8 /* getAllFeaturedInfo.json in Resources */,
 				5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */,
@@ -1801,7 +1809,7 @@
 				AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA9C20B3195D19C600148675 /* UniqKEFunction.m in Sources */,
-				AA55F9191999B762005F9F76 /* HNConnectivityManager.m in Sources */,
+				AA55F9191999B762005F9F76 /* JPConnectivityManager.m in Sources */,
 				AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */,
 				5DE5B83718504D0300EFCE0A /* iPadMainFeaturedViewController.m in Sources */,
 				AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */,
@@ -2091,8 +2099,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: SITE FENG (PAR485YFSL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SITE FENG (PAR485YFSL)";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2113,9 +2121,10 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cabe096a-57f1-4581-8927-205b87a1c281";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2126,8 +2135,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SITE FENG (52GHE2Q332)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SITE FENG (52GHE2Q332)";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2148,8 +2157,9 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cf6706ee-eeb2-4e72-84ba-f4d8051b7ecf";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

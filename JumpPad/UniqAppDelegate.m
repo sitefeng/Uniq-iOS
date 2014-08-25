@@ -11,7 +11,7 @@
 #import "JPStyle.h"
 
 #import "JPMainSync.h"
-#import "HNConnectivityManager.h"
+#import "JPConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
 #import <Parse/Parse.h>
 
@@ -27,7 +27,7 @@
     // Override point for customization after application launch.
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    connectivityManager = [[HNConnectivityManager alloc] init];
+    connectivityManager = [[JPConnectivityManager alloc] init];
     [connectivityManager startUpdating];
     
     JPMainSync* syncer = [[JPMainSync alloc] init];
