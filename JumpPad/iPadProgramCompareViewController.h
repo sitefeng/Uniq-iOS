@@ -26,8 +26,6 @@
 }
 
 
-
-@property (nonatomic, assign) NSUInteger dashletUid;
 @property (nonatomic, strong) Program* program;
 
 
@@ -37,7 +35,7 @@
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithProgram: (Program*)program;
 
 
 

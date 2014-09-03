@@ -92,7 +92,7 @@
 - (void)selectCalendarButtonsFromCoreData
 {
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", [NSNumber numberWithInteger:self.itemId]];
     NSArray* favArray = [context executeFetchRequest:favReq error:nil];
     
     if([favArray count] > 0)
@@ -215,7 +215,7 @@
 {
     _userFav = nil;
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", self.itemId];
     NSArray* favArray = [context executeFetchRequest:favReq error:nil];
     for(UserFavItem* item in favArray)
     {
@@ -228,7 +228,7 @@
     NSEntityDescription* description = [NSEntityDescription entityForName:@"UserFavItem" inManagedObjectContext:context];
     _userFav = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:description insertIntoManagedObjectContext:context];
     
-    _userFav.itemId = [NSNumber numberWithInteger:self.dashletUid];
+    _userFav.favItemId = self.itemId;
     _userFav.type = [NSNumber numberWithInteger:JPDashletTypeProgram];
     _userFav.researched = @NO;
     _userFav.applied = @NO;
@@ -239,9 +239,9 @@
 
 
 
-- (void)setDashletUid:(NSInteger)dashletUid
+- (void)setItemId:(NSString *)itemId
 {
-    _dashletUid=  dashletUid;
+    _itemId=  itemId;
     [self selectCalendarButtonsFromCoreData];
 }
 

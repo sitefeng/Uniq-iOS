@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "JPSchoolSummaryView.h"
 #import "JPCoreDataHelper.h"
+#import "JPDataRequest.h"
+
 
 @class iPadProgramImagesViewController, iPadProgramLabelView, JPSchoolSummaryView, School, iPadProgramContactViewController;
 
-@interface iPadSchoolHomeViewController  : UIViewController <JPSchoolSummaryDelegate>
+@interface iPadSchoolHomeViewController  : UIViewController <JPSchoolSummaryDelegate, JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
     JPCoreDataHelper* _coreDataHelper;
@@ -25,7 +27,8 @@
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
+@property (nonatomic, strong) NSString* itemId;
+
 @property (nonatomic, strong) School* school;
 @property (nonatomic, strong) Faculty* faculty;
 
@@ -38,7 +41,7 @@
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid;
+- (id)initWithItemId: (NSString*)itemId type:(JPDashletType)type;
 
 
 @end

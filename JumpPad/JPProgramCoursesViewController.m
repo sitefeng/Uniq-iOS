@@ -64,7 +64,7 @@ NSString* const kCoursesCellIdentifier;
     
     for(ProgramCourse* course in self.programCourses)
     {
-        if([course.enrollmentYear integerValue] == self.coursesYear)
+        if([course.enrollmentTerm integerValue] == self.coursesYear)
         {
             [self.coursesToDisplay addObject:course];
         }

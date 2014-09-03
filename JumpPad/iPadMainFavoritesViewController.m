@@ -191,7 +191,7 @@
     
     iPadMainCollectionViewCell* dashlet = (iPadMainCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
-    NSUInteger dashletUid  = dashlet.dashletInfo.dashletUid;
+    NSString* itemId  = dashlet.dashletInfo.itemId;
     JPDashletType dashletType = dashlet.dashletInfo.type;
 
     //Mixpanel
@@ -201,13 +201,13 @@
     
     if(dashletType == JPDashletTypeProgram)
     {
-        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithDashletUid:dashletUid];
+        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithItemId:itemId];
         [self presentViewController:programVC animated:YES
                          completion:nil];
     }
     else //dashlet is School or Faculty
     {
-        iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithDashletUid:dashletUid];
+        iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithItemId:itemId type:dashletType];
         UINavigationController* switchViewController = [[UINavigationController alloc] initWithRootViewController:schoolVC];
         [self presentViewController:switchViewController animated:YES completion:nil];
     }
@@ -334,8 +334,7 @@
 
 - (void)favButtonPressed: (iPadMainCollectionViewCell*)sender favorited: (BOOL)fav
 {
-    NSUInteger dashletUid = sender.dashletInfo.dashletUid;
-    [super favButtonPressedIsFavorited: fav dashletUid: dashletUid];
+    [super favButtonPressedIsFavorited: fav itemId:sender.dashletInfo.itemId];
 }
 
 

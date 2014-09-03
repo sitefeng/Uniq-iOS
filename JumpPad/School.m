@@ -2,35 +2,38 @@
 //  School.m
 //  Uniq
 //
-//  Created by Si Te Feng on 7/2/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
 #import "School.h"
+#import "Contact.h"
 #import "Faculty.h"
 #import "ImageLink.h"
+#import "RelatedItem.h"
 #import "SchoolLocation.h"
 #import "SchoolRanking.h"
 
 
 @implementation School
 
+@dynamic about;
 @dynamic alumniNumber;
-@dynamic facebookLink;
-@dynamic linkedinLink;
+@dynamic avgAdm;
+@dynamic gradPopulation;
 @dynamic logoUrl;
 @dynamic name;
+@dynamic numFaculties;
 @dynamic numPrograms;
-@dynamic population;
 @dynamic schoolId;
-@dynamic timeModified;
 @dynamic totalFunding;
-@dynamic twitterLink;
-@dynamic website;
+@dynamic undergradPopulation;
 @dynamic yearEstablished;
+@dynamic contacts;
 @dynamic faculties;
 @dynamic images;
 @dynamic location;
 @dynamic rankings;
+@dynamic relatedItems;
 
 @end

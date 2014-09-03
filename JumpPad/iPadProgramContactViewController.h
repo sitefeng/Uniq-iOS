@@ -26,17 +26,14 @@
 
 
 
-
-
-@property (nonatomic, assign) NSUInteger dashletUid;
-
 @property (nonatomic, strong) iPadProgramLabelView* labelView;
 @property (nonatomic, strong) MKMapView* mapView;
 
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithProgram: (Program*)program;
+
 - (id)initWithSchool: (School*)school;
 - (id)initWithFaculty: (Faculty *)faculty;
 

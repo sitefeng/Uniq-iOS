@@ -31,9 +31,25 @@
 {
     self = [super init];
     
-    self.coordinates = CGPointMake([location.lattitude floatValue], [location.longitude floatValue]);
+    self.coordinates = CGPointMake([location.latitude floatValue], [location.longitude floatValue]);
     self.cityName = location.city;
-    self.provinceName = location.province;
+    self.provinceName = location.region;
+    
+    return self;
+}
+
+
+- (instancetype)initWithLocationDict:(NSDictionary *)dict
+{
+    self = [super init];
+    
+    self.cityName = [dict objectForKey:@"city"];
+    self.provinceName = [dict objectForKey:@"region"];
+    self.countryName = [dict objectForKey:@"country"];
+    
+    CGFloat lat = [[dict objectForKey:@"latitude"] doubleValue];
+    CGFloat lon = [[dict objectForKey:@"longitude"] doubleValue];
+    self.coordinates = CGPointMake(lat, lon);
     
     return self;
 }

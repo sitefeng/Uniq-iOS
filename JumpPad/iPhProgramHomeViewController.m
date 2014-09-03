@@ -16,6 +16,7 @@
 #import "iPhImagePanView.h"
 #import "JPProgramSummaryView.h"
 #import "iPhProgramDetailView.h"
+#import "SVStatusHUD.h"
 
 
 @interface iPhProgramHomeViewController ()
@@ -92,10 +93,6 @@
 
 
 
-
-
-
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -108,40 +105,65 @@
 
 - (void)facebookButtonTapped
 {
+    Contact* contact = [self.program.contacts anyObject];
     
-    NSURL* url = [NSURL URLWithString:self.program.facebookLink];
+    NSURL* url = [NSURL URLWithString:contact.facebook];
     [JPGlobal openURL:url];
 }
 
 
 - (void)emailButtonTapped
 {
-    _mailController = [[MFMailComposeViewController alloc] init];
+    if([MFMailComposeViewController canSendMail])
+    {
+        Contact* contact = [self.program.contacts anyObject];
     
-    _mailController.mailComposeDelegate = self;
-    NSString* recipient = self.program.email;
-    [_mailController setToRecipients:@[recipient]];
-    
-    [self presentViewController:_mailController animated:YES completion:nil];
-    
+        _mailController = [[MFMailComposeViewController alloc] init];
+        _mailController.mailComposeDelegate = self;
+        NSString* recipient = contact.email;
+        [_mailController setToRecipients:@[recipient]];
+        
+        [self presentViewController:_mailController animated:YES completion:nil];
+    }
+    else
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noEmailHUD"] status:@"No Account"];
+    }
 }
 
 
 - (void)websiteButtonTapped
 {
-    NSURL* url = [NSURL URLWithString:self.program.website];
+    Contact* contact = [self.program.contacts anyObject];
+    NSURL* url = [NSURL URLWithString:contact.website];
     [JPGlobal openURL:url];
 }
 
 
+- (void)phoneButtonTapped
+{
+    Contact* contact = [self.program.contacts anyObject];
+    
+    NSString* phoneNumberString = [NSString stringWithFormat:@"%@", contact.phone];
+    
+    if([JPStyle isPhone])
+    {
+        NSString* phoneURLStr = [NSString stringWithFormat:@"tel:%@", phoneNumberString];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneURLStr]];
+    }
+    else
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"copyHUD"] status:@"Phone Copied"];
+        UIPasteboard* board = [UIPasteboard generalPasteboard];
+        [board setString: phoneNumberString];
+    }
+}
 
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 
 
@@ -160,15 +182,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

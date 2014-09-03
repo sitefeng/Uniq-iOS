@@ -135,9 +135,9 @@ static const NSInteger kLabelConst =321;
         case 0:
         {
             if(_itemType == JPDashletTypeSchool)
-                return [NSString stringWithFormat:@"%@ Students", self.school.population];
+                return [NSString stringWithFormat:@"%@ Students", self.school.undergradPopulation];
             else
-                return [NSString stringWithFormat:@"%@ Students", self.faculty.population];
+                return [NSString stringWithFormat:@"%@ Students", self.faculty.undergradPopulation];
         }
         case 1:
         {
@@ -275,8 +275,8 @@ static const NSInteger kLabelConst =321;
 - (void)setSchool:(School *)school
 {
     _school = school;
-    CGPoint coord = CGPointMake([school.location.lattitude floatValue], [school.location.longitude floatValue]);
-    self.location = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
+    CGPoint coord = CGPointMake([school.location.latitude floatValue], [school.location.longitude floatValue]);
+    self.location = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.region];
     _itemType = JPDashletTypeSchool;
     [self reloadLabelInfo];
 }
@@ -285,8 +285,8 @@ static const NSInteger kLabelConst =321;
 {
     _faculty = faculty;
     _school = faculty.school;
-    CGPoint coord = CGPointMake([_school.location.lattitude floatValue], [_school.location.longitude floatValue]);
-    self.location = [[JPLocation alloc] initWithCooridinates:coord city:_school.location.city province:_school.location.province];
+    CGPoint coord = CGPointMake([_school.location.latitude floatValue], [_school.location.longitude floatValue]);
+    self.location = [[JPLocation alloc] initWithCooridinates:coord city:_school.location.city province:_school.location.region];
     _itemType = JPDashletTypeFaculty;
     [self reloadLabelInfo];
 }

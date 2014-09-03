@@ -13,6 +13,7 @@
 #import "JPSchoolSummaryView.h"
 
 #import "JPGlobal.h"
+#import "Contact.h"
 
 @interface iPhSchoolHomeViewController ()
 
@@ -24,7 +25,6 @@
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-
         self.faculty = faculty;
         self.school = faculty.school;
         self.type = JPDashletTypeFaculty;
@@ -82,11 +82,20 @@
 
 - (void)websiteButtonTapped
 {
+    
     NSURL* url = nil;
     if(self.type == JPDashletTypeFaculty)
-        url = [NSURL URLWithString:self.faculty.website];
+    {
+        Contact* contact = [self.faculty.contacts anyObject];
+        url = [NSURL URLWithString:contact.website];
+    }
     else
-        url = [NSURL URLWithString:self.school.website];
+    {
+        Contact* contact = [self.school.contacts anyObject];
+        url = [NSURL URLWithString:contact.website];
+
+    }
+    
     [JPGlobal openURL:url];
 }
 
@@ -96,9 +105,16 @@
 {
     NSURL* url = nil;
     if(self.type == JPDashletTypeFaculty)
-        url = [NSURL URLWithString:self.faculty.facebookLink];
+    {
+        Contact* contact = [self.faculty.contacts anyObject];
+        url = [NSURL URLWithString:contact.facebook];
+    }
     else
-        url = [NSURL URLWithString:self.school.facebookLink];
+    {
+        Contact* contact = [self.school.contacts anyObject];
+        url = [NSURL URLWithString:contact.facebook];
+    }
+    
     [JPGlobal openURL:url];
 }
 
@@ -107,9 +123,15 @@
 {
     NSURL* url = nil;
     if(self.type == JPDashletTypeFaculty)
-        url = [NSURL URLWithString:self.faculty.twitterLink];
+    {
+        Contact* contact = [self.faculty.contacts anyObject];
+        url = [NSURL URLWithString:contact.twitter];
+    }
     else
-        url = [NSURL URLWithString:self.school.twitterLink];
+    {
+        Contact* contact = [self.school.contacts anyObject];
+        url = [NSURL URLWithString:contact.twitter];
+    }
     
     [JPGlobal openURL:url];
 }

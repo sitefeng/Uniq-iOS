@@ -167,8 +167,7 @@
                 break;
             }
             case 1: {
-                //TODO: this
-                NSURL* url = [NSURL URLWithString:@"http://www.yahoo.com"];
+                NSURL* url = [NSURL URLWithString:@"http://uniq.url.ph"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }
@@ -204,12 +203,12 @@
                 break;
             }
             case 6: {
-                NSURL* url = [NSURL URLWithString:@"http://www.facebook.com"];
+                NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/Uniqios"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }
             case 7: {
-                NSURL* url = [NSURL URLWithString:@"http://www.twitter.com"];
+                NSURL* url = [NSURL URLWithString:@"http://www.twitter.com/uniqios"];
                 [[UIApplication sharedApplication] openURL:url];
                 
                 break;
@@ -235,9 +234,9 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSString* message = @"Checkout Uniq for iOS! Personal College Application Guide.";
+    NSString* message = @"Checkout Uniq for iOS. College Info Reimagined.";
     UIImage* image = [UIImage imageNamed:@"appIcon-152"];
-    NSURL* link = [NSURL URLWithString:@"http://www.google.com"];//TODO: this
+    NSURL* link = [NSURL URLWithString:@"http://uniq.url.ph"];
     
     if(buttonIndex==0)//facebook
     {

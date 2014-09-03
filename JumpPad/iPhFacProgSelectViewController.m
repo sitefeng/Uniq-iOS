@@ -12,6 +12,7 @@
 #import "iPhSchoolViewController.h"
 #import "iPhProgramViewController.h"
 #import "Mixpanel.h"
+#import "JPDataRequest.h"
 
 
 @interface iPhFacProgSelectViewController ()
@@ -20,7 +21,7 @@
 
 @implementation iPhFacProgSelectViewController
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid forSelectionType: (JPDashletType)type
+- (instancetype)initWithItemId: (NSString*)itemId forSelectionType: (JPDashletType)type
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -29,7 +30,7 @@
         context = [del managedObjectContext];
         
         self.type = type;
-        self.dashletUid = dashletUid;
+        self.itemId = itemId;
         
     }
     return self;
@@ -44,7 +45,6 @@
     UIBarButtonItem* infoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStyleDone target:self action:@selector(infoButtonPressed:)];
     self.navigationItem.rightBarButtonItem = infoButtonItem;
     
-    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait-kiPhoneTabBarHeight) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -57,8 +57,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self updateDashletsInfo];
     
+    [self updateDashletsInfo];
     
 }
 
@@ -66,7 +66,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-    
 }
 
 
@@ -121,14 +120,14 @@
     
     if(self.type == JPDashletTypeFaculty)
     {
-        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithDashletUid: selectedDashlet.dashletUid forSelectionType:JPDashletTypeProgram];
+        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId: selectedDashlet.itemId forSelectionType:JPDashletTypeProgram];
         programSelectVC.title = selectedDashlet.title;
         
         [self.navigationController pushViewController:programSelectVC animated:YES];
     }
     else //type == JP Dashlet type Program
     {
-        iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithDashletUid:selectedDashlet.dashletUid];
+        iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
         programController.title = selectedDashlet.title;
         
         
@@ -149,9 +148,39 @@
 
 
 
-#pragma mark - Update From Core Data
-//Retrieving Faculty info from Core Data and put into featuredDashelts
+#pragma mark - Update Dashlet Info
+
 - (void)updateDashletsInfo
+{
+    JPDataRequest* request = [JPDataRequest sharedRequest];
+    request.delegate = self;
+    
+    if(self.type == JPDashletTypeFaculty)
+        [request requestAllFacultiesFromSchool:self.itemId allFields:NO];
+    else
+        [request requestAllProgramsFromFaculty:self.itemId allFields:NO];
+}
+
+
+- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
+{
+    if(!success)
+        return;
+    
+    self.dashlets = [NSMutableArray array];
+    for(NSDictionary* itemDict in array)
+    {
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:itemDict ofDashletType:type];
+        [self.dashlets addObject:dashlet];
+    }
+    
+    [self.tableView reloadData];
+}
+
+//jpdeprecated
+/*
+Retrieving Faculty info from Core Data and put into featuredDashelts
+- (void)updateDashletsInfoFromCoreData
 {
     NSMutableArray* dashletArray = [NSMutableArray array];
     //Core Data id and dashlet id are different
@@ -197,7 +226,7 @@
     
     self.dashlets = dashletArray;
 }
-
+*/
 
 
 #pragma mark - UI Navigation Item Callback Method
@@ -207,11 +236,11 @@
     
     if(self.type == JPDashletTypeFaculty)
     {
-        viewController = [[iPhSchoolViewController alloc] initWithDashletUid:self.dashletUid itemType:JPDashletTypeSchool];
+        viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:JPDashletTypeSchool];
     }
     else //type == JPdashlet Type Program
     {
-        viewController = [[iPhSchoolViewController alloc] initWithDashletUid:self.dashletUid itemType:JPDashletTypeFaculty];
+        viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:JPDashletTypeFaculty];
     }
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];

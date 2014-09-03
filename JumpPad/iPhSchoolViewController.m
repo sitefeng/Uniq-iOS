@@ -10,7 +10,7 @@
 #import "iPhSchoolHomeViewController.h"
 #import "iPhProgramContactViewController.h"
 #import "JPCoreDataHelper.h"
-
+#import "JPDataRequest.h"
 
 
 @interface iPhSchoolViewController ()
@@ -19,32 +19,17 @@
 
 @implementation iPhSchoolViewController
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid itemType: (NSUInteger)type
+- (instancetype)initWithItemId:(NSString*)itemId itemType: (NSUInteger)type
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        self.dashletUid=  dashletUid;
+        self.itemId=  itemId;
         self.type = type;
         
-        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-        context = [delegate managedObjectContext];
-        
-        NSNumber* schoolId = [NSNumber numberWithInteger:self.dashletUid/10000000];
-        NSNumber* facultyId = [NSNumber numberWithInteger:self.dashletUid%10000000/100000];
-        
-        if(self.type ==  JPDashletTypeSchool)
-        {
-            NSFetchRequest* req = [NSFetchRequest fetchRequestWithEntityName:@"School"];
-            req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@", schoolId];
-            NSArray* schoolArray = [context executeFetchRequest:req error:nil];
-            self.schoolOrFaculty = [schoolArray firstObject];
-        }
-        else {
-            NSFetchRequest* req = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
-            req.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@", facultyId];
-            NSArray* facultyArray = [context executeFetchRequest:req error:nil];
-            self.schoolOrFaculty = [facultyArray firstObject];
-        }
+        JPDataRequest* request = [JPDataRequest sharedRequest];
+        request.delegate = self;
+        [request requestItemDetailsWithId:itemId ofType:type];
+
         
         _coreDataHelper = [[JPCoreDataHelper alloc] init];
         
@@ -57,35 +42,10 @@
         UIButton* favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
         [favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
-        favButton.selected = [_coreDataHelper isFavoritedWithDashletUid:self.dashletUid];
+        favButton.selected = [_coreDataHelper isFavoritedWithItemId:self.itemId];
         [favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:favButton];
         self.navigationItem.rightBarButtonItem = favoriteItem;
-        
-        
-        iPhSchoolHomeViewController* homeController = nil;
-        iPhProgramContactViewController* contactController = nil;
-        
-        //Initializing View Controllers
-        if(self.type == JPDashletTypeSchool)
-        {
-            homeController = [[iPhSchoolHomeViewController alloc] initWithSchool:self.schoolOrFaculty];
-            contactController = [[iPhProgramContactViewController alloc] initWithSchool:self.schoolOrFaculty];
-        }
-        else
-        {
-            homeController = [[iPhSchoolHomeViewController alloc] initWithFaculty:self.schoolOrFaculty];
-            contactController = [[iPhProgramContactViewController alloc] initWithFaculty:self.schoolOrFaculty];
-        }
-        
-        homeController.tabBarItem.title = @"Home";
-        homeController.tabBarItem.image = [UIImage imageNamed:@"home"];
-        
-        contactController.tabBarItem.title = @"Contact";
-        contactController.tableView.frame = CGRectMake(0, contactController.tableView.frame.origin.y - kiPhoneNavigationBarHeight-kiPhoneStatusBarHeight, kiPhoneWidthPortrait, contactController.tableView.frame.size.height);
-        contactController.tabBarItem.image = [UIImage imageNamed:@"contact"];
-        
-        self.viewControllers = @[homeController, contactController];
         
     }
     return self;
@@ -96,6 +56,47 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+}
+
+
+
+
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
+{
+    if(type == JPDashletTypeSchool)
+    {
+        self.schoolOrFaculty = [[School alloc] initWithDictionary:dict];
+    }
+    else if (type == JPDashletTypeFaculty)
+    {
+        self.schoolOrFaculty = [[Faculty alloc] initWithDictionary:dict];
+    }
+    
+    //Initializing the Home and Contact Controllers
+    
+    iPhSchoolHomeViewController* homeController = nil;
+    iPhProgramContactViewController* contactController = nil;
+    
+    //Initializing View Controllers
+    if(self.type == JPDashletTypeSchool)
+    {
+        homeController = [[iPhSchoolHomeViewController alloc] initWithSchool:self.schoolOrFaculty];
+        contactController = [[iPhProgramContactViewController alloc] initWithSchool:self.schoolOrFaculty];
+    }
+    else
+    {
+        homeController = [[iPhSchoolHomeViewController alloc] initWithFaculty:self.schoolOrFaculty];
+        contactController = [[iPhProgramContactViewController alloc] initWithFaculty:self.schoolOrFaculty];
+    }
+    
+    homeController.tabBarItem.title = @"Home";
+    homeController.tabBarItem.image = [UIImage imageNamed:@"home"];
+    
+    contactController.tabBarItem.title = @"Contact";
+    contactController.tableView.frame = CGRectMake(0, contactController.tableView.frame.origin.y - kiPhoneNavigationBarHeight-kiPhoneStatusBarHeight, kiPhoneWidthPortrait, contactController.tableView.frame.size.height);
+    contactController.tabBarItem.image = [UIImage imageNamed:@"contact"];
+    
+    self.viewControllers = @[homeController, contactController];
 }
 
 
@@ -114,12 +115,12 @@
     if(!button.selected)
     {
         button.selected = YES;
-        [_coreDataHelper addFavoriteWithDashletUid:self.dashletUid andType:self.type];
+        [_coreDataHelper addFavoriteWithItemId:self.itemId andType:self.type];
     }
     else
     {
         button.selected = NO;
-        [_coreDataHelper removeFavoriteWithDashletUid:self.type];
+        [_coreDataHelper removeFavoriteWithItemId:self.itemId];
     }
     
 }

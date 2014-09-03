@@ -16,7 +16,7 @@
 #import "Banner.h"
 
 #import "Faculty.h"
-
+#import "Contact.h"
 #import "JPMainSync.h"
 
 @interface iPadDebugSyncViewController ()
@@ -128,8 +128,8 @@
         {
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"F: Id: [%@]\n",faculty.facultyId]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Name: [%@]\n", faculty.name]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Population: [%@]\n", faculty.population]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", faculty.website]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Population: [%@]\n", faculty.undergradPopulation]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", [[faculty.contacts anyObject] website]]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Logo: [%@]\n", faculty.logoUrl]];
         }
         
@@ -155,8 +155,7 @@
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"S: img: [%@]\n",img.imageLink]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    img2: [%@]\n", img2.imageLink]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    img3: [%@]\n", img3.imageLink]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", school.website]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    timeModified: [%@]\n", school.timeModified]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", [[school.contacts anyObject] website]]];
         }
         
     }
@@ -224,8 +223,8 @@
         {
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"P: Id: [%@]\n",program.programId]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Name: [%@]\n", program.name]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Population: [%@]\n", program.population]];
-            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", program.website]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Population: [%@]\n", program.undergradPopulation]];
+            self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Web: [%@]\n", [[program.contacts anyObject] website]]];
             self.textView.text = [self.textView.text stringByAppendingString:[NSString stringWithFormat:@"    Fav: [%@]\n", program.numFavorites]];
         }
     }

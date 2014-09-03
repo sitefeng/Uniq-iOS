@@ -145,45 +145,6 @@
 }
 
 
-+ (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid type: (JPDashletType)type
-{
-    //XXX-XX-XXXXX
-    NSInteger itemId = 0;
-    
-    if(JPDashletTypeProgram == type)
-    {
-        itemId = dashletUid % 100000;
-    }
-    else if(JPDashletTypeFaculty == type)
-    {
-        itemId = (dashletUid / 100000) % 100;
-    }
-    else //school
-    {
-        itemId = dashletUid / 10000000;
-    }
-    
-    return itemId;
-}
-
-+ (NSInteger)itemIdWithDashletUid: (NSUInteger)dashletUid
-{
-    NSInteger programId = dashletUid % 100000;
-    NSInteger facultyId = (dashletUid / 100000) % 100;
-//    NSInteger schoolId  = dashletUid / 10000000;
-    
-    JPDashletType type = -1;
-    
-    if(facultyId == 0)
-        type = JPDashletTypeSchool;
-    else if(programId == 0)
-        type = JPDashletTypeFaculty;
-    else
-        type = JPDashletTypeProgram;
-    
-    return [self itemIdWithDashletUid:dashletUid type:type];
-}
-
 
 
 UIImage* imageFromView(UIView *view)

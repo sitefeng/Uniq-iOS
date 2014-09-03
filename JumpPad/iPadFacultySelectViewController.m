@@ -16,6 +16,8 @@
 #import "iPadSchoolHomeViewController.h"
 #import "iPadMainCollectionViewCell.h"
 #import "Faculty.h"
+#import "JPDataRequest.h"
+
 
 @interface iPadFacultySelectViewController ()
 
@@ -74,8 +76,8 @@
     self.searchBarView.delegate = self;
     
     //Facuty Banner View
-    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200) withPlaceholder:YES];
-    self.bannerView.dashletUid = self.schoolUid;
+    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200) withDashlet:self.schoolDashlet];
+    
     
     //Adding subviews
     [self.view addSubview: self.cv];
@@ -129,31 +131,27 @@
 //Retrieving College info from Core Data and put into featuredDashelts
 - (void)updateDashletsInfo
 {
-    //Core Data id and dashlet id are different
-    NSInteger coreDataSchoolId = self.schoolUid / 10000000;
+    JPDataRequest* dataRequest = [JPDataRequest sharedRequest];
+    dataRequest.delegate = self;
     
-    NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
-    dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    dashletRequest.predicate = [NSPredicate predicateWithFormat:@"school.schoolId = %@", [NSNumber numberWithInteger:coreDataSchoolId]];
-    
-    NSError* err = nil;
-    NSArray* fArray = [self.context executeFetchRequest:dashletRequest error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    NSMutableArray* dashletArray = [NSMutableArray array];
-    
-    for(Faculty* faculty in fArray)
-    {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithFaculty:faculty fromSchool:self.schoolUid];
-        
-        [dashletArray addObject:dashlet];
-    }
-    
-    self.dashlets = dashletArray;
+    [dataRequest requestAllFacultiesFromSchool:self.schoolId allFields:NO];
     
 }
 
+
+- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
+{
+    if(!success)
+        return;
+    
+    self.dashlets = [NSMutableArray array];
+    for (NSDictionary* facultyDict in array)
+    {
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:facultyDict ofDashletType:JPDashletTypeFaculty];
+        [self.dashlets addObject:dashlet];
+    }
+    
+}
 
 
 
@@ -228,7 +226,8 @@
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
     viewController.title = selectedDashlet.title;
-    viewController.facultyUid = selectedDashlet.dashletUid;
+    viewController.facultyId = selectedDashlet.itemId;
+    viewController.facultyDashlet = selectedDashlet;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -317,7 +316,7 @@
 
 - (void)infoButtonPressed:(iPadMainCollectionViewCell *)sender
 {
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:sender.dashletInfo.dashletUid];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:sender.dashletInfo.itemId type:JPDashletTypeFaculty];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
@@ -328,7 +327,7 @@
 - (void)schoolInfoPressed
 {
     
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:self.schoolUid];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:self.schoolId type:JPDashletTypeSchool];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     

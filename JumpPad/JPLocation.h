@@ -22,6 +22,7 @@
 
 - (instancetype)initWithCooridinates: (CGPoint)coord city: (NSString*)city  province: (NSString*)province;
 - (instancetype)initWithSchoolLocation: (SchoolLocation*)location;
+- (instancetype)initWithLocationDict: (NSDictionary*)dict;
 
 
 - (BOOL)isEqual: (JPLocation*) location;

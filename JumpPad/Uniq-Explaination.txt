@@ -15,6 +15,16 @@ If your target is the iOS simulator, or 32-bit OS X, you can print the exception
 //Specify root path in Xcode build settings: $(SRCROOT)
 //Project Path: $(PROJECT_DIR)
 
+/////////////
+markers:
+//JPDeprecated
+//todo
+//todo urgent
+//temp
+
+/////////////
+
+
 
 New School Format
 Max Number of Schools: 213
@@ -81,6 +91,8 @@ UIApplication *app = [UIApplication sharedApplication];
             // Force quit. Never do this in App Store code.
             exit(0);
         }
+
+//twitter pass: bethechange
 
 
 

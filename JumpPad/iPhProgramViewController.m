@@ -16,6 +16,8 @@
 #import "iPhAppProgressPanView.h"
 #import "iPhProgramRatingsViewController.h"
 #import "JPStyle.h"
+#import "JPDataRequest.h"
+#import "ManagedObjects+JPConvenience.h"
 
 
 @interface iPhProgramViewController ()
@@ -24,7 +26,7 @@
 
 @implementation iPhProgramViewController
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid
+- (instancetype)initWithItemId: (NSString*)itemId
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -34,7 +36,7 @@
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        self.dashletUid = dashletUid;
+        self.itemId = itemId;
         _helper = [[JPCoreDataHelper alloc] init];
         
         [self retrieveProgramInfo];
@@ -46,7 +48,7 @@
         _favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
         [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
-        _favButton.selected = [_helper isFavoritedWithDashletUid:self.dashletUid];
+        _favButton.selected = [_helper isFavoritedWithItemId:self.itemId];
         [_favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:_favButton];
         self.navigationItem.rightBarButtonItem = favoriteItem;
@@ -81,29 +83,33 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     
-    
 }
 
 
 - (void)retrieveProgramInfo
 {
-    NSInteger programId = self.dashletUid%100000;
-    NSInteger facultyId = self.dashletUid%10000000 / 100000;
-    NSInteger schoolId = self.dashletUid/10000000;
+    JPDataRequest* request = [JPDataRequest sharedRequest];
+    request.delegate = self;
+    [request requestItemDetailsWithId:self.itemId ofType:JPDashletTypeProgram];
     
-    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
-    request.predicate = [NSPredicate predicateWithFormat: @"programId = %@ && faculty.facultyId = %@ && faculty.school.schoolId = %@", [NSNumber numberWithInteger:programId], [NSNumber numberWithInteger:facultyId], [NSNumber numberWithInteger:schoolId]];
     
-    NSArray* programArray = [context executeFetchRequest: request error: nil];
     
-    self.program = [programArray firstObject];
+    
+    
+}
+
+
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
+{
+
+    self.program = [[Program alloc] initWithDictionary:dict];
     
 }
          
 
 - (void)reloadFavoriteButtonState
 {
-    _favButton.selected = [_helper isFavoritedWithDashletUid:self.dashletUid];
+    _favButton.selected = [_helper isFavoritedWithItemId:self.itemId];
 }
          
 
@@ -119,7 +125,7 @@
     if(!button.selected)
     {
         button.selected = YES;
-        [_helper addFavoriteWithDashletUid:self.dashletUid andType:JPDashletTypeProgram];
+        [_helper addFavoriteWithItemId:self.itemId andType:JPDashletTypeProgram];
         
         //Mixpanel
         [[Mixpanel sharedInstance] track:@"Program Favorited"
@@ -128,7 +134,7 @@
     else
     {
         button.selected = NO;
-        [_helper removeFavoriteWithDashletUid:self.dashletUid];
+        [_helper removeFavoriteWithItemId:self.itemId];
     }
     
     [academicsController.progressPanView selectCalendarButtonsFromCoreData];

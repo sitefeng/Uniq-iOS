@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
 #import "iPadProgramAcademicsViewController.h"
 #import "iPadProgramCompareViewController.h"
 #import "iPadProgramContactViewController.h"
@@ -16,16 +17,15 @@
 
 @class Program;
 
-@interface iPadProgramViewController : UITabBarController
+@interface iPadProgramViewController : UITabBarController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
     
-    NSInteger               _programId;
 }
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
+@property (nonatomic, strong) NSString* programId;
 
 @property (nonatomic, strong) Program* program;
 
@@ -40,7 +40,7 @@
 
 
 
-- (id)initWithDashletUid: (NSUInteger) dashletUid;
+- (id)initWithItemId: (NSString*)itemId;
 
 
 

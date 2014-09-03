@@ -24,7 +24,7 @@
 
 @implementation iPadProgramCompareViewController
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
+- (id)initWithProgram: (Program*)program
 {
     self = [super init];
     
@@ -35,7 +35,6 @@
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         
         self.program = program;
-        self.dashletUid = dashletUid;
         
     }
     
@@ -72,7 +71,7 @@
     [self.view addSubview:blueLine];
     
     _squareView2 = [[iPadMainCollectionViewCell alloc] initWithFrame:CGRectMake(_squareView1.frame.origin.x, 550, kiPadDashletSizePortrait.width, kiPadDashletSizePortrait.height)];
-    JPDashlet* dashletInfo2 = [[JPDashlet alloc] initWithDashletUid:0];
+    JPDashlet* dashletInfo2 = [[JPDashlet alloc] init];
     _squareView2.dashletInfo = dashletInfo2;
     
     _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(350, 570, 300, 50)];
@@ -140,8 +139,7 @@
 - (void)reloadDashlets
 {
     //Dashlet 1
-    NSUInteger facultyDashletId = self.dashletUid - [self.program.programId integerValue];
-    JPDashlet* dashletInfo1 = [[JPDashlet alloc] initWithProgram:self.program fromFaculty:facultyDashletId];
+    JPDashlet* dashletInfo1 = [[JPDashlet alloc] initWithProgram:self.program];
     
     if(!_squareView1)
     {
@@ -180,18 +178,6 @@
     _square2Label.text = @"Program Name\nUniversity Name";
     
 }
-
-
-
-- (void)setDashletUid:(NSUInteger)dashletUid
-{
-    _dashletUid = dashletUid;
-    
-    
-    
-}
-
-
 
 
 

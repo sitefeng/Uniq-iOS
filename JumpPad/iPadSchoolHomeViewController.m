@@ -25,6 +25,9 @@
 #import "UserFavItem.h"
 
 #import "iPadProgramContactViewController.h"
+#import "ManagedObjects+JPConvenience.h"
+
+
 
 @interface iPadSchoolHomeViewController ()
 
@@ -38,7 +41,7 @@ static const float kProgramImageWidth  = 384;
 @implementation iPadSchoolHomeViewController
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid
+- (id)initWithItemId:(NSString *)itemId type:(JPDashletType)type
 {
     self = [super init];
     
@@ -50,54 +53,53 @@ static const float kProgramImageWidth  = 384;
         
         _coreDataHelper = [[JPCoreDataHelper alloc] init];
         
+        self.itemId = itemId;
+        
         //Navbar dismiss button
         UIBarButtonItem* dismissButton = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonPressed:)];
         self.navigationItem.leftBarButtonItem = dismissButton;
         
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
         
-        _itemType = -1;
-        //Getting School/Faculty Info based on dashletUid
-        NSUInteger schoolInt = dashletUid/10000000;
-        NSUInteger facultyInt = (dashletUid % 10000000) / 100000;
+        JPDataRequest* dataReq = [JPDataRequest sharedRequest];
+        dataReq.delegate = self;
         
-        if(facultyInt == 0) // item is a school
-        {
-            NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-            schoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolInt];
-            
-            NSArray* schoolResults = [context executeFetchRequest:schoolReq error:nil];
-            School* school = [schoolResults firstObject];
-            self.school = school;
-
-        }
-        else //should be faculty, although a program is possible
-        {
-            NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
-            facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %i", facultyInt];
-            
-            NSArray* facultyResults = [context executeFetchRequest:facultyReq error:nil];
-            Faculty* faculty = [facultyResults firstObject];
-            self.faculty = faculty;
-        }
-        
-        
-        //Set Properties
-        self.dashletUid = dashletUid;
-        
-        if(_itemType == JPDashletTypeFaculty)
-        {
-            self.title = self.faculty.name;
-        }
-        else
-        {
-            self.title = self.school.name;
-        }
+        [dataReq requestItemDetailsWithId:itemId ofType:type];
         
     }
     return self;
 }
 
+
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
+{
+    _itemType = type;
+    
+    if(type == JPDashletTypeSchool) // item is a school
+    {
+        School* school = [[School alloc] initWithDictionary:dict];
+        self.school = school;
+        
+    }
+    else if(type == JPDashletTypeFaculty)
+    {
+        Faculty* faculty = [[Faculty alloc] initWithDictionary:dict];
+        self.faculty = faculty;
+    }
+    
+    
+    //Set Properties
+
+    if(_itemType == JPDashletTypeFaculty)
+    {
+        self.title = self.faculty.name;
+    }
+    else
+    {
+        self.title = self.school.name;
+    }
+
+}
 
 
 - (void)viewDidLoad
@@ -119,8 +121,8 @@ static const float kProgramImageWidth  = 384;
     //Init Summary View
     School* school = self.school;
     
-    CGPoint coord = jpp([school.location.lattitude floatValue], [school.location.longitude floatValue]);
-    _schoolLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.province];
+    CGPoint coord = jpp([school.location.latitude floatValue], [school.location.longitude floatValue]);
+    _schoolLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.region];
     
     //Summary View
     self.summaryView = [[JPSchoolSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight)];
@@ -131,22 +133,8 @@ static const float kProgramImageWidth  = 384;
         self.summaryView.faculty = self.faculty;
     
     //Check if program is favorited
-    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
-    NSArray* result = [context executeFetchRequest:favReq error:nil];
+    self.summaryView.isFavorited = [_coreDataHelper isFavoritedWithItemId:self.itemId];
     
-    if(!result || [result count] == 0)
-    {
-        self.summaryView.isFavorited = NO;
-    }
-    else if(result.count == 1)
-    {
-        self.summaryView.isFavorited = YES;
-    }
-    else {
-        self.summaryView.isFavorited = YES;
-        NSLog(@"Error: TOO many favorite results!");
-    }
     
     [self addChildViewController:self.imageController];
     [self.view addSubview:self.imageController.view];
@@ -184,9 +172,9 @@ static const float kProgramImageWidth  = 384;
 
 - (void)twitterButtonTapped
 {
-    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: self.school.twitterLink]])
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: [[self.school.contacts anyObject] twitter]]])
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.school.twitterLink]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[self.school.contacts anyObject] twitter]]];
     }
     else
     {
@@ -197,9 +185,9 @@ static const float kProgramImageWidth  = 384;
 
 - (void)websiteButtonTapped
 {
-    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: self.school.website]])
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: [[self.school.contacts anyObject] website]]])
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.school.website]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[self.school.contacts anyObject] website]]];
     }
     else
     {
@@ -211,9 +199,9 @@ static const float kProgramImageWidth  = 384;
 
 - (void)facebookButtonTapped
 {
-    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: self.school.facebookLink]])
+    if([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString: [[self.school.contacts anyObject] facebook]]])
     {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.school.facebookLink]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[self.school.contacts anyObject] facebook]]];
     }
     else
     {
@@ -232,14 +220,12 @@ static const float kProgramImageWidth  = 384;
 {
     if(isSelected)
     {
-        [_coreDataHelper addFavoriteWithDashletUid:self.dashletUid andType:_itemType];
-        
+        [_coreDataHelper addFavoriteWithItemId:self.itemId andType:_itemType];
         self.summaryView.isFavorited = YES;
     }
     else //deselected
     {
-        [_coreDataHelper removeFavoriteWithDashletUid:self.dashletUid];
-        
+        [_coreDataHelper removeFavoriteWithItemId:self.itemId];
         self.summaryView.isFavorited = NO;
     }
     

@@ -84,7 +84,7 @@
     
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
-    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithDashletUid:selectedDashlet.dashletUid forSelectionType:JPDashletTypeFaculty];
+    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId forSelectionType:JPDashletTypeFaculty];
     selectViewController.title = selectedDashlet.title;
     
     [self.navigationController pushViewController:selectViewController animated:YES];
@@ -98,6 +98,17 @@
     
     [_indexPathsNeedReloading removeAllObjects];
 }
+
+
+
+- (void)setDashlets:(NSMutableArray *)dashlets
+{
+    super.dashlets = dashlets;
+    
+    [self.tableView reloadData];
+    
+}
+
 
 
 - (void)viewWillDisappear:(BOOL)animated

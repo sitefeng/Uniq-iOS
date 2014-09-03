@@ -17,6 +17,8 @@
 #import "Program.h"
 #import "iPadProgramViewController.h"
 #import "Mixpanel.h"
+#import "ManagedObjects+JPConvenience.h"
+
 
 @interface iPadProgramSelectViewController ()
 
@@ -74,8 +76,7 @@
     self.searchBarView.delegate = self;
     
     //Facuty Banner View
-    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200) withPlaceholder:YES];
-    self.bannerView.dashletUid = self.facultyUid;
+    self.bannerView = [[iPadFacultyBannerView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 200) withDashlet:self.facultyDashlet];
     
     //Adding subviews
     [self.view addSubview: self.cv];
@@ -123,34 +124,29 @@
 
 
 
-#pragma mark - Update From Core Data
-//Retrieving College info from Core Data and put into featuredDashelts
+#pragma mark - Update From Core Data / Server
 - (void)updateDashletsInfo
 {
-    //Core Data id and dashlet id are different
-    NSInteger coreDataFacultyId = self.facultyUid/100000 % 100;
-    
-    NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
-    dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    dashletRequest.predicate = [NSPredicate predicateWithFormat:@"faculty.facultyId = %@", [NSNumber numberWithInteger:coreDataFacultyId]];
-    
-    NSError* err = nil;
-    NSArray* fArray = [self.context executeFetchRequest:dashletRequest error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    NSMutableArray* dashletArray = [NSMutableArray array];
-    
-    for(Program* program in fArray)
-    {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithProgram:program fromFaculty:self.facultyUid];
-        [dashletArray addObject:dashlet];
-    }
-    
-    self.dashlets = dashletArray;
+    JPDataRequest* dataReq = [JPDataRequest sharedRequest];
+    dataReq.delegate = self;
+    [dataReq requestAllProgramsFromFaculty:self.facultyId allFields:NO];
     
 }
 
+
+- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
+{
+    if(!success)
+        return;
+    self.dashlets = [NSMutableArray array];
+    
+    for(NSDictionary* programDict in array)
+    {
+        Program* program = [[Program alloc] initWithDictionary:programDict];
+        [self.dashlets addObject:program];
+    }
+    
+}
 
 
 
@@ -230,7 +226,7 @@
 {
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
-    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithDashletUid:selectedDashlet.dashletUid];
+    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
     
     [self presentViewController:viewController animated:YES completion:nil];
 }
@@ -312,7 +308,7 @@
 
 - (void)facultyInfoPressed
 {
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:self.facultyUid];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:self.facultyId type:JPDashletTypeFaculty];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     

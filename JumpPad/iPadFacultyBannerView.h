@@ -12,19 +12,19 @@
 @class JPDashlet;
 @interface iPadFacultyBannerView : AsyncImageView
 {
-    JPDashlet*  _dashletInfo;
+  
 }
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
+@property (nonatomic, strong) JPDashlet* dashlet;
 
 
 @property (nonatomic, strong) UILabel* titleLabel;
 
 
 
-- (id)initWithFrame:(CGRect)frame withPlaceholder: (BOOL)showPlaceholder;
+- (id)initWithFrame:(CGRect)frame withDashlet: (JPDashlet*)dashlet;
 
 
 @end

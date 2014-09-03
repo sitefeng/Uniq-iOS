@@ -14,19 +14,15 @@
 
 @implementation iPadFacultyBannerView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [self initWithFrame:frame withPlaceholder:NO];
-    return self;
-}
 
-
-- (id)initWithFrame:(CGRect)frame withPlaceholder: (BOOL)showPlaceholder
+- (id)initWithFrame:(CGRect)frame withDashlet: (JPDashlet*)dashlet
 {
     self = [super initWithFrame:frame withPlaceholderImgName:@"defaultProgram"];
     
     if (self) {
         // Initialization code
+        self.dashlet = dashlet;
+        
         self.backgroundColor = [UIColor clearColor];
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
@@ -44,18 +40,17 @@
 
 
 
-- (void)setDashletUid:(NSUInteger)dashletUid
+- (void)setDashlet:(JPDashlet *)dashlet
 {
-    _dashletUid = dashletUid;
-    _dashletInfo = [[JPDashlet alloc] initWithDashletUid:_dashletUid];
+    _dashlet = dashlet;
     
-    if([_dashletInfo.backgroundImages count] > 0)
+    if([_dashlet.backgroundImages count] > 0)
     {
-        NSUInteger randomPhotoIndex = arc4random() % [_dashletInfo.backgroundImages count];
-        self.imageURL = [_dashletInfo.backgroundImages objectAtIndex:randomPhotoIndex];
+        NSUInteger randomPhotoIndex = arc4random() % [_dashlet.backgroundImages count];
+        self.imageURL = [_dashlet.backgroundImages objectAtIndex:randomPhotoIndex];
     }
     
-    if(_dashletInfo.type == JPDashletTypeFaculty)
+    if(_dashlet.type == JPDashletTypeFaculty)
     {
         self.titleLabel.text = @" Select A Program ";
         self.titleLabel.frame = CGRectMake(360, 75, kiPadWidthPortrait-360, 50);
@@ -68,6 +63,14 @@
     [self.titleLabel sizeToFit];
     
 }
+
+
+
+
+
+
+
+
 
 
 

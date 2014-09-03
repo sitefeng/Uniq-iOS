@@ -75,9 +75,7 @@
         NSInteger rowNum = [self.featuredArray indexOfObject:featured];
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
         
-        NSUInteger itemUidInt = [JPGlobal itemIdWithDashletUid:[featured.linkedUid integerValue]];
-        NSString* itemUid = [NSString stringWithFormat:@"%d", itemUidInt];
-        [_cloudFav getItemFavCountAsyncWithUid:itemUid indexPath:indexPath];
+        [_cloudFav getItemFavCountAsyncWithUid:featured.itemId indexPath:indexPath];
     }
 }
 
@@ -108,28 +106,21 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     Featured* featureItem = self.featuredArray[indexPath.row];
-    JPDashlet* dashletItem = [[JPDashlet alloc] initWithDashletUid:[featureItem.linkedUid integerValue]];
+//    JPDashlet* dashletItem = [[JPDashlet alloc] initWithDashletUid:[featureItem.linkedUid integerValue]];
     
-    cell.dashletUid = dashletItem.dashletUid;
+    cell.itemId = featureItem.itemId;
     cell.delegate = self;
     cell.titleLabel.text = [featureItem.title uppercaseString];
-    cell.subtitleLabel.text = [dashletItem.featuredTitle uppercaseString];
+    cell.subtitleLabel.text = [featureItem.subtitle uppercaseString];
     cell.numFavorited = [[self.featuredFavNums objectAtIndex:indexPath.row] integerValue];
     
-    cell.type = dashletItem.type;
+    cell.type = [self dashletTypeFromTypeString:featureItem.type];
     NSURL* imageUrl = [NSURL URLWithString:featureItem.imageLink];
     if(imageUrl)
         cell.asyncImageUrl = imageUrl;
     
     //Check if item is selected
-    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:cell.dashletUid]];
-    NSArray* results = [context executeFetchRequest:favReq error:nil];
-    if([results count] > 0)
-    {
-        cell.favoriteButton.selected = YES;
-    }
-    else cell.favoriteButton.selected = NO;
+    cell.favoriteButton.selected = [_coreDataHelper isFavoritedWithItemId:cell.itemId];
     
     return cell;
     
@@ -147,12 +138,12 @@
     
     if(cell.type == JPDashletTypeProgram)
     {
-        iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithDashletUid:cell.dashletUid];
+        iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:cell.itemId];
         [self presentViewController:viewController animated:YES completion:nil];
     }
     else
     {
-        iPadSchoolHomeViewController* schoolViewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:cell.dashletUid];
+        iPadSchoolHomeViewController* schoolViewController = [[iPadSchoolHomeViewController alloc] initWithItemId:cell.itemId type:cell.type];
         UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:schoolViewController];
         [self presentViewController:navController animated:YES completion:nil];
     }
@@ -164,15 +155,14 @@
 - (void)favoriteButtonSelected:(BOOL)selected forCell:(id)sender
 {
     JBParallaxCell* cell = (JBParallaxCell*)sender;
-    NSUInteger dashletUid = cell.dashletUid;
     
     if(selected)
     {
-        [_coreDataHelper addFavoriteWithDashletUid:dashletUid andType:cell.type];
+        [_coreDataHelper addFavoriteWithItemId:cell.itemId andType:cell.type];
     }
     else //deselected
     {
-        [_coreDataHelper removeFavoriteWithDashletUid:dashletUid];
+        [_coreDataHelper removeFavoriteWithItemId:cell.itemId];
     }
     
 }

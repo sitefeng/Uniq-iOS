@@ -2,43 +2,63 @@
 //  Faculty.h
 //  Uniq
 //
-//  Created by Si Te Feng on 7/2/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class ImageLink, Program, School;
+@class Contact, ImageLink, ImportantDate, Program, RelatedItem, School, SchoolLocation;
 
 @interface Faculty : NSManagedObject
 
+@property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSNumber * alumniNumber;
-@property (nonatomic, retain) NSString * facebookLink;
-@property (nonatomic, retain) NSNumber * facultyId;
-@property (nonatomic, retain) NSNumber * logoUrl;
+@property (nonatomic, retain) NSString * facultyId;
+@property (nonatomic, retain) NSNumber * gradPopulation;
+@property (nonatomic, retain) NSString * logoUrl;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * numPrograms;
-@property (nonatomic, retain) NSNumber * population;
 @property (nonatomic, retain) NSNumber * totalFunding;
-@property (nonatomic, retain) NSString * twitterLink;
-@property (nonatomic, retain) NSString * website;
+@property (nonatomic, retain) NSNumber * undergradPopulation;
 @property (nonatomic, retain) NSNumber * yearEstablished;
+@property (nonatomic, retain) NSDecimalNumber * avgAdm;
+@property (nonatomic, retain) NSString * schoolId;
+@property (nonatomic, retain) NSSet *contacts;
 @property (nonatomic, retain) NSSet *images;
+@property (nonatomic, retain) NSSet *importantDates;
+@property (nonatomic, retain) SchoolLocation *location;
 @property (nonatomic, retain) NSSet *programs;
 @property (nonatomic, retain) School *school;
+@property (nonatomic, retain) NSSet *relatedItems;
 @end
 
 @interface Faculty (CoreDataGeneratedAccessors)
+
+- (void)addContactsObject:(Contact *)value;
+- (void)removeContactsObject:(Contact *)value;
+- (void)addContacts:(NSSet *)values;
+- (void)removeContacts:(NSSet *)values;
 
 - (void)addImagesObject:(ImageLink *)value;
 - (void)removeImagesObject:(ImageLink *)value;
 - (void)addImages:(NSSet *)values;
 - (void)removeImages:(NSSet *)values;
 
+- (void)addImportantDatesObject:(ImportantDate *)value;
+- (void)removeImportantDatesObject:(ImportantDate *)value;
+- (void)addImportantDates:(NSSet *)values;
+- (void)removeImportantDates:(NSSet *)values;
+
 - (void)addProgramsObject:(Program *)value;
 - (void)removeProgramsObject:(Program *)value;
 - (void)addPrograms:(NSSet *)values;
 - (void)removePrograms:(NSSet *)values;
+
+- (void)addRelatedItemsObject:(RelatedItem *)value;
+- (void)removeRelatedItemsObject:(RelatedItem *)value;
+- (void)addRelatedItems:(NSSet *)values;
+- (void)removeRelatedItems:(NSSet *)values;
 
 @end

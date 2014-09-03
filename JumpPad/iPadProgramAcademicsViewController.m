@@ -33,9 +33,9 @@
 
 @implementation iPadProgramAcademicsViewController
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
+- (id)initWithProgram: (Program*)program
 {
-    self = [super initWithDashletUid: dashletUid program: program];
+    self = [super initWithProgram: program];
     if (self) {
         // Custom initialization
         UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
@@ -45,9 +45,9 @@
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         
         self.program = program;
-        self.dashletUid = dashletUid;
+
         
-        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
+        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) program:self.program];
         [self.view addSubview:self.labelView];
 
     }
@@ -70,8 +70,8 @@
     
     _dateView = [[JPDateView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];
     
-    _dateView.month = [self.program.admissionDeadline monthIntegerValue];
-    _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
+    _dateView.month = [self.program.applicationDeadline monthIntegerValue];
+    _dateView.date  = [self.program.applicationDeadline dateIntegerValue];
     
     [mainScrollView addSubview:_dateView];
     /////////////////////////////////////////
@@ -162,8 +162,8 @@
 {
     super.program = program;
     
-    _dateView.month = [self.program.admissionDeadline monthIntegerValue];
-    _dateView.date  = [self.program.admissionDeadline dateIntegerValue];
+    _dateView.month = [self.program.applicationDeadline monthIntegerValue];
+    _dateView.date  = [self.program.applicationDeadline dateIntegerValue];
     
     
     [self reloadData];
@@ -174,7 +174,7 @@
 
 - (void)reloadData
 {
-    NSInteger daysLeft = [self.program.admissionDeadline daysLeftFromToday];
+    NSInteger daysLeft = [self.program.applicationDeadline daysLeftFromToday];
     
     _calendarLabel.text = @"Application Progress: ";
     

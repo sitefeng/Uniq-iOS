@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
 
 @class JPBannerView;
-@interface JPMainExploreViewController : UIViewController
+@interface JPMainExploreViewController : UIViewController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
 }
@@ -26,7 +27,7 @@
 
 
 
-- (void)updateDashletsInfo;
+- (void)updateDashletsInfoOnline;
 
 - (void)updateBannerInfo;
 

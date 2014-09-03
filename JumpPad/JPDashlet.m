@@ -13,66 +13,57 @@
 #import "JPLocation.h"
 #import "SchoolLocation.h"
 #import "ImageLink.h"
+#import "NSObject+JPConvenience.h"
 
 @implementation JPDashlet
 
-
-#pragma mark - initialization with item id only
-
-- (instancetype)initWithDashletUid: (NSUInteger)uid
+- (instancetype)initWithItemId: (NSString*)itemId withType: (JPDashletType)type
 {
-    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    context = [delegate managedObjectContext];
-    
-    NSUInteger schoolInt = uid / 10000000;
-    
-    NSUInteger facultyInt = (uid % 10000000) / 100000;
-    NSUInteger programInt = uid % 100000;
-    
-    NSUInteger facultyUid = schoolInt*10000000 + facultyInt * 100000;
-    
     self = [super init];
     
-    if(self)
+    self.itemId = itemId;
+    self.type = type;
+    
+    if(type == JPDashletTypeSchool)
     {
-        if(programInt == 0) //not a program
-        {
-            if(facultyInt == 0) //not a faculty, should be a school
-            {
-                NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-                
-                schoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@", [NSNumber numberWithInteger:schoolInt]];
-                
-                NSArray* schoolResult = [context executeFetchRequest:schoolReq error:nil];
-                
-                self = [self initWithSchool:(School *)[schoolResult firstObject]];
-                
-            }
-            else //is a faculty
-            {
-                NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
-                facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@", [NSNumber numberWithInteger:facultyInt]];
-                NSArray* facultyResult = [context executeFetchRequest:facultyReq error:nil];
-                
-                self = [self initWithFaculty:(Faculty *)[facultyResult firstObject] fromSchool:schoolInt*10000000];
-            }
-        }
-        else //is a program
-        {
-            NSFetchRequest* programReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
-            programReq.predicate = [NSPredicate predicateWithFormat:@"programId = %@", [NSNumber numberWithInteger:programInt]];
-            NSArray* programResult = [context executeFetchRequest:programReq error:nil];
-            
-            self = [self initWithProgram:(Program*)[programResult firstObject] fromFaculty:facultyUid];
-            
-        }
-    
+        NSFetchRequest* itemReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+        itemReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@", itemId];
+        NSError* err = nil;
+        NSArray* schoolResults = [context executeFetchRequest:itemReq error:&err];
+        School* school = (School*)[schoolResults firstObject];
+        
+        self.title = school.name;
+        self.population = school.undergradPopulation;
+        self.location = [[JPLocation alloc] initWithSchoolLocation:school.location];
+        self.icon = [NSURL URLWithString:school.logoUrl];
     }
-    
+    else if(type == JPDashletTypeFaculty)
+    {
+        NSFetchRequest* itemReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+        itemReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@", itemId];
+        NSError* err = nil;
+        NSArray* facResults = [context executeFetchRequest:itemReq error:&err];
+        Faculty* faculty = (Faculty*)[facResults firstObject];
+        
+        self.title = faculty.name;
+        self.population = faculty.undergradPopulation;
+        self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
+    }
+    else if(type == JPDashletTypeProgram)
+    {
+        NSFetchRequest* itemReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
+        itemReq.predicate = [NSPredicate predicateWithFormat:@"ProgramId = %@", itemId];
+        NSError* err = nil;
+        NSArray* progResults = [context executeFetchRequest:itemReq error:&err];
+        Program* program = (Program*)[progResults firstObject];
+        
+        self.title = program.name;
+        self.population = program.undergradPopulation;
+        self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
+    }
     
     return self;
 }
-
 
 
 
@@ -83,14 +74,14 @@
     self = [super init];
     if(self)
     {
-        self.dashletUid = [school.schoolId integerValue] * 10000000;
+        self.itemId = school.schoolId;
         
         SchoolLocation* sLoc = school.location;
         
-        float lat = [sLoc.lattitude doubleValue];
+        float lat = [sLoc.latitude doubleValue];
         float lon = [sLoc.longitude doubleValue];
         
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
+        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
         
         self.title = school.name;
         self.featuredTitle = self.title;
@@ -106,7 +97,7 @@
                 [self.backgroundImages addObject:url];
         }
         
-        self.population = school.population;
+        self.population = school.undergradPopulation;
         
         NSURL* url = [NSURL URLWithString:school.logoUrl];
         self.icon = url;
@@ -119,22 +110,18 @@
 
 
 
-- (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletUid
+- (instancetype)initWithFaculty: (Faculty*)faculty
 {
     self = [super init];
     if(self)
     {
-        NSUInteger partialFaculty = [faculty.facultyId integerValue];
-        self.dashletUid = schoolDashletUid + partialFaculty * 100000;
-        
         self.title = faculty.name;
-        self.featuredTitle = [faculty.name stringByAppendingString:[NSString stringWithFormat:@", %@", faculty.school.name]];
         self.type = JPDashletTypeFaculty;
         
-        SchoolLocation* sLoc = faculty.school.location;
-        float lat = [sLoc.lattitude doubleValue];
+        SchoolLocation* sLoc = faculty.location;
+        float lat = [sLoc.latitude doubleValue];
         float lon = [sLoc.longitude doubleValue];
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
+        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
         
         self.backgroundImages = [NSMutableArray array];
         
@@ -146,33 +133,25 @@
                 [self.backgroundImages addObject:url];
         }
         
-        self.population = faculty.population;
-        
+        self.population = faculty.undergradPopulation;
     }
     
     return self;
-
 }
 
 
-
-- (instancetype)initWithProgram: (Program*)program fromFaculty:(NSInteger)facultyDashletUid {
-    
+- (instancetype)initWithProgram: (Program*)program
+{
     self = [super init];
     if(self)
     {
-        NSUInteger partialprogram = [program.programId integerValue];
-        
-        self.dashletUid = facultyDashletUid + partialprogram;
-        
         self.title = program.name;
-        self.featuredTitle = [program.name stringByAppendingString:[NSString stringWithFormat:@", %@", program.faculty.school.name]];
         self.type = JPDashletTypeProgram;
         
-        SchoolLocation* sLoc = program.faculty.school.location;
-        float lat = [sLoc.lattitude doubleValue];
+        SchoolLocation* sLoc = program.location;
+        float lat = [sLoc.latitude doubleValue];
         float lon = [sLoc.longitude doubleValue];
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.province];
+        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
         self.backgroundImages = [NSMutableArray array];
         
         NSArray* imageLinks = [program.images allObjects];
@@ -183,18 +162,58 @@
                 [self.backgroundImages addObject:url];
         }
         
-        self.population = program.population;
-
+        self.population = program.undergradPopulation;
     }
     
     return self;
 }
 
 
+
+- (instancetype)initWithDictionary: (NSDictionary*)dict ofDashletType:(JPDashletType)type
+{
+    self = [super init];
+    if(self)
+    {
+        self.type = type;
+       
+        self.itemId = [dict objectForKey:@"id"];
+        self.title = [dict objectForKey:@"name"];
+        NSString* populationStr = [dict objectForKey:@"undergradPopulation"];
+        self.population = [self numberFromNumberString:populationStr];
+        self.location = [[JPLocation alloc] initWithLocationDict:[dict objectForKey:@"location"]];
+        
+        self.backgroundImages = [NSMutableArray array];
+        
+        NSArray* imageDicts = [dict objectForKey:@"images"];
+        for(NSDictionary* imageDict in imageDicts)
+        {
+            NSString* type = [imageDict objectForKey:@"type"];
+            NSString* urlStr = [imageDict objectForKey:@"link"];
+            NSURL* imgURL = [NSURL URLWithString:urlStr];
+            if(!imgURL)
+                continue;
+            
+            if([type isEqual:@"logo"])
+            {
+                self.icon = imgURL;
+            }
+            else
+            {
+                [self.backgroundImages addObject:imgURL];
+            }
+        }
+        
+    }
+    return self;
+}
+
+
+
 - (BOOL)isFavorited
 {
     NSFetchRequest* favItemReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favItemReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    favItemReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", self.itemId];
     NSArray* favResult = [context executeFetchRequest:favItemReq error:nil];
     
     if([favResult count]>0)
@@ -207,6 +226,10 @@
     }
     
 }
+
+
+
+#pragma mark - Comparision Methods
 
 
 - (NSComparisonResult)compareWithName:(JPDashlet *)otherDashlet {
@@ -232,14 +255,14 @@
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"Dashlet-> %@[%ld]", self.title, (long)self.dashletUid];
+    return [NSString stringWithFormat:@"D-> %@[%@]", self.title, self.itemId];
 }
 
 - (instancetype)copyWithZone:(NSZone *)zone
 {
     JPDashlet* dashlet = [[JPDashlet alloc] init];
     
-    dashlet.dashletUid = self.dashletUid;
+    dashlet.itemId = self.itemId;
     dashlet.location = [self.location copyWithZone:zone];
     
     dashlet.title = [self.title copyWithZone:zone];

@@ -43,7 +43,7 @@
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithProgram: (Program*)program;
 
 
 

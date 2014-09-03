@@ -101,10 +101,10 @@
     iPhMainTableViewCell* cell = (iPhMainTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     JPDashlet* dashlet = cell.dashletInfo;
     
-    [self favButtonPressedIsFavorited:NO dashletUid:dashlet.dashletUid];
+    [self favButtonPressedIsFavorited:NO itemId:dashlet.itemId];
     [self removeUnselectedFavoritesFromCoreData];
     
-//    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+
     [self.tableView reloadData];
     
 }
@@ -121,9 +121,9 @@
     
     if(dashlet.type == JPDashletTypeProgram)
     {
-        contentController = [[iPhProgramViewController alloc] initWithDashletUid:dashlet.dashletUid];
+        contentController = [[iPhProgramViewController alloc] initWithItemId:dashlet.itemId];
     } else {
-        contentController = [[iPhSchoolViewController alloc] initWithDashletUid:dashlet.dashletUid itemType:dashlet.type];
+        contentController = [[iPhSchoolViewController alloc] initWithItemId:dashlet.itemId itemType:dashlet.type];
     }
     
     

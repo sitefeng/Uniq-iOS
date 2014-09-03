@@ -38,9 +38,7 @@
     //Core Data NS Managed Object Context
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
-    
-    
-    
+
     
     
 }
@@ -50,16 +48,48 @@
 {
     [super viewWillAppear:animated];
     
-    [self updateDashletsInfo];
+    [self updateDashletsInfoOnline];
+    
     [self.bannerView activateAutoscroll];
     [self updateBannerInfo];
     
 }
 
 
-#pragma mark - Update From Core Data
-//Retrieving College info from Core Data and put into featuredDashelts
-- (void)updateDashletsInfo
+#pragma mark - Update Dashlet Info
+
+- (void)updateDashletsInfoOnline
+{
+    
+    JPDataRequest* dataReq = [JPDataRequest sharedRequest];
+    dataReq.delegate = self;
+    
+    [dataReq requestAllSchoolsAllFields:NO];
+    
+}
+
+
+- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
+{
+    if(!success)
+        return;
+    
+    NSMutableArray* dashletArray = [NSMutableArray array];
+    
+    for(NSDictionary* schoolDict in array)
+    {
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:schoolDict ofDashletType:type];
+        [dashletArray addObject:dashlet];
+    }
+    
+    self.dashlets = dashletArray;
+
+}
+
+
+
+//Retrieving College info from Core Data and put into self.dashlets
+- (void)updateDashletsInfoFromCoreData
 {
     NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
     dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
@@ -79,6 +109,7 @@
     
     self.dashlets = dashletArray;
 }
+
 
 
 - (void)updateBannerInfo

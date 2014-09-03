@@ -47,7 +47,7 @@ typedef NS_ENUM(NSInteger, JPSortType)
 
 typedef NS_ENUM(NSInteger, JPDashletType)
 {
-    JPDashletTypeSchool,
+    JPDashletTypeSchool = 0,
     JPDashletTypeFaculty,
     JPDashletTypeProgram
     

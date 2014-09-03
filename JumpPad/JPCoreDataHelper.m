@@ -33,10 +33,10 @@
 
 
 #pragma mark - Favoriting Items
-- (void)removeFavoriteWithDashletUid: (NSUInteger)dashletUid
+- (void)removeFavoriteWithItemId:(NSString *)itemId
 {
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:dashletUid]];
+    favReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", itemId];
     NSArray* results = [context executeFetchRequest:favReq error:nil];
     
     for(UserFavItem* item in results)
@@ -47,12 +47,12 @@
 }
 
 
-- (void)addFavoriteWithDashletUid: (NSUInteger)dashletUid andType: (JPDashletType)type
+- (void)addFavoriteWithItemId:(NSString *)itemId andType:(JPDashletType)type
 {
     NSEntityDescription* newFavItemDes = [NSEntityDescription entityForName:@"UserFavItem" inManagedObjectContext:context];
     _userFav = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
 
-    _userFav.itemId = [NSNumber numberWithInteger:dashletUid];
+    _userFav.favItemId = itemId;
     _userFav.type = [NSNumber numberWithInteger:type];
     _userFav.gotOffer = @false;
     _userFav.researched = @false;
@@ -67,19 +67,23 @@
     
     ////////////////////////////////
     //Send Favorites To Server
-    NSInteger itemId = [JPGlobal itemIdWithDashletUid:dashletUid type:type];
-    [_cloudFav uploadItemFavoritedWithUid:[NSString stringWithFormat:@"%ld", (long)itemId]];
+    [_cloudFav uploadItemFavoritedWithUid:itemId];
     
 }
 
 
-- (BOOL)isFavoritedWithDashletUid: (NSUInteger)dashletUid
+- (BOOL)isFavoritedWithItemId:(NSString *)itemId
 {
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:dashletUid]];
+    favReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", itemId];
     NSArray* results = [context executeFetchRequest:favReq error:nil];
     
-    if([results count] > 0)
+    if([results count] > 1)
+    {
+        NSLog(@"TOO Many Favorite Results: [%d Results]", [results count]);
+        return YES;
+    }
+    else if([results count] == 1)
         return YES;
     else
         return NO;
@@ -99,44 +103,47 @@
 #pragma mark - Featured Dashlets
 - (NSArray*)retrieveFeaturedItems
 {
-    //Delete Everything from before first
-    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"Featured"];
-    NSArray* results = [context executeFetchRequest:req error:nil];
-    for(Featured* object in results)
-    {
-        [context deleteObject:object];
-    }
-    
-    NSURL* fileUrl = [[NSBundle mainBundle] URLForResource:@"getAllFeaturedInfo" withExtension:@"json"];
-    NSData* featuredData = [NSData dataWithContentsOfURL:fileUrl];
-    NSError* error = nil;
-    NSArray* jsonObject = [NSJSONSerialization JSONObjectWithData:featuredData options:NSJSONReadingAllowFragments error:&error];
-    
-    if(error)
-        NSLog(@"Error: %@", error);
-    
-    NSMutableArray* featuredArray = [NSMutableArray array];
-    
-    for(NSDictionary* featuredDict in jsonObject)
-    {
-        NSEntityDescription* featuredDesc = [NSEntityDescription entityForName:@"Featured" inManagedObjectContext:context];
-        NSManagedObject* featured = [[NSManagedObject alloc] initWithEntity:featuredDesc insertIntoManagedObjectContext:context];
-        
-        [featured setValue:[featuredDict valueForKey:@"id"] forKey:@"featuredId"];
-        if([featuredDict valueForKey:@"linkedUrl"]!=[NSNull null])
-            [featured setValue:[featuredDict valueForKey:@"linkedUrl"] forKey:@"linkedUrl"];
-        
-        [featured setValue:[featuredDict valueForKey:@"linkedUid"] forKey:@"linkedUid"];
-        [featured setValue:[featuredDict valueForKey:@"title"] forKey:@"title"];
-        [featured setValue:[featuredDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-        
-        [featuredArray addObject:featured];
-        [context insertObject:featured];
-    }
-    
-    [context save:nil];
+//    //Delete Everything from before first
+//    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"Featured"];
+//    NSArray* results = [context executeFetchRequest:req error:nil];
+//    for(Featured* object in results)
+//    {
+//        [context deleteObject:object];
+//    }
+//    
+//    NSURL* fileUrl = [[NSBundle mainBundle] URLForResource:@"getAllFeaturedInfo" withExtension:@"json"];
+//    NSData* featuredData = [NSData dataWithContentsOfURL:fileUrl];
+//    NSError* error = nil;
+//    NSArray* jsonObject = [NSJSONSerialization JSONObjectWithData:featuredData options:NSJSONReadingAllowFragments error:&error];
+//    
+//    if(error)
+//        NSLog(@"Error: %@", error);
+//    
+//    NSMutableArray* featuredArray = [NSMutableArray array];
+//    
+//    for(NSDictionary* featuredDict in jsonObject)
+//    {
+//        NSEntityDescription* featuredDesc = [NSEntityDescription entityForName:@"Featured" inManagedObjectContext:context];
+//        NSManagedObject* featured = [[NSManagedObject alloc] initWithEntity:featuredDesc insertIntoManagedObjectContext:context];
+//        
+//        [featured setValue:[featuredDict valueForKey:@"id"] forKey:@"featuredId"];
+//        if([featuredDict valueForKey:@"linkedUrl"]!=[NSNull null])
+//            [featured setValue:[featuredDict valueForKey:@"linkedUrl"] forKey:@"linkedUrl"];
+//        
+//        [featured setValue:[featuredDict valueForKey:@"linkedUid"] forKey:@"linkedUid"];
+//        [featured setValue:[featuredDict valueForKey:@"title"] forKey:@"title"];
+//        [featured setValue:[featuredDict valueForKey:@"imageLink"] forKey:@"imageLink"];
+//        
+//        [featuredArray addObject:featured];
+//        [context insertObject:featured];
+//    }
+//    
+//    [context save:nil];
+//
+//    return featuredArray;
 
-    return featuredArray;
+    return nil;
+
 }
 
 

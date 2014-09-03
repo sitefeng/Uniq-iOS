@@ -9,6 +9,8 @@
 #import "JPProgramAcademicsViewController.h"
 #import "Program.h"
 #import "UserFavItem.h"
+#import "JPCoreDataHelper.h"
+
 
 @interface JPProgramAcademicsViewController ()
 
@@ -16,7 +18,7 @@
 
 @implementation JPProgramAcademicsViewController
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
+- (id)initWithProgram: (Program*)program
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -24,8 +26,10 @@
         
         context = [(UniqAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
         
-        self.dashletUid = dashletUid;
+        _coreDataHelper = [[JPCoreDataHelper alloc] init];
+        
         self.program = program;
+        [self selectCalendarButtonsFromCoreData];
         
     }
     return self;
@@ -48,7 +52,7 @@
 - (void)selectCalendarButtonsFromCoreData
 {
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", self.program.programId];
     NSArray* favArray = [context executeFetchRequest:favReq error:nil];
     
     if([favArray count] > 0)
@@ -155,36 +159,19 @@
 - (void)deletePastDuplicateFavItems
 {
     _userFav = nil;
-    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat: @"itemId = %@", [NSNumber numberWithInteger:self.dashletUid]];
-    NSArray* favArray = [context executeFetchRequest:favReq error:nil];
-    for(UserFavItem* item in favArray)
-    {
-        [context deleteObject:item];
-    }
+    
+    [_coreDataHelper removeFavoriteWithItemId:self.program.programId];
+
 }
+
 
 - (void)createNewFavItem
 {
-    NSEntityDescription* description = [NSEntityDescription entityForName:@"UserFavItem" inManagedObjectContext:context];
-    _userFav = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:description insertIntoManagedObjectContext:context];
-    
-    _userFav.itemId = [NSNumber numberWithInteger:self.dashletUid];
-    _userFav.type = [NSNumber numberWithInteger:JPDashletTypeProgram];
-    _userFav.researched = @NO;
-    _userFav.applied = @NO;
-    _userFav.response = @NO;
-    _userFav.gotOffer = @NO;
-    [context insertObject:_userFav];
+    [_coreDataHelper addFavoriteWithItemId:self.program.programId andType:JPDashletTypeProgram];
 }
 
 
 
-- (void)setDashletUid:(NSUInteger)dashletUid
-{
-    _dashletUid = dashletUid;
-    [self selectCalendarButtonsFromCoreData];
-}
 
 
 

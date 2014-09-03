@@ -30,14 +30,9 @@
     connectivityManager = [[JPConnectivityManager alloc] init];
     [connectivityManager startUpdating];
     
-    JPMainSync* syncer = [[JPMainSync alloc] init];
-    [syncer sync];
+//    JPMainSync* syncer = [[JPMainSync alloc] init];
+//    [syncer sync];
     
-
-//    NSURL* jsonReqUrl = [[NSURL alloc] initWithString:@"http://192.128.0.19:8000/schools"];
-//    NSData* jsonData = [NSData dataWithContentsOfURL:jsonReqUrl];
-//    NSArray* jsonArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:nil];
-//    NSLog(@"JSON Array: %@", jsonArray);
     
     ////////////////
     [JPStyle applyGlobalStyle];

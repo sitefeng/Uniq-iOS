@@ -14,9 +14,11 @@
 
 
 //Device Verification
-+(BOOL) isiPad;
-+(BOOL) iOS7;
-+(BOOL) iPhone4Inch;
++ (BOOL) isiPad;
++ (BOOL) iOS7;
++ (BOOL) iPhone4Inch;
+
++ (BOOL) isPhone;
 
 +(NSString*)deviceTypeString;
 

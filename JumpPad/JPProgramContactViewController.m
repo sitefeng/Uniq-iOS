@@ -13,6 +13,7 @@
 #import "JPLocation.h"
 #import "SchoolLocation.h"
 #import "User.h"
+#import "Contact.h"
 
 @interface JPProgramContactViewController ()
 
@@ -68,7 +69,7 @@
     _school = school;
     _itemType = JPDashletTypeSchool;
     
-    JPLocation* schoolLocation = [[JPLocation alloc] initWithCooridinates:CGPointMake([school.location.lattitude floatValue], [school.location.longitude floatValue]) city:school.location.city province:school.location.province];
+    JPLocation* schoolLocation = [[JPLocation alloc] initWithCooridinates:CGPointMake([school.location.latitude floatValue], [school.location.longitude floatValue]) city:school.location.city province:school.location.region];
     
     UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [delegate managedObjectContext];
@@ -100,7 +101,7 @@
 
 - (NSArray*)getInformationArrayOfType: (NSString*)arrayType
 {
-    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",self.school.location.streetNum, self.school.location.streetName, self.school.location.city, self.school.location.province, self.school.location.country];
+    NSString* address = [NSString stringWithFormat:@"%@ %@,\n%@, %@, %@\n",self.school.location.streetNum, self.school.location.streetName, self.school.location.city, self.school.location.region, self.school.location.country];
     //TODO: add Postal Code and unit/ apt
     
     NSString* distanceToHomeString = @"-- kms Away";
@@ -111,6 +112,9 @@
     
     if(_itemType == JPDashletTypeProgram)
     {
+        if(!self.program || !self.school)
+            return @[];
+        
         if([arrayType isEqual:@"imageNames"])
         {
             return @[@"address-50", @"distance-50",@"phoneIcon",@"faxIcon",@"email",@"safariIcon",@"facebookIcon",@"twitterIcon"];
@@ -121,12 +125,17 @@
         }
         else //Array of Values
         {
-            return @[address, distanceToHomeString, [NSString stringWithFormat:@"%i", [self.program.phone intValue]], [NSString stringWithFormat:@"%i", [self.program.fax intValue]], self.program.email, self.program.website, self.program.facebookLink, self.program.twitterLink];
+            //Todo fix
+            
+            return @[address, distanceToHomeString, [NSString stringWithFormat:@"%@", [[self.program.contacts anyObject] phone]], @"unknown", [[self.program.contacts anyObject] email], [[self.program.contacts anyObject] website], [[self.program.contacts anyObject] facebook], [[self.program.contacts anyObject] twitter]];
         }
         
     }
     else if(_itemType == JPDashletTypeSchool)
     {
+        if(!self.school)
+            return @[];
+        
         if([arrayType isEqual:@"imageNames"])
         {
             return @[@"address-50", @"distance-50",@"safariIcon",@"facebookIcon",@"twitterIcon"];
@@ -137,12 +146,15 @@
         }
         else //Array of Values
         {
-            return @[address, distanceToHomeString, _school.website, _school.facebookLink, _school.twitterLink];
+            return @[address, distanceToHomeString, [[self.school.contacts anyObject] website], [[self.school.contacts anyObject] facebook], [[self.school.contacts anyObject] twitter]];
         }
         
     }
     else // type faculty
     {
+        if(!_faculty || !self.school)
+            return @[];
+        
         if([arrayType isEqual:@"imageNames"])
         {
             return @[@"address-50", @"distance-50",@"safariIcon",@"facebookIcon",@"twitterIcon"];
@@ -153,7 +165,7 @@
         }
         else //Array of Values
         {
-            return @[address, distanceToHomeString, _faculty.website, _faculty.facebookLink, _faculty.twitterLink];
+            return @[address, distanceToHomeString, [[self.faculty.contacts anyObject] website], [[self.faculty.contacts anyObject] facebook], [[self.faculty.contacts anyObject] twitter]];
         }
         
     }

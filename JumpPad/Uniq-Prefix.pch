@@ -19,6 +19,7 @@
     #import "UserInterfaceConstants.h"
     #import "JPStyle.h"
     #import "Mixpanel.h"
+    #import "NSObject+JPConvenience.h"
     #import "LDProgressView.h" // for now
     #import "iPadMainHomeViewController.h" // for now
 #endif

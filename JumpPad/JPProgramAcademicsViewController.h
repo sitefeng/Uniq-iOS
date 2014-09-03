@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class Program, UserFavItem;
+@class Program, UserFavItem, JPCoreDataHelper;
 @interface JPProgramAcademicsViewController : UIViewController
 {
     NSManagedObjectContext* context;
+    JPCoreDataHelper*  _coreDataHelper;
     
     NSMutableArray* _applicationButtons;
     UserFavItem*    _userFav;
@@ -21,12 +22,12 @@
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
 @property (nonatomic, strong) Program* program;
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithProgram: (Program*)program;
+
 - (void)calendarButtonPressed: (UIButton*)button;
 
 

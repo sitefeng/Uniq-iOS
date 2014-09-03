@@ -2,37 +2,43 @@
 //  School.h
 //  Uniq
 //
-//  Created by Si Te Feng on 7/2/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Faculty, ImageLink, SchoolLocation, SchoolRanking;
+@class Contact, Faculty, ImageLink, RelatedItem, SchoolLocation, SchoolRanking;
 
 @interface School : NSManagedObject
 
+@property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSNumber * alumniNumber;
-@property (nonatomic, retain) NSString * facebookLink;
-@property (nonatomic, retain) NSString * linkedinLink;
+@property (nonatomic, retain) NSDecimalNumber * avgAdm;
+@property (nonatomic, retain) NSNumber * gradPopulation;
 @property (nonatomic, retain) NSString * logoUrl;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * numFaculties;
 @property (nonatomic, retain) NSNumber * numPrograms;
-@property (nonatomic, retain) NSNumber * population;
-@property (nonatomic, retain) NSNumber * schoolId;
-@property (nonatomic, retain) NSDate * timeModified;
+@property (nonatomic, retain) NSString * schoolId;
 @property (nonatomic, retain) NSNumber * totalFunding;
-@property (nonatomic, retain) NSString * twitterLink;
-@property (nonatomic, retain) NSString * website;
+@property (nonatomic, retain) NSNumber * undergradPopulation;
 @property (nonatomic, retain) NSNumber * yearEstablished;
+@property (nonatomic, retain) NSSet *contacts;
 @property (nonatomic, retain) NSSet *faculties;
 @property (nonatomic, retain) NSSet *images;
 @property (nonatomic, retain) SchoolLocation *location;
 @property (nonatomic, retain) NSSet *rankings;
+@property (nonatomic, retain) NSSet *relatedItems;
 @end
 
 @interface School (CoreDataGeneratedAccessors)
+
+- (void)addContactsObject:(Contact *)value;
+- (void)removeContactsObject:(Contact *)value;
+- (void)addContacts:(NSSet *)values;
+- (void)removeContacts:(NSSet *)values;
 
 - (void)addFacultiesObject:(Faculty *)value;
 - (void)removeFacultiesObject:(Faculty *)value;
@@ -48,5 +54,10 @@
 - (void)removeRankingsObject:(SchoolRanking *)value;
 - (void)addRankings:(NSSet *)values;
 - (void)removeRankings:(NSSet *)values;
+
+- (void)addRelatedItemsObject:(RelatedItem *)value;
+- (void)removeRelatedItemsObject:(RelatedItem *)value;
+- (void)addRelatedItems:(NSSet *)values;
+- (void)removeRelatedItems:(NSSet *)values;
 
 @end

@@ -2,7 +2,7 @@
 //  ProgramYearlyTuition.h
 //  Uniq
 //
-//  Created by Si Te Feng on 6/26/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -15,8 +15,7 @@
 
 @property (nonatomic, retain) NSDecimalNumber * domesticTuition;
 @property (nonatomic, retain) NSDecimalNumber * internationalTuition;
-@property (nonatomic, retain) NSNumber * pYearlyTuitionId;
-@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) NSString * term;
 @property (nonatomic, retain) Program *program;
 
 @end

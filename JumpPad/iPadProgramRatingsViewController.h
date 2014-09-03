@@ -23,7 +23,6 @@
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
 @property (nonatomic, strong) Program* program;
 
 @property (nonatomic, strong) iPadProgramLabelView* programLabel;
@@ -38,7 +37,7 @@
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithProgram: (Program*)program;
 
 
 

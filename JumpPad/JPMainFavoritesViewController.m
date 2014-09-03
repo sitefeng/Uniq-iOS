@@ -11,6 +11,8 @@
 #import "Banner.h"
 #import "JPDashlet.h"
 #import "JPBannerView.h"
+#import "JPCoreDataHelper.h"
+
 
 @interface JPMainFavoritesViewController ()
 
@@ -57,13 +59,11 @@
 }
 
 
-#pragma mark - Update From Core Data
+#pragma mark - Update From Server/ Core Data
 //Retrieving College info from Core Data and put into featuredDashelts
 - (void)updateDashletsInfo
 {
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    
-    favReq.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"itemId" ascending:YES]];
     
     NSError* err = nil;
     NSArray* favResults = [context executeFetchRequest:favReq error:&err];
@@ -75,7 +75,7 @@
     _dashletTypeCounts = [NSMutableArray arrayWithObjects:@0,@0,@0, nil];
     for(UserFavItem* favItem in favResults)
     {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithDashletUid:[favItem.itemId integerValue]];
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithItemId:favItem.favItemId withType: (JPDashletType)[favItem.type integerValue]];
         
         //Knowing which type exists for displaying dashelts
         NSInteger typeCount = [[_dashletTypeCounts objectAtIndex:dashlet.type] integerValue];
@@ -111,20 +111,17 @@
 
 - (void)removeUnselectedFavoritesFromCoreData
 {
-    for (NSNumber* dashletUid in _favDashletsToDelete)
+    JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+
+    for (NSString* itemId in _favDashletsToDelete)
     {
-        NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", dashletUid];
-        NSArray* results = [context executeFetchRequest:favReq error:nil];
-        
-        for(UserFavItem* item in results)
-        {
-            [context deleteObject:item];
-        }
+        [coreDataHelper removeFavoriteWithItemId:itemId];
+
     }
+    [_favDashletsToDelete removeAllObjects];
     
     [self updateDashletsInfo];
-    [_favDashletsToDelete removeAllObjects];
+    
 }
 
 
@@ -153,19 +150,19 @@
 }
 
 
-- (void)favButtonPressedIsFavorited: (BOOL)fav dashletUid: (NSUInteger)dashletUid
+- (void)favButtonPressedIsFavorited:(BOOL)fav itemId: (NSString*)itemId
 {
     if(fav)
     {
-        if([_favDashletsToDelete containsObject:[NSNumber numberWithInteger:dashletUid]])
+        if([_favDashletsToDelete containsObject:itemId])
         {
-            [_favDashletsToDelete removeObject:[NSNumber numberWithInteger:dashletUid]];
+            [_favDashletsToDelete removeObject:itemId];
         }
         
     }
     else //unfavorited the cell, add to delete list
     {
-        [_favDashletsToDelete addObject:[NSNumber numberWithInteger:dashletUid]];
+        [_favDashletsToDelete addObject:itemId];
     }
 }
 

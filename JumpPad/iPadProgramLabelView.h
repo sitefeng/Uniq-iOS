@@ -7,26 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
+
 
 @class Program, AsyncImageView;
 
-@interface iPadProgramLabelView : UIView
+@interface iPadProgramLabelView : UIView <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
-    Program* _program;
     
 }
 
 
 
-@property (nonatomic, assign) NSInteger dashletUid;
+@property (nonatomic, strong) Program* program;
 
 @property (nonatomic, strong) AsyncImageView* imageView;
 @property (nonatomic, strong) UILabel* label;
 
 
 
-- (id)initWithFrame:(CGRect)frame dashletNum:(NSInteger)number program: (Program*)program;
+- (id)initWithFrame:(CGRect)frame program: (Program*)program;
 
 
 

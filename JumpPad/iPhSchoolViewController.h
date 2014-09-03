@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
+#import "ManagedObjects+JPConvenience.h"
+
 
 @class Faculty, School, JPCoreDataHelper;
-@interface iPhSchoolViewController : UITabBarController
+@interface iPhSchoolViewController : UITabBarController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
     
@@ -19,14 +22,14 @@
 
 
 @property (nonatomic, assign) JPDashletType type;
-@property (nonatomic, assign) NSUInteger dashletUid;
+@property (nonatomic, strong) NSString*     itemId;
 
 
 @property (nonatomic, strong) id schoolOrFaculty;
 
 
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid itemType: (NSUInteger)type;
+- (instancetype)initWithItemId:(NSString*)itemId itemType: (NSUInteger)type;
 
 
 

@@ -2,7 +2,7 @@
 //  Featured.m
 //  Uniq
 //
-//  Created by Si Te Feng on 7/6/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 
 @implementation Featured
 
-@dynamic featuredId;
-@dynamic title;
-@dynamic linkedUrl;
-@dynamic linkedUid;
 @dynamic imageLink;
+@dynamic title;
+@dynamic itemId;
+@dynamic type;
+@dynamic subtitle;
 
 @end

@@ -82,9 +82,10 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     Featured* featureItem = self.featuredArray[indexPath.row];
-    JPDashlet* dashletItem = [[JPDashlet alloc] initWithDashletUid:[featureItem.linkedUid integerValue]];
+    JPDashlet* dashletItem = [[JPDashlet alloc] initWithItemId:featureItem.itemId withType:[self dashletTypeFromTypeString:featureItem.type]];
+    
     cell.delegate = self;
-    cell.dashletUid = dashletItem.dashletUid;
+    cell.itemId = dashletItem.itemId;
     cell.titleLabel.text = [featureItem.title uppercaseString];
     cell.subtitleLabel.text = [dashletItem.featuredTitle uppercaseString];
     cell.type = dashletItem.type;
@@ -97,7 +98,7 @@
     
     //Check if item is selected
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:cell.dashletUid]];
+    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:cell.itemId]];
     NSArray* results = [context executeFetchRequest:favReq error:nil];
     if([results count] > 0)
     {
@@ -122,11 +123,11 @@
     id detailsViewController = nil;
     if(cell.type == JPDashletTypeProgram)
     {
-        detailsViewController =[[iPhProgramViewController alloc] initWithDashletUid:cell.dashletUid];
+        detailsViewController =[[iPhProgramViewController alloc] initWithItemId:cell.itemId];
     }
     else
     {
-        detailsViewController = [[iPhSchoolViewController alloc] initWithDashletUid:cell.dashletUid itemType:cell.type];
+        detailsViewController = [[iPhSchoolViewController alloc] initWithItemId:cell.itemId itemType:cell.type];
     }
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:detailsViewController];
@@ -140,14 +141,14 @@
 - (void)favoriteButtonSelected:(BOOL)selected forCell:(id)sender
 {
     JBParallaxPhoneCell* cell = (JBParallaxPhoneCell*)sender;
-    NSUInteger dashletUid = cell.dashletUid;
+    NSString* itemId = cell.itemId;
     
     if(selected)
     {
         NSEntityDescription* newFavItemDes = [NSEntityDescription  entityForName:@"UserFavItem" inManagedObjectContext:context];
         UserFavItem* newItem = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
         
-        newItem.itemId = [NSNumber numberWithInteger:dashletUid];
+        newItem.favItemId = itemId;
         newItem.type = [NSNumber numberWithInteger:cell.type];
         
         [context insertObject:newItem];
@@ -156,7 +157,7 @@
     else //deselected
     {
         NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-        favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:dashletUid]];
+        favReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", itemId];
         NSArray* results = [context executeFetchRequest:favReq error:nil];
         
         for(UserFavItem* item in results)

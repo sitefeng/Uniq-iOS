@@ -80,10 +80,10 @@
     deadlineLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:19];
     deadlineLabel.textColor = [UIColor whiteColor];
     
-    NSString* monthString = [self.program.admissionDeadline substringToIndex:2];//@"02"
+    NSString* monthString = [self.program.applicationDeadline substringToIndex:2];//@"02"
     
     NSString* month = [JPGlobal monthStringWithInt:[monthString intValue]];//@"Feb"
-    NSString* date = [self.program.admissionDeadline substringFromIndex:3];
+    NSString* date = [self.program.applicationDeadline substringFromIndex:3];
     
     deadlineLabel.text = [NSString stringWithFormat:@"App Deadline: %@ %@", month, date];
     
@@ -146,16 +146,17 @@
     switch (num)
     {
         case 0:
-            return [NSString stringWithFormat:@"%@ Students", self.program.population];
+            return [NSString stringWithFormat:@"%@ Students", self.program.undergradPopulation];
         case 1:
         {
             int yearNum = 0;
             NSArray* array = [self.program.courses allObjects];
             for(ProgramCourse* course in array)
             {
-                if([course.enrollmentYear intValue] > yearNum)
+                //Todo
+                if([course.enrollmentTerm intValue] > yearNum)
                 {
-                    yearNum = [course.enrollmentYear intValue];
+                    yearNum = [course.enrollmentTerm intValue];
                 }
             }
             
@@ -272,8 +273,10 @@
 
 - (void)phoneButtonTapped: (UIButton*)sender
 {
-    [[[UIAlertView alloc] initWithTitle:@"Feature Coming Soon" message:@"Phone number for this program is currently available under \"Contact\" section." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
-    
+    if([self.delegate respondsToSelector:@selector(phoneButtonTapped)])
+    {
+        [self.delegate phoneButtonTapped];
+    }
 }
 
 

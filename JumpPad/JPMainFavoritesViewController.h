@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
+
 
 @class JPBannerView;
-@interface JPMainFavoritesViewController : UIViewController
+@interface JPMainFavoritesViewController : UIViewController <JPDataRequestDelegate>
 //abstract super class for iPad and iPhone counterparts
 {
     @protected
@@ -39,6 +41,6 @@
 
 - (void)removeUnselectedFavoritesFromCoreData;
 - (void)editBarButtonPressed: (id)sender;
-- (void)favButtonPressedIsFavorited: (BOOL)fav dashletUid: (NSUInteger)dashletUid;
+- (void)favButtonPressedIsFavorited: (BOOL)fav itemId: (NSString*)itemId;
 
 @end

@@ -13,7 +13,6 @@
 {
     @protected
     JPDashletType   _itemType;
-    Faculty*        _faculty;
 }
 
 
@@ -21,6 +20,7 @@
 @property (nonatomic, assign) double distanceToHome;
 
 @property (nonatomic, strong) School* school;
+@property (nonatomic, strong) Faculty* faculty;
 @property (nonatomic, strong) Program* program;
 
 

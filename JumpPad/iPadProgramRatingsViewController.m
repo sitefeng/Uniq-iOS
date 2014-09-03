@@ -27,7 +27,7 @@
 
 @implementation iPadProgramRatingsViewController
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
+- (id)initWithProgram: (Program*)program
 {
     self = [super init];
     if (self) {
@@ -39,10 +39,9 @@
         _ratingsHelper.delegate = self;
     
         self.program = program;
-        self.dashletUid = dashletUid;
         
         
-        self.programLabel = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
+        self.programLabel = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) program:self.program];
         [self.view addSubview:self.programLabel];
 
         

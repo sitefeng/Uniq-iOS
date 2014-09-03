@@ -47,7 +47,7 @@
 
 @property (nonatomic, weak) id<JPFavoriteButtonDelegate> delegate;
 
-@property (assign, nonatomic) NSUInteger dashletUid;
+@property (strong, nonatomic) NSString* itemId;
 @property (assign, nonatomic) JPDashletType type;
 
 @property (strong, nonatomic) UIButton* favoriteButton;

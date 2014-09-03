@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "iPhProgramSchoolAbstractViewController.h"
 #import "JPProgramSummaryView.h"
-
+#import "Contact.h"
 
 @class Program, iPhImagePanView, iPhProgramDetailView;
 @interface iPhProgramHomeViewController : iPhProgramSchoolAbstractViewController <JPProgramSummaryDelegate, MFMailComposeViewControllerDelegate>

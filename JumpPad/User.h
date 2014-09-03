@@ -2,7 +2,7 @@
 //  User.h
 //  Uniq
 //
-//  Created by Si Te Feng on 6/27/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * locationString;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSData * profileImage;
 @property (nonatomic, retain) NSNumber * satGrammar;
 @property (nonatomic, retain) NSNumber * satMath;
 @property (nonatomic, retain) NSNumber * satReading;

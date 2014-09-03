@@ -7,6 +7,9 @@
 //
 
 #import "iPadProgramViewController.h"
+#import "Program.h"
+#import "ManagedObjects+JPConvenience.h"
+
 
 
 @interface iPadProgramViewController ()
@@ -15,62 +18,24 @@
 
 @implementation iPadProgramViewController
 
-- (id)initWithDashletUid: (NSUInteger) dashletUid
+- (id)initWithItemId:(NSString *)itemId
 {
     self = [super init];
     if (self) {
         // Custom initialization
         
-        self.dashletUid = dashletUid;
+        self.programId = itemId;
         
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        //Update Program Info from Core Data
-        [self updateProgram];
+        //Update Program Info from Core Data or Server
+
+        JPDataRequest* dataReq = [JPDataRequest sharedRequest];
+        dataReq.delegate = self;
+        [dataReq requestItemDetailsWithId:self.programId ofType:JPDashletTypeProgram];
         
-        self.vc1 = [[iPadProgramHomeViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
-        
-        self.vc2 = [[iPadProgramAcademicsViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
 
-        self.vc3 = [[iPadProgramContactViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
-
-        self.vc4 = [[iPadProgramCompareViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
-
-        self.vc5 = [[iPadProgramRatingsViewController alloc] initWithDashletUid:self.dashletUid program:self.program];
-
-     
-        UINavigationController* nc1 = [[UINavigationController alloc]initWithRootViewController:self.vc1];
-        UINavigationController* nc2 = [[UINavigationController alloc]initWithRootViewController:self.vc2];
-        UINavigationController* nc3 = [[UINavigationController alloc]initWithRootViewController:self.vc3];
-        UINavigationController* nc4 = [[UINavigationController alloc]initWithRootViewController:self.vc4];
-        UINavigationController* nc5 = [[UINavigationController alloc]initWithRootViewController:self.vc5];
-        
-        self.viewControllers = @[nc1,nc2,nc3,nc4,nc5];
-        
-        UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissViewController)];
-        
-        [self.vc1.navigationItem setLeftBarButtonItem:item];
-        [self.vc2.navigationItem setLeftBarButtonItem:item];
-        [self.vc3.navigationItem setLeftBarButtonItem:item];
-        [self.vc4.navigationItem setLeftBarButtonItem:item];
-        [self.vc5.navigationItem setLeftBarButtonItem:item];
-        
-        self.vc1.title = @"Home";
-        self.vc1.tabBarItem.title = @"Home";
-
-        self.vc2.title = @"Academics";
-        self.vc2.tabBarItem.title = @"Academics";
-
-        self.vc3.title = @"Contact";
-        self.vc3.tabBarItem.title = @"Contact";
-
-        self.vc4.title = @"Compare";
-        self.vc4.tabBarItem.title = @"Compare";
-
-        self.vc5.title = @"Ratings";
-        self.vc5.tabBarItem.title = @"Ratings";
-        
         
     }
     return self;
@@ -86,23 +51,52 @@
 
 
 
-- (void)updateProgram
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
 {
-    self.program = nil;
+    if(!success)
+        return;
     
-    _programId = self.dashletUid % 100000;
+    self.program = [[Program alloc] initWithDictionary:dict];
     
-    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
-    request.predicate = [NSPredicate predicateWithFormat:@"programId = %i", _programId];
     
-    NSError* error = nil;
-    NSArray* results = [context executeFetchRequest:request error:&error];
-    if(error)
-    {
-        JPLog(@"update Program ERROR: %@", error);
-    }
+    //Update User Interface
+    self.vc1 = [[iPadProgramHomeViewController alloc] initWithProgram:self.program];
+    self.vc2 = [[iPadProgramAcademicsViewController alloc] initWithProgram:self.program];
+    self.vc3 = [[iPadProgramContactViewController alloc] initWithProgram:self.program];
+    self.vc4 = [[iPadProgramCompareViewController alloc] initWithProgram:self.program];
+    self.vc5 = [[iPadProgramRatingsViewController alloc] initWithProgram:self.program];
     
-    self.program = results[0];
+    UINavigationController* nc1 = [[UINavigationController alloc]initWithRootViewController:self.vc1];
+    UINavigationController* nc2 = [[UINavigationController alloc]initWithRootViewController:self.vc2];
+    UINavigationController* nc3 = [[UINavigationController alloc]initWithRootViewController:self.vc3];
+    UINavigationController* nc4 = [[UINavigationController alloc]initWithRootViewController:self.vc4];
+    UINavigationController* nc5 = [[UINavigationController alloc]initWithRootViewController:self.vc5];
+    
+    self.viewControllers = @[nc1,nc2,nc3,nc4,nc5];
+    
+    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissViewController)];
+    
+    [self.vc1.navigationItem setLeftBarButtonItem:item];
+    [self.vc2.navigationItem setLeftBarButtonItem:item];
+    [self.vc3.navigationItem setLeftBarButtonItem:item];
+    [self.vc4.navigationItem setLeftBarButtonItem:item];
+    [self.vc5.navigationItem setLeftBarButtonItem:item];
+    
+    self.vc1.title = @"Home";
+    self.vc1.tabBarItem.title = @"Home";
+    
+    self.vc2.title = @"Academics";
+    self.vc2.tabBarItem.title = @"Academics";
+    
+    self.vc3.title = @"Contact";
+    self.vc3.tabBarItem.title = @"Contact";
+    
+    self.vc4.title = @"Compare";
+    self.vc4.tabBarItem.title = @"Compare";
+    
+    self.vc5.title = @"Ratings";
+    self.vc5.tabBarItem.title = @"Ratings";
+    
 }
 
 

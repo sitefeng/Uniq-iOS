@@ -35,14 +35,10 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
-    
-    NSInteger schoolId = [self.program.faculty.school.schoolId integerValue]*10000000;
-    NSInteger facultyId = [[self.program.faculty facultyId] integerValue]* 100000;
-    NSInteger programId = [self.program.programId integerValue];
-    
+
     self.progressPanView = [[iPhAppProgressPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
     self.progressPanView.delegate = self;
-    self.progressPanView.dashletUid = schoolId+facultyId+programId;
+    self.progressPanView.itemId = self.program.programId;
     
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
     [self.progressPanView addGestureRecognizer:panRec];

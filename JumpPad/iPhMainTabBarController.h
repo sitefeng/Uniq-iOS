@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class HNScrollView;
 @interface iPhMainTabBarController : UITabBarController <UIScrollViewDelegate>
 {
-    UIView*    whiteView;
 
+    UIView*    whiteView;
     
     HNScrollView*  imageScrollView;
     UIPageControl* pageControl;
@@ -24,9 +25,7 @@
     UILabel*      appTitle;
     UILabel*      appSubtitle;
     
-    
     NSTimer*      _backgroundAlphaChange;
-    
 }
 
 

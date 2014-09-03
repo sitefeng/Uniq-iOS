@@ -2,7 +2,7 @@
 //  User.m
 //  Uniq
 //
-//  Created by Si Te Feng on 6/27/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @dynamic locationString;
 @dynamic longitude;
 @dynamic name;
+@dynamic profileImage;
 @dynamic satGrammar;
 @dynamic satMath;
 @dynamic satReading;

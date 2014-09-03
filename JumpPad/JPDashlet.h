@@ -18,9 +18,9 @@
 {
     NSManagedObjectContext* context;
 }
-//Item Unique Idenntifier for the exact item
 
-@property (nonatomic, assign) NSUInteger dashletUid;
+//Item Unique Idenntifier for the exact item
+@property (nonatomic, strong) NSString*  itemId;
 
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) JPDashletType type;
@@ -42,12 +42,18 @@
 
 //******************
 
-
-- (instancetype)initWithDashletUid: (NSUInteger)uid;
-
+//////////////////////////////////////////
+//From Core Data
+- (instancetype)initWithItemId: (NSString*)itemId withType: (JPDashletType)type;
 - (instancetype)initWithSchool: (School*)school;
-- (instancetype)initWithFaculty: (Faculty*)faculty fromSchool: (NSInteger)schoolDashletId;
-- (instancetype)initWithProgram: (Program*)program fromFaculty: (NSInteger)facultyDashletId; //Full ID
+- (instancetype)initWithFaculty: (Faculty*)faculty;
+- (instancetype)initWithProgram: (Program*)program;
+
+////////////////////////////////
+//Online
+- (instancetype)initWithDictionary: (NSDictionary*)dict ofDashletType: (JPDashletType)type;
+
+
 
 - (BOOL)isFavorited;
 

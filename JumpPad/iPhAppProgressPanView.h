@@ -20,7 +20,7 @@
 }
 
 
-@property (nonatomic, assign) NSInteger dashletUid;
+@property (nonatomic, assign) NSString* itemId;
 
 @property (nonatomic, strong) NSMutableArray* applicationButtons;
 

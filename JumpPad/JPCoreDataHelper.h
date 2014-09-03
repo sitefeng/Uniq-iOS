@@ -22,9 +22,9 @@
 
 
 
-- (void)removeFavoriteWithDashletUid: (NSUInteger)dashletUid;
-- (void)addFavoriteWithDashletUid: (NSUInteger)dashletUid andType: (JPDashletType)type;
-- (BOOL)isFavoritedWithDashletUid: (NSUInteger)dashletUid;
+- (void)removeFavoriteWithItemId: (NSString*)itemId;
+- (void)addFavoriteWithItemId: (NSString*)itemId andType: (JPDashletType)type;
+- (BOOL)isFavoritedWithItemId: (NSString*)itemId;
 
 
 

@@ -22,6 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
     whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait)];
     whiteView.backgroundColor = [JPStyle colorWithHex:@"E2E2E2" alpha:1];
@@ -172,10 +174,8 @@
     _backgroundAlphaChange = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(changeBackgroundAlpha) userInfo:nil repeats:NO];
     
 }
-                            
 
-                              
-                              
+
                               
 - (void)didReceiveMemoryWarning
 {

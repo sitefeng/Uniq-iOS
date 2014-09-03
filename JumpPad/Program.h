@@ -2,38 +2,48 @@
 //  Program.h
 //  Uniq
 //
-//  Created by Si Te Feng on 7/2/14.
+//  Created by Si Te Feng on 9/2/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Faculty, ImageLink, ProgramApplicationStat, ProgramCourse, ProgramRating, ProgramYearlyTuition;
+@class Contact, Faculty, HighschoolCourse, ImageLink, ImportantDate, ProgramApplicationStat, ProgramCourse, ProgramRating, ProgramYearlyTuition, RelatedItem, SchoolLocation;
 
 @interface Program : NSManagedObject
 
 @property (nonatomic, retain) NSString * about;
-@property (nonatomic, retain) NSString * admissionDeadline;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSNumber * ext;
-@property (nonatomic, retain) NSString * facebookLink;
-@property (nonatomic, retain) NSNumber * fax;
 @property (nonatomic, retain) NSNumber * isCoop;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * numFavorites;
-@property (nonatomic, retain) NSNumber * phone;
-@property (nonatomic, retain) NSNumber * population;
-@property (nonatomic, retain) NSNumber * programId;
-@property (nonatomic, retain) NSString * twitterLink;
-@property (nonatomic, retain) NSString * website;
+@property (nonatomic, retain) NSNumber * undergradPopulation;
+@property (nonatomic, retain) NSString * programId;
 @property (nonatomic, retain) NSNumber * yearEstablished;
+@property (nonatomic, retain) NSDecimalNumber * avgAdm;
+@property (nonatomic, retain) NSString * appProcess;
+@property (nonatomic, retain) NSNumber * gradPopulation;
+@property (nonatomic, retain) NSNumber * numAccepted;
+@property (nonatomic, retain) NSNumber * numApplicants;
+@property (nonatomic, retain) NSString * shortName;
+@property (nonatomic, retain) NSString * internshipAbout;
+@property (nonatomic, retain) NSString * schoolId;
+@property (nonatomic, retain) NSString * facultyId;
+@property (nonatomic, retain) NSString * degree;
+@property (nonatomic, retain) NSString * degreeAbbrev;
+@property (nonatomic, retain) NSString * slug;
+@property (nonatomic, retain) NSString * applicationDeadline;
 @property (nonatomic, retain) NSSet *applicationStats;
+@property (nonatomic, retain) NSSet *contacts;
 @property (nonatomic, retain) NSSet *courses;
 @property (nonatomic, retain) Faculty *faculty;
 @property (nonatomic, retain) NSSet *images;
+@property (nonatomic, retain) NSSet *importantDates;
 @property (nonatomic, retain) ProgramRating *rating;
 @property (nonatomic, retain) NSSet *tuitions;
+@property (nonatomic, retain) SchoolLocation *location;
+@property (nonatomic, retain) NSSet *requiredCourses;
+@property (nonatomic, retain) NSSet *relatedItems;
 @end
 
 @interface Program (CoreDataGeneratedAccessors)
@@ -42,6 +52,11 @@
 - (void)removeApplicationStatsObject:(ProgramApplicationStat *)value;
 - (void)addApplicationStats:(NSSet *)values;
 - (void)removeApplicationStats:(NSSet *)values;
+
+- (void)addContactsObject:(Contact *)value;
+- (void)removeContactsObject:(Contact *)value;
+- (void)addContacts:(NSSet *)values;
+- (void)removeContacts:(NSSet *)values;
 
 - (void)addCoursesObject:(ProgramCourse *)value;
 - (void)removeCoursesObject:(ProgramCourse *)value;
@@ -53,9 +68,24 @@
 - (void)addImages:(NSSet *)values;
 - (void)removeImages:(NSSet *)values;
 
+- (void)addImportantDatesObject:(ImportantDate *)value;
+- (void)removeImportantDatesObject:(ImportantDate *)value;
+- (void)addImportantDates:(NSSet *)values;
+- (void)removeImportantDates:(NSSet *)values;
+
 - (void)addTuitionsObject:(ProgramYearlyTuition *)value;
 - (void)removeTuitionsObject:(ProgramYearlyTuition *)value;
 - (void)addTuitions:(NSSet *)values;
 - (void)removeTuitions:(NSSet *)values;
+
+- (void)addRequiredCoursesObject:(HighschoolCourse *)value;
+- (void)removeRequiredCoursesObject:(HighschoolCourse *)value;
+- (void)addRequiredCourses:(NSSet *)values;
+- (void)removeRequiredCourses:(NSSet *)values;
+
+- (void)addRelatedItemsObject:(RelatedItem *)value;
+- (void)removeRelatedItemsObject:(RelatedItem *)value;
+- (void)addRelatedItems:(NSSet *)values;
+- (void)removeRelatedItems:(NSSet *)values;
 
 @end

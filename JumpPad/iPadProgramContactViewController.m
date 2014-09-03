@@ -29,14 +29,14 @@
 
 @implementation iPadProgramContactViewController
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program
+- (id)initWithProgram: (Program*)program
 {
     self = [super initWithProgram:program];
     if (self) {
         // Custom initialization
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
-        self.dashletUid = dashletUid;
+
     }
     return self;
 }
@@ -80,14 +80,14 @@
     
     
     SchoolLocation* location = self.school.location;
-    CGPoint coord = jpp([location.lattitude floatValue], [location.longitude floatValue]);
+    CGPoint coord = jpp([location.latitude floatValue], [location.longitude floatValue]);
     
 
     ////////////////////////////////////////
     //Program Label: only show if it's a program
     if(_itemType == JPDashletTypeProgram)
     {
-        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) dashletNum:self.dashletUid program:self.program];
+        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) program:self.program];
         
         [self.view addSubview:self.labelView];
     }

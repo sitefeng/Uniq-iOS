@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
 
-@interface iPhFacProgSelectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface iPhFacProgSelectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
 }
 
 
 @property (nonatomic, assign) JPDashletType type;
-@property (nonatomic, assign) NSUInteger dashletUid;
+
+@property (nonatomic, assign) NSString* itemId;
+
 
 @property (nonatomic, strong) NSMutableArray* dashlets;
 
@@ -24,6 +27,6 @@
 
 
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid forSelectionType: (JPDashletType)type;
+- (instancetype)initWithItemId: (NSString*)itemId forSelectionType: (JPDashletType)type;
 
 @end

@@ -51,20 +51,7 @@
     }
 
     
-    _isReachable = false;
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        if(status == AFNetworkReachabilityStatusReachableViaWiFi || status == AFNetworkReachabilityStatusReachableViaWWAN)
-        {
-            [self networkAvailable];
-        }
-        else
-        {
-            _isReachable = false;
-        }
-    }];
-    
+
     
     //UI Setup
     
@@ -175,7 +162,8 @@
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
     viewController.title = selectedDashlet.title;
-    viewController.schoolUid = selectedDashlet.dashletUid;
+    viewController.schoolId = selectedDashlet.itemId;
+    viewController.schoolDashlet = selectedDashlet;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -288,7 +276,7 @@
 
 - (void)infoButtonPressed:(iPadMainCollectionViewCell*)sender
 {
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithDashletUid:sender.dashletInfo.dashletUid];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:sender.dashletInfo.itemId type:JPDashletTypeSchool];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
@@ -297,17 +285,6 @@
 
 
 
-
-- (void)networkAvailable
-{
-    _isReachable = true;
-    
-    [self updateDashletsInfo];
-    [self.cv reloadData];
-    [self updateBannerInfo];
-    
-    JPLog(@"Reconnected to Internet");
-}
 
 
 #pragma mark - Handle View Frame Change

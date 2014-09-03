@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JPDataRequest.h"
 
 @class Program, JPCoreDataHelper, UserFavItem, iPhProgramAcademicsViewController;
-@interface iPhProgramViewController : UITabBarController
+@interface iPhProgramViewController : UITabBarController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
     JPCoreDataHelper*  _helper;
@@ -23,7 +24,7 @@
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
+@property (nonatomic, strong) NSString* itemId;
 
 @property (nonatomic, strong) Program* program;
 
@@ -33,7 +34,8 @@
 
 
 
-- (instancetype)initWithDashletUid: (NSUInteger)dashletUid;
+- (instancetype)initWithItemId: (NSString*)itemId;
+
 - (void)reloadFavoriteButtonState;
 
 @end

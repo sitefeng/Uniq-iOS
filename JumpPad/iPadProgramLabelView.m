@@ -12,13 +12,15 @@
 
 #import "Program.h"
 #import "School.h"
-
 #import "JPFont.h"
+#import "JPDataRequest.h"
+#import "ManagedObjects+JPConvenience.h"
+
 
 @implementation iPadProgramLabelView
 
 //For Program Detail
-- (id)initWithFrame:(CGRect)frame dashletNum:(NSInteger)number program: (Program*)program
+- (id)initWithFrame:(CGRect)frame program: (Program*)program
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -26,31 +28,26 @@
         
         self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         
-        _program = program;
-        self.dashletUid = number;
+        self.program = program;
         
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        NSInteger schoolId = self.dashletUid / 10000000;
+        JPDataRequest* dataReq = [[JPDataRequest alloc] init];
+        dataReq.delegate = self;
+        [dataReq requestItemBriefDetailsWithId:self.program.schoolId ofType:JPDashletTypeSchool];
         
-        NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-        request.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", schoolId];
-        
-        School* school = [[context executeFetchRequest:request error:nil] firstObject];
         
         //ImageView
         self.imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(20,4,36,36)];
-        self.imageView.imageURL = [NSURL URLWithString:school.logoUrl];
         [self.imageView showActivityIndicator];
         
         
         //UILabel
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(70, 5, 730, 34)];
         self.label.textColor = [JPStyle colorWithHex:@"000000" alpha:1];
-//        self.label.shadowColor = [UIColor blackColor];
         self.label.font = [UIFont fontWithName:[JPFont defaultThinFont] size:30];
-        self.label.text = [NSString stringWithFormat:@"%@", _program.name];
+        self.label.text = [NSString stringWithFormat:@"%@", self.program.name];
         
         
         [self addSubview:self.imageView];
@@ -92,6 +89,15 @@
     return self;
     
 }
+
+
+
+- (void)dataRequest:(JPDataRequest *)request didLoadItemBriefDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
+{
+    School* school = [[School alloc] initWithDictionary:dict];
+    self.imageView.imageURL = [NSURL URLWithString:school.logoUrl];
+}
+
 
 
 /*

@@ -11,7 +11,7 @@
 #import "JPProgramSummaryView.h"
 #import <MessageUI/MessageUI.h>
 #import "JPCoreDataHelper.h"
-
+#import "Contact.h"
 
 @class iPadProgramImagesViewController, iPadProgramLabelView, JPProgramSummaryView, iPadProgramDetailView, Program, JPCoreDataHelper;
 
@@ -26,14 +26,10 @@
     float   _screenWidth;
     
     
-    
-    NSUInteger   _programId;
-    
 }
 
 
 
-@property (nonatomic, assign) NSUInteger dashletUid;
 @property (nonatomic, strong) Program* program;
 
 
@@ -47,7 +43,7 @@
 
 
 
-- (id)initWithDashletUid: (NSUInteger)dashletUid program: (Program*)program;
+- (id)initWithProgram: (Program*)program;
 
 
 @end

@@ -24,16 +24,29 @@
 }
 
 
-+(BOOL) iOS7
++ (BOOL) iOS7
 {
 	return [[UIDevice currentDevice].systemVersion hasPrefix:@"7"];
 }
 
 
-+(BOOL) iPhone4Inch
++ (BOOL) iPhone4Inch
 {
     return ([UIScreen mainScreen].bounds.size.height == 568.0) ? YES : NO;
 }
+
++ (BOOL)isPhone
+{
+    NSString* deviceModel = [[UIDevice currentDevice] model];
+    if([deviceModel rangeOfString: @"iPhone"].location != NSNotFound)
+    {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
 
 +(NSString*)deviceTypeString
 {
@@ -42,11 +55,20 @@
     {
         device = @"iPad";
     } else if([JPStyle iPhone4Inch]) {
-        device = @"iPhone 5 or 5s";
+        device = @"4 Inch Screen ";
     } else
     {
-        device = @"iPhone";
+        device = @"3.5 Inch Screen ";
     }
+    
+    NSString* deviceModel = [[UIDevice currentDevice] model];
+    if([deviceModel rangeOfString: @"iPhone"].location != NSNotFound)
+    {
+        device = [device stringByAppendingString:@"iPhone"];
+    } else {
+        device = [device stringByAppendingString:@"iPod"];
+    }
+    
     return device;
 }
 

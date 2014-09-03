@@ -10,12 +10,12 @@
 #import "iPadSearchBarView.h"
 #import "iPadMainCollectionViewCell.h"
 #import "sortViewController.h"
-
+#import "JPDataRequest.h"
 
 
 @class iPadSearchBarView, iPadSearchBarView, iPadFacultyBannerView;
 
-@interface iPadProgramSelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPSortDelegate, JPDashletInfoDelegate, UIPopoverControllerDelegate>
+@interface iPadProgramSelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPSortDelegate, JPDashletInfoDelegate, UIPopoverControllerDelegate, JPDataRequestDelegate>
 
 
 
@@ -31,10 +31,11 @@
 
 //---Model---
 
-@property (nonatomic, assign) NSInteger facultyUid;  //Initially set by FacultySelectVC (dashletUid)
+@property (nonatomic, strong) NSString* facultyId;  //Initially set by FacultySelectVC (dashletUid)
+@property (nonatomic, strong) JPDashlet* facultyDashlet;
 
 
-//Array of JPDashlets of type JPDashletTypeFaculty
+//Array of JPDashlets of type JPDashletTypeProgram
 @property (nonatomic, strong) NSMutableArray* dashlets;
 
 
