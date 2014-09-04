@@ -62,7 +62,7 @@
             
             
             //Tuition Values
-            UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(100, 45, 150,70)];
+            UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(80, 45, 180,70)];
             localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             
             NSDictionary* tuitionDict = [self.program.tuitions anyObject];
@@ -72,7 +72,7 @@
             localLabelVal.textColor = [UIColor blackColor];
             
             //----------
-            UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(100, 120, 150, 70)];
+            UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(80, 120, 180, 70)];
             intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
             intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];

@@ -12,14 +12,14 @@
 
 
 
-@property (nonatomic, assign) NSInteger ratingOverall;
-@property (nonatomic, assign) NSInteger difficulty;
-@property (nonatomic, assign) NSInteger professors;
-@property (nonatomic, assign) NSInteger schedule;
-@property (nonatomic, assign) NSInteger classmates;
-@property (nonatomic, assign) NSInteger social;
-@property (nonatomic, assign) NSInteger studyEnv;
-@property (nonatomic, assign) NSInteger guyRatio;
+@property (nonatomic, assign) double ratingOverall;
+@property (nonatomic, assign) double difficulty;
+@property (nonatomic, assign) double professors;
+@property (nonatomic, assign) double schedule;
+@property (nonatomic, assign) double classmates;
+@property (nonatomic, assign) double social;
+@property (nonatomic, assign) double studyEnv;
+@property (nonatomic, assign) double guyRatio;
 
 
 - (instancetype)initWithOrderedArray: (NSArray*)ratingsArray;
@@ -28,6 +28,13 @@
 - (NSArray*)getOrderedArray;
 - (NSDictionary*)getFullKeyDictionaryRepresentation;
 - (NSDictionary*)getShortKeyDictionaryRepresentation;
+
+
+//Utility Methods
+- (JPRatings*)getNewAvgRatingByAppendingAvg:(JPRatings*)avgRatings withWeight:(NSInteger)weight;
+
+- (JPRatings*)getNewAvgRatingByUpdatingAvg:(JPRatings*)avgRatings withWeight:(NSInteger)weight withOldUserRatings:(JPRatings*)oldRatings;
+
 
 
 @end

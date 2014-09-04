@@ -17,6 +17,7 @@
 #import "ProgramRating.h"
 #import "HighschoolCourse.h"
 #import "ProgramCourse.h"
+#import "UniqAppDelegate.h"
 
 
 @interface School (JPConvenience)
@@ -55,7 +56,7 @@
 
 @interface ImageLink (JPConvenience)
 
-- (instancetype)initWIthDictionary: (NSDictionary*)dict;
+- (instancetype)initWithDictionary: (NSDictionary*)dict;
 
 @end
 

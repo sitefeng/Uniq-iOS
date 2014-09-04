@@ -18,6 +18,7 @@
 #import "JPStyle.h"
 #import "JPDataRequest.h"
 #import "ManagedObjects+JPConvenience.h"
+#import "DejalActivityView.h"
 
 
 @interface iPhProgramViewController ()
@@ -32,7 +33,6 @@
     if (self) {
         // Custom initialization
     
-        
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
@@ -40,37 +40,11 @@
         _helper = [[JPCoreDataHelper alloc] init];
         
         [self retrieveProgramInfo];
-        self.title = self.program.name;
         
-        UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
-        self.navigationItem.leftBarButtonItem = dismissItem;
+        ////////
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         
-        _favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
-        [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
-        _favButton.selected = [_helper isFavoritedWithItemId:self.itemId];
-        [_favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:_favButton];
-        self.navigationItem.rightBarButtonItem = favoriteItem;
-        
-        iPhProgramHomeViewController* homeController = [[iPhProgramHomeViewController alloc] initWithProgram: self.program];
-        
-        homeController.tabBarItem.image = [UIImage imageNamed:@"home"];
-        homeController.tabBarItem.title = @"Home";
-        
-        academicsController = [[iPhProgramAcademicsViewController alloc] initWithProgram:self.program];
-        academicsController.tabBarItem.title = @"Academics";
-        academicsController.tabBarItem.image = [UIImage imageNamed: @"academics"];
-        
-        iPhProgramContactViewController* contactController = [[iPhProgramContactViewController alloc] initWithProgram:self.program];
-        contactController.tabBarItem.title = @"Contact";
-        contactController.tabBarItem.image = [UIImage imageNamed:@"contact"];
-        
-        iPhProgramRatingsViewController* ratingsController = [[iPhProgramRatingsViewController alloc] initWithProgram:self.program];
-        ratingsController.tabBarItem.title = @"Ratings";
-        ratingsController.tabBarItem.image = [UIImage imageNamed:@"ratings"];
-        
-        self.viewControllers = @[homeController, academicsController, contactController, ratingsController];
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
         
         
     }
@@ -91,11 +65,7 @@
     JPDataRequest* request = [JPDataRequest sharedRequest];
     request.delegate = self;
     [request requestItemDetailsWithId:self.itemId ofType:JPDashletTypeProgram];
-    
-    
-    
-    
-    
+
 }
 
 
@@ -104,8 +74,41 @@
 
     self.program = [[Program alloc] initWithDictionary:dict];
     
+    self.title = self.program.name;
+    
+    UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
+    self.navigationItem.leftBarButtonItem = dismissItem;
+    
+    _favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
+    [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
+    _favButton.selected = [_helper isFavoritedWithItemId:self.itemId];
+    [_favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:_favButton];
+    self.navigationItem.rightBarButtonItem = favoriteItem;
+    
+    iPhProgramHomeViewController* homeController = [[iPhProgramHomeViewController alloc] initWithProgram: self.program];
+    
+    homeController.tabBarItem.image = [UIImage imageNamed:@"home"];
+    homeController.tabBarItem.title = @"Home";
+    
+    academicsController = [[iPhProgramAcademicsViewController alloc] initWithProgram:self.program];
+    academicsController.tabBarItem.title = @"Academics";
+    academicsController.tabBarItem.image = [UIImage imageNamed: @"academics"];
+    
+    iPhProgramContactViewController* contactController = [[iPhProgramContactViewController alloc] initWithProgram:self.program];
+    contactController.tabBarItem.title = @"Contact";
+    contactController.tabBarItem.image = [UIImage imageNamed:@"contact"];
+    
+    iPhProgramRatingsViewController* ratingsController = [[iPhProgramRatingsViewController alloc] initWithProgram:self.program];
+    ratingsController.tabBarItem.title = @"Ratings";
+    ratingsController.tabBarItem.image = [UIImage imageNamed:@"ratings"];
+    
+    self.viewControllers = @[homeController, academicsController, contactController, ratingsController];
+    
+    [DejalBezelActivityView removeViewAnimated:YES];
 }
-         
+
 
 - (void)reloadFavoriteButtonState
 {

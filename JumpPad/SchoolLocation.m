@@ -2,7 +2,7 @@
 //  SchoolLocation.m
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/4/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -25,7 +25,7 @@
 @dynamic streetNum;
 @dynamic unit;
 @dynamic faculty;
-@dynamic school;
 @dynamic program;
+@dynamic school;
 
 @end

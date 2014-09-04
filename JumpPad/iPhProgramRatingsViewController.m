@@ -41,7 +41,7 @@
         _offlineMode = NO;
         
         
-        [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId]];
+        [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId] getAverageValue:NO];
         
     }
     return self;

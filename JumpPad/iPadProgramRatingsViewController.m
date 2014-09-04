@@ -174,16 +174,13 @@
     [self.view addSubview:self.ratingScrollView];
     
     
-    //Download User Settings
-    [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@", self.program.programId]];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId]];
+    [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId] getAverageValue:NO];
     
 }
 

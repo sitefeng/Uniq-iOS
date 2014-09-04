@@ -2,7 +2,7 @@
 //  ProgramYearlyTuition.h
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/4/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 
 @interface ProgramYearlyTuition : NSManagedObject
 
-@property (nonatomic, retain) NSDecimalNumber * domesticTuition;
-@property (nonatomic, retain) NSDecimalNumber * internationalTuition;
+@property (nonatomic, retain) NSNumber * domesticTuition;
+@property (nonatomic, retain) NSNumber * internationalTuition;
 @property (nonatomic, retain) NSString * term;
 @property (nonatomic, retain) Program *program;
 

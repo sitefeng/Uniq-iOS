@@ -131,8 +131,8 @@
         <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="rating" inverseEntity="Program" syncable="YES"/>
     </entity>
     <entity name="ProgramYearlyTuition" representedClassName="ProgramYearlyTuition" syncable="YES">
-        <attribute name="domesticTuition" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
-        <attribute name="internationalTuition" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="domesticTuition" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="internationalTuition" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="term" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="tuitions" inverseEntity="Program" syncable="YES"/>
     </entity>
@@ -164,7 +164,7 @@
         <relationship name="relatedItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RelatedItem" inverseName="school" inverseEntity="RelatedItem" syncable="YES"/>
     </entity>
     <entity name="SchoolLocation" representedClassName="SchoolLocation" syncable="YES">
-        <attribute name="apt" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="apt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -233,15 +233,15 @@
         <element name="ProgramApplicationStat" positionX="-531" positionY="153" width="128" height="120"/>
         <element name="ProgramCourse" positionX="-531" positionY="288" width="128" height="133"/>
         <element name="ProgramRating" positionX="-531" positionY="432" width="128" height="195"/>
-        <element name="ProgramYearlyTuition" positionX="-524" positionY="653" width="128" height="103"/>
+        <element name="ProgramYearlyTuition" positionX="-524" positionY="653" width="128" height="105"/>
+        <element name="RelatedItem" positionX="-155" positionY="207" width="128" height="118"/>
         <element name="School" positionX="-252" positionY="-189" width="128" height="313"/>
-        <element name="SchoolLocation" positionX="-54" positionY="-292" width="128" height="238"/>
+        <element name="SchoolLocation" positionX="-54" positionY="-292" width="128" height="240"/>
         <element name="SchoolRanking" positionX="-425" positionY="21" width="128" height="105"/>
         <element name="UniqKEFunction" positionX="-783" positionY="-171" width="128" height="120"/>
         <element name="UniqKEKeyword" positionX="-945" positionY="-45" width="128" height="75"/>
         <element name="UniqKEOne" positionX="-774" positionY="-6" width="128" height="60"/>
         <element name="User" positionX="466" positionY="42" width="128" height="225"/>
         <element name="UserFavItem" positionX="466" positionY="-126" width="128" height="148"/>
-        <element name="RelatedItem" positionX="-155" positionY="207" width="128" height="118"/>
     </elements>
 </model>

@@ -259,6 +259,10 @@
     {
         returnColor = [UIColor whiteColor];
     }
+    else if([colorName isEqual:@"background"])
+    {
+        returnColor = [self colorWithHex:@"e6e6e6" alpha:1];
+    }
     else
     {
         NSLog(@"--Error--No Color Available");

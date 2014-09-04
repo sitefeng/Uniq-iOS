@@ -14,7 +14,10 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"School" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
@@ -67,7 +70,7 @@
             }
             else
             {
-                ImageLink* imageLink = [[ImageLink alloc] initWIthDictionary:imageDict];
+                ImageLink* imageLink = [[ImageLink alloc] initWithDictionary:imageDict];
                 [imageSet addObject:imageLink];
             }
         }
@@ -104,7 +107,10 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Faculty" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
@@ -156,7 +162,7 @@
             }
             else
             {
-                ImageLink* imageLink = [[ImageLink alloc] initWIthDictionary:imageDict];
+                ImageLink* imageLink = [[ImageLink alloc] initWithDictionary:imageDict];
                 [imageSet addObject:imageLink];
             }
         }
@@ -194,7 +200,10 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* programEntity = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:context];
+    self = [super initWithEntity:programEntity insertIntoManagedObjectContext:context];
     
     //todo: fix
     self.applicationDeadline = @"01/14";
@@ -260,7 +269,7 @@
         
         for(NSDictionary* imageDict in imageDictArray)
         {
-            ImageLink* imageLink = [[ImageLink alloc] initWIthDictionary:imageDict];
+            ImageLink* imageLink = [[ImageLink alloc] initWithDictionary:imageDict];
             [imageSet addObject:imageLink];
         }
         self.images = imageSet;
@@ -305,7 +314,8 @@
                 NSDictionary* domFeeDict = [domesticFees objectAtIndex:i];
                 NSDictionary* intFeeDict = [internationalFees objectAtIndex:i];
                 
-                ProgramYearlyTuition* tuition = [[ProgramYearlyTuition alloc] init];
+                NSEntityDescription* tuitionEntity = [NSEntityDescription entityForName:@"ProgramYearlyTuition" inManagedObjectContext:context];
+                ProgramYearlyTuition* tuition = [[ProgramYearlyTuition alloc] initWithEntity:tuitionEntity insertIntoManagedObjectContext:context];
                 if([domFeeDict objectForKey:@"totalFees"] != [NSNull null])
                     tuition.domesticTuition = [domFeeDict objectForKey:@"totalFees"];
                 if([domFeeDict objectForKey:@"term"] != [NSNull null])
@@ -324,9 +334,10 @@
     {
         NSDictionary* ratingDict = [dict objectForKey:@"rating"];
         
-        if([ratingDict objectForKey:@"guyRatio"] != [NSNull null])
+        if(([ratingDict objectForKey:@"guyRatio"]!=[NSNull null]) && ratingDict)
         {
-            ProgramRating* rating = [[ProgramRating alloc] init];
+            NSEntityDescription* ratingDescription = [NSEntityDescription entityForName:@"ProgramRating" inManagedObjectContext:context];
+            ProgramRating* rating = [[ProgramRating alloc] initWithEntity:ratingDescription insertIntoManagedObjectContext:context];
             rating.guyToGirlRatio = [NSNumber numberWithFloat:[[ratingDict objectForKey:@"guyRatio"] floatValue]];
             self.rating = rating;
         }
@@ -419,7 +430,11 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Contact" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"website"] != [NSNull null])
         self.website = [dict objectForKey:@"website"];
@@ -450,9 +465,13 @@
 
 @implementation ImageLink (JPConvenience)
 
-- (instancetype)initWIthDictionary: (NSDictionary*)dict
+- (instancetype)initWithDictionary: (NSDictionary*)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"ImageLink" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"descriptor"] != [NSNull null])
         self.descriptor = [dict objectForKey:@"descriptor"];
@@ -470,7 +489,11 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"SchoolLocation" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"city"] != [NSNull null])
         self.city = [dict objectForKey:@"city"];
@@ -481,9 +504,9 @@
     if([dict objectForKey:@"apt"] != [NSNull null])
         self.apt = [dict objectForKey:@"apt"];
     if([dict objectForKey:@"latitude"] != [NSNull null])
-        self.latitude = [dict objectForKey:@"latitude"];
+        self.latitude = [NSNumber numberWithDouble:[[dict objectForKey:@"latitude"] doubleValue]];
     if([dict objectForKey:@"longitude"] != [NSNull null])
-        self.longitude = [dict objectForKey:@"longitude"];
+        self.longitude = [NSNumber numberWithDouble:[[dict objectForKey:@"longitude"] doubleValue]];
     if([dict objectForKey:@"address"] != [NSNull null])
         self.streetName = [dict objectForKey:@"address"];
     if([dict objectForKey:@"postalCode"] != [NSNull null])
@@ -502,7 +525,10 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"ImportantDate" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"date"] != [NSNull null])
         self.date = [dict objectForKey:@"date"];
@@ -525,7 +551,10 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"ProgramCourse" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"catalog_number"] != [NSNull null])
         self.catalogNum = [dict objectForKey:@"catalog_number"];
@@ -546,7 +575,10 @@
 
 - (instancetype)initWithRequirementDictionary:(NSDictionary *)dict
 {
-    self = [super init];
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"HighschoolCourse" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     if([dict objectForKey:@"min_grade"] != [NSNull null])
         self.courseMark = [NSNumber numberWithDouble:[[dict objectForKey:@"min_grade"] doubleValue]];

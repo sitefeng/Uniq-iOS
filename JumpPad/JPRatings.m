@@ -10,6 +10,8 @@
 
 @implementation JPRatings
 
+#pragma mark - Initialization Methods
+
 - (instancetype)init
 {
     self = [super init];
@@ -29,14 +31,14 @@
 {
     self = [self init];
     
-    self.ratingOverall = [ratingsArray[0] integerValue];
-    self.difficulty = [ratingsArray[1] integerValue];
-    self.professors = [ratingsArray[2] integerValue];
-    self.schedule = [ratingsArray[3] integerValue];
-    self.classmates = [ratingsArray[4] integerValue];
-    self.social = [ratingsArray[5] integerValue];
-    self.studyEnv = [ratingsArray[6] integerValue];
-    self.guyRatio = [ratingsArray[7] integerValue];
+    self.ratingOverall = [ratingsArray[0] doubleValue];
+    self.difficulty = [ratingsArray[1] doubleValue];
+    self.professors = [ratingsArray[2] doubleValue];
+    self.schedule = [ratingsArray[3] doubleValue];
+    self.classmates = [ratingsArray[4] doubleValue];
+    self.social = [ratingsArray[5] doubleValue];
+    self.studyEnv = [ratingsArray[6] doubleValue];
+    self.guyRatio = [ratingsArray[7] doubleValue];
     
     return self;
 }
@@ -49,34 +51,34 @@
     if(!dict || [dict isEqual:[NSNull null]])
         return self;
     
-    self.ratingOverall = [[dict objectForKey:[self dictionaryShortKeyWithIndex:0]] integerValue];
-    self.difficulty = [[dict objectForKey:[self dictionaryShortKeyWithIndex:1]] integerValue];
-    self.professors = [[dict objectForKey:[self dictionaryShortKeyWithIndex:2]] integerValue];
-    self.schedule = [[dict objectForKey:[self dictionaryShortKeyWithIndex:3]] integerValue];
-    self.classmates = [[dict objectForKey:[self dictionaryShortKeyWithIndex:4]] integerValue];
-    self.social = [[dict objectForKey:[self dictionaryShortKeyWithIndex:5]] integerValue];
-    self.studyEnv = [[dict objectForKey:[self dictionaryShortKeyWithIndex:6]] integerValue];
-    self.guyRatio = [[dict objectForKey:[self dictionaryShortKeyWithIndex:7]] integerValue];
+    self.ratingOverall = [[dict objectForKey:[self dictionaryShortKeyWithIndex:0]] doubleValue];
+    self.difficulty = [[dict objectForKey:[self dictionaryShortKeyWithIndex:1]] doubleValue];
+    self.professors = [[dict objectForKey:[self dictionaryShortKeyWithIndex:2]] doubleValue];
+    self.schedule = [[dict objectForKey:[self dictionaryShortKeyWithIndex:3]] doubleValue];
+    self.classmates = [[dict objectForKey:[self dictionaryShortKeyWithIndex:4]] doubleValue];
+    self.social = [[dict objectForKey:[self dictionaryShortKeyWithIndex:5]] doubleValue];
+    self.studyEnv = [[dict objectForKey:[self dictionaryShortKeyWithIndex:6]] doubleValue];
+    self.guyRatio = [[dict objectForKey:[self dictionaryShortKeyWithIndex:7]] doubleValue];
     
     return self;
     
 }
 
 
-
+#pragma mark - Getting value in structures
 
 - (NSDictionary*)getFullKeyDictionaryRepresentation
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[NSNumber numberWithInteger:self.ratingOverall] forKey:[self dictionaryKeyWithIndex:0]];
-    [dict setObject:[NSNumber numberWithInteger:self.difficulty] forKey:[self dictionaryKeyWithIndex:1]];
-    [dict setObject:[NSNumber numberWithInteger:self.professors] forKey:[self dictionaryKeyWithIndex:2]];
-    [dict setObject:[NSNumber numberWithInteger:self.schedule] forKey:[self dictionaryKeyWithIndex:3]];
-    [dict setObject:[NSNumber numberWithInteger:self.classmates] forKey:[self dictionaryKeyWithIndex:4]];
-    [dict setObject:[NSNumber numberWithInteger:self.social] forKey:[self dictionaryKeyWithIndex:5]];
-    [dict setObject:[NSNumber numberWithInteger:self.studyEnv] forKey:[self dictionaryKeyWithIndex:6]];
-    [dict setObject:[NSNumber numberWithInteger:self.guyRatio] forKey:[self dictionaryKeyWithIndex:7]];
+    [dict setObject:[NSNumber numberWithDouble:self.ratingOverall] forKey:[self dictionaryKeyWithIndex:0]];
+    [dict setObject:[NSNumber numberWithDouble:self.difficulty] forKey:[self dictionaryKeyWithIndex:1]];
+    [dict setObject:[NSNumber numberWithDouble:self.professors] forKey:[self dictionaryKeyWithIndex:2]];
+    [dict setObject:[NSNumber numberWithDouble:self.schedule] forKey:[self dictionaryKeyWithIndex:3]];
+    [dict setObject:[NSNumber numberWithDouble:self.classmates] forKey:[self dictionaryKeyWithIndex:4]];
+    [dict setObject:[NSNumber numberWithDouble:self.social] forKey:[self dictionaryKeyWithIndex:5]];
+    [dict setObject:[NSNumber numberWithDouble:self.studyEnv] forKey:[self dictionaryKeyWithIndex:6]];
+    [dict setObject:[NSNumber numberWithDouble:self.guyRatio] forKey:[self dictionaryKeyWithIndex:7]];
     
     return dict;
 }
@@ -86,14 +88,14 @@
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[NSNumber numberWithInteger:self.ratingOverall] forKey:[self dictionaryShortKeyWithIndex:0]];
-    [dict setObject:[NSNumber numberWithInteger:self.difficulty] forKey:[self dictionaryShortKeyWithIndex:1]];
-    [dict setObject:[NSNumber numberWithInteger:self.professors] forKey:[self dictionaryShortKeyWithIndex:2]];
-    [dict setObject:[NSNumber numberWithInteger:self.schedule] forKey:[self dictionaryShortKeyWithIndex:3]];
-    [dict setObject:[NSNumber numberWithInteger:self.classmates] forKey:[self dictionaryShortKeyWithIndex:4]];
-    [dict setObject:[NSNumber numberWithInteger:self.social] forKey:[self dictionaryShortKeyWithIndex:5]];
-    [dict setObject:[NSNumber numberWithInteger:self.studyEnv] forKey:[self dictionaryShortKeyWithIndex:6]];;
-    [dict setObject:[NSNumber numberWithInteger:self.guyRatio] forKey:[self dictionaryShortKeyWithIndex:7]];
+    [dict setObject:[NSNumber numberWithDouble:self.ratingOverall] forKey:[self dictionaryShortKeyWithIndex:0]];
+    [dict setObject:[NSNumber numberWithDouble:self.difficulty] forKey:[self dictionaryShortKeyWithIndex:1]];
+    [dict setObject:[NSNumber numberWithDouble:self.professors] forKey:[self dictionaryShortKeyWithIndex:2]];
+    [dict setObject:[NSNumber numberWithDouble:self.schedule] forKey:[self dictionaryShortKeyWithIndex:3]];
+    [dict setObject:[NSNumber numberWithDouble:self.classmates] forKey:[self dictionaryShortKeyWithIndex:4]];
+    [dict setObject:[NSNumber numberWithDouble:self.social] forKey:[self dictionaryShortKeyWithIndex:5]];
+    [dict setObject:[NSNumber numberWithDouble:self.studyEnv] forKey:[self dictionaryShortKeyWithIndex:6]];;
+    [dict setObject:[NSNumber numberWithDouble:self.guyRatio] forKey:[self dictionaryShortKeyWithIndex:7]];
     
     return dict;
     
@@ -116,6 +118,51 @@
 }
 
 
+
+#pragma mark - Utility Methods
+
+- (JPRatings*)getNewAvgRatingByAppendingAvg:(JPRatings*)avgRatings withWeight:(NSInteger)weight
+{
+    JPRatings* newRatings = [[JPRatings alloc] init];
+    
+    newRatings.ratingOverall = (avgRatings.ratingOverall*weight+ self.ratingOverall)/(weight+1);
+    newRatings.difficulty = (avgRatings.difficulty*weight+ self.difficulty)/(weight+1);
+    newRatings.professors = (avgRatings.professors*weight+ self.professors)/(weight+1);
+    newRatings.schedule = (avgRatings.schedule*weight+ self.schedule)/(weight+1);
+    newRatings.classmates = (avgRatings.classmates*weight+ self.classmates)/(weight+1);
+    newRatings.social = (avgRatings.social*weight+ self.social)/(weight+1);
+    newRatings.studyEnv = (avgRatings.studyEnv*weight+ self.studyEnv)/(weight+1);
+    newRatings.guyRatio = (avgRatings.guyRatio*weight+ self.guyRatio)/(weight+1);
+
+    return newRatings;
+}
+
+
+- (JPRatings*)getNewAvgRatingByUpdatingAvg:(JPRatings*)avgRatings withWeight:(NSInteger)weight withOldUserRatings:(JPRatings*)oldRatings
+{
+    JPRatings* prevAvg = [[JPRatings alloc] init];
+    
+    if(weight <= 1)
+        return self;
+    
+    prevAvg.ratingOverall = (avgRatings.ratingOverall*weight-oldRatings.ratingOverall)/(weight-1);
+    prevAvg.difficulty = (avgRatings.difficulty*weight-oldRatings.difficulty)/(weight-1);
+    prevAvg.professors = (avgRatings.professors*weight-oldRatings.professors)/(weight-1);
+    prevAvg.schedule = (avgRatings.schedule*weight-oldRatings.schedule)/(weight-1);
+    prevAvg.classmates = (avgRatings.classmates*weight-oldRatings.classmates)/(weight-1);
+    prevAvg.social = (avgRatings.social*weight-oldRatings.social)/(weight-1);
+    prevAvg.studyEnv = (avgRatings.studyEnv*weight-oldRatings.studyEnv)/(weight-1);
+    prevAvg.guyRatio = (avgRatings.guyRatio*weight-oldRatings.guyRatio)/(weight-1);
+    
+    JPRatings* updatedAvg = [self getNewAvgRatingByAppendingAvg:prevAvg withWeight:weight-1];
+    
+    return updatedAvg;
+}
+
+
+
+
+#pragma mark - Convenience Methods
 
 - (NSString*)dictionaryKeyWithIndex: (NSInteger)num
 {

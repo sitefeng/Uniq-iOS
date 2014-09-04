@@ -18,7 +18,7 @@
 
 - (void)uploadRatingsWithProgramUid: (NSString*)uid ratings:(JPRatings*)ratings;
 
-- (void)downloadRatingsWithProgramUid: (NSString*)uid;
+- (void)downloadRatingsWithProgramUid: (NSString*)uid getAverageValue: (BOOL)isAverage;
 
 
 @end
