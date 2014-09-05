@@ -24,6 +24,7 @@
 
 - (instancetype)initWithOrderedArray: (NSArray*)ratingsArray;
 - (instancetype)initWithShortKeyDictionary: (NSDictionary*)dict;
+- (instancetype)initWithFullKeyDictionary: (NSDictionary*)dict;
 
 - (NSArray*)getOrderedArray;
 - (NSDictionary*)getFullKeyDictionaryRepresentation;

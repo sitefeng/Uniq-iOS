@@ -229,7 +229,7 @@
                     [yearButton setTintColor:[UIColor whiteColor]];
                     [yearButton setShowsTouchWhenHighlighted:NO];
                     yearButton.tag = j+2*i;
-                    [yearButton addTarget:self action:@selector(yearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+                    [yearButton addTarget:self action:@selector(termButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
                     
                     [hexView addSubview:yearButton];
                 }
@@ -268,16 +268,12 @@
 }
 
 
-- (void)yearButtonPressed: (UIButton*)button
+- (void)termButtonPressed: (UIButton*)button
 {
-    
-    NSUInteger year = button.tag + 1;
-    
     JPProgramCoursesViewController* viewController = [[JPProgramCoursesViewController alloc] init];
     
-    viewController.coursesYear = year;
-    viewController.programCourses = self.program.courses;
-    
+    viewController.programTerm = button.titleLabel.text;
+    viewController.program = self.program;
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     

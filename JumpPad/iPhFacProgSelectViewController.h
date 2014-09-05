@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "JPDataRequest.h"
 
+
 @interface iPhFacProgSelectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
+    JPDataRequest*  _dataRequest;
 }
 
 

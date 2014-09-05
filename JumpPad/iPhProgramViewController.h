@@ -14,6 +14,7 @@
 {
     NSManagedObjectContext* context;
     JPCoreDataHelper*  _helper;
+    JPDataRequest*     _dataRequest;
     
     UIButton*  _favButton;
     UserFavItem*  _userFav;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Program.h"
 
 
 @interface JPProgramCoursesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
@@ -18,10 +19,8 @@
 }
 
 
-
-@property (nonatomic, assign) NSUInteger coursesYear;//1,2,3,4
-
-@property (nonatomic, strong) NSSet* programCourses;
+@property (nonatomic, strong) NSString* programTerm;
+@property (nonatomic, strong) Program* program;
 
 
 

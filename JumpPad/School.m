@@ -2,7 +2,7 @@
 //  School.m
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/5/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -29,6 +29,7 @@
 @dynamic totalFunding;
 @dynamic undergradPopulation;
 @dynamic yearEstablished;
+@dynamic toDelete;
 @dynamic contacts;
 @dynamic faculties;
 @dynamic images;

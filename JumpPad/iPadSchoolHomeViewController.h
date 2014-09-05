@@ -17,6 +17,7 @@
 @interface iPadSchoolHomeViewController  : UIViewController <JPSchoolSummaryDelegate, JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
+    JPDataRequest*   _dataRequest;
     JPCoreDataHelper* _coreDataHelper;
     
     JPLocation*     _schoolLocation;

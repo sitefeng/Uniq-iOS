@@ -101,7 +101,7 @@ static const float kProgramImageWidth  = 384;
     JPLocation* programLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.region];
     
     //Summary View
-    self.summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program location:programLocation];
+    self.summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program];
     self.summaryView.delegate = self;
     
     //Detail View

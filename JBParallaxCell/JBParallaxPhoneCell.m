@@ -60,7 +60,7 @@
         
         self.favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 42, 0, 40, 40)];
         [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+        [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconHighlighted"] forState:UIControlStateHighlighted];
         [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         [self.favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         

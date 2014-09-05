@@ -60,7 +60,7 @@
     [self.view addSubview:_panImageView];
     
     
-    UIScrollView* detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-30)];
+    UIScrollView* detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 30, kiPhoneContentHeightPortrait, kiPhoneContentHeightPortrait-30)];
     [self.view addSubview:detailScrollView];
     
     JPSchoolSummaryView* summaryView = [[JPSchoolSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait+10, 280) isPhoneInterface:YES];

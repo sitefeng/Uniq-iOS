@@ -36,7 +36,7 @@ const NSUInteger kIconLabelTag = 341;
         [self addSubview:self.courseCodeLabel];
         
         
-        self.courseNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(85, 36, 450, 30)];
+        self.courseNameLabel = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(85, 36, 450, 30)];
         self.courseNameLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
         
         [self addSubview:self.courseNameLabel];
@@ -86,14 +86,17 @@ const NSUInteger kIconLabelTag = 341;
     self.courseCodeLabel.text = courseCode;
     
     UILabel* iconLabel = (UILabel*)[self.iconView viewWithTag:kIconLabelTag];
-    
     iconLabel.text = [[courseCode substringToIndex:1] uppercaseString];
-
     self.iconView.backgroundColor = [JPStyle colorWithLetter: iconLabel.text];
-    
 }
 
 
+- (void)setCourseName:(NSString *)courseName
+{
+    _courseName = courseName;
+    
+    self.courseNameLabel.text = courseName;
+}
 
 
 - (void)setDeviceType:(UIUserInterfaceIdiom)deviceType

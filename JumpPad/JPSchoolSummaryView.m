@@ -90,7 +90,7 @@ static const NSInteger kLabelConst =321;
         {
             _favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(buttonStartPos, iconHeight, 54, 54)];
             [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-            [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+            [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconHighlighted"] forState:UIControlStateHighlighted];
             [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
             _favoriteButton.selected = NO;
             if(self.isFavorited)

@@ -13,25 +13,26 @@
 #import "JPLocation.h"
 #import "User.h"
 #import "JPGlobal.h"
+#import "DXAlertView.h"
+#import "JPCoreDataHelper.h"
 
 
 @implementation JPProgramSummaryView //for basic information on top in a program
 
-- (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location
+- (id)initWithFrame:(CGRect)frame program: (Program*)program 
 {
-    self = [self initWithFrame:frame program:program location:location isPhoneInterface:NO];
+    self = [self initWithFrame:frame program:program isPhoneInterface:NO];
     return self;
 }
 
 
-- (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location isPhoneInterface: (BOOL)isPhone
+- (id)initWithFrame:(CGRect)frame program: (Program*)program isPhoneInterface: (BOOL)isPhone
 {
     self = [super initWithFrame:frame];
     
     self.backgroundColor = [UIColor clearColor];
     
     self.program = program;
-    self.location = location;
     
     self.isIphoneInterface = isPhone;
     _readyToCalculateDistance = false;
@@ -42,7 +43,7 @@
     self.summary.text = @"SUMMARY";
     
     //Icon images and labels;
-    NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SDuration",@"SDistance",@"SCoop",@"SAverage", nil];
+    NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SDuration",@"SDistance",@"favoriteIconHighlighted",@"SAverage", nil];
     
     int horizDist =200;
     if(self.isIphoneInterface)
@@ -56,6 +57,10 @@
             UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(15+ horizDist*j, 65+ vertDist*i, 30, 30)];
             view.contentMode = UIViewContentModeScaleAspectFit;
             view.image = [UIImage imageNamed:iconImageNames[i*2+j]];
+            view.userInteractionEnabled = YES;
+            view.tag = i*2+j;
+            UITapGestureRecognizer* tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageItemTapped:)];
+            [view addGestureRecognizer:tapRec];
             [self addSubview:view];
             
             UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50+ horizDist*j, 65+vertDist*i, horizDist-40, 30)];
@@ -103,7 +108,7 @@
     if(!self.isIphoneInterface)
     {
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+        [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconHighlighted"] forState:UIControlStateHighlighted];
         [_favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         _favoriteButton.selected = NO;
         [_favoriteButton addTarget:self action:@selector(favoriteButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -153,7 +158,7 @@
             NSArray* array = [self.program.courses allObjects];
             for(ProgramCourse* course in array)
             {
-                //Todo
+                //Todo nonurgent
                 if([course.enrollmentTerm intValue] > yearNum)
                 {
                     yearNum = [course.enrollmentTerm intValue];
@@ -165,12 +170,8 @@
         }
         case 2:
         {
-            BOOL hasInternship = [self.program.isCoop boolValue];
-            
-            if(hasInternship)
-                return @"Has Internship";
-            else
-                return @"No Internship";
+            NSInteger numFavorites = [self.program.numFavorites integerValue];
+            return [NSString stringWithFormat:@"%ld Favorited", (long)numFavorites];
             
         }
         case 10:
@@ -198,27 +199,29 @@
         }
         case 11:
         {
-            UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
-            NSManagedObjectContext* context = [delegate managedObjectContext];
-            NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-            NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
-            User* user = nil;
-            if([userArray count] >0)
-            {
-                user = [userArray firstObject];
-                if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
-                    return @"-- kms Away";
-                self.distanceToHome = [self.location distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
-                return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
-            }
-            else
-            {
+            JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+            
+            self.distanceToHome = [coreDataHelper distanceToUserLocationWithLocation:self.location];
+            
+            if(self.distanceToHome <0)
                 return @"-- kms Away";
-            }
+            else
+                return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
+           
         }
         case 12:
         {
-            return @"Avg Unkown";
+            NSString* avgString = self.program.avgAdm;
+            
+            if(avgString && ![avgString isEqual:@""])
+            {
+                return [NSString stringWithFormat:@"%@%% Avg", avgString];
+            }
+            else
+            {
+                return @"Avg Unkown";
+            }
+            
         }
             
         default:
@@ -230,6 +233,36 @@
 }
 
 
+
+#pragma mark - Callback Methods
+
+- (void)imageItemTapped: (UITapGestureRecognizer*)tapRec
+{
+    UIImageView* imgView = (UIImageView*)[tapRec view];
+    
+    if(imgView.tag == 3)
+    {
+        NSString* contentText = nil;
+        if(self.distanceToHome<0)
+        {
+            contentText = @"Please setup your location in the Settings/Home Tab first.";
+        }
+        else
+        {
+            float drivingDistance = self.distanceToHome * 1.165;
+            float drivingTotalMinutes = self.distanceToHome * 0.728;
+            NSString* timeString = [NSString stringWithFormat:@"%.0f mins", drivingTotalMinutes];
+            if(drivingTotalMinutes > 60.0)
+                timeString = [NSString stringWithFormat:@"%.1f hrs", drivingTotalMinutes/60.0];
+            
+            contentText = [NSString stringWithFormat:@"The direct distance between the college and your neighborhood is %.0f kms. Driving distance is approximately %.0f kms. It will take about %@ to get there.", self.distanceToHome, drivingDistance, timeString];
+
+        }
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Distance Away" message:contentText delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alertView show];
+    }
+    
+}
 
 
 - (void)emailButtonTapped: (UIButton*)sender
@@ -288,6 +321,15 @@
 }
 
 
+
+/////////////
+- (void)setProgram:(Program *)program
+{
+    _program = program;
+    
+    self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
+    
+}
 
 
 

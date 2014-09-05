@@ -98,7 +98,7 @@
     
     //Check if item is selected
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat:@"itemId = %@", [NSNumber numberWithInteger:cell.itemId]];
+    favReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", cell.itemId];
     NSArray* results = [context executeFetchRequest:favReq error:nil];
     if([results count] > 0)
     {

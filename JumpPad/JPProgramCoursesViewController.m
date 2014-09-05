@@ -46,33 +46,28 @@ NSString* const kCoursesCellIdentifier;
     self.view.backgroundColor = [UIColor whiteColor];
     _selectedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:1];
    
-    self.title = [NSString stringWithFormat:@"%@ Courses",[JPGlobal schoolYearStringWithInteger:self.coursesYear]];
-    
+    self.title = [NSString stringWithFormat:@"%@ Courses",self.programTerm];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.parentViewController.view.bounds.size.width, self.parentViewController.view.bounds.size.height) style:UITableViewStylePlain];
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
     self.tableView.backgroundColor = [UIColor whiteColor];
-    
     [self.view addSubview:self.tableView];
-    
     
     
     self.coursesToDisplay = [NSMutableArray array];
     
-    for(ProgramCourse* course in self.programCourses)
+    for(ProgramCourse* course in self.program.courses)
     {
-        if([course.enrollmentTerm integerValue] == self.coursesYear)
+        if([course.enrollmentTerm isEqual: self.programTerm])
         {
             [self.coursesToDisplay addObject:course];
         }
         
     }
     
-    [self.coursesToDisplay sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        
+    [self.coursesToDisplay sortUsingComparator:^NSComparisonResult(id obj1, id obj2)
+    {
         ProgramCourse* course1 = (ProgramCourse*)obj1;
         ProgramCourse* course2 = (ProgramCourse*)obj2;
         
@@ -117,7 +112,7 @@ NSString* const kCoursesCellIdentifier;
     
     ProgramCourse* course = self.coursesToDisplay[indexPath.row];
     cell.deviceType = _deviceType;
-    cell.courseCode = course.courseCode;
+    cell.courseCode = [NSString stringWithFormat:@"%@ %@",course.courseCode, course.catalogNum];
     cell.courseNameLabel.text = course.courseName;
     cell.courseDescriptionView.text = course.courseDescription;
     

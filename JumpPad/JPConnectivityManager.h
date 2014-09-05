@@ -16,17 +16,20 @@ static NSString* const kNeedUpdateDataNotification = @"kNeedUpdateDataNotificati
 {
     BOOL   _alertDisplayed;
     AFNetworkReachabilityManager* reachability;
+    
+    NSTimer*   _statusTimer;
+    NSTimer*   _stopStatusTimer;
 }
 
++ (instancetype)sharedManager;
 
-@property (nonatomic) BOOL shouldDisplayAlert;
 
 //Networking
 - (void)startUpdating;
 - (void)stopUpdating;
 
 
-
+- (BOOL)isReachable;
 
 
 @end

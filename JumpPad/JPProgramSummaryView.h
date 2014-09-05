@@ -37,8 +37,8 @@
 
 
 
-- (id)initWithFrame:(CGRect)frame program: (Program*)program location:(JPLocation*)location;
-- (id)initWithFrame:(CGRect)frame program: (Program*)program  location:(JPLocation*)location isPhoneInterface: (BOOL)isPhone;
+- (id)initWithFrame:(CGRect)frame program: (Program*)program;
+- (id)initWithFrame:(CGRect)frame program: (Program*)program isPhoneInterface: (BOOL)isPhone;
 
 @end
 

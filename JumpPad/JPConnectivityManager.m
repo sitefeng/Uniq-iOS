@@ -13,11 +13,20 @@
 
 @implementation JPConnectivityManager
 
-- (instancetype)init
++ (instancetype)sharedManager
 {
-    self = [super init];
+    static JPConnectivityManager* _sharedManager = nil;
     
-    return self;
+    @synchronized(self)
+    {
+        if(!_sharedManager)
+        {
+            _sharedManager = [[JPConnectivityManager alloc] init];
+        }
+    }
+    
+    return _sharedManager;
+
 }
 
 
@@ -26,19 +35,47 @@
 {
     reachability = [AFNetworkReachabilityManager sharedManager];
     [reachability startMonitoring];
-    BOOL reach =   [reachability isReachable];
-    NSLog(@"Reachability: %d", reach);
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    
+    _statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(isReachable) userInfo:nil repeats:YES];
+    
+    _stopStatusTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(stopStatusTimer) userInfo:nil repeats:NO];
 }
-
 
 - (void)stopUpdating
 {
     [reachability stopMonitoring];
+    [_statusTimer invalidate];
+    _statusTimer = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
+- (BOOL)isReachable
+{
+    BOOL reach = [reachability isReachable];
+    if(reach)
+    {
+        NSLog(@"Reachable");
+        [_statusTimer invalidate];
+        _statusTimer = nil;
+    }
+    else
+    {
+        NSLog(@"Not Reachable");
+    }
+    
+    return reach;
+}
+
+
+- (void)stopStatusTimer
+{
+    [_statusTimer invalidate];
+    _statusTimer = nil;
+    _stopStatusTimer = nil;
+}
 
 
 - (void)networkStatusChanged: (NSNotification*)notification
@@ -56,6 +93,7 @@
     {
         [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
         NSLog(@"Not Reachable");
+
     }
     
 }

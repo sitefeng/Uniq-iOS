@@ -2,7 +2,7 @@
 //  Faculty.h
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/5/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -15,23 +15,24 @@
 
 @property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSNumber * alumniNumber;
+@property (nonatomic, retain) NSDecimalNumber * avgAdm;
 @property (nonatomic, retain) NSString * facultyId;
 @property (nonatomic, retain) NSNumber * gradPopulation;
 @property (nonatomic, retain) NSString * logoUrl;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * numPrograms;
+@property (nonatomic, retain) NSString * schoolId;
 @property (nonatomic, retain) NSNumber * totalFunding;
 @property (nonatomic, retain) NSNumber * undergradPopulation;
 @property (nonatomic, retain) NSNumber * yearEstablished;
-@property (nonatomic, retain) NSDecimalNumber * avgAdm;
-@property (nonatomic, retain) NSString * schoolId;
+@property (nonatomic, retain) NSNumber * toDelete;
 @property (nonatomic, retain) NSSet *contacts;
 @property (nonatomic, retain) NSSet *images;
 @property (nonatomic, retain) NSSet *importantDates;
 @property (nonatomic, retain) SchoolLocation *location;
 @property (nonatomic, retain) NSSet *programs;
-@property (nonatomic, retain) School *school;
 @property (nonatomic, retain) NSSet *relatedItems;
+@property (nonatomic, retain) School *school;
 @end
 
 @interface Faculty (CoreDataGeneratedAccessors)

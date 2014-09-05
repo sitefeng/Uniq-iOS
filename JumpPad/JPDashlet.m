@@ -15,14 +15,30 @@
 #import "ImageLink.h"
 #import "NSObject+JPConvenience.h"
 
+
+
 @implementation JPDashlet
 
-- (instancetype)initWithItemId: (NSString*)itemId withType: (JPDashletType)type
+- (instancetype)init
 {
     self = [super init];
     
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    
+    context = [delegate managedObjectContext];
+    
+    return self;
+}
+
+
+- (instancetype)initWithItemId: (NSString*)itemId withType: (JPDashletType)type
+{
+    self = [self init];
+    
     self.itemId = itemId;
     self.type = type;
+    
+    ImageLink* backgroundImage = nil;
     
     if(type == JPDashletTypeSchool)
     {
@@ -36,6 +52,8 @@
         self.population = school.undergradPopulation;
         self.location = [[JPLocation alloc] initWithSchoolLocation:school.location];
         self.icon = [NSURL URLWithString:school.logoUrl];
+        backgroundImage = [[school.images allObjects] firstObject];
+                                 
     }
     else if(type == JPDashletTypeFaculty)
     {
@@ -48,11 +66,12 @@
         self.title = faculty.name;
         self.population = faculty.undergradPopulation;
         self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
+        backgroundImage = [[faculty.images allObjects] firstObject];
     }
     else if(type == JPDashletTypeProgram)
     {
         NSFetchRequest* itemReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
-        itemReq.predicate = [NSPredicate predicateWithFormat:@"ProgramId = %@", itemId];
+        itemReq.predicate = [NSPredicate predicateWithFormat:@"programId = %@", itemId];
         NSError* err = nil;
         NSArray* progResults = [context executeFetchRequest:itemReq error:&err];
         Program* program = (Program*)[progResults firstObject];
@@ -60,7 +79,10 @@
         self.title = program.name;
         self.population = program.undergradPopulation;
         self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
+        backgroundImage = [[program.images allObjects] firstObject];
     }
+    
+    self.backgroundImages = [[NSMutableArray alloc]initWithObjects:[NSURL URLWithString:backgroundImage.imageLink], nil];
     
     return self;
 }
@@ -71,7 +93,7 @@
 
 - (instancetype)initWithSchool:(School *)school
 {
-    self = [super init];
+    self = [self init];
     if(self)
     {
         self.itemId = school.schoolId;
@@ -112,7 +134,7 @@
 
 - (instancetype)initWithFaculty: (Faculty*)faculty
 {
-    self = [super init];
+    self = [self init];
     if(self)
     {
         self.title = faculty.name;
@@ -142,7 +164,7 @@
 
 - (instancetype)initWithProgram: (Program*)program
 {
-    self = [super init];
+    self = [self init];
     if(self)
     {
         self.title = program.name;
@@ -172,7 +194,7 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict ofDashletType:(JPDashletType)type
 {
-    self = [super init];
+    self = [self init];
     if(self)
     {
         self.type = type;

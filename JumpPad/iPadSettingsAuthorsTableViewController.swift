@@ -90,7 +90,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         
         // Configuring the cell
         cell.courseCode = _authorsInfo[indexPath!.row]["name"]
-        cell.courseNameLabel.text = _authorsInfo[indexPath!.row]["position"]
+        cell.courseName = _authorsInfo[indexPath!.row]["position"]
         cell.courseDescriptionView.text = _authorsInfo[indexPath!.row]["description"]
         
         return cell

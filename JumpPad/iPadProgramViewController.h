@@ -20,7 +20,7 @@
 @interface iPadProgramViewController : UITabBarController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
-    
+    JPDataRequest* _dataRequest;
 }
 
 

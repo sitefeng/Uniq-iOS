@@ -17,8 +17,10 @@
 #import "ProgramRating.h"
 #import "HighschoolCourse.h"
 #import "ProgramCourse.h"
+#import "ProgramRating.h"
 #import "UniqAppDelegate.h"
 
+@class JPRatings;
 
 @interface School (JPConvenience)
 
@@ -33,7 +35,7 @@
 @interface Faculty (JPConvenience)
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict;
-
+- (NSDictionary*)dictionaryRepresentation;
 @end
 
 
@@ -41,9 +43,17 @@
 @interface Program (JPConvenience)
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict;
+- (void)appendProgramRatingsWithRatings: (JPRatings*)ratings;
 
+- (NSDictionary*)dictionaryRepresentation;
 @end
 
+
+@interface ProgramRating (JPConvenience)
+
+- (instancetype)initWithRatings: (JPRatings*)ratings;
+
+@end
 
 
 @interface Contact (JPConvenience)

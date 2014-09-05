@@ -73,12 +73,13 @@
 
 
 
-- (void)courseYearPressedWithYear:(NSInteger)year
+
+- (void)courseTermPressed:(NSString*)term
 {
     
     JPProgramCoursesViewController* vc = [[JPProgramCoursesViewController alloc] initWithNibName:nil bundle:nil];
-    vc.coursesYear = year;
-    vc.programCourses = self.program.courses;
+    vc.program = self.program;
+    vc.programTerm = term;
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vc];
     

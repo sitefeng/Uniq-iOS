@@ -30,6 +30,7 @@
     [super viewDidLoad];
     _indexPathsNeedReloading = [NSMutableArray array];
 
+
     self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 100)];
     [self.view addSubview:self.bannerView];
     
@@ -84,7 +85,7 @@
     
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
-    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId forSelectionType:JPDashletTypeFaculty];
+    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId forSelectionType:JPDashletTypeSchool];
     selectViewController.title = selectedDashlet.title;
     
     [self.navigationController pushViewController:selectViewController animated:YES];
@@ -108,6 +109,15 @@
     [self.tableView reloadData];
     
 }
+
+
+
+
+
+
+
+
+
 
 
 

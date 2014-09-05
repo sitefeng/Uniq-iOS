@@ -127,9 +127,9 @@
 #pragma mark - Update From Core Data / Server
 - (void)updateDashletsInfo
 {
-    JPDataRequest* dataReq = [JPDataRequest sharedRequest];
-    dataReq.delegate = self;
-    [dataReq requestAllProgramsFromFaculty:self.facultyId allFields:NO];
+    _dataRequest = [JPDataRequest request];
+    _dataRequest.delegate = self;
+    [_dataRequest requestAllProgramsFromFaculty:self.facultyId allFields:NO];
     
 }
 

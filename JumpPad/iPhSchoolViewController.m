@@ -11,6 +11,7 @@
 #import "iPhProgramContactViewController.h"
 #import "JPCoreDataHelper.h"
 #import "JPDataRequest.h"
+#import "DejalActivityView.h"
 
 
 @interface iPhSchoolViewController ()
@@ -19,16 +20,23 @@
 
 @implementation iPhSchoolViewController
 
-- (instancetype)initWithItemId:(NSString*)itemId itemType: (NSUInteger)type
+- (instancetype)initWithItemId:(NSString*)itemId itemType: (JPDashletType)type
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.itemId=  itemId;
         self.type = type;
         
-        JPDataRequest* request = [JPDataRequest sharedRequest];
-        request.delegate = self;
-        [request requestItemDetailsWithId:itemId ofType:type];
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+        
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
+        
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        [_dataRequest requestItemDetailsWithId:itemId ofType:type];
 
         
         _coreDataHelper = [[JPCoreDataHelper alloc] init];
@@ -39,22 +47,16 @@
         UIBarButtonItem* dismissButton = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonPressed:)];
         self.navigationItem.leftBarButtonItem = dismissButton;
         
-        UIButton* favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
-        [favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
-        favButton.selected = [_coreDataHelper isFavoritedWithItemId:self.itemId];
-        [favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:favButton];
-        self.navigationItem.rightBarButtonItem = favoriteItem;
-        
     }
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
     
 }
 
@@ -63,6 +65,13 @@
 
 - (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
 {
+    if(!success)
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
+        [DejalBezelActivityView removeViewAnimated:NO];
+        return;
+    }
+    
     if(type == JPDashletTypeSchool)
     {
         self.schoolOrFaculty = [[School alloc] initWithDictionary:dict];
@@ -72,7 +81,17 @@
         self.schoolOrFaculty = [[Faculty alloc] initWithDictionary:dict];
     }
     
+    //Nav Bar Item
+    UIButton* favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    [favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
+    [favButton setImage:[UIImage imageNamed:@"favoriteIcon2"] forState:UIControlStateNormal];
+    favButton.selected = [_coreDataHelper isFavoritedWithItemId:self.itemId];
+    [favButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:favButton];
+    self.navigationItem.rightBarButtonItem = favoriteItem;
+    
     //Initializing the Home and Contact Controllers
+    self.title = [self.schoolOrFaculty name];
     
     iPhSchoolHomeViewController* homeController = nil;
     iPhProgramContactViewController* contactController = nil;
@@ -93,10 +112,10 @@
     homeController.tabBarItem.image = [UIImage imageNamed:@"home"];
     
     contactController.tabBarItem.title = @"Contact";
-    contactController.tableView.frame = CGRectMake(0, contactController.tableView.frame.origin.y - kiPhoneNavigationBarHeight-kiPhoneStatusBarHeight, kiPhoneWidthPortrait, contactController.tableView.frame.size.height);
     contactController.tabBarItem.image = [UIImage imageNamed:@"contact"];
-    
     self.viewControllers = @[homeController, contactController];
+    
+    [DejalBezelActivityView removeViewAnimated:YES];
 }
 
 

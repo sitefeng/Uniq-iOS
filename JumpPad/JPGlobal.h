@@ -22,7 +22,6 @@
 + (NSString*)ratingStringWithIndex: (NSInteger)index;
 + (NSString*)ratingFullStringWithIndex: (NSInteger)index;
 
-+ (NSString*)schoolYearStringWithInteger: (NSUInteger)year;
 
 + (NSString*)paragraphStringWithName: (NSString*)name;
 + (void)openURL: (NSURL*)url;

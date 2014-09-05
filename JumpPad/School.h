@@ -2,7 +2,7 @@
 //  School.h
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/5/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -25,6 +25,7 @@
 @property (nonatomic, retain) NSNumber * totalFunding;
 @property (nonatomic, retain) NSNumber * undergradPopulation;
 @property (nonatomic, retain) NSNumber * yearEstablished;
+@property (nonatomic, retain) NSNumber * toDelete;
 @property (nonatomic, retain) NSSet *contacts;
 @property (nonatomic, retain) NSSet *faculties;
 @property (nonatomic, retain) NSSet *images;

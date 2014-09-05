@@ -17,7 +17,8 @@
 
 @interface iPadFacultySelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPDashletInfoDelegate, JPSortDelegate, UIPopoverControllerDelegate, JPDataRequestDelegate>
 {
-@private
+    @private
+    JPDataRequest* _dataRequest;
     
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
     float       _screenWidth;

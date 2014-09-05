@@ -21,6 +21,7 @@
 #import "DejalActivityView.h"
 
 
+
 @interface iPhProgramViewController ()
 
 @end
@@ -32,21 +33,19 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         // Custom initialization
-    
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
         self.itemId = itemId;
         _helper = [[JPCoreDataHelper alloc] init];
         
-        [self retrieveProgramInfo];
-        
-        ////////
-        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+        UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
+        self.navigationItem.leftBarButtonItem = dismissItem;
         
         [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
-        
-        
+        [self retrieveProgramInfo];
     }
     return self;
 }
@@ -54,30 +53,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    
+   
+
 }
+
+
 
 
 - (void)retrieveProgramInfo
 {
-    JPDataRequest* request = [JPDataRequest sharedRequest];
-    request.delegate = self;
-    [request requestItemDetailsWithId:self.itemId ofType:JPDashletTypeProgram];
+    _dataRequest = [JPDataRequest request];
+    _dataRequest.delegate = self;
+    [_dataRequest requestItemDetailsWithId:self.itemId ofType:JPDashletTypeProgram];
 
 }
 
 
 - (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
 {
-
+    if(!success)
+    {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
+        [DejalBezelActivityView removeViewAnimated:NO];
+        return;
+    }
+    
     self.program = [[Program alloc] initWithDictionary:dict];
     
     self.title = self.program.name;
-    
-    UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
-    self.navigationItem.leftBarButtonItem = dismissItem;
     
     _favButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     [_favButton setImage:[UIImage imageNamed:@"favoriteIcon2Selected"] forState:UIControlStateSelected];
@@ -106,6 +111,7 @@
     
     self.viewControllers = @[homeController, academicsController, contactController, ratingsController];
     
+    [self.view setNeedsDisplay];
     [DejalBezelActivityView removeViewAnimated:YES];
 }
 

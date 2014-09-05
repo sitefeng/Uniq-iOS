@@ -15,6 +15,7 @@
 @interface iPhSchoolViewController : UITabBarController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
+    JPDataRequest*   _dataRequest;
     
     JPCoreDataHelper*  _coreDataHelper;
 }
@@ -29,7 +30,7 @@
 
 
 
-- (instancetype)initWithItemId:(NSString*)itemId itemType: (NSUInteger)type;
+- (instancetype)initWithItemId:(NSString*)itemId itemType: (JPDashletType)type;
 
 
 

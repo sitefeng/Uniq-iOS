@@ -31,9 +31,9 @@
         
         //Update Program Info from Core Data or Server
 
-        JPDataRequest* dataReq = [JPDataRequest sharedRequest];
-        dataReq.delegate = self;
-        [dataReq requestItemDetailsWithId:self.programId ofType:JPDashletTypeProgram];
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        [_dataRequest requestItemDetailsWithId:self.programId ofType:JPDashletTypeProgram];
         
 
         

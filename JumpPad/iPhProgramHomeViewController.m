@@ -49,15 +49,15 @@
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
     [_panImageView addGestureRecognizer:panRec];
     [self.view addSubview:_panImageView];
-    
-    
-    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 25, kiPhoneWidthPortrait, 620)];
+
+    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 620- kiPhoneNavigationBarHeight-kiPhoneStatusBarHeight)];
+    _detailScrollView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
     _detailScrollView.showsHorizontalScrollIndicator = NO;
     _detailScrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_detailScrollView];
 
     JPLocation* programLocation = [[JPLocation alloc] initWithSchoolLocation:self.program.faculty.school.location];
-    JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program location:programLocation isPhoneInterface:YES];
+    JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program isPhoneInterface:YES];
     summaryView.delegate = self;
     [_detailScrollView addSubview:summaryView];
 

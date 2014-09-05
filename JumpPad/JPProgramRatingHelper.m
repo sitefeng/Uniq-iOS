@@ -43,7 +43,7 @@
         if(connectionError)
         {
             NSLog(@"Error Retrieving average value: %@", connectionError.localizedDescription);
-            [SVStatusHUD showWithImage:[UIImage imageNamed:@"uploadFailedHUD"] status:@"Connection Error"];
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"uploadFailedHUD"] status:@"Offline Mode"];
             return;
         }
         
@@ -119,7 +119,7 @@
         {
             NSLog(@"Post Ratings Error: %@", connectionError.localizedDescription);
             [self.delegate ratingHelper:self didUploadRatingsForProgramUid:uid error:connectionError];
-            [SVStatusHUD showWithImage:[UIImage imageNamed:@"uploadFailedHUD"] status:@"Connection Error"];
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"uploadFailedHUD"] status:@"Offline Mode"];
             return;
         }
         

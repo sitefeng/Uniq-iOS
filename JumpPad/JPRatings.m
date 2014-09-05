@@ -64,6 +64,26 @@
     
 }
 
+- (instancetype)initWithFullKeyDictionary: (NSDictionary*)dict
+{
+    self = [self init];
+    
+    if(!dict || [dict isEqual:[NSNull null]])
+        return self;
+    
+    self.ratingOverall = [[dict objectForKey:[self dictionaryKeyWithIndex:0]] doubleValue];
+    self.difficulty = [[dict objectForKey:[self dictionaryKeyWithIndex:1]] doubleValue];
+    self.professors = [[dict objectForKey:[self dictionaryKeyWithIndex:2]] doubleValue];
+    self.schedule = [[dict objectForKey:[self dictionaryKeyWithIndex:3]] doubleValue];
+    self.classmates = [[dict objectForKey:[self dictionaryKeyWithIndex:4]] doubleValue];
+    self.social = [[dict objectForKey:[self dictionaryKeyWithIndex:5]] doubleValue];
+    self.studyEnv = [[dict objectForKey:[self dictionaryKeyWithIndex:6]] doubleValue];
+    self.guyRatio = [[dict objectForKey:[self dictionaryKeyWithIndex:7]] doubleValue];
+    
+    return self;
+    
+}
+
 
 #pragma mark - Getting value in structures
 
@@ -166,7 +186,7 @@
 
 - (NSString*)dictionaryKeyWithIndex: (NSInteger)num
 {
-    NSArray* keyArray = @[@"ratingOverall", @"difficulty", @"professors", @"schedule", @"classmates", @"social", @"studyEnv", @"guyRatio"];
+    NSArray* keyArray = @[@"ratingOverall", @"difficulty", @"professors", @"schedule", @"classmates", @"socialEnjoyment", @"studyEnv", @"guyRatio"];
     
     return keyArray[num];
 }

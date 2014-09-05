@@ -10,8 +10,8 @@
 #import "SVStatusHUD.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define SVStatusHUDVisibleDuration 2.0f
-#define SVStatusHUDFadeOutDuration 1.0f
+#define SVStatusHUDVisibleDuration 1.0f
+#define SVStatusHUDFadeOutDuration 0.7f
 
 @interface SVStatusImage : UIView
 

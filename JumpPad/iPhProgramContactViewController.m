@@ -47,7 +47,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if(!self.school)
+    if(!self.school && !self.faculty && !self.program)
         return 0;
     else
         return 2;
@@ -68,7 +68,7 @@
     else
     {
         NSArray* infoArray = [self getInformationArrayOfType:@"imageNames"];
-        return [infoArray count] -2;
+        return ([infoArray count]-2);
     }
 }
 
@@ -94,8 +94,8 @@
     else
     {
         cell.textLabel.text = [[self getInformationArrayOfType:@"labelNames"] objectAtIndex:indexPath.row+2];
-        cell.detailTextLabel.text = [[self getInformationArrayOfType:@"values"] objectAtIndex:indexPath.row+2];
-        UIImage* whiteCellImage = [UIImage imageNamed:[[self getInformationArrayOfType:@"imageNames"] objectAtIndex:indexPath.row+2]];
+        cell.detailTextLabel.text = [[self getInformationArrayOfType:@"values"] objectAtIndex:indexPath.row+ 2];
+        UIImage* whiteCellImage = [UIImage imageNamed:[[self getInformationArrayOfType:@"imageNames"] objectAtIndex:indexPath.row+ 2]];
         cell.imageView.image = [whiteCellImage imageWithColor: [UIColor blackColor]];
     }
 

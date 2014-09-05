@@ -17,13 +17,19 @@
 
 
 
-
-
-
 - (JPDashletType)dashletTypeFromTypeString: (NSString*)type;
 
 
 
+
+
+
+@end
+
+
+@interface NSArray (JPConvenience)
+
++ (instancetype)arrayWithObjectsCount:(NSInteger)count replaceNilWithEmptyString: (id)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 
 
 

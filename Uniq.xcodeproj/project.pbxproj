@@ -177,10 +177,7 @@
 		AA56DD6819B66304005EE1CD /* ImportantDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD6719B66304005EE1CD /* ImportantDate.m */; };
 		AA56DD6E19B66304005EE1CD /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD6D19B66304005EE1CD /* UniqKEKeyword.m */; };
 		AA56DD7119B66304005EE1CD /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD7019B66304005EE1CD /* HighschoolCourse.m */; };
-		AA56DD7419B66304005EE1CD /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD7319B66304005EE1CD /* Contact.m */; };
-		AA56DD7719B66304005EE1CD /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD7619B66304005EE1CD /* ProgramRating.m */; };
 		AA56DD8319B66305005EE1CD /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8219B66305005EE1CD /* SchoolRanking.m */; };
-		AA56DD8619B66305005EE1CD /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8519B66305005EE1CD /* School.m */; };
 		AA56DD8919B66305005EE1CD /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8819B66305005EE1CD /* Banner.m */; };
 		AA56DD8C19B66305005EE1CD /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8B19B66305005EE1CD /* ProgramCourse.m */; };
 		AA56DD8F19B66305005EE1CD /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8E19B66305005EE1CD /* UniqKEFunction.m */; };
@@ -188,14 +185,14 @@
 		AA56DD9519B66305005EE1CD /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9419B66305005EE1CD /* ImageLink.m */; };
 		AA56DD9819B66305005EE1CD /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9719B66305005EE1CD /* ProgramApplicationStat.m */; };
 		AA56DD9B19B66305005EE1CD /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9A19B66305005EE1CD /* UniqKEOne.m */; };
-		AA56DD9E19B66305005EE1CD /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9D19B66305005EE1CD /* Faculty.m */; };
 		AA56DDA419B679D9005EE1CD /* RelatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDA319B679D9005EE1CD /* RelatedItem.m */; };
-		AA56DDAD19B6849D005EE1CD /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDAC19B6849D005EE1CD /* Program.m */; };
 		AA56DDB019B68617005EE1CD /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDAF19B68617005EE1CD /* UserFavItem.m */; };
 		AA56DDB619B6BA48005EE1CD /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDB519B6BA48005EE1CD /* Featured.m */; };
 		AA56DDE819B83592005EE1CD /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDE719B83592005EE1CD /* SchoolLocation.m */; };
 		AA56DDEB19B83B2D005EE1CD /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDEA19B83B2D005EE1CD /* ProgramYearlyTuition.m */; };
 		AA56DDEF19B8EE59005EE1CD /* TRVSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDEE19B8EE59005EE1CD /* TRVSMonitor.m */; };
+		AA56DDF219B908C3005EE1CD /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDF119B908C3005EE1CD /* ProgramRating.m */; };
+		AA56DDF519B9284E005EE1CD /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDF419B9284E005EE1CD /* Contact.m */; };
 		AA636EB119A42BFD007FCBA4 /* downloadCompleteHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EA519A42BFD007FCBA4 /* downloadCompleteHUD.png */; };
 		AA636EB219A42BFD007FCBA4 /* downloadHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EA619A42BFD007FCBA4 /* downloadHUD.png */; };
 		AA636EB319A42BFD007FCBA4 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EA719A42BFD007FCBA4 /* noWifi.png */; };
@@ -233,6 +230,9 @@
 		AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7797199E5C1600C02513 /* FacebookSDK.framework */; };
 		AACB7799199E5CA200C02513 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */; };
+		AAD65BE019B99411008455B1 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BDF19B99411008455B1 /* Program.m */; };
+		AAD65BE319B99412008455B1 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BE219B99412008455B1 /* School.m */; };
+		AAD65BE619B99412008455B1 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BE519B99412008455B1 /* Faculty.m */; };
 		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
 		AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */; };
 		AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */ = {isa = PBXBuildFile; fileRef = AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */; };
@@ -626,14 +626,8 @@
 		AA56DD6D19B66304005EE1CD /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEKeyword.m; sourceTree = "<group>"; };
 		AA56DD6F19B66304005EE1CD /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighschoolCourse.h; sourceTree = "<group>"; };
 		AA56DD7019B66304005EE1CD /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighschoolCourse.m; sourceTree = "<group>"; };
-		AA56DD7219B66304005EE1CD /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		AA56DD7319B66304005EE1CD /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		AA56DD7519B66304005EE1CD /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramRating.h; sourceTree = "<group>"; };
-		AA56DD7619B66304005EE1CD /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramRating.m; sourceTree = "<group>"; };
 		AA56DD8119B66305005EE1CD /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolRanking.h; sourceTree = "<group>"; };
 		AA56DD8219B66305005EE1CD /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolRanking.m; sourceTree = "<group>"; };
-		AA56DD8419B66305005EE1CD /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
-		AA56DD8519B66305005EE1CD /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
 		AA56DD8719B66305005EE1CD /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
 		AA56DD8819B66305005EE1CD /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
 		AA56DD8A19B66305005EE1CD /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCourse.h; sourceTree = "<group>"; };
@@ -648,12 +642,8 @@
 		AA56DD9719B66305005EE1CD /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramApplicationStat.m; sourceTree = "<group>"; };
 		AA56DD9919B66305005EE1CD /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEOne.h; sourceTree = "<group>"; };
 		AA56DD9A19B66305005EE1CD /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
-		AA56DD9C19B66305005EE1CD /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
-		AA56DD9D19B66305005EE1CD /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
 		AA56DDA219B679D9005EE1CD /* RelatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedItem.h; sourceTree = "<group>"; };
 		AA56DDA319B679D9005EE1CD /* RelatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedItem.m; sourceTree = "<group>"; };
-		AA56DDAB19B6849D005EE1CD /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
-		AA56DDAC19B6849D005EE1CD /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		AA56DDAE19B68617005EE1CD /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavItem.h; sourceTree = "<group>"; };
 		AA56DDAF19B68617005EE1CD /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavItem.m; sourceTree = "<group>"; };
 		AA56DDB419B6BA48005EE1CD /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Featured.h; sourceTree = "<group>"; };
@@ -664,6 +654,10 @@
 		AA56DDEA19B83B2D005EE1CD /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramYearlyTuition.m; sourceTree = "<group>"; };
 		AA56DDED19B8EE59005EE1CD /* TRVSMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRVSMonitor.h; sourceTree = "<group>"; };
 		AA56DDEE19B8EE59005EE1CD /* TRVSMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRVSMonitor.m; sourceTree = "<group>"; };
+		AA56DDF019B908C3005EE1CD /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramRating.h; sourceTree = "<group>"; };
+		AA56DDF119B908C3005EE1CD /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramRating.m; sourceTree = "<group>"; };
+		AA56DDF319B9284E005EE1CD /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		AA56DDF419B9284E005EE1CD /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		AA636EA519A42BFD007FCBA4 /* downloadCompleteHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downloadCompleteHUD.png; path = SVStatusHUD/downloadCompleteHUD.png; sourceTree = "<group>"; };
 		AA636EA619A42BFD007FCBA4 /* downloadHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downloadHUD.png; path = SVStatusHUD/downloadHUD.png; sourceTree = "<group>"; };
 		AA636EA719A42BFD007FCBA4 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noWifi.png; path = SVStatusHUD/noWifi.png; sourceTree = "<group>"; };
@@ -714,6 +708,12 @@
 		AACB7797199E5C1600C02513 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AACD610D195CC7D300FCC8A4 /* JPImageRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageRetriever.h; sourceTree = "<group>"; };
 		AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageRetriever.m; sourceTree = "<group>"; };
+		AAD65BDE19B99411008455B1 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		AAD65BDF19B99411008455B1 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		AAD65BE119B99412008455B1 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		AAD65BE219B99412008455B1 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		AAD65BE419B99412008455B1 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
+		AAD65BE519B99412008455B1 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
 		AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolHomeViewController.h; sourceTree = "<group>"; };
 		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolHomeViewController.m; sourceTree = "<group>"; };
 		AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSchoolSummaryView.h; sourceTree = "<group>"; };
@@ -1314,6 +1314,16 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				AAD65BE419B99412008455B1 /* Faculty.h */,
+				AAD65BE519B99412008455B1 /* Faculty.m */,
+				AAD65BE119B99412008455B1 /* School.h */,
+				AAD65BE219B99412008455B1 /* School.m */,
+				AAD65BDE19B99411008455B1 /* Program.h */,
+				AAD65BDF19B99411008455B1 /* Program.m */,
+				AA56DDF319B9284E005EE1CD /* Contact.h */,
+				AA56DDF419B9284E005EE1CD /* Contact.m */,
+				AA56DDF019B908C3005EE1CD /* ProgramRating.h */,
+				AA56DDF119B908C3005EE1CD /* ProgramRating.m */,
 				AA56DDE919B83B2D005EE1CD /* ProgramYearlyTuition.h */,
 				AA56DDEA19B83B2D005EE1CD /* ProgramYearlyTuition.m */,
 				AA56DDE619B83592005EE1CD /* SchoolLocation.h */,
@@ -1322,12 +1332,8 @@
 				AA56DDB519B6BA48005EE1CD /* Featured.m */,
 				AA56DDAE19B68617005EE1CD /* UserFavItem.h */,
 				AA56DDAF19B68617005EE1CD /* UserFavItem.m */,
-				AA56DDAB19B6849D005EE1CD /* Program.h */,
-				AA56DDAC19B6849D005EE1CD /* Program.m */,
 				AA56DDA219B679D9005EE1CD /* RelatedItem.h */,
 				AA56DDA319B679D9005EE1CD /* RelatedItem.m */,
-				AA56DD9C19B66305005EE1CD /* Faculty.h */,
-				AA56DD9D19B66305005EE1CD /* Faculty.m */,
 				AA56DD9919B66305005EE1CD /* UniqKEOne.h */,
 				AA56DD9A19B66305005EE1CD /* UniqKEOne.m */,
 				AA56DD9619B66305005EE1CD /* ProgramApplicationStat.h */,
@@ -1342,14 +1348,8 @@
 				AA56DD8B19B66305005EE1CD /* ProgramCourse.m */,
 				AA56DD8719B66305005EE1CD /* Banner.h */,
 				AA56DD8819B66305005EE1CD /* Banner.m */,
-				AA56DD8419B66305005EE1CD /* School.h */,
-				AA56DD8519B66305005EE1CD /* School.m */,
 				AA56DD8119B66305005EE1CD /* SchoolRanking.h */,
 				AA56DD8219B66305005EE1CD /* SchoolRanking.m */,
-				AA56DD7519B66304005EE1CD /* ProgramRating.h */,
-				AA56DD7619B66304005EE1CD /* ProgramRating.m */,
-				AA56DD7219B66304005EE1CD /* Contact.h */,
-				AA56DD7319B66304005EE1CD /* Contact.m */,
 				AA56DD6F19B66304005EE1CD /* HighschoolCourse.h */,
 				AA56DD7019B66304005EE1CD /* HighschoolCourse.m */,
 				AA56DD6C19B66304005EE1CD /* UniqKEKeyword.h */,
@@ -1858,12 +1858,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
-				AA56DD8619B66305005EE1CD /* School.m in Sources */,
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
 				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
+				AA56DDF219B908C3005EE1CD /* ProgramRating.m in Sources */,
 				AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */,
 				AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
@@ -1876,7 +1876,6 @@
 				AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
-				AA56DD7419B66304005EE1CD /* Contact.m in Sources */,
 				AA56DDB019B68617005EE1CD /* UserFavItem.m in Sources */,
 				AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -1926,7 +1925,6 @@
 				AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */,
 				5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */,
 				AA520EE11971F6F60003EF98 /* iPhSchoolHomeViewController.m in Sources */,
-				AA56DDAD19B6849D005EE1CD /* Program.m in Sources */,
 				AA56DDEB19B83B2D005EE1CD /* ProgramYearlyTuition.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
 				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
@@ -1951,6 +1949,7 @@
 				AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */,
 				5D555526193B140900BF6F20 /* JPProgramCoursesViewController.m in Sources */,
 				AA56DD8C19B66305005EE1CD /* ProgramCourse.m in Sources */,
+				AAD65BE019B99411008455B1 /* Program.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				AA115F1019A84A8F006E07C1 /* JPRatings.m in Sources */,
 				AA115F2519A9BCC6006E07C1 /* TLTiltSlider.m in Sources */,
@@ -1960,7 +1959,6 @@
 				AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */,
 				5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */,
 				AA0DB944197BA8AD005A5665 /* JBParallaxPhoneCell.m in Sources */,
-				AA56DD9E19B66305005EE1CD /* Faculty.m in Sources */,
 				5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */,
 				AA636EBE19A42C3B007FCBA4 /* HNScrollView.m in Sources */,
 				5D592B35191C893900ECDCF7 /* JPProgramSummaryView.m in Sources */,
@@ -1969,8 +1967,10 @@
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
+				AA56DDF519B9284E005EE1CD /* Contact.m in Sources */,
 				5D167632185787750041993E /* JPDashletTitleView.m in Sources */,
 				AA447E3119B53249004855CC /* NSObject+JPConvenience.m in Sources */,
+				AAD65BE319B99412008455B1 /* School.m in Sources */,
 				AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */,
 				AA636EB519A42BFD007FCBA4 /* SVStatusHUD.m in Sources */,
 				AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */,
@@ -1981,6 +1981,7 @@
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				AA520F011972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
+				AAD65BE619B99412008455B1 /* Faculty.m in Sources */,
 				5D555529193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.m in Sources */,
 				AA63DCFA196E561B001D9768 /* iPhMainTableViewCell.m in Sources */,
 				AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */,
@@ -2008,7 +2009,6 @@
 				AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */,
 				AA56DD8919B66305005EE1CD /* Banner.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
-				AA56DD7719B66304005EE1CD /* ProgramRating.m in Sources */,
 				AA636EC619A42C93007FCBA4 /* HNBorderButton.m in Sources */,
 				AA56DD6E19B66304005EE1CD /* UniqKEKeyword.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,

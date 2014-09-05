@@ -92,7 +92,7 @@
 - (void)selectCalendarButtonsFromCoreData
 {
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
-    favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", [NSNumber numberWithInteger:self.itemId]];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", self.itemId];
     NSArray* favArray = [context executeFetchRequest:favReq error:nil];
     
     if([favArray count] > 0)

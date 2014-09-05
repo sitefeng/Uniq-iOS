@@ -10,6 +10,7 @@
 #import "XYPieChart.h"
 #import "iPadProgramDetailGraphView.h"
 #import "JPProgramDetailView.h"
+#import "JPRatings.h"
 
 @class Program, ProgramRating, RPRadarChart;
 @protocol JPCoursesDetailViewDelegate;
@@ -17,6 +18,7 @@
 {
 
     float  _indexOfLargestSlice;
+    
 }
 
 
@@ -31,16 +33,17 @@
 @property (nonatomic, weak) id<JPCoursesDetailViewDelegate> delegate;
 
 
+
 - (instancetype)initWithFrame:(CGRect)frame title: (NSString*)title program: (Program*)program;
 
-
 - (void)reloadData;
+
 
 
 @end
 
 @protocol JPCoursesDetailViewDelegate <NSObject>
 
-- (void)courseYearPressedWithYear: (NSInteger)year;
+- (void)courseTermPressed: (NSString*)term;
 
 @end

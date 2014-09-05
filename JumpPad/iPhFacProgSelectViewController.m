@@ -13,6 +13,7 @@
 #import "iPhProgramViewController.h"
 #import "Mixpanel.h"
 #import "JPDataRequest.h"
+#import "AFNetworkReachabilityManager.h"
 
 
 @interface iPhFacProgSelectViewController ()
@@ -26,6 +27,10 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         // Custom initialization
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+        
         UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
         context = [del managedObjectContext];
         
@@ -45,7 +50,7 @@
     UIBarButtonItem* infoButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Info" style:UIBarButtonItemStyleDone target:self action:@selector(infoButtonPressed:)];
     self.navigationItem.rightBarButtonItem = infoButtonItem;
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, kiPhoneHeightPortrait-kiPhoneTabBarHeight) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:[iPhMainTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
@@ -93,11 +98,11 @@
 {
     NSString* headerString = @"Select An Item";
     
-    if(self.type == JPDashletTypeFaculty)
+    if(self.type == JPDashletTypeSchool)
     {
         headerString = @"Select a Faculty";
     }
-    else if(self.type == JPDashletTypeProgram)
+    else if(self.type == JPDashletTypeFaculty)
     {
         headerString = @"Select a Program";
     }
@@ -118,14 +123,14 @@
     
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
-    if(self.type == JPDashletTypeFaculty)
+    if(self.type == JPDashletTypeSchool)
     {
-        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId: selectedDashlet.itemId forSelectionType:JPDashletTypeProgram];
+        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId: selectedDashlet.itemId forSelectionType:JPDashletTypeFaculty];
         programSelectVC.title = selectedDashlet.title;
         
         [self.navigationController pushViewController:programSelectVC animated:YES];
     }
-    else //type == JP Dashlet type Program
+    else //type == JP Dashlet type Faculty..selecting a program
     {
         iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
         programController.title = selectedDashlet.title;
@@ -152,13 +157,13 @@
 
 - (void)updateDashletsInfo
 {
-    JPDataRequest* request = [JPDataRequest sharedRequest];
-    request.delegate = self;
+    _dataRequest = [JPDataRequest request];
+    _dataRequest.delegate = self;
     
-    if(self.type == JPDashletTypeFaculty)
-        [request requestAllFacultiesFromSchool:self.itemId allFields:NO];
+    if(self.type == JPDashletTypeSchool)
+        [_dataRequest requestAllFacultiesFromSchool:self.itemId allFields:NO];
     else
-        [request requestAllProgramsFromFaculty:self.itemId allFields:NO];
+        [_dataRequest requestAllProgramsFromFaculty:self.itemId allFields:NO];
 }
 
 
@@ -177,71 +182,15 @@
     [self.tableView reloadData];
 }
 
-//jpdeprecated
-/*
-Retrieving Faculty info from Core Data and put into featuredDashelts
-- (void)updateDashletsInfoFromCoreData
-{
-    NSMutableArray* dashletArray = [NSMutableArray array];
-    //Core Data id and dashlet id are different
-    NSInteger coreDataSchoolId = self.dashletUid / 10000000;
-    
-    if(self.type == JPDashletTypeFaculty)
-    {
-        NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
-        dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        dashletRequest.predicate = [NSPredicate predicateWithFormat:@"school.schoolId = %@", [NSNumber numberWithInteger:coreDataSchoolId]];
-        
-        NSError* err = nil;
-        NSArray* fArray = [context executeFetchRequest:dashletRequest error:&err];
-        if(err)
-            JPLog(@"ERR: %@", err);
-        
-        for(Faculty* faculty in fArray)
-        {
-            JPDashlet* dashlet = [[JPDashlet alloc] initWithFaculty:faculty fromSchool:self.dashletUid];
-            [dashletArray addObject:dashlet];
-        }
-    }
-    else //type == JPdashletTypeProgram
-    {
-        NSInteger coreDataFacultyId = self.dashletUid % 10000000 /100000;
-        
-        NSFetchRequest* dashletRequest = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
-        dashletRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-        dashletRequest.predicate = [NSPredicate predicateWithFormat:@"faculty.facultyId = %@ && faculty.school.schoolId = %@", [NSNumber numberWithInteger:coreDataFacultyId], [NSNumber numberWithInteger:coreDataSchoolId]];
-        
-        NSError* err = nil;
-        NSArray* fArray = [context executeFetchRequest:dashletRequest error:&err];
-        if(err)
-            JPLog(@"ERR: %@", err);
-        
-        for(Program* program in fArray)
-        {
-            JPDashlet* dashlet = [[JPDashlet alloc] initWithProgram:program fromFaculty:self.dashletUid];
-            [dashletArray addObject:dashlet];
-        }
-
-    }
-    
-    self.dashlets = dashletArray;
-}
-*/
-
 
 #pragma mark - UI Navigation Item Callback Method
 - (void)infoButtonPressed: (UIBarButtonItem*)sender
 {
     iPhSchoolViewController* viewController = nil;
     
-    if(self.type == JPDashletTypeFaculty)
-    {
-        viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:JPDashletTypeSchool];
-    }
-    else //type == JPdashlet Type Program
-    {
-        viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:JPDashletTypeFaculty];
-    }
+    viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:self.type];
+    
+    viewController.title = self.title;
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     [self presentViewController:navController animated:YES completion:nil];
@@ -249,6 +198,21 @@ Retrieving Faculty info from Core Data and put into featuredDashelts
 }
 
 
+
+
+
+- (void)networkStatusChanged: (NSNotification*)notification
+{
+    NSDictionary* userInfo = notification.userInfo;
+    
+    NSNumber* value = [userInfo objectForKey:AFNetworkingReachabilityNotificationStatusItem];
+    
+    if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
+    {
+        [self updateDashletsInfo];
+    }
+    
+}
 
 
 
@@ -260,15 +224,6 @@ Retrieving Faculty info from Core Data and put into featuredDashelts
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

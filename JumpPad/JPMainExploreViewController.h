@@ -13,6 +13,7 @@
 @interface JPMainExploreViewController : UIViewController <JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
+    JPDataRequest*   _dataRequest;
 }
 
 

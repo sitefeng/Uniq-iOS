@@ -131,10 +131,10 @@
 //Retrieving College info from Core Data and put into featuredDashelts
 - (void)updateDashletsInfo
 {
-    JPDataRequest* dataRequest = [JPDataRequest sharedRequest];
-    dataRequest.delegate = self;
+    _dataRequest = [JPDataRequest request];
+    _dataRequest.delegate = self;
     
-    [dataRequest requestAllFacultiesFromSchool:self.schoolId allFields:NO];
+    [_dataRequest requestAllFacultiesFromSchool:self.schoolId allFields:NO];
     
 }
 

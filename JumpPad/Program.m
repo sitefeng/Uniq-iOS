@@ -2,7 +2,7 @@
 //  Program.m
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/5/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -23,35 +23,37 @@
 @implementation Program
 
 @dynamic about;
-@dynamic isCoop;
-@dynamic name;
-@dynamic numFavorites;
-@dynamic undergradPopulation;
-@dynamic programId;
-@dynamic yearEstablished;
-@dynamic avgAdm;
+@dynamic applicationDeadline;
 @dynamic appProcess;
-@dynamic gradPopulation;
-@dynamic numAccepted;
-@dynamic numApplicants;
-@dynamic shortName;
-@dynamic internshipAbout;
-@dynamic schoolId;
-@dynamic facultyId;
+@dynamic avgAdm;
+@dynamic curriculumTerms;
 @dynamic degree;
 @dynamic degreeAbbrev;
+@dynamic facultyId;
+@dynamic gradPopulation;
+@dynamic internshipAbout;
+@dynamic isCoop;
+@dynamic name;
+@dynamic numAccepted;
+@dynamic numApplicants;
+@dynamic numFavorites;
+@dynamic programId;
+@dynamic schoolId;
+@dynamic shortName;
 @dynamic slug;
-@dynamic applicationDeadline;
+@dynamic undergradPopulation;
+@dynamic yearEstablished;
+@dynamic toDelete;
 @dynamic applicationStats;
 @dynamic contacts;
 @dynamic courses;
 @dynamic faculty;
 @dynamic images;
 @dynamic importantDates;
-@dynamic rating;
-@dynamic tuitions;
 @dynamic location;
-@dynamic requiredCourses;
+@dynamic rating;
 @dynamic relatedItems;
+@dynamic requiredCourses;
+@dynamic tuitions;
 
 @end

@@ -11,6 +11,12 @@
 #import "Featured.h"
 #import "JPCloudFavoritesHelper.h"
 #import "JPGlobal.h"
+#import "JPLocation.h"
+#import "User.h"
+#import "Program.h"
+#import "Faculty.h"
+#import "School.h"
+#import "ManagedObjects+JPConvenience.h"
 
 
 @implementation JPCoreDataHelper
@@ -24,12 +30,43 @@
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
+        _connectivity = [JPConnectivityManager sharedManager];
+        
         _cloudFav = [[JPCloudFavoritesHelper alloc] init];
         _cloudFav.delegate = self;
+        
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        
     }
     
     return self;
 }
+
+#pragma mark - Retrieving User Location Info
+
+- (CGFloat)distanceToUserLocationWithLocation: (JPLocation*)location
+{
+    NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
+    User* user = nil;
+    if([userArray count] >0)
+    {
+        user = [userArray firstObject];
+        if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
+        {
+            return -1;
+        }
+        
+        CGFloat distanceToHome = [location distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
+        return distanceToHome;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
 
 
 #pragma mark - Favoriting Items
@@ -69,6 +106,9 @@
     //Send Favorites To Server
     [_cloudFav uploadItemFavoritedWithUid:itemId];
     
+    //Download Item To Device
+    [self downloadItemToCoreDataWithItemId:itemId itemType:type];
+    
 }
 
 
@@ -80,7 +120,7 @@
     
     if([results count] > 1)
     {
-        NSLog(@"TOO Many Favorite Results: [%d Results]", [results count]);
+        NSLog(@"TOO Many Favorite Results: [%lu Results]", (unsigned long)[results count]);
         return YES;
     }
     else if([results count] == 1)
@@ -88,6 +128,104 @@
     else
         return NO;
 }
+
+
+#pragma mark - Retrieving from Core Data
+
+- (NSDictionary*)retrieveItemDictionaryFromCoreDataWithItemId:(NSString*)itemId withType: (JPDashletType)type
+{
+    NSArray* objectNames = @[@"School", @"Faculty", @"Program"];
+    NSArray* predicates = @[[NSPredicate predicateWithFormat:@"schoolId = %@", itemId]
+                            , [NSPredicate predicateWithFormat:@"facultyId = %@", itemId]
+                            , [NSPredicate predicateWithFormat:@"programId = %@", itemId]];
+
+    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:objectNames[type]];
+    favReq.predicate = predicates[type];
+    NSArray* results = [context executeFetchRequest:favReq error:nil];
+    
+    if(!results || [results count]==0)
+    {
+        return nil;
+    }
+    
+    NSDictionary* resultsDict = @{};
+    if(type == JPDashletTypeSchool)
+    {
+        School* school = (School*)[results firstObject];
+        resultsDict = [school dictionaryRepresentation];
+    }
+    else if(type == JPDashletTypeSchool)
+    {
+        Faculty* faculty = (Faculty*)[results firstObject];
+        resultsDict = [faculty dictionaryRepresentation];
+    }
+    else
+    {
+        Program* program = (Program*)[results firstObject];
+        resultsDict = [program dictionaryRepresentation];
+    }
+    
+    
+    return resultsDict;
+    
+}
+
+
+#pragma mark - Downloading Contents from Server
+
+- (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type
+{
+    [_dataRequest requestItemDetailsWithId:itemId ofType:type];
+    [context save:nil];
+}
+
+
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
+{
+    if(type == JPDashletTypeSchool)
+    {
+        School* school = [[School alloc] initWithDictionary:dict];
+        school.toDelete = @NO;
+        
+        if(_downloadItemFacultyToBeLinked)
+        {
+            school.faculties = [[NSSet alloc] initWithObjects:_downloadItemFacultyToBeLinked, nil];
+            _downloadItemFacultyToBeLinked = nil;
+        }
+        [context insertObject:school];
+        
+        NSLog(@"School Downloaded and Linked");
+    }
+    else if(type == JPDashletTypeFaculty)
+    {
+        Faculty* faculty = [[Faculty alloc] initWithDictionary:dict];
+        faculty.toDelete = @NO;
+        _downloadItemFacultyToBeLinked = faculty;
+        
+        if(_downloadItemProgramToBeLinked)
+        {
+            faculty.programs = [[NSSet alloc] initWithObjects:_downloadItemProgramToBeLinked, nil];
+            _downloadItemProgramToBeLinked = nil;
+        }
+        [context insertObject:faculty];
+        
+        NSLog(@"Faculty Downloaded and Linked");
+        [self downloadItemToCoreDataWithItemId:faculty.schoolId itemType:JPDashletTypeSchool];
+    }
+    else //program
+    {
+        Program* program = [[Program alloc] initWithDictionary:dict];
+        program.toDelete = @NO;
+        _downloadItemProgramToBeLinked = program;
+        [context insertObject:program];
+        
+        NSLog(@"Program Downloaded and Linked");
+        [self downloadItemToCoreDataWithItemId:program.facultyId itemType:JPDashletTypeFaculty];
+    }
+    
+    
+}
+
 
 
 #pragma mark - Cloud Favorites Helper Delegate

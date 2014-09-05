@@ -109,11 +109,6 @@
 }
 
 
-+ (NSString*)schoolYearStringWithInteger: (NSUInteger)year
-{
-    NSArray* schoolYearsInString = @[@"First Year",@"Second Year",@"Third Year",@"Fourth Year"];
-    return schoolYearsInString[year-1];
-}
 
 + (NSString*)paragraphStringWithName: (NSString*)name
 {

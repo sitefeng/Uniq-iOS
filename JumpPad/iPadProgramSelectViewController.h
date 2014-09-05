@@ -16,11 +16,9 @@
 @class iPadSearchBarView, iPadSearchBarView, iPadFacultyBannerView;
 
 @interface iPadProgramSelectViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, JPSearchBarDelegate, JPSortDelegate, JPDashletInfoDelegate, UIPopoverControllerDelegate, JPDataRequestDelegate>
-
-
-
 {
-@private
+    @private
+    JPDataRequest* _dataRequest;
     
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
     float       _screenWidth;

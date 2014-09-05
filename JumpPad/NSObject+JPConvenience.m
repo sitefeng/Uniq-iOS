@@ -72,8 +72,41 @@
     }
 }
 
+@end
 
 
+
+@implementation NSArray (JPConvenience)
+
++ (instancetype)arrayWithObjectsCount:(NSInteger)count replaceNilWithEmptyString: (id)firstObject, ...
+{
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    
+    id eachObject;
+    va_list argumentList;
+   
+    if(!firstObject)
+    {
+        firstObject = @"";
+    }
+
+    [array addObject:firstObject];
+    
+    va_start(argumentList, firstObject);
+    for(int i= 1; i<count; i++)
+    {
+        eachObject = va_arg(argumentList, id);
+        
+        if(eachObject)
+            [array addObject:eachObject];
+        else
+            [array addObject:@""];
+    }
+    
+    va_end(argumentList);
+    
+    return array;
+}
 
 
 

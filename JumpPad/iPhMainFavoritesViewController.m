@@ -75,8 +75,6 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    iPhMainTableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier"];
-    
     iPhMainTableViewCell* cell = [[iPhMainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"reuseIdentifier"];
     cell.dashletInfo = self.dashlets[indexPath.section][indexPath.row];
     
@@ -125,6 +123,8 @@
     } else {
         contentController = [[iPhSchoolViewController alloc] initWithItemId:dashlet.itemId itemType:dashlet.type];
     }
+    
+    [contentController setTitle:dashlet.title];
     
     
     //Mixpanel

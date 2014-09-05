@@ -47,7 +47,7 @@
         self.favButton.hidden = YES;
         self.favButton.selected = NO;
         [self.favButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
-        [self.favButton setImage:[UIImage imageNamed:@"favoriteIconSelected3"] forState:UIControlStateHighlighted];
+        [self.favButton setImage:[UIImage imageNamed:@"favoriteIconHighlighted"] forState:UIControlStateHighlighted];
         [self.favButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
         [self.favButton addTarget:self action:@selector(favButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         

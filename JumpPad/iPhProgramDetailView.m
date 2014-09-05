@@ -48,13 +48,13 @@
         }
         else if([title isEqual:@"Tuition"])
         {
-            UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 70, 40)];
+            UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 200, 40)];
             localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            localLabel.text = @"Domestic";
+            localLabel.text = @"Domestic (per term)";
             localLabel.textColor = [UIColor blackColor];
-            UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 105, 100, 40)];
+            UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 105, 200, 40)];
             intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            intLabel.text = @"International";
+            intLabel.text = @"International (per term)";
             intLabel.textColor = [UIColor blackColor];
             
             [self addSubview:localLabel];
@@ -62,7 +62,7 @@
             
             
             //Tuition Values
-            UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(80, 45, 180,70)];
+            UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 45, 190,70)];
             localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             
             NSDictionary* tuitionDict = [self.program.tuitions anyObject];
@@ -72,7 +72,7 @@
             localLabelVal.textColor = [UIColor blackColor];
             
             //----------
-            UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(80, 120, 180, 70)];
+            UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 120, 190, 70)];
             intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
             intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
@@ -84,7 +84,7 @@
         }
         else if([title isEqual:@"Highlight"])
         {
-            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 35, 200, 200)];
+            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 40, 200, 200)];
             
             [self.pieChart setDataSource:self];
             [self.pieChart setDelegate:self];
@@ -105,6 +105,7 @@
             
             [self addSubview:self.pieChart];
             
+            //Generating the Pie Chart
             _indexOfLargestSlice = 0;
             float largestValue = 0;
             float totalValue = 0;
@@ -127,14 +128,13 @@
             
             [self.pieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
             
-            
             //Legend
             
             NSArray* legendTexts = @[@"Difficulty", @"Professors", @"Schedule", @"Classmates", @"Social", @"Study Environment"];
             
             for(int i=0; i<6; i++)
             {
-                UIView* view = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - 20, 40 + 30*i, 20, 15)];
+                UIView* view = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - 20, 50 + 30*i, 20, 15)];
                 view.backgroundColor = [JPStyle rainbowColorWithIndex:i];
                 
                 UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width - 100, 37 + 30*i, 70, 20)];
@@ -209,30 +209,35 @@
         }
         else if([title isEqual:@"Courses"])
         {
-            NSArray* titles = @[@"1st Year", @"2nd Year", @"3rd Year", @"4th Year"];
+            NSArray* termTitles = [self.program.curriculumTerms componentsSeparatedByString:@","];
+            UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
+            scrollView.showsHorizontalScrollIndicator = NO;
+            CGFloat contentWidth = frame.size.width;
             
-            for(int i=0; i<2; i++)
+            for(int i=0; i<[termTitles count]/2; i++)
             {
                 for(int j=0; j<2; j++)
                 {
-                    UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(15 + 150*(j%2), 40 + 80 *(i%2), 130, 70)];
+                    UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(15 + 120*i, 10+ 80*j, 105, 70)];
                     [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"tBlack"]] forState:UIControlStateNormal];
                     [yearButton setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forState:UIControlStateHighlighted];
-                    
                     yearButton.layer.cornerRadius = 10;
                     yearButton.clipsToBounds = YES;
-                    
-                    [yearButton setTitle:titles[j+i*2] forState:UIControlStateNormal];
+                    [yearButton setTitle:termTitles[j+i*2] forState:UIControlStateNormal];
                     
                     yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
                     [yearButton setTintColor:[UIColor whiteColor]];
                     [yearButton setShowsTouchWhenHighlighted:NO];
                     yearButton.tag = j+2*i;
                     [yearButton addTarget:self action:@selector(yearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+                    [scrollView addSubview:yearButton];
                     
-                    [self addSubview:yearButton];
+                    contentWidth = yearButton.frame.origin.x + yearButton.frame.size.width + 15;
                 }
             }
+            
+            scrollView.contentSize = CGSizeMake(contentWidth, scrollView.frame.size.height);
+            [self addSubview:scrollView];
         }
         else if([title isEqual:@"+"])
         {
@@ -252,11 +257,11 @@
 
 - (void)yearButtonPressed: (UIButton*)button
 {
-    [self.delegate courseYearPressedWithYear:button.tag+1];
+    [self.delegate courseTermPressed:button.titleLabel.text];
 }
 
 
-#pragma mark - Why Pie Chart View Methods
+#pragma mark - Custom Methods
 
 - (void)reloadData
 {
@@ -265,14 +270,15 @@
 
 
 
+#pragma mark - Setter Methods
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+
+
+
+
+
+
+
+
 
 @end

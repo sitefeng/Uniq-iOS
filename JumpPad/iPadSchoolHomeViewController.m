@@ -61,10 +61,9 @@ static const float kProgramImageWidth  = 384;
         
         self.tabBarItem.image = [UIImage imageNamed:@"home"];
         
-        JPDataRequest* dataReq = [JPDataRequest sharedRequest];
-        dataReq.delegate = self;
-        
-        [dataReq requestItemDetailsWithId:itemId ofType:type];
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        [_dataRequest requestItemDetailsWithId:itemId ofType:type];
         
     }
     return self;

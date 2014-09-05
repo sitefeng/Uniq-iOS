@@ -8,17 +8,27 @@
 
 #import "ManagedObjects+JPConvenience.h"
 #import "NSObject+JPConvenience.h"
+#import "JPRatings.h"
+
 
 
 @implementation School (JPConvenience)
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
+    if([dict objectForKey:@"itemObject"])
+    {
+        return [dict objectForKey:@"itemObject"];
+    }
+    
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [delegate managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"School" inManagedObjectContext:context];
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
+    self.toDelete = @YES;
+    if([dict objectForKey:@"id"] != [NSNull null])
+        self.schoolId = [dict objectForKey:@"id"];
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
     if([dict objectForKey:@"alumniNumber"] != [NSNull null])
@@ -32,9 +42,7 @@
     if([dict objectForKey:@"name"] != [NSNull null])
         self.name = [dict objectForKey:@"name"];
     if([dict objectForKey:@"numFaculties"] != [NSNull null])
-        self.numFaculties = [NSNumber numberWithLong:[[dict objectForKey:@"numFaculties"] longValue]];
-    if([dict objectForKey:@"id"] != [NSNull null])
-        self.schoolId = [dict objectForKey:@"id"];
+        self.numFaculties = [NSNumber numberWithInteger:[[dict objectForKey:@"numFaculties"] integerValue]];
     if([dict objectForKey:@"totalFunding"] != [NSNull null])
         self.totalFunding = [self numberFromNumberString:[dict objectForKey:@"totalFunding"]];
     if([dict objectForKey:@"undergradPopulation"] != [NSNull null])
@@ -94,6 +102,8 @@
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     
+    [dict setValue:self forKey:@"itemObject"];
+    
     return dict;
 }
 
@@ -107,11 +117,19 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
+    if([dict objectForKey:@"itemObject"])
+    {
+        return [dict objectForKey:@"itemObject"];
+    }
+    
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [delegate managedObjectContext];
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Faculty" inManagedObjectContext:context];
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+    self.toDelete = @YES;
     
+    if([dict objectForKey:@"id"] != [NSNull null])
+        self.facultyId = [dict objectForKey:@"id"];
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
     if([dict objectForKey:@"alumniNumber"] != [NSNull null])
@@ -124,8 +142,6 @@
         self.logoUrl = [dict objectForKey:@"logoUrl"];
     if([dict objectForKey:@"name"] != [NSNull null])
         self.name = [dict objectForKey:@"name"];
-    if([dict objectForKey:@"id"] != [NSNull null])
-        self.facultyId = [dict objectForKey:@"id"];
     if([dict objectForKey:@"schoolId"] != [NSNull null])
         self.schoolId = [dict objectForKey:@"schoolId"];
     if([dict objectForKey:@"totalFunding"] != [NSNull null])
@@ -192,6 +208,19 @@
 }
 
 
+- (NSDictionary*)dictionaryRepresentation
+{
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    
+    [dict setValue:self forKey:@"itemObject"];
+    
+    return dict;
+    
+}
+
+
+
+
 @end
 
 
@@ -200,10 +229,17 @@
 
 - (instancetype)initWithDictionary: (NSDictionary*)dict
 {
+    if([dict objectForKey:@"itemObject"])
+    {
+        return [dict objectForKey:@"itemObject"];
+    }
+    
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context = [delegate managedObjectContext];
     NSEntityDescription* programEntity = [NSEntityDescription entityForName:@"Program" inManagedObjectContext:context];
     self = [super initWithEntity:programEntity insertIntoManagedObjectContext:context];
+    
+    self.toDelete = @YES;
     
     //todo: fix
     self.applicationDeadline = @"01/14";
@@ -217,7 +253,7 @@
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
     if([dict objectForKey:@"avgAdm"] != [NSNull null])
-        self.avgAdm = [[NSDecimalNumber alloc] initWithString: [dict objectForKey:@"avgAdm"]];
+        self.avgAdm = [dict objectForKey:@"avgAdm"];
     if([dict objectForKey:@"applicationProcess"] != [NSNull null])
         self.appProcess = [dict objectForKey:@"applicationProcess"];
     if([dict objectForKey:@"gradPopulation"] != [NSNull null])
@@ -247,7 +283,8 @@
         self.numApplicants = [self numberFromNumberString:[dict objectForKey:@"numApplicants"]];
     if([dict objectForKey:@"numAccepted"] != [NSNull null])
         self.numAccepted = [self numberFromNumberString:[dict objectForKey:@"numAccepted"]];
-    
+    if([dict objectForKey:@"numFavorites"] != [NSNull null])
+        self.numFavorites = [NSNumber numberWithInteger:[[dict objectForKey:@"numFavorites"] integerValue]];
 
     /////////////////////////////////
     if([dict objectForKey:@"contacts"] != [NSNull null])
@@ -379,10 +416,13 @@
                     [modTerms addObject:[NSString stringWithFormat:@"Electives %d", i]];
             }
             
+            NSMutableString* curriculumTermsString = [NSMutableString string];
+            
             NSMutableSet* courseSet = [[NSMutableSet alloc] init];
             for(int i=0; i<[curriculumTermArray count]; i++)
             {
                 NSString* termName = [modTerms objectAtIndex:i];
+                [curriculumTermsString appendFormat:@"%@,", termName];
                 NSArray* termDict = [curriculumTermArray objectAtIndex:i];
                 
                 for(NSDictionary* courseDict in termDict)
@@ -393,10 +433,9 @@
                 }
             }
             self.courses = courseSet;
-            
+            self.curriculumTerms = [curriculumTermsString stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@","]];
         }
     }
-    
     
     if([dict objectForKey:@"requirements"] != [NSNull null])
     {
@@ -416,13 +455,66 @@
         }
     }
     
+    if([dict objectForKey:@"rating"] != [NSNull null])
+    {
+        NSDictionary* ratingsDict = [dict objectForKey:@"rating"];
+        
+        JPRatings* ratings = [[JPRatings alloc] initWithFullKeyDictionary:ratingsDict];
+        ProgramRating* programRating = [[ProgramRating alloc] initWithRatings:ratings];
+        
+        self.rating = programRating;
+    }
     
     return self;
 }
 
 
+
+- (void)appendProgramRatingsWithRatings: (JPRatings*)ratings
+{
+    if(!self)
+        return;
+
+    ProgramRating* programRating = [[ProgramRating alloc] initWithRatings:ratings];
+    self.rating = programRating;
+    
+}
+
+
+- (NSDictionary*)dictionaryRepresentation
+{
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    [dict setValue:self forKey:@"itemObject"];
+    return dict;
+}
+
+
 @end
 
+
+
+@implementation ProgramRating (JPConvenience)
+
+- (instancetype)initWithRatings:(JPRatings*)ratings
+{
+    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context = [delegate managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"ProgramRating" inManagedObjectContext:context];
+    self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
+    
+    self.ratingOverall = [NSNumber numberWithDouble:ratings.ratingOverall];
+    self.difficulty = [NSNumber numberWithDouble:ratings.difficulty];
+    self.professor = [NSNumber numberWithDouble:ratings.professors];
+    self.schedule = [NSNumber numberWithDouble:ratings.schedule];
+    self.classmates = [NSNumber numberWithDouble:ratings.classmates];
+    self.socialEnjoyments = [NSNumber numberWithDouble:ratings.social];
+    self.studyEnv= [NSNumber numberWithDouble:ratings.studyEnv];
+    self.guyToGirlRatio = [NSNumber numberWithDouble:ratings.guyRatio];
+    
+    return self;
+}
+
+@end
 
 
 
@@ -438,23 +530,44 @@
     
     if([dict objectForKey:@"website"] != [NSNull null])
         self.website = [dict objectForKey:@"website"];
+    else
+        self.website = @"";
     if([dict objectForKey:@"name"] != [NSNull null])
         self.name = [dict objectForKey:@"name"];
+    else
+        self.name = @"";
     if([dict objectForKey:@"twitter"] != [NSNull null])
         self.twitter = [dict objectForKey:@"twitter"];
+    else
+        self.twitter = @"";
     if([dict objectForKey:@"linkedin"] != [NSNull null])
         self.linkedin = [dict objectForKey:@"linkedin"];
+    else
+        self.linkedin = @"";
     if([dict objectForKey:@"facebook"] != [NSNull null])
         self.facebook = [dict objectForKey:@"facebook"];
+    else
+        self.facebook = @"";
     if([dict objectForKey:@"email"] != [NSNull null])
         self.email = [dict objectForKey:@"email"];
+    else
+        self.email = @"";
+    if([dict objectForKey:@"extraInfo"] != [NSNull null])
+        self.extraInfo = [dict objectForKey:@"extraInfo"];
+    else
+        self.extraInfo = @"";
     if([dict objectForKey:@"ext"] != [NSNull null])
-        self.phoneExt = [NSNumber numberWithLongLong:[[dict objectForKey:@"ext"] longLongValue]];
+        self.phoneExt = [NSString stringWithFormat:@"%@",[NSNumber numberWithLongLong:[[dict objectForKey:@"ext"] longLongValue]]];
+    else
+        self.phoneExt = @"";
     
     if([dict objectForKey:@"phoneNum"] != [NSNull null])
     {
         NSString* phoneStr = [dict objectForKey:@"phoneNum"];
-        self.phone = [self numberFromPhoneString:phoneStr];
+        self.phone = [NSString stringWithFormat:@"%@",[self numberFromPhoneString:phoneStr]];
+    }
+    else {
+        self.phone = @"";
     }
     
     return self;

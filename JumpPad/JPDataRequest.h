@@ -7,10 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JPProgramRatingHelper.h"
+#import "JPCloudFavoritesHelper.h"
 
-@protocol JPDataRequestDelegate;
-@interface JPDataRequest : UIViewController
 
+@class JPCoreDataHelper;
+@protocol JPDataRequestDelegate, JPProgramRatingHelper, JPConnectivityManager;
+@interface JPDataRequest : NSObject <JPProgramRatingHelperDelegate, JPCloudFavoritesHelperDelegate>
+{
+    NSMutableDictionary*  _itemDetailsDictWithoutRatings;
+    JPDashletType  _itemDetailType;
+    NSInteger      _itemDetailExpectedReturnNumber;
+    
+    JPConnectivityManager*  _connectivity;
+       
+    JPProgramRatingHelper* _ratingHelper;
+    JPCloudFavoritesHelper* _cloudFavHelper;
+    
+}
 
 @property (nonatomic, weak) id<JPDataRequestDelegate> delegate;
 
@@ -18,7 +32,8 @@
 
 
 
-+ (instancetype)sharedRequest;
+- (instancetype)init;
++ (instancetype)request;
 
 
 - (void)requestAllSchoolsAllFields: (BOOL)allFields;

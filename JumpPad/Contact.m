@@ -2,7 +2,7 @@
 //  Contact.m
 //  Uniq
 //
-//  Created by Si Te Feng on 9/2/14.
+//  Created by Si Te Feng on 9/4/14.
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @implementation Contact
 
 @dynamic email;
+@dynamic extraInfo;
 @dynamic facebook;
 @dynamic linkedin;
 @dynamic name;
@@ -22,7 +23,6 @@
 @dynamic phoneExt;
 @dynamic twitter;
 @dynamic website;
-@dynamic extraInfo;
 @dynamic faculty;
 @dynamic program;
 @dynamic school;
