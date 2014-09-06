@@ -22,6 +22,7 @@
     
     BOOL               _isEditing;
     NSMutableArray*    _favDashletsToDelete;
+    NSMutableArray*    _favDashletsToDeleteType;
     
 }
 
@@ -41,6 +42,6 @@
 
 - (void)removeUnselectedFavoritesFromCoreData;
 - (void)editBarButtonPressed: (id)sender;
-- (void)favButtonPressedIsFavorited: (BOOL)fav itemId: (NSString*)itemId;
+- (void)favButtonPressedIsFavorited: (BOOL)fav itemId: (NSString*)itemId itemType:(JPDashletType)type;
 
 @end

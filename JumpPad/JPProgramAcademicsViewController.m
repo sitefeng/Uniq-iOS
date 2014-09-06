@@ -101,7 +101,9 @@
         if(button.selected == false)
         {
             //Delete duplicates from before
-            [self deletePastDuplicateFavItems];
+            [_coreDataHelper removeFavoriteWithItemId:self.program.programId withType:JPDashletTypeProgram];
+            _userFav = nil;
+            
             //Add one new fav item
             [self createNewFavItem];
             
@@ -131,7 +133,8 @@
         {
             switch (button.tag) {
                 case 0:
-                    [self deletePastDuplicateFavItems];
+                    [_coreDataHelper removeFavoriteWithItemId:self.program.programId withType:JPDashletTypeProgram];
+                    _userFav = nil;
                     break;
                 case 1:
                     _userFav.researched = [NSNumber numberWithBool:NO];
@@ -156,18 +159,15 @@
 }
 
 
-- (void)deletePastDuplicateFavItems
-{
-    _userFav = nil;
-    
-    [_coreDataHelper removeFavoriteWithItemId:self.program.programId];
-
-}
-
 
 - (void)createNewFavItem
 {
     [_coreDataHelper addFavoriteWithItemId:self.program.programId andType:JPDashletTypeProgram];
+    
+    NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+    favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", self.program.programId];
+    NSArray* favArray = [context executeFetchRequest:favReq error:nil];
+    _userFav = [favArray firstObject];
 }
 
 
@@ -182,15 +182,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
+
+
 
 @end

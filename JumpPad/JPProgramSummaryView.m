@@ -250,12 +250,16 @@
         else
         {
             float drivingDistance = self.distanceToHome * 1.165;
-            float drivingTotalMinutes = self.distanceToHome * 0.728;
+            float drivingTotalMinutes = self.distanceToHome * 1.132;
+            float drivingTotalMinutes2 = self.distanceToHome * 0.8;
             NSString* timeString = [NSString stringWithFormat:@"%.0f mins", drivingTotalMinutes];
             if(drivingTotalMinutes > 60.0)
                 timeString = [NSString stringWithFormat:@"%.1f hrs", drivingTotalMinutes/60.0];
+            NSString* timeString2 = [NSString stringWithFormat:@"%.0f mins", drivingTotalMinutes2];
+            if(drivingTotalMinutes > 60.0)
+                timeString2 = [NSString stringWithFormat:@"%.1f hrs", drivingTotalMinutes2/60.0];
             
-            contentText = [NSString stringWithFormat:@"The direct distance between the college and your neighborhood is %.0f kms. Driving distance is approximately %.0f kms. It will take about %@ to get there.", self.distanceToHome, drivingDistance, timeString];
+            contentText = [NSString stringWithFormat:@"The direct distance to your neighborhood is %.0f kms. Driving distance is approximately %.0f kms. It will take about %@ to get there by local, or %@ on freeway", self.distanceToHome, drivingDistance, timeString, timeString2];
 
         }
         UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Distance Away" message:contentText delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];

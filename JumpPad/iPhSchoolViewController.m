@@ -139,7 +139,7 @@
     else
     {
         button.selected = NO;
-        [_coreDataHelper removeFavoriteWithItemId:self.itemId];
+        [_coreDataHelper removeFavoriteWithItemId:self.itemId withType:self.type];
     }
     
 }

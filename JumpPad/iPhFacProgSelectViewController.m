@@ -13,7 +13,8 @@
 #import "iPhProgramViewController.h"
 #import "Mixpanel.h"
 #import "JPDataRequest.h"
-#import "AFNetworkReachabilityManager.h"
+#import "JPConnectivityManager.h"
+#import "DejalActivityView.h"
 
 
 @interface iPhFacProgSelectViewController ()
@@ -29,7 +30,7 @@
         // Custom initialization
         self.automaticallyAdjustsScrollViewInsets = NO;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDashletsInfo) name:kNeedUpdateDataNotification object:nil];
         
         UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
         context = [del managedObjectContext];
@@ -40,6 +41,7 @@
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -59,6 +61,7 @@
     
 }
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -66,6 +69,7 @@
     [self updateDashletsInfo];
     
 }
+
 
 #pragma mark - UI Table View Data Source and Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -130,26 +134,21 @@
         
         [self.navigationController pushViewController:programSelectVC animated:YES];
     }
-    else //type == JP Dashlet type Faculty..selecting a program
+    else if(self.type == JPDashletTypeFaculty)
     {
         iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
-        programController.title = selectedDashlet.title;
-        
+        [programController setTitle:selectedDashlet.title];
         
         //Mixpanel
         [[Mixpanel sharedInstance] track:@"Selected Program"
                               properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": selectedDashlet.title}];
         //////////////////////////////////
         
-        
         UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:programController];
         
         [self presentViewController:navController animated:YES completion:nil];
     }
-    
 }
-
-
 
 
 
@@ -157,6 +156,8 @@
 
 - (void)updateDashletsInfo
 {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
+    
     _dataRequest = [JPDataRequest request];
     _dataRequest.delegate = self;
     
@@ -169,6 +170,7 @@
 
 - (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
 {
+    [DejalBezelActivityView removeViewAnimated:YES];
     if(!success)
         return;
     
@@ -197,22 +199,6 @@
     
 }
 
-
-
-
-
-- (void)networkStatusChanged: (NSNotification*)notification
-{
-    NSDictionary* userInfo = notification.userInfo;
-    
-    NSNumber* value = [userInfo objectForKey:AFNetworkingReachabilityNotificationStatusItem];
-    
-    if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
-    {
-        [self updateDashletsInfo];
-    }
-    
-}
 
 
 

@@ -56,7 +56,7 @@
     _detailScrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_detailScrollView];
 
-    JPLocation* programLocation = [[JPLocation alloc] initWithSchoolLocation:self.program.faculty.school.location];
+
     JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program isPhoneInterface:YES];
     summaryView.delegate = self;
     [_detailScrollView addSubview:summaryView];

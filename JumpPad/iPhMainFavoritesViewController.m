@@ -99,7 +99,7 @@
     iPhMainTableViewCell* cell = (iPhMainTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
     JPDashlet* dashlet = cell.dashletInfo;
     
-    [self favButtonPressedIsFavorited:NO itemId:dashlet.itemId];
+    [self favButtonPressedIsFavorited:NO itemId:dashlet.itemId itemType:dashlet.type];
     [self removeUnselectedFavoritesFromCoreData];
     
 
@@ -125,7 +125,6 @@
     }
     
     [contentController setTitle:dashlet.title];
-    
     
     //Mixpanel
     [[Mixpanel sharedInstance] track:@"Favorite Selected"

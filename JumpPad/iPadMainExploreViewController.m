@@ -113,12 +113,14 @@
 
 - (void)setDashlets:(NSMutableArray *)dashlets
 {
-    if(!self.backupDashlets)
+    if(!self.originalDashlets)
     {
-        self.backupDashlets = [dashlets mutableCopy];
+        self.originalDashlets = [dashlets mutableCopy];
     }
     
     [super setDashlets:dashlets];
+    
+    [self.cv reloadData];
 }
 
 
@@ -148,9 +150,6 @@
     
     return cell;
 }
-
-//Header and Footer
-//-(UICollectionReusableView*) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 
 
 #pragma mark - UICollectionView Delegate Methods
@@ -194,27 +193,41 @@
 
 
 
-
 #pragma mark - JPSearchBar Delegate Methods
-
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSString* query = searchBar.text;
-    NSMutableArray* array = [NSMutableArray array];
-   
-    for(int i=0; i<[self.dashlets count]; i++)
+    if([searchText isEqual:@""] || !searchText)
     {
-        JPDashlet* d = self.dashlets[i];
-        if([d.title rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound)
+        self.dashlets = [self.originalDashlets copy];
+        return;
+    }
+    
+    NSInteger beforeCellCount = [self.dashlets count];
+    
+    NSMutableArray* array = [NSMutableArray array];
+    
+    for(int i=0; i<[self.originalDashlets count]; i++)
+    {
+        JPDashlet* d = self.originalDashlets[i];
+        if([d.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
         {
             [array addObject:d];
         }
     }
     
     self.dashlets = array;
-    [self.cv reloadData];
     
-    [self.view endEditing:YES];
+    if(beforeCellCount != [self.dashlets count])
+        [self.cv reloadData];
+}
+
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString* searchText = searchBar.text;
+    
+    [self searchBar:searchBar textDidChange:searchText];
+    [self.searchBarView.searchBar resignFirstResponder];
 }
 
 
@@ -258,18 +271,6 @@
 
 
 
-#pragma mark - JPSearchBar Delegate Methods
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    
-    if([searchText isEqual:@""])
-    {
-        //use self.sortType LATER!
-        self.dashlets = [[self.backupDashlets sortedArrayUsingSelector:@selector(compareWithName:)] mutableCopy];
-        [self.cv reloadData];
-    }
-
-}
 
 
 #pragma mark - JPDashlet Info Delegate

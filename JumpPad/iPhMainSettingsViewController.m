@@ -40,8 +40,10 @@
     
     _cellSectionTitles = @[@"Utilities",@"General"];
     
-    _cellTitleStrings = @[@[@"Locate Me", @"Download Contents", @"Notifications"],@[@"About", @"Rate Uniq on App Store", @"Send Feedback", @"Share This App", @"Authors", @"Special Thanks", @"Like on Facebook", @"Follow on Twitter"]];
-    _cellImageStrings = @[@[@"distance-50",@"download-75",@"tones-75"],@[@"info-75",@"thumb_up-75",@"email-50",@"share-75",@"groups-75",@"thanks-75",@"facebook-50",@"twitter-50"]];
+    _cellTitleStrings = @[@[@"Locate Me"],@[@"About", @"Rate Uniq on App Store", @"Send Feedback", @"Share This App", @"Authors", @"Special Thanks", @"Like on Facebook", @"Follow on Twitter", @"Visit Our Website"]];
+    _cellImageStrings = @[@[@"distance-50"],@[@"info-75",@"thumb_up-75",@"email-50",@"share-75",@"groups-75",@"thanks-75",@"facebook-50",@"twitter-50", @"safari-50"]];
+    
+//    ,@"download-75",@"tones-75"
     
     UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
     context = [del managedObjectContext];
@@ -203,7 +205,7 @@
                 break;
             }
             case 6: {
-                NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/Uniqios"];
+                NSURL* url = [NSURL URLWithString:@"http://www.facebook.com/Uniqios"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }
@@ -213,10 +215,14 @@
                 
                 break;
             }
+            case 8: {
+                NSURL* url = [NSURL URLWithString:@"http://uniq.url.ph"];
+                [[UIApplication sharedApplication] openURL:url];
+                break;
+            }
             default:
                 break;
         }
-        
         
     }
     

@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *subtitleLabel;
 
-@property (weak, nonatomic) NSString*    imageURLString;
+@property (strong, nonatomic) NSString*    imageURLString;
 @property (weak, nonatomic) IBOutlet AsyncImageView *asyncImageView;
 
 

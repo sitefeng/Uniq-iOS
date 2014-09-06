@@ -17,6 +17,7 @@
 #import "JPFont.h"
 #import "JPGlobal.h"
 #import "UIBezierPath+BasicShapes.h"
+#import "ProgramYearlyTuition.h"
 
 
 @implementation iPadProgramDetailGraphView //For one detail graph element in a program
@@ -138,13 +139,13 @@
     titleLabel.textColor = [UIColor blackColor];
     [self addSubview:titleLabel];
     
-    UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 55, 70, 40)];
+    UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 55, 200, 40)];
     localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-    localLabel.text = @"Domestic";
+    localLabel.text = @"Domestic (per term)";
     localLabel.textColor = [UIColor blackColor];
-    UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 145, 100, 40)];
+    UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 145, 200, 40)];
     intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-    intLabel.text = @"International";
+    intLabel.text = @"International (per term)";
     intLabel.textColor = [UIColor blackColor];
     
     [self addSubview:localLabel];
@@ -152,20 +153,20 @@
     
     
     //Tuition Values
-    UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 80, 150,70)];
+    UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(40, titleLabelY + 80, 185,70)];
     localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
-    
-    NSDictionary* tuitionDict = [self.program.tuitions anyObject];
-    NSDecimalNumber *domesticT = (NSDecimalNumber*)[tuitionDict valueForKey:@"domesticTuition"];
-    
-    localLabelVal.text = [NSString stringWithFormat:@"$ %@", [domesticT stringValue]];
+    localLabelVal.textAlignment = NSTextAlignmentCenter;
+    ProgramYearlyTuition* tuition = [self.program.tuitions anyObject];
+    NSNumber*    domesticT = tuition.domesticTuition;
+    localLabelVal.text = [NSString stringWithFormat:@"$ %@", domesticT];
     localLabelVal.textColor = [UIColor blackColor];
     
     //----------
-    UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, titleLabelY + 170, 150, 70)];
+    UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(40, titleLabelY + 170, 185, 70)];
     intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
-    NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
-    intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
+    intLabelVal.textAlignment = NSTextAlignmentCenter;
+    NSNumber *internationalT = tuition.internationalTuition;
+    intLabelVal.text = [NSString stringWithFormat:@"$ %@", internationalT];
     intLabelVal.textColor = [UIColor blackColor];
     
     [self addSubview:localLabelVal];
@@ -205,7 +206,7 @@
     //////////////////////
     CPTXYPlotSpace* plotSpace = (CPTXYPlotSpace  *)barChart.defaultPlotSpace;
     
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length: CPTDecimalFromFloat(40.00f)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length: CPTDecimalFromFloat(20.0f)];
     
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(3.0f)];
     
@@ -275,11 +276,11 @@
     
     y.orthogonalCoordinateDecimal = CPTDecimalFromDouble(0);
     
-    y.title = @"Tuition (kCAD/year)";
+    y.title = @"Tuition (kcad/term)";
     y.titleTextStyle = labelTextStyle;
     y.titleOffset = 40;
     
-    y.titleLocation = CPTDecimalFromDouble(20.0);
+    y.titleLocation = CPTDecimalFromDouble(8.0);
     
     
     //////////////////
@@ -304,7 +305,7 @@
     barPlot2.barWidth        = CPTDecimalFromDouble(0.25);
     barPlot2.barOffset       = CPTDecimalFromFloat(0.0f);
     
-    barPlot2.identifier      = @"School Aveg";
+    barPlot2.identifier      = @"Regional Aveg";
     barPlot2.dataSource      = self;
     barPlot2.delegate         = self;
     [barChart addPlot:barPlot2 toPlotSpace:plotSpace];
@@ -327,7 +328,7 @@
     CPTBarPlot* barPlot4 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"white"].CGColor] horizontalBars:NO];
     barPlot4.identifier = self.program.name;
     CPTBarPlot* barPlot5 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"white"].CGColor] horizontalBars:NO];
-    barPlot5.identifier = @"School Avg";
+    barPlot5.identifier = @"Regional Avg";
     CPTBarPlot* barPlot6 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithCGColor:[JPStyle colorWithName:@"white"].CGColor] horizontalBars:NO];
     barPlot6.identifier = @"National Avg";
     
@@ -399,8 +400,17 @@
 - (NSNumber*)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
     //tuitions:
-    float localTuition = (8279.53f)/1000;
-    float intTuition = (36892.00f)/1000;
+    ProgramYearlyTuition* tuition = [self.program.tuitions anyObject];
+    float domesticTuition = [tuition.domesticTuition doubleValue];
+    float intTuition = [tuition.internationalTuition doubleValue];
+    
+    //Regional:
+    float domesticTuitionRegional = 7259/2.0;
+    float intTuitionRegional = 17662.146/2.0;
+    
+    //National:
+    float domesticTuitionNational = 5772.0/2.0;
+    float intTuitionNational = 18641/2.0;
     
     NSNumber *num = nil;
     
@@ -410,24 +420,24 @@
                 if([plot.identifier isEqual:@"name"])
                 {
                     if(index == 0) //local
-                        num = [NSNumber numberWithFloat:localTuition];
+                        num = [NSNumber numberWithFloat:domesticTuition/1000.0f];
                     else //international
-                        num = [NSNumber numberWithFloat:intTuition];
+                        num = [NSNumber numberWithFloat:intTuition/1000.0f];
                 }
-                else if([plot.identifier isEqual:@"School Aveg"]) //schoolAvg
+                else if([plot.identifier isEqual:@"Regional Aveg"]) //Regional Avg
                 {
                     if(index == 0)
-                        num = [NSNumber numberWithFloat:(localTuition + 5)];
+                        num = [NSNumber numberWithFloat:domesticTuitionRegional/1000.0f];
                     else //international
-                        num = [NSNumber numberWithFloat:(intTuition - 4)];
+                        num = [NSNumber numberWithFloat:intTuitionRegional/1000.0f];
                     
                 }
                 else if([plot.identifier isEqual:@"National Aveg"])//national avg
                 {
                     if(index == 0)
-                        num = [NSNumber numberWithFloat:(localTuition - 1)];
+                        num = [NSNumber numberWithFloat:domesticTuitionNational/1000.0f];
                     else //international
-                        num = [NSNumber numberWithFloat:(intTuition + 2)];
+                        num = [NSNumber numberWithFloat:intTuitionNational/1000.0f];
                 }
                 else
                 {
@@ -473,7 +483,7 @@
         gradient = [CPTGradient gradientWithBeginningColor:barColor endingColor:barColor];
         
     }
-    else if([barPlot.identifier isEqual:@"School Aveg"]||[barPlot.identifier isEqual:@"School Avg"])
+    else if([barPlot.identifier isEqual:@"Regional Aveg"]||[barPlot.identifier isEqual:@"Regional Avg"])
     {
         CPTColor *barColor = [CPTColor colorWithCGColor:[JPStyle colorWithName:@"blue"].CGColor];
         gradient = [CPTGradient gradientWithBeginningColor:barColor endingColor:barColor];

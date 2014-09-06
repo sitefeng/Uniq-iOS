@@ -14,7 +14,7 @@
 #import "SchoolLocation.h"
 #import "ImageLink.h"
 #import "NSObject+JPConvenience.h"
-
+#import "ManagedObjects+JPConvenience.h"
 
 
 @implementation JPDashlet
@@ -99,7 +99,6 @@
         self.itemId = school.schoolId;
         
         SchoolLocation* sLoc = school.location;
-        
         float lat = [sLoc.latitude doubleValue];
         float lon = [sLoc.longitude doubleValue];
         
@@ -137,6 +136,7 @@
     self = [self init];
     if(self)
     {
+        self.itemId = faculty.facultyId;
         self.title = faculty.name;
         self.type = JPDashletTypeFaculty;
         
@@ -167,6 +167,7 @@
     self = [self init];
     if(self)
     {
+        self.itemId = program.programId;
         self.title = program.name;
         self.type = JPDashletTypeProgram;
         
@@ -198,31 +199,91 @@
     if(self)
     {
         self.type = type;
-       
-        self.itemId = [dict objectForKey:@"id"];
-        self.title = [dict objectForKey:@"name"];
-        NSString* populationStr = [dict objectForKey:@"undergradPopulation"];
-        self.population = [self numberFromNumberString:populationStr];
-        self.location = [[JPLocation alloc] initWithLocationDict:[dict objectForKey:@"location"]];
         
-        self.backgroundImages = [NSMutableArray array];
-        
-        NSArray* imageDicts = [dict objectForKey:@"images"];
-        for(NSDictionary* imageDict in imageDicts)
+        //If the dictionary already contains a managedObject, retrieve it.
+        if([dict objectForKey:@"itemObject"])
         {
-            NSString* type = [imageDict objectForKey:@"type"];
-            NSString* urlStr = [imageDict objectForKey:@"link"];
-            NSURL* imgURL = [NSURL URLWithString:urlStr];
-            if(!imgURL)
-                continue;
-            
-            if([type isEqual:@"logo"])
+            self.backgroundImages = [NSMutableArray array];
+            if(type == JPDashletTypeSchool)
             {
-                self.icon = imgURL;
+                School* school = [dict objectForKey:@"itemObject"];
+                self.itemId = school.schoolId;
+                self.title = school.name;
+                self.population = school.undergradPopulation;
+                self.location = [[JPLocation alloc] initWithSchoolLocation:school.location];
+                
+                NSArray* imageLinks = [school.images allObjects];
+                for(ImageLink* imageLink in imageLinks)
+                {
+                    NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
+                    if(imgUrl)
+                       [self.backgroundImages addObject:imgUrl];
+                }
+                
+                self.icon = [NSURL URLWithString:school.logoUrl];
+                
             }
-            else
+            else if(type == JPDashletTypeFaculty)
             {
-                [self.backgroundImages addObject:imgURL];
+                Faculty* faculty = [dict objectForKey:@"itemObject"];
+                self.itemId = faculty.facultyId;
+                self.title = faculty.name;
+                self.population = faculty.undergradPopulation;
+                self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
+                
+                NSArray* imageLinks = [faculty.images allObjects];
+                for(ImageLink* imageLink in imageLinks)
+                {
+                    NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
+                    if(imgUrl)
+                        [self.backgroundImages addObject:imgUrl];
+                }
+
+            }
+            else if(type == JPDashletTypeProgram)
+            {
+                Program* program = [dict objectForKey:@"itemObject"];
+                self.itemId = program.programId;
+                self.title = program.name;
+                self.population = program.undergradPopulation;
+                self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
+                
+                NSArray* imageLinks = [program.images allObjects];
+                for(ImageLink* imageLink in imageLinks)
+                {
+                    NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
+                    if(imgUrl)
+                        [self.backgroundImages addObject:imgUrl];
+                }
+            }
+        }
+        else //if dictionary is raw info from server
+        {
+            self.itemId = [dict objectForKey:@"id"];
+            self.title = [dict objectForKey:@"name"];
+            NSString* populationStr = [dict objectForKey:@"undergradPopulation"];
+            self.population = [self numberFromNumberString:populationStr];
+            self.location = [[JPLocation alloc] initWithLocationDict:[dict objectForKey:@"location"]];
+            
+            self.backgroundImages = [NSMutableArray array];
+            
+            NSArray* imageDicts = [dict objectForKey:@"images"];
+            for(NSDictionary* imageDict in imageDicts)
+            {
+                NSString* type = [imageDict objectForKey:@"type"];
+                NSString* urlStr = [imageDict objectForKey:@"link"];
+                NSURL* imgURL = [NSURL URLWithString:urlStr];
+                if(!imgURL)
+                    continue;
+                
+                if([type isEqual:@"logo"])
+                {
+                    self.icon = imgURL;
+                }
+                else
+                {
+                    [self.backgroundImages addObject:imgURL];
+                }
             }
         }
         

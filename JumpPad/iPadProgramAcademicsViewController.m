@@ -38,6 +38,8 @@
     self = [super initWithProgram: program];
     if (self) {
         // Custom initialization
+        
+        
         UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
         context = [del managedObjectContext];
         
@@ -46,9 +48,7 @@
         
         self.program = program;
 
-        
-        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) program:self.program];
-        [self.view addSubview:self.labelView];
+
 
     }
     return self;
@@ -60,12 +60,10 @@
     // Do any additional setup after loading the view.
     _yPositionForScrollView = 0;
     
-    UIScrollView* mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, kiPadWidthPortrait, kiPadHeightPortrait-44)];
-    
+    UIScrollView* mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-44)];
     
     mainScrollView.backgroundColor = [UIColor clearColor];
     mainScrollView.contentSize = CGSizeMake(kiPadWidthPortrait, 1000);
-    
     mainScrollView.clipsToBounds = YES;
     
     _dateView = [[JPDateView alloc] initWithFrame:CGRectMake(0, 0, 200, 140)];

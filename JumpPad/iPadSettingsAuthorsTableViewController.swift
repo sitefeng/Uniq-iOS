@@ -35,9 +35,9 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
             ["name": "Christopher Luc", "position": "Server Developer", "description" : "Christopher is a 2nd year student studying at University of Waterloo Software Engineering program."],
             ["name": "Andre Lee", "position": "Web Developer", "description" : "Andre is a 2nd year student studying at University of Waterloo Mechatronics program."],
             ["name": "Jack Yang", "position": "Server Developer", "description" : "Jack is a 3rd year student studying at University of Waterloo Computer Science program."],
-            ["name": "Aaron Te", "position": "UI Designer", "description" : "Aaron is a 2nd year student studying at University of Waterloo."],
+            ["name": "Aaron Te", "position": "UI Designer", "description" : "Aaron is a 2nd year Computer Engineering student studying at University of Waterloo."],
             ["name": "Wesley Fisher", "position": "Android Developer", "description" : "Wesley is a 2nd year student studying at University of Waterloo Mechatronics Engineering program."],
-            ["name": "Richard Lee", "position": "App Icon Designer", "description" : "Richard is a graphics designer who loves to make games for Flash and iOS. He is currently working at Avoca Technologies as an iOS Developer."],
+            ["name": "Richard Lee", "position": "App Icon Designer", "description" : "Richard is a graphics designer graduated from George Brown College. He loves to make games for Flash and iOS. He is currently working at Avoca Technologies as an iOS Developer."],
         ]
         
         

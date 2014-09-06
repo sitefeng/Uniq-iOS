@@ -40,6 +40,7 @@
     
     _isEditing = NO;
     _favDashletsToDelete = [NSMutableArray array];
+    _favDashletsToDeleteType = [NSMutableArray array];
     
     //Initialize banner
     self.bannerURLs = [NSMutableArray array];
@@ -113,12 +114,16 @@
 {
     JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
 
-    for (NSString* itemId in _favDashletsToDelete)
+    for (int i=0; i<[_favDashletsToDelete count]; i++)
     {
-        [coreDataHelper removeFavoriteWithItemId:itemId];
+        NSString* itemId = _favDashletsToDelete[i];
+        JPDashletType type = [_favDashletsToDeleteType[i] integerValue];
+        
+        [coreDataHelper removeFavoriteWithItemId:itemId withType:type];
 
     }
     [_favDashletsToDelete removeAllObjects];
+    [_favDashletsToDeleteType removeAllObjects];
     
     [self updateDashletsInfo];
     
@@ -144,25 +149,28 @@
         button.title = @"Save";
         
         _favDashletsToDelete = [NSMutableArray array];
+        _favDashletsToDeleteType = [NSMutableArray array];
     }
     
     
 }
 
 
-- (void)favButtonPressedIsFavorited:(BOOL)fav itemId: (NSString*)itemId
+- (void)favButtonPressedIsFavorited:(BOOL)fav itemId: (NSString*)itemId itemType:(JPDashletType)type
 {
     if(fav)
     {
         if([_favDashletsToDelete containsObject:itemId])
         {
             [_favDashletsToDelete removeObject:itemId];
+            [_favDashletsToDeleteType removeObject:[NSNumber numberWithInteger:type]];
         }
         
     }
     else //unfavorited the cell, add to delete list
     {
         [_favDashletsToDelete addObject:itemId];
+        [_favDashletsToDeleteType addObject:[NSNumber numberWithInteger:type]];
     }
 }
 

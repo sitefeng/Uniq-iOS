@@ -189,25 +189,29 @@
         return;
     }
     
-    iPadMainCollectionViewCell* dashlet = (iPadMainCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    iPadMainCollectionViewCell* collectionCell = (iPadMainCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     
-    NSString* itemId  = dashlet.dashletInfo.itemId;
-    JPDashletType dashletType = dashlet.dashletInfo.type;
+    JPDashlet* dashlet = collectionCell.dashletInfo;
+    JPDashletType dashletType = collectionCell.dashletInfo.type;
 
     //Mixpanel
     [[Mixpanel sharedInstance] track:@"Favorite Selected"
-                          properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": dashlet.dashletInfo.title}];
-    
+                          properties:@{@"Device Type": [JPStyle deviceTypeString], @"Cell Dashlet Title": dashlet.title}];
     
     if(dashletType == JPDashletTypeProgram)
     {
-        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithItemId:itemId];
-        [self presentViewController:programVC animated:YES
+        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithItemId:dashlet.itemId];
+        
+        programVC.title = dashlet.title;
+        
+        UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:programVC];
+        
+        [self presentViewController:navController animated:YES
                          completion:nil];
     }
     else //dashlet is School or Faculty
     {
-        iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithItemId:itemId type:dashletType];
+        iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithItemId:dashlet.itemId type:dashletType];
         UINavigationController* switchViewController = [[UINavigationController alloc] initWithRootViewController:schoolVC];
         [self presentViewController:switchViewController animated:YES completion:nil];
     }
@@ -334,7 +338,7 @@
 
 - (void)favButtonPressed: (iPadMainCollectionViewCell*)sender favorited: (BOOL)fav
 {
-    [super favButtonPressedIsFavorited: fav itemId:sender.dashletInfo.itemId];
+    [super favButtonPressedIsFavorited:fav itemId:sender.dashletInfo.itemId itemType:sender.dashletInfo.type];
 }
 
 

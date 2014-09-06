@@ -21,8 +21,6 @@
     
     if (self) {
         // Initialization code
-        self.dashlet = dashlet;
-        
         self.backgroundColor = [UIColor clearColor];
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
@@ -34,7 +32,10 @@
         self.titleLabel.layer.masksToBounds = YES;
         self.titleLabel.layer.cornerRadius = 25;
         [self addSubview:self.titleLabel];
+    
+        self.dashlet = dashlet;
     }
+        
     return self;
 }
 

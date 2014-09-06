@@ -1092,6 +1092,8 @@
 				5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */,
 				5DAC8FAC18556A9900FE3B5B /* JPLocation.h */,
 				5DAC8FAD18556A9900FE3B5B /* JPLocation.m */,
+				AA115F0E19A84A8F006E07C1 /* JPRatings.h */,
+				AA115F0F19A84A8F006E07C1 /* JPRatings.m */,
 				AACD610D195CC7D300FCC8A4 /* JPImageRetriever.h */,
 				AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */,
 				AA11544D195DF94D00C56E2B /* JPUserLocator.h */,
@@ -1219,12 +1221,6 @@
 				5D16763918583D250041993E /* Uniq-Explaination.txt */,
 				5DE5B7BE184ACBB700EFCE0A /* UniqAppDelegate.h */,
 				5DE5B7BF184ACBB700EFCE0A /* UniqAppDelegate.m */,
-				AA55F9171999B762005F9F76 /* JPConnectivityManager.h */,
-				AA55F9181999B762005F9F76 /* JPConnectivityManager.m */,
-				5DA1465019397E63004A53EB /* JPMainSync.h */,
-				5DA1465119397E63004A53EB /* JPMainSync.m */,
-				AA83598C19B268C7009B3ABC /* JPDataRequest.h */,
-				AA83598D19B268C7009B3ABC /* JPDataRequest.m */,
 				5DE5B7C1184ACBB700EFCE0A /* Main_iPhone.storyboard */,
 				5DE5B7C4184ACBB700EFCE0A /* Main_iPad.storyboard */,
 				5D167646185D6A6C0041993E /* ApplicationConstants.h */,
@@ -1233,8 +1229,9 @@
 				5DF56C5818BC7EA8006D3024 /* NSManagedObjects */,
 				AA447E3319B5799E004855CC /* ManagedObjects+JPConvenience.h */,
 				AA447E3419B5799E004855CC /* ManagedObjects+JPConvenience.m */,
+				AA82A64719BA5D90001187FD /* Data Management */,
+				AA82A64819BA5DF3001187FD /* Firebase Requests */,
 				5DAC8FA918555EE500FE3B5B /* Model Classes */,
-				AA561A9E199D1BAD00967D15 /* Model Classes For Program */,
 				5D9C99D619357D28004EFC47 /* Debug */,
 				5DE5B83418504A5C00EFCE0A /* iPhone User Interface */,
 				AA63DCF4196E508E001D9768 /* Abstract View Controllers */,
@@ -1476,23 +1473,6 @@
 			name = HNScrollView;
 			sourceTree = "<group>";
 		};
-		AA561A9E199D1BAD00967D15 /* Model Classes For Program */ = {
-			isa = PBXGroup;
-			children = (
-				AA115F0E19A84A8F006E07C1 /* JPRatings.h */,
-				AA115F0F19A84A8F006E07C1 /* JPRatings.m */,
-				AA561A9B199D1B9C00967D15 /* JPProgramRatingHelper.h */,
-				AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */,
-				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
-				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
-				AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */,
-				AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */,
-				AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */,
-				AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */,
-			);
-			name = "Model Classes For Program";
-			sourceTree = "<group>";
-		};
 		AA56DDEC19B8EE59005EE1CD /* TRVSMonitor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1528,6 +1508,34 @@
 				AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */,
 			);
 			name = "Abstract View Controllers";
+			sourceTree = "<group>";
+		};
+		AA82A64719BA5D90001187FD /* Data Management */ = {
+			isa = PBXGroup;
+			children = (
+				AA55F9171999B762005F9F76 /* JPConnectivityManager.h */,
+				AA55F9181999B762005F9F76 /* JPConnectivityManager.m */,
+				5DA1465019397E63004A53EB /* JPMainSync.h */,
+				5DA1465119397E63004A53EB /* JPMainSync.m */,
+				AA83598C19B268C7009B3ABC /* JPDataRequest.h */,
+				AA83598D19B268C7009B3ABC /* JPDataRequest.m */,
+				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
+				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
+			);
+			name = "Data Management";
+			sourceTree = "<group>";
+		};
+		AA82A64819BA5DF3001187FD /* Firebase Requests */ = {
+			isa = PBXGroup;
+			children = (
+				AA561A9B199D1B9C00967D15 /* JPProgramRatingHelper.h */,
+				AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */,
+				AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */,
+				AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */,
+				AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */,
+				AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */,
+			);
+			name = "Firebase Requests";
 			sourceTree = "<group>";
 		};
 		AA894BD71968ABE800F457F8 /* Dashlet */ = {

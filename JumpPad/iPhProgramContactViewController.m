@@ -14,6 +14,7 @@
 #import "JPFont.h"
 #import "iPhMapPanView.h"
 #import "JPStyle.h"
+#import "SVStatusHUD.h"
 
 @interface iPhProgramContactViewController ()
 
@@ -27,7 +28,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
     _mapPanView = [[iPhMapPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
-    _mapPanView.school = self.program.faculty.school;
+    _mapPanView.location = self.location;
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
     [_mapPanView addGestureRecognizer:panRec];
     [self.view addSubview:_mapPanView];
@@ -112,20 +113,49 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSURL* url = [NSURL URLWithString:[[self getInformationArrayOfType:@"values"] objectAtIndex:indexPath.row+2 ]];
+    NSString* dataString = [[self getInformationArrayOfType:@"data"] objectAtIndex:indexPath.row+2];
     
-    if(url)
+    if(indexPath.row == 0 )
     {
-        [[UIApplication sharedApplication] openURL:url];
+        if([JPStyle isPhone])
+        {
+            NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", dataString]];
+            if(url)
+            {
+                [[UIApplication sharedApplication] openURL:url];
+            }
+        }
+        else //not phone
+        {
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"copyHUD"] status:@"Phone Copied"];
+            UIPasteboard* pasteBoard = [UIPasteboard generalPasteboard];
+            [pasteBoard setString:dataString];
+        }
+        
+    }
+    else if (indexPath.row ==1)
+    {
+        _mailController = [[MFMailComposeViewController alloc] init];
+        _mailController.delegate = self;
+        if([MFMailComposeViewController canSendMail])
+        {
+            [_mailController setToRecipients:@[dataString]];
+            [self presentViewController:_mailController animated:YES completion:nil];
+        } else
+        {
+            [SVStatusHUD showWithImage:[UIImage imageNamed:@"noEmailHUD"] status:@"Email Not Set"];
+        }
     }
     else
     {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Open Webpage" message:@"Sorry, the URL cannot be opened at the moment. Information might be incorrect." delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil] show];
+        NSURL* url = [NSURL URLWithString:dataString];
+        
+        if(url)
+        {
+            [[UIApplication sharedApplication] openURL:url];
+        }
     }
-    
-    
 }
-
 
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,40 +164,8 @@
     if(indexPath.section == 0)
         return NO;
     
-    if(_itemType == JPDashletTypeFaculty || _itemType == JPDashletTypeSchool)
-        return YES;
-    
-    else
-    {
-        switch (indexPath.row) {
-            case 0:
-                return NO;
-                break;
-            case 1:
-                return NO;
-                break;
-            case 2:
-                return NO;
-                break;
-            case 3:
-                return YES;
-                break;
-            case 4:
-                return YES;
-                break;
-            case 5:
-                return YES;
-                break;
-            default:
-                return NO;
-                break;
-        }
-    }
+    return YES;
 }
-
-
-
-
 
 
 
@@ -217,6 +215,10 @@
     
 }
 
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 - (void)didReceiveMemoryWarning

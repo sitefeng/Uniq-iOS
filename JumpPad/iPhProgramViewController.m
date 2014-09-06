@@ -54,9 +54,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
-    
-   
-
+ 
 }
 
 
@@ -143,7 +141,7 @@
     else
     {
         button.selected = NO;
-        [_helper removeFavoriteWithItemId:self.itemId];
+        [_helper removeFavoriteWithItemId:self.itemId withType:JPDashletTypeProgram];
     }
     
     [academicsController.progressPanView selectCalendarButtonsFromCoreData];

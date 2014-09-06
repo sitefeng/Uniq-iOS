@@ -31,6 +31,7 @@
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         self.program = program;
         
+        
     }
     return self;
 }
@@ -91,6 +92,20 @@
     else if([arrayType isEqual:@"labelNames"])
     {
         return @[self.name, @"Distance",@"Phone",@"Email",@"Website",@"Facebook Group",@"Twitter", @"LinkedIn"];
+    }
+    else if([arrayType isEqual:@"data"])
+    {
+        
+        return [NSArray arrayWithObjectsCount:8 replaceNilWithEmptyString:
+                address,
+                distanceToHomeString,
+                self.contactInfo.phone,
+                [self.contactInfo email],
+                [self.contactInfo website],
+                [self.contactInfo facebook],
+                [self.contactInfo twitter],
+                [self.contactInfo linkedin], nil];
+
     }
     else //Array of Values
     {

@@ -39,6 +39,16 @@
 
 - (void)requestAllSchoolsAllFields:(BOOL)allFields
 {
+    if(![_connectivity isReachable])
+    {
+        JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+        NSArray* dictArray = [coreDataHelper retrieveItemsArrayFromCoreDataWithParentItemId:nil withChildType:JPDashletTypeSchool];
+        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadAllItemsOfType:allFields:withDataArray:isSuccessful:)])
+            [self.delegate dataRequest:self didLoadAllItemsOfType:JPDashletTypeSchool allFields:allFields withDataArray:dictArray isSuccessful:YES];
+        NSLog(@"Loaded School List from Core Data");
+        return;
+    }
+    
     NSString* requestPath = @"";
     if(allFields)
         requestPath = [self.basePath stringByAppendingString:@"/schools"];
@@ -69,6 +79,16 @@
 
 - (void)requestAllFacultiesFromSchool:(NSString *)schoolId allFields:(BOOL)allFields
 {
+    if(![_connectivity isReachable])
+    {
+        JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+        NSArray* dictArray = [coreDataHelper retrieveItemsArrayFromCoreDataWithParentItemId:schoolId withChildType:JPDashletTypeFaculty];
+        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadAllItemsOfType:allFields:withDataArray:isSuccessful:)])
+            [self.delegate dataRequest:self didLoadAllItemsOfType:JPDashletTypeFaculty allFields:allFields withDataArray:dictArray isSuccessful:YES];
+        NSLog(@"Loaded Faculty List from Core Data");
+        return;
+    }
+    
     NSString* requestPath = @"";
     if(allFields) {
         requestPath = [self.basePath stringByAppendingFormat:@"/schools/%@/faculties",schoolId];
@@ -101,6 +121,16 @@
 
 - (void)requestAllProgramsFromFaculty:(NSString *)facultyId allFields:(BOOL)allFields
 {
+    if(![_connectivity isReachable])
+    {
+        JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+        NSArray* dictArray = [coreDataHelper retrieveItemsArrayFromCoreDataWithParentItemId:facultyId withChildType:JPDashletTypeProgram];
+        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadAllItemsOfType:allFields:withDataArray:isSuccessful:)])
+            [self.delegate dataRequest:self didLoadAllItemsOfType:JPDashletTypeProgram allFields:allFields withDataArray:dictArray isSuccessful:YES];
+        NSLog(@"Loaded Program List from Core Data");
+        return;
+    }
+    
     NSString* requestPath = @"";
     if(allFields) {
         requestPath = [self.basePath stringByAppendingFormat:@"/faculties/%@/programs",facultyId];
@@ -138,7 +168,6 @@
 {
     if(![_connectivity isReachable])
     {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
         JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
         NSDictionary* dataDict = [coreDataHelper retrieveItemDictionaryFromCoreDataWithItemId:itemId withType:type];
         
@@ -149,7 +178,6 @@
             else
                 [self.delegate dataRequest:self didLoadItemDetailsWithId:itemId ofType:type dataDict:nil isSuccessful:NO];
         }
-        
         return;
     }
          
@@ -251,6 +279,23 @@
 //Without Ratings & Favorites from Firebase
 - (void)requestItemBriefDetailsWithId: (NSString*)itemId ofType: (JPDashletType)type
 {
+    if(![_connectivity isReachable])
+    {
+        JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+        NSDictionary* dataDict = [coreDataHelper retrieveItemDictionaryFromCoreDataWithItemId:itemId withType:type];
+        
+        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadItemBriefDetailsWithId:ofType:dataDict:isSuccessful:)])
+        {
+            if(dataDict)
+                [self.delegate dataRequest:self didLoadItemBriefDetailsWithId:itemId ofType:type dataDict:dataDict isSuccessful:YES];
+            else
+                [self.delegate dataRequest:self didLoadItemBriefDetailsWithId:itemId ofType:type dataDict:nil isSuccessful:NO];
+        }
+        
+        return;
+    }
+    
+    
     NSString* requestPath = @"";
     
     if(type == JPDashletTypeSchool)

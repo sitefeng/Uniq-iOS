@@ -33,13 +33,21 @@
 
 
 //Favoriting
-- (void)removeFavoriteWithItemId: (NSString*)itemId;
+- (void)removeFavoriteWithItemId: (NSString*)itemId withType:(JPDashletType)type;
 - (void)addFavoriteWithItemId: (NSString*)itemId andType: (JPDashletType)type;
 - (BOOL)isFavoritedWithItemId: (NSString*)itemId;
 
 
 //Retrieving from Core Data
+- (NSManagedObject*)retrieveItemFromCoreDataWithItemId: (NSString*)itemId withType: (JPDashletType)type;
+
 - (NSDictionary*)retrieveItemDictionaryFromCoreDataWithItemId:(NSString*)itemId withType: (JPDashletType)type;
+- (NSArray*)retrieveItemsArrayFromCoreDataWithParentItemId:(NSString*)itemId withChildType:(JPDashletType)type;
+
+
+//Deleting
+- (void)deleteAllTemporaryItemsFromCoreData;
+
 
 //Downloading
 - (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type;

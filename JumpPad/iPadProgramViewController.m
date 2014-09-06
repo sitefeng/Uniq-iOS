@@ -9,7 +9,7 @@
 #import "iPadProgramViewController.h"
 #import "Program.h"
 #import "ManagedObjects+JPConvenience.h"
-
+#import "DejalActivityView.h"
 
 
 @interface iPadProgramViewController ()
@@ -23,19 +23,22 @@
     self = [super init];
     if (self) {
         // Custom initialization
+        self.automaticallyAdjustsScrollViewInsets = NO;
         
         self.programId = itemId;
         
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
+        UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissViewController)];
+        self.navigationItem.leftBarButtonItem = dismissItem;
+        
         //Update Program Info from Core Data or Server
-
+        [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
         _dataRequest = [JPDataRequest request];
         _dataRequest.delegate = self;
         [_dataRequest requestItemDetailsWithId:self.programId ofType:JPDashletTypeProgram];
         
-
         
     }
     return self;
@@ -44,7 +47,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+    
     
     
 }
@@ -53,11 +58,12 @@
 
 - (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
 {
+    [DejalBezelActivityView removeViewAnimated:YES];
+    
     if(!success)
         return;
     
     self.program = [[Program alloc] initWithDictionary:dict];
-    
     
     //Update User Interface
     self.vc1 = [[iPadProgramHomeViewController alloc] initWithProgram:self.program];
@@ -66,21 +72,7 @@
     self.vc4 = [[iPadProgramCompareViewController alloc] initWithProgram:self.program];
     self.vc5 = [[iPadProgramRatingsViewController alloc] initWithProgram:self.program];
     
-    UINavigationController* nc1 = [[UINavigationController alloc]initWithRootViewController:self.vc1];
-    UINavigationController* nc2 = [[UINavigationController alloc]initWithRootViewController:self.vc2];
-    UINavigationController* nc3 = [[UINavigationController alloc]initWithRootViewController:self.vc3];
-    UINavigationController* nc4 = [[UINavigationController alloc]initWithRootViewController:self.vc4];
-    UINavigationController* nc5 = [[UINavigationController alloc]initWithRootViewController:self.vc5];
-    
-    self.viewControllers = @[nc1,nc2,nc3,nc4,nc5];
-    
-    UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissViewController)];
-    
-    [self.vc1.navigationItem setLeftBarButtonItem:item];
-    [self.vc2.navigationItem setLeftBarButtonItem:item];
-    [self.vc3.navigationItem setLeftBarButtonItem:item];
-    [self.vc4.navigationItem setLeftBarButtonItem:item];
-    [self.vc5.navigationItem setLeftBarButtonItem:item];
+    self.viewControllers = @[self.vc1,self.vc2,self.vc3,self.vc5];
     
     self.vc1.title = @"Home";
     self.vc1.tabBarItem.title = @"Home";

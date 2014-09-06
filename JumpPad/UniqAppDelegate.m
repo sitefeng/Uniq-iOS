@@ -14,6 +14,7 @@
 #import "JPConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
 #import <Parse/Parse.h>
+#import "JPCoreDataHelper.h"
 
 
 @implementation UniqAppDelegate
@@ -82,6 +83,10 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+    [coreDataHelper deleteAllTemporaryItemsFromCoreData];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

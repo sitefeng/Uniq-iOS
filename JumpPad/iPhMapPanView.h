@@ -10,22 +10,23 @@
 #import <MapKit/MapKit.h>
 
 
-@class School, JPLocation;
+@class School, Faculty, Program, JPLocation;
 @interface iPhMapPanView : UIView
 {
-    
     UIImageView*  _dragBar;
-    
-    JPLocation*   _location;
-   
-    CLLocationCoordinate2D _mapCenterCoord;
+ 
+    UIView*       _distanceView;
     UILabel*      _distanceLabel;
 }
 
 
 @property(nonatomic, strong) MKMapView* mapView;
 
-@property (nonatomic, strong) School* school;
+
+@property(nonatomic, strong) JPLocation* location;
+
+
+
 
 
 @end

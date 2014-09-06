@@ -19,21 +19,17 @@
     
     CLLocationCoordinate2D _mapCenterCoord;
     
-    
     CGFloat          _prevMapDragBarPosition;
 }
 
 
 
-
-@property (nonatomic, strong) iPadProgramLabelView* labelView;
 @property (nonatomic, strong) MKMapView* mapView;
 
 
 
 
 - (id)initWithProgram: (Program*)program;
-
 - (id)initWithSchool: (School*)school;
 - (id)initWithFaculty: (Faculty *)faculty;
 

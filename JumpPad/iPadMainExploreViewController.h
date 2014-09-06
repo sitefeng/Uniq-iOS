@@ -24,7 +24,7 @@
 }
 
 //---Model---
-@property (nonatomic, strong) NSMutableArray* backupDashlets; //for sort
+@property (nonatomic, strong) NSMutableArray* originalDashlets; //for sort
 
 @property (nonatomic, assign) JPSortType sortType;
 

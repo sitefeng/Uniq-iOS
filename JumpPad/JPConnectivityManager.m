@@ -38,7 +38,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
     
-    _statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(isReachable) userInfo:nil repeats:YES];
+    _statusTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkNetworkStatus) userInfo:nil repeats:YES];
     
     _stopStatusTimer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(stopStatusTimer) userInfo:nil repeats:NO];
 }
@@ -52,12 +52,13 @@
 }
 
 
-- (BOOL)isReachable
+- (void)checkNetworkStatus
 {
     BOOL reach = [reachability isReachable];
     if(reach)
     {
         NSLog(@"Reachable");
+        [self postNeedUpdateDataNotification];
         [_statusTimer invalidate];
         _statusTimer = nil;
     }
@@ -65,8 +66,6 @@
     {
         NSLog(@"Not Reachable");
     }
-    
-    return reach;
 }
 
 
@@ -78,6 +77,15 @@
 }
 
 
+#pragma mark - Public Methods
+
+- (BOOL)isReachable
+{
+    BOOL reach = [reachability isReachable];
+    return reach;
+}
+
+
 - (void)networkStatusChanged: (NSNotification*)notification
 {
     NSDictionary* userInfo = notification.userInfo;
@@ -86,6 +94,7 @@
     
     if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
     {
+        [self postNeedUpdateDataNotification];
         [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi"] status:@"Connected"];
         NSLog(@"Reachable");
     }
@@ -99,7 +108,12 @@
 }
 
 
-
+- (void)postNeedUpdateDataNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNeedUpdateDataNotification object:self];
+    
+    
+}
 
 
 

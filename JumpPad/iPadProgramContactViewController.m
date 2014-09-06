@@ -79,18 +79,7 @@
     }
     
     
-    SchoolLocation* location = self.school.location;
-    CGPoint coord = jpp([location.latitude floatValue], [location.longitude floatValue]);
-    
-
-    ////////////////////////////////////////
-    //Program Label: only show if it's a program
-    if(_itemType == JPDashletTypeProgram)
-    {
-        self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) program:self.program];
-        
-        [self.view addSubview:self.labelView];
-    }
+    CGPoint coord = self.location.coordinates;
     
     self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(10, kiPadStatusBarHeight+kiPadNavigationBarHeight+44 + 10, 462 -20, 502 - 20)];
     if (_itemType != JPDashletTypeProgram)

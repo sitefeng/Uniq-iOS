@@ -28,8 +28,10 @@
 
 
 
-- (void)updateDashletsInfoOnline;
+- (void)updateDashletsInfo;
 
 - (void)updateBannerInfo;
+
+
 
 @end

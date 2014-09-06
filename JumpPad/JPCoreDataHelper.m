@@ -70,8 +70,9 @@
 
 
 #pragma mark - Favoriting Items
-- (void)removeFavoriteWithItemId:(NSString *)itemId
+- (void)removeFavoriteWithItemId:(NSString *)itemId withType:(JPDashletType)type
 {
+    //Deleting Favorite Item
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
     favReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", itemId];
     NSArray* results = [context executeFetchRequest:favReq error:nil];
@@ -80,6 +81,125 @@
     {
         [context deleteObject:item];
     }
+    
+    //Deleting actual data from Core Data
+    /* First mark the item itself as toDelete, then check if parent item has anymore children, if not, check if parent is favorited, if still not, mark the parent as toDelete, cascading up.*/
+    
+    if(type == JPDashletTypeProgram)
+    {
+        NSString* facultyId = nil;
+        NSString* schoolId = nil;
+        
+        NSFetchRequest* programReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
+        programReq.predicate = [NSPredicate predicateWithFormat:@"programId = %@ && toDelete = %@", itemId, @NO]; //toDelete param because we want to cascade delete up if neccessary
+        NSArray* programs = [context executeFetchRequest:programReq error:nil];
+        
+        for(Program* program in programs) {
+            facultyId = [program.facultyId copy];
+            schoolId = [program.schoolId copy];
+            [context deleteObject:program];
+        }
+        
+        //check if faculty is favorited
+        NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+        facultyReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", facultyId];
+        NSArray* facultyResults = [context executeFetchRequest:favReq error:nil];
+        
+        if(!facultyResults || [facultyResults count] == 0) //faculty not favorited, could delete
+        {
+            NSFetchRequest* deleteFacReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+            deleteFacReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@ && toDelete = %@",facultyId, @NO];
+            NSArray* faculties = [context executeFetchRequest:deleteFacReq error:nil];
+            
+            Faculty* theFaculty = [faculties firstObject];
+            
+            //check if faculty has anymore children
+            NSArray* children = [theFaculty.programs allObjects];
+            
+            if(!children || [children count]==0) //no other fav children, delete faculty
+            {
+                for(Faculty* deleteFaculty in faculties)
+                {
+                    [context deleteObject:deleteFaculty];
+                }
+                
+                //check if school is favorited
+                NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+                schoolReq.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", schoolId];
+                NSArray* schoolResults = [context executeFetchRequest:schoolReq error:nil];
+                
+                if(!schoolResults || [schoolResults count]==0)//school not faved
+                {
+                    //check for any more children under school
+                    NSFetchRequest* otherFacultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+                    otherFacultyReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@ && toDelete= %@",schoolId, @NO];
+                    NSArray* otherFaculties = [context executeFetchRequest:otherFacultyReq error:nil];
+                    
+                    if(!otherFaculties || [otherFaculties count]==0)
+                    {
+                        //No other faculties, delete school
+                        NSFetchRequest* deleteSchoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+                        deleteSchoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@",schoolId];
+                        NSArray* deleteSchools = [context executeFetchRequest:deleteSchoolReq error:nil];
+                        for(School* deleteSchool in deleteSchools)
+                        {
+                            [context deleteObject:deleteSchool];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else if(type == JPDashletTypeFaculty)
+    {
+        NSString* schoolId = nil;
+        NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+        facultyReq.predicate = [NSPredicate predicateWithFormat:@"facultyId = %@ && toDelete = %@", itemId, @NO];
+        NSArray* faculties = [context executeFetchRequest:facultyReq error:nil];
+        
+        for(Faculty* faculty in faculties)
+        {
+            schoolId = faculty.schoolId;
+            [context deleteObject:faculty];
+        }
+        
+        //check if school is favorited
+        NSFetchRequest* schoolFavItemRequest = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
+        schoolFavItemRequest.predicate = [NSPredicate predicateWithFormat:@"favItemId = %@", schoolId];
+        NSArray* schoolObjects = [context executeFetchRequest:schoolFavItemRequest error:nil];
+        
+        if(!schoolObjects || [schoolObjects count] == 0) //school not favorited, could delete
+        {
+            NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+            schoolReq.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@ && toDelete = %@",schoolId, @NO];
+            NSArray* schools = [context executeFetchRequest:schoolReq error:nil];
+            
+            School* theSchool = [schools firstObject];
+            
+            //check if school has anymore children
+            NSArray* children = [theSchool.faculties allObjects];
+            
+            if(!children || [children count]==0) //no other fav children, delete school
+            {
+                for(School* school in schools)
+                {
+                    [context deleteObject:school];
+                }
+            }
+        }
+        
+    }
+    else if(type == JPDashletTypeSchool)
+    {
+        NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+        req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %@", itemId];
+        NSArray* schools = [context executeFetchRequest:req error:nil];
+        
+        for(School* school in schools) {
+            [context deleteObject:school];
+        }
+    }
+    
     [context save:nil];
 }
 
@@ -132,13 +252,13 @@
 
 #pragma mark - Retrieving from Core Data
 
-- (NSDictionary*)retrieveItemDictionaryFromCoreDataWithItemId:(NSString*)itemId withType: (JPDashletType)type
+- (NSManagedObject*)retrieveItemFromCoreDataWithItemId: (NSString*)itemId withType: (JPDashletType)type
 {
     NSArray* objectNames = @[@"School", @"Faculty", @"Program"];
-    NSArray* predicates = @[[NSPredicate predicateWithFormat:@"schoolId = %@", itemId]
-                            , [NSPredicate predicateWithFormat:@"facultyId = %@", itemId]
-                            , [NSPredicate predicateWithFormat:@"programId = %@", itemId]];
-
+    NSArray* predicates = @[[NSPredicate predicateWithFormat:@"schoolId = %@ && toDelete= %@", itemId, @NO]
+                            , [NSPredicate predicateWithFormat:@"facultyId = %@ && toDelete= %@", itemId, @NO]
+                            , [NSPredicate predicateWithFormat:@"programId = %@ && toDelete= %@", itemId, @NO]];
+    
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:objectNames[type]];
     favReq.predicate = predicates[type];
     NSArray* results = [context executeFetchRequest:favReq error:nil];
@@ -148,27 +268,132 @@
         return nil;
     }
     
+    return [results firstObject];
+}
+
+
+- (NSDictionary*)retrieveItemDictionaryFromCoreDataWithItemId:(NSString*)itemId withType: (JPDashletType)type
+{
+    NSManagedObject* managedObject = [self retrieveItemFromCoreDataWithItemId:itemId withType:type];
+    
+    if(!managedObject)
+        return nil;
+    
     NSDictionary* resultsDict = @{};
     if(type == JPDashletTypeSchool)
     {
-        School* school = (School*)[results firstObject];
+        School* school = (School*)managedObject;
         resultsDict = [school dictionaryRepresentation];
     }
     else if(type == JPDashletTypeSchool)
     {
-        Faculty* faculty = (Faculty*)[results firstObject];
+        Faculty* faculty = (Faculty*)managedObject;
         resultsDict = [faculty dictionaryRepresentation];
     }
     else
     {
-        Program* program = (Program*)[results firstObject];
+        Program* program = (Program*)managedObject;
         resultsDict = [program dictionaryRepresentation];
     }
     
-    
     return resultsDict;
-    
 }
+
+
+
+- (NSArray*)retrieveItemsArrayFromCoreDataWithParentItemId:(NSString*)itemId withChildType:(JPDashletType)type
+{
+    NSPredicate* predicate = nil;
+    NSArray* managedObjects = nil;
+    
+    if(type == JPDashletTypeSchool)
+    {
+        predicate = [NSPredicate predicateWithFormat:@"toDelete = %@", @NO];
+        NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"School"];
+        fetchRequest.predicate = predicate;
+        managedObjects = [context executeFetchRequest:fetchRequest error:nil];
+    }
+    else if(type == JPDashletTypeFaculty)
+    {
+        predicate = [NSPredicate predicateWithFormat:@"schoolId = %@ && toDelete = %@", itemId, @NO];
+        NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Faculty"];
+        fetchRequest.predicate = predicate;
+        managedObjects = [context executeFetchRequest:fetchRequest error:nil];
+    }
+    else if(type == JPDashletTypeProgram)
+    {
+        predicate = [NSPredicate predicateWithFormat:@"facultyId = %@ && toDelete= %@", itemId, @NO];
+        NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Program"];
+        fetchRequest.predicate = predicate;
+        managedObjects = [context executeFetchRequest:fetchRequest error:nil];
+    }
+    
+    NSMutableArray* objectDictArray = [NSMutableArray array];
+    
+    if(type == JPDashletTypeSchool)
+    {
+        for(School* school in managedObjects)
+        {
+            NSDictionary* schoolDict = [school dictionaryRepresentation];
+            [objectDictArray addObject:schoolDict];
+        }
+    }
+    else if(type == JPDashletTypeFaculty)
+    {
+        for(Faculty* faculty in managedObjects)
+        {
+            NSDictionary* facultyDict = [faculty dictionaryRepresentation];
+            [objectDictArray addObject:facultyDict];
+        }
+    }
+    else if(type == JPDashletTypeProgram)
+    {
+        for(Program* program in managedObjects)
+        {
+            NSDictionary* programDict = [program dictionaryRepresentation];
+            [objectDictArray addObject:programDict];
+        }
+    }
+    
+    return objectDictArray;
+}
+
+
+
+#pragma mark - Deleting Items
+
+- (void)deleteAllTemporaryItemsFromCoreData
+{
+    NSFetchRequest* programReq = [[NSFetchRequest alloc] initWithEntityName:@"Program"];
+    programReq.predicate = [NSPredicate predicateWithFormat:@"toDelete = %@", @YES];
+    NSArray* programs = [context executeFetchRequest:programReq error:nil];
+    
+    for(Program* deleteProgram in programs)
+    {
+        [context deleteObject:deleteProgram];
+    }
+    
+    NSFetchRequest* facultyReq = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+    facultyReq.predicate = [NSPredicate predicateWithFormat:@"toDelete = %@", @YES];
+    NSArray* faculties = [context executeFetchRequest:facultyReq error:nil];
+    
+    for(Program* deleteFaculty in faculties)
+    {
+        [context deleteObject:deleteFaculty];
+    }
+    
+    NSFetchRequest* schoolReq = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+    schoolReq.predicate = [NSPredicate predicateWithFormat:@"toDelete = %@", @YES];
+    NSArray* schools = [context executeFetchRequest:schoolReq error:nil];
+    
+    for(Program* deleteSchool in schools)
+    {
+        [context deleteObject:deleteSchool];
+    }
+    
+    [context save:nil];
+}
+
 
 
 #pragma mark - Downloading Contents from Server
@@ -176,7 +401,7 @@
 - (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type
 {
     [_dataRequest requestItemDetailsWithId:itemId ofType:type];
-    [context save:nil];
+    
 }
 
 
@@ -184,45 +409,61 @@
 {
     if(type == JPDashletTypeSchool)
     {
-        School* school = [[School alloc] initWithDictionary:dict];
-        school.toDelete = @NO;
+        //See if the school is already there
+        School* school = (School*)[self retrieveItemFromCoreDataWithItemId:itemId withType:type];
+        if(!school)
+        {
+            school = [[School alloc] initWithDictionary:dict];
+            school.toDelete = @NO;
+            [context insertObject:school];
+        }
         
         if(_downloadItemFacultyToBeLinked)
         {
-            school.faculties = [[NSSet alloc] initWithObjects:_downloadItemFacultyToBeLinked, nil];
+            [school addFacultiesObject: _downloadItemFacultyToBeLinked];
             _downloadItemFacultyToBeLinked = nil;
         }
-        [context insertObject:school];
         
         NSLog(@"School Downloaded and Linked");
     }
     else if(type == JPDashletTypeFaculty)
     {
-        Faculty* faculty = [[Faculty alloc] initWithDictionary:dict];
-        faculty.toDelete = @NO;
+        //See if the faculty is already there
+        Faculty* faculty = (Faculty*)[self retrieveItemFromCoreDataWithItemId:itemId withType:type];
+        if(!faculty)
+        {
+            faculty = [[Faculty alloc] initWithDictionary:dict];
+            faculty.toDelete = @NO;
+            [context insertObject:faculty];
+        }
+
         _downloadItemFacultyToBeLinked = faculty;
         
         if(_downloadItemProgramToBeLinked)
         {
-            faculty.programs = [[NSSet alloc] initWithObjects:_downloadItemProgramToBeLinked, nil];
+            [faculty addProgramsObject:_downloadItemProgramToBeLinked];
             _downloadItemProgramToBeLinked = nil;
         }
-        [context insertObject:faculty];
         
         NSLog(@"Faculty Downloaded and Linked");
         [self downloadItemToCoreDataWithItemId:faculty.schoolId itemType:JPDashletTypeSchool];
     }
     else //program
     {
-        Program* program = [[Program alloc] initWithDictionary:dict];
-        program.toDelete = @NO;
+        Program* program = (Program*)[self retrieveItemFromCoreDataWithItemId:itemId withType:type];
+        if(!program)
+        {
+            program = [[Program alloc] initWithDictionary:dict];
+            program.toDelete = @NO;
+            [context insertObject:program];
+        }
+        
         _downloadItemProgramToBeLinked = program;
-        [context insertObject:program];
         
         NSLog(@"Program Downloaded and Linked");
         [self downloadItemToCoreDataWithItemId:program.facultyId itemType:JPDashletTypeFaculty];
     }
-    
+    [context save:nil];
     
 }
 

@@ -128,7 +128,7 @@
             
             [self.pieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
             
-            //Legend
+            //Legend for Pie Chart
             
             NSArray* legendTexts = @[@"Difficulty", @"Professors", @"Schedule", @"Classmates", @"Social", @"Study Environment"];
             
@@ -137,7 +137,7 @@
                 UIView* view = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - 20, 50 + 30*i, 20, 15)];
                 view.backgroundColor = [JPStyle rainbowColorWithIndex:i];
                 
-                UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width - 100, 37 + 30*i, 70, 20)];
+                UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width - 100, 47 + 30*i, 70, 20)];
                 legendLabel.text = legendTexts[i];
                 legendLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:13];
                 legendLabel.textColor = [JPStyle colorWithHex:@"750A09" alpha:1];

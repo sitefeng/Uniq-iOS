@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "JPProgramContactViewController.h"
+#import <MessageUI/MessageUI.h>
 
 
 @class Program, iPhMapPanView;
-@interface iPhProgramContactViewController : JPProgramContactViewController <UITableViewDataSource, UITableViewDelegate>
+@interface iPhProgramContactViewController : JPProgramContactViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 {
     iPhMapPanView*   _mapPanView;
     
     CGFloat   _imageViewYBeforePan;
         
         
-    
+    MFMailComposeViewController* _mailController;
 
 }
 

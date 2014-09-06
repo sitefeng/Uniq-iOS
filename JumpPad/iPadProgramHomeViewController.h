@@ -22,9 +22,6 @@
     JPCoreDataHelper* _coreDataHelper;
     
     
-    BOOL    _isOrientationPortrait;
-    float   _screenWidth;
-    
     
 }
 
@@ -36,7 +33,7 @@
 
 @property (nonatomic, strong) iPadProgramImagesViewController* imageController;
 
-@property (nonatomic, strong) iPadProgramLabelView* labelView;
+//@property (nonatomic, strong) iPadProgramLabelView* labelView;
 @property (nonatomic, strong) JPProgramSummaryView* summaryView;
 @property (nonatomic, strong) iPadProgramDetailView* detailView;
 

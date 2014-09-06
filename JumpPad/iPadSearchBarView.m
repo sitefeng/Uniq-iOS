@@ -31,10 +31,10 @@
              forControlEvents:UIControlEventTouchDown];
         
         self.sortButton.tintColor = [UIColor whiteColor];
-
         self.sortButton.showsTouchWhenHighlighted = YES;
         [self.sortButton setTitle:@"Sort" forState:UIControlStateNormal];
         
+        self.sortButton.hidden = YES;
         
         //Adding the Subviews
         [self addSubview:self.searchBar];
@@ -62,15 +62,7 @@
     
 }
 
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-//{
-//     [self.delegate searchBarSearchButtonClicked:searchBar];
-//}
-//
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-//{
-//    [self.delegate searchBar:searchBar textDidChange:searchText];
-//}
+
 
 - (void)buttonPressed: (id)sender
 {

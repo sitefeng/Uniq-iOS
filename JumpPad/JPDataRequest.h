@@ -58,3 +58,4 @@
 - (void)dataRequest: (JPDataRequest*)request didLoadItemBriefDetailsWithId: (NSString*)itemId ofType: (JPDashletType)type dataDict: (NSDictionary*)dict isSuccessful: (BOOL)success;
 
 @end
+

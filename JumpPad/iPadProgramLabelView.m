@@ -95,6 +95,7 @@
 - (void)dataRequest:(JPDataRequest *)request didLoadItemBriefDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
 {
     School* school = [[School alloc] initWithDictionary:dict];
+    
     self.imageView.imageURL = [NSURL URLWithString:school.logoUrl];
 }
 

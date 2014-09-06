@@ -30,12 +30,6 @@
 
 
 
-
-
-
-@property (nonatomic, strong) iPadProgramLabelView* labelView;
-
-
 //Hex view
 @property (nonatomic, strong) iPadProgramHexCollectionView* hexCollectionView;
 

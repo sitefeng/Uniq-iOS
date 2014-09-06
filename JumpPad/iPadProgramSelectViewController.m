@@ -18,6 +18,7 @@
 #import "iPadProgramViewController.h"
 #import "Mixpanel.h"
 #import "ManagedObjects+JPConvenience.h"
+#import "DejalActivityView.h"
 
 
 @interface iPadProgramSelectViewController ()
@@ -30,10 +31,14 @@
 {
     self = [super init];
     if (self) {
-        // Custom initialization
+
+        UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+        context = [delegate managedObjectContext];
         
         UIBarButtonItem* facultyInfobutton = [[UIBarButtonItem alloc] initWithTitle:@"Faculty Info" style:UIBarButtonItemStyleDone target:self action:@selector(facultyInfoPressed)];
         self.navigationItem.rightBarButtonItem = facultyInfobutton;
+        
+        
     }
     return self;
 }
@@ -62,12 +67,9 @@
     //UICollectionView
     self.cv = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight + 200 + kiPadFilterBarHeight, kiPadWidthPortrait, 660)
                                  collectionViewLayout:layout];
-    
     [self.cv registerClass:[iPadMainCollectionViewCell class] forCellWithReuseIdentifier:@"featuredItem"];
-    
     self.cv.delegate = self;
     self.cv.dataSource = self;
-    
     self.cv.backgroundColor = [UIColor clearColor];
     
     
@@ -99,10 +101,8 @@
     self.cv.backgroundView.gestureRecognizers = @[tapRecognizer];
     
     
+
     
-    //Core Data NS Managed Object Context
-    UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    self.context = [delegate managedObjectContext];
     
 }
 
@@ -114,12 +114,11 @@
     self.tabBarController.tabBar.translucent = YES;
 }
 
-
-
-
-- (void)setDashlets:(NSMutableArray *)dashlets
+- (void)setFacultyDashlet:(JPDashlet *)facultyDashlet
 {
-    _dashlets = dashlets;
+    _facultyDashlet = facultyDashlet;
+    
+    self.bannerView.dashlet = facultyDashlet;
 }
 
 
@@ -127,6 +126,7 @@
 #pragma mark - Update From Core Data / Server
 - (void)updateDashletsInfo
 {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
     _dataRequest = [JPDataRequest request];
     _dataRequest.delegate = self;
     [_dataRequest requestAllProgramsFromFaculty:self.facultyId allFields:NO];
@@ -136,16 +136,23 @@
 
 - (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
 {
+    [DejalBezelActivityView removeViewAnimated:YES];
+    
     if(!success)
         return;
-    self.dashlets = [NSMutableArray array];
     
+    NSMutableArray* dashletsArray = [NSMutableArray array];
     for(NSDictionary* programDict in array)
     {
         Program* program = [[Program alloc] initWithDictionary:programDict];
-        [self.dashlets addObject:program];
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithProgram:program];
+        [dashletsArray addObject:dashlet];
     }
     
+    self.dashlets = [dashletsArray mutableCopy];
+    self.originalDashlets = [dashletsArray mutableCopy];
+    
+    [self.cv reloadData];
 }
 
 
@@ -184,14 +191,22 @@
     return cell;
 }
 
-//Header and Footer
-//-(UICollectionReusableView*) collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//
-//
-//}
+
 
 #pragma mark - UICollectionView Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
+    
+    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
+    viewController.title = selectedDashlet.title;
+    
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
 
 //Dashlet Size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -222,33 +237,42 @@
 
 #pragma mark - JPSearchBar Delegate Methods
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
+    if([searchText isEqual:@""] || !searchText)
+    {
+        self.dashlets = [self.originalDashlets copy];
+        return;
+    }
     
-    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
+    NSInteger beforeCellCount = [self.dashlets count];
     
-    [self presentViewController:viewController animated:YES completion:nil];
-}
-
-
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    NSString* query = searchBar.text;
     NSMutableArray* array = [NSMutableArray array];
     
-    for(int i=0; i<[self.dashlets count]; i++)
+    for(int i=0; i<[self.originalDashlets count]; i++)
     {
-        JPDashlet* d = self.dashlets[i];
-        if([d.title rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound)
+        JPDashlet* d = self.originalDashlets[i];
+        if([d.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
         {
             [array addObject:d];
         }
     }
     
     self.dashlets = array;
-    [self.cv reloadData];
+    
+    if(beforeCellCount != [self.dashlets count])
+        [self.cv reloadData];
 }
+
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString* searchText = searchBar.text;
+    
+    [self searchBar:searchBar textDidChange:searchText];
+    [self.searchBarView.searchBar resignFirstResponder];
+}
+
 
 
 - (void)sortButtonPressed:(UIButton*)button
@@ -287,21 +311,6 @@
     }
     
     [self.localPopoverController dismissPopoverAnimated:YES];
-}
-
-
-#pragma mark - JPSearchBar Delegate Methods
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    
-    if([searchText isEqual:@""])
-    {
-        //use self.sortType LATER!
-        self.dashlets = [[_backupDashlets sortedArrayUsingSelector:@selector(compareWithName:)] mutableCopy];
-        [self.cv reloadData];
-    }
-    
 }
 
 

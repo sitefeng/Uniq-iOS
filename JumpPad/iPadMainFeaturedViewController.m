@@ -162,7 +162,7 @@
     }
     else //deselected
     {
-        [_coreDataHelper removeFavoriteWithItemId:cell.itemId];
+        [_coreDataHelper removeFavoriteWithItemId:cell.itemId withType:cell.type];
     }
     
 }

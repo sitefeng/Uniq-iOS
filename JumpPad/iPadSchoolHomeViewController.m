@@ -224,7 +224,7 @@ static const float kProgramImageWidth  = 384;
     }
     else //deselected
     {
-        [_coreDataHelper removeFavoriteWithItemId:self.itemId];
+        [_coreDataHelper removeFavoriteWithItemId:self.itemId withType:_itemType];
         self.summaryView.isFavorited = NO;
     }
     

@@ -9,7 +9,6 @@
 #import "iPadProgramRatingsViewController.h"
 #import "Program.h"
 #import "JPGlobal.h"
-#import "iPadProgramLabelView.h"
 #import "SFGaugeView.h"
 #import "VolumeBar.h"
 
@@ -41,11 +40,6 @@
         self.program = program;
         
         
-        self.programLabel = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, 44) program:self.program];
-        [self.view addSubview:self.programLabel];
-
-        
-        
     }
     return self;
 }
@@ -56,7 +50,7 @@
     // Do any additional setup after loading the view.
     
 
-    self.ratingScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight+self.programLabel.frame.size.height, kiPadWidthPortrait, kiPadHeightPortrait-(kiPadStatusBarHeight+kiPadNavigationBarHeight+self.programLabel.frame.size.height+kiPadTabBarHeight))];
+    self.ratingScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-(kiPadStatusBarHeight+kiPadNavigationBarHeight+kiPadTabBarHeight))];
     
     
     UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 100, 250, 50)];

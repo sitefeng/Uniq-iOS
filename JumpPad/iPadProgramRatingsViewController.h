@@ -25,10 +25,6 @@
 
 @property (nonatomic, strong) Program* program;
 
-@property (nonatomic, strong) iPadProgramLabelView* programLabel;
-
-
-
 @property (nonatomic, strong) UIScrollView* ratingScrollView;
 
 @property (nonatomic, strong) SFGaugeView* overallSelector;

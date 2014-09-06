@@ -23,7 +23,6 @@
     BOOL        _isOrientationPortrait; //or will be portrait for resizing frames
     float       _screenWidth;
     
-    NSMutableArray* _backupDashlets;
     
 }
 
@@ -35,7 +34,7 @@
 
 //Array of JPDashlets of type JPDashletTypeFaculty
 @property (nonatomic, strong) NSMutableArray* dashlets;
-
+@property (nonatomic, strong) NSMutableArray* originalDashlets;
 
 @property (nonatomic, strong) NSManagedObjectContext* context;
 

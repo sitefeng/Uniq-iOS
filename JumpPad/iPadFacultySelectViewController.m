@@ -17,6 +17,7 @@
 #import "iPadMainCollectionViewCell.h"
 #import "Faculty.h"
 #import "JPDataRequest.h"
+#import "DejalActivityView.h"
 
 
 @interface iPadFacultySelectViewController ()
@@ -118,11 +119,11 @@
 }
 
 
-
-
-- (void)setDashlets:(NSMutableArray *)dashlets
+- (void)setSchoolDashlet:(JPDashlet *)schoolDashlet
 {
-    _dashlets = dashlets;
+    _schoolDashlet = schoolDashlet;
+    
+    self.bannerView.dashlet = schoolDashlet;
 }
 
 
@@ -131,6 +132,7 @@
 //Retrieving College info from Core Data and put into featuredDashelts
 - (void)updateDashletsInfo
 {
+    [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
     _dataRequest = [JPDataRequest request];
     _dataRequest.delegate = self;
     
@@ -141,6 +143,7 @@
 
 - (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
 {
+    [DejalBezelActivityView removeViewAnimated:YES];
     if(!success)
         return;
     
@@ -151,6 +154,9 @@
         [self.dashlets addObject:dashlet];
     }
     
+    self.originalDashlets = [self.dashlets copy];
+    
+    [self.cv reloadData];
 }
 
 
@@ -236,22 +242,40 @@
 
 #pragma mark - JPSearchBar Delegate Methods
 
-- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSString* query = searchBar.text;
+    if([searchText isEqual:@""] || !searchText)
+    {
+        self.dashlets = [self.originalDashlets copy];
+        return;
+    }
+    
+    NSInteger beforeCellCount = [self.dashlets count];
+    
     NSMutableArray* array = [NSMutableArray array];
     
-    for(int i=0; i<[self.dashlets count]; i++)
+    for(int i=0; i<[self.originalDashlets count]; i++)
     {
-        JPDashlet* d = self.dashlets[i];
-        if([d.title rangeOfString:query options:NSCaseInsensitiveSearch].location != NSNotFound)
+        JPDashlet* d = self.originalDashlets[i];
+        if([d.title rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound)
         {
             [array addObject:d];
         }
     }
     
     self.dashlets = array;
-    [self.cv reloadData];
+    
+    if(beforeCellCount != [self.dashlets count])
+        [self.cv reloadData];
+}
+
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString* searchText = searchBar.text;
+    
+    [self searchBar:searchBar textDidChange:searchText];
+    [self.searchBarView.searchBar resignFirstResponder];
 }
 
 
@@ -294,21 +318,6 @@
 }
 
 
-
-
-#pragma mark - JPSearchBar Delegate Methods
-
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    
-    if([searchText isEqual:@""])
-    {
-        //use self.sortType LATER!
-        self.dashlets = [[_backupDashlets sortedArrayUsingSelector:@selector(compareWithName:)] mutableCopy];
-        [self.cv reloadData];
-    }
-    
-}
 
 
 

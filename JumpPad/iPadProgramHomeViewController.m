@@ -70,53 +70,24 @@ static const float kProgramImageWidth  = 384;
 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    //Getting current device orientation
-    if(UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
-    {
-        _isOrientationPortrait = YES;
-        _screenWidth = kiPadWidthPortrait;
-    }
-    else
-    {
-        _isOrientationPortrait = NO;
-        _screenWidth = kiPadWidthLandscape;
-    }
-    
-    
     self.imageController = [[iPadProgramImagesViewController alloc] init];
     self.imageController.program = self.program;
-    
-    
-    self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight + 44, kProgramImageWidth, kProgramImageHeight);
-    
-    self.labelView = [[iPadProgramLabelView alloc] initWithFrame:CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, _screenWidth, 44) program:self.program];
-    
-    
-    //Init Summary View
-    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-    req.predicate = [NSPredicate predicateWithFormat:@"schoolId = %i", self.program.schoolId];
-    School* school = [[context executeFetchRequest:req error:nil] firstObject];
-    
-    CGPoint coord = jpp([school.location.latitude floatValue], [school.location.longitude floatValue]);
-    JPLocation* programLocation = [[JPLocation alloc] initWithCooridinates:coord city:school.location.city province:school.location.region];
+    self.imageController.view.frame = CGRectMake(0, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight);
     
     //Summary View
-    self.summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight+44, kProgramImageWidth, kProgramImageHeight) program:self.program];
+    self.summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(384, kiPadStatusBarHeight+kiPadNavigationBarHeight, kProgramImageWidth, kProgramImageHeight) program:self.program];
     self.summaryView.delegate = self;
     
     //Detail View
-    float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+44+kProgramImageHeight;
-    self.detailView = [[iPadProgramDetailView alloc] initWithFrame:CGRectMake(0,otherTopHeights , _screenWidth, kiPadHeightPortrait - otherTopHeights) andProgram: self.program];
+    float otherTopHeights = kiPadStatusBarHeight+kiPadNavigationBarHeight+kProgramImageHeight;
+    self.detailView = [[iPadProgramDetailView alloc] initWithFrame:CGRectMake(0,otherTopHeights , kiPadWidthPortrait, kiPadHeightPortrait - otherTopHeights) andProgram: self.program];
     
     
     [self addChildViewController:self.imageController];
     [self.view addSubview:self.imageController.view];
-    
-    [self.view addSubview:self.labelView];
     [self.view addSubview:self.summaryView];
     [self.view addSubview:self.detailView];
 
-    
 }
 
 
@@ -205,7 +176,7 @@ static const float kProgramImageWidth  = 384;
     }
     else //deselected
     {
-        [_coreDataHelper removeFavoriteWithItemId:self.program.programId];
+        [_coreDataHelper removeFavoriteWithItemId:self.program.programId withType:JPDashletTypeProgram];
         
         self.summaryView.isFavorited = NO;
     }

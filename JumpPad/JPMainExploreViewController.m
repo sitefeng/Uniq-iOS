@@ -12,7 +12,7 @@
 #import "JPDashlet.h"
 #import "JPBannerView.h"
 #import "iPadSchoolHomeViewController.h"
-#import "AFNetworkReachabilityManager.h"
+#import "JPConnectivityManager.h"
 
 
 @interface JPMainExploreViewController ()
@@ -39,7 +39,7 @@
     UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged:) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAllInfo) name:kNeedUpdateDataNotification object:nil];
     
 }
 
@@ -51,6 +51,14 @@
     [self updateDashletsInfo];
     
     [self.bannerView activateAutoscroll];
+    [self updateBannerInfo];
+    
+}
+
+
+- (void)updateAllInfo
+{
+    [self updateDashletsInfo];
     [self updateBannerInfo];
     
 }
@@ -135,19 +143,7 @@
 
 
 
-- (void)networkStatusChanged: (NSNotification*)notification
-{
-    NSDictionary* userInfo = notification.userInfo;
-    
-    NSNumber* value = [userInfo objectForKey:AFNetworkingReachabilityNotificationStatusItem];
-    
-    if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
-    {
-        [self updateDashletsInfo];
-        [self updateBannerInfo];
-    }
-    
-}
+
 
 
 

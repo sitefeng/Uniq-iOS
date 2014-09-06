@@ -13,6 +13,8 @@
 #import "SchoolLocation.h"
 #import "JPLocation.h"
 #import <MapKit/MapKit.h>
+#import "JPCoreDataHelper.h"
+
 
 @implementation iPhMapPanView
 
@@ -36,20 +38,18 @@
         [bottomVisibleView addSubview:dragBarLabel];
         
         //Map View
-        CGPoint coord = _location.coordinates;
+        
         self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - 30)];
         self.mapView.mapType = MKMapTypeStandard;
-        _mapCenterCoord = CLLocationCoordinate2DMake(coord.x, coord.y);
-        self.mapView.region = MKCoordinateRegionMakeWithDistance(_mapCenterCoord, 1500, 1500);
         self.mapView.clipsToBounds = YES;
         [self addSubview:self.mapView];
         
         
         // Other view
-        UIView* distanceView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, 100, 32)];
-        distanceView.backgroundColor = [JPStyle colorWithName:@"tWhite"];
-        distanceView.layer.cornerRadius = 14;
-        distanceView.clipsToBounds = YES;
+        _distanceView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, 100, 32)];
+        _distanceView.backgroundColor = [JPStyle colorWithName:@"tWhite"];
+        _distanceView.layer.cornerRadius = 14;
+        _distanceView.clipsToBounds = YES;
         
         UIImageView* distanceImg = [[UIImageView alloc] initWithFrame:CGRectMake(3, 1, 30, 30)];
         distanceImg.image = [UIImage imageNamed: @"distance-50"];
@@ -60,12 +60,12 @@
         _distanceLabel.text = @"--kms away";
         [_distanceLabel sizeToFit];
         
-        [distanceView addSubview:distanceImg];
-        [distanceView addSubview:_distanceLabel];
+        [_distanceView addSubview:distanceImg];
+        [_distanceView addSubview:_distanceLabel];
         
-        [distanceView setFrame:CGRectMake(distanceView.frame.origin.x, distanceView.frame.origin.y, _distanceLabel.frame.size.width + 32 + 10, distanceView.frame.size.height)];
+        [_distanceView setFrame:CGRectMake(_distanceView.frame.origin.x, _distanceView.frame.origin.y, _distanceLabel.frame.size.width + 32 + 10, _distanceView.frame.size.height)];
 
-        [self.mapView addSubview:distanceView];
+        [self.mapView addSubview:_distanceView];
 
         
         
@@ -75,28 +75,30 @@
 }
 
 
-- (void)setSchool:(School *)school
+- (void)setLocation:(JPLocation *)location
 {
-    _school = school;
-    
-    SchoolLocation* schoolLocation = school.location;
-    
-    JPLocation* location = [[JPLocation alloc] initWithSchoolLocation:schoolLocation];
     _location = location;
     
-    _distanceLabel.text = [_location distanceToUserString];
+    CGPoint coord = self.location.coordinates;
+    CLLocationCoordinate2D mapCenterCoord = CLLocationCoordinate2DMake(coord.x, coord.y);
+    self.mapView.region = MKCoordinateRegionMakeWithDistance(mapCenterCoord, 1500, 1500);
     
+    JPCoreDataHelper* helper = [[JPCoreDataHelper alloc] init];
+    CGFloat distance = [helper distanceToUserLocationWithLocation:location];
+    if(distance < 0)
+    {
+        _distanceLabel.text = @"--kms away";
+    } else {
+        _distanceLabel.text = [NSString stringWithFormat:@"%.0fkms away", distance];
+    }
     
+    [_distanceLabel sizeToFit];
+    [_distanceView setFrame:CGRectMake(_distanceView.frame.origin.x, _distanceView.frame.origin.y, _distanceLabel.frame.size.width + 32 + 10, _distanceView.frame.size.height)];
 }
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+
+
+
 
 @end
