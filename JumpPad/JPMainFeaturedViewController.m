@@ -136,8 +136,8 @@
     
     cell.delegate = self;
     cell.itemId = [featureItem objectForKey:@"id"];
-    cell.titleLabel.text = [featureItem objectForKey:@"featuredTitle"];
-    cell.subtitleLabel.text = [featureItem objectForKey:@"nameTitle"];
+    cell.title = [featureItem objectForKey:@"featuredTitle"];
+    cell.subtitle = [featureItem objectForKey:@"nameTitle"];
     cell.type = [self dashletTypeFromTypeString:[featureItem objectForKey:@"type"]];
     
     cell.separatorInset = UIEdgeInsetsMake(0, 1024, 0, 0);
@@ -175,6 +175,7 @@
         if(cell.type == JPDashletTypeProgram)
         {
             iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:cell.itemId];
+            viewController.title = cell.subtitle;
             [self presentViewController:viewController animated:YES completion:nil];
         }
         else

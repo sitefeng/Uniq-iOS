@@ -28,6 +28,13 @@
 #import "JPFont.h"
 #import "JPStyle.h"
 
+@interface JBParallaxCell()
+
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *subtitleLabel;
+
+@end
+
 @implementation JBParallaxCell //768: 483
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -173,6 +180,19 @@
 
 
 
+- (void)setTitle:(NSString *)title
+{
+    _title = title;
+    
+    self.titleLabel.text = [title uppercaseString];
+}
+
+- (void)setSubtitle:(NSString *)subtitle
+{
+    _subtitle = subtitle;
+    
+    self.subtitleLabel.text = [subtitle uppercaseString];
+}
 
 
 
