@@ -19,6 +19,7 @@
 #import "ManagedObjects+JPConvenience.h"
 
 
+
 @implementation JPCoreDataHelper
 
 
@@ -479,51 +480,6 @@
 
 
 
-#pragma mark - Featured Dashlets
-- (NSArray*)retrieveFeaturedItems
-{
-//    //Delete Everything from before first
-//    NSFetchRequest* req = [[NSFetchRequest alloc] initWithEntityName:@"Featured"];
-//    NSArray* results = [context executeFetchRequest:req error:nil];
-//    for(Featured* object in results)
-//    {
-//        [context deleteObject:object];
-//    }
-//    
-//    NSURL* fileUrl = [[NSBundle mainBundle] URLForResource:@"getAllFeaturedInfo" withExtension:@"json"];
-//    NSData* featuredData = [NSData dataWithContentsOfURL:fileUrl];
-//    NSError* error = nil;
-//    NSArray* jsonObject = [NSJSONSerialization JSONObjectWithData:featuredData options:NSJSONReadingAllowFragments error:&error];
-//    
-//    if(error)
-//        NSLog(@"Error: %@", error);
-//    
-//    NSMutableArray* featuredArray = [NSMutableArray array];
-//    
-//    for(NSDictionary* featuredDict in jsonObject)
-//    {
-//        NSEntityDescription* featuredDesc = [NSEntityDescription entityForName:@"Featured" inManagedObjectContext:context];
-//        NSManagedObject* featured = [[NSManagedObject alloc] initWithEntity:featuredDesc insertIntoManagedObjectContext:context];
-//        
-//        [featured setValue:[featuredDict valueForKey:@"id"] forKey:@"featuredId"];
-//        if([featuredDict valueForKey:@"linkedUrl"]!=[NSNull null])
-//            [featured setValue:[featuredDict valueForKey:@"linkedUrl"] forKey:@"linkedUrl"];
-//        
-//        [featured setValue:[featuredDict valueForKey:@"linkedUid"] forKey:@"linkedUid"];
-//        [featured setValue:[featuredDict valueForKey:@"title"] forKey:@"title"];
-//        [featured setValue:[featuredDict valueForKey:@"imageLink"] forKey:@"imageLink"];
-//        
-//        [featuredArray addObject:featured];
-//        [context insertObject:featured];
-//    }
-//    
-//    [context save:nil];
-//
-//    return featuredArray;
-
-    return nil;
-
-}
 
 
 

@@ -105,7 +105,6 @@
         self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
         
         self.title = school.name;
-        self.featuredTitle = self.title;
         self.type = JPDashletTypeSchool;
         
         self.backgroundImages = [NSMutableArray array];
@@ -193,7 +192,7 @@
 
 
 
-- (instancetype)initWithDictionary: (NSDictionary*)dict ofDashletType:(JPDashletType)type
+- (instancetype)initWithDictionary:(NSDictionary*)dict ofDashletType:(JPDashletType)type
 {
     self = [self init];
     if(self)

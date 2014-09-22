@@ -510,6 +510,7 @@
     self.socialEnjoyments = [NSNumber numberWithDouble:ratings.social];
     self.studyEnv= [NSNumber numberWithDouble:ratings.studyEnv];
     self.guyToGirlRatio = [NSNumber numberWithDouble:ratings.guyRatio];
+    self.weight = [NSNumber numberWithInteger:ratings.weight];
     
     return self;
 }

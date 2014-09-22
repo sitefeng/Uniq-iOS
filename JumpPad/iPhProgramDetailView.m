@@ -20,22 +20,15 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
+
         self.program = program;
         self.title = title;
         _programRating = self.program.rating;
         
-        UILabel* dashletLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 30)];
-        dashletLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:26];
-        dashletLabel.text = title;
-        dashletLabel.textAlignment = NSTextAlignmentCenter;
-        dashletLabel.backgroundColor = [JPStyle colorWithName:@"tWhite"];
-        [self addSubview:dashletLabel];
         
         if([title isEqual:@"About"])
         {
-            UITextView* textView =[[UITextView alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
+            UITextView* textView =[[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
             textView.editable = NO;
             textView.selectable = NO;
             textView.backgroundColor = [UIColor clearColor];
@@ -45,14 +38,16 @@
             textView.text = program.about;
             
             [self addSubview:textView];
+            
+            self.viewHeight = 170;
         }
         else if([title isEqual:@"Tuition"])
         {
-            UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 200, 40)];
+            UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 200, 20)];
             localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
             localLabel.text = @"Domestic (per term)";
             localLabel.textColor = [UIColor blackColor];
-            UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 105, 200, 40)];
+            UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 85, 200, 20)];
             intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
             intLabel.text = @"International (per term)";
             intLabel.textColor = [UIColor blackColor];
@@ -60,9 +55,8 @@
             [self addSubview:localLabel];
             [self addSubview:intLabel];
             
-            
             //Tuition Values
-            UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 45, 190,70)];
+            UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 190, 40)];
             localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             
             NSDictionary* tuitionDict = [self.program.tuitions anyObject];
@@ -72,7 +66,7 @@
             localLabelVal.textColor = [UIColor blackColor];
             
             //----------
-            UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 120, 190, 70)];
+            UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 105, 190, 40)];
             intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
             intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
@@ -80,11 +74,11 @@
             
             [self addSubview:localLabelVal];
             [self addSubview:intLabelVal];
-
+            self.viewHeight = 170;
         }
         else if([title isEqual:@"Highlight"])
         {
-            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 40, 200, 200)];
+            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 10, 200, 200)];
             
             [self.pieChart setDataSource:self];
             [self.pieChart setDelegate:self];
@@ -134,10 +128,10 @@
             
             for(int i=0; i<6; i++)
             {
-                UIView* view = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - 20, 50 + 30*i, 20, 15)];
+                UIView* view = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width - 20, 20 + 30*i, 20, 15)];
                 view.backgroundColor = [JPStyle rainbowColorWithIndex:i];
                 
-                UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width - 100, 47 + 30*i, 70, 20)];
+                UILabel* legendLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width - 100, 17 + 30*i, 70, 20)];
                 legendLabel.text = legendTexts[i];
                 legendLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:13];
                 legendLabel.textColor = [JPStyle colorWithHex:@"750A09" alpha:1];
@@ -146,17 +140,17 @@
                 if(i==5)
                 {
                     legendLabel.numberOfLines = 2;
-                    legendLabel.frame = CGRectMake(frame.size.width - 100, 37 + 30*i - 10, 70, 40);
+                    legendLabel.frame = CGRectMake(frame.size.width - 100, 17 + 30*i - 10, 70, 40);
                 }
                 
                 [self addSubview:view];
                 [self addSubview:legendLabel];
             }
-
+            self.viewHeight = 220;
         }
         else if([title isEqual:@"Ratings"])
         {
-            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake((kiPhoneWidthPortrait-220)/2 - 5, 30, 220, 220)];
+            self.radarChart = [[RPRadarChart alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait-220- 25, 0, 220, 220)];
             
             self.radarChart.delegate = self;
             self.radarChart.dataSource = self;
@@ -168,13 +162,29 @@
             self.radarChart.showValues = YES;
             self.radarChart.dotRadius = 6;
             self.radarChart.backgroundColor = [UIColor clearColor];
-            
             [self addSubview:self.radarChart];
             
+            //Overall Value
+            UILabel* overallLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, 80, 55)];
+            overallLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+            overallLabel.numberOfLines = 2;
+            double overallRating = [self.program.rating.ratingOverall doubleValue];
+            overallLabel.text = [NSString stringWithFormat:@"Overall\n%.0f%%", overallRating];
+            [self addSubview:overallLabel];
+            
+            //Number of Ratings Value
+            UILabel* numRatingsLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 160, 80, 55)];
+            numRatingsLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+            numRatingsLabel.numberOfLines = 2;
+            long numRatings = [self.program.rating.weight longValue];
+            numRatingsLabel.text = [NSString stringWithFormat:@"%ld\nRatings", numRatings];
+            [self addSubview:numRatingsLabel];
+            
+            self.viewHeight = 220;
         }
         else if([title isEqual:@"Gals vs Guys Ratio"])
         {
-            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(70, 30, 170, 170) Center:CGPointMake(170/2.0, 170/2.0) Radius:72];
+            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(70, 0, 170, 170) Center:CGPointMake(170/2.0, 170/2.0) Radius:72];
             self.pieChart.dataSource = self;
             self.pieChart.delegate = self;
             self.pieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
@@ -198,19 +208,20 @@
             
             [percentageLabel setFont:[UIFont fontWithName:[JPFont defaultThinFont] size:25]];
             percentageLabel.text = @"%";
-            percentageLabel.textColor = [UIColor blackColor];
+            percentageLabel.textColor = [UIColor whiteColor];
             percentageLabel.clipsToBounds = YES;
             percentageLabel.textAlignment = NSTextAlignmentCenter;
-            percentageLabel.backgroundColor = self.backgroundColor;
+            percentageLabel.backgroundColor = [UIColor blackColor];
             [percentageLabel.layer setCornerRadius:percentageLabel.frame.size.width/2.0f];
             
             [self addSubview:percentageLabel];
             
+            self.viewHeight = 170;
         }
         else if([title isEqual:@"Courses"])
         {
             NSArray* termTitles = [self.program.curriculumTerms componentsSeparatedByString:@","];
-            UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
+            UIScrollView* scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
             scrollView.showsHorizontalScrollIndicator = NO;
             CGFloat contentWidth = frame.size.width;
             
@@ -234,14 +245,19 @@
                     
                     contentWidth = yearButton.frame.origin.x + yearButton.frame.size.width + 15;
                 }
+                
             }
             
             scrollView.contentSize = CGSizeMake(contentWidth, scrollView.frame.size.height);
             [self addSubview:scrollView];
+            
+            self.viewHeight = 190;
         }
         else if([title isEqual:@"+"])
         {
-            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, frame.size.width, frame.size.height-30)];
+            self.viewHeight = 140;
+            
+            UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, self.viewHeight)];
             label.font = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
             label.text = @"More Info Soon!";
             label.textAlignment = NSTextAlignmentCenter;

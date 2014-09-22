@@ -23,6 +23,8 @@
     self.social = -1;
     self.studyEnv = -1;
     self.guyRatio = -1;
+    self.weight = 0;
+    
     return self;
 }
 
@@ -39,6 +41,9 @@
     self.social = [ratingsArray[5] doubleValue];
     self.studyEnv = [ratingsArray[6] doubleValue];
     self.guyRatio = [ratingsArray[7] doubleValue];
+    
+    if([ratingsArray count]== 9)
+        self.weight = [ratingsArray[8] doubleValue];
     
     return self;
 }
@@ -59,6 +64,7 @@
     self.social = [[dict objectForKey:[self dictionaryShortKeyWithIndex:5]] doubleValue];
     self.studyEnv = [[dict objectForKey:[self dictionaryShortKeyWithIndex:6]] doubleValue];
     self.guyRatio = [[dict objectForKey:[self dictionaryShortKeyWithIndex:7]] doubleValue];
+    self.weight = [[dict objectForKey:@"w"] integerValue];
     
     return self;
     
@@ -79,9 +85,9 @@
     self.social = [[dict objectForKey:[self dictionaryKeyWithIndex:5]] doubleValue];
     self.studyEnv = [[dict objectForKey:[self dictionaryKeyWithIndex:6]] doubleValue];
     self.guyRatio = [[dict objectForKey:[self dictionaryKeyWithIndex:7]] doubleValue];
+    self.weight = [[dict objectForKey:[self dictionaryKeyWithIndex:8]] integerValue];
     
     return self;
-    
 }
 
 
@@ -99,6 +105,7 @@
     [dict setObject:[NSNumber numberWithDouble:self.social] forKey:[self dictionaryKeyWithIndex:5]];
     [dict setObject:[NSNumber numberWithDouble:self.studyEnv] forKey:[self dictionaryKeyWithIndex:6]];
     [dict setObject:[NSNumber numberWithDouble:self.guyRatio] forKey:[self dictionaryKeyWithIndex:7]];
+    [dict setObject:[NSNumber numberWithInteger:self.weight] forKey:[self dictionaryKeyWithIndex:8]];
     
     return dict;
 }
@@ -116,6 +123,7 @@
     [dict setObject:[NSNumber numberWithDouble:self.social] forKey:[self dictionaryShortKeyWithIndex:5]];
     [dict setObject:[NSNumber numberWithDouble:self.studyEnv] forKey:[self dictionaryShortKeyWithIndex:6]];;
     [dict setObject:[NSNumber numberWithDouble:self.guyRatio] forKey:[self dictionaryShortKeyWithIndex:7]];
+    [dict setObject:[NSNumber numberWithInteger:self.weight] forKey:@"w"];
     
     return dict;
     
@@ -132,7 +140,8 @@
                        [NSNumber numberWithDouble:self.classmates],
                        [NSNumber numberWithDouble:self.social],
                        [NSNumber numberWithDouble:self.studyEnv],
-                       [NSNumber numberWithDouble:self.guyRatio]];
+                       [NSNumber numberWithDouble:self.guyRatio],
+                       [NSNumber numberWithInteger:self.weight]];
     return array;
     
 }
@@ -186,7 +195,7 @@
 
 - (NSString*)dictionaryKeyWithIndex: (NSInteger)num
 {
-    NSArray* keyArray = @[@"ratingOverall", @"difficulty", @"professors", @"schedule", @"classmates", @"socialEnjoyment", @"studyEnv", @"guyRatio"];
+    NSArray* keyArray = @[@"ratingOverall", @"difficulty", @"professors", @"schedule", @"classmates", @"socialEnjoyment", @"studyEnv", @"guyRatio", @"weight"];
     
     return keyArray[num];
 }

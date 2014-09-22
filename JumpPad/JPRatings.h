@@ -20,6 +20,7 @@
 @property (nonatomic, assign) double social;
 @property (nonatomic, assign) double studyEnv;
 @property (nonatomic, assign) double guyRatio;
+@property (nonatomic, assign) NSInteger weight;
 
 
 - (instancetype)initWithOrderedArray: (NSArray*)ratingsArray;

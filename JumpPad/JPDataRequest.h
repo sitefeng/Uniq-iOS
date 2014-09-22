@@ -43,6 +43,9 @@
 - (void)requestItemBriefDetailsWithId: (NSString*)itemId ofType: (JPDashletType)type;
 - (void)requestItemDetailsWithId: (NSString*)itemId ofType: (JPDashletType)type;
 
+//Featured
+- (void)requestAllFeaturedItems;
+
 
 @end
 
@@ -56,6 +59,10 @@
 
 
 - (void)dataRequest: (JPDataRequest*)request didLoadItemBriefDetailsWithId: (NSString*)itemId ofType: (JPDashletType)type dataDict: (NSDictionary*)dict isSuccessful: (BOOL)success;
+
+//Featured
+- (void)dataRequest: (JPDataRequest*)request didLoadAllFeaturedItems: (NSArray*)featuredDicts isSuccessful: (BOOL)success;
+
 
 @end
 

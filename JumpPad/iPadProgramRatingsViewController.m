@@ -261,7 +261,7 @@
     NSInteger ratioValue = ratings.guyRatio;
     self.tiltSlider.value = ratioValue/100.0;
     _guyLabel.text = [NSString stringWithFormat:@"%ld", (long)ratioValue];
-    _girlLabel.text = [NSString stringWithFormat:@"%ld", 100-ratioValue];
+    _girlLabel.text = [NSString stringWithFormat:@"%d", 100-ratioValue];
     
 }
 

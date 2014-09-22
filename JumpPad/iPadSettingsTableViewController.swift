@@ -23,7 +23,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     let cellTitles     : [[String]] = [[],["About", "Rate Uniq on App Store", "Send Feedback", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter", "Visit Our Website"]]
     let cellImgStrings : [[String]] = [[],["info-75","thumb_up-75","email-50","share-75","groups-75","thanks-75","facebook-50","twitter-50", "safari-50"]]
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -37,7 +37,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     }
     
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
     {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -67,13 +67,13 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
 
     // #pragma mark - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView?) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return cellTitles.count
     }
 
-    override func tableView(tableView: UITableView?, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if section == 0 {
             return cellTitles[0].count
@@ -84,38 +84,39 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         
         
     }
-
     
-    override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell?
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell : UITableViewCell = tableView?.dequeueReusableCellWithIdentifier(defaultCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+
+        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(defaultCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         var cellTitle: String
         var cellImageName: String
         
-        if indexPath!.section == 0
+        if indexPath.section == 0
         {
-            cellTitle = cellTitles[0][indexPath!.row]
-            cellImageName = cellImgStrings[0][indexPath!.row]
+            cellTitle = cellTitles[0][indexPath.row]
+            cellImageName = cellImgStrings[0][indexPath.row]
         }
         else
         {
-            cellTitle = cellTitles[1][indexPath!.row]
-            cellImageName = cellImgStrings[1][indexPath!.row]
+            cellTitle = cellTitles[1][indexPath.row]
+            cellImageName = cellImgStrings[1][indexPath.row]
         }
         
-        cell.textLabel.text = cellTitle
+        cell.textLabel?.text = cellTitle
         var cellImage : UIImage = UIImage(named: cellImageName).imageWithAlignmentRectInsets(UIEdgeInsetsMake(5,5,5,5))
 
-        cell.imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        cell.imageView.image = cellImage
+        cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        cell.imageView?.image = cellImage
         
         return cell
     }
    
     
     
-    override func tableView(tableView: UITableView!, titleForHeaderInSection section: Int) -> String!
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String
     {
         if section==0
         {
@@ -127,19 +128,9 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         
     }
+
     
-//    override func tableView(tableView: UITableView!, accessoryTypeForRowWithIndexPath indexPath: NSIndexPath!) -> UITableViewCellAccessoryType
-//    {
-//        
-//        if (indexPath.section==1 && (indexPath.row==0||indexPath.row==5))
-//        {
-//            return UITableViewCellAccessoryType.DisclosureIndicator
-//        }
-//        
-//        return UITableViewCellAccessoryType.None
-//    }
-    
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         self.tableView.deselectRowAtIndexPath(self.selectedIndex, animated: true)
         var row:Int = indexPath.row;
@@ -194,19 +185,19 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     }
 
 
-    override func tableView(tableView: UITableView!, shouldHighlightRowAtIndexPath indexPath: NSIndexPath!) -> Bool
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
         return true
     }
 
 
-    func splitViewController(svc: UISplitViewController!, shouldHideViewController vc: UIViewController!, inOrientation orientation: UIInterfaceOrientation) -> Bool
+    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool
     {
         return false
     }
     
     
-    func actionSheet(actionSheet: UIActionSheet!, didDismissWithButtonIndex buttonIndex: Int) {
+    func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int) {
         
         var message : String! = "Checkout Uniq for iOS. College Info Reimagined."
         var image:UIImage! = UIImage(named:"appIcon-152")
@@ -247,7 +238,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         actionSheet .dismissWithClickedButtonIndex(buttonIndex, animated: true)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

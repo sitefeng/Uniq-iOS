@@ -40,8 +40,11 @@
 
 @property (strong, nonatomic) NSURL* asyncImageUrl;
 @property (strong, nonatomic)  UIImageView *parallaxImage;
-@property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UILabel *subtitleLabel;
+
+@property (nonatomic, strong) NSString* title;
+@property (strong, nonatomic, readonly) UILabel *titleLabel;
+@property (strong, nonatomic) NSString* subtitle;
+@property (strong, nonatomic, readonly) UILabel *subtitleLabel;
 @property (nonatomic) NSUInteger numFavorited;
 
 @property (nonatomic, weak) id<JPFavoriteButtonDelegate> delegate;

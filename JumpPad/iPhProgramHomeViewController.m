@@ -50,7 +50,7 @@
     [_panImageView addGestureRecognizer:panRec];
     [self.view addSubview:_panImageView];
 
-    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 620- kiPhoneNavigationBarHeight-kiPhoneStatusBarHeight)];
+    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
     _detailScrollView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
     _detailScrollView.showsHorizontalScrollIndicator = NO;
     _detailScrollView.showsVerticalScrollIndicator = NO;
@@ -61,32 +61,13 @@
     summaryView.delegate = self;
     [_detailScrollView addSubview:summaryView];
 
+    _dashletTitles = @[@"About",@"Tuition",@"Highlight",@"Ratings",@"Gals vs Guys Ratio"];
     
-    CGFloat currYPosition = CGRectGetMaxY(summaryView.frame) + 5;
+    self.dashletTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, 310, kiPhoneWidthPortrait, 500) program:self.program];
+    self.dashletTableView.scrollable = NO;
+    self.dashletTableView.dataSource = self;
+    [_detailScrollView addSubview:self.dashletTableView];
     
-    iPhProgramDetailView* aboutView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPosition, kiPhoneWidthPortrait - 10, 200) title:@"About" program:self.program];
-    [_detailScrollView addSubview:aboutView];
-    currYPosition += aboutView.frame.size.height + 5;
-    
-    iPhProgramDetailView* tuitionView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPosition, kiPhoneWidthPortrait - 10, 200) title:@"Tuition" program:self.program];
-    [_detailScrollView addSubview:tuitionView];
-    currYPosition += tuitionView.frame.size.height + 5;
-    
-    _highlighView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPosition, kiPhoneWidthPortrait - 10, 250) title:@"Highlight" program:self.program];
-    [_detailScrollView addSubview:_highlighView];
-    currYPosition += _highlighView.frame.size.height + 5;
-    
-    
-    iPhProgramDetailView* ratingsView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPosition, kiPhoneWidthPortrait - 10, 250) title:@"Ratings" program:self.program];
-    [_detailScrollView addSubview:ratingsView];
-    currYPosition += ratingsView.frame.size.height + 5;
-    
-    
-    _ratioView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPosition, kiPhoneWidthPortrait - 10, 200) title:@"Gals vs Guys Ratio" program:self.program];
-    [_detailScrollView addSubview:_ratioView];
-    currYPosition += _ratioView.frame.size.height + 5;
-    
-    [_detailScrollView setContentSize:CGSizeMake(_detailScrollView.frame.size.width, currYPosition + 130)];
     
     [self.view bringSubviewToFront:_panImageView];
 }
@@ -102,6 +83,29 @@
 }
 
 
+
+#pragma mark - Program Detail Table View Data Source
+
+- (NSInteger)numberOfDashletsInProgramDetailTable:(iPhProgramDetailTableView *)tableView
+{
+    
+    return [_dashletTitles count];
+}
+
+
+- (NSString*)programDetailTable:(iPhProgramDetailTableView *)tableView dashletTitleForRow:(NSInteger)row
+{
+    return _dashletTitles[row];
+}
+
+
+- (void)programDetailTable:(iPhProgramDetailTableView *)tableView didFindMaximumHeight:(CGFloat)height
+{
+    [_detailScrollView setContentSize:CGSizeMake(_detailScrollView.frame.size.width, 310+height)];
+}
+
+
+#pragma mark - Summary Button Callback Methods
 
 - (void)facebookButtonTapped
 {

@@ -28,7 +28,8 @@
 {
     self = [super init];
     
-    self.basePath = @"http://192.168.0.18:8000";
+//    self.basePath = @"http://192.168.0.44:8000";
+    self.basePath = @"http://uniq-env-mdwnryqp7y.elasticbeanstalk.com";
     
     _connectivity = [JPConnectivityManager sharedManager];
     
@@ -253,7 +254,7 @@
     
     double guyRatioNotUsingFirebaseIfExistsOnServer = [[ratingsDict objectForKey:@"guyRatio"] doubleValue];
     
-    //Get Guy Ratio from Amazon Server
+    //Get Guy Ratio from Server
     if([_itemDetailsDictWithoutRatings objectForKey:@"rating"] != [NSNull null])
     {
         NSDictionary* serverRatingDict = [_itemDetailsDictWithoutRatings objectForKey:@"rating"];
@@ -269,10 +270,6 @@
     if([self.delegate respondsToSelector:@selector(dataRequest:didLoadItemDetailsWithId:ofType:dataDict:isSuccessful:)] && _itemDetailExpectedReturnNumber<=0)
         [self.delegate dataRequest:self didLoadItemDetailsWithId:uid ofType:_itemDetailType dataDict:newDict isSuccessful:YES];
 }
-
-
-
-
 
 
 
@@ -338,9 +335,36 @@
 
 
 
+#pragma mark - Featured Items
 
+- (void)requestAllFeaturedItems
+{
+    NSString* requestPath = [self.basePath stringByAppendingString:@"/featured"];
+    
+    NSURL* reqURL = [NSURL URLWithString:requestPath];
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:reqURL];
+    req.HTTPMethod = @"GET";
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue currentQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        if(connectionError)
+        {
+            NSLog(@"Connection Error: %@", connectionError.localizedDescription);
+            
+            if([self.delegate respondsToSelector:@selector(dataRequest:didLoadAllFeaturedItems:isSuccessful:)])
+                [self.delegate dataRequest:self didLoadAllFeaturedItems:nil isSuccessful:NO];
+            return;
+        }
 
-
+        NSArray* featuredArray = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadAllFeaturedItems:isSuccessful:)])
+            [self.delegate dataRequest:self didLoadAllFeaturedItems:featuredArray isSuccessful:YES];
+        
+        
+    }];
+    
+}
 
 
 

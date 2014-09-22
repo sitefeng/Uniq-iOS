@@ -53,8 +53,7 @@
 - (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type;
 
 
-//Featured
-- (NSArray*)retrieveFeaturedItems;
+
 
 
 @end

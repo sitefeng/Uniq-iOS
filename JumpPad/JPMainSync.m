@@ -938,7 +938,7 @@
 
 
 
-- (void)sendGetAllProgramsInfoRequestWithLastModifiedTime: (NSDate*)date schoolId: (NSString*)schoolId facultyId: (NSNumber*)facultyId
+- (void)sendGetAllProgramsInfoRequestWithLastModifiedTime: (NSDate*)date schoolId: (NSString*)schoolId facultyId: (NSString*)facultyId
 {
     
     

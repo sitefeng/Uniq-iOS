@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--I Ph Main Featured View Controller - First-->
+        <!--First-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
-                <viewController title="First" id="CZ4-MO-1fc" customClass="iPhMainFeaturedViewController" sceneMemberID="viewController">
+                <viewController title="First" id="CZ4-MO-1fc" customClass="JPMainFeaturedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qxw-0x-JOz"/>
                         <viewControllerLayoutGuide type="bottom" id="oPA-43-XqG"/>
@@ -15,11 +16,6 @@
                     <view key="view" contentMode="scaleToFill" id="BGq-QS-k7U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="y9f-JU-6hh">
-                                <rect key="frame" x="109" y="472" width="102" height="37"/>
-                            </pageControl>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Featured" id="8LG-OY-hji"/>
@@ -28,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="1179" y="-173"/>
         </scene>
-        <!--I Ph Main Favorites View Controller - Second-->
+        <!--Second-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
                 <viewController title="Second" id="QUy-BD-bpt" customClass="iPhMainFavoritesViewController" sceneMemberID="viewController">
@@ -68,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="-39" y="1173"/>
         </scene>
-        <!--Navigation Controller - Featured-->
+        <!--Featured-->
         <scene sceneID="ArR-mT-i1S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pe0-Zb-w8q" sceneMemberID="viewController">
@@ -87,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="-173"/>
         </scene>
-        <!--Navigation Controller - Favorites-->
+        <!--Favorites-->
         <scene sceneID="Y3m-k9-d0j">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WDZ-zY-UsF" sceneMemberID="viewController">
@@ -106,7 +102,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="498"/>
         </scene>
-        <!--Navigation Controller - Settings-->
+        <!--Settings-->
         <scene sceneID="Ha7-Hg-rmc">
             <objects>
                 <navigationController definesPresentationContext="YES" id="VfI-sh-PVE" sceneMemberID="viewController">
@@ -122,7 +118,7 @@
             </objects>
             <point key="canvasLocation" x="661" y="1809"/>
         </scene>
-        <!--I Ph Main Settings View Controller - Settings-->
+        <!--Settings-->
         <scene sceneID="HqJ-Q9-2Qh">
             <objects>
                 <viewController id="AAy-hu-gig" customClass="iPhMainSettingsViewController" sceneMemberID="viewController">
@@ -141,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="1179" y="1798"/>
         </scene>
-        <!--Navigation Controller - Explore-->
+        <!--Explore-->
         <scene sceneID="Yfb-wo-hIr">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ZbL-QO-gMv" sceneMemberID="viewController">
@@ -157,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="661" y="1173"/>
         </scene>
-        <!--I Ph Main Explore View Controller - Explore-->
+        <!--Explore-->
         <scene sceneID="qRk-mB-PSz">
             <objects>
                 <viewController id="a5j-3A-ea9" customClass="iPhMainExploreViewController" sceneMemberID="viewController">

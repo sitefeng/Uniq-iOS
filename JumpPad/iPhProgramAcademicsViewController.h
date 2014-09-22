@@ -10,16 +10,19 @@
 #import "iPhProgramSchoolAbstractViewController.h"
 #import "iPhProgramDetailView.h"
 #import "iPhAppProgressPanView.h"
+#import "iPhProgramDetailTableView.h"
 
 @class Program, iPhAppProgressPanView;
-@interface iPhProgramAcademicsViewController : iPhProgramSchoolAbstractViewController<JPCoursesDetailViewDelegate, JPAppProgressPanDelegate>
+@interface iPhProgramAcademicsViewController : iPhProgramSchoolAbstractViewController<JPCoursesDetailViewDelegate, JPAppProgressPanDelegate, JPProgramDetailTableViewDataSource>
 {
-    
-    UIScrollView*          _detailView;
+    NSArray*   _dashletTitles;
 }
 
 
-@property (nonatomic, strong)iPhAppProgressPanView* progressPanView;
+@property (nonatomic, strong) iPhAppProgressPanView* progressPanView;
+
+
+@property (nonatomic, strong) iPhProgramDetailTableView* tableView;
 
 - (instancetype)initWithProgram: (Program*)program;
 

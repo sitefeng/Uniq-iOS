@@ -14,6 +14,8 @@
 #import "Faculty.h"
 #import "School.h"
 #import "iPhProgramViewController.h"
+#import "iPhProgramDetailTableView.h"
+
 
 @interface iPhProgramAcademicsViewController ()
 
@@ -45,34 +47,47 @@
     [self.view addSubview:self.progressPanView];
     
     
+    //Program Detail Table View
+    _dashletTitles = @[@"Courses", @"+"];
     
-    _detailView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, kiPhoneWidthPortrait, kiPhoneHeightPortrait - kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight-30)];
-    [self.view addSubview:_detailView];
+    self.tableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, kiPhoneWidthPortrait, kiPhoneHeightPortrait - kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight-30) program:self.program];
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, kiPhoneWidthPortrait, kiPhoneHeightPortrait - kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight-30);
     
-    float currYPos = 5;
-    
-    iPhProgramDetailView* coursesView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPos, kiPhoneWidthPortrait-10, 200) title:@"Courses" program:self.program];
-    coursesView.delegate = self;
-    [_detailView addSubview:coursesView];
-    
-    currYPos += coursesView.frame.size.height + 5;
-    
-    iPhProgramDetailView* moreView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(5, currYPos, kiPhoneWidthPortrait-10, 150) title:@"+" program:self.program];
-    moreView.delegate = self;
-    [_detailView addSubview:moreView];
-    
-    currYPos += coursesView.frame.size.height + 5;
+   
     
     
-    
-    _detailView.contentSize=  CGSizeMake(_detailView.frame.size.width, currYPos);
     
     [self.view bringSubviewToFront:_progressPanView];
     
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+ 
+}
 
+
+#pragma mark - Program Detail Table View Data Source
+
+- (NSInteger)numberOfDashletsInProgramDetailTable:(iPhProgramDetailTableView *)tableView
+{
+    return [_dashletTitles count];
+}
+
+
+- (NSString*)programDetailTable:(iPhProgramDetailTableView *)tableView dashletTitleForRow:(NSInteger)row
+{
+    return _dashletTitles[row];
+}
+
+
+
+
+#pragma mark - Callback Methods
 
 - (void)courseTermPressed:(NSString*)term
 {

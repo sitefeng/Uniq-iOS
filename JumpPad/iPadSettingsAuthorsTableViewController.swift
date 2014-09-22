@@ -17,7 +17,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
     var _selectedIndexPath : NSIndexPath?
     var _deviceType: UIUserInterfaceIdiom!
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -75,12 +75,12 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         return _authorsInfo.count
     }
 
-    
-    override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell? {
-        
-        var cell : JPProgramCoursesTableViewCell! = tableView!.dequeueReusableCellWithIdentifier(authorsCellIdentifier, forIndexPath: indexPath) as? JPProgramCoursesTableViewCell
 
-        if(!cell)
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        var cell : JPProgramCoursesTableViewCell! = tableView.dequeueReusableCellWithIdentifier(authorsCellIdentifier, forIndexPath: indexPath) as? JPProgramCoursesTableViewCell
+
+        if(cell == nil)
         {
             cell = JPProgramCoursesTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: authorsCellIdentifier)
         }
@@ -89,15 +89,15 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         // Configuring the cell
-        cell.courseCode = _authorsInfo[indexPath!.row]["name"]
-        cell.courseName = _authorsInfo[indexPath!.row]["position"]
-        cell.courseDescriptionView.text = _authorsInfo[indexPath!.row]["description"]
+        cell.courseCode = _authorsInfo[indexPath.row]["name"]
+        cell.courseName = _authorsInfo[indexPath.row]["position"]
+        cell.courseDescriptionView.text = _authorsInfo[indexPath.row]["description"]
         
         return cell
     }
     
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     {
         if let selectedPathNotNil = _selectedIndexPath
         {
@@ -111,7 +111,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
     }
     
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         if let selectedPathNotNil = _selectedIndexPath
         {
