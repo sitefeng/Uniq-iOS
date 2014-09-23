@@ -50,7 +50,6 @@
 		5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9D191FF26700ECDCF7 /* DPMeterView.m */; };
 		5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */; };
 		5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592BA8191FF2D300ECDCF7 /* LBActionSheet.m */; };
-		5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */; };
 		5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592C0819207CB900ECDCF7 /* XYPieChart.m */; };
 		5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F118B9B240002941B3 /* iPadSearchBarView.m */; };
 		5D7055F718B9C779002941B3 /* JPBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F618B9C779002941B3 /* JPBannerView.m */; };
@@ -66,7 +65,6 @@
 		5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D70561F18B9EAB2002941B3 /* sortViewController.m */; };
 		5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */; };
 		5D925311192E4C4100BE5BA3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D925310192E4C4100BE5BA3 /* AVFoundation.framework */; };
-		5D92531D1930718B00BE5BA3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */; };
 		5D94203F19308AA10033D57B /* DXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D94203E19308AA10033D57B /* DXAlertView.m */; };
 		5D94204219308AD40033D57B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D94204119308AD40033D57B /* Reachability.m */; };
 		5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99D419357D1C004EFC47 /* iPadDebugSyncViewController.m */; };
@@ -100,7 +98,6 @@
 		5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4918C2FE430011AC26 /* UIImage+MPAverageColor.m */; };
 		5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4B18C2FE430011AC26 /* UIImage+MPImageEffects.m */; };
 		5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D4D18C2FE430011AC26 /* UIView+MPSnapshotImage.m */; };
-		5DA82D9618C310630011AC26 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA82D9518C310630011AC26 /* CoreLocation.framework */; };
 		5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */; };
 		5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */; };
 		5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */; };
@@ -110,7 +107,6 @@
 		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
 		5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */; };
 		5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */; };
-		5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BB184ACBB700EFCE0A /* main.m */; };
@@ -152,6 +148,17 @@
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
 		AA34FA5A198999B100A73292 /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA59198999B100A73292 /* AutoScrollLabel.m */; };
+		AA35BDBB19D229DA008BFF5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
+		AA35BDBC19D22A9A008BFF5F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7777199E480500C02513 /* AudioToolbox.framework */; };
+		AA35BDBE19D22AA6008BFF5F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */; };
+		AA35BDBF19D22AB0008BFF5F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DA82D9518C310630011AC26 /* CoreLocation.framework */; };
+		AA35BDC019D22AB8008BFF5F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB777B199E481600C02513 /* libz.dylib */; };
+		AA35BDC119D22ABF008BFF5F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB777D199E481D00C02513 /* MobileCoreServices.framework */; };
+		AA35BDC219D22AC7008BFF5F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */; };
+		AA35BDC319D22ACF008BFF5F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB777F199E482700C02513 /* Security.framework */; };
+		AA35BDC419D22ADC008BFF5F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7781199E482F00C02513 /* StoreKit.framework */; };
+		AA35BDC519D22AE3008BFF5F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */; };
+		AA35BDC719D22C45008BFF5F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA35BDC619D22C45008BFF5F /* CFNetwork.framework */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
 		AA447E3119B53249004855CC /* NSObject+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AA447E3019B53249004855CC /* NSObject+JPConvenience.m */; };
@@ -211,7 +218,6 @@
 		AA63DCF3196E470E001D9768 /* iPhMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCF2196E470E001D9768 /* iPhMainFavoritesViewController.m */; };
 		AA63DCF7196E55B6001D9768 /* iPhMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCF6196E55B6001D9768 /* iPhMainExploreViewController.m */; };
 		AA63DCFA196E561B001D9768 /* iPhMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCF9196E561B001D9768 /* iPhMainTableViewCell.m */; };
-		AA690646199E5233007A4A6F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7779199E480C00C02513 /* CFNetwork.framework */; };
 		AA83598819B2626F009B3ABC /* emailHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA83598519B2626F009B3ABC /* emailHUD.png */; };
 		AA83598919B2626F009B3ABC /* noEmailHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA83598619B2626F009B3ABC /* noEmailHUD.png */; };
 		AA83598A19B2626F009B3ABC /* copyHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA83598719B2626F009B3ABC /* copyHUD.png */; };
@@ -222,13 +228,7 @@
 		AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */; };
 		AAC6BD96199D2E6800683DB1 /* iPhProgramRatingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */; };
 		AACB7776199E47D100C02513 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7775199E47D100C02513 /* Parse.framework */; };
-		AACB7778199E480500C02513 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7777199E480500C02513 /* AudioToolbox.framework */; };
-		AACB777C199E481600C02513 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB777B199E481600C02513 /* libz.dylib */; };
-		AACB777E199E481D00C02513 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB777D199E481D00C02513 /* MobileCoreServices.framework */; };
-		AACB7780199E482700C02513 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB777F199E482700C02513 /* Security.framework */; };
-		AACB7782199E482F00C02513 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7781199E482F00C02513 /* StoreKit.framework */; };
 		AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7797199E5C1600C02513 /* FacebookSDK.framework */; };
-		AACB7799199E5CA200C02513 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */; };
 		AAD65BE019B99411008455B1 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BDF19B99411008455B1 /* Program.m */; };
 		AAD65BE319B99412008455B1 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BE219B99412008455B1 /* School.m */; };
@@ -578,6 +578,7 @@
 		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeProfileBanner.swift; sourceTree = "<group>"; };
 		AA34FA58198999B100A73292 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA34FA59198999B100A73292 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
+		AA35BDC619D22C45008BFF5F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
 		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAboutViewController.swift; sourceTree = "<group>"; };
 		AA447E2F19B53249004855CC /* NSObject+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JPConvenience.h"; sourceTree = "<group>"; };
@@ -735,27 +736,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA35BDC519D22AE3008BFF5F /* SystemConfiguration.framework in Frameworks */,
+				AA35BDC419D22ADC008BFF5F /* StoreKit.framework in Frameworks */,
+				AA35BDC319D22ACF008BFF5F /* Security.framework in Frameworks */,
+				AA35BDC219D22AC7008BFF5F /* QuartzCore.framework in Frameworks */,
+				AA35BDC119D22ABF008BFF5F /* MobileCoreServices.framework in Frameworks */,
+				AA35BDC019D22AB8008BFF5F /* libz.dylib in Frameworks */,
+				AA35BDBF19D22AB0008BFF5F /* CoreLocation.framework in Frameworks */,
+				AA35BDBE19D22AA6008BFF5F /* CoreGraphics.framework in Frameworks */,
+				AA35BDBC19D22A9A008BFF5F /* AudioToolbox.framework in Frameworks */,
+				AA35BDBB19D229DA008BFF5F /* Foundation.framework in Frameworks */,
 				AA115F3019AAAA4D006E07C1 /* Accounts.framework in Frameworks */,
+				AA35BDC719D22C45008BFF5F /* CFNetwork.framework in Frameworks */,
 				AA115F2E19AAAA20006E07C1 /* libz.1.1.3.dylib in Frameworks */,
-				AACB7799199E5CA200C02513 /* Foundation.framework in Frameworks */,
-				AA690646199E5233007A4A6F /* CFNetwork.framework in Frameworks */,
-				AACB7782199E482F00C02513 /* StoreKit.framework in Frameworks */,
-				AACB7780199E482700C02513 /* Security.framework in Frameworks */,
-				AACB777E199E481D00C02513 /* MobileCoreServices.framework in Frameworks */,
-				AACB777C199E481600C02513 /* libz.dylib in Frameworks */,
-				AACB7778199E480500C02513 /* AudioToolbox.framework in Frameworks */,
 				AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */,
-				5D92531D1930718B00BE5BA3 /* SystemConfiguration.framework in Frameworks */,
 				5D925311192E4C4100BE5BA3 /* AVFoundation.framework in Frameworks */,
 				5D2443FD192AABF500E7E8E0 /* MapKit.framework in Frameworks */,
 				5D24472E192B20B500E7E8E0 /* core_plot_all.a in Frameworks */,
 				5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */,
 				5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */,
-				5D592C05191FF83F00ECDCF7 /* QuartzCore.framework in Frameworks */,
 				5D36C3DB1915793700A5A7D8 /* CoreData.framework in Frameworks */,
 				AACB7776199E47D100C02513 /* Parse.framework in Frameworks */,
-				5DA82D9618C310630011AC26 /* CoreLocation.framework in Frameworks */,
-				5DE5B7B2184ACBB700EFCE0A /* CoreGraphics.framework in Frameworks */,
 				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
 				AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */,
 			);
@@ -1147,6 +1148,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE5B7B5184ACBB700EFCE0A /* Uniq */,
+				5DE5B7AE184ACBB700EFCE0A /* Frameworks */,
 				AA56DDEC19B8EE59005EE1CD /* TRVSMonitor */,
 				AA115F1B19A9BC78006E07C1 /* TLTiltSlider */,
 				AA636EC319A42C93007FCBA4 /* HNBorderButton */,
@@ -1170,7 +1172,6 @@
 				5D592BA5191FF29D00ECDCF7 /* DejalActivityView */,
 				5D592BA6191FF2D300ECDCF7 /* LBActionSheet */,
 				5DE5B7DA184ACBB700EFCE0A /* JumpPadTests */,
-				5DE5B7AE184ACBB700EFCE0A /* Frameworks */,
 				5DE5B7AD184ACBB700EFCE0A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1199,6 +1200,7 @@
 				AACB7775199E47D100C02513 /* Parse.framework */,
 				AA115456195E024000C56E2B /* AddressBook.framework */,
 				5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */,
+				AA35BDC619D22C45008BFF5F /* CFNetwork.framework */,
 				5D925310192E4C4100BE5BA3 /* AVFoundation.framework */,
 				5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */,
 				5D2443FC192AABF500E7E8E0 /* MapKit.framework */,
