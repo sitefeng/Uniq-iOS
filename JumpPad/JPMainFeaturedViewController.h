@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JBParallaxPhoneCell.h"
+#import "JBParallaxSharedCell.h"
 #import "JPDataRequest.h"
 #import "JPCloudFavoritesHelper.h"
 
 
-@class JBParallaxPhoneCell, JPCoreDataHelper, JPDataRequest;
+@class JBParallaxSharedCell, JPCoreDataHelper, JPDataRequest;
 @interface JPMainFeaturedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPFavoriteButtonDelegate, JPDataRequestDelegate, JPCloudFavoritesHelperDelegate>
 {
     NSManagedObjectContext* context;

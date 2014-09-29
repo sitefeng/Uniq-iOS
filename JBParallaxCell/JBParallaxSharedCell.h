@@ -28,9 +28,10 @@
 #import "AsyncImageView.h"
 
 @protocol JPFavoriteButtonDelegate, AsyncImageView;
-@interface JBParallaxPhoneCell : UITableViewCell
+@interface JBParallaxSharedCell : UITableViewCell
 {
     UIView*   _topBarView;
+    UILabel*  _favNumLabel;
     
     UIView*   _bottomBarView;
     
@@ -55,6 +56,8 @@
 @property (strong, nonatomic) UIButton* favoriteButton;
 
 - (void)cellOnTableView:(UITableView *)tableView didScrollOnView:(UIView *)view;
+
++ (CGFloat) requiredHeight;
 
 @end
 

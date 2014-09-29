@@ -27,6 +27,8 @@
 #import <UIKit/UIKit.h>
 #import "AsyncImageView.h"
 
+// NOT USING, DEPRECATED CELL INTENDED FOR THE IPAD
+
 @protocol JPFavoriteButtonDelegate, AsyncImageView;
 @interface JBParallaxCell : UITableViewCell
 {

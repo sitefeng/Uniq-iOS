@@ -24,18 +24,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "JBParallaxPhoneCell.h"
+#import "JBParallaxSharedCell.h"
 #import "JPFont.h"
 #import "JPStyle.h"
 
-@interface JBParallaxPhoneCell()
+@interface JBParallaxSharedCell()
 
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subtitleLabel;
 
 @end
 
-@implementation JBParallaxPhoneCell //768: 483
+@implementation JBParallaxSharedCell //768: 483
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -55,17 +55,30 @@
         
         self.titleLabel = [[UILabel alloc] init];
         self.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
+        if([JPStyle isiPad])
+            self.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:22];
         self.titleLabel.textColor = [UIColor whiteColor];
         
         self.subtitleLabel = [[UILabel alloc] init];
         self.subtitleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
+        if([JPStyle isiPad])
+            self.subtitleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:22];
         self.subtitleLabel.textColor = [UIColor whiteColor];
         
-        self.titleLabel.frame =CGRectMake(5, 1, kiPhoneWidthPortrait - 47, 19);
-        self.subtitleLabel.frame = CGRectMake(5, 20, kiPhoneWidthPortrait - 47, 19);
-        
+        if([JPStyle isiPad])
+        {
+            self.titleLabel.frame =CGRectMake(20, 8, 700, 40);
+            self.subtitleLabel.frame = CGRectMake(20, 44, 700, 30);
+        }
+        else
+        {
+            self.titleLabel.frame =CGRectMake(5, 1, kiPhoneWidthPortrait - 47, 19);
+            self.subtitleLabel.frame = CGRectMake(5, 20, kiPhoneWidthPortrait - 47, 19);
+        }
         
         self.favoriteButton = [[UIButton alloc] initWithFrame:CGRectMake(kiPhoneWidthPortrait - 42, 0, 40, 40)];
+        if([JPStyle isiPad])
+            self.favoriteButton.frame = CGRectMake(kiPadWidthPortrait - 65, 23, 40, 40);
         [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIcon"] forState:UIControlStateNormal];
         [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconHighlighted"] forState:UIControlStateHighlighted];
         [self.favoriteButton setImage:[UIImage imageNamed:@"favoriteIconSelected"] forState:UIControlStateSelected];
@@ -83,6 +96,22 @@
         [self addSubview:self.parallaxImage];
         [self addSubview:_bottomBarView];
         
+        
+        //Top Bar
+        if([JPStyle isiPad])
+        {
+            _topBarView = [[UIView alloc] init];
+            _topBarView.backgroundColor = [UIColor whiteColor];
+            
+            _favNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(kiPadWidthPortrait - 220, 2, 200, 16)];
+            _favNumLabel.font = [UIFont fontWithName:[JPFont defaultLightFont] size:16];
+            _favNumLabel.text = @"0 Favorited";
+            _favNumLabel.textAlignment = NSTextAlignmentRight;
+            [_topBarView addSubview:_favNumLabel];
+            [self addSubview:_topBarView];
+        }
+        
+        
     }
     return self;
 }
@@ -92,10 +121,22 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
  
-    self.parallaxImage.frame = CGRectMake(0, -(kiPhoneWidthPortrait/4*3-150)/2, kiPhoneWidthPortrait, kiPhoneWidthPortrait/4*3);
-    _asyncImageView.frame = CGRectMake(0, 0, self.parallaxImage.frame.size.width, self.parallaxImage.frame.size.height);
-    
-    _bottomBarView.frame= CGRectMake(0, 150 - 40, kiPhoneWidthPortrait, 40);
+    if([JPStyle isiPad])
+    {
+        self.parallaxImage.frame = CGRectMake(0, -116, kiPadWidthPortrait, 483);
+        _asyncImageView.frame = CGRectMake(0, 0, self.parallaxImage.frame.size.width, self.parallaxImage.frame.size.height);
+        
+        _bottomBarView.frame= CGRectMake(0, 270 - 80, kiPadWidthPortrait, 80);
+        
+        _topBarView.frame = CGRectMake(0, 0, kiPadWidthPortrait, 20);
+    }
+    else
+    {
+        self.parallaxImage.frame = CGRectMake(0, -(kiPhoneWidthPortrait/4*3-150)/2, kiPhoneWidthPortrait, kiPhoneWidthPortrait/4*3);
+        _asyncImageView.frame = CGRectMake(0, 0, self.parallaxImage.frame.size.width, self.parallaxImage.frame.size.height);
+        
+        _bottomBarView.frame= CGRectMake(0, 150 - 40, kiPhoneWidthPortrait, 40);
+    }
     
 }
 
@@ -152,10 +193,6 @@
 
 
 
-
-
-
-
 - (void)setAsyncImageUrl:(NSURL *)asyncImageUrl
 {
     _asyncImageUrl = asyncImageUrl;
@@ -180,7 +217,13 @@
 }
 
 
-
++ (CGFloat)requiredHeight
+{
+    if([JPStyle isiPad])
+        return 270;
+    else
+        return 150;
+}
 
 
 

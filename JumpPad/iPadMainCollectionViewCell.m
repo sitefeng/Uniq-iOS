@@ -72,8 +72,13 @@
 {
     _dashletInfo = dashletInfo;
     
-    [self.title removeFromSuperview];
+    if(!self.title)
+    {
+        self.title = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(4, self.frame.size.height/4.0*3 , self.frame.size.width - 8, self.frame.size.height/8.0 - 4 )];
+        self.title.font = [UIFont fontWithName:[JPFont defaultFont] size:17];
+    }
     
+    [self.title removeFromSuperview];
     [self addSubview:self.title];
     
     if(_dashletInfo.title)
@@ -158,8 +163,10 @@
 - (void)prepareForReuse
 {
     self.imageView.imageURLs = @[];
-    
     self.imageView.logoURL = [NSURL URLWithString:@""];
+    
+    [self.title removeFromSuperview];
+    self.title = nil;
     
 }
 

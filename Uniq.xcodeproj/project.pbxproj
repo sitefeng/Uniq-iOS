@@ -129,7 +129,7 @@
 		AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */; };
 		AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */; };
 		AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */; };
-		AA0DB944197BA8AD005A5665 /* JBParallaxPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB942197BA8AD005A5665 /* JBParallaxPhoneCell.m */; };
+		AA0DB944197BA8AD005A5665 /* JBParallaxSharedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB942197BA8AD005A5665 /* JBParallaxSharedCell.m */; };
 		AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */; };
 		AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544E195DF94D00C56E2B /* JPUserLocator.m */; };
 		AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115456195E024000C56E2B /* AddressBook.framework */; };
@@ -548,8 +548,8 @@
 		AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramAcademicsViewController.m; sourceTree = "<group>"; };
 		AA0DB93F197B8CE6005A5665 /* iPhSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSchoolViewController.h; sourceTree = "<group>"; };
 		AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSchoolViewController.m; sourceTree = "<group>"; };
-		AA0DB942197BA8AD005A5665 /* JBParallaxPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxPhoneCell.m; sourceTree = "<group>"; };
-		AA0DB943197BA8AD005A5665 /* JBParallaxPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxPhoneCell.h; sourceTree = "<group>"; };
+		AA0DB942197BA8AD005A5665 /* JBParallaxSharedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxSharedCell.m; sourceTree = "<group>"; };
+		AA0DB943197BA8AD005A5665 /* JBParallaxSharedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxSharedCell.h; sourceTree = "<group>"; };
 		AA11544A195DF63600C56E2B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		AA11544D195DF94D00C56E2B /* JPUserLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUserLocator.h; sourceTree = "<group>"; };
@@ -780,8 +780,8 @@
 			children = (
 				5D22646B192DB96E004B3B42 /* JBParallaxCell.h */,
 				5D22646C192DB96E004B3B42 /* JBParallaxCell.m */,
-				AA0DB942197BA8AD005A5665 /* JBParallaxPhoneCell.m */,
-				AA0DB943197BA8AD005A5665 /* JBParallaxPhoneCell.h */,
+				AA0DB942197BA8AD005A5665 /* JBParallaxSharedCell.m */,
+				AA0DB943197BA8AD005A5665 /* JBParallaxSharedCell.h */,
 			);
 			path = JBParallaxCell;
 			sourceTree = "<group>";
@@ -1236,7 +1236,7 @@
 				5DAC8FA918555EE500FE3B5B /* Model Classes */,
 				5D9C99D619357D28004EFC47 /* Debug */,
 				5DE5B83418504A5C00EFCE0A /* iPhone User Interface */,
-				AA63DCF4196E508E001D9768 /* Abstract View Controllers */,
+				AA63DCF4196E508E001D9768 /* Shared View Controllers */,
 				5DE5B83818504D0B00EFCE0A /* iPad User Interface */,
 				5DE5B7CD184ACBB700EFCE0A /* Images.xcassets */,
 				5D36C4A61915FA2100A5A7D8 /* Files */,
@@ -1283,8 +1283,6 @@
 			children = (
 				AA55F938199AD160005F9F76 /* iPhMainTabBarController.h */,
 				AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */,
-				AA63DCE5196E4101001D9768 /* JPMainFeaturedViewController.h */,
-				AA63DCE6196E4101001D9768 /* JPMainFeaturedViewController.m */,
 				AA63DCF1196E470E001D9768 /* iPhMainFavoritesViewController.h */,
 				AA63DCF2196E470E001D9768 /* iPhMainFavoritesViewController.m */,
 				AA520EDE1971F5640003EF98 /* Explore View Controller */,
@@ -1495,9 +1493,11 @@
 			path = HNBorderButton;
 			sourceTree = "<group>";
 		};
-		AA63DCF4196E508E001D9768 /* Abstract View Controllers */ = {
+		AA63DCF4196E508E001D9768 /* Shared View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA63DCE5196E4101001D9768 /* JPMainFeaturedViewController.h */,
+				AA63DCE6196E4101001D9768 /* JPMainFeaturedViewController.m */,
 				AA63DCEB196E4133001D9768 /* JPMainFavoritesViewController.h */,
 				AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */,
 				AA520ED81971D6B70003EF98 /* JPMainExploreViewController.h */,
@@ -1511,7 +1511,7 @@
 				AA0DB938197B39CD005A5665 /* JPProgramContactViewController.h */,
 				AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */,
 			);
-			name = "Abstract View Controllers";
+			name = "Shared View Controllers";
 			sourceTree = "<group>";
 		};
 		AA82A64719BA5D90001187FD /* Data Management */ = {
@@ -1967,7 +1967,7 @@
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
 				AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */,
 				5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */,
-				AA0DB944197BA8AD005A5665 /* JBParallaxPhoneCell.m in Sources */,
+				AA0DB944197BA8AD005A5665 /* JBParallaxSharedCell.m in Sources */,
 				5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */,
 				AA636EBE19A42C3B007FCBA4 /* HNScrollView.m in Sources */,
 				5D592B35191C893900ECDCF7 /* JPProgramSummaryView.m in Sources */,
@@ -2174,7 +2174,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: SITE FENG (PAR485YFSL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: SITE FENG (PAR485YFSL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2195,7 +2195,7 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cabe096a-57f1-4581-8927-205b87a1c281";
+				PROVISIONING_PROFILE = "e027bb18-5e30-4811-9b8e-9e3d45088111";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -2209,8 +2209,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SITE FENG (52GHE2Q332)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SITE FENG (52GHE2Q332)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: SITE FENG (PAR485YFSL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2231,7 +2231,7 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cf6706ee-eeb2-4e72-84ba-f4d8051b7ecf";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;

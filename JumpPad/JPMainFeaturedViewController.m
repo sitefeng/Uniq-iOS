@@ -9,7 +9,7 @@
 #import "JPMainFeaturedViewController.h"
 #import "Featured.h"
 #import "JPDashlet.h"
-#import "JBParallaxPhoneCell.h"
+#import "JBParallaxSharedCell.h"
 #import "JPCoreDataHelper.h"
 #import "iPhProgramViewController.h"
 #import "iPhSchoolViewController.h"
@@ -47,10 +47,14 @@
     _cloudFav.delegate = self;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight + kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait) style:UITableViewStylePlain];
+    self.tableView.rowHeight = [JBParallaxSharedCell requiredHeight];
+    
     if([JPStyle isiPad])
+    {
         self.tableView.frame = CGRectMake(0, kiPadStatusBarHeight + kiPadNavigationBarHeight, kiPadWidthPortrait, kiPadHeightPortrait-kiPadStatusBarHeight-kiPadNavigationBarHeight-kiPadTabBarHeight);
+    }
+    
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.rowHeight = 150;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;
@@ -122,11 +126,11 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    JBParallaxPhoneCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    JBParallaxSharedCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if(!cell)
     {
-        cell = [[JBParallaxPhoneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[JBParallaxSharedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         [cell setFrame:CGRectMake(0, 0, kiPhoneWidthPortrait, 150)];
     }
     
@@ -187,7 +191,7 @@
     }
     else
     {
-        JBParallaxPhoneCell* cell = (JBParallaxPhoneCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+        JBParallaxSharedCell* cell = (JBParallaxSharedCell*)[self.tableView cellForRowAtIndexPath:indexPath];
         
         id detailsViewController = nil;
         if(cell.type == JPDashletTypeProgram)
@@ -209,11 +213,13 @@
 
 
 
+
+
 #pragma mark - JPFavoriteButtonDelegate
 
 - (void)favoriteButtonSelected:(BOOL)selected forCell:(id)sender
 {
-    JBParallaxPhoneCell* cell = (JBParallaxPhoneCell*)sender;
+    JBParallaxSharedCell* cell = (JBParallaxSharedCell*)sender;
 
     if(selected)
     {
@@ -232,7 +238,7 @@
 {
     NSArray *visibleCells = [self.tableView visibleCells];
     
-    for (JBParallaxPhoneCell *cell in visibleCells) {
+    for (JBParallaxSharedCell *cell in visibleCells) {
         [cell cellOnTableView:self.tableView didScrollOnView:self.view];
     }
     

@@ -33,8 +33,6 @@
         return;
     }
     
-    NSLog(@"Frame: %f", self.frame.size.height);
-    
     //Clear Views from Before
     _programDetailViews = [NSMutableArray array];
     for(UIView* view in self.subviews)
