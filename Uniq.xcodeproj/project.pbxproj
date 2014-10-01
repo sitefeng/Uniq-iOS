@@ -2189,6 +2189,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/chrisjluc/Documents/JumpPad,
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2225,6 +2226,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/chrisjluc/Documents/JumpPad,
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -2241,14 +2243,14 @@
 		5DE5B7E8184ACBB700EFCE0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JumpPad.app/JumpPad";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Uniq.app/Uniq";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
+				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2263,14 +2265,14 @@
 		5DE5B7E9184ACBB700EFCE0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JumpPad.app/JumpPad";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Uniq.app/Uniq";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JumpPad/JumpPad-Prefix.pch";
+				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
 				INFOPLIST_FILE = "JumpPadTests/UniqTests-Info.plist";
 				PRODUCT_NAME = UniqTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
