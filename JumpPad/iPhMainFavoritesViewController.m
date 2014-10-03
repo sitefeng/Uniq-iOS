@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     context = [(UniqAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
