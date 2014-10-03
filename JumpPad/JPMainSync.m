@@ -31,21 +31,21 @@
         
         UniqAppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
         self.context = [appDelegate managedObjectContext];
-        
-        NSError* timeModifiedError = nil;
-        NSFetchRequest* timeModifiedRequest = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-        timeModifiedRequest.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"schoolId" ascending:YES] ];
-        timeModifiedRequest.propertiesToFetch = @[@"timeModified"];
-        timeModifiedRequest.predicate = [NSPredicate predicateWithValue:YES];
-
-        NSArray* results =[self.context executeFetchRequest:timeModifiedRequest error:&timeModifiedError];
-
-        if(!results || [results count] == 0)
-        {
-            results = @[[NSDate distantPast]];
-        }
-
-        self.timeModified = [results lastObject];
+//
+//        NSError* timeModifiedError = nil;
+//        NSFetchRequest* timeModifiedRequest = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+//        timeModifiedRequest.sortDescriptors = @[ [[NSSortDescriptor alloc] initWithKey:@"schoolId" ascending:YES] ];
+//        timeModifiedRequest.propertiesToFetch = @[@"timeModified"];
+//        timeModifiedRequest.predicate = [NSPredicate predicateWithValue:YES];
+//
+//        NSArray* results =[self.context executeFetchRequest:timeModifiedRequest error:&timeModifiedError];
+//
+//        if(!results || [results count] == 0)
+//        {
+//            results = @[[NSDate distantPast]];
+//        }
+//
+//        self.timeModified = [results lastObject];
     }
     
     return self;
@@ -105,86 +105,86 @@
     [self saveBannerDataWithArray:parseBannerArray];
     
     
-    [self sendGetAllUniversitiesInfoRequestWithLastModifiedTime:self.timeModified];
-    
-    //Simulated Data
-    NSURL* uniInfoURL = [[NSBundle mainBundle] URLForResource:@"getAllUniversitiesInfo" withExtension:@"json"];
-    ////////////////
-    NSData* uniInfoData = [NSData dataWithContentsOfURL:uniInfoURL];
-    
-    NSError* error = nil;
-    
-    NSArray* parsedObject = [NSJSONSerialization JSONObjectWithData:uniInfoData options:0 error:&error];
-    
-    if(error)
-    {
-        JPLog(@"error: %@", [error userInfo]);
-    }
-    
-    
-    [self saveAllUniversitiesFromArray:parsedObject];
-    
-    NSFetchRequest* universitiesRequest = [[NSFetchRequest alloc] initWithEntityName:@"School"];
-    universitiesRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"schoolId" ascending:YES]];
-    [universitiesRequest setPropertiesToFetch:@[@"schoolId",@"yearEstablished", @"population"]];
-    
-    NSArray* unis = [self.context executeFetchRequest:universitiesRequest error:nil];
-    
-    for(School* school in unis)
-    {
-        [self sendGetAllFacultiesInfoRequestWithLastModifiedTime:self.timeModified schoolId:school.schoolId];
-        
-        //Simulated Data
-        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        NSURL* facultyURL = [[NSBundle mainBundle] URLForResource:@"getAllFacultiesInfo" withExtension:@"json"];
-        NSData* facultyData = [NSData dataWithContentsOfURL:facultyURL];
-        NSArray* facultyJSONArray = [NSJSONSerialization JSONObjectWithData:facultyData options:0 error:nil];
-        
-        if(![school.schoolId isEqual:[NSNumber numberWithInt:1]])
-        {
-            facultyJSONArray = [NSArray array];
-        }
-        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        
-        [self saveAllFacultiesInfoForSchool:school fromArray:facultyJSONArray];
-        
-        
-        //Get all faculty instances and request for programs within the faculty to be updated/deleted
-        NSFetchRequest* facultiesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
-        facultiesRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"facultyId" ascending:YES]];
-        facultiesRequest.predicate = [NSPredicate predicateWithFormat:@"school.schoolId = %@", school.schoolId];
-        
-        NSArray* faculties = [self.context executeFetchRequest:facultiesRequest error:nil];
-        
-        for(Faculty* faculty in faculties)
-        {
-            [self sendGetAllProgramsInfoRequestWithLastModifiedTime:self.timeModified schoolId:school.schoolId facultyId:faculty.facultyId];
-            
-            //Simulated Data
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            NSURL* progURL = [[NSBundle mainBundle] URLForResource:@"getAllProgramsInfo" withExtension:@"json"];
-            NSData* progData = [NSData dataWithContentsOfURL:progURL];
-            NSArray* progJSONArray = [NSJSONSerialization JSONObjectWithData:progData options:0 error:nil];
-            
-            if(![faculty.facultyId isEqual:[NSNumber numberWithInt:21]])
-            {
-                progJSONArray = [NSArray array];
-            }
-            
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            
-            
-            [self saveAllProgramsInfoForSchool:school faculty:faculty fromArray:progJSONArray];
-            
-        }
-    }
-    
-    NSError* facultySaveError = nil;
-    [self.context save:&facultySaveError];
-    if(facultySaveError)
-    {
-        JPLog(@"Faculty Save Error: %@, %@", facultySaveError, [facultySaveError userInfo]);
-    }
+//    [self sendGetAllUniversitiesInfoRequestWithLastModifiedTime:self.timeModified];
+//    
+//    //Simulated Data
+//    NSURL* uniInfoURL = [[NSBundle mainBundle] URLForResource:@"getAllUniversitiesInfo" withExtension:@"json"];
+//    ////////////////
+//    NSData* uniInfoData = [NSData dataWithContentsOfURL:uniInfoURL];
+//    
+//    NSError* error = nil;
+//    
+//    NSArray* parsedObject = [NSJSONSerialization JSONObjectWithData:uniInfoData options:0 error:&error];
+//    
+//    if(error)
+//    {
+//        JPLog(@"error: %@", [error userInfo]);
+//    }
+//    
+//    
+//    [self saveAllUniversitiesFromArray:parsedObject];
+//    
+//    NSFetchRequest* universitiesRequest = [[NSFetchRequest alloc] initWithEntityName:@"School"];
+//    universitiesRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"schoolId" ascending:YES]];
+//    [universitiesRequest setPropertiesToFetch:@[@"schoolId",@"yearEstablished", @"population"]];
+//    
+//    NSArray* unis = [self.context executeFetchRequest:universitiesRequest error:nil];
+//    
+//    for(School* school in unis)
+//    {
+//        [self sendGetAllFacultiesInfoRequestWithLastModifiedTime:self.timeModified schoolId:school.schoolId];
+//        
+//        //Simulated Data
+//        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//        NSURL* facultyURL = [[NSBundle mainBundle] URLForResource:@"getAllFacultiesInfo" withExtension:@"json"];
+//        NSData* facultyData = [NSData dataWithContentsOfURL:facultyURL];
+//        NSArray* facultyJSONArray = [NSJSONSerialization JSONObjectWithData:facultyData options:0 error:nil];
+//        
+//        if(![school.schoolId isEqual:[NSNumber numberWithInt:1]])
+//        {
+//            facultyJSONArray = [NSArray array];
+//        }
+//        //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//        
+//        [self saveAllFacultiesInfoForSchool:school fromArray:facultyJSONArray];
+//        
+//        
+//        //Get all faculty instances and request for programs within the faculty to be updated/deleted
+//        NSFetchRequest* facultiesRequest = [[NSFetchRequest alloc] initWithEntityName:@"Faculty"];
+//        facultiesRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"facultyId" ascending:YES]];
+//        facultiesRequest.predicate = [NSPredicate predicateWithFormat:@"school.schoolId = %@", school.schoolId];
+//        
+//        NSArray* faculties = [self.context executeFetchRequest:facultiesRequest error:nil];
+//        
+//        for(Faculty* faculty in faculties)
+//        {
+//            [self sendGetAllProgramsInfoRequestWithLastModifiedTime:self.timeModified schoolId:school.schoolId facultyId:faculty.facultyId];
+//            
+//            //Simulated Data
+//            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//            NSURL* progURL = [[NSBundle mainBundle] URLForResource:@"getAllProgramsInfo" withExtension:@"json"];
+//            NSData* progData = [NSData dataWithContentsOfURL:progURL];
+//            NSArray* progJSONArray = [NSJSONSerialization JSONObjectWithData:progData options:0 error:nil];
+//            
+//            if(![faculty.facultyId isEqual:[NSNumber numberWithInt:21]])
+//            {
+//                progJSONArray = [NSArray array];
+//            }
+//            
+//            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//            
+//            
+//            [self saveAllProgramsInfoForSchool:school faculty:faculty fromArray:progJSONArray];
+//            
+//        }
+//    }
+//    
+//    NSError* facultySaveError = nil;
+//    [self.context save:&facultySaveError];
+//    if(facultySaveError)
+//    {
+//        JPLog(@"Faculty Save Error: %@, %@", facultySaveError, [facultySaveError userInfo]);
+//    }
     
     
 }

@@ -39,6 +39,7 @@
         
         //Show 2nd Banner first for infinite scrolling
         [self setContentOffset:CGPointMake(_bannerWidth, 0) animated:NO];
+        self.contentSize = CGSizeMake(self.contentSize.width, self.frame.size.height);
         
         //Setting up Automatic Scrolling
         _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(autoscrollBanner) userInfo:nil repeats:YES];

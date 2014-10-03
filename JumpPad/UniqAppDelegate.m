@@ -28,6 +28,9 @@
     // Override point for customization after application launch.
 //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    JPMainSync* syncer = [[JPMainSync alloc] init];
+    [syncer sync];
+    
     connectivityManager = [JPConnectivityManager sharedManager];
     [connectivityManager startUpdating];
     
