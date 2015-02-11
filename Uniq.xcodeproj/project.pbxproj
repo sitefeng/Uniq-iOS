@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5D167632185787750041993E /* JPDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* JPDashletTitleView.m */; };
 		5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* Uniq-Explaination.txt */; };
-		5D16763D1858D3CB0041993E /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763C1858D3CB0041993E /* JPFont.m */; };
 		5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iPadDashletDetailsView.m */; };
 		5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DE04219315DD400C36935 /* volumeBar.bundle */; };
 		5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DE04419315DD400C36935 /* VolumeBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -32,9 +31,6 @@
 		5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */; };
 		5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */; };
 		5D36C3DB1915793700A5A7D8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D36C3DA1915793700A5A7D8 /* CoreData.framework */; };
-		5D36C4A51915FA1B00A5A7D8 /* getAllUniversitiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */; };
-		5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */; };
-		5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */; };
 		5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4897F11925CC400062DD54 /* RPRadarChart.m */; };
 		5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D555517193A9D0100BF6F20 /* iPadProgramHexCollectionView.m */; };
 		5D55551B193A9E5A00BF6F20 /* iPadProgramRelatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55551A193A9E5A00BF6F20 /* iPadProgramRelatedView.m */; };
@@ -69,9 +65,6 @@
 		5D94204219308AD40033D57B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D94204119308AD40033D57B /* Reachability.m */; };
 		5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99D419357D1C004EFC47 /* iPadDebugSyncViewController.m */; };
 		5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99D81935806B004EFC47 /* iPadSearchResultsView.m */; };
-		5D9C99DB19358D3C004EFC47 /* UniqKnowledgeEngineOne.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */; };
-		5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */; };
-		5DA1465219397E63004A53EB /* JPMainSync.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA1465119397E63004A53EB /* JPMainSync.m */; };
 		5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA82D2918C2FE430011AC26 /* Mixpanel.m */; };
 		5DA82D7318C2FE430011AC26 /* MPArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */; };
 		5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DA82D2B18C2FE430011AC26 /* MPArrowLeft@2x.png */; };
@@ -101,12 +94,8 @@
 		5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */; };
 		5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */; };
 		5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */; };
-		5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8F8D185525C500FE3B5B /* JPStyle.m */; };
-		5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */; };
-		5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAD18556A9900FE3B5B /* JPLocation.m */; };
 		5DAC8FB018556FAA00FE3B5B /* JPLocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */; };
 		5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */; };
-		5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */; };
 		5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7BB184ACBB700EFCE0A /* main.m */; };
@@ -119,27 +108,16 @@
 		5DE5B7D7184ACBB700EFCE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */; };
 		5DE5B7DF184ACBB700EFCE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE5B7DD184ACBB700EFCE0A /* InfoPlist.strings */; };
 		5DE5B7E1184ACBB700EFCE0A /* UniqTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5B7E0184ACBB700EFCE0A /* UniqTests.m */; };
-		5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5C306192338B100F7F01B /* JPGlobal.m */; };
 		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
 		5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C30A1923449000F7F01B /* Social.framework */; };
-		5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */; };
 		5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* JPDateView.m */; };
-		5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */; };
-		AA0DB937197A2943005A5665 /* JPProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB936197A2943005A5665 /* JPProgramDetailView.m */; };
-		AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */; };
-		AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */; };
 		AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */; };
 		AA0DB944197BA8AD005A5665 /* JBParallaxSharedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB942197BA8AD005A5665 /* JBParallaxSharedCell.m */; };
 		AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */; };
-		AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544E195DF94D00C56E2B /* JPUserLocator.m */; };
 		AA115457195E024000C56E2B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115456195E024000C56E2B /* AddressBook.framework */; };
-		AA115F1019A84A8F006E07C1 /* JPRatings.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F0F19A84A8F006E07C1 /* JPRatings.m */; };
-		AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */; };
-		AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */; };
 		AA115F2019A9BC78006E07C1 /* higlightedBarBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1C19A9BC78006E07C1 /* higlightedBarBackground@2x.png */; };
 		AA115F2219A9BC78006E07C1 /* trackBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F1F19A9BC78006E07C1 /* trackBackground@2x.png */; };
 		AA115F2519A9BCC6006E07C1 /* TLTiltSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F2419A9BCC6006E07C1 /* TLTiltSlider.m */; };
-		AA115F2819AA7C91006E07C1 /* JPHighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */; };
 		AA115F2B19AA8B5B006E07C1 /* downloadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F2919AA8B5B006E07C1 /* downloadFailedHUD.png */; };
 		AA115F2C19AA8B5B006E07C1 /* uploadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */; };
 		AA115F2E19AAAA20006E07C1 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */; };
@@ -161,44 +139,20 @@
 		AA35BDC719D22C45008BFF5F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA35BDC619D22C45008BFF5F /* CFNetwork.framework */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
-		AA447E3119B53249004855CC /* NSObject+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AA447E3019B53249004855CC /* NSObject+JPConvenience.m */; };
 		AA447E3519B5799E004855CC /* ManagedObjects+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AA447E3419B5799E004855CC /* ManagedObjects+JPConvenience.m */; };
-		AA520EDA1971D6B70003EF98 /* JPMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520ED91971D6B70003EF98 /* JPMainExploreViewController.m */; };
 		AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */; };
 		AA520EE11971F6F60003EF98 /* iPhSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */; };
 		AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EE8197219070003EF98 /* iPhProgramViewController.m */; };
 		AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */; };
 		AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */; };
 		AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */; };
-		AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF4197223070003EF98 /* JPCoreDataHelper.m */; };
 		AA520EF8197236130003EF98 /* iPhImagePanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EF7197236130003EF98 /* iPhImagePanView.m */; };
 		AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */; };
-		AA520F011972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F001972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m */; };
 		AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F031972DCAD0003EF98 /* iPhMapPanView.m */; };
 		AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */; };
-		AA55F9191999B762005F9F76 /* JPConnectivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F9181999B762005F9F76 /* JPConnectivityManager.m */; };
 		AA55F937199AD147005F9F76 /* iPadMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */; };
 		AA55F93A199AD160005F9F76 /* iPhMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */; };
-		AA561A9D199D1B9C00967D15 /* JPProgramRatingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */; };
-		AA56DD6819B66304005EE1CD /* ImportantDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD6719B66304005EE1CD /* ImportantDate.m */; };
-		AA56DD6E19B66304005EE1CD /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD6D19B66304005EE1CD /* UniqKEKeyword.m */; };
-		AA56DD7119B66304005EE1CD /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD7019B66304005EE1CD /* HighschoolCourse.m */; };
-		AA56DD8319B66305005EE1CD /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8219B66305005EE1CD /* SchoolRanking.m */; };
-		AA56DD8919B66305005EE1CD /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8819B66305005EE1CD /* Banner.m */; };
-		AA56DD8C19B66305005EE1CD /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8B19B66305005EE1CD /* ProgramCourse.m */; };
-		AA56DD8F19B66305005EE1CD /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD8E19B66305005EE1CD /* UniqKEFunction.m */; };
-		AA56DD9219B66305005EE1CD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9119B66305005EE1CD /* User.m */; };
-		AA56DD9519B66305005EE1CD /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9419B66305005EE1CD /* ImageLink.m */; };
-		AA56DD9819B66305005EE1CD /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9719B66305005EE1CD /* ProgramApplicationStat.m */; };
-		AA56DD9B19B66305005EE1CD /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DD9A19B66305005EE1CD /* UniqKEOne.m */; };
-		AA56DDA419B679D9005EE1CD /* RelatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDA319B679D9005EE1CD /* RelatedItem.m */; };
-		AA56DDB019B68617005EE1CD /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDAF19B68617005EE1CD /* UserFavItem.m */; };
-		AA56DDB619B6BA48005EE1CD /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDB519B6BA48005EE1CD /* Featured.m */; };
-		AA56DDE819B83592005EE1CD /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDE719B83592005EE1CD /* SchoolLocation.m */; };
-		AA56DDEB19B83B2D005EE1CD /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDEA19B83B2D005EE1CD /* ProgramYearlyTuition.m */; };
 		AA56DDEF19B8EE59005EE1CD /* TRVSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDEE19B8EE59005EE1CD /* TRVSMonitor.m */; };
-		AA56DDF219B908C3005EE1CD /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDF119B908C3005EE1CD /* ProgramRating.m */; };
-		AA56DDF519B9284E005EE1CD /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = AA56DDF419B9284E005EE1CD /* Contact.m */; };
 		AA636EB119A42BFD007FCBA4 /* downloadCompleteHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EA519A42BFD007FCBA4 /* downloadCompleteHUD.png */; };
 		AA636EB219A42BFD007FCBA4 /* downloadHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EA619A42BFD007FCBA4 /* downloadHUD.png */; };
 		AA636EB319A42BFD007FCBA4 /* noWifi.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EA719A42BFD007FCBA4 /* noWifi.png */; };
@@ -212,8 +166,6 @@
 		AA636EBB19A42BFD007FCBA4 /* wifi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA636EB019A42BFD007FCBA4 /* wifi@2x.png */; };
 		AA636EBE19A42C3B007FCBA4 /* HNScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA636EBD19A42C3B007FCBA4 /* HNScrollView.m */; };
 		AA636EC619A42C93007FCBA4 /* HNBorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AA636EC519A42C93007FCBA4 /* HNBorderButton.m */; };
-		AA63DCE7196E4101001D9768 /* JPMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCE6196E4101001D9768 /* JPMainFeaturedViewController.m */; };
-		AA63DCED196E4133001D9768 /* JPMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */; };
 		AA63DCF0196E4141001D9768 /* iPhMainSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCEF196E4141001D9768 /* iPhMainSettingsViewController.m */; };
 		AA63DCF3196E470E001D9768 /* iPhMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCF2196E470E001D9768 /* iPhMainFavoritesViewController.m */; };
 		AA63DCF7196E55B6001D9768 /* iPhMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA63DCF6196E55B6001D9768 /* iPhMainExploreViewController.m */; };
@@ -221,26 +173,74 @@
 		AA83598819B2626F009B3ABC /* emailHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA83598519B2626F009B3ABC /* emailHUD.png */; };
 		AA83598919B2626F009B3ABC /* noEmailHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA83598619B2626F009B3ABC /* noEmailHUD.png */; };
 		AA83598A19B2626F009B3ABC /* copyHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA83598719B2626F009B3ABC /* copyHUD.png */; };
-		AA83598E19B268C7009B3ABC /* JPDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AA83598D19B268C7009B3ABC /* JPDataRequest.m */; };
-		AA894BDB1969CFF200F457F8 /* getAllFeaturedInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */; };
 		AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */; };
 		AAAEE36119BD004D00988810 /* iPhProgramDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */; };
 		AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */; };
 		AAC6BD96199D2E6800683DB1 /* iPhProgramRatingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */; };
 		AACB7776199E47D100C02513 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7775199E47D100C02513 /* Parse.framework */; };
 		AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7797199E5C1600C02513 /* FacebookSDK.framework */; };
-		AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */; };
-		AAD65BE019B99411008455B1 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BDF19B99411008455B1 /* Program.m */; };
-		AAD65BE319B99412008455B1 /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BE219B99412008455B1 /* School.m */; };
-		AAD65BE619B99412008455B1 /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD65BE519B99412008455B1 /* Faculty.m */; };
 		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
 		AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */; };
-		AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */ = {isa = PBXBuildFile; fileRef = AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */; };
 		AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */; };
 		AAEC90ED197D8120006E8E1C /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEC90EC197D8120006E8E1C /* AsyncImageView.m */; };
 		AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEC90EF197D8182006E8E1C /* LDProgressView.m */; };
 		AAEC90F3197D8182006E8E1C /* UIColor+RGBValues.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEC90F1197D8182006E8E1C /* UIColor+RGBValues.m */; };
 		AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */; };
+		AAF733E81A8B3FAF00F3398D /* JPFont.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E01A8B3FAF00F3398D /* JPFont.m */; };
+		AAF733E91A8B3FAF00F3398D /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E21A8B3FAF00F3398D /* JPGlobal.m */; };
+		AAF733EA1A8B3FAF00F3398D /* JPStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E41A8B3FAF00F3398D /* JPStyle.m */; };
+		AAF733EB1A8B3FAF00F3398D /* NSObject+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E61A8B3FAF00F3398D /* NSObject+JPConvenience.m */; };
+		AAF7342D1A8B407400F3398D /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7342C1A8B407400F3398D /* Contact.m */; };
+		AAF734301A8B407500F3398D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7342F1A8B407500F3398D /* User.m */; };
+		AAF734331A8B407500F3398D /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734321A8B407500F3398D /* UniqKEFunction.m */; };
+		AAF734361A8B407500F3398D /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734351A8B407500F3398D /* Program.m */; };
+		AAF734391A8B407500F3398D /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734381A8B407500F3398D /* UniqKEOne.m */; };
+		AAF7343C1A8B407500F3398D /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7343B1A8B407500F3398D /* School.m */; };
+		AAF7343F1A8B407500F3398D /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7343E1A8B407500F3398D /* Banner.m */; };
+		AAF734421A8B407500F3398D /* ImportantDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734411A8B407500F3398D /* ImportantDate.m */; };
+		AAF734451A8B407500F3398D /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734441A8B407500F3398D /* ProgramRating.m */; };
+		AAF734481A8B407500F3398D /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734471A8B407500F3398D /* ProgramYearlyTuition.m */; };
+		AAF7344B1A8B407500F3398D /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7344A1A8B407500F3398D /* HighschoolCourse.m */; };
+		AAF7344E1A8B407500F3398D /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7344D1A8B407500F3398D /* Featured.m */; };
+		AAF734511A8B407500F3398D /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734501A8B407500F3398D /* Faculty.m */; };
+		AAF734541A8B407500F3398D /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734531A8B407500F3398D /* ImageLink.m */; };
+		AAF734571A8B407500F3398D /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734561A8B407500F3398D /* SchoolRanking.m */; };
+		AAF7345A1A8B407600F3398D /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734591A8B407600F3398D /* SchoolLocation.m */; };
+		AAF7345D1A8B407600F3398D /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7345C1A8B407600F3398D /* ProgramCourse.m */; };
+		AAF734601A8B407600F3398D /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7345F1A8B407600F3398D /* ProgramApplicationStat.m */; };
+		AAF734631A8B407600F3398D /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734621A8B407600F3398D /* UserFavItem.m */; };
+		AAF734661A8B407600F3398D /* RelatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734651A8B407600F3398D /* RelatedItem.m */; };
+		AAF734691A8B407600F3398D /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734681A8B407600F3398D /* UniqKEKeyword.m */; };
+		AAF734721A8B409900F3398D /* JPConnectivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346B1A8B409900F3398D /* JPConnectivityManager.m */; };
+		AAF734731A8B409900F3398D /* JPCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346D1A8B409900F3398D /* JPCoreDataHelper.m */; };
+		AAF734741A8B409900F3398D /* JPDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346F1A8B409900F3398D /* JPDataRequest.m */; };
+		AAF734751A8B409900F3398D /* JPMainSync.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734711A8B409900F3398D /* JPMainSync.m */; };
+		AAF7347C1A8B40C400F3398D /* JPCloudBannerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734771A8B40C400F3398D /* JPCloudBannerHelper.m */; };
+		AAF7347D1A8B40C400F3398D /* JPCloudFavoritesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734791A8B40C400F3398D /* JPCloudFavoritesHelper.m */; };
+		AAF7347E1A8B40C400F3398D /* JPProgramRatingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7347B1A8B40C400F3398D /* JPProgramRatingHelper.m */; };
+		AAF734911A8B40F300F3398D /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734801A8B40F300F3398D /* JPDashlet.m */; };
+		AAF734921A8B40F300F3398D /* JPHighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734821A8B40F300F3398D /* JPHighschoolCourse.m */; };
+		AAF734931A8B40F300F3398D /* JPImageRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734841A8B40F300F3398D /* JPImageRetriever.m */; };
+		AAF734941A8B40F300F3398D /* JPKnowledgeEngineInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734861A8B40F300F3398D /* JPKnowledgeEngineInterpreter.m */; };
+		AAF734951A8B40F300F3398D /* JPLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734881A8B40F300F3398D /* JPLocation.m */; };
+		AAF734961A8B40F300F3398D /* JPRatings.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7348A1A8B40F300F3398D /* JPRatings.m */; };
+		AAF734971A8B40F300F3398D /* JPUserLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7348C1A8B40F300F3398D /* JPUserLocator.m */; };
+		AAF734981A8B40F300F3398D /* NSString+JPDateStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7348E1A8B40F300F3398D /* NSString+JPDateStringParser.m */; };
+		AAF734991A8B40F300F3398D /* NSString+JPKnowledgeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734901A8B40F300F3398D /* NSString+JPKnowledgeEngine.m */; };
+		AAF734A81A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7349B1A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.m */; };
+		AAF734A91A8B411A00F3398D /* JPMainExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7349D1A8B411A00F3398D /* JPMainExploreViewController.m */; };
+		AAF734AA1A8B411A00F3398D /* JPMainFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7349F1A8B411A00F3398D /* JPMainFavoritesViewController.m */; };
+		AAF734AB1A8B411A00F3398D /* JPMainFeaturedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734A11A8B411A00F3398D /* JPMainFeaturedViewController.m */; };
+		AAF734AC1A8B411A00F3398D /* JPProgramAcademicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734A31A8B411A00F3398D /* JPProgramAcademicsViewController.m */; };
+		AAF734AD1A8B411A00F3398D /* JPProgramContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734A51A8B411A00F3398D /* JPProgramContactViewController.m */; };
+		AAF734AE1A8B411A00F3398D /* JPProgramDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734A71A8B411A00F3398D /* JPProgramDetailView.m */; };
+		AAF734B61A8B420D00F3398D /* getAllBannersInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734AF1A8B420D00F3398D /* getAllBannersInfo.json */; };
+		AAF734B71A8B420D00F3398D /* getAllFacultiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734B01A8B420D00F3398D /* getAllFacultiesInfo.json */; };
+		AAF734B81A8B420D00F3398D /* getAllFeaturedInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734B11A8B420D00F3398D /* getAllFeaturedInfo.json */; };
+		AAF734B91A8B420D00F3398D /* getAllProgramsInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734B21A8B420D00F3398D /* getAllProgramsInfo.json */; };
+		AAF734BA1A8B420D00F3398D /* getAllUniversitiesInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734B31A8B420D00F3398D /* getAllUniversitiesInfo.json */; };
+		AAF734BB1A8B420D00F3398D /* getAllUniversitiesInfoTry.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734B41A8B420D00F3398D /* getAllUniversitiesInfoTry.json */; };
+		AAF734BC1A8B420D00F3398D /* UniqKnowledgeEngineOne.json in Resources */ = {isa = PBXBuildFile; fileRef = AAF734B51A8B420D00F3398D /* UniqKnowledgeEngineOne.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,15 +254,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D167630185787750041993E /* JPDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDashletTitleView.h; sourceTree = "<group>"; };
-		5D167631185787750041993E /* JPDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDashletTitleView.m; sourceTree = "<group>"; };
+		5D167630185787750041993E /* JPDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPDashletTitleView.h; path = "iPad User Interface/JPDashletTitleView.h"; sourceTree = "<group>"; };
+		5D167631185787750041993E /* JPDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPDashletTitleView.m; path = "iPad User Interface/JPDashletTitleView.m"; sourceTree = "<group>"; };
 		5D16763918583D250041993E /* Uniq-Explaination.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Uniq-Explaination.txt"; sourceTree = "<group>"; };
-		5D16763B1858D3CB0041993E /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPFont.h; sourceTree = "<group>"; };
-		5D16763C1858D3CB0041993E /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPFont.m; sourceTree = "<group>"; };
-		5D16763E18591AE10041993E /* iPadDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletDetailsView.h; sourceTree = "<group>"; };
-		5D16763F18591AE10041993E /* iPadDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletDetailsView.m; sourceTree = "<group>"; };
+		5D16763E18591AE10041993E /* iPadDashletDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadDashletDetailsView.h; path = "iPad User Interface/iPadDashletDetailsView.h"; sourceTree = "<group>"; };
+		5D16763F18591AE10041993E /* iPadDashletDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadDashletDetailsView.m; path = "iPad User Interface/iPadDashletDetailsView.m"; sourceTree = "<group>"; };
 		5D167646185D6A6C0041993E /* ApplicationConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationConstants.h; sourceTree = "<group>"; };
-		5D167647185D6A750041993E /* UserInterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInterfaceConstants.h; sourceTree = "<group>"; };
 		5D1DE04219315DD400C36935 /* volumeBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = volumeBar.bundle; path = VolumeBar/volumeBar.bundle; sourceTree = "<group>"; };
 		5D1DE04319315DD400C36935 /* VolumeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeBar.h; path = VolumeBar/VolumeBar.h; sourceTree = "<group>"; };
 		5D1DE04419315DD400C36935 /* VolumeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeBar.m; path = VolumeBar/VolumeBar.m; sourceTree = "<group>"; };
@@ -273,60 +270,57 @@
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D24472D192B20B500E7E8E0 /* core_plot_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = core_plot_all.a; sourceTree = "<group>"; };
-		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainCollectionViewCell.h; sourceTree = "<group>"; };
-		5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainCollectionViewCell.m; sourceTree = "<group>"; };
-		5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDashletImageView.h; sourceTree = "<group>"; };
-		5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDashletImageView.m; sourceTree = "<group>"; };
+		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainCollectionViewCell.h; path = "iPad User Interface/iPadMainCollectionViewCell.h"; sourceTree = "<group>"; };
+		5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainCollectionViewCell.m; path = "iPad User Interface/iPadMainCollectionViewCell.m"; sourceTree = "<group>"; };
+		5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadDashletImageView.h; path = "iPad User Interface/iPadDashletImageView.h"; sourceTree = "<group>"; };
+		5D2540B418B74EDA00FAB887 /* iPadDashletImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadDashletImageView.m; path = "iPad User Interface/iPadDashletImageView.m"; sourceTree = "<group>"; };
 		5D2664D018BB249100C8CC91 /* JPLocalDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JPLocalDatabase.xcdatamodel; sourceTree = "<group>"; };
-		5D338A0C1918747D00A62AC0 /* iPadFacultySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultySelectViewController.h; sourceTree = "<group>"; };
-		5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultySelectViewController.m; sourceTree = "<group>"; };
-		5D338A0F191878D200A62AC0 /* iPadFacultyBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadFacultyBannerView.h; sourceTree = "<group>"; };
-		5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadFacultyBannerView.m; sourceTree = "<group>"; };
-		5D338A12191896CA00A62AC0 /* iPadProgramSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramSelectViewController.h; sourceTree = "<group>"; };
-		5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramSelectViewController.m; sourceTree = "<group>"; };
-		5D338A1819189B5D00A62AC0 /* iPadProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramViewController.h; sourceTree = "<group>"; };
-		5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramViewController.m; sourceTree = "<group>"; };
-		5D338A1C19189D8100A62AC0 /* iPadProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramHomeViewController.h; sourceTree = "<group>"; };
-		5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramHomeViewController.m; sourceTree = "<group>"; };
-		5D338A1F19189D9600A62AC0 /* iPadProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramAcademicsViewController.h; sourceTree = "<group>"; };
-		5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramAcademicsViewController.m; sourceTree = "<group>"; };
-		5D338A2219189DA700A62AC0 /* iPadProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramContactViewController.h; sourceTree = "<group>"; };
-		5D338A2319189DA700A62AC0 /* iPadProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramContactViewController.m; sourceTree = "<group>"; };
-		5D338A2519189DB900A62AC0 /* iPadProgramCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramCompareViewController.h; sourceTree = "<group>"; };
-		5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramCompareViewController.m; sourceTree = "<group>"; };
-		5D338A2819189DCB00A62AC0 /* iPadProgramRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramRatingsViewController.h; sourceTree = "<group>"; };
-		5D338A2919189DCB00A62AC0 /* iPadProgramRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramRatingsViewController.m; sourceTree = "<group>"; };
-		5D338A2B19189E3800A62AC0 /* iPadProgramLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramLabelView.h; sourceTree = "<group>"; };
-		5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramLabelView.m; sourceTree = "<group>"; };
-		5D338A3019189EC100A62AC0 /* iPadProgramImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramImagesViewController.h; sourceTree = "<group>"; };
-		5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramImagesViewController.m; sourceTree = "<group>"; };
+		5D338A0C1918747D00A62AC0 /* iPadFacultySelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadFacultySelectViewController.h; path = "iPad User Interface/iPadFacultySelectViewController.h"; sourceTree = "<group>"; };
+		5D338A0D1918747D00A62AC0 /* iPadFacultySelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadFacultySelectViewController.m; path = "iPad User Interface/iPadFacultySelectViewController.m"; sourceTree = "<group>"; };
+		5D338A0F191878D200A62AC0 /* iPadFacultyBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadFacultyBannerView.h; path = "iPad User Interface/iPadFacultyBannerView.h"; sourceTree = "<group>"; };
+		5D338A10191878D200A62AC0 /* iPadFacultyBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadFacultyBannerView.m; path = "iPad User Interface/iPadFacultyBannerView.m"; sourceTree = "<group>"; };
+		5D338A12191896CA00A62AC0 /* iPadProgramSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramSelectViewController.h; path = "iPad User Interface/iPadProgramSelectViewController.h"; sourceTree = "<group>"; };
+		5D338A13191896CA00A62AC0 /* iPadProgramSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramSelectViewController.m; path = "iPad User Interface/iPadProgramSelectViewController.m"; sourceTree = "<group>"; };
+		5D338A1819189B5D00A62AC0 /* iPadProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramViewController.h; path = "iPad User Interface/iPadProgramViewController.h"; sourceTree = "<group>"; };
+		5D338A1919189B5D00A62AC0 /* iPadProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramViewController.m; path = "iPad User Interface/iPadProgramViewController.m"; sourceTree = "<group>"; };
+		5D338A1C19189D8100A62AC0 /* iPadProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramHomeViewController.h; path = "iPad User Interface/iPadProgramHomeViewController.h"; sourceTree = "<group>"; };
+		5D338A1D19189D8100A62AC0 /* iPadProgramHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramHomeViewController.m; path = "iPad User Interface/iPadProgramHomeViewController.m"; sourceTree = "<group>"; };
+		5D338A1F19189D9600A62AC0 /* iPadProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramAcademicsViewController.h; path = "iPad User Interface/iPadProgramAcademicsViewController.h"; sourceTree = "<group>"; };
+		5D338A2019189D9600A62AC0 /* iPadProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramAcademicsViewController.m; path = "iPad User Interface/iPadProgramAcademicsViewController.m"; sourceTree = "<group>"; };
+		5D338A2219189DA700A62AC0 /* iPadProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramContactViewController.h; path = "iPad User Interface/iPadProgramContactViewController.h"; sourceTree = "<group>"; };
+		5D338A2319189DA700A62AC0 /* iPadProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramContactViewController.m; path = "iPad User Interface/iPadProgramContactViewController.m"; sourceTree = "<group>"; };
+		5D338A2519189DB900A62AC0 /* iPadProgramCompareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramCompareViewController.h; path = "iPad User Interface/iPadProgramCompareViewController.h"; sourceTree = "<group>"; };
+		5D338A2619189DB900A62AC0 /* iPadProgramCompareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramCompareViewController.m; path = "iPad User Interface/iPadProgramCompareViewController.m"; sourceTree = "<group>"; };
+		5D338A2819189DCB00A62AC0 /* iPadProgramRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramRatingsViewController.h; path = "iPad User Interface/iPadProgramRatingsViewController.h"; sourceTree = "<group>"; };
+		5D338A2919189DCB00A62AC0 /* iPadProgramRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramRatingsViewController.m; path = "iPad User Interface/iPadProgramRatingsViewController.m"; sourceTree = "<group>"; };
+		5D338A2B19189E3800A62AC0 /* iPadProgramLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramLabelView.h; path = "iPad User Interface/iPadProgramLabelView.h"; sourceTree = "<group>"; };
+		5D338A2C19189E3800A62AC0 /* iPadProgramLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramLabelView.m; path = "iPad User Interface/iPadProgramLabelView.m"; sourceTree = "<group>"; };
+		5D338A3019189EC100A62AC0 /* iPadProgramImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramImagesViewController.h; path = "iPad User Interface/iPadProgramImagesViewController.h"; sourceTree = "<group>"; };
+		5D338A3119189EC100A62AC0 /* iPadProgramImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramImagesViewController.m; path = "iPad User Interface/iPadProgramImagesViewController.m"; sourceTree = "<group>"; };
 		5D36C3DA1915793700A5A7D8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfo.json; sourceTree = "<group>"; };
-		5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFacultiesInfo.json; sourceTree = "<group>"; };
-		5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllProgramsInfo.json; sourceTree = "<group>"; };
 		5D4897F01925CC400062DD54 /* RPRadarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPRadarChart.h; sourceTree = "<group>"; };
 		5D4897F11925CC400062DD54 /* RPRadarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPRadarChart.m; sourceTree = "<group>"; };
-		5D555516193A9D0100BF6F20 /* iPadProgramHexCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramHexCollectionView.h; sourceTree = "<group>"; };
-		5D555517193A9D0100BF6F20 /* iPadProgramHexCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramHexCollectionView.m; sourceTree = "<group>"; };
-		5D555519193A9E5A00BF6F20 /* iPadProgramRelatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramRelatedView.h; sourceTree = "<group>"; };
-		5D55551A193A9E5A00BF6F20 /* iPadProgramRelatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramRelatedView.m; sourceTree = "<group>"; };
-		5D55551C193A9EB300BF6F20 /* iPadProgramHexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramHexView.h; sourceTree = "<group>"; };
-		5D55551D193A9EB300BF6F20 /* iPadProgramHexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramHexView.m; sourceTree = "<group>"; };
-		5D55551F193AF98500BF6F20 /* iPadProgramRelatedViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramRelatedViewCell.h; sourceTree = "<group>"; };
-		5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramRelatedViewCell.m; sourceTree = "<group>"; };
-		5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPadProgramRelatedViewCell.xib; sourceTree = "<group>"; };
-		5D555524193B140900BF6F20 /* JPProgramCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramCoursesViewController.h; sourceTree = "<group>"; };
-		5D555525193B140900BF6F20 /* JPProgramCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramCoursesViewController.m; sourceTree = "<group>"; };
-		5D555527193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramCoursesTableViewCell.h; sourceTree = "<group>"; };
-		5D555528193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramCoursesTableViewCell.m; sourceTree = "<group>"; };
-		5D592B33191C893900ECDCF7 /* JPProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramSummaryView.h; sourceTree = "<group>"; };
-		5D592B34191C893900ECDCF7 /* JPProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramSummaryView.m; sourceTree = "<group>"; };
-		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailView.h; sourceTree = "<group>"; };
-		5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailView.m; sourceTree = "<group>"; };
-		5D592B3A191F050D00ECDCF7 /* iPadProgramDetailGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailGraphView.h; sourceTree = "<group>"; };
-		5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailGraphView.m; sourceTree = "<group>"; };
-		5D592B8B191F426800ECDCF7 /* iPadProgramDetailInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramDetailInfoView.h; sourceTree = "<group>"; };
-		5D592B8C191F426800ECDCF7 /* iPadProgramDetailInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramDetailInfoView.m; sourceTree = "<group>"; };
+		5D555516193A9D0100BF6F20 /* iPadProgramHexCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramHexCollectionView.h; path = "iPad User Interface/iPadProgramHexCollectionView.h"; sourceTree = "<group>"; };
+		5D555517193A9D0100BF6F20 /* iPadProgramHexCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramHexCollectionView.m; path = "iPad User Interface/iPadProgramHexCollectionView.m"; sourceTree = "<group>"; };
+		5D555519193A9E5A00BF6F20 /* iPadProgramRelatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramRelatedView.h; path = "iPad User Interface/iPadProgramRelatedView.h"; sourceTree = "<group>"; };
+		5D55551A193A9E5A00BF6F20 /* iPadProgramRelatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramRelatedView.m; path = "iPad User Interface/iPadProgramRelatedView.m"; sourceTree = "<group>"; };
+		5D55551C193A9EB300BF6F20 /* iPadProgramHexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramHexView.h; path = "iPad User Interface/iPadProgramHexView.h"; sourceTree = "<group>"; };
+		5D55551D193A9EB300BF6F20 /* iPadProgramHexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramHexView.m; path = "iPad User Interface/iPadProgramHexView.m"; sourceTree = "<group>"; };
+		5D55551F193AF98500BF6F20 /* iPadProgramRelatedViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramRelatedViewCell.h; path = "iPad User Interface/iPadProgramRelatedViewCell.h"; sourceTree = "<group>"; };
+		5D555520193AF98500BF6F20 /* iPadProgramRelatedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramRelatedViewCell.m; path = "iPad User Interface/iPadProgramRelatedViewCell.m"; sourceTree = "<group>"; };
+		5D555522193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = iPadProgramRelatedViewCell.xib; path = "iPad User Interface/iPadProgramRelatedViewCell.xib"; sourceTree = "<group>"; };
+		5D555524193B140900BF6F20 /* JPProgramCoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramCoursesViewController.h; path = "iPad User Interface/JPProgramCoursesViewController.h"; sourceTree = "<group>"; };
+		5D555525193B140900BF6F20 /* JPProgramCoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramCoursesViewController.m; path = "iPad User Interface/JPProgramCoursesViewController.m"; sourceTree = "<group>"; };
+		5D555527193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramCoursesTableViewCell.h; path = "iPad User Interface/JPProgramCoursesTableViewCell.h"; sourceTree = "<group>"; };
+		5D555528193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramCoursesTableViewCell.m; path = "iPad User Interface/JPProgramCoursesTableViewCell.m"; sourceTree = "<group>"; };
+		5D592B33191C893900ECDCF7 /* JPProgramSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramSummaryView.h; path = "iPad User Interface/JPProgramSummaryView.h"; sourceTree = "<group>"; };
+		5D592B34191C893900ECDCF7 /* JPProgramSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramSummaryView.m; path = "iPad User Interface/JPProgramSummaryView.m"; sourceTree = "<group>"; };
+		5D592B36191C897D00ECDCF7 /* iPadProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramDetailView.h; path = "iPad User Interface/iPadProgramDetailView.h"; sourceTree = "<group>"; };
+		5D592B37191C897D00ECDCF7 /* iPadProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramDetailView.m; path = "iPad User Interface/iPadProgramDetailView.m"; sourceTree = "<group>"; };
+		5D592B3A191F050D00ECDCF7 /* iPadProgramDetailGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramDetailGraphView.h; path = "iPad User Interface/iPadProgramDetailGraphView.h"; sourceTree = "<group>"; };
+		5D592B3B191F050D00ECDCF7 /* iPadProgramDetailGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramDetailGraphView.m; path = "iPad User Interface/iPadProgramDetailGraphView.m"; sourceTree = "<group>"; };
+		5D592B8B191F426800ECDCF7 /* iPadProgramDetailInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramDetailInfoView.h; path = "iPad User Interface/iPadProgramDetailInfoView.h"; sourceTree = "<group>"; };
+		5D592B8C191F426800ECDCF7 /* iPadProgramDetailInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramDetailInfoView.m; path = "iPad User Interface/iPadProgramDetailInfoView.m"; sourceTree = "<group>"; };
 		5D592B9C191FF26700ECDCF7 /* DPMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPMeterView.h; sourceTree = "<group>"; };
 		5D592B9D191FF26700ECDCF7 /* DPMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMeterView.m; sourceTree = "<group>"; };
 		5D592B9E191FF26700ECDCF7 /* UIBezierPath+BasicShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+BasicShapes.h"; sourceTree = "<group>"; };
@@ -414,10 +408,10 @@
 		5D592C02191FF79A00ECDCF7 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		5D592C0719207CB900ECDCF7 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
 		5D592C0819207CB900ECDCF7 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
-		5D7055F018B9B240002941B3 /* iPadSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSearchBarView.h; sourceTree = "<group>"; };
-		5D7055F118B9B240002941B3 /* iPadSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSearchBarView.m; sourceTree = "<group>"; };
-		5D7055F518B9C779002941B3 /* JPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPBannerView.h; sourceTree = "<group>"; };
-		5D7055F618B9C779002941B3 /* JPBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPBannerView.m; sourceTree = "<group>"; };
+		5D7055F018B9B240002941B3 /* iPadSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadSearchBarView.h; path = "iPad User Interface/iPadSearchBarView.h"; sourceTree = "<group>"; };
+		5D7055F118B9B240002941B3 /* iPadSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadSearchBarView.m; path = "iPad User Interface/iPadSearchBarView.m"; sourceTree = "<group>"; };
+		5D7055F518B9C779002941B3 /* JPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPBannerView.h; path = "iPad User Interface/JPBannerView.h"; sourceTree = "<group>"; };
+		5D7055F618B9C779002941B3 /* JPBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPBannerView.m; path = "iPad User Interface/JPBannerView.m"; sourceTree = "<group>"; };
 		5D7055F918B9E10D002941B3 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		5D7055FA18B9E10D002941B3 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		5D7055FB18B9E10D002941B3 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -437,10 +431,10 @@
 		5D70560918B9E10D002941B3 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		5D70560A18B9E10D002941B3 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		5D70560B18B9E10D002941B3 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		5D70561E18B9EAB2002941B3 /* sortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sortViewController.h; sourceTree = "<group>"; };
-		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sortViewController.m; sourceTree = "<group>"; };
-		5D84161319108D20005A8D74 /* iPadMainSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainSearchViewController.h; sourceTree = "<group>"; };
-		5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainSearchViewController.m; sourceTree = "<group>"; };
+		5D70561E18B9EAB2002941B3 /* sortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sortViewController.h; path = "iPad User Interface/sortViewController.h"; sourceTree = "<group>"; };
+		5D70561F18B9EAB2002941B3 /* sortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sortViewController.m; path = "iPad User Interface/sortViewController.m"; sourceTree = "<group>"; };
+		5D84161319108D20005A8D74 /* iPadMainSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainSearchViewController.h; path = "iPad User Interface/iPadMainSearchViewController.h"; sourceTree = "<group>"; };
+		5D84161419108D20005A8D74 /* iPadMainSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainSearchViewController.m; path = "iPad User Interface/iPadMainSearchViewController.m"; sourceTree = "<group>"; };
 		5D925310192E4C4100BE5BA3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5D94203D19308AA10033D57B /* DXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXAlertView.h; path = DXAlertView/DXAlertView.h; sourceTree = "<group>"; };
@@ -449,13 +443,8 @@
 		5D94204119308AD40033D57B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
 		5D9C99D319357D1C004EFC47 /* iPadDebugSyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadDebugSyncViewController.h; sourceTree = "<group>"; };
 		5D9C99D419357D1C004EFC47 /* iPadDebugSyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadDebugSyncViewController.m; sourceTree = "<group>"; };
-		5D9C99D71935806B004EFC47 /* iPadSearchResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSearchResultsView.h; sourceTree = "<group>"; };
-		5D9C99D81935806B004EFC47 /* iPadSearchResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSearchResultsView.m; sourceTree = "<group>"; };
-		5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UniqKnowledgeEngineOne.json; sourceTree = "<group>"; };
-		5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPKnowledgeEngine.h"; sourceTree = "<group>"; };
-		5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPKnowledgeEngine.m"; sourceTree = "<group>"; };
-		5DA1465019397E63004A53EB /* JPMainSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainSync.h; sourceTree = "<group>"; };
-		5DA1465119397E63004A53EB /* JPMainSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainSync.m; sourceTree = "<group>"; };
+		5D9C99D71935806B004EFC47 /* iPadSearchResultsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadSearchResultsView.h; path = "iPad User Interface/iPadSearchResultsView.h"; sourceTree = "<group>"; };
+		5D9C99D81935806B004EFC47 /* iPadSearchResultsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadSearchResultsView.m; path = "iPad User Interface/iPadSearchResultsView.m"; sourceTree = "<group>"; };
 		5DA82D2818C2FE430011AC26 /* Mixpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mixpanel.h; sourceTree = "<group>"; };
 		5DA82D2918C2FE430011AC26 /* Mixpanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mixpanel.m; sourceTree = "<group>"; };
 		5DA82D2A18C2FE430011AC26 /* MPArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MPArrowLeft.png; sourceTree = "<group>"; };
@@ -495,22 +484,15 @@
 		5DA82D4C18C2FE430011AC26 /* UIView+MPSnapshotImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MPSnapshotImage.h"; sourceTree = "<group>"; };
 		5DA82D4D18C2FE430011AC26 /* UIView+MPSnapshotImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MPSnapshotImage.m"; sourceTree = "<group>"; };
 		5DA82D9518C310630011AC26 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		5DAC8F801855250000FE3B5B /* iPadMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainFavoritesViewController.h; sourceTree = "<group>"; };
-		5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainFavoritesViewController.m; sourceTree = "<group>"; };
-		5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainExploreViewController.h; sourceTree = "<group>"; };
-		5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainExploreViewController.m; sourceTree = "<group>"; };
-		5DAC8F891855254200FE3B5B /* iPadMainHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainHomeViewController.h; sourceTree = "<group>"; };
-		5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainHomeViewController.m; sourceTree = "<group>"; };
-		5DAC8F8C185525C500FE3B5B /* JPStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPStyle.h; sourceTree = "<group>"; };
-		5DAC8F8D185525C500FE3B5B /* JPStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPStyle.m; sourceTree = "<group>"; };
-		5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDashlet.h; sourceTree = "<group>"; };
-		5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDashlet.m; sourceTree = "<group>"; };
-		5DAC8FAC18556A9900FE3B5B /* JPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPLocation.h; sourceTree = "<group>"; };
-		5DAC8FAD18556A9900FE3B5B /* JPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocation.m; sourceTree = "<group>"; };
+		5DAC8F801855250000FE3B5B /* iPadMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainFavoritesViewController.h; path = "iPad User Interface/iPadMainFavoritesViewController.h"; sourceTree = "<group>"; };
+		5DAC8F811855250000FE3B5B /* iPadMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainFavoritesViewController.m; path = "iPad User Interface/iPadMainFavoritesViewController.m"; sourceTree = "<group>"; };
+		5DAC8F831855251300FE3B5B /* iPadMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainExploreViewController.h; path = "iPad User Interface/iPadMainExploreViewController.h"; sourceTree = "<group>"; };
+		5DAC8F841855251300FE3B5B /* iPadMainExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainExploreViewController.m; path = "iPad User Interface/iPadMainExploreViewController.m"; sourceTree = "<group>"; };
+		5DAC8F891855254200FE3B5B /* iPadMainHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainHomeViewController.h; path = "iPad User Interface/iPadMainHomeViewController.h"; sourceTree = "<group>"; };
+		5DAC8F8A1855254200FE3B5B /* iPadMainHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainHomeViewController.m; path = "iPad User Interface/iPadMainHomeViewController.m"; sourceTree = "<group>"; };
 		5DAC8FAF18556FAA00FE3B5B /* JPLocationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPLocationTest.m; sourceTree = "<group>"; };
 		5DAD989A19312E6A00FA8FF5 /* SFGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFGaugeView.h; sourceTree = "<group>"; };
 		5DAD989B19312E6A00FA8FF5 /* SFGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFGaugeView.m; sourceTree = "<group>"; };
-		5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllBannersInfo.json; sourceTree = "<group>"; };
 		5DE5B7AC184ACBB700EFCE0A /* Uniq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uniq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -530,133 +512,63 @@
 		5DE5B7DE184ACBB700EFCE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5DE5B7E0184ACBB700EFCE0A /* UniqTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniqTests.m; sourceTree = "<group>"; };
 		5DE5B85D18543F5B00EFCE0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5DE5C305192338B100F7F01B /* JPGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGlobal.h; sourceTree = "<group>"; };
-		5DE5C306192338B100F7F01B /* JPGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGlobal.m; sourceTree = "<group>"; };
 		5DE5C3081923448900F7F01B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5DE5C30A1923449000F7F01B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		5DF25F8A19357B6E00474B45 /* JPKnowledgeEngineInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPKnowledgeEngineInterpreter.h; sourceTree = "<group>"; };
-		5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPKnowledgeEngineInterpreter.m; sourceTree = "<group>"; };
-		5DF6503A1933D7AE003E0490 /* JPDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDateView.h; sourceTree = "<group>"; };
-		5DF6503B1933D7AE003E0490 /* JPDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDateView.m; sourceTree = "<group>"; };
-		5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JPDateStringParser.h"; sourceTree = "<group>"; };
-		5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
-		AA0DB935197A2943005A5665 /* JPProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramDetailView.h; sourceTree = "<group>"; };
-		AA0DB936197A2943005A5665 /* JPProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramDetailView.m; sourceTree = "<group>"; };
-		AA0DB938197B39CD005A5665 /* JPProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramContactViewController.h; sourceTree = "<group>"; };
-		AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramContactViewController.m; sourceTree = "<group>"; };
-		AA0DB93B197B6D79005A5665 /* JPProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramAcademicsViewController.h; sourceTree = "<group>"; };
-		AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramAcademicsViewController.m; sourceTree = "<group>"; };
-		AA0DB93F197B8CE6005A5665 /* iPhSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSchoolViewController.h; sourceTree = "<group>"; };
-		AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSchoolViewController.m; sourceTree = "<group>"; };
+		5DF6503A1933D7AE003E0490 /* JPDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPDateView.h; path = "iPad User Interface/JPDateView.h"; sourceTree = "<group>"; };
+		5DF6503B1933D7AE003E0490 /* JPDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPDateView.m; path = "iPad User Interface/JPDateView.m"; sourceTree = "<group>"; };
+		AA0DB93F197B8CE6005A5665 /* iPhSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhSchoolViewController.h; path = "iPhone User Interface/iPhSchoolViewController.h"; sourceTree = "<group>"; };
+		AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhSchoolViewController.m; path = "iPhone User Interface/iPhSchoolViewController.m"; sourceTree = "<group>"; };
 		AA0DB942197BA8AD005A5665 /* JBParallaxSharedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxSharedCell.m; sourceTree = "<group>"; };
 		AA0DB943197BA8AD005A5665 /* JBParallaxSharedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxSharedCell.h; sourceTree = "<group>"; };
 		AA11544A195DF63600C56E2B /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "UIImageView+ImageEffects/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		AA11544D195DF94D00C56E2B /* JPUserLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUserLocator.h; sourceTree = "<group>"; };
-		AA11544E195DF94D00C56E2B /* JPUserLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPUserLocator.m; sourceTree = "<group>"; };
 		AA115456195E024000C56E2B /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		AA115F0E19A84A8F006E07C1 /* JPRatings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPRatings.h; sourceTree = "<group>"; };
-		AA115F0F19A84A8F006E07C1 /* JPRatings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPRatings.m; sourceTree = "<group>"; };
-		AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudFavoritesHelper.h; sourceTree = "<group>"; };
-		AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCloudFavoritesHelper.m; sourceTree = "<group>"; };
-		AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCloudBannerHelper.h; sourceTree = "<group>"; };
-		AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCloudBannerHelper.m; sourceTree = "<group>"; };
 		AA115F1C19A9BC78006E07C1 /* higlightedBarBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "higlightedBarBackground@2x.png"; sourceTree = "<group>"; };
 		AA115F1F19A9BC78006E07C1 /* trackBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trackBackground@2x.png"; sourceTree = "<group>"; };
 		AA115F2319A9BCC6006E07C1 /* TLTiltSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTiltSlider.h; sourceTree = "<group>"; };
 		AA115F2419A9BCC6006E07C1 /* TLTiltSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTiltSlider.m; sourceTree = "<group>"; };
-		AA115F2619AA7C91006E07C1 /* JPHighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHighschoolCourse.h; sourceTree = "<group>"; };
-		AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHighschoolCourse.m; sourceTree = "<group>"; };
 		AA115F2919AA8B5B006E07C1 /* downloadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downloadFailedHUD.png; path = SVStatusHUD/downloadFailedHUD.png; sourceTree = "<group>"; };
 		AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadFailedHUD.png; path = SVStatusHUD/uploadFailedHUD.png; sourceTree = "<group>"; };
 		AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		AA115F2F19AAAA4D006E07C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadHomeMarkTableViewCell.h; sourceTree = "<group>"; };
-		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadHomeMarkTableViewCell.m; sourceTree = "<group>"; };
-		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSettingsAboutViewController.h; sourceTree = "<group>"; };
-		AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSettingsAboutViewController.m; sourceTree = "<group>"; };
-		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadHomeProfileBanner.swift; sourceTree = "<group>"; };
+		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadHomeMarkTableViewCell.h; path = "iPad User Interface/iPadHomeMarkTableViewCell.h"; sourceTree = "<group>"; };
+		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadHomeMarkTableViewCell.m; path = "iPad User Interface/iPadHomeMarkTableViewCell.m"; sourceTree = "<group>"; };
+		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhSettingsAboutViewController.h; path = "iPhone User Interface/iPhSettingsAboutViewController.h"; sourceTree = "<group>"; };
+		AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhSettingsAboutViewController.m; path = "iPhone User Interface/iPhSettingsAboutViewController.m"; sourceTree = "<group>"; };
+		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadHomeProfileBanner.swift; path = "iPad User Interface/iPadHomeProfileBanner.swift"; sourceTree = "<group>"; };
 		AA34FA58198999B100A73292 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA34FA59198999B100A73292 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA35BDC619D22C45008BFF5F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
-		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsTableViewController.swift; sourceTree = "<group>"; };
-		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAboutViewController.swift; sourceTree = "<group>"; };
-		AA447E2F19B53249004855CC /* NSObject+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JPConvenience.h"; sourceTree = "<group>"; };
-		AA447E3019B53249004855CC /* NSObject+JPConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JPConvenience.m"; sourceTree = "<group>"; };
+		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsTableViewController.swift; path = "iPad User Interface/iPadSettingsTableViewController.swift"; sourceTree = "<group>"; };
+		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsAboutViewController.swift; path = "iPad User Interface/iPadSettingsAboutViewController.swift"; sourceTree = "<group>"; };
 		AA447E3319B5799E004855CC /* ManagedObjects+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ManagedObjects+JPConvenience.h"; sourceTree = "<group>"; };
 		AA447E3419B5799E004855CC /* ManagedObjects+JPConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ManagedObjects+JPConvenience.m"; sourceTree = "<group>"; };
-		AA520ED81971D6B70003EF98 /* JPMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainExploreViewController.h; sourceTree = "<group>"; };
-		AA520ED91971D6B70003EF98 /* JPMainExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainExploreViewController.m; sourceTree = "<group>"; };
-		AA520EDB1971F55A0003EF98 /* iPhFacProgSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhFacProgSelectViewController.h; sourceTree = "<group>"; };
-		AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhFacProgSelectViewController.m; sourceTree = "<group>"; };
-		AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSchoolHomeViewController.h; sourceTree = "<group>"; };
-		AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSchoolHomeViewController.m; sourceTree = "<group>"; };
-		AA520EE7197219070003EF98 /* iPhProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramViewController.h; sourceTree = "<group>"; };
-		AA520EE8197219070003EF98 /* iPhProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramViewController.m; sourceTree = "<group>"; };
-		AA520EEA19721A300003EF98 /* iPhProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramHomeViewController.h; sourceTree = "<group>"; };
-		AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramHomeViewController.m; sourceTree = "<group>"; };
-		AA520EED19721A410003EF98 /* iPhProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramAcademicsViewController.h; sourceTree = "<group>"; };
-		AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramAcademicsViewController.m; sourceTree = "<group>"; };
-		AA520EF019721A4F0003EF98 /* iPhProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramContactViewController.h; sourceTree = "<group>"; };
-		AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramContactViewController.m; sourceTree = "<group>"; };
-		AA520EF3197223070003EF98 /* JPCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPCoreDataHelper.h; sourceTree = "<group>"; };
-		AA520EF4197223070003EF98 /* JPCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPCoreDataHelper.m; sourceTree = "<group>"; };
-		AA520EF6197236130003EF98 /* iPhImagePanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhImagePanView.h; sourceTree = "<group>"; };
-		AA520EF7197236130003EF98 /* iPhImagePanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhImagePanView.m; sourceTree = "<group>"; };
-		AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramDetailView.h; sourceTree = "<group>"; };
-		AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramDetailView.m; sourceTree = "<group>"; };
-		AA520EFF1972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramSchoolAbstractViewController.h; sourceTree = "<group>"; };
-		AA520F001972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramSchoolAbstractViewController.m; sourceTree = "<group>"; };
-		AA520F021972DCAD0003EF98 /* iPhMapPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMapPanView.h; sourceTree = "<group>"; };
-		AA520F031972DCAD0003EF98 /* iPhMapPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMapPanView.m; sourceTree = "<group>"; };
-		AA520F051972DD240003EF98 /* iPhAppProgressPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhAppProgressPanView.h; sourceTree = "<group>"; };
-		AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhAppProgressPanView.m; sourceTree = "<group>"; };
-		AA55F9171999B762005F9F76 /* JPConnectivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPConnectivityManager.h; sourceTree = "<group>"; };
-		AA55F9181999B762005F9F76 /* JPConnectivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPConnectivityManager.m; sourceTree = "<group>"; };
-		AA55F935199AD147005F9F76 /* iPadMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadMainTabBarController.h; sourceTree = "<group>"; };
-		AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadMainTabBarController.m; sourceTree = "<group>"; };
-		AA55F938199AD160005F9F76 /* iPhMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainTabBarController.h; sourceTree = "<group>"; };
-		AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainTabBarController.m; sourceTree = "<group>"; };
-		AA561A9B199D1B9C00967D15 /* JPProgramRatingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPProgramRatingHelper.h; sourceTree = "<group>"; };
-		AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPProgramRatingHelper.m; sourceTree = "<group>"; };
-		AA56DD6619B66304005EE1CD /* ImportantDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportantDate.h; sourceTree = "<group>"; };
-		AA56DD6719B66304005EE1CD /* ImportantDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportantDate.m; sourceTree = "<group>"; };
-		AA56DD6C19B66304005EE1CD /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEKeyword.h; sourceTree = "<group>"; };
-		AA56DD6D19B66304005EE1CD /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEKeyword.m; sourceTree = "<group>"; };
-		AA56DD6F19B66304005EE1CD /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighschoolCourse.h; sourceTree = "<group>"; };
-		AA56DD7019B66304005EE1CD /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighschoolCourse.m; sourceTree = "<group>"; };
-		AA56DD8119B66305005EE1CD /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolRanking.h; sourceTree = "<group>"; };
-		AA56DD8219B66305005EE1CD /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolRanking.m; sourceTree = "<group>"; };
-		AA56DD8719B66305005EE1CD /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banner.h; sourceTree = "<group>"; };
-		AA56DD8819B66305005EE1CD /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banner.m; sourceTree = "<group>"; };
-		AA56DD8A19B66305005EE1CD /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCourse.h; sourceTree = "<group>"; };
-		AA56DD8B19B66305005EE1CD /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCourse.m; sourceTree = "<group>"; };
-		AA56DD8D19B66305005EE1CD /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEFunction.h; sourceTree = "<group>"; };
-		AA56DD8E19B66305005EE1CD /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEFunction.m; sourceTree = "<group>"; };
-		AA56DD9019B66305005EE1CD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		AA56DD9119B66305005EE1CD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		AA56DD9319B66305005EE1CD /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLink.h; sourceTree = "<group>"; };
-		AA56DD9419B66305005EE1CD /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLink.m; sourceTree = "<group>"; };
-		AA56DD9619B66305005EE1CD /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramApplicationStat.h; sourceTree = "<group>"; };
-		AA56DD9719B66305005EE1CD /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramApplicationStat.m; sourceTree = "<group>"; };
-		AA56DD9919B66305005EE1CD /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniqKEOne.h; sourceTree = "<group>"; };
-		AA56DD9A19B66305005EE1CD /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UniqKEOne.m; sourceTree = "<group>"; };
-		AA56DDA219B679D9005EE1CD /* RelatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedItem.h; sourceTree = "<group>"; };
-		AA56DDA319B679D9005EE1CD /* RelatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedItem.m; sourceTree = "<group>"; };
-		AA56DDAE19B68617005EE1CD /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFavItem.h; sourceTree = "<group>"; };
-		AA56DDAF19B68617005EE1CD /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFavItem.m; sourceTree = "<group>"; };
-		AA56DDB419B6BA48005EE1CD /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Featured.h; sourceTree = "<group>"; };
-		AA56DDB519B6BA48005EE1CD /* Featured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Featured.m; sourceTree = "<group>"; };
-		AA56DDE619B83592005EE1CD /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolLocation.h; sourceTree = "<group>"; };
-		AA56DDE719B83592005EE1CD /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolLocation.m; sourceTree = "<group>"; };
-		AA56DDE919B83B2D005EE1CD /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramYearlyTuition.h; sourceTree = "<group>"; };
-		AA56DDEA19B83B2D005EE1CD /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramYearlyTuition.m; sourceTree = "<group>"; };
+		AA520EDB1971F55A0003EF98 /* iPhFacProgSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhFacProgSelectViewController.h; path = "iPhone User Interface/iPhFacProgSelectViewController.h"; sourceTree = "<group>"; };
+		AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhFacProgSelectViewController.m; path = "iPhone User Interface/iPhFacProgSelectViewController.m"; sourceTree = "<group>"; };
+		AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhSchoolHomeViewController.h; path = "iPhone User Interface/iPhSchoolHomeViewController.h"; sourceTree = "<group>"; };
+		AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhSchoolHomeViewController.m; path = "iPhone User Interface/iPhSchoolHomeViewController.m"; sourceTree = "<group>"; };
+		AA520EE7197219070003EF98 /* iPhProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramViewController.h; path = "iPhone User Interface/iPhProgramViewController.h"; sourceTree = "<group>"; };
+		AA520EE8197219070003EF98 /* iPhProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramViewController.m; path = "iPhone User Interface/iPhProgramViewController.m"; sourceTree = "<group>"; };
+		AA520EEA19721A300003EF98 /* iPhProgramHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramHomeViewController.h; path = "iPhone User Interface/iPhProgramHomeViewController.h"; sourceTree = "<group>"; };
+		AA520EEB19721A300003EF98 /* iPhProgramHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramHomeViewController.m; path = "iPhone User Interface/iPhProgramHomeViewController.m"; sourceTree = "<group>"; };
+		AA520EED19721A410003EF98 /* iPhProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramAcademicsViewController.h; path = "iPhone User Interface/iPhProgramAcademicsViewController.h"; sourceTree = "<group>"; };
+		AA520EEE19721A410003EF98 /* iPhProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramAcademicsViewController.m; path = "iPhone User Interface/iPhProgramAcademicsViewController.m"; sourceTree = "<group>"; };
+		AA520EF019721A4F0003EF98 /* iPhProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramContactViewController.h; path = "iPhone User Interface/iPhProgramContactViewController.h"; sourceTree = "<group>"; };
+		AA520EF119721A4F0003EF98 /* iPhProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramContactViewController.m; path = "iPhone User Interface/iPhProgramContactViewController.m"; sourceTree = "<group>"; };
+		AA520EF6197236130003EF98 /* iPhImagePanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhImagePanView.h; path = "iPhone User Interface/iPhImagePanView.h"; sourceTree = "<group>"; };
+		AA520EF7197236130003EF98 /* iPhImagePanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhImagePanView.m; path = "iPhone User Interface/iPhImagePanView.m"; sourceTree = "<group>"; };
+		AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramDetailView.h; path = "iPhone User Interface/iPhProgramDetailView.h"; sourceTree = "<group>"; };
+		AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramDetailView.m; path = "iPhone User Interface/iPhProgramDetailView.m"; sourceTree = "<group>"; };
+		AA520F021972DCAD0003EF98 /* iPhMapPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhMapPanView.h; path = "iPhone User Interface/iPhMapPanView.h"; sourceTree = "<group>"; };
+		AA520F031972DCAD0003EF98 /* iPhMapPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhMapPanView.m; path = "iPhone User Interface/iPhMapPanView.m"; sourceTree = "<group>"; };
+		AA520F051972DD240003EF98 /* iPhAppProgressPanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhAppProgressPanView.h; path = "iPhone User Interface/iPhAppProgressPanView.h"; sourceTree = "<group>"; };
+		AA520F061972DD240003EF98 /* iPhAppProgressPanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhAppProgressPanView.m; path = "iPhone User Interface/iPhAppProgressPanView.m"; sourceTree = "<group>"; };
+		AA55F935199AD147005F9F76 /* iPadMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainTabBarController.h; path = "iPad User Interface/iPadMainTabBarController.h"; sourceTree = "<group>"; };
+		AA55F936199AD147005F9F76 /* iPadMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainTabBarController.m; path = "iPad User Interface/iPadMainTabBarController.m"; sourceTree = "<group>"; };
+		AA55F938199AD160005F9F76 /* iPhMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhMainTabBarController.h; path = "iPhone User Interface/iPhMainTabBarController.h"; sourceTree = "<group>"; };
+		AA55F939199AD160005F9F76 /* iPhMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhMainTabBarController.m; path = "iPhone User Interface/iPhMainTabBarController.m"; sourceTree = "<group>"; };
 		AA56DDED19B8EE59005EE1CD /* TRVSMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRVSMonitor.h; sourceTree = "<group>"; };
 		AA56DDEE19B8EE59005EE1CD /* TRVSMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRVSMonitor.m; sourceTree = "<group>"; };
-		AA56DDF019B908C3005EE1CD /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramRating.h; sourceTree = "<group>"; };
-		AA56DDF119B908C3005EE1CD /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramRating.m; sourceTree = "<group>"; };
-		AA56DDF319B9284E005EE1CD /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		AA56DDF419B9284E005EE1CD /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		AA636EA519A42BFD007FCBA4 /* downloadCompleteHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downloadCompleteHUD.png; path = SVStatusHUD/downloadCompleteHUD.png; sourceTree = "<group>"; };
 		AA636EA619A42BFD007FCBA4 /* downloadHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = downloadHUD.png; path = SVStatusHUD/downloadHUD.png; sourceTree = "<group>"; };
 		AA636EA719A42BFD007FCBA4 /* noWifi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noWifi.png; path = SVStatusHUD/noWifi.png; sourceTree = "<group>"; };
@@ -673,32 +585,25 @@
 		AA636EBD19A42C3B007FCBA4 /* HNScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HNScrollView.m; path = HNScrollView/HNScrollView.m; sourceTree = "<group>"; };
 		AA636EC419A42C93007FCBA4 /* HNBorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNBorderButton.h; sourceTree = "<group>"; };
 		AA636EC519A42C93007FCBA4 /* HNBorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNBorderButton.m; sourceTree = "<group>"; };
-		AA63DCE5196E4101001D9768 /* JPMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainFeaturedViewController.h; sourceTree = "<group>"; };
-		AA63DCE6196E4101001D9768 /* JPMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainFeaturedViewController.m; sourceTree = "<group>"; };
-		AA63DCEB196E4133001D9768 /* JPMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMainFavoritesViewController.h; sourceTree = "<group>"; };
-		AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMainFavoritesViewController.m; sourceTree = "<group>"; };
-		AA63DCEE196E4141001D9768 /* iPhMainSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainSettingsViewController.h; sourceTree = "<group>"; };
-		AA63DCEF196E4141001D9768 /* iPhMainSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainSettingsViewController.m; sourceTree = "<group>"; };
-		AA63DCF1196E470E001D9768 /* iPhMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainFavoritesViewController.h; sourceTree = "<group>"; };
-		AA63DCF2196E470E001D9768 /* iPhMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainFavoritesViewController.m; sourceTree = "<group>"; };
-		AA63DCF5196E55B6001D9768 /* iPhMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainExploreViewController.h; sourceTree = "<group>"; };
-		AA63DCF6196E55B6001D9768 /* iPhMainExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainExploreViewController.m; sourceTree = "<group>"; };
-		AA63DCF8196E561B001D9768 /* iPhMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhMainTableViewCell.h; sourceTree = "<group>"; };
-		AA63DCF9196E561B001D9768 /* iPhMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhMainTableViewCell.m; sourceTree = "<group>"; };
+		AA63DCEE196E4141001D9768 /* iPhMainSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhMainSettingsViewController.h; path = "iPhone User Interface/iPhMainSettingsViewController.h"; sourceTree = "<group>"; };
+		AA63DCEF196E4141001D9768 /* iPhMainSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhMainSettingsViewController.m; path = "iPhone User Interface/iPhMainSettingsViewController.m"; sourceTree = "<group>"; };
+		AA63DCF1196E470E001D9768 /* iPhMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhMainFavoritesViewController.h; path = "iPhone User Interface/iPhMainFavoritesViewController.h"; sourceTree = "<group>"; };
+		AA63DCF2196E470E001D9768 /* iPhMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhMainFavoritesViewController.m; path = "iPhone User Interface/iPhMainFavoritesViewController.m"; sourceTree = "<group>"; };
+		AA63DCF5196E55B6001D9768 /* iPhMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhMainExploreViewController.h; path = "iPhone User Interface/iPhMainExploreViewController.h"; sourceTree = "<group>"; };
+		AA63DCF6196E55B6001D9768 /* iPhMainExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhMainExploreViewController.m; path = "iPhone User Interface/iPhMainExploreViewController.m"; sourceTree = "<group>"; };
+		AA63DCF8196E561B001D9768 /* iPhMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhMainTableViewCell.h; path = "iPhone User Interface/iPhMainTableViewCell.h"; sourceTree = "<group>"; };
+		AA63DCF9196E561B001D9768 /* iPhMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhMainTableViewCell.m; path = "iPhone User Interface/iPhMainTableViewCell.m"; sourceTree = "<group>"; };
 		AA7B5350194AA2F10090F113 /* Uniq-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Uniq-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA83598519B2626F009B3ABC /* emailHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailHUD.png; sourceTree = "<group>"; };
 		AA83598619B2626F009B3ABC /* noEmailHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noEmailHUD.png; sourceTree = "<group>"; };
 		AA83598719B2626F009B3ABC /* copyHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copyHUD.png; sourceTree = "<group>"; };
-		AA83598C19B268C7009B3ABC /* JPDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPDataRequest.h; sourceTree = "<group>"; };
-		AA83598D19B268C7009B3ABC /* JPDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPDataRequest.m; sourceTree = "<group>"; };
-		AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllFeaturedInfo.json; sourceTree = "<group>"; };
-		AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsAuthorsTableViewController.swift; sourceTree = "<group>"; };
-		AAAEE35F19BD004D00988810 /* iPhProgramDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramDetailTableView.h; sourceTree = "<group>"; };
-		AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramDetailTableView.m; sourceTree = "<group>"; };
-		AAC6BD90199D2B1A00683DB1 /* iPhProgramRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramRatingsViewController.h; sourceTree = "<group>"; };
-		AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramRatingsViewController.m; sourceTree = "<group>"; };
-		AAC6BD94199D2E6800683DB1 /* iPhProgramRatingsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhProgramRatingsTableCell.h; sourceTree = "<group>"; };
-		AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhProgramRatingsTableCell.m; sourceTree = "<group>"; };
+		AA8D2719194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsAuthorsTableViewController.swift; path = "iPad User Interface/iPadSettingsAuthorsTableViewController.swift"; sourceTree = "<group>"; };
+		AAAEE35F19BD004D00988810 /* iPhProgramDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramDetailTableView.h; path = "iPhone User Interface/iPhProgramDetailTableView.h"; sourceTree = "<group>"; };
+		AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramDetailTableView.m; path = "iPhone User Interface/iPhProgramDetailTableView.m"; sourceTree = "<group>"; };
+		AAC6BD90199D2B1A00683DB1 /* iPhProgramRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramRatingsViewController.h; path = "iPhone User Interface/iPhProgramRatingsViewController.h"; sourceTree = "<group>"; };
+		AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramRatingsViewController.m; path = "iPhone User Interface/iPhProgramRatingsViewController.m"; sourceTree = "<group>"; };
+		AAC6BD94199D2E6800683DB1 /* iPhProgramRatingsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramRatingsTableCell.h; path = "iPhone User Interface/iPhProgramRatingsTableCell.h"; sourceTree = "<group>"; };
+		AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramRatingsTableCell.m; path = "iPhone User Interface/iPhProgramRatingsTableCell.m"; sourceTree = "<group>"; };
 		AACB7775199E47D100C02513 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AACB7777199E480500C02513 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AACB7779199E480C00C02513 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -707,28 +612,123 @@
 		AACB777F199E482700C02513 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AACB7781199E482F00C02513 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AACB7797199E5C1600C02513 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		AACD610D195CC7D300FCC8A4 /* JPImageRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPImageRetriever.h; sourceTree = "<group>"; };
-		AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPImageRetriever.m; sourceTree = "<group>"; };
-		AAD65BDE19B99411008455B1 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
-		AAD65BDF19B99411008455B1 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
-		AAD65BE119B99412008455B1 /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
-		AAD65BE219B99412008455B1 /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
-		AAD65BE419B99412008455B1 /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faculty.h; sourceTree = "<group>"; };
-		AAD65BE519B99412008455B1 /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faculty.m; sourceTree = "<group>"; };
-		AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadSchoolHomeViewController.h; sourceTree = "<group>"; };
-		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadSchoolHomeViewController.m; sourceTree = "<group>"; };
-		AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPSchoolSummaryView.h; sourceTree = "<group>"; };
-		AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPSchoolSummaryView.m; sourceTree = "<group>"; };
-		AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllUniversitiesInfoTry.json; sourceTree = "<group>"; };
-		AAE50A631966685E000C6899 /* iPadProgramComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPadProgramComparisonViewController.h; sourceTree = "<group>"; };
-		AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPadProgramComparisonViewController.m; sourceTree = "<group>"; };
+		AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadSchoolHomeViewController.h; path = "iPad User Interface/iPadSchoolHomeViewController.h"; sourceTree = "<group>"; };
+		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadSchoolHomeViewController.m; path = "iPad User Interface/iPadSchoolHomeViewController.m"; sourceTree = "<group>"; };
+		AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPSchoolSummaryView.h; path = "iPad User Interface/JPSchoolSummaryView.h"; sourceTree = "<group>"; };
+		AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPSchoolSummaryView.m; path = "iPad User Interface/JPSchoolSummaryView.m"; sourceTree = "<group>"; };
+		AAE50A631966685E000C6899 /* iPadProgramComparisonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadProgramComparisonViewController.h; path = "iPad User Interface/iPadProgramComparisonViewController.h"; sourceTree = "<group>"; };
+		AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadProgramComparisonViewController.m; path = "iPad User Interface/iPadProgramComparisonViewController.m"; sourceTree = "<group>"; };
 		AAEC90EB197D8120006E8E1C /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		AAEC90EC197D8120006E8E1C /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		AAEC90EE197D8182006E8E1C /* LDProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDProgressView.h; path = LDProgressView/LDProgressView.h; sourceTree = "<group>"; };
 		AAEC90EF197D8182006E8E1C /* LDProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDProgressView.m; path = LDProgressView/LDProgressView.m; sourceTree = "<group>"; };
 		AAEC90F0197D8182006E8E1C /* UIColor+RGBValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+RGBValues.h"; path = "LDProgressView/UIColor+RGBValues.h"; sourceTree = "<group>"; };
 		AAEC90F1197D8182006E8E1C /* UIColor+RGBValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+RGBValues.m"; path = "LDProgressView/UIColor+RGBValues.m"; sourceTree = "<group>"; };
-		AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadSettingsSplitViewController.swift; sourceTree = "<group>"; };
+		AAF506B7194D6BD600191043 /* iPadSettingsSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsSplitViewController.swift; path = "iPad User Interface/iPadSettingsSplitViewController.swift"; sourceTree = "<group>"; };
+		AAF733DF1A8B3FAF00F3398D /* JPFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPFont.h; path = "UI Specifications/JPFont.h"; sourceTree = "<group>"; };
+		AAF733E01A8B3FAF00F3398D /* JPFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPFont.m; path = "UI Specifications/JPFont.m"; sourceTree = "<group>"; };
+		AAF733E11A8B3FAF00F3398D /* JPGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPGlobal.h; path = "UI Specifications/JPGlobal.h"; sourceTree = "<group>"; };
+		AAF733E21A8B3FAF00F3398D /* JPGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPGlobal.m; path = "UI Specifications/JPGlobal.m"; sourceTree = "<group>"; };
+		AAF733E31A8B3FAF00F3398D /* JPStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPStyle.h; path = "UI Specifications/JPStyle.h"; sourceTree = "<group>"; };
+		AAF733E41A8B3FAF00F3398D /* JPStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPStyle.m; path = "UI Specifications/JPStyle.m"; sourceTree = "<group>"; };
+		AAF733E51A8B3FAF00F3398D /* NSObject+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+JPConvenience.h"; path = "UI Specifications/NSObject+JPConvenience.h"; sourceTree = "<group>"; };
+		AAF733E61A8B3FAF00F3398D /* NSObject+JPConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+JPConvenience.m"; path = "UI Specifications/NSObject+JPConvenience.m"; sourceTree = "<group>"; };
+		AAF733E71A8B3FAF00F3398D /* UserInterfaceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInterfaceConstants.h; path = "UI Specifications/UserInterfaceConstants.h"; sourceTree = "<group>"; };
+		AAF7342B1A8B407400F3398D /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = NSManagedObjects/Contact.h; sourceTree = "<group>"; };
+		AAF7342C1A8B407400F3398D /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = NSManagedObjects/Contact.m; sourceTree = "<group>"; };
+		AAF7342E1A8B407500F3398D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = NSManagedObjects/User.h; sourceTree = "<group>"; };
+		AAF7342F1A8B407500F3398D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = NSManagedObjects/User.m; sourceTree = "<group>"; };
+		AAF734311A8B407500F3398D /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEFunction.h; path = NSManagedObjects/UniqKEFunction.h; sourceTree = "<group>"; };
+		AAF734321A8B407500F3398D /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEFunction.m; path = NSManagedObjects/UniqKEFunction.m; sourceTree = "<group>"; };
+		AAF734341A8B407500F3398D /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = NSManagedObjects/Program.h; sourceTree = "<group>"; };
+		AAF734351A8B407500F3398D /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Program.m; path = NSManagedObjects/Program.m; sourceTree = "<group>"; };
+		AAF734371A8B407500F3398D /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEOne.h; path = NSManagedObjects/UniqKEOne.h; sourceTree = "<group>"; };
+		AAF734381A8B407500F3398D /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEOne.m; path = NSManagedObjects/UniqKEOne.m; sourceTree = "<group>"; };
+		AAF7343A1A8B407500F3398D /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = School.h; path = NSManagedObjects/School.h; sourceTree = "<group>"; };
+		AAF7343B1A8B407500F3398D /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = School.m; path = NSManagedObjects/School.m; sourceTree = "<group>"; };
+		AAF7343D1A8B407500F3398D /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banner.h; path = NSManagedObjects/Banner.h; sourceTree = "<group>"; };
+		AAF7343E1A8B407500F3398D /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banner.m; path = NSManagedObjects/Banner.m; sourceTree = "<group>"; };
+		AAF734401A8B407500F3398D /* ImportantDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportantDate.h; path = NSManagedObjects/ImportantDate.h; sourceTree = "<group>"; };
+		AAF734411A8B407500F3398D /* ImportantDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportantDate.m; path = NSManagedObjects/ImportantDate.m; sourceTree = "<group>"; };
+		AAF734431A8B407500F3398D /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramRating.h; path = NSManagedObjects/ProgramRating.h; sourceTree = "<group>"; };
+		AAF734441A8B407500F3398D /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramRating.m; path = NSManagedObjects/ProgramRating.m; sourceTree = "<group>"; };
+		AAF734461A8B407500F3398D /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramYearlyTuition.h; path = NSManagedObjects/ProgramYearlyTuition.h; sourceTree = "<group>"; };
+		AAF734471A8B407500F3398D /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramYearlyTuition.m; path = NSManagedObjects/ProgramYearlyTuition.m; sourceTree = "<group>"; };
+		AAF734491A8B407500F3398D /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighschoolCourse.h; path = NSManagedObjects/HighschoolCourse.h; sourceTree = "<group>"; };
+		AAF7344A1A8B407500F3398D /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighschoolCourse.m; path = NSManagedObjects/HighschoolCourse.m; sourceTree = "<group>"; };
+		AAF7344C1A8B407500F3398D /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Featured.h; path = NSManagedObjects/Featured.h; sourceTree = "<group>"; };
+		AAF7344D1A8B407500F3398D /* Featured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Featured.m; path = NSManagedObjects/Featured.m; sourceTree = "<group>"; };
+		AAF7344F1A8B407500F3398D /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faculty.h; path = NSManagedObjects/Faculty.h; sourceTree = "<group>"; };
+		AAF734501A8B407500F3398D /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faculty.m; path = NSManagedObjects/Faculty.m; sourceTree = "<group>"; };
+		AAF734521A8B407500F3398D /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLink.h; path = NSManagedObjects/ImageLink.h; sourceTree = "<group>"; };
+		AAF734531A8B407500F3398D /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLink.m; path = NSManagedObjects/ImageLink.m; sourceTree = "<group>"; };
+		AAF734551A8B407500F3398D /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolRanking.h; path = NSManagedObjects/SchoolRanking.h; sourceTree = "<group>"; };
+		AAF734561A8B407500F3398D /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolRanking.m; path = NSManagedObjects/SchoolRanking.m; sourceTree = "<group>"; };
+		AAF734581A8B407600F3398D /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolLocation.h; path = NSManagedObjects/SchoolLocation.h; sourceTree = "<group>"; };
+		AAF734591A8B407600F3398D /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolLocation.m; path = NSManagedObjects/SchoolLocation.m; sourceTree = "<group>"; };
+		AAF7345B1A8B407600F3398D /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramCourse.h; path = NSManagedObjects/ProgramCourse.h; sourceTree = "<group>"; };
+		AAF7345C1A8B407600F3398D /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramCourse.m; path = NSManagedObjects/ProgramCourse.m; sourceTree = "<group>"; };
+		AAF7345E1A8B407600F3398D /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramApplicationStat.h; path = NSManagedObjects/ProgramApplicationStat.h; sourceTree = "<group>"; };
+		AAF7345F1A8B407600F3398D /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramApplicationStat.m; path = NSManagedObjects/ProgramApplicationStat.m; sourceTree = "<group>"; };
+		AAF734611A8B407600F3398D /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserFavItem.h; path = NSManagedObjects/UserFavItem.h; sourceTree = "<group>"; };
+		AAF734621A8B407600F3398D /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserFavItem.m; path = NSManagedObjects/UserFavItem.m; sourceTree = "<group>"; };
+		AAF734641A8B407600F3398D /* RelatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RelatedItem.h; path = NSManagedObjects/RelatedItem.h; sourceTree = "<group>"; };
+		AAF734651A8B407600F3398D /* RelatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RelatedItem.m; path = NSManagedObjects/RelatedItem.m; sourceTree = "<group>"; };
+		AAF734671A8B407600F3398D /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEKeyword.h; path = NSManagedObjects/UniqKEKeyword.h; sourceTree = "<group>"; };
+		AAF734681A8B407600F3398D /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEKeyword.m; path = NSManagedObjects/UniqKEKeyword.m; sourceTree = "<group>"; };
+		AAF7346A1A8B409900F3398D /* JPConnectivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPConnectivityManager.h; path = "Data Management/JPConnectivityManager.h"; sourceTree = "<group>"; };
+		AAF7346B1A8B409900F3398D /* JPConnectivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPConnectivityManager.m; path = "Data Management/JPConnectivityManager.m"; sourceTree = "<group>"; };
+		AAF7346C1A8B409900F3398D /* JPCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCoreDataHelper.h; path = "Data Management/JPCoreDataHelper.h"; sourceTree = "<group>"; };
+		AAF7346D1A8B409900F3398D /* JPCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCoreDataHelper.m; path = "Data Management/JPCoreDataHelper.m"; sourceTree = "<group>"; };
+		AAF7346E1A8B409900F3398D /* JPDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPDataRequest.h; path = "Data Management/JPDataRequest.h"; sourceTree = "<group>"; };
+		AAF7346F1A8B409900F3398D /* JPDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPDataRequest.m; path = "Data Management/JPDataRequest.m"; sourceTree = "<group>"; };
+		AAF734701A8B409900F3398D /* JPMainSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPMainSync.h; path = "Data Management/JPMainSync.h"; sourceTree = "<group>"; };
+		AAF734711A8B409900F3398D /* JPMainSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPMainSync.m; path = "Data Management/JPMainSync.m"; sourceTree = "<group>"; };
+		AAF734761A8B40C400F3398D /* JPCloudBannerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCloudBannerHelper.h; path = "Firebase Requests/JPCloudBannerHelper.h"; sourceTree = "<group>"; };
+		AAF734771A8B40C400F3398D /* JPCloudBannerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCloudBannerHelper.m; path = "Firebase Requests/JPCloudBannerHelper.m"; sourceTree = "<group>"; };
+		AAF734781A8B40C400F3398D /* JPCloudFavoritesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCloudFavoritesHelper.h; path = "Firebase Requests/JPCloudFavoritesHelper.h"; sourceTree = "<group>"; };
+		AAF734791A8B40C400F3398D /* JPCloudFavoritesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCloudFavoritesHelper.m; path = "Firebase Requests/JPCloudFavoritesHelper.m"; sourceTree = "<group>"; };
+		AAF7347A1A8B40C400F3398D /* JPProgramRatingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramRatingHelper.h; path = "Firebase Requests/JPProgramRatingHelper.h"; sourceTree = "<group>"; };
+		AAF7347B1A8B40C400F3398D /* JPProgramRatingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramRatingHelper.m; path = "Firebase Requests/JPProgramRatingHelper.m"; sourceTree = "<group>"; };
+		AAF7347F1A8B40F300F3398D /* JPDashlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPDashlet.h; path = "Model Classes/JPDashlet.h"; sourceTree = "<group>"; };
+		AAF734801A8B40F300F3398D /* JPDashlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPDashlet.m; path = "Model Classes/JPDashlet.m"; sourceTree = "<group>"; };
+		AAF734811A8B40F300F3398D /* JPHighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPHighschoolCourse.h; path = "Model Classes/JPHighschoolCourse.h"; sourceTree = "<group>"; };
+		AAF734821A8B40F300F3398D /* JPHighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPHighschoolCourse.m; path = "Model Classes/JPHighschoolCourse.m"; sourceTree = "<group>"; };
+		AAF734831A8B40F300F3398D /* JPImageRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPImageRetriever.h; path = "Model Classes/JPImageRetriever.h"; sourceTree = "<group>"; };
+		AAF734841A8B40F300F3398D /* JPImageRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPImageRetriever.m; path = "Model Classes/JPImageRetriever.m"; sourceTree = "<group>"; };
+		AAF734851A8B40F300F3398D /* JPKnowledgeEngineInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPKnowledgeEngineInterpreter.h; path = "Model Classes/JPKnowledgeEngineInterpreter.h"; sourceTree = "<group>"; };
+		AAF734861A8B40F300F3398D /* JPKnowledgeEngineInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPKnowledgeEngineInterpreter.m; path = "Model Classes/JPKnowledgeEngineInterpreter.m"; sourceTree = "<group>"; };
+		AAF734871A8B40F300F3398D /* JPLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPLocation.h; path = "Model Classes/JPLocation.h"; sourceTree = "<group>"; };
+		AAF734881A8B40F300F3398D /* JPLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPLocation.m; path = "Model Classes/JPLocation.m"; sourceTree = "<group>"; };
+		AAF734891A8B40F300F3398D /* JPRatings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPRatings.h; path = "Model Classes/JPRatings.h"; sourceTree = "<group>"; };
+		AAF7348A1A8B40F300F3398D /* JPRatings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPRatings.m; path = "Model Classes/JPRatings.m"; sourceTree = "<group>"; };
+		AAF7348B1A8B40F300F3398D /* JPUserLocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPUserLocator.h; path = "Model Classes/JPUserLocator.h"; sourceTree = "<group>"; };
+		AAF7348C1A8B40F300F3398D /* JPUserLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPUserLocator.m; path = "Model Classes/JPUserLocator.m"; sourceTree = "<group>"; };
+		AAF7348D1A8B40F300F3398D /* NSString+JPDateStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+JPDateStringParser.h"; path = "Model Classes/NSString+JPDateStringParser.h"; sourceTree = "<group>"; };
+		AAF7348E1A8B40F300F3398D /* NSString+JPDateStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+JPDateStringParser.m"; path = "Model Classes/NSString+JPDateStringParser.m"; sourceTree = "<group>"; };
+		AAF7348F1A8B40F300F3398D /* NSString+JPKnowledgeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+JPKnowledgeEngine.h"; path = "Model Classes/NSString+JPKnowledgeEngine.h"; sourceTree = "<group>"; };
+		AAF734901A8B40F300F3398D /* NSString+JPKnowledgeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+JPKnowledgeEngine.m"; path = "Model Classes/NSString+JPKnowledgeEngine.m"; sourceTree = "<group>"; };
+		AAF7349A1A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramSchoolAbstractViewController.h; path = "Shared User Interface/iPhProgramSchoolAbstractViewController.h"; sourceTree = "<group>"; };
+		AAF7349B1A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramSchoolAbstractViewController.m; path = "Shared User Interface/iPhProgramSchoolAbstractViewController.m"; sourceTree = "<group>"; };
+		AAF7349C1A8B411A00F3398D /* JPMainExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPMainExploreViewController.h; path = "Shared User Interface/JPMainExploreViewController.h"; sourceTree = "<group>"; };
+		AAF7349D1A8B411A00F3398D /* JPMainExploreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPMainExploreViewController.m; path = "Shared User Interface/JPMainExploreViewController.m"; sourceTree = "<group>"; };
+		AAF7349E1A8B411A00F3398D /* JPMainFavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPMainFavoritesViewController.h; path = "Shared User Interface/JPMainFavoritesViewController.h"; sourceTree = "<group>"; };
+		AAF7349F1A8B411A00F3398D /* JPMainFavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPMainFavoritesViewController.m; path = "Shared User Interface/JPMainFavoritesViewController.m"; sourceTree = "<group>"; };
+		AAF734A01A8B411A00F3398D /* JPMainFeaturedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPMainFeaturedViewController.h; path = "Shared User Interface/JPMainFeaturedViewController.h"; sourceTree = "<group>"; };
+		AAF734A11A8B411A00F3398D /* JPMainFeaturedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPMainFeaturedViewController.m; path = "Shared User Interface/JPMainFeaturedViewController.m"; sourceTree = "<group>"; };
+		AAF734A21A8B411A00F3398D /* JPProgramAcademicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramAcademicsViewController.h; path = "Shared User Interface/JPProgramAcademicsViewController.h"; sourceTree = "<group>"; };
+		AAF734A31A8B411A00F3398D /* JPProgramAcademicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramAcademicsViewController.m; path = "Shared User Interface/JPProgramAcademicsViewController.m"; sourceTree = "<group>"; };
+		AAF734A41A8B411A00F3398D /* JPProgramContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramContactViewController.h; path = "Shared User Interface/JPProgramContactViewController.h"; sourceTree = "<group>"; };
+		AAF734A51A8B411A00F3398D /* JPProgramContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramContactViewController.m; path = "Shared User Interface/JPProgramContactViewController.m"; sourceTree = "<group>"; };
+		AAF734A61A8B411A00F3398D /* JPProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramDetailView.h; path = "Shared User Interface/JPProgramDetailView.h"; sourceTree = "<group>"; };
+		AAF734A71A8B411A00F3398D /* JPProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramDetailView.m; path = "Shared User Interface/JPProgramDetailView.m"; sourceTree = "<group>"; };
+		AAF734AF1A8B420D00F3398D /* getAllBannersInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllBannersInfo.json; path = Files/getAllBannersInfo.json; sourceTree = "<group>"; };
+		AAF734B01A8B420D00F3398D /* getAllFacultiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllFacultiesInfo.json; path = Files/getAllFacultiesInfo.json; sourceTree = "<group>"; };
+		AAF734B11A8B420D00F3398D /* getAllFeaturedInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllFeaturedInfo.json; path = Files/getAllFeaturedInfo.json; sourceTree = "<group>"; };
+		AAF734B21A8B420D00F3398D /* getAllProgramsInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllProgramsInfo.json; path = Files/getAllProgramsInfo.json; sourceTree = "<group>"; };
+		AAF734B31A8B420D00F3398D /* getAllUniversitiesInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllUniversitiesInfo.json; path = Files/getAllUniversitiesInfo.json; sourceTree = "<group>"; };
+		AAF734B41A8B420D00F3398D /* getAllUniversitiesInfoTry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllUniversitiesInfoTry.json; path = Files/getAllUniversitiesInfoTry.json; sourceTree = "<group>"; };
+		AAF734B51A8B420D00F3398D /* UniqKnowledgeEngineOne.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UniqKnowledgeEngineOne.json; path = Files/UniqKnowledgeEngineOne.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1089,24 +1089,24 @@
 		5DAC8FA918555EE500FE3B5B /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5DAC8FA618555EDA00FE3B5B /* JPDashlet.h */,
-				5DAC8FA718555EDB00FE3B5B /* JPDashlet.m */,
-				5DAC8FAC18556A9900FE3B5B /* JPLocation.h */,
-				5DAC8FAD18556A9900FE3B5B /* JPLocation.m */,
-				AA115F0E19A84A8F006E07C1 /* JPRatings.h */,
-				AA115F0F19A84A8F006E07C1 /* JPRatings.m */,
-				AACD610D195CC7D300FCC8A4 /* JPImageRetriever.h */,
-				AACD610E195CC7D300FCC8A4 /* JPImageRetriever.m */,
-				AA11544D195DF94D00C56E2B /* JPUserLocator.h */,
-				AA11544E195DF94D00C56E2B /* JPUserLocator.m */,
-				5DF6503D1933DB27003E0490 /* NSString+JPDateStringParser.h */,
-				5DF6503E1933DB27003E0490 /* NSString+JPDateStringParser.m */,
-				AA115F2619AA7C91006E07C1 /* JPHighschoolCourse.h */,
-				AA115F2719AA7C91006E07C1 /* JPHighschoolCourse.m */,
-				5DF25F8A19357B6E00474B45 /* JPKnowledgeEngineInterpreter.h */,
-				5DF25F8B19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m */,
-				5D9C99E519359CBF004EFC47 /* NSString+JPKnowledgeEngine.h */,
-				5D9C99E619359CBF004EFC47 /* NSString+JPKnowledgeEngine.m */,
+				AAF7347F1A8B40F300F3398D /* JPDashlet.h */,
+				AAF734801A8B40F300F3398D /* JPDashlet.m */,
+				AAF734811A8B40F300F3398D /* JPHighschoolCourse.h */,
+				AAF734821A8B40F300F3398D /* JPHighschoolCourse.m */,
+				AAF734831A8B40F300F3398D /* JPImageRetriever.h */,
+				AAF734841A8B40F300F3398D /* JPImageRetriever.m */,
+				AAF734851A8B40F300F3398D /* JPKnowledgeEngineInterpreter.h */,
+				AAF734861A8B40F300F3398D /* JPKnowledgeEngineInterpreter.m */,
+				AAF734871A8B40F300F3398D /* JPLocation.h */,
+				AAF734881A8B40F300F3398D /* JPLocation.m */,
+				AAF734891A8B40F300F3398D /* JPRatings.h */,
+				AAF7348A1A8B40F300F3398D /* JPRatings.m */,
+				AAF7348B1A8B40F300F3398D /* JPUserLocator.h */,
+				AAF7348C1A8B40F300F3398D /* JPUserLocator.m */,
+				AAF7348D1A8B40F300F3398D /* NSString+JPDateStringParser.h */,
+				AAF7348E1A8B40F300F3398D /* NSString+JPDateStringParser.m */,
+				AAF7348F1A8B40F300F3398D /* NSString+JPKnowledgeEngine.h */,
+				AAF734901A8B40F300F3398D /* NSString+JPKnowledgeEngine.m */,
 			);
 			name = "Model Classes";
 			sourceTree = "<group>";
@@ -1311,48 +1311,48 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				AAD65BE419B99412008455B1 /* Faculty.h */,
-				AAD65BE519B99412008455B1 /* Faculty.m */,
-				AAD65BE119B99412008455B1 /* School.h */,
-				AAD65BE219B99412008455B1 /* School.m */,
-				AAD65BDE19B99411008455B1 /* Program.h */,
-				AAD65BDF19B99411008455B1 /* Program.m */,
-				AA56DDF319B9284E005EE1CD /* Contact.h */,
-				AA56DDF419B9284E005EE1CD /* Contact.m */,
-				AA56DDF019B908C3005EE1CD /* ProgramRating.h */,
-				AA56DDF119B908C3005EE1CD /* ProgramRating.m */,
-				AA56DDE919B83B2D005EE1CD /* ProgramYearlyTuition.h */,
-				AA56DDEA19B83B2D005EE1CD /* ProgramYearlyTuition.m */,
-				AA56DDE619B83592005EE1CD /* SchoolLocation.h */,
-				AA56DDE719B83592005EE1CD /* SchoolLocation.m */,
-				AA56DDB419B6BA48005EE1CD /* Featured.h */,
-				AA56DDB519B6BA48005EE1CD /* Featured.m */,
-				AA56DDAE19B68617005EE1CD /* UserFavItem.h */,
-				AA56DDAF19B68617005EE1CD /* UserFavItem.m */,
-				AA56DDA219B679D9005EE1CD /* RelatedItem.h */,
-				AA56DDA319B679D9005EE1CD /* RelatedItem.m */,
-				AA56DD9919B66305005EE1CD /* UniqKEOne.h */,
-				AA56DD9A19B66305005EE1CD /* UniqKEOne.m */,
-				AA56DD9619B66305005EE1CD /* ProgramApplicationStat.h */,
-				AA56DD9719B66305005EE1CD /* ProgramApplicationStat.m */,
-				AA56DD9319B66305005EE1CD /* ImageLink.h */,
-				AA56DD9419B66305005EE1CD /* ImageLink.m */,
-				AA56DD9019B66305005EE1CD /* User.h */,
-				AA56DD9119B66305005EE1CD /* User.m */,
-				AA56DD8D19B66305005EE1CD /* UniqKEFunction.h */,
-				AA56DD8E19B66305005EE1CD /* UniqKEFunction.m */,
-				AA56DD8A19B66305005EE1CD /* ProgramCourse.h */,
-				AA56DD8B19B66305005EE1CD /* ProgramCourse.m */,
-				AA56DD8719B66305005EE1CD /* Banner.h */,
-				AA56DD8819B66305005EE1CD /* Banner.m */,
-				AA56DD8119B66305005EE1CD /* SchoolRanking.h */,
-				AA56DD8219B66305005EE1CD /* SchoolRanking.m */,
-				AA56DD6F19B66304005EE1CD /* HighschoolCourse.h */,
-				AA56DD7019B66304005EE1CD /* HighschoolCourse.m */,
-				AA56DD6C19B66304005EE1CD /* UniqKEKeyword.h */,
-				AA56DD6D19B66304005EE1CD /* UniqKEKeyword.m */,
-				AA56DD6619B66304005EE1CD /* ImportantDate.h */,
-				AA56DD6719B66304005EE1CD /* ImportantDate.m */,
+				AAF734671A8B407600F3398D /* UniqKEKeyword.h */,
+				AAF734681A8B407600F3398D /* UniqKEKeyword.m */,
+				AAF734641A8B407600F3398D /* RelatedItem.h */,
+				AAF734651A8B407600F3398D /* RelatedItem.m */,
+				AAF734611A8B407600F3398D /* UserFavItem.h */,
+				AAF734621A8B407600F3398D /* UserFavItem.m */,
+				AAF7345E1A8B407600F3398D /* ProgramApplicationStat.h */,
+				AAF7345F1A8B407600F3398D /* ProgramApplicationStat.m */,
+				AAF7345B1A8B407600F3398D /* ProgramCourse.h */,
+				AAF7345C1A8B407600F3398D /* ProgramCourse.m */,
+				AAF734581A8B407600F3398D /* SchoolLocation.h */,
+				AAF734591A8B407600F3398D /* SchoolLocation.m */,
+				AAF734551A8B407500F3398D /* SchoolRanking.h */,
+				AAF734561A8B407500F3398D /* SchoolRanking.m */,
+				AAF734521A8B407500F3398D /* ImageLink.h */,
+				AAF734531A8B407500F3398D /* ImageLink.m */,
+				AAF7344F1A8B407500F3398D /* Faculty.h */,
+				AAF734501A8B407500F3398D /* Faculty.m */,
+				AAF7344C1A8B407500F3398D /* Featured.h */,
+				AAF7344D1A8B407500F3398D /* Featured.m */,
+				AAF734491A8B407500F3398D /* HighschoolCourse.h */,
+				AAF7344A1A8B407500F3398D /* HighschoolCourse.m */,
+				AAF734461A8B407500F3398D /* ProgramYearlyTuition.h */,
+				AAF734471A8B407500F3398D /* ProgramYearlyTuition.m */,
+				AAF734431A8B407500F3398D /* ProgramRating.h */,
+				AAF734441A8B407500F3398D /* ProgramRating.m */,
+				AAF734401A8B407500F3398D /* ImportantDate.h */,
+				AAF734411A8B407500F3398D /* ImportantDate.m */,
+				AAF7343D1A8B407500F3398D /* Banner.h */,
+				AAF7343E1A8B407500F3398D /* Banner.m */,
+				AAF7343A1A8B407500F3398D /* School.h */,
+				AAF7343B1A8B407500F3398D /* School.m */,
+				AAF734371A8B407500F3398D /* UniqKEOne.h */,
+				AAF734381A8B407500F3398D /* UniqKEOne.m */,
+				AAF734341A8B407500F3398D /* Program.h */,
+				AAF734351A8B407500F3398D /* Program.m */,
+				AAF734311A8B407500F3398D /* UniqKEFunction.h */,
+				AAF734321A8B407500F3398D /* UniqKEFunction.m */,
+				AAF7342E1A8B407500F3398D /* User.h */,
+				AAF7342F1A8B407500F3398D /* User.m */,
+				AAF7342B1A8B407400F3398D /* Contact.h */,
+				AAF7342C1A8B407400F3398D /* Contact.m */,
 			);
 			name = NSManagedObjects;
 			sourceTree = "<group>";
@@ -1360,15 +1360,15 @@
 		5DF56C5918BC7ED2006D3024 /* UI Specifications */ = {
 			isa = PBXGroup;
 			children = (
-				5D167647185D6A750041993E /* UserInterfaceConstants.h */,
-				5DE5C305192338B100F7F01B /* JPGlobal.h */,
-				5DE5C306192338B100F7F01B /* JPGlobal.m */,
-				AA447E2F19B53249004855CC /* NSObject+JPConvenience.h */,
-				AA447E3019B53249004855CC /* NSObject+JPConvenience.m */,
-				5DAC8F8C185525C500FE3B5B /* JPStyle.h */,
-				5DAC8F8D185525C500FE3B5B /* JPStyle.m */,
-				5D16763B1858D3CB0041993E /* JPFont.h */,
-				5D16763C1858D3CB0041993E /* JPFont.m */,
+				AAF733DF1A8B3FAF00F3398D /* JPFont.h */,
+				AAF733E01A8B3FAF00F3398D /* JPFont.m */,
+				AAF733E11A8B3FAF00F3398D /* JPGlobal.h */,
+				AAF733E21A8B3FAF00F3398D /* JPGlobal.m */,
+				AAF733E31A8B3FAF00F3398D /* JPStyle.h */,
+				AAF733E41A8B3FAF00F3398D /* JPStyle.m */,
+				AAF733E51A8B3FAF00F3398D /* NSObject+JPConvenience.h */,
+				AAF733E61A8B3FAF00F3398D /* NSObject+JPConvenience.m */,
+				AAF733E71A8B3FAF00F3398D /* UserInterfaceConstants.h */,
 			);
 			name = "UI Specifications";
 			sourceTree = "<group>";
@@ -1418,13 +1418,13 @@
 		AA447E3219B56CDD004855CC /* Old Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D36C4A41915FA1B00A5A7D8 /* getAllUniversitiesInfo.json */,
-				AAE50A6119665C8B000C6899 /* getAllUniversitiesInfoTry.json */,
-				5D36C4A71915FE2500A5A7D8 /* getAllFacultiesInfo.json */,
-				5D36C4AB191604D200A5A7D8 /* getAllProgramsInfo.json */,
-				5DD82EA2191736EE000577F8 /* getAllBannersInfo.json */,
-				AA894BDA1969CFF200F457F8 /* getAllFeaturedInfo.json */,
-				5D9C99DA19358D3C004EFC47 /* UniqKnowledgeEngineOne.json */,
+				AAF734AF1A8B420D00F3398D /* getAllBannersInfo.json */,
+				AAF734B01A8B420D00F3398D /* getAllFacultiesInfo.json */,
+				AAF734B11A8B420D00F3398D /* getAllFeaturedInfo.json */,
+				AAF734B21A8B420D00F3398D /* getAllProgramsInfo.json */,
+				AAF734B31A8B420D00F3398D /* getAllUniversitiesInfo.json */,
+				AAF734B41A8B420D00F3398D /* getAllUniversitiesInfoTry.json */,
+				AAF734B51A8B420D00F3398D /* UniqKnowledgeEngineOne.json */,
 			);
 			name = "Old Files";
 			sourceTree = "<group>";
@@ -1496,20 +1496,20 @@
 		AA63DCF4196E508E001D9768 /* Shared View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA63DCE5196E4101001D9768 /* JPMainFeaturedViewController.h */,
-				AA63DCE6196E4101001D9768 /* JPMainFeaturedViewController.m */,
-				AA63DCEB196E4133001D9768 /* JPMainFavoritesViewController.h */,
-				AA63DCEC196E4133001D9768 /* JPMainFavoritesViewController.m */,
-				AA520ED81971D6B70003EF98 /* JPMainExploreViewController.h */,
-				AA520ED91971D6B70003EF98 /* JPMainExploreViewController.m */,
-				AA520EFF1972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.h */,
-				AA520F001972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m */,
-				AA0DB935197A2943005A5665 /* JPProgramDetailView.h */,
-				AA0DB936197A2943005A5665 /* JPProgramDetailView.m */,
-				AA0DB93B197B6D79005A5665 /* JPProgramAcademicsViewController.h */,
-				AA0DB93C197B6D79005A5665 /* JPProgramAcademicsViewController.m */,
-				AA0DB938197B39CD005A5665 /* JPProgramContactViewController.h */,
-				AA0DB939197B39CD005A5665 /* JPProgramContactViewController.m */,
+				AAF7349A1A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.h */,
+				AAF7349B1A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.m */,
+				AAF7349C1A8B411A00F3398D /* JPMainExploreViewController.h */,
+				AAF7349D1A8B411A00F3398D /* JPMainExploreViewController.m */,
+				AAF7349E1A8B411A00F3398D /* JPMainFavoritesViewController.h */,
+				AAF7349F1A8B411A00F3398D /* JPMainFavoritesViewController.m */,
+				AAF734A01A8B411A00F3398D /* JPMainFeaturedViewController.h */,
+				AAF734A11A8B411A00F3398D /* JPMainFeaturedViewController.m */,
+				AAF734A21A8B411A00F3398D /* JPProgramAcademicsViewController.h */,
+				AAF734A31A8B411A00F3398D /* JPProgramAcademicsViewController.m */,
+				AAF734A41A8B411A00F3398D /* JPProgramContactViewController.h */,
+				AAF734A51A8B411A00F3398D /* JPProgramContactViewController.m */,
+				AAF734A61A8B411A00F3398D /* JPProgramDetailView.h */,
+				AAF734A71A8B411A00F3398D /* JPProgramDetailView.m */,
 			);
 			name = "Shared View Controllers";
 			sourceTree = "<group>";
@@ -1517,14 +1517,14 @@
 		AA82A64719BA5D90001187FD /* Data Management */ = {
 			isa = PBXGroup;
 			children = (
-				AA55F9171999B762005F9F76 /* JPConnectivityManager.h */,
-				AA55F9181999B762005F9F76 /* JPConnectivityManager.m */,
-				5DA1465019397E63004A53EB /* JPMainSync.h */,
-				5DA1465119397E63004A53EB /* JPMainSync.m */,
-				AA83598C19B268C7009B3ABC /* JPDataRequest.h */,
-				AA83598D19B268C7009B3ABC /* JPDataRequest.m */,
-				AA520EF3197223070003EF98 /* JPCoreDataHelper.h */,
-				AA520EF4197223070003EF98 /* JPCoreDataHelper.m */,
+				AAF7346A1A8B409900F3398D /* JPConnectivityManager.h */,
+				AAF7346B1A8B409900F3398D /* JPConnectivityManager.m */,
+				AAF7346C1A8B409900F3398D /* JPCoreDataHelper.h */,
+				AAF7346D1A8B409900F3398D /* JPCoreDataHelper.m */,
+				AAF7346E1A8B409900F3398D /* JPDataRequest.h */,
+				AAF7346F1A8B409900F3398D /* JPDataRequest.m */,
+				AAF734701A8B409900F3398D /* JPMainSync.h */,
+				AAF734711A8B409900F3398D /* JPMainSync.m */,
 			);
 			name = "Data Management";
 			sourceTree = "<group>";
@@ -1532,12 +1532,12 @@
 		AA82A64819BA5DF3001187FD /* Firebase Requests */ = {
 			isa = PBXGroup;
 			children = (
-				AA561A9B199D1B9C00967D15 /* JPProgramRatingHelper.h */,
-				AA561A9C199D1B9C00967D15 /* JPProgramRatingHelper.m */,
-				AA115F1519A87A86006E07C1 /* JPCloudFavoritesHelper.h */,
-				AA115F1619A87A86006E07C1 /* JPCloudFavoritesHelper.m */,
-				AA115F1819A9907A006E07C1 /* JPCloudBannerHelper.h */,
-				AA115F1919A9907A006E07C1 /* JPCloudBannerHelper.m */,
+				AAF734761A8B40C400F3398D /* JPCloudBannerHelper.h */,
+				AAF734771A8B40C400F3398D /* JPCloudBannerHelper.m */,
+				AAF734781A8B40C400F3398D /* JPCloudFavoritesHelper.h */,
+				AAF734791A8B40C400F3398D /* JPCloudFavoritesHelper.m */,
+				AAF7347A1A8B40C400F3398D /* JPProgramRatingHelper.h */,
+				AAF7347B1A8B40C400F3398D /* JPProgramRatingHelper.m */,
 			);
 			name = "Firebase Requests";
 			sourceTree = "<group>";
@@ -1806,20 +1806,21 @@
 			files = (
 				5DA82D8018C2FE430011AC26 /* MPNotification.storyboard in Resources */,
 				5DA82D8318C2FE430011AC26 /* MPSurvey.storyboard in Resources */,
-				5D36C4A51915FA1B00A5A7D8 /* getAllUniversitiesInfo.json in Resources */,
 				AA636EB119A42BFD007FCBA4 /* downloadCompleteHUD.png in Resources */,
+				AAF734B81A8B420D00F3398D /* getAllFeaturedInfo.json in Resources */,
 				5DA82D7718C2FE430011AC26 /* MPCheckmark.png in Resources */,
 				AA636EB219A42BFD007FCBA4 /* downloadHUD.png in Resources */,
 				AA115F2019A9BC78006E07C1 /* higlightedBarBackground@2x.png in Resources */,
 				AA83598819B2626F009B3ABC /* emailHUD.png in Resources */,
 				AA83598919B2626F009B3ABC /* noEmailHUD.png in Resources */,
 				5DE5B7C6184ACBB700EFCE0A /* Main_iPad.storyboard in Resources */,
-				5DD82EA3191736EE000577F8 /* getAllBannersInfo.json in Resources */,
 				5D1DE04519315DD400C36935 /* volumeBar.bundle in Resources */,
 				5DE5B7CE184ACBB700EFCE0A /* Images.xcassets in Resources */,
 				AA636EB319A42BFD007FCBA4 /* noWifi.png in Resources */,
+				AAF734B71A8B420D00F3398D /* getAllFacultiesInfo.json in Resources */,
 				AA636EBA19A42BFD007FCBA4 /* wifi.png in Resources */,
 				5DA82D7C18C2FE430011AC26 /* MPDismissKeyboard@2x.png in Resources */,
+				AAF734BB1A8B420D00F3398D /* getAllUniversitiesInfoTry.json in Resources */,
 				5DA82D7518C2FE430011AC26 /* MPArrowRight.png in Resources */,
 				5DA82D7918C2FE430011AC26 /* MPCloseBtn.png in Resources */,
 				AA636EB819A42BFD007FCBA4 /* uploadCompleteHUD.png in Resources */,
@@ -1831,20 +1832,19 @@
 				AA83598A19B2626F009B3ABC /* copyHUD.png in Resources */,
 				AA115F2219A9BC78006E07C1 /* trackBackground@2x.png in Resources */,
 				5DA82D7418C2FE430011AC26 /* MPArrowLeft@2x.png in Resources */,
-				5D9C99DB19358D3C004EFC47 /* UniqKnowledgeEngineOne.json in Resources */,
-				5D36C4AC191604D200A5A7D8 /* getAllProgramsInfo.json in Resources */,
+				AAF734B61A8B420D00F3398D /* getAllBannersInfo.json in Resources */,
+				AAF734BC1A8B420D00F3398D /* UniqKnowledgeEngineOne.json in Resources */,
 				5D555523193AF9A200BF6F20 /* iPadProgramRelatedViewCell.xib in Resources */,
 				5DE5B7C3184ACBB700EFCE0A /* Main_iPhone.storyboard in Resources */,
 				AA636EB419A42BFD007FCBA4 /* noWifi@2x.png in Resources */,
 				AA115F2B19AA8B5B006E07C1 /* downloadFailedHUD.png in Resources */,
+				AAF734BA1A8B420D00F3398D /* getAllUniversitiesInfo.json in Resources */,
 				AA636EB919A42BFD007FCBA4 /* uploadHUD.png in Resources */,
 				5DA82D7818C2FE430011AC26 /* MPCheckmark@2x.png in Resources */,
 				AA636EBB19A42BFD007FCBA4 /* wifi@2x.png in Resources */,
+				AAF734B91A8B420D00F3398D /* getAllProgramsInfo.json in Resources */,
 				AA115F2C19AA8B5B006E07C1 /* uploadFailedHUD.png in Resources */,
-				AAE50A6219665C8B000C6899 /* getAllUniversitiesInfoTry.json in Resources */,
-				AA894BDB1969CFF200F457F8 /* getAllFeaturedInfo.json in Resources */,
 				5DA82D7B18C2FE430011AC26 /* MPDismissKeyboard.png in Resources */,
-				5D36C4A91915FE2500A5A7D8 /* getAllFacultiesInfo.json in Resources */,
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
 				5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */,
 				5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */,
@@ -1868,102 +1868,103 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
+				AAF7343F1A8B407500F3398D /* Banner.m in Sources */,
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
-				5DA1465219397E63004A53EB /* JPMainSync.m in Sources */,
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
-				5D9C99E719359CBF004EFC47 /* NSString+JPKnowledgeEngine.m in Sources */,
-				AA56DDF219B908C3005EE1CD /* ProgramRating.m in Sources */,
-				AA0DB93D197B6D79005A5665 /* JPProgramAcademicsViewController.m in Sources */,
-				AA115F1A19A9907A006E07C1 /* JPCloudBannerHelper.m in Sources */,
+				AAF7347C1A8B40C400F3398D /* JPCloudBannerHelper.m in Sources */,
+				AAF734301A8B407500F3398D /* User.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
-				AA55F9191999B762005F9F76 /* JPConnectivityManager.m in Sources */,
 				AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */,
 				AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */,
-				AA561A9D199D1B9C00967D15 /* JPProgramRatingHelper.m in Sources */,
 				AAEC90ED197D8120006E8E1C /* AsyncImageView.m in Sources */,
-				AA115F1719A87A86006E07C1 /* JPCloudFavoritesHelper.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
+				AAF734991A8B40F300F3398D /* NSString+JPKnowledgeEngine.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
-				AA56DDB019B68617005EE1CD /* UserFavItem.m in Sources */,
 				AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D94204219308AD40033D57B /* Reachability.m in Sources */,
+				AAF734541A8B407500F3398D /* ImageLink.m in Sources */,
+				AAF734391A8B407500F3398D /* UniqKEOne.m in Sources */,
+				AAF734961A8B40F300F3398D /* JPRatings.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
+				AAF734AE1A8B411A00F3398D /* JPProgramDetailView.m in Sources */,
 				AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */,
 				5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */,
-				5DF6503F1933DB27003E0490 /* NSString+JPDateStringParser.m in Sources */,
 				AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */,
+				AAF734511A8B407500F3398D /* Faculty.m in Sources */,
 				5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
 				5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */,
+				AAF734A81A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
 				AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */,
-				AA56DD8319B66305005EE1CD /* SchoolRanking.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
-				AA520EDA1971D6B70003EF98 /* JPMainExploreViewController.m in Sources */,
+				AAF7342D1A8B407400F3398D /* Contact.m in Sources */,
+				AAF734AD1A8B411A00F3398D /* JPProgramContactViewController.m in Sources */,
+				AAF7345D1A8B407600F3398D /* ProgramCourse.m in Sources */,
 				AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */,
-				AA56DDE819B83592005EE1CD /* SchoolLocation.m in Sources */,
-				AA56DD9219B66305005EE1CD /* User.m in Sources */,
 				AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */,
+				AAF734981A8B40F300F3398D /* NSString+JPDateStringParser.m in Sources */,
 				AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */,
 				AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */,
 				AA447E3519B5799E004855CC /* ManagedObjects+JPConvenience.m in Sources */,
 				AA63DCF0196E4141001D9768 /* iPhMainSettingsViewController.m in Sources */,
-				AA56DD9B19B66305005EE1CD /* UniqKEOne.m in Sources */,
-				AA56DD9819B66305005EE1CD /* ProgramApplicationStat.m in Sources */,
+				AAF734921A8B40F300F3398D /* JPHighschoolCourse.m in Sources */,
+				AAF733EA1A8B3FAF00F3398D /* JPStyle.m in Sources */,
 				AA63DCF7196E55B6001D9768 /* iPhMainExploreViewController.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
-				AA56DD6819B66304005EE1CD /* ImportantDate.m in Sources */,
-				AA520EF5197223070003EF98 /* JPCoreDataHelper.m in Sources */,
-				AA115F2819AA7C91006E07C1 /* JPHighschoolCourse.m in Sources */,
+				AAF734451A8B407500F3398D /* ProgramRating.m in Sources */,
+				AAF734741A8B409900F3398D /* JPDataRequest.m in Sources */,
 				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
+				AAF734A91A8B411A00F3398D /* JPMainExploreViewController.m in Sources */,
+				AAF734481A8B407500F3398D /* ProgramYearlyTuition.m in Sources */,
 				AA520EF8197236130003EF98 /* iPhImagePanView.m in Sources */,
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,
 				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
-				AA56DDB619B6BA48005EE1CD /* Featured.m in Sources */,
-				5DAC8FA818555EDB00FE3B5B /* JPDashlet.m in Sources */,
 				AAEC90F3197D8182006E8E1C /* UIColor+RGBValues.m in Sources */,
-				AA63DCED196E4133001D9768 /* JPMainFavoritesViewController.m in Sources */,
+				AAF734691A8B407600F3398D /* UniqKEKeyword.m in Sources */,
 				5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */,
+				AAF734751A8B409900F3398D /* JPMainSync.m in Sources */,
 				5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */,
 				5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */,
 				5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */,
-				5DAC8F8E185525C500FE3B5B /* JPStyle.m in Sources */,
 				AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */,
+				AAF734571A8B407500F3398D /* SchoolRanking.m in Sources */,
+				AAF7345A1A8B407600F3398D /* SchoolLocation.m in Sources */,
+				AAF733E81A8B3FAF00F3398D /* JPFont.m in Sources */,
 				5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */,
 				AA520EE11971F6F60003EF98 /* iPhSchoolHomeViewController.m in Sources */,
-				AA56DDEB19B83B2D005EE1CD /* ProgramYearlyTuition.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
 				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
+				AAF7347D1A8B40C400F3398D /* JPCloudFavoritesHelper.m in Sources */,
+				AAF734661A8B407600F3398D /* RelatedItem.m in Sources */,
 				5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */,
+				AAF734971A8B40F300F3398D /* JPUserLocator.m in Sources */,
 				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
-				5DAC8FAE18556A9900FE3B5B /* JPLocation.m in Sources */,
-				AA56DD9519B66305005EE1CD /* ImageLink.m in Sources */,
 				5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */,
-				AA56DD7119B66304005EE1CD /* HighschoolCourse.m in Sources */,
-				AA0DB937197A2943005A5665 /* JPProgramDetailView.m in Sources */,
+				AAF734631A8B407600F3398D /* UserFavItem.m in Sources */,
 				AAC6BD96199D2E6800683DB1 /* iPhProgramRatingsTableCell.m in Sources */,
 				AA55F93A199AD160005F9F76 /* iPhMainTabBarController.m in Sources */,
+				AAF734731A8B409900F3398D /* JPCoreDataHelper.m in Sources */,
 				AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */,
 				5D7055F718B9C779002941B3 /* JPBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				AA55F937199AD147005F9F76 /* iPadMainTabBarController.m in Sources */,
 				AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */,
+				AAF7343C1A8B407500F3398D /* School.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
+				AAF7344B1A8B407500F3398D /* HighschoolCourse.m in Sources */,
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
+				AAF734AC1A8B411A00F3398D /* JPProgramAcademicsViewController.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
 				AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */,
 				5D555526193B140900BF6F20 /* JPProgramCoursesViewController.m in Sources */,
-				AA56DD8C19B66305005EE1CD /* ProgramCourse.m in Sources */,
-				AAD65BE019B99411008455B1 /* Program.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
-				AA115F1019A84A8F006E07C1 /* JPRatings.m in Sources */,
 				AA115F2519A9BCC6006E07C1 /* TLTiltSlider.m in Sources */,
 				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
-				AACD610F195CC7D300FCC8A4 /* JPImageRetriever.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
 				AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */,
 				5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */,
@@ -1976,56 +1977,55 @@
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
-				AA56DDF519B9284E005EE1CD /* Contact.m in Sources */,
 				5D167632185787750041993E /* JPDashletTitleView.m in Sources */,
-				AA447E3119B53249004855CC /* NSObject+JPConvenience.m in Sources */,
-				AAD65BE319B99412008455B1 /* School.m in Sources */,
 				AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */,
+				AAF734361A8B407500F3398D /* Program.m in Sources */,
 				AA636EB519A42BFD007FCBA4 /* SVStatusHUD.m in Sources */,
-				AA0DB93A197B39CD005A5665 /* JPProgramContactViewController.m in Sources */,
+				AAF734AB1A8B411A00F3398D /* JPMainFeaturedViewController.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
-				AA520F011972D28B0003EF98 /* iPhProgramSchoolAbstractViewController.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
-				AAD65BE619B99412008455B1 /* Faculty.m in Sources */,
 				5D555529193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.m in Sources */,
+				AAF7347E1A8B40C400F3398D /* JPProgramRatingHelper.m in Sources */,
+				AAF733EB1A8B3FAF00F3398D /* NSObject+JPConvenience.m in Sources */,
 				AA63DCFA196E561B001D9768 /* iPhMainTableViewCell.m in Sources */,
-				AA11544F195DF94D00C56E2B /* JPUserLocator.m in Sources */,
 				AA56DDEF19B8EE59005EE1CD /* TRVSMonitor.m in Sources */,
-				5DF25F8C19357B6E00474B45 /* JPKnowledgeEngineInterpreter.m in Sources */,
 				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
 				5D55551B193A9E5A00BF6F20 /* iPadProgramRelatedView.m in Sources */,
+				AAF734AA1A8B411A00F3398D /* JPMainFavoritesViewController.m in Sources */,
+				AAF734941A8B40F300F3398D /* JPKnowledgeEngineInterpreter.m in Sources */,
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
-				AA56DDA419B679D9005EE1CD /* RelatedItem.m in Sources */,
 				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
-				AA56DD8F19B66305005EE1CD /* UniqKEFunction.m in Sources */,
-				5DE5C307192338B100F7F01B /* JPGlobal.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
-				5D16763D1858D3CB0041993E /* JPFont.m in Sources */,
 				AA63DCF3196E470E001D9768 /* iPhMainFavoritesViewController.m in Sources */,
+				AAF7344E1A8B407500F3398D /* Featured.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* UniqAppDelegate.m in Sources */,
-				AA63DCE7196E4101001D9768 /* JPMainFeaturedViewController.m in Sources */,
+				AAF734931A8B40F300F3398D /* JPImageRetriever.m in Sources */,
 				5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */,
-				AA83598E19B268C7009B3ABC /* JPDataRequest.m in Sources */,
+				AAF733E91A8B3FAF00F3398D /* JPGlobal.m in Sources */,
 				5DAC8F821855250000FE3B5B /* iPadMainFavoritesViewController.m in Sources */,
 				5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */,
 				AAAEE36119BD004D00988810 /* iPhProgramDetailTableView.m in Sources */,
 				5D94203F19308AA10033D57B /* DXAlertView.m in Sources */,
+				AAF734331A8B407500F3398D /* UniqKEFunction.m in Sources */,
 				5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */,
+				AAF734911A8B40F300F3398D /* JPDashlet.m in Sources */,
 				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
 				AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */,
-				AA56DD8919B66305005EE1CD /* Banner.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
+				AAF734951A8B40F300F3398D /* JPLocation.m in Sources */,
 				AA636EC619A42C93007FCBA4 /* HNBorderButton.m in Sources */,
-				AA56DD6E19B66304005EE1CD /* UniqKEKeyword.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */,
+				AAF734421A8B407500F3398D /* ImportantDate.m in Sources */,
+				AAF734601A8B407600F3398D /* ProgramApplicationStat.m in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
 				AA34FA5A198999B100A73292 /* AutoScrollLabel.m in Sources */,
 				AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */,
+				AAF734721A8B409900F3398D /* JPConnectivityManager.m in Sources */,
 				5D70560F18B9E10D002941B3 /* AFNetworkReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2196,7 +2196,7 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e027bb18-5e30-4811-9b8e-9e3d45088111";
+				PROVISIONING_PROFILE = "bf74a1d7-e828-4fe8-9610-d50f09e13589";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -2210,8 +2210,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: SITE FENG (PAR485YFSL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2233,7 +2233,7 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "bf74a1d7-e828-4fe8-9610-d50f09e13589";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
@@ -2290,7 +2290,7 @@
 				5DE5B7E3184ACBB700EFCE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5DE5B7E4184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "Uniq" */ = {
 			isa = XCConfigurationList;
@@ -2299,7 +2299,7 @@
 				5DE5B7E6184ACBB700EFCE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5DE5B7E7184ACBB700EFCE0A /* Build configuration list for PBXNativeTarget "UniqTests" */ = {
 			isa = XCConfigurationList;
@@ -2308,7 +2308,7 @@
 				5DE5B7E9184ACBB700EFCE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

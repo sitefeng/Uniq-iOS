@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A48C4000E60AAECAFD11CB1A246BF5E023C40ADF</key>
-		<string>ssh://bitbucket.org/sitefeng/uniq-ios.git</string>
+		<string>bitbucket.org:sitefeng/uniq-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Uniq.xcodeproj/project.xcworkspace</string>
+	<string>Uniq.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A48C4000E60AAECAFD11CB1A246BF5E023C40ADF</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://bitbucket.org/sitefeng/uniq-ios.git</string>
+	<string>bitbucket.org:sitefeng/uniq-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
