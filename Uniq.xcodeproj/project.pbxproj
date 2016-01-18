@@ -1733,6 +1733,7 @@
 				5DE5B7A8184ACBB700EFCE0A /* Sources */,
 				5DE5B7A9184ACBB700EFCE0A /* Frameworks */,
 				5DE5B7AA184ACBB700EFCE0A /* Resources */,
+				AAF734BD1A8B55B400F3398D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1768,6 +1769,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JumpPad;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Si Te Feng";
 				TargetAttributes = {
@@ -1861,6 +1863,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AAF734BD1A8B55B400F3398D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5DE5B7A8184ACBB700EFCE0A /* Sources */ = {
