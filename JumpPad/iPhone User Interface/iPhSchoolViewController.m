@@ -65,10 +65,7 @@
 
 - (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
 {
-    if(!success)
-    {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
-        [DejalBezelActivityView removeViewAnimated:NO];
+    if(!success) {
         return;
     }
     

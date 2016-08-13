@@ -13,11 +13,6 @@
 
 + (instancetype)instance;
 
-
-
-
-
-
 + (NSString*)monthStringWithInt: (int)month;
 + (NSString*)ratingStringWithIndex: (NSInteger)index;
 + (NSString*)ratingFullStringWithIndex: (NSInteger)index;

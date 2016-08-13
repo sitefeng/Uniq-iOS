@@ -13,14 +13,13 @@ class iPadHomeProfileBanner: UIView {
     var homeViewController: iPadMainHomeViewController!
     
     var userImage: UIImage! {
-    get{
-        let retImg = userImageView.image
-        return retImg
-    }
-    set(imageToSet){
-        self.userImageView.image = imageToSet
-    }
-    
+        get{
+            let retImg = userImageView.image
+            return retImg
+        }
+        set(imageToSet){
+            self.userImageView.image = imageToSet
+        }
     }
     
     var userImageView: UIImageView!
@@ -45,7 +44,7 @@ class iPadHomeProfileBanner: UIView {
     
     var setEditing: Selector!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -57,7 +56,7 @@ class iPadHomeProfileBanner: UIView {
         //Background View
         backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         
-        var tapRec:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "backgroundTapped")
+        var tapRec:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(iPadHomeProfileBanner.backgroundTapped))
         backgroundView.addGestureRecognizer(tapRec)
         
         var backgroundImgView : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: backgroundView.frame.size.width, height: backgroundView.frame.size.height))
@@ -83,7 +82,7 @@ class iPadHomeProfileBanner: UIView {
         userImageAddButton = UIButton(frame: CGRect(x: userImageView.frame.origin.x+50, y: userImageView.frame.origin.y+50, width: 100, height: 100))
         userImageAddButton.setImage(UIImage(named: "addButtonIcon"), forState: UIControlState.Normal)
         userImageAddButton.setImage(UIImage(named: "addButtonIcon")?.imageWithAlpha(0.5), forState: UIControlState.Highlighted);
-        userImageAddButton.addTarget(self, action: "imageAddButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        userImageAddButton.addTarget(self, action: #selector(iPadHomeProfileBanner.imageAddButtonPressed(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         userImageAddButton.hidden = true
         self.addSubview(userImageAddButton)
         
@@ -95,24 +94,24 @@ class iPadHomeProfileBanner: UIView {
         userNameLabel.clearsOnBeginEditing = true
         userNameLabel.autocapitalizationType = UITextAutocapitalizationType.Words
         userNameLabel.autocorrectionType = UITextAutocorrectionType.No
-        userNameLabel.addTarget(homeViewController, action: "textFieldDidBeginEditing:", forControlEvents: UIControlEvents.EditingDidBegin)
-        userNameLabel.addTarget(homeViewController, action: "textFieldDidEndEditing:", forControlEvents: UIControlEvents.EditingDidEnd)
+        userNameLabel.addTarget(homeViewController, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), forControlEvents: UIControlEvents.EditingDidBegin)
+        userNameLabel.addTarget(homeViewController, action: #selector(UITextFieldDelegate.textFieldDidEndEditing(_:)), forControlEvents: UIControlEvents.EditingDidEnd)
         self.addSubview(userNameLabel)
         
-        var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
-        userLocationButton.titleLabel?.font = UIFont(name: JPFont.defaultFont(), size: 22)
-        userLocationButton.setTitle("Location:", forState: UIControlState.Normal)
-        userLocationButton.addTarget(self, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
-        userLocationButton.setTitleColor(JPStyle.interfaceTintColor(), forState: UIControlState.Normal)
-        userLocationButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
-        self.addSubview(userLocationButton)
+//        var userLocationButton = UIButton(frame: CGRect(x: 280, y: 100, width: 100, height: 30))
+//        userLocationButton.titleLabel?.font = UIFont(name: JPFont.defaultFont(), size: 22)
+//        userLocationButton.setTitle("Location:", forState: UIControlState.Normal)
+//        userLocationButton.addTarget(self, action: "locationButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+//        userLocationButton.setTitleColor(JPStyle.interfaceTintColor(), forState: UIControlState.Normal)
+//        userLocationButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Highlighted)
+//        self.addSubview(userLocationButton)
         
         activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 280 + 100, y: 100, width: 30, height: 30))
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         self.addSubview(activityIndicator)
         
         userLocationLabel = UILabel(frame: CGRect(x: 280 + 100, y: 100, width: 300, height: 30))
-        userLocationLabel?.font = userLocationButton.titleLabel!.font
+        userLocationLabel?.font = UIFont(name: JPFont.defaultFont(), size: 22)
         self.addSubview(userLocationLabel)
         
         

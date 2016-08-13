@@ -12,6 +12,13 @@
 #import "AFNetworkReachabilityManager.h"
 
 
+@interface JPBannerView()
+
+// To use online image URL or offline image names
+@property (nonatomic, assign) BOOL useImageURL;
+
+@end
+
 @implementation JPBannerView
 
 - (id)initWithFrame:(CGRect)frame
@@ -22,7 +29,8 @@
         
         _frame = frame;
         
-        //Setting up iVars
+        //Setting up default attribute values
+        _useImageURL = YES;
         _bannerRightIsSet = NO; //this flag prevents scroll being stalled
         _bannerLeftIsSet = NO;
         
@@ -42,22 +50,34 @@
         self.contentSize = CGSizeMake(self.contentSize.width, frame.size.height);
         
         //Setting up Automatic Scrolling
-        _scrollTimer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(autoscrollBanner) userInfo:nil repeats:YES];
+        [self activateAutoscroll];
 
         
     }
     return self;
 }
 
+//Auto Scrolling the banner periodically
+- (void)autoscrollBanner
+{
+    float currentOffset = self.contentOffset.x;
+    
+    CGPoint newOffset = CGPointMake(currentOffset + _bannerWidth, 0);
+    [self setContentOffset:newOffset animated:YES];
+}
+
+
+#pragma mark - Setting banner data
 
 - (void)setImgArrayURL:(NSMutableArray *)imgArrayURL
 {
     _imgArrayURL = imgArrayURL;
+    _useImageURL = YES;
     
     CGRect frame = _frame;
     
     
-    if([_imgArrayURL count]==0)
+    if(_imgArrayURL.count==0)
     {
         UIImage* defaultImage = [UIImage imageNamed:@"defaultBanner"];
     
@@ -68,7 +88,7 @@
         [self setContentSize:CGSizeMake(frame.size.width, frame.size.height)];
         [self addSubview: [self.bannerArray firstObject]];
     }
-    else if([_imgArrayURL count]==1)
+    else if(_imgArrayURL.count==1)
     {
         AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) withPlaceholder:YES];
         imgView.imageURL = [_imgArrayURL firstObject];
@@ -82,7 +102,7 @@
         self.bannerArray = [NSMutableArray array];
         
         //Adding all the banners to the view
-        for(int i=0; i< [_imgArrayURL count]; i++)
+        for(int i=0; i< _imgArrayURL.count; i++)
         {
             AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height) withPlaceholder:YES];
             
@@ -95,38 +115,95 @@
         //Adding a repeated 1st and 2nd images of the array for Infinite Scrolling
         for(int i=0; i< 2; i++)
         {
-            AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake((i+[_imgArrayURL count])*frame.size.width, 0, frame.size.width, frame.size.height)];
+            AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake((i+_imgArrayURL.count)*frame.size.width, 0, frame.size.width, frame.size.height)];
             
             imgView.imageURL = _imgArrayURL[i];
             
             [self.bannerArray addObject:imgView];
-            [self addSubview: self.bannerArray[i+[_imgArrayURL count]]];
+            [self addSubview: self.bannerArray[i+_imgArrayURL.count]];
             
         }
         
-        [self setContentSize:CGSizeMake(frame.size.width*([_imgArrayURL count]+2), self.contentSize.height)];
+        [self setContentSize:CGSizeMake(frame.size.width*(_imgArrayURL.count+2), self.contentSize.height)];
         
     }
-    
 }
 
 
-
-//Auto Scrolling the banner periodically
-- (void)autoscrollBanner
+// Set image to offline stored images
+- (void)setImgFileNames:(NSArray *)imgFileNames
 {
-    float currentOffset = self.contentOffset.x;
+    _imgFileNames = imgFileNames;
+    _useImageURL = NO;
     
-    CGPoint newOffset = CGPointMake(currentOffset + _bannerWidth, 0);
-    [self setContentOffset:newOffset animated:YES];
+    CGRect frame = _frame;
+    
+    if(_imgFileNames.count==0)
+    {
+        UIImage* defaultImage = [UIImage imageNamed:@"defaultBanner"];
+        
+        UIImageView* imgView = [[UIImageView alloc] initWithImage:defaultImage];
+        imgView.frame = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        
+        [self.bannerArray addObject:imgView];
+        [self setContentSize:CGSizeMake(frame.size.width, frame.size.height)];
+        [self addSubview: [self.bannerArray firstObject]];
+    }
+    else if(_imgFileNames.count==1)
+    {
+        AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) withPlaceholder:YES];
+        
+        UIImage* defaultImage = [UIImage imageNamed: _imgFileNames[0]];
+        imgView.image = defaultImage;
+        
+        [self.bannerArray addObject:imgView];
+        [self setContentSize:CGSizeMake(frame.size.width, frame.size.height)];
+        [self addSubview: [self.bannerArray firstObject]];
+    }
+    else
+    {
+        self.bannerArray = [NSMutableArray array];
+        
+        //Adding all the banners to the view
+        for(int i=0; i< _imgFileNames.count; i++)
+        {
+            AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(i*frame.size.width, 0, frame.size.width, frame.size.height) withPlaceholder:YES];
+            
+            UIImage* localImage = [UIImage imageNamed: _imgFileNames[i]];
+            imgView.image = localImage;
+            
+            [self.bannerArray addObject:imgView];
+            [self addSubview: self.bannerArray[i]];
+        }
+        
+        //Adding a repeated 1st and 2nd images of the array for Infinite Scrolling
+        for(int i=0; i< 2; i++)
+        {
+            AsyncImageView* imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake((i+_imgFileNames.count)*frame.size.width, 0, frame.size.width, frame.size.height)];
+            
+            UIImage* localImage = [UIImage imageNamed: _imgFileNames[i]];
+            imgView.image = localImage;
+            
+            [self.bannerArray addObject:imgView];
+            [self addSubview: self.bannerArray[i+_imgFileNames.count]];
+            
+        }
+        
+        [self setContentSize:CGSizeMake(frame.size.width*(_imgFileNames.count+2), self.contentSize.height)];
+        
+    }
 }
+
 
 
 #pragma mark - UIScrollView Delegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSInteger imageCount = [self.imgArrayURL count];
+    NSInteger imageCount = self.imgArrayURL.count;
+    if (!_useImageURL) {
+        imageCount = self.imgFileNames.count;
+    }
     
     //Setting up Infinite Scrolling
     
@@ -184,13 +261,5 @@
 }
 
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

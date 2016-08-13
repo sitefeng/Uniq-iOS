@@ -20,7 +20,8 @@
 }
 
 //Item Unique Idenntifier for the exact item
-@property (nonatomic, strong) NSString*  itemId;
+@property (nonatomic, strong) NSString *itemId;
+@property (nonatomic, strong) NSString *slug;
 
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) JPDashletType type;

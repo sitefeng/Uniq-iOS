@@ -16,3 +16,5 @@
 #import "iPadMainHomeViewController.h"
 #import "JPGlobal.h"
 #import "SVStatusHUD.h"
+#import "JPLocation.h"
+

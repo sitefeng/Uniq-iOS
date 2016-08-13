@@ -23,7 +23,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     let cellTitles     : [[String]] = [[],["About", "Rate Uniq on App Store", "Send Feedback", "Share This App", "Authors", "Special Thanks", "Like on Facebook", "Follow on Twitter", "Visit Our Website"]]
     let cellImgStrings : [[String]] = [[],["info-75","thumb_up-75","email-50","share-75","groups-75","thanks-75","facebook-50","twitter-50", "safari-50"]]
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -89,7 +89,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
 
-        var cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(defaultCellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier(defaultCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         var cellTitle: String
         var cellImageName: String
@@ -106,7 +106,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         
         cell.textLabel?.text = cellTitle
-        var cellImage : UIImage? = UIImage(named: cellImageName)?.imageWithAlignmentRectInsets(
+        let cellImage : UIImage? = UIImage(named: cellImageName)?.imageWithAlignmentRectInsets(
             UIEdgeInsetsMake(5,5,5,5))
 
         cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
@@ -134,19 +134,19 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         self.tableView.deselectRowAtIndexPath(self.selectedIndex, animated: true)
-        var row:Int = indexPath.row;
+        let row:Int = indexPath.row;
         
         if indexPath.row == 0 || indexPath.row == 4 || indexPath.row == 5
         {
             self.selectedIndex = indexPath
-            var parentCV: iPadSettingsSplitViewController = self.splitViewController as iPadSettingsSplitViewController
+            var parentCV: iPadSettingsSplitViewController = self.splitViewController as! iPadSettingsSplitViewController
             let cellTitleString = cellTitles[indexPath.section][indexPath.row]
             parentCV.changeDetailViewControllerWithName(cellTitleString)
 
         }
         else if(row == 1)
         {
-            var url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 2)
@@ -165,7 +165,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         else if(row == 3)
         {
-            var actionSheet : UIActionSheet = UIActionSheet(title: "Share Uniq", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Share on Facebook", "Post on Twitter")
+            let actionSheet = UIActionSheet(title: "Share Uniq", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: nil, otherButtonTitles: "Share on Facebook", "Post on Twitter")
         }
         else if(row == 6)
         {
@@ -201,7 +201,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     
     func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int) {
         
-        var message : String! = "Checkout Uniq for iOS. College Info Reimagined."
+        let message : String! = "Checkout Uniq for iOS. College Info Reimagined."
         var image:UIImage! = UIImage(named:"appIcon-152")
         
         var link: NSURL! = NSURL(string: "http://uniq.url.ph")
@@ -240,7 +240,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         actionSheet .dismissWithClickedButtonIndex(buttonIndex, animated: true)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

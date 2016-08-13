@@ -7,6 +7,7 @@
 
 //to use pre-ARC: -fno-objc-arc
 //to get a build for all architectures
+//http://stackoverflow.com/questions/20264574/missing-required-architecture-x86-64-in-file-libcoreplot-cocoatouch-a
  lipo -create ./Debug-iphoneos/libCorePlot-CocoaTouch.a ./Debug-iphonesimulator/libCorePlot-CocoaTouch.a -output core_plot_all.a
 
 //Showing execption message when breakpoint is hit:

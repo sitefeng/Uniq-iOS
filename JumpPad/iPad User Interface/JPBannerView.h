@@ -27,6 +27,8 @@
 //Array of NSURL: Mandatory
 @property (nonatomic, strong) NSMutableArray* imgArrayURL;
 
+//Array of NSString: Optional, if online images need to be replaced by offline images in case of offline mode
+@property (nonatomic, strong) NSArray *imgFileNames;
 
 
 //Array of UIImageView

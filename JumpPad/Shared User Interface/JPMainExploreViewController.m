@@ -17,6 +17,12 @@
 
 @interface JPMainExploreViewController ()
 
+// For offline only
+@property (nonatomic, strong) NSArray *bannerImageNames;
+
+@property (nonatomic, strong) JPDataRequest *dataRequest;
+@property (nonatomic, strong) JPOfflineDataRequest *offlineDataRequest;
+
 @end
 
 @implementation JPMainExploreViewController
@@ -25,7 +31,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        NSAssert(false, @"Not Imp");
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _bannerImageNames = @[@"banner1", @"banner2", @"banner3", @"banner4", @"banner5"];
         
     }
     return self;
@@ -68,33 +82,55 @@
 
 - (void)updateDashletsInfo
 {
-    _dataRequest = [JPDataRequest request];
-    _dataRequest.delegate = self;
-    
-    [_dataRequest requestAllSchoolsAllFields:NO];
-    
+    if (JPUtility.isOfflineMode) {
+        _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
+        _offlineDataRequest.delegate = self;
+        [_offlineDataRequest requestAllSchools];
+        
+    } else {
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        
+        [_dataRequest requestAllSchoolsAllFields:NO];
+    }
 }
 
 
-- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
-{
-    if(!success)
+- (void)offlineDataRequest:(JPOfflineDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type dataArray:(NSArray *)dataArray isSuccessful:(BOOL)isSuccessful {
+    
+    if(!isSuccessful)
         return;
     
     NSMutableArray* dashletArray = [NSMutableArray array];
     
-    for(NSDictionary* schoolDict in array)
-    {
+    for(NSDictionary* schoolDict in dataArray) {
+        
         JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:schoolDict ofDashletType:type];
         [dashletArray addObject:dashlet];
     }
     
     self.dashlets = dashletArray;
-
 }
 
 
+- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success {
+    
+    if(!success)
+        return;
+    
+    NSMutableArray* dashletArray = [NSMutableArray array];
+    
+    for(NSDictionary* schoolDict in array) {
+        
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:schoolDict ofDashletType:type];
+        [dashletArray addObject:dashlet];
+    }
+    
+    self.dashlets = dashletArray;
+}
 
+
+// Deprecated
 //Retrieving College info from Core Data and put into self.dashlets
 - (void)updateDashletsInfoFromCoreData
 {
@@ -117,27 +153,32 @@
     self.dashlets = dashletArray;
 }
 
-
+#pragma mark Update Banners
 
 - (void)updateBannerInfo
 {
-    NSFetchRequest* bannerRequest = [NSFetchRequest fetchRequestWithEntityName:@"Banner"];
-    bannerRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bannerId" ascending:YES]];
-    
-    NSError* err = nil;
-    NSArray* bannerArray = [context executeFetchRequest:bannerRequest error:&err];
-    if(err)
-        JPLog(@"ERR: %@", err);
-    
-    self.bannerURLs = [NSMutableArray array];
-    
-    for(Banner* banner in bannerArray)
-    {
-        NSURL* bannerURL = [NSURL URLWithString:banner.bannerLink];
-        [self.bannerURLs addObject: bannerURL];
+    if(JPUtility.isOfflineMode) {
+        [self.bannerView setImgFileNames:self.bannerImageNames];
+        
+    } else {
+        NSFetchRequest* bannerRequest = [NSFetchRequest fetchRequestWithEntityName:@"Banner"];
+        bannerRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"bannerId" ascending:YES]];
+        
+        NSError* err = nil;
+        NSArray* bannerArray = [context executeFetchRequest:bannerRequest error:&err];
+        if(err)
+            JPLog(@"ERR: %@", err);
+        
+        self.bannerURLs = [NSMutableArray array];
+        
+        for(Banner* banner in bannerArray)
+        {
+            NSURL* bannerURL = [NSURL URLWithString:banner.bannerLink];
+            [self.bannerURLs addObject: bannerURL];
+        }
+        
+        [self.bannerView setImgArrayURL:self.bannerURLs];
     }
-    
-    [self.bannerView setImgArrayURL:self.bannerURLs];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

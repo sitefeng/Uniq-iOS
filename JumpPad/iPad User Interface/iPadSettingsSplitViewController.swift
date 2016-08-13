@@ -17,7 +17,7 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
     
     var originalTabBarController : UITabBarController?
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -42,7 +42,7 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
         //Detail View Controller
         var aboutController = iPadSettingsAboutViewController(nibName: nil, bundle: nil)
         
-        var detailNavController: UINavigationController! = UINavigationController(rootViewController: aboutController)
+        let detailNavController: UINavigationController! = UINavigationController(rootViewController: aboutController)
         
         
         self.viewControllers = [_navController, detailNavController]
@@ -62,9 +62,9 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
     
     func dismissButtonPressed() {
         
-        var app = UIApplication.sharedApplication().delegate as UIApplicationDelegate!
+        let app = UIApplication.sharedApplication().delegate as UIApplicationDelegate!
         
-        var currentController : UIViewController! = app.window!!.rootViewController
+        let currentController : UIViewController! = app.window!!.rootViewController
         app.window!!.rootViewController = self.originalTabBarController
         app.window!!.rootViewController = currentController
         
@@ -87,13 +87,13 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
         var detailNavController: UINavigationController!
         
         if name == "Authors" {
-            var detailController = iPadSettingsAuthorsTableViewController(style: UITableViewStyle.Plain)
+            let detailController = iPadSettingsAuthorsTableViewController(style: UITableViewStyle.Plain)
             detailController.title = name
             detailNavController = UINavigationController(rootViewController: detailController)
         }
         else if name == "About" || name=="Special Thanks"
         {
-            var detailController = iPadSettingsAboutViewController(nameOrNil: name)
+            let detailController = iPadSettingsAboutViewController(nameOrNil: name)
             detailController.title = name
             detailNavController = UINavigationController(rootViewController: detailController)
 
@@ -102,9 +102,9 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
         {
             if MFMailComposeViewController.canSendMail()
             {
-                var mailController : MFMailComposeViewController!  = MFMailComposeViewController()
+                let mailController : MFMailComposeViewController!  = MFMailComposeViewController()
                 mailController.mailComposeDelegate = self
-                var recipient = "technochimera@gmail.com"
+                let recipient = "technochimera@gmail.com"
             
                 mailController.setToRecipients([recipient])
                 self.presentViewController(mailController, animated: true, completion: nil)
@@ -117,7 +117,7 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
         }
         else
         {
-            var detailController: UIViewController! = UIViewController(nibName: nil, bundle: nil)
+            let detailController: UIViewController! = UIViewController(nibName: nil, bundle: nil)
             detailController.title = name
             detailNavController = UINavigationController(rootViewController: detailController)
         }

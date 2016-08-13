@@ -22,8 +22,6 @@
 {
     CPTXYGraph*  barChart;
     
-    
-    
     NSInteger    _indexOfLargestSlice;
 }
 

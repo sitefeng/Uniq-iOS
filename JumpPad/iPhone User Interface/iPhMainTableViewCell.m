@@ -25,7 +25,7 @@
         self.itemImageView = [[iPadDashletImageView alloc] initWithFrame:CGRectMake(5, 5, 108 -10, 81 -10)];
         self.itemImageView.clipsToBounds = YES;
         self.itemImageView.layer.cornerRadius = 15;
-        self.itemImageView.layer.borderColor = [JPStyle interfaceTintColor].CGColor;
+        self.itemImageView.layer.borderColor = [UIColor blackColor].CGColor;
         self.itemImageView.layer.borderWidth = 1.0f;
         [self addSubview:self.itemImageView];
         
@@ -71,10 +71,10 @@
     _dashletInfo = dashletInfo;
     
     NSMutableArray* imageURLs = self.dashletInfo.backgroundImages;
-    if([imageURLs count]>0)
-    {
+    
+    if([imageURLs count]>0) {
         NSURL* imageURL = [imageURLs firstObject];
-        self.itemImageView.imageURLs = [@[imageURL]mutableCopy];
+        self.itemImageView.imageURLs = [@[imageURL] mutableCopy];
     }
     
     self.itemImageView.logoURL = self.dashletInfo.icon;

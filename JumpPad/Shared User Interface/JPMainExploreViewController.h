@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "JPDataRequest.h"
 
+#import <Uniq-Swift.h>
+
+
 @class JPBannerView;
-@interface JPMainExploreViewController : UIViewController <JPDataRequestDelegate>
+@interface JPMainExploreViewController : UIViewController <JPDataRequestDelegate, JPOfflineDataRequestDelegate>
 {
     NSManagedObjectContext* context;
-    JPDataRequest*   _dataRequest;
 }
 
 

@@ -10,6 +10,7 @@
 #import "JPProgramRatingHelper.h"
 #import "JPCloudFavoritesHelper.h"
 
+// Temporarily deprecated
 
 @class JPCoreDataHelper;
 @protocol JPDataRequestDelegate, JPProgramRatingHelper, JPConnectivityManager;

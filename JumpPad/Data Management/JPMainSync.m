@@ -17,7 +17,11 @@
 
 #import "Faculty.h"
 
+// deprecated
+// Store all static JSON into core data when the app launches.
 
+// It was later realized that reading and storing all local offline JSON into Core data is unnecessary. because
+// The classes can just request data on the go.
 
 @implementation JPMainSync
 
@@ -95,16 +99,18 @@
 
 - (void)sync
 {
-    //Get banner information
-    //Simulated Banner Data
-    NSURL* bannerDataURL = [[NSBundle mainBundle] URLForResource:@"getAllBannersInfo" withExtension:@"json"];
-    ////////////////
-    NSData* bannerData = [NSData dataWithContentsOfURL:bannerDataURL];
-    NSArray* parseBannerArray = [NSJSONSerialization JSONObjectWithData:bannerData options:0 error:nil];
+    // Commented out because the server is down, and the app will be launched to work offline
     
-    [self saveBannerDataWithArray:parseBannerArray];
-    
-    
+//    //Get banner information
+//    //Simulated Banner Data
+//    NSURL* bannerDataURL = [[NSBundle mainBundle] URLForResource:@"getAllBannersInfo" withExtension:@"json"];
+//    ////////////////
+//    NSData* bannerData = [NSData dataWithContentsOfURL:bannerDataURL];
+//    NSArray* parseBannerArray = [NSJSONSerialization JSONObjectWithData:bannerData options:0 error:nil];
+//    
+//    [self saveBannerDataWithArray:parseBannerArray];
+//    
+//    
 //    [self sendGetAllUniversitiesInfoRequestWithLastModifiedTime:self.timeModified];
 //    
 //    //Simulated Data

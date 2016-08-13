@@ -17,7 +17,7 @@ class iPadSettingsAuthorsTableViewController: UITableViewController {
     var _selectedIndexPath : NSIndexPath?
     var _deviceType: UIUserInterfaceIdiom!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

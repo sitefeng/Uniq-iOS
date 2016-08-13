@@ -95,12 +95,12 @@
     if([value integerValue] == AFNetworkReachabilityStatusReachableViaWiFi || [value integerValue] == AFNetworkReachabilityStatusReachableViaWWAN)
     {
         [self postNeedUpdateDataNotification];
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi"] status:@"Connected"];
+
         NSLog(@"Reachable");
     }
     else
     {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
+
         NSLog(@"Not Reachable");
 
     }

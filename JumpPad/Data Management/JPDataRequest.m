@@ -66,7 +66,7 @@
         if(connectionError)
         {
             NSLog(@"Connection Error: %@", connectionError.localizedDescription);
-            [SVStatusHUD showWithImage:[UIImage imageNamed:@"noWifi"] status:@"Offline Mode"];
+            
             [self.delegate dataRequest:self didLoadAllItemsOfType:JPDashletTypeSchool allFields:allFields withDataArray:nil isSuccessful:NO];
             return;
         }

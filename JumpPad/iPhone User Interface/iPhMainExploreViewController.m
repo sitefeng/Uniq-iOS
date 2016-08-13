@@ -29,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [UIApplication sharedApplication].statusBarHidden = false;
     self.automaticallyAdjustsScrollViewInsets = NO;
     _indexPathsNeedReloading = [NSMutableArray array];
 
@@ -88,7 +89,8 @@
     
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
-    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId forSelectionType:JPDashletTypeSchool];
+    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:selectedDashlet.slug facultySlug:nil forSelectionType:JPDashletTypeSchool];
+    
     selectViewController.title = selectedDashlet.title;
     
     [self.navigationController pushViewController:selectViewController animated:YES];
@@ -112,9 +114,6 @@
     [self.tableView reloadData];
     
 }
-
-
-
 
 
 

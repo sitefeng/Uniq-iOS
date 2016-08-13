@@ -16,14 +16,19 @@
 #import "JPConnectivityManager.h"
 #import "DejalActivityView.h"
 
+#import "Uniq-Swift.h"
 
-@interface iPhFacProgSelectViewController ()
+
+@interface iPhFacProgSelectViewController () <JPDataRequestDelegate, JPOfflineDataRequestDelegate>
+
+@property (nonatomic, strong) JPDataRequest *dataRequest;
+@property (nonatomic, strong) JPOfflineDataRequest *offlineDataRequest;
 
 @end
 
 @implementation iPhFacProgSelectViewController
 
-- (instancetype)initWithItemId: (NSString*)itemId forSelectionType: (JPDashletType)type
+- (instancetype)initWithItemId:(NSString*)itemId schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug forSelectionType: (JPDashletType)type
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -35,9 +40,10 @@
         UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
         context = [del managedObjectContext];
         
-        self.type = type;
-        self.itemId = itemId;
-        
+        _type = type;
+        _itemId = itemId;
+        _schoolSlug = schoolSlug;
+        _facultySlug = facultySlug;
     }
     return self;
 }
@@ -129,7 +135,8 @@
     
     if(self.type == JPDashletTypeSchool)
     {
-        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId: selectedDashlet.itemId forSelectionType:JPDashletTypeFaculty];
+        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:self.schoolSlug facultySlug:selectedDashlet.slug forSelectionType:JPDashletTypeFaculty];
+        
         programSelectVC.title = selectedDashlet.title;
         
         [self.navigationController pushViewController:programSelectVC animated:YES];
@@ -151,25 +158,45 @@
 }
 
 
-
 #pragma mark - Update Dashlet Info
 
 - (void)updateDashletsInfo
 {
     [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
     
-    _dataRequest = [JPDataRequest request];
-    _dataRequest.delegate = self;
-    
-    if(self.type == JPDashletTypeSchool)
-        [_dataRequest requestAllFacultiesFromSchool:self.itemId allFields:NO];
-    else
-        [_dataRequest requestAllProgramsFromFaculty:self.itemId allFields:NO];
+    if (JPUtility.isOfflineMode) {
+        _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
+        _offlineDataRequest.delegate = self;
+        
+        if(self.type == JPDashletTypeSchool)
+            [_offlineDataRequest requestAllFacultiesFromSchool: self.schoolSlug];
+        else
+            [_offlineDataRequest requestAllProgramsFromFaculty:self.schoolSlug facultySlug:self.facultySlug];
+    } else {
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        
+        if(self.type == JPDashletTypeSchool)
+            [_dataRequest requestAllFacultiesFromSchool:self.itemId allFields:NO];
+        else
+            [_dataRequest requestAllProgramsFromFaculty:self.itemId allFields:NO];
+    }
 }
 
 
-- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success
-{
+#pragma mark - Delegate Methods
+- (void)offlineDataRequest:(JPOfflineDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type dataArray:(NSArray *)dataArray isSuccessful:(BOOL)isSuccessful {
+    [self finishedLoadingRequestWithType:type dataArray:dataArray isSuccess:isSuccessful];
+}
+
+- (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success {
+    
+    [self finishedLoadingRequestWithType:type dataArray:array isSuccess:success];
+}
+
+
+- (void)finishedLoadingRequestWithType: (JPDashletType)type dataArray: (NSArray *)array isSuccess:(BOOL)success {
+    
     [DejalBezelActivityView removeViewAnimated:YES];
     if(!success)
         return;

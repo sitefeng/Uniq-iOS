@@ -16,6 +16,8 @@
 #import "NSObject+JPConvenience.h"
 #import "ManagedObjects+JPConvenience.h"
 
+#import "Uniq-Swift.h"
+
 
 @implementation JPDashlet
 
@@ -259,10 +261,20 @@
         else //if dictionary is raw info from server
         {
             self.itemId = [dict objectForKey:@"id"];
+            self.slug = [dict objectForKey:@"slug"];
             self.title = [dict objectForKey:@"name"];
             NSString* populationStr = [dict objectForKey:@"undergradPopulation"];
             self.population = [self numberFromNumberString:populationStr];
-            self.location = [[JPLocation alloc] initWithLocationDict:[dict objectForKey:@"location"]];
+            
+            NSDictionary *locationDict = [dict objectForKey:@"location"];
+            
+            if ([locationDict isEqual:[NSNull null]] || locationDict.allKeys.count == 0) {
+                NSString *schoolSlug = [dict objectForKey:@"schoolSlug"];
+                JPOfflineDataRequest *offlineRequest = [[JPOfflineDataRequest alloc] init];
+                self.location = [offlineRequest requestLocationForSchool:schoolSlug];
+            } else {
+                self.location = [[JPLocation alloc] initWithLocationDict:locationDict];
+            }
             
             self.backgroundImages = [NSMutableArray array];
             
@@ -354,14 +366,6 @@
     
     return dashlet;
 }
-
-
-
-
-
-
-
-
 
 
 
