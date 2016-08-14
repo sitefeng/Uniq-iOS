@@ -23,6 +23,7 @@
 @property (nonatomic, assign) NSInteger weight;
 
 
+- (instancetype)initWithDefaultValues;
 - (instancetype)initWithOrderedArray: (NSArray*)ratingsArray;
 - (instancetype)initWithShortKeyDictionary: (NSDictionary*)dict;
 - (instancetype)initWithFullKeyDictionary: (NSDictionary*)dict;

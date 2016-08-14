@@ -18,6 +18,8 @@ internal final class JPOfflineDataRequest: NSObject {
     
     var delegate: JPOfflineDataRequestDelegate?
     
+    var _cloudFavoritesHelper: JPCloudFavoritesHelper?
+    
     override init() {
         super.init()
     }
@@ -153,34 +155,51 @@ internal final class JPOfflineDataRequest: NSObject {
         return location
     }
     
-    
+    //MARK: - Requesting Indivitual item details
     /// Get program details in dictionary format
-    func requestProgramDetails(schoolSlug: String, facultySlug: String, programSlug: String) -> [String: AnyObject] {
+    func requestProgramDetails(schoolSlug: String, facultySlug: String, programSlug: String, itemUid: String) -> [String: AnyObject] {
         
         let programPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(programSlug).json"
         
-        return dictionaryFromFilePath(programPath)
+        var dictionary = dictionaryFromFilePath(programPath)
+        dictionary = addRealtimeValuesToDictionary(itemUid, dict: dictionary)
+        
+        //Adding Ratings from Firebase
+        let programRatingHelper = JPProgramRatingHelper()
+        let ratingsShortForm = programRatingHelper.downloadRatingsSynchronouslyWithProgramUid(itemUid, getAverageValue: true)
+        let ratings = JPRatings(shortKeyDictionary: ratingsShortForm)
+        
+        let ratingsDict = ratings.getFullKeyDictionaryRepresentation()
+        dictionary["rating"] = ratingsDict
+        
+        return dictionary
     }
     
     
-    func requestSchoolDetails(slug: String) -> [String: AnyObject] {
+    func requestSchoolDetails(slug: String, itemUid: String) -> [String: AnyObject] {
         
         let schoolPath = offlineDataPath() + "/\(slug)/\(slug).json"
         
-        return dictionaryFromFilePath(schoolPath)
+        var dictionary = dictionaryFromFilePath(schoolPath)
+        dictionary = addRealtimeValuesToDictionary(itemUid, dict: dictionary)
+        
+        return dictionary
     }
     
     
-    func requestFacultyDetails(schoolSlug: String, facultySlug: String) -> [String: AnyObject] {
+    func requestFacultyDetails(schoolSlug: String, facultySlug: String, itemUid: String) -> [String: AnyObject] {
         
         let facultyPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
         
-        return dictionaryFromFilePath(facultyPath)
+        var dictionary = dictionaryFromFilePath(facultyPath)
+        dictionary = addRealtimeValuesToDictionary(itemUid, dict: dictionary)
+        
+        return dictionary
     }
-    
+
     
     // MARK: Helpers
-    func offlineDataPath() -> String {
+    private func offlineDataPath() -> String {
         let offlineDataPathOrNil = NSBundle.mainBundle().pathForResource("OfflineData", ofType: nil)
         
         guard let offlineDataPath = offlineDataPathOrNil else {
@@ -189,7 +208,7 @@ internal final class JPOfflineDataRequest: NSObject {
         return offlineDataPath
     }
     
-    func dictionaryFromFilePath(filePath: String) -> [String: AnyObject] {
+    private func dictionaryFromFilePath(filePath: String) -> [String: AnyObject] {
         // Pretend reading a program json file
         let programJSONURL = NSURL(fileURLWithPath: filePath)
         
@@ -206,6 +225,16 @@ internal final class JPOfflineDataRequest: NSObject {
         }
         
         return programDict
+    }
+    
+    
+    private func addRealtimeValuesToDictionary(itemUid: String, dict: [String: AnyObject]) -> [String: AnyObject] {
+        var tempDictionary: [String: AnyObject] = dict
+        _cloudFavoritesHelper = JPCloudFavoritesHelper()
+        let numFavorites = _cloudFavoritesHelper?.getItemFavCountWithUid(itemUid)
+        tempDictionary["numFavorites"] = NSNumber(integer: numFavorites ?? 0)
+        
+        return tempDictionary
     }
 
 }

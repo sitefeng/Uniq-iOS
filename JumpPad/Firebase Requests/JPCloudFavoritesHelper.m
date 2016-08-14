@@ -164,7 +164,7 @@
     if(connectionError)
     {
         NSLog(@"Increment Connection error:%@", connectionError.localizedDescription);
-        return -1;
+        return nil;
     }
     
     ///////////////////////////////////

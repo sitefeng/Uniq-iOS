@@ -28,6 +28,11 @@
     return self;
 }
 
+- (instancetype)initWithDefaultValues {
+    NSArray* orderedArray = @[@50.00,@50.00,@50.00,@50.00,@50.00,@50.00,@50.00,@50.00];
+    self = [self initWithOrderedArray:orderedArray];
+    return self;
+}
 
 - (instancetype)initWithOrderedArray: (NSArray*)ratingsArray
 {

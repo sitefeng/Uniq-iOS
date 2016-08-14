@@ -417,11 +417,11 @@
         
         NSDictionary *dataDict = @{};
         if (type == JPDashletTypeSchool) {
-            dataDict = [_offlineDataRequest requestSchoolDetails:schoolSlug];
+            dataDict = [_offlineDataRequest requestSchoolDetails:schoolSlug itemUid:itemId];
         } else if (type == JPDashletTypeFaculty) {
-            dataDict = [_offlineDataRequest requestFacultyDetails:schoolSlug facultySlug:facultySlug];
+            dataDict = [_offlineDataRequest requestFacultyDetails:schoolSlug facultySlug:facultySlug itemUid:itemId];
         } else if (type == JPDashletTypeProgram) {
-            dataDict = [_offlineDataRequest requestProgramDetails:schoolSlug facultySlug:facultySlug programSlug:programSlug];
+            dataDict = [_offlineDataRequest requestProgramDetails:schoolSlug facultySlug:facultySlug programSlug:programSlug itemUid:itemId];
         }
         [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dataDict isSuccessful:true];
         

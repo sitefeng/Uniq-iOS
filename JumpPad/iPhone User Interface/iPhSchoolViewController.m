@@ -44,9 +44,9 @@
             
             NSDictionary *dataDict = @{};
             if (type == JPDashletTypeFaculty) {
-                dataDict = [_offlineDataRequest requestFacultyDetails:self.schoolSlug facultySlug:self.facultySlug];
+                dataDict = [_offlineDataRequest requestFacultyDetails:self.schoolSlug facultySlug:self.facultySlug itemUid:self.itemId];
             } else {
-                dataDict = [_offlineDataRequest requestSchoolDetails:self.schoolSlug];
+                dataDict = [_offlineDataRequest requestSchoolDetails:self.schoolSlug itemUid:self.itemId];
             }
             
             [self finishedLoadingDetailsOfType:type dataDict:dataDict isSuccessful:true];

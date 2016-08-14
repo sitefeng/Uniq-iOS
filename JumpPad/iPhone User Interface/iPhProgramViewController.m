@@ -71,7 +71,7 @@
     if (JPUtility.isOfflineMode) {
         _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
         
-        NSDictionary *programDict = [_offlineDataRequest requestProgramDetails:self.schoolSlug facultySlug:self.facultySlug programSlug:self.slug];
+        NSDictionary *programDict = [_offlineDataRequest requestProgramDetails:self.schoolSlug facultySlug:self.facultySlug programSlug:self.slug itemUid:self.itemId];
         [self finshedLoadingDataWithType:JPDashletTypeProgram dataDict:programDict isSuccessful:true];
         
     } else {

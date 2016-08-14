@@ -146,7 +146,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         else if(row == 1)
         {
-            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")!
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 2)
@@ -169,18 +169,18 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         else if(row == 6)
         {
-            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")!
             
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 7)
         {
-            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")!
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 8)
         {
-            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")!
             UIApplication.sharedApplication().openURL(url)
         }
         
@@ -204,7 +204,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         let message : String! = "Checkout Uniq for iOS. College Info Reimagined."
         var image:UIImage! = UIImage(named:"appIcon-152")
         
-        var link: NSURL! = NSURL(string: "http://uniq.url.ph")
+        var link: NSURL! = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")
         
         if(buttonIndex==0)//facebook
         {

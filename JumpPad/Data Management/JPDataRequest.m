@@ -243,26 +243,12 @@
         return;
     }
     
-    if(!exists)
-    {
-        NSArray* orderedArray = @[@50.00,@50.00,@50.00,@50.00,@50.00,@50.00,@50.00,@50.00];
-        ratings = [[JPRatings alloc] initWithOrderedArray:orderedArray];
+    if(!exists) {
+        ratings = [[JPRatings alloc] initWithDefaultValues];
     }
     
     NSMutableDictionary* newDict = [_itemDetailsDictWithoutRatings mutableCopy];
     NSMutableDictionary* ratingsDict = [[ratings getFullKeyDictionaryRepresentation] mutableCopy];
-    
-    double guyRatioNotUsingFirebaseIfExistsOnServer = [[ratingsDict objectForKey:@"guyRatio"] doubleValue];
-    
-    //Get Guy Ratio from Server
-    if([_itemDetailsDictWithoutRatings objectForKey:@"rating"] != [NSNull null])
-    {
-        NSDictionary* serverRatingDict = [_itemDetailsDictWithoutRatings objectForKey:@"rating"];
-        if([serverRatingDict objectForKey:@"guyRatio"] != [NSNull null])
-            guyRatioNotUsingFirebaseIfExistsOnServer = [[serverRatingDict objectForKey:@"guyRatio"] doubleValue];
-    }
-                                          
-    [ratingsDict setObject:[NSNumber numberWithDouble:guyRatioNotUsingFirebaseIfExistsOnServer] forKey:@"guyRatio"];
     [newDict setObject:ratingsDict forKey:@"rating"];
     
     _itemDetailExpectedReturnNumber--;

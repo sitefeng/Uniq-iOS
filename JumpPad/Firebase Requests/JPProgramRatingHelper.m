@@ -49,7 +49,7 @@
         }
         
         //Get user's previous ratings
-        NSDictionary* userDict = [self private_downloadRatingsWithProgramUid:uid getAverageValue:NO];
+        NSDictionary* userDict = [self downloadRatingsSynchronouslyWithProgramUid:uid getAverageValue:NO];
         if([userDict objectForKey:@"error"] != nil)
             return;
         
@@ -180,8 +180,7 @@
 }
 
 
-
-- (NSDictionary*)private_downloadRatingsWithProgramUid:(NSString *)uid getAverageValue:(BOOL)isAverage
+- (NSDictionary*)downloadRatingsSynchronouslyWithProgramUid:(NSString *)uid getAverageValue:(BOOL)isAverage
 {
     NSString* deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     if(isAverage)

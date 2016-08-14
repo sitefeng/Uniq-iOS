@@ -46,11 +46,11 @@
         {
             UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 230, 20)];
             localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            localLabel.text = @"Domestic Tuition + Fees per term";
+            localLabel.text = @"Domestic Tuition + Fees per year";
             localLabel.textColor = [UIColor blackColor];
             UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 85, 230, 20)];
             intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            intLabel.text = @"International Tuition + Fees per term";
+            intLabel.text = @"International Tuition + Fees per year";
             intLabel.textColor = [UIColor blackColor];
             
             [self addSubview:localLabel];

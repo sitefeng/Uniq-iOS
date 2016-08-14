@@ -211,7 +211,7 @@
                 break;
             }
             case 8: {
-                NSURL* url = [NSURL URLWithString:@"http://uniq.url.ph"];
+                NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/Uniq-263885313811132/"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }
@@ -237,7 +237,7 @@
 {
     NSString* message = @"Checkout Uniq for iOS. College Info Reimagined.";
     UIImage* image = [UIImage imageNamed:@"appIcon-152"];
-    NSURL* link = [NSURL URLWithString:@"http://uniq.url.ph"];
+    NSURL* link = [NSURL URLWithString:@"https://www.facebook.com/Uniq-263885313811132/"];
     
     if(buttonIndex==0)//facebook
     {

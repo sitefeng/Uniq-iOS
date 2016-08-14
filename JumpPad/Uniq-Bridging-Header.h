@@ -17,4 +17,7 @@
 #import "JPGlobal.h"
 #import "SVStatusHUD.h"
 #import "JPLocation.h"
+#import "JPCloudFavoritesHelper.h"
+#import "JPProgramRatingHelper.h"
+#import "JPRatings.h"
 
