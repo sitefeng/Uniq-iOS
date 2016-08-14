@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CorePlot-CocoaTouch.h"
 #import "RPRadarChart.h"
 
 #import "DPMeterView.h"
@@ -16,16 +15,9 @@
 
 @class Program, ProgramRating;
 
-@interface iPadProgramDetailGraphView : JPProgramDetailView <CPTBarPlotDataSource, CPTPlotSpaceDelegate, CPTBarPlotDelegate>
-
-{
-    CPTXYGraph*  barChart;
-    
+@interface iPadProgramDetailGraphView : JPProgramDetailView {
     NSInteger    _indexOfLargestSlice;
 }
-
-
-
 
 
 
@@ -33,29 +25,15 @@
 
 @property (nonatomic, strong) NSString* title;
 
-
-@property (nonatomic, strong) CPTGraphHostingView* barChartView;
-
-
 @property (nonatomic, strong) PieChartView* whyPieChart;
-
 
 @property (nonatomic, strong) RPRadarChart* radarChart;
 @property (nonatomic, strong) DPMeterView* overallRatingView;
-
-
 
 @property (nonatomic, strong) PieChartView *ratioPieChart;
 
 
 - (id)initWithFrame:(CGRect)frame  title:(NSString*)title  program:(Program*) program;
-
-
 - (void)reloadData;
-
-
-
-
-
 
 @end
