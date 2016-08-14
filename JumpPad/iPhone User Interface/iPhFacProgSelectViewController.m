@@ -135,7 +135,7 @@
     
     if(self.type == JPDashletTypeSchool)
     {
-        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:self.schoolSlug facultySlug:selectedDashlet.slug forSelectionType:JPDashletTypeFaculty];
+        iPhFacProgSelectViewController* programSelectVC = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:self.schoolSlug facultySlug:selectedDashlet.facultySlug forSelectionType:JPDashletTypeFaculty];
         
         programSelectVC.title = selectedDashlet.title;
         
@@ -143,7 +143,7 @@
     }
     else if(self.type == JPDashletTypeFaculty)
     {
-        iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
+        iPhProgramViewController* programController = [[iPhProgramViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:self.schoolSlug facultySlug:self.facultySlug programSlug:selectedDashlet.programSlug];
         [programController setTitle:selectedDashlet.title];
         
         //Mixpanel

@@ -477,6 +477,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "mech", 
     "slug": "mechanicalengineering", 
     "streams": null, 

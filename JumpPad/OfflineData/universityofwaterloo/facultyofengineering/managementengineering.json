@@ -499,6 +499,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "manag", 
     "slug": "managementengineering", 
     "streams": null, 

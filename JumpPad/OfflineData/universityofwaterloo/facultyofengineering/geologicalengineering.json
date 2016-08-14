@@ -513,6 +513,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "geo", 
     "slug": "geologicalengineering", 
     "streams": null, 

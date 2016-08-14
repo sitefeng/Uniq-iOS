@@ -20,25 +20,33 @@
 #import "ManagedObjects+JPConvenience.h"
 #import "DejalActivityView.h"
 
+#import "Uniq-Swift.h"
 
 
-@interface iPhProgramViewController ()
+@interface iPhProgramViewController () <JPDataRequestDelegate, JPOfflineDataRequestDelegate>
+
+@property (nonatomic, strong) JPDataRequest *dataRequest;
+@property (nonatomic, strong) JPOfflineDataRequest *offlineDataRequest;
 
 @end
 
 @implementation iPhProgramViewController
 
-- (instancetype)initWithItemId: (NSString*)itemId
+- (instancetype)initWithItemId: (NSString*)itemId schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug programSlug: (NSString *)programSlug
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         // Custom initialization
         self.automaticallyAdjustsScrollViewInsets = NO;
         
+        _itemId = itemId;
+        _schoolSlug = schoolSlug;
+        _facultySlug = facultySlug;
+        _slug = programSlug;
+        
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];
         
-        self.itemId = itemId;
         _helper = [[JPCoreDataHelper alloc] init];
         
         UIBarButtonItem* dismissItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonSelected:)];
@@ -58,19 +66,29 @@
 }
 
 
-
-
 - (void)retrieveProgramInfo
 {
-    _dataRequest = [JPDataRequest request];
-    _dataRequest.delegate = self;
-    [_dataRequest requestItemDetailsWithId:self.itemId ofType:JPDashletTypeProgram];
-
+    if (JPUtility.isOfflineMode) {
+        _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
+        
+        NSDictionary *programDict = [_offlineDataRequest requestProgramDetails:self.schoolSlug facultySlug:self.facultySlug programSlug:self.slug];
+        [self finshedLoadingDataWithType:JPDashletTypeProgram dataDict:programDict isSuccessful:true];
+        
+    } else {
+        _dataRequest = [JPDataRequest request];
+        _dataRequest.delegate = self;
+        [_dataRequest requestItemDetailsWithId:self.itemId ofType:JPDashletTypeProgram];
+    }
+   
 }
 
 
-- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
-{
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success {
+    [self finshedLoadingDataWithType:type dataDict:dict isSuccessful:success];
+    
+}
+
+- (void)finshedLoadingDataWithType: (JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful: (BOOL)success {
     if(!success) {
         return;
     }
@@ -152,15 +170,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -261,7 +261,18 @@
         else //if dictionary is raw info from server
         {
             self.itemId = [dict objectForKey:@"id"];
-            self.slug = [dict objectForKey:@"slug"];
+            
+            if (type == JPDashletTypeSchool) {
+                self.schoolSlug = [dict objectForKey:@"slug"];
+            } else if (type == JPDashletTypeFaculty) {
+                self.schoolSlug = [dict objectForKey:@"schoolSlug"];
+                self.facultySlug = [dict objectForKey:@"slug"];
+            } else if (type == JPDashletTypeProgram) {
+                self.schoolSlug = [dict objectForKey:@"schoolSlug"];
+                self.facultySlug = [dict objectForKey:@"facultySlug"];
+                self.programSlug = [dict objectForKey:@"slug"];
+            }
+            
             self.title = [dict objectForKey:@"name"];
             NSString* populationStr = [dict objectForKey:@"undergradPopulation"];
             self.population = [self numberFromNumberString:populationStr];

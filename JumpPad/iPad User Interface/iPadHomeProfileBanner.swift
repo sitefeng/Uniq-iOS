@@ -56,17 +56,17 @@ class iPadHomeProfileBanner: UIView {
         //Background View
         backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         
-        var tapRec:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(iPadHomeProfileBanner.backgroundTapped))
+        let tapRec:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(iPadHomeProfileBanner.backgroundTapped))
         backgroundView.addGestureRecognizer(tapRec)
         
-        var backgroundImgView : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: backgroundView.frame.size.width, height: backgroundView.frame.size.height))
+        let backgroundImgView : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: backgroundView.frame.size.width, height: backgroundView.frame.size.height))
         
 //        backgroundImgView.image = UIImage(named: "defaultProgram")
         backgroundImgView.image = UIImage(named: "edgeBackground")
         backgroundImgView.contentMode = UIViewContentMode.ScaleAspectFill
         backgroundView.addSubview(backgroundImgView)
         
-        var backgroundWhiteCoverView: UIView = UIView(frame: backgroundImgView.frame)
+        let backgroundWhiteCoverView: UIView = UIView(frame: backgroundImgView.frame)
         backgroundWhiteCoverView.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
         
         backgroundView.addSubview(backgroundWhiteCoverView)
@@ -116,7 +116,7 @@ class iPadHomeProfileBanner: UIView {
         
         
         //Average Progress View 
-        var avgTitle = UILabel(frame: CGRect(x: 280, y: 150, width: 300, height: 30))
+        let avgTitle = UILabel(frame: CGRect(x: 280, y: 150, width: 300, height: 30))
         avgTitle.font = UIFont(name: JPFont.defaultThinFont(), size: 22)
         avgTitle.text = "Overall Average"
         self.addSubview(avgTitle)

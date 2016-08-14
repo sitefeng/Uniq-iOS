@@ -26,15 +26,9 @@ internal final class JPOfflineDataRequest: NSObject {
         
         var dataArray: [AnyObject] = []
         
-        let offlineDataPathOrNil = NSBundle.mainBundle().pathForResource("OfflineData", ofType: nil)
-        
-        guard let offlineDataPath = offlineDataPathOrNil else {
-            return
-        }
-        
         var schoolFolders = []
         do {
-            schoolFolders = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(offlineDataPath)
+            schoolFolders = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(offlineDataPath())
         } catch {
             print("Cannot load local files")
             return
@@ -42,7 +36,7 @@ internal final class JPOfflineDataRequest: NSObject {
         
         for schoolNameAny in schoolFolders {
             let schoolName = schoolNameAny as! String
-            let schoolPath = offlineDataPath + "/\(schoolName)"
+            let schoolPath = offlineDataPath() + "/\(schoolName)"
             
             let schoolJSONURL = NSURL.fileURLWithPath(schoolPath + "/\(schoolName).json")
             let schoolJSONData = NSData(contentsOfURL: schoolJSONURL)
@@ -64,14 +58,8 @@ internal final class JPOfflineDataRequest: NSObject {
     func requestAllFacultiesFromSchool(slug: String) {
         var dataArray: [AnyObject] = []
         
-        let offlineDataPathOrNil = NSBundle.mainBundle().pathForResource("OfflineData", ofType: nil)
-        
-        guard let offlineDataPath = offlineDataPathOrNil else {
-            return
-        }
-        
         let schoolName = slug
-        let schoolPath = offlineDataPath + "/\(schoolName)"
+        let schoolPath = offlineDataPath() + "/\(schoolName)"
         
         var facultyFolders = []
         do {
@@ -110,13 +98,7 @@ internal final class JPOfflineDataRequest: NSObject {
     func requestAllProgramsFromFaculty(schoolSlug: String, facultySlug: String) {
         var dataArray: [AnyObject] = []
         
-        let offlineDataPathOrNil = NSBundle.mainBundle().pathForResource("OfflineData", ofType: nil)
-        
-        guard let offlineDataPath = offlineDataPathOrNil else {
-            return
-        }
-        
-        let facultyPath = offlineDataPath + "/\(schoolSlug)/\(facultySlug)"
+        let facultyPath = self.offlineDataPath() + "/\(schoolSlug)/\(facultySlug)"
         
         var programNames = []
         do {
@@ -148,19 +130,14 @@ internal final class JPOfflineDataRequest: NSObject {
         delegate?.offlineDataRequest(self, didLoadAllItemsOfType: JPDashletType.Program, dataArray: dataArray, isSuccessful: true)
     }
     
+    // MARK: - Serialized Requests
     
     //MARK: Request for school location
     func requestLocationForSchool(schoolSlug: String) -> JPLocation {
         assert(schoolSlug != "", "School Slug cannot be empty")
-        
-        let offlineDataPathOrNil = NSBundle.mainBundle().pathForResource("OfflineData", ofType: nil)
-        
-        guard let offlineDataPath = offlineDataPathOrNil else {
-            return JPLocation()
-        }
-        
+
         let schoolName = schoolSlug
-        let schoolJSONPath = offlineDataPath + "/\(schoolName)/\(schoolName).json"
+        let schoolJSONPath = offlineDataPath() + "/\(schoolName)/\(schoolName).json"
         
         let schoolJSONURL = NSURL(fileURLWithPath: schoolJSONPath)
         let schoolJSONData = NSData(contentsOfURL: schoolJSONURL)
@@ -177,5 +154,34 @@ internal final class JPOfflineDataRequest: NSObject {
         return location
     }
     
+    
+    /// Get program details in dictionary format
+    func requestProgramDetails(schoolSlug: String, facultySlug: String, programSlug: String) -> [String: AnyObject] {
+        
+        let programPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(programSlug).json"
+        
+        let programJSONURL = NSURL(fileURLWithPath: programPath)
+        let programJSONData = NSData(contentsOfURL: programJSONURL)!
+        
+        var programDict: [String: AnyObject] = [:]
+        do {
+            programDict = try NSJSONSerialization.JSONObjectWithData(programJSONData, options: []) as! [String : AnyObject]
+        } catch {
+            return programDict
+        }
+        
+        return programDict
+    }
+    
+    
+    // MARK: Helpers
+    func offlineDataPath() -> String {
+        let offlineDataPathOrNil = NSBundle.mainBundle().pathForResource("OfflineData", ofType: nil)
+        
+        guard let offlineDataPath = offlineDataPathOrNil else {
+            return ""
+        }
+        return offlineDataPath
+    }
 
 }

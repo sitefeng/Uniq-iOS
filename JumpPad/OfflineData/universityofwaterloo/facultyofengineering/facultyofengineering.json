@@ -2,6 +2,7 @@
   "name":"Faculty of Engineering",
   "shortName":"eng",
   "slug":"facultyofengineering",
+  "schoolSlug": "universityofwaterloo", 
   "about":"Ranked among the top 50 engineering schools worldwide, Waterloo is committed to leading engineering education and research in Canada. We are the largest, with more than 8,800 students enrolled in 2014. In 2012/13, external research funding in engineering exceeded $60 million for the third consecutive year, a strong indication of the emphasis placed on transformational research.",
   "undergradPopulation":"6995",
   "gradPopulation":"1850",

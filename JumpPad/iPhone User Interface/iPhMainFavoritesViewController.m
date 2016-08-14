@@ -120,7 +120,8 @@
     
     if(dashlet.type == JPDashletTypeProgram)
     {
-        contentController = [[iPhProgramViewController alloc] initWithItemId:dashlet.itemId];
+        contentController = [[iPhProgramViewController alloc] initWithItemId:dashlet.itemId schoolSlug:dashlet.schoolSlug facultySlug:dashlet.facultySlug programSlug:dashlet.programSlug];
+        
     } else {
         contentController = [[iPhSchoolViewController alloc] initWithItemId:dashlet.itemId itemType:dashlet.type];
     }

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Si Te Feng. All rights reserved.
 //
 
+@import Firebase;
+
 #import "UniqAppDelegate.h"
 #import "Mixpanel.h"
 #import "JPStyle.h"
@@ -55,8 +57,6 @@
         [mixpanel track:@"App Launches"
              properties:@{@"Device Type": [JPStyle deviceTypeString]}];
     }
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
     
     ////////////////////////////////////////
     //Parse
@@ -66,7 +66,11 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
+    
+    
     ///////////////////////////////////////////
+    // Firebase
+    [FIRApp configure];
     
     //Tab bar change to 3rd element
     UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;

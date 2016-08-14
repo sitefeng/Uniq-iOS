@@ -116,22 +116,20 @@
 }
 
 
-- (void)emailButtonTapped
-{
-    if([MFMailComposeViewController canSendMail])
-    {
-        Contact* contact = [self.program.contacts anyObject];
+- (void)emailButtonTapped {
     
+    Contact* contact = [self.program.contacts anyObject];
+    NSString* recipient = contact.email;
+    
+    if([MFMailComposeViewController canSendMail] && recipient) {
         _mailController = [[MFMailComposeViewController alloc] init];
         _mailController.mailComposeDelegate = self;
-        NSString* recipient = contact.email;
+
         [_mailController setToRecipients:@[recipient]];
-        
         [self presentViewController:_mailController animated:YES completion:nil];
     }
-    else
-    {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noEmailHUD"] status:@"No Account"];
+    else {
+        [SVStatusHUD showWithImage:[UIImage imageNamed:@"noEmailHUD"] status:@"Unavailable"];
     }
 }
 

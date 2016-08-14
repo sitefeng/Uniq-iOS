@@ -11,9 +11,9 @@
 #import "SVStatusHUD.h"
 #import "TRVSMonitor.h"
 
-// temporarily deprecated
+#import "JPFirebaseCentral.h"
 
-//Firebase Link:  https://uniq.firebaseio.com
+// temporarily deprecated
 
 @implementation JPProgramRatingHelper
 
@@ -33,7 +33,7 @@
 - (void)uploadRatingsWithProgramUid: (NSString*)uid ratings:(JPRatings*)ratings
 {
     NSString* avgReqString = [NSString stringWithFormat:
-                               @"https://uniq.firebaseio.com/ratings/%@/avg.json",uid];
+                               @"%@/ratings/%@/avg.json", FirebaseBaseURL, uid];
     
     NSURL* avgReqURL = [NSURL URLWithString:avgReqString];
     NSMutableURLRequest* avgRequest = [NSMutableURLRequest requestWithURL:avgReqURL];
@@ -98,7 +98,7 @@
     if(avgWeight > 0)
         deviceId = @"avg";
     NSString* uploadStr = [NSString stringWithFormat:
-                           @"https://uniq.firebaseio.com/ratings/%@/%@.json",uid,deviceId];
+                           @"%@/ratings/%@/%@.json", FirebaseBaseURL,uid,deviceId];
     
     NSURL* uploadURL = [NSURL URLWithString:uploadStr];
     
@@ -147,7 +147,7 @@
         deviceId = @"avg";
     
     NSString* downloadStr = [NSString stringWithFormat:
-                           @"https://uniq.firebaseio.com/ratings/%@/%@.json",uid,deviceId];
+                           @"%@/ratings/%@/%@.json", FirebaseBaseURL, uid,deviceId];
     
     NSURL* downloadURL = [NSURL URLWithString:downloadStr];
     
@@ -188,7 +188,7 @@
         deviceId = @"avg";
     
     NSString* downloadStr = [NSString stringWithFormat:
-                             @"https://uniq.firebaseio.com/ratings/%@/%@.json",uid,deviceId];
+                             @"%@/ratings/%@/%@.json", FirebaseBaseURL, uid,deviceId];
     
     NSURL* downloadURL = [NSURL URLWithString:downloadStr];
     

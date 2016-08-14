@@ -7,8 +7,8 @@
 //
 
 #import "JPCloudFavoritesHelper.h"
+#import "JPFirebaseCentral.h"
 
-//Firebase URL: https://uniq-favs.firebaseio.com
 
 @implementation JPCloudFavoritesHelper
 
@@ -23,7 +23,7 @@
     //Check if favorited program exists in user's list first
     NSString* deviceUUID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     //Gets list of program uids for the device
-    NSString* getURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/userFavs/%@.json", deviceUUID];
+    NSString* getURLStr = [NSString stringWithFormat:@"%@/favorites/userFavs/%@.json", FirebaseBaseURL, deviceUUID];
     
     NSURL* getURL = [NSURL URLWithString:getURLStr];
     
@@ -89,7 +89,7 @@
 {
     NSString* deviceUUID = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     
-    NSString* reqURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/userFavs/%@.json", deviceUUID];
+    NSString* reqURLStr = [NSString stringWithFormat:@"%@/favorites/userFavs/%@.json", FirebaseBaseURL, deviceUUID];
     NSURL* reqURL = [NSURL URLWithString:reqURLStr];
     
     NSMutableURLRequest* patchRequest = [[NSMutableURLRequest alloc] initWithURL:reqURL];
@@ -125,7 +125,7 @@
     
     ///////////////////////////////////////////////
     //Write Incremented Count To Firebase
-    NSString* putURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/count/%@.json", programUid];
+    NSString* putURLStr = [NSString stringWithFormat:@"%@/favorites/count/%@.json", FirebaseBaseURL, programUid];
     NSURL* putURL = [NSURL URLWithString:putURLStr];
     
     NSMutableURLRequest* putRequest = [[NSMutableURLRequest alloc] initWithURL:putURL];
@@ -151,7 +151,7 @@
 - (NSInteger)getItemFavCountWithUid:(NSString *)programUid
 {
     //Get Current Favorite Count
-    NSString* getURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/count/%@.json", programUid];
+    NSString* getURLStr = [NSString stringWithFormat:@"%@/favorites/count/%@.json", FirebaseBaseURL, programUid];
     
     NSURL* getURL = [NSURL URLWithString:getURLStr];
     
@@ -185,7 +185,7 @@
 - (void)getItemFavCountAsyncWithUid:(NSString *)programUid indexPath:(NSIndexPath *)indexPath
 {
     //Get Current Favorite Count
-    NSString* getURLStr = [NSString stringWithFormat:@"https://uniq-favs.firebaseio.com/favorites/count/%@.json", programUid];
+    NSString* getURLStr = [NSString stringWithFormat:@"%@/favorites/count/%@.json", FirebaseBaseURL, programUid];
     
     NSURL* getURL = [NSURL URLWithString:getURLStr];
     
@@ -225,8 +225,7 @@
          });
          
     }];
-    
-    
+
 }
 
 

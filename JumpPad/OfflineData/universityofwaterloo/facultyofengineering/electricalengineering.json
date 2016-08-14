@@ -546,6 +546,7 @@
     }, 
     "schoolId": "",
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "ece", 
     "slug": "electricalengineering", 
     "streams": null, 

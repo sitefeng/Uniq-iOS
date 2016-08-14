@@ -10,11 +10,11 @@
 #import "JPDataRequest.h"
 
 @class Program, JPCoreDataHelper, UserFavItem, iPhProgramAcademicsViewController;
-@interface iPhProgramViewController : UITabBarController <JPDataRequestDelegate>
+@interface iPhProgramViewController : UITabBarController
 {
     NSManagedObjectContext* context;
     JPCoreDataHelper*  _helper;
-    JPDataRequest*     _dataRequest;
+    
     
     UIButton*  _favButton;
     UserFavItem*  _userFav;
@@ -22,21 +22,19 @@
     iPhProgramAcademicsViewController* academicsController;
 }
 
-
-
-
 @property (nonatomic, strong) NSString* itemId;
+
+// For offline use
+@property (nonatomic, strong) NSString *schoolSlug;
+@property (nonatomic, strong) NSString *facultySlug;
+@property (nonatomic, strong) NSString *slug;
+
 
 @property (nonatomic, strong) Program* program;
 
 
 
-
-
-
-
-- (instancetype)initWithItemId: (NSString*)itemId;
-
+- (instancetype)initWithItemId: (NSString*)itemId schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug programSlug: (NSString *)programSlug;
 - (void)reloadFavoriteButtonState;
 
 @end

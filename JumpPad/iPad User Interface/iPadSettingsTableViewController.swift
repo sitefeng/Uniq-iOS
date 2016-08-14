@@ -139,7 +139,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         if indexPath.row == 0 || indexPath.row == 4 || indexPath.row == 5
         {
             self.selectedIndex = indexPath
-            var parentCV: iPadSettingsSplitViewController = self.splitViewController as! iPadSettingsSplitViewController
+            let parentCV: iPadSettingsSplitViewController = self.splitViewController as! iPadSettingsSplitViewController
             let cellTitleString = cellTitles[indexPath.section][indexPath.row]
             parentCV.changeDetailViewControllerWithName(cellTitleString)
 
@@ -169,18 +169,18 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         else if(row == 6)
         {
-            var url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
             
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 7)
         {
-            var url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 8)
         {
-            var url: NSURL = NSURL(string: "http://uniq.url.ph")!
+            let url: NSURL = NSURL(string: "http://uniq.url.ph")!
             UIApplication.sharedApplication().openURL(url)
         }
         

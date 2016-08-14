@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27AE72E2D6D7B4ECDFAB9F06 /* libPods-Uniq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA435934639E44EF825A68D7 /* libPods-Uniq.a */; };
 		5D167632185787750041993E /* JPDashletTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D167631185787750041993E /* JPDashletTitleView.m */; };
 		5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D16763918583D250041993E /* Uniq-Explaination.txt */; };
 		5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D16763F18591AE10041993E /* iPadDashletDetailsView.m */; };
@@ -111,6 +110,7 @@
 		5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C3081923448900F7F01B /* MessageUI.framework */; };
 		5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5C30A1923449000F7F01B /* Social.framework */; };
 		5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6503B1933D7AE003E0490 /* JPDateView.m */; };
+		9BE6E475B241C1280F79B04A /* Pods_Uniq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362555B2433CB7679C97B4E3 /* Pods_Uniq.framework */; };
 		AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */; };
 		AA0DB944197BA8AD005A5665 /* JBParallaxSharedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0DB942197BA8AD005A5665 /* JBParallaxSharedCell.m */; };
 		AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = AA11544B195DF63600C56E2B /* UIImage+ImageEffects.m */; };
@@ -125,6 +125,7 @@
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
+		AA318CB91D5FF9DB002229AC /* JPFirebaseCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = AA318CB81D5FF9DB002229AC /* JPFirebaseCentral.m */; };
 		AA34FA5A198999B100A73292 /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AA34FA59198999B100A73292 /* AutoScrollLabel.m */; };
 		AA35BDBB19D229DA008BFF5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5B7AF184ACBB700EFCE0A /* Foundation.framework */; };
 		AA35BDBC19D22A9A008BFF5F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7777199E480500C02513 /* AudioToolbox.framework */; };
@@ -178,6 +179,7 @@
 		AAA248A21D5F99A20016300A /* JPOfflineDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA248A11D5F99A20016300A /* JPOfflineDataRequest.swift */; };
 		AAA248A41D5FA0B60016300A /* OfflineData in Resources */ = {isa = PBXBuildFile; fileRef = AAA248A31D5FA0B60016300A /* OfflineData */; };
 		AAA249471D5FDE410016300A /* core_plot_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA249461D5FDE410016300A /* core_plot_all.a */; };
+		AAA9A5261D5FF96200239C74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAA9A5251D5FF96200239C74 /* GoogleService-Info.plist */; };
 		AAAEE36119BD004D00988810 /* iPhProgramDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */; };
 		AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */; };
 		AAC6BD96199D2E6800683DB1 /* iPhProgramRatingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */; };
@@ -219,7 +221,6 @@
 		AAF734731A8B409900F3398D /* JPCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346D1A8B409900F3398D /* JPCoreDataHelper.m */; };
 		AAF734741A8B409900F3398D /* JPDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346F1A8B409900F3398D /* JPDataRequest.m */; };
 		AAF734751A8B409900F3398D /* JPMainSync.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734711A8B409900F3398D /* JPMainSync.m */; };
-		AAF7347C1A8B40C400F3398D /* JPCloudBannerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734771A8B40C400F3398D /* JPCloudBannerHelper.m */; };
 		AAF7347D1A8B40C400F3398D /* JPCloudFavoritesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734791A8B40C400F3398D /* JPCloudFavoritesHelper.m */; };
 		AAF7347E1A8B40C400F3398D /* JPProgramRatingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7347B1A8B40C400F3398D /* JPProgramRatingHelper.m */; };
 		AAF734911A8B40F300F3398D /* JPDashlet.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734801A8B40F300F3398D /* JPDashlet.m */; };
@@ -252,6 +253,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		362555B2433CB7679C97B4E3 /* Pods_Uniq.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uniq.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D167630185787750041993E /* JPDashletTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPDashletTitleView.h; path = "iPad User Interface/JPDashletTitleView.h"; sourceTree = "<group>"; };
 		5D167631185787750041993E /* JPDashletTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPDashletTitleView.m; path = "iPad User Interface/JPDashletTitleView.m"; sourceTree = "<group>"; };
 		5D16763918583D250041993E /* Uniq-Explaination.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Uniq-Explaination.txt"; sourceTree = "<group>"; };
@@ -454,6 +456,8 @@
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhSettingsAboutViewController.h; path = "iPhone User Interface/iPhSettingsAboutViewController.h"; sourceTree = "<group>"; };
 		AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhSettingsAboutViewController.m; path = "iPhone User Interface/iPhSettingsAboutViewController.m"; sourceTree = "<group>"; };
 		AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadHomeProfileBanner.swift; path = "iPad User Interface/iPadHomeProfileBanner.swift"; sourceTree = "<group>"; };
+		AA318CB71D5FF9DB002229AC /* JPFirebaseCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPFirebaseCentral.h; path = "Firebase Requests/JPFirebaseCentral.h"; sourceTree = "<group>"; };
+		AA318CB81D5FF9DB002229AC /* JPFirebaseCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPFirebaseCentral.m; path = "Firebase Requests/JPFirebaseCentral.m"; sourceTree = "<group>"; };
 		AA34FA58198999B100A73292 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA34FA59198999B100A73292 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA35BDC619D22C45008BFF5F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 		AAA249441D5FDD5B0016300A /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NSDecimalNumberExtensions.h; path = CorePlotHeaders/NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		AAA249451D5FDD5B0016300A /* NSNumberExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NSNumberExtensions.h; path = CorePlotHeaders/NSNumberExtensions.h; sourceTree = "<group>"; };
 		AAA249461D5FDE410016300A /* core_plot_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = core_plot_all.a; sourceTree = "<group>"; };
+		AAA9A5251D5FF96200239C74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AAAEE35F19BD004D00988810 /* iPhProgramDetailTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramDetailTableView.h; path = "iPhone User Interface/iPhProgramDetailTableView.h"; sourceTree = "<group>"; };
 		AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramDetailTableView.m; path = "iPhone User Interface/iPhProgramDetailTableView.m"; sourceTree = "<group>"; };
 		AAC6BD90199D2B1A00683DB1 /* iPhProgramRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramRatingsViewController.h; path = "iPhone User Interface/iPhProgramRatingsViewController.h"; sourceTree = "<group>"; };
@@ -684,8 +689,6 @@
 		AAF7346F1A8B409900F3398D /* JPDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPDataRequest.m; path = "Data Management/JPDataRequest.m"; sourceTree = "<group>"; };
 		AAF734701A8B409900F3398D /* JPMainSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPMainSync.h; path = "Data Management/JPMainSync.h"; sourceTree = "<group>"; };
 		AAF734711A8B409900F3398D /* JPMainSync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPMainSync.m; path = "Data Management/JPMainSync.m"; sourceTree = "<group>"; };
-		AAF734761A8B40C400F3398D /* JPCloudBannerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCloudBannerHelper.h; path = "Firebase Requests/JPCloudBannerHelper.h"; sourceTree = "<group>"; };
-		AAF734771A8B40C400F3398D /* JPCloudBannerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCloudBannerHelper.m; path = "Firebase Requests/JPCloudBannerHelper.m"; sourceTree = "<group>"; };
 		AAF734781A8B40C400F3398D /* JPCloudFavoritesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCloudFavoritesHelper.h; path = "Firebase Requests/JPCloudFavoritesHelper.h"; sourceTree = "<group>"; };
 		AAF734791A8B40C400F3398D /* JPCloudFavoritesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPCloudFavoritesHelper.m; path = "Firebase Requests/JPCloudFavoritesHelper.m"; sourceTree = "<group>"; };
 		AAF7347A1A8B40C400F3398D /* JPProgramRatingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramRatingHelper.h; path = "Firebase Requests/JPProgramRatingHelper.h"; sourceTree = "<group>"; };
@@ -723,7 +726,6 @@
 		AAF734A61A8B411A00F3398D /* JPProgramDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPProgramDetailView.h; path = "Shared User Interface/JPProgramDetailView.h"; sourceTree = "<group>"; };
 		AAF734A71A8B411A00F3398D /* JPProgramDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPProgramDetailView.m; path = "Shared User Interface/JPProgramDetailView.m"; sourceTree = "<group>"; };
 		AAF734B11A8B420D00F3398D /* getAllFeaturedInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = getAllFeaturedInfo.json; path = Files/getAllFeaturedInfo.json; sourceTree = "<group>"; };
-		BA435934639E44EF825A68D7 /* libPods-Uniq.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Uniq.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9DB3B254197F3955B1AB15 /* Pods-Uniq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniq.release.xcconfig"; path = "Pods/Target Support Files/Pods-Uniq/Pods-Uniq.release.xcconfig"; sourceTree = "<group>"; };
 		EEE489B298D578CD2FDF5010 /* Pods-Uniq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uniq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Uniq/Pods-Uniq.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -756,7 +758,7 @@
 				AACB7776199E47D100C02513 /* Parse.framework in Frameworks */,
 				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
 				AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */,
-				27AE72E2D6D7B4ECDFAB9F06 /* libPods-Uniq.a in Frameworks */,
+				9BE6E475B241C1280F79B04A /* Pods_Uniq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1127,7 +1129,7 @@
 				5DE5B7B1184ACBB700EFCE0A /* CoreGraphics.framework */,
 				5DE5B7B3184ACBB700EFCE0A /* UIKit.framework */,
 				5DE5B7D4184ACBB700EFCE0A /* XCTest.framework */,
-				BA435934639E44EF825A68D7 /* libPods-Uniq.a */,
+				362555B2433CB7679C97B4E3 /* Pods_Uniq.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1167,6 +1169,7 @@
 			children = (
 				5DE5B7B7184ACBB700EFCE0A /* Uniq-Info.plist */,
 				5DE5B7B8184ACBB700EFCE0A /* InfoPlist.strings */,
+				AAA9A5251D5FF96200239C74 /* GoogleService-Info.plist */,
 				5DE5B7BB184ACBB700EFCE0A /* main.m */,
 				5DE5B7BD184ACBB700EFCE0A /* Uniq-Prefix.pch */,
 				AA7B5350194AA2F10090F113 /* Uniq-Bridging-Header.h */,
@@ -1444,8 +1447,8 @@
 		AA82A64819BA5DF3001187FD /* Firebase Requests */ = {
 			isa = PBXGroup;
 			children = (
-				AAF734761A8B40C400F3398D /* JPCloudBannerHelper.h */,
-				AAF734771A8B40C400F3398D /* JPCloudBannerHelper.m */,
+				AA318CB71D5FF9DB002229AC /* JPFirebaseCentral.h */,
+				AA318CB81D5FF9DB002229AC /* JPFirebaseCentral.m */,
 				AAF734781A8B40C400F3398D /* JPCloudFavoritesHelper.h */,
 				AAF734791A8B40C400F3398D /* JPCloudFavoritesHelper.m */,
 				AAF7347A1A8B40C400F3398D /* JPProgramRatingHelper.h */,
@@ -1845,6 +1848,7 @@
 				5DE5B7BA184ACBB700EFCE0A /* InfoPlist.strings in Resources */,
 				5DA82D7D18C2FE430011AC26 /* MPLogo.png in Resources */,
 				5D16763A18583D250041993E /* Uniq-Explaination.txt in Resources */,
+				AAA9A5261D5FF96200239C74 /* GoogleService-Info.plist in Resources */,
 				5DA82D7618C2FE430011AC26 /* MPArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1931,7 +1935,6 @@
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
-				AAF7347C1A8B40C400F3398D /* JPCloudBannerHelper.m in Sources */,
 				AAF734301A8B407500F3398D /* User.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */,
@@ -1989,6 +1992,7 @@
 				AAA248A01D5F7B970016300A /* JPUtility.swift in Sources */,
 				5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */,
 				5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */,
+				AA318CB91D5FF9DB002229AC /* JPFirebaseCentral.m in Sources */,
 				5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */,
 				AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */,
 				AAF734571A8B407500F3398D /* SchoolRanking.m in Sources */,
@@ -2247,7 +2251,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
 				INFOPLIST_FILE = "JumpPad/Uniq-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2255,6 +2259,7 @@
 					/Users/chrisjluc/Documents/JumpPad,
 				);
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-all_load",
 					"-objC",
 				);
@@ -2286,7 +2291,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JumpPad/Uniq-Prefix.pch";
 				INFOPLIST_FILE = "JumpPad/Uniq-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2294,6 +2299,7 @@
 					/Users/chrisjluc/Documents/JumpPad,
 				);
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-all_load",
 					"-objC",
 				);

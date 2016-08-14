@@ -373,6 +373,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "biomed", 
     "slug": "biomedicalengineering", 
     "streams": null, 

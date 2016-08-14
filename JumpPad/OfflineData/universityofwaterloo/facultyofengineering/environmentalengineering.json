@@ -425,6 +425,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "enveng", 
     "slug": "environmentalengineering", 
     "streams": null, 

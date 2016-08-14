@@ -196,7 +196,7 @@
         id detailsViewController = nil;
         if(cell.type == JPDashletTypeProgram)
         {
-            detailsViewController =[[iPhProgramViewController alloc] initWithItemId:cell.itemId];
+            detailsViewController =[[iPhProgramViewController alloc] initWithItemId:cell.itemId schoolSlug:cell.schoolSlug facultySlug:cell.facultySlug programSlug:cell.facultySlug];
         }
         else
         {

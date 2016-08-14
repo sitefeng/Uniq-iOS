@@ -525,6 +525,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "chem", 
     "slug": "chemicalengineering", 
     "streams": null, 

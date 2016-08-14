@@ -30,17 +30,17 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
         
         
         //Navigation Controller
-        var tableController : iPadSettingsTableViewController = iPadSettingsTableViewController(style: UITableViewStyle.Grouped)
+        let tableController : iPadSettingsTableViewController = iPadSettingsTableViewController(style: UITableViewStyle.Grouped)
         tableController.title = "Settings"
 
-        let dismissBarButtonItem: UIBarButtonItem! = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.Done, target: self, action: "dismissButtonPressed")
+        let dismissBarButtonItem: UIBarButtonItem! = UIBarButtonItem(title: "Dismiss", style: UIBarButtonItemStyle.Done, target: self, action: #selector(iPadSettingsSplitViewController.dismissButtonPressed))
         tableController.navigationItem.setLeftBarButtonItem(dismissBarButtonItem, animated: false)
         self.delegate = tableController
         
         _navController = UINavigationController(rootViewController: tableController)
         
         //Detail View Controller
-        var aboutController = iPadSettingsAboutViewController(nibName: nil, bundle: nil)
+        let aboutController = iPadSettingsAboutViewController(nibName: nil, bundle: nil)
         
         let detailNavController: UINavigationController! = UINavigationController(rootViewController: aboutController)
         
@@ -129,7 +129,7 @@ class iPadSettingsSplitViewController: UISplitViewController, MFMailComposeViewC
     }
     
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!)
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
     {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

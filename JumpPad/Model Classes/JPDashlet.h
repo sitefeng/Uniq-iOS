@@ -21,7 +21,9 @@
 
 //Item Unique Idenntifier for the exact item
 @property (nonatomic, strong) NSString *itemId;
-@property (nonatomic, strong) NSString *slug;
+@property (nonatomic, strong) NSString *schoolSlug;
+@property (nonatomic, strong) NSString *facultySlug;
+@property (nonatomic, strong) NSString *programSlug;
 
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) JPDashletType type;

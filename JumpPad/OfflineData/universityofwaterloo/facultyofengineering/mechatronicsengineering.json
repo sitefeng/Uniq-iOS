@@ -579,8 +579,8 @@
     "images": [
         {
             "type": "misc",
-            "descriptor": "e5 building", 
-            "link": "http://sub.tsavers.com/wp-content/uploads/2014/04/University-of-Waterloo-3.jpg"
+            "descriptor": "", 
+            "link": "http://cdn.wonderfulengineering.com/wp-content/uploads/2014/05/What-is-Mechatronics-Engineering21.jpg"
         }
     ], 
     "importantDates": null, 
@@ -659,6 +659,7 @@
     }, 
     "schoolId": "", 
     "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofengineering",
     "shortName": "tron", 
     "slug": "mechatronicsengineering", 
     "streams": null, 

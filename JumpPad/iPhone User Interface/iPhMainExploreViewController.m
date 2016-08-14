@@ -89,7 +89,7 @@
     
     JPDashlet* selectedDashlet = self.dashlets[indexPath.row];
     
-    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:selectedDashlet.slug facultySlug:nil forSelectionType:JPDashletTypeSchool];
+    iPhFacProgSelectViewController* selectViewController = [[iPhFacProgSelectViewController alloc] initWithItemId:selectedDashlet.itemId schoolSlug:selectedDashlet.schoolSlug facultySlug:nil forSelectionType:JPDashletTypeSchool];
     
     selectViewController.title = selectedDashlet.title;
     
