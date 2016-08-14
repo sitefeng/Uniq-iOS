@@ -19,8 +19,15 @@
 #import "RelatedItem.h"
 #import "SchoolLocation.h"
 
+#import "JPLocation.h"
+#import "Uniq-Swift.h"
+
 @implementation Program
 
-// Insert code here to add functionality to your managed object subclass
+- (JPLocation *)requestLocationSynchronously {
+    
+    JPOfflineDataRequest *requst = [[JPOfflineDataRequest alloc] init];
+    return [requst requestLocationForSchool:self.schoolSlug];
+}
 
 @end

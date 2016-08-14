@@ -195,17 +195,18 @@
             {
                 for(int j=0; j<2; j++)
                 {
+                    NSInteger index = j+2*i;
                     UIButton* yearButton = [[UIButton alloc] initWithFrame:CGRectMake(15 + 120*i, 10+ 80*j, 105, 70)];
-                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"tBlack"]] forState:UIControlStateNormal];
-                    [yearButton setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forState:UIControlStateHighlighted];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle rainbowColorWithIndex:index]] forState:UIControlStateNormal];
+                    [yearButton setBackgroundImage:[UIImage imageWithColor:[JPStyle colorWithName:@"tBlack"]] forState:UIControlStateHighlighted];
                     yearButton.layer.cornerRadius = 10;
                     yearButton.clipsToBounds = YES;
                     [yearButton setTitle:termTitles[j+i*2] forState:UIControlStateNormal];
                     
-                    yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:20];
+                    yearButton.titleLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:22];
                     [yearButton setTintColor:[UIColor whiteColor]];
                     [yearButton setShowsTouchWhenHighlighted:NO];
-                    yearButton.tag = j+2*i;
+                    yearButton.tag = index;
                     [yearButton addTarget:self action:@selector(yearButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
                     [scrollView addSubview:yearButton];
                     
@@ -229,8 +230,6 @@
             label.textAlignment = NSTextAlignmentCenter;
             [self addSubview:label];
         }
-        
-        
         
     }
     return self;

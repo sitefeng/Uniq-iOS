@@ -169,6 +169,33 @@ internal final class JPOfflineDataRequest: NSObject {
         return location
     }
     
+    // For when program doesn't have a specific contact info
+    func requestContactForFaculty(schoolSlug: String, facultySlug: String) -> JPContact {
+        assert(schoolSlug != "" && facultySlug != "", "Faculty Slug cannot be empty")
+        
+        let facultyJSONPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
+        
+        let facultyJSONURL = NSURL(fileURLWithPath: facultyJSONPath)
+        let facultyJSONData = NSData(contentsOfURL: facultyJSONURL)
+        
+        var facultyDictionary = [:]
+        do {
+            facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData!, options: []) as! NSDictionary
+        } catch {
+            return JPContact()
+        }
+        
+        guard let facultyContactDict = facultyDictionary.objectForKey("contacts") as? [AnyObject] else {
+            print("Cannot generate contact")
+            return JPContact()
+        }
+        
+        let contact = JPContact(contactArray: facultyContactDict)
+        return contact
+    }
+    
+    
+    
     //MARK: - Requesting Indivitual item details
     /// Get program details in dictionary format
     func requestProgramDetails(schoolSlug: String, facultySlug: String, programSlug: String, itemUid: String) -> [String: AnyObject] {

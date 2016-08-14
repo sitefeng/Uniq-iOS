@@ -16,6 +16,8 @@
 #import "JPStyle.h"
 #import "SVStatusHUD.h"
 
+static const NSInteger numberOfRowsInSectionOne = 1;
+
 @interface iPhProgramContactViewController ()
 
 @end
@@ -29,6 +31,7 @@
     
     _mapPanView = [[iPhMapPanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
     _mapPanView.location = self.location;
+    
     UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPanned:)];
     [_mapPanView addGestureRecognizer:panRec];
     [self.view addSubview:_mapPanView];
@@ -62,14 +65,16 @@
         return @"Contact Info";
 }
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section==0)
-        return 2;
+        return numberOfRowsInSectionOne;
     else
     {
         NSArray* infoArray = [self getInformationArrayOfType:@"imageNames"];
-        return ([infoArray count]-2);
+        return ([infoArray count]- numberOfRowsInSectionOne);
     }
 }
 
@@ -94,9 +99,9 @@
     }
     else
     {
-        cell.textLabel.text = [[self getInformationArrayOfType:@"labelNames"] objectAtIndex:indexPath.row+2];
-        cell.detailTextLabel.text = [[self getInformationArrayOfType:@"values"] objectAtIndex:indexPath.row+ 2];
-        UIImage* whiteCellImage = [UIImage imageNamed:[[self getInformationArrayOfType:@"imageNames"] objectAtIndex:indexPath.row+ 2]];
+        cell.textLabel.text = [[self getInformationArrayOfType:@"labelNames"] objectAtIndex:indexPath.row+ numberOfRowsInSectionOne];
+        cell.detailTextLabel.text = [[self getInformationArrayOfType:@"values"] objectAtIndex:indexPath.row+ numberOfRowsInSectionOne];
+        UIImage* whiteCellImage = [UIImage imageNamed:[[self getInformationArrayOfType:@"imageNames"] objectAtIndex:indexPath.row+ numberOfRowsInSectionOne]];
         cell.imageView.image = [whiteCellImage imageWithColor: [UIColor blackColor]];
     }
 
@@ -136,7 +141,7 @@
     else if (indexPath.row ==1)
     {
         _mailController = [[MFMailComposeViewController alloc] init];
-        _mailController.delegate = self;
+        _mailController.mailComposeDelegate = self;
         if([MFMailComposeViewController canSendMail])
         {
             [_mailController setToRecipients:@[dataString]];
@@ -168,6 +173,16 @@
 }
 
 
+#pragma mark - Reloading views
+
+- (void)reloadViews {
+    [self.tableView reloadData];
+    _mapPanView.location = self.location;
+}
+
+
+
+#pragma mark - Other Methods
 
 - (void)imageViewPanned: (UIPanGestureRecognizer*)recognizer
 {
@@ -194,19 +209,18 @@
         
         if(fabs(_imageViewYBeforePan - 64) > 2 ||fabs(_imageViewYBeforePan - (-176)) > 2)
         {
-            [UIView animateWithDuration:0.2 delay:0 options: UIViewAnimationOptionCurveEaseOut
-                             animations:^{
+            [UIView animateWithDuration:0.2 delay:0 options: UIViewAnimationOptionCurveEaseOut animations:^{
                                  
-                                 if (yPosition > minPosition + (maxPosition - minPosition)/2.0 + 30)
-                                 {
-                                     [pannedView setFrame:CGRectMake(pastFrame.origin.x, 64, pastFrame.size.width, pastFrame.size.height)];
-                                 }
-                                 else
-                                 {
-                                     [pannedView setFrame:CGRectMake(pastFrame.origin.x, -176, pastFrame.size.width, pastFrame.size.height)];
-                                 }
-                                 
-                             } completion:nil];
+                if (yPosition > minPosition + (maxPosition - minPosition)/2.0 + 30)
+                {
+                 [pannedView setFrame:CGRectMake(pastFrame.origin.x, 64, pastFrame.size.width, pastFrame.size.height)];
+                }
+                else
+                {
+                 [pannedView setFrame:CGRectMake(pastFrame.origin.x, -176, pastFrame.size.width, pastFrame.size.height)];
+                }
+             
+            } completion:nil];
         }
         
         _imageViewYBeforePan = pannedView.frame.origin.y;
@@ -227,15 +241,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

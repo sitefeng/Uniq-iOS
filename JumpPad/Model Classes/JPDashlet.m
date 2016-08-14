@@ -139,6 +139,7 @@
     self.title = faculty.name;
     self.population = faculty.undergradPopulation;
     self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
+    self.location = [self swapToSchoolLocationIfNecessary:self.location schoolSlug:faculty.schoolSlug];
     
     NSArray* imageLinks = [faculty.images allObjects];
     for(ImageLink* imageLink in imageLinks)
@@ -160,6 +161,7 @@
     self.title = program.name;
     self.population = program.undergradPopulation;
     self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
+    self.location = [self swapToSchoolLocationIfNecessary: self.location schoolSlug:program.schoolSlug];
     
     NSArray* imageLinks = [program.images allObjects];
     for(ImageLink* imageLink in imageLinks)
@@ -219,6 +221,7 @@
             
             NSDictionary *locationDict = [dict objectForKey:@"location"];
             
+            // if location dictionary is empty (in the case of a program), trace back to the school location
             if ([locationDict isEqual:[NSNull null]] || locationDict.allKeys.count == 0) {
                 NSString *schoolSlug = [dict objectForKey:@"schoolSlug"];
                 JPOfflineDataRequest *offlineRequest = [[JPOfflineDataRequest alloc] init];
@@ -253,8 +256,6 @@
     return self;
 }
 
-
-
 - (BOOL)isFavorited
 {
     NSFetchRequest* favItemReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
@@ -272,6 +273,15 @@
     
 }
 
+
+- (JPLocation *)swapToSchoolLocationIfNecessary: (JPLocation *)location schoolSlug: (NSString *)slug {
+    if (location.cityName.length > 0) {
+        return location;
+    }
+    
+    JPOfflineDataRequest *offlineRequest = [[JPOfflineDataRequest alloc] init];
+    return [offlineRequest requestLocationForSchool:slug];
+}
 
 
 #pragma mark - Comparision Methods

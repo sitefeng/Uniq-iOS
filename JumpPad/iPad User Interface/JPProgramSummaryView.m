@@ -17,6 +17,26 @@
 #import "JPCoreDataHelper.h"
 
 
+static const NSInteger numRow = 3;
+static const NSInteger numCol = 2;
+
+typedef NS_ENUM(NSInteger, JPProgramSummaryLabelType) {
+    JPProgramSummaryLabelTypePopulation = 0,
+    JPProgramSummaryLabelTypeLocation,
+    JPProgramSummaryLabelTypeDuration,
+    JPProgramSummaryLabelTypeDistance,
+    JPProgramSummaryLabelTypeFavorites,
+    JPProgramSummaryLabelTypeAverage
+};
+
+
+@interface JPProgramSummaryView()
+
+// Array of UITextLabels
+@property (nonatomic, strong) NSMutableArray *summaryLabels;
+
+@end
+
 @implementation JPProgramSummaryView //for basic information on top in a program
 
 - (id)initWithFrame:(CGRect)frame program: (Program*)program 
@@ -37,7 +57,10 @@
     self.isIphoneInterface = isPhone;
     _readyToCalculateDistance = false;
     
-    self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 200, 35)];
+    _summaryLabels = [[NSMutableArray alloc] init];
+    
+    CGFloat viewWidth = frame.size.width;
+    self.summary = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, viewWidth - 40, 35)];
     self.summary.textColor = [UIColor whiteColor];
     self.summary.font = [UIFont fontWithName:[JPFont defaultLightFont] size:20];
     self.summary.text = @"SUMMARY";
@@ -50,15 +73,15 @@
         horizDist = 165;
     
     const int vertDist = 40;
-    for(int i=0; i<3; i++)
+    for(int i=0; i<numRow; i++)
     {
-        for(int j=0; j<2; j++)
+        for(int j=0; j<numCol; j++)
         {
             UIImageView* view = [[UIImageView alloc] initWithFrame:CGRectMake(15+ horizDist*j, 65+ vertDist*i, 30, 30)];
             view.contentMode = UIViewContentModeScaleAspectFit;
-            view.image = [UIImage imageNamed:iconImageNames[i*2+j]];
+            view.image = [UIImage imageNamed:iconImageNames[i*numCol+j]];
             view.userInteractionEnabled = YES;
-            view.tag = i*2+j;
+            view.tag = i*numCol+j;
             UITapGestureRecognizer* tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageItemTapped:)];
             [view addGestureRecognizer:tapRec];
             [self addSubview:view];
@@ -67,6 +90,7 @@
             label.font = [UIFont fontWithName:[JPFont defaultLightFont] size:15];
             label.textColor = [UIColor whiteColor];
             label.text = [self labelTextForRow:i column:j];
+            [self.summaryLabels addObject:label];
             [self addSubview:label];
         }
     }
@@ -176,38 +200,23 @@
         }
         case 10:
         {
-            NSMutableString* location = [NSMutableString string];
+            NSString* location = @"Unknown";
             
-            if(self.location.cityName)
-            {
-                location = [NSMutableString stringWithFormat:@"%@, ",self.location.cityName];
-            }
-            else
-            {
-                location = [@"Unknown, " mutableCopy];
-            }
-            if(self.location.provinceName)
-            {
-                [location appendString:self.location.provinceName];
-            }
-            else
-            {
-                [location appendString:@"--"];
+            if(self.location.cityName) {
+                location = [NSMutableString stringWithFormat:@"%@",self.location.cityName];
             }
             
             return location;
         }
         case 11:
         {
-            JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
+            NSString* province = @"Unknown";
             
-            self.distanceToHome = [coreDataHelper distanceToUserLocationWithLocation:self.location];
+            if(self.location.provinceName) {
+                province = self.location.provinceName;
+            }
             
-            if(self.distanceToHome <0)
-                return @"-- kms Away";
-            else
-                return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
-           
+            return province;
         }
         case 12:
         {
@@ -235,40 +244,6 @@
 
 
 #pragma mark - Callback Methods
-
-- (void)imageItemTapped: (UITapGestureRecognizer*)tapRec
-{
-    UIImageView* imgView = (UIImageView*)[tapRec view];
-    
-    if(imgView.tag == 3)
-    {
-        NSString* contentText = nil;
-        if(self.distanceToHome<0)
-        {
-            contentText = @"Please setup your location in the Settings/Home Tab first.";
-        }
-        else
-        {
-            float drivingDistance = self.distanceToHome * 1.165;
-            float drivingTotalMinutes = self.distanceToHome * 1.132;
-            float drivingTotalMinutes2 = self.distanceToHome * 0.8;
-            NSString* timeString = [NSString stringWithFormat:@"%.0f mins", drivingTotalMinutes];
-            if(drivingTotalMinutes > 60.0)
-                timeString = [NSString stringWithFormat:@"%.1f hrs", drivingTotalMinutes/60.0];
-            NSString* timeString2 = [NSString stringWithFormat:@"%.0f mins", drivingTotalMinutes2];
-            if(drivingTotalMinutes > 60.0)
-                timeString2 = [NSString stringWithFormat:@"%.1f hrs", drivingTotalMinutes2/60.0];
-            
-            contentText = [NSString stringWithFormat:@"The direct distance to your neighborhood is %.0f kms. Driving distance is approximately %.0f kms. It will take about %@ to get there by local, or %@ on freeway", self.distanceToHome, drivingDistance, timeString, timeString2];
-
-        }
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Distance Away" message:contentText delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-        [alertView show];
-    }
-    
-}
-
-
 - (void)emailButtonTapped: (UIButton*)sender
 {
     [self.delegate emailButtonTapped];
@@ -290,8 +265,6 @@
     
 }
 
-
-
 - (void)favoriteButtonTapped: (UIButton*)sender
 {
     if(sender.selected == NO)
@@ -304,9 +277,7 @@
         [self.delegate favoriteButtonSelected:NO];
         self.isFavorited = NO;
     }
-    
 }
-
 
 - (void)phoneButtonTapped: (UIButton*)sender
 {
@@ -320,7 +291,6 @@
 - (void)setIsFavorited:(BOOL)isFavorited
 {
     _isFavorited = isFavorited;
-    
     _favoriteButton.selected = isFavorited;
 }
 
@@ -331,13 +301,39 @@
 {
     _program = program;
     
-    self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        JPLocation *location = [program requestLocationSynchronously];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.location = location;
+            [self reloadView];
+        });
+    });
+}
+
+                                                
+- (NSInteger)indexForLabelOfType:(JPProgramSummaryLabelType)labelType {
+    return labelType;
 }
 
 
+// TODO: Implement updating for other summary types
+- (void)reloadView {
+    
+    // update location text
+    for(int i=0; i<numRow; i++)
+    {
+        for(int j=0; j<numCol; j++)
+        {
+            NSInteger index = i*numCol+j;
+            UILabel *label = self.summaryLabels[index];
+            label.text = [self labelTextForRow:i column:j];
+        }
+    }
+}
 
-
+#pragma mark - Drawing
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -346,16 +342,17 @@
     // Drawing Horizontal line
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineCap(context, kCGLineCapRound);
+    CGFloat lengths[] = {2, 2};
+    CGContextSetLineDash(context, 0.0f, lengths, 2);
+    CGContextSetLineWidth(context, 1);
     CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
-    CGContextSetLineWidth(context, 2);
+    
     CGPoint dividerLine[] = {jpp(20, 50),jpp(384-20, 50)};
     
     CGContextAddLines(context, dividerLine, 2);
     CGContextDrawPath(context, kCGPathStroke);
 
-    CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
-    CGContextSetLineWidth(context, 2);
-    
+    // Drawing vertical line
     CGFloat vertXPos = 195;
     if(self.isIphoneInterface)
         vertXPos = 170;
@@ -364,9 +361,7 @@
     
     CGContextAddLines(context, dividerLineVert, 2);
     CGContextDrawPath(context, kCGPathStroke);
-    
 }
-
 
 
 

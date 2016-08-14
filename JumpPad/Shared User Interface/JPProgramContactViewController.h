@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class School, Faculty, Program, JPLocation, SchoolLocation, Contact;
+@class School, Faculty, Program, JPLocation, SchoolLocation, Contact, JPContact;
 @interface JPProgramContactViewController : UIViewController
 {
     @protected
@@ -19,8 +19,7 @@
 
 @property (nonatomic, assign) double distanceToHome;
 @property (nonatomic, strong) JPLocation* location;
-@property (nonatomic, strong) SchoolLocation* schoolLocation;
-@property (nonatomic, strong) Contact* contactInfo;
+@property (nonatomic, strong) JPContact* contactInfo;
 @property (nonatomic, strong) NSString* name;
 
 @property (nonatomic, strong) School* school;
@@ -32,6 +31,7 @@
 - (id)initWithSchool:(School *)school;
 - (id)initWithFaculty: (Faculty *)faculty;
 
+- (void)reloadViews;
 - (NSArray*)getInformationArrayOfType: (NSString*)arrayType;
 
 

@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Contact, Faculty, HighschoolCourse, ImageLink, ImportantDate, ProgramApplicationStat, ProgramCourse, ProgramRating, ProgramYearlyTuition, RelatedItem, SchoolLocation;
+@class Contact, Faculty, HighschoolCourse, ImageLink, ImportantDate, ProgramApplicationStat, ProgramCourse, ProgramRating, ProgramYearlyTuition, RelatedItem, SchoolLocation, JPLocation;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Program : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+- (JPLocation *)requestLocationSynchronously;
 
 @end
 

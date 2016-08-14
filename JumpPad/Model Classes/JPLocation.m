@@ -55,6 +55,10 @@
 }
 
 
+- (NSString *)userVisibleAddressString {
+    return [NSString stringWithFormat:@"%@, %@", self.cityName, self.provinceName];
+}
+
 
 - (BOOL)isEqual: (JPLocation*) location
 {

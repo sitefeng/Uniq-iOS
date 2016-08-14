@@ -88,17 +88,6 @@
     
     self.backgroundView.image = image;
     
-//    UIColor* tintColor = [UIColor colorWithWhite:1 alpha:0.27];
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-//        
-//        __block UIImage* blurredImg = [image applyBlurWithRadius:2 tintColor: tintColor saturationDeltaFactor:0 maskImage:nil];
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.backgroundView.image = blurredImg;
-//            [self setNeedsDisplay];
-//            blurredImg = nil;
-//        });
-//    });
 }
 
 

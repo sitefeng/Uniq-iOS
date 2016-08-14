@@ -45,8 +45,6 @@
     _cellTitleStrings = @[@[@"eINFO Website"],@[@"About", @"Rate Uniq on App Store", @"Send Feedback", @"Share This App", @"Authors", @"Special Thanks", @"Like on Facebook", @"Follow on Twitter", @"Visit Our Website"]];
     _cellImageStrings = @[@[@"distance-50"],@[@"info-75",@"thumb_up-75",@"email-50",@"share-75",@"groups-75",@"thanks-75",@"facebook-50",@"twitter-50", @"safari-50"]];
     
-//    ,@"download-75",@"tones-75"
-    
     UniqAppDelegate* del = [[UIApplication sharedApplication] delegate];
     context = [del managedObjectContext];
     

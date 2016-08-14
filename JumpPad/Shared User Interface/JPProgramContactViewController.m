@@ -16,6 +16,7 @@
 #import "Contact.h"
 #import "JPCoreDataHelper.h"
 
+#import "Uniq-Swift.h"
 
 @interface JPProgramContactViewController ()
 
@@ -69,67 +70,64 @@
 }
 
 
-
-
 - (NSArray*)getInformationArrayOfType: (NSString*)arrayType
 {
-    NSString* address = [NSString stringWithFormat:@"%@,\n%@, %@, %@\n%@", self.schoolLocation.streetName, self.schoolLocation.city, self.schoolLocation.region, self.schoolLocation.country, self.schoolLocation.postalCode];
+    JPOfflineDataRequest *offlineRequest = [[JPOfflineDataRequest alloc] init];
+    self.location = [offlineRequest requestLocationForSchool:self.program.schoolSlug];
+    NSString* address = [self.location userVisibleAddressString];
     
-    NSString* distanceToHomeString = @"-- kms Away";
-    if(self.distanceToHome >= 0)
-    {
-        distanceToHomeString = [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
-    }
-    
-
     if(!self.program && !self.faculty && !self.school)
         return nil;
     
     if([arrayType isEqual:@"imageNames"])
     {
-        return @[@"address-50", @"distance-50",@"phoneIcon", @"email",@"safariIcon",@"facebookIcon",@"twitterIcon", @"linkedinIcon"];
+        return @[@"address-50", @"phoneIcon", @"email",@"safariIcon",@"facebookIcon",@"twitterIcon", @"linkedinIcon"];
     }
     else if([arrayType isEqual:@"labelNames"])
     {
-        return @[self.name, @"Distance",@"Phone",@"Email",@"Website",@"Facebook Group",@"Twitter", @"LinkedIn"];
+        return @[self.name, @"Phone",@"Email",@"Website",@"Facebook Group",@"Twitter", @"LinkedIn"];
     }
     else if([arrayType isEqual:@"data"])
     {
         
-        return [NSArray arrayWithObjectsCount:8 replaceNilWithEmptyString:
+        return [NSArray arrayWithObjectsCount:7 replaceNilWithEmptyString:
                 address,
-                distanceToHomeString,
-                self.contactInfo.phone,
-                [self.contactInfo email],
-                [self.contactInfo website],
-                [self.contactInfo facebook],
-                [self.contactInfo twitter],
-                [self.contactInfo linkedin], nil];
+                self.contactInfo.phoneNum,
+                self.contactInfo.email,
+                self.contactInfo.website,
+                self.contactInfo.facebook,
+                self.contactInfo.twitter,
+                self.contactInfo.linkedin,
+                self.contactInfo.extraInfo, nil
+                ];
 
     }
     else //Array of Values
     {
-        NSString* phoneString = [self.contactInfo phone];
-        if(![[self.contactInfo phoneExt] isEqual:@""])
-            phoneString = [NSString stringWithFormat:@"%@ex.%@", [self.contactInfo phone], [self.contactInfo phoneExt]];
+        NSString* phoneString = self.contactInfo.phoneNum;
+        if(![self.contactInfo.ext isEqual:@""])
+            phoneString = [NSString stringWithFormat:@"%@ ex.%@", self.contactInfo.phoneNum, self.contactInfo.ext];
         
-        return [NSArray arrayWithObjectsCount:8 replaceNilWithEmptyString:
+        return [NSArray arrayWithObjectsCount:7 replaceNilWithEmptyString:
                 address,
-                distanceToHomeString,
                 phoneString,
-                [self.contactInfo email],
-                [self.contactInfo website],
-                [self.contactInfo facebook],
-                [self.contactInfo twitter],
-                [self.contactInfo linkedin], nil];
+                self.contactInfo.email,
+                self.contactInfo.website,
+                self.contactInfo.facebook,
+                self.contactInfo.twitter,
+                self.contactInfo.linkedin,
+                self.contactInfo.extraInfo, nil
+                ];
 
     }
-    
     
     return @[];
 }
 
 
+- (void)reloadViews {
+    NSAssert(false, @"Method Unimplemented");
+}
 
 
 #pragma mark - Setter Methods
@@ -139,7 +137,6 @@
     _school = school;
     _itemType = JPDashletTypeSchool;
     
-    self.schoolLocation = school.location;
     NSArray* contacts = [school.contacts allObjects];
     self.contactInfo = [contacts firstObject];
     self.name = school.name;
@@ -151,7 +148,6 @@
     _faculty = faculty;
     _itemType = JPDashletTypeFaculty;
     
-    self.schoolLocation = _faculty.location;
     NSArray* contacts = [faculty.contacts allObjects];
     self.contactInfo = [contacts firstObject];
     self.name = faculty.name;
@@ -163,18 +159,18 @@
     _program = program;
     _itemType = JPDashletTypeProgram;
     
-    self.schoolLocation = program.location;
-    NSArray* contacts = [program.contacts allObjects];
-    self.contactInfo = [contacts firstObject];
-    self.name = program.name;
-}
-
-
-- (void)setSchoolLocation:(SchoolLocation *)schoolLocation
-{
-    _schoolLocation = schoolLocation;
     
-    self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake([schoolLocation.latitude floatValue], [schoolLocation.longitude floatValue]) city:schoolLocation.city province:schoolLocation.region];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        JPOfflineDataRequest *dataRequest = [[JPOfflineDataRequest alloc] init];
+        __block JPContact *contact = [dataRequest requestContactForFaculty:program.schoolSlug facultySlug:program.facultySlug];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.contactInfo = contact;
+            [self reloadViews];
+        });
+    });
+    
+    self.name = program.name;
 }
 
 
@@ -183,11 +179,8 @@
     _location = location;
     
     JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
-    
     self.distanceToHome = [coreDataHelper distanceToUserLocationWithLocation:location];
-    
 }
-
 
 
 
@@ -197,15 +190,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

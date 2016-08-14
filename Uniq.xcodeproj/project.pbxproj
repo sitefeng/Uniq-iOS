@@ -121,6 +121,7 @@
 		AA115F2C19AA8B5B006E07C1 /* uploadFailedHUD.png in Resources */ = {isa = PBXBuildFile; fileRef = AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */; };
 		AA115F2E19AAAA20006E07C1 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */; };
 		AA115F3019AAAA4D006E07C1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA115F2F19AAAA4D006E07C1 /* Accounts.framework */; };
+		AA1352E51D60E14100917BD0 /* JPContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1352E41D60E14100917BD0 /* JPContact.swift */; };
 		AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */; };
 		AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA22BC86197A003000182486 /* iPhSettingsAboutViewController.m */; };
 		AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2FE19C194ADB81004CB34B /* iPadHomeProfileBanner.swift */; };
@@ -469,6 +470,7 @@
 		AA115F2A19AA8B5B006E07C1 /* uploadFailedHUD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uploadFailedHUD.png; path = SVStatusHUD/uploadFailedHUD.png; sourceTree = "<group>"; };
 		AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		AA115F2F19AAAA4D006E07C1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AA1352E41D60E14100917BD0 /* JPContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JPContact.swift; path = "Model Classes/JPContact.swift"; sourceTree = "<group>"; };
 		AA222B3E19592D9700820BCD /* iPadHomeMarkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadHomeMarkTableViewCell.h; path = "iPad User Interface/iPadHomeMarkTableViewCell.h"; sourceTree = "<group>"; };
 		AA222B3F19592D9700820BCD /* iPadHomeMarkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadHomeMarkTableViewCell.m; path = "iPad User Interface/iPadHomeMarkTableViewCell.m"; sourceTree = "<group>"; };
 		AA22BC85197A003000182486 /* iPhSettingsAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhSettingsAboutViewController.h; path = "iPhone User Interface/iPhSettingsAboutViewController.h"; sourceTree = "<group>"; };
@@ -1063,10 +1065,7 @@
 				AAF734841A8B40F300F3398D /* JPImageRetriever.m */,
 				AAF734851A8B40F300F3398D /* JPKnowledgeEngineInterpreter.h */,
 				AAF734861A8B40F300F3398D /* JPKnowledgeEngineInterpreter.m */,
-				AAF734871A8B40F300F3398D /* JPLocation.h */,
-				AAF734881A8B40F300F3398D /* JPLocation.m */,
-				AAF734891A8B40F300F3398D /* JPRatings.h */,
-				AAF7348A1A8B40F300F3398D /* JPRatings.m */,
+				AA1352E31D60E10C00917BD0 /* Data Type models */,
 				AAF7348B1A8B40F300F3398D /* JPUserLocator.h */,
 				AAF7348C1A8B40F300F3398D /* JPUserLocator.m */,
 				AAF7348D1A8B40F300F3398D /* NSString+JPDateStringParser.h */,
@@ -1413,6 +1412,18 @@
 				AA115F1F19A9BC78006E07C1 /* trackBackground@2x.png */,
 			);
 			path = TLTiltSlider;
+			sourceTree = "<group>";
+		};
+		AA1352E31D60E10C00917BD0 /* Data Type models */ = {
+			isa = PBXGroup;
+			children = (
+				AAF734871A8B40F300F3398D /* JPLocation.h */,
+				AAF734881A8B40F300F3398D /* JPLocation.m */,
+				AAF734891A8B40F300F3398D /* JPRatings.h */,
+				AAF7348A1A8B40F300F3398D /* JPRatings.m */,
+				AA1352E41D60E14100917BD0 /* JPContact.swift */,
+			);
+			name = "Data Type models";
 			sourceTree = "<group>";
 		};
 		AA222B3919591C2E00820BCD /* LDProgressView */ = {
@@ -2152,6 +2163,7 @@
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
 				AA49F3E61D6001C300680B8A /* UniqKEOne.m in Sources */,
+				AA1352E51D60E14100917BD0 /* JPContact.swift in Sources */,
 				5D167632185787750041993E /* JPDashletTitleView.m in Sources */,
 				AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */,
 				AA636EB519A42BFD007FCBA4 /* SVStatusHUD.m in Sources */,

@@ -24,6 +24,7 @@
 - (instancetype)initWithSchoolLocation: (SchoolLocation*)location;
 - (instancetype)initWithLocationDict: (NSDictionary*)dict;
 
+- (NSString *)userVisibleAddressString;
 
 - (BOOL)isEqual: (JPLocation*) location;
 
@@ -33,9 +34,7 @@
 - (NSString*)distanceToUserString;
 
 - (double)distanceToLocation: (JPLocation*)destination;
-
 - (double)distanceToCoordinate: (CGPoint)destination;
-
 + (double)distanceBetweenLocationOne: (CGPoint)p1 andLocationTwo: (CGPoint)p2;
 
 @end
