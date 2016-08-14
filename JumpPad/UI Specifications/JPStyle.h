@@ -26,10 +26,10 @@
 ////User Interface Colors
 
 //Default app theme
-+(UIColor*) interfaceTintColor;
-+(void)applyGlobalStyle;
-
-
++ (UIColor *) interfaceTintColor;
++ (void)applyGlobalStyle;
++ (UIColor *) transluscentWhite;
++ (UIColor *)defaultBackgroundGray;
 
 //Color Conversion
 +(UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
@@ -42,8 +42,8 @@
 + (UIColor*)backgroundRainbowColorWithIndex: (NSUInteger)index;
 
 //Colors from String
-+ (UIColor*) colorWithName: (NSString*)colorName;
-+ (UIColor*) colorWithLetter: (NSString*)letter;
++ (UIColor*)colorWithName: (NSString*)colorName;
++ (UIColor*)colorWithLetter: (NSString*)letter;
 + (UIColor*)colorWithLetterVariated: (NSString*)letter;
 
 @end

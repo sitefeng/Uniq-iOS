@@ -21,6 +21,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
         
         self.itemImageView = [[iPadDashletImageView alloc] initWithFrame:CGRectMake(5, 5, 108 -10, 81 -10)];
         self.itemImageView.clipsToBounds = YES;

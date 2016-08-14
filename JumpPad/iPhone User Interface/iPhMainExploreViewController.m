@@ -16,6 +16,7 @@
 #import "iPhSchoolHomeViewController.h"
 #import "AsyncImageView.h"
 #import "iPadDashletImageView.h"
+#import "JPStyle.h"
 
 
 @interface iPhMainExploreViewController ()
@@ -26,19 +27,21 @@
 @implementation iPhMainExploreViewController
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
+    self.view.backgroundColor = [JPStyle defaultBackgroundGray];
+    
     [UIApplication sharedApplication].statusBarHidden = false;
     self.automaticallyAdjustsScrollViewInsets = NO;
     _indexPathsNeedReloading = [NSMutableArray array];
-
 
     self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 100)];
     [self.view addSubview:self.bannerView];
     
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bannerView.frame), kiPhoneWidthPortrait, 355) style:UITableViewStylePlain];
+    self.tableView.backgroundColor = [JPStyle transluscentWhite];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[iPhMainTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];

@@ -76,6 +76,7 @@
     
     CGRect frame = _frame;
     
+    [self removeSubviewsAndResetData];
     
     if(_imgArrayURL.count==0)
     {
@@ -125,7 +126,6 @@
         }
         
         [self setContentSize:CGSizeMake(frame.size.width*(_imgArrayURL.count+2), self.contentSize.height)];
-        
     }
 }
 
@@ -137,6 +137,8 @@
     _useImageURL = NO;
     
     CGRect frame = _frame;
+    
+    [self removeSubviewsAndResetData];
     
     if(_imgFileNames.count==0)
     {
@@ -192,6 +194,15 @@
         [self setContentSize:CGSizeMake(frame.size.width*(_imgFileNames.count+2), self.contentSize.height)];
         
     }
+}
+
+#pragma mark - Reset
+
+- (void)removeSubviewsAndResetData {
+    for (UIImageView *imageView in self.bannerArray) {
+        [imageView removeFromSuperview];
+    }
+    self.bannerArray = [[NSMutableArray alloc] init];
 }
 
 

@@ -61,7 +61,7 @@ static const NSInteger numberOfRowsInSectionOne = 1;
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if(section==0)
-        return @"School Info";
+        return @"General Info";
     else
         return @"Contact Info";
 }

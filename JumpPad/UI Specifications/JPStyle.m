@@ -86,6 +86,14 @@
     [[UITabBar appearance] setTintColor:[JPStyle interfaceTintColor]];
 }
 
++ (UIColor *)transluscentWhite {
+    return [UIColor colorWithWhite:1 alpha:0.75f];
+}
+
++ (UIColor *)defaultBackgroundGray {
+    return [JPStyle colorWithHex:@"cfcfcf" alpha:1];
+}
+
 
 + (UIColor*)colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha
 {

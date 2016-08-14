@@ -32,7 +32,7 @@
     if (self) {
         // Custom initialization
         
-        UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithTitle:@"School Info" style:UIBarButtonItemStyleDone target:self action:@selector(schoolInfoPressed)];
+        UIBarButtonItem* infoItem = [[UIBarButtonItem alloc] initWithTitle:@"General Info" style:UIBarButtonItemStyleDone target:self action:@selector(schoolInfoPressed)];
         self.navigationItem.rightBarButtonItem = infoItem;
 
         

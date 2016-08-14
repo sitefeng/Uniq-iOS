@@ -4,15 +4,7 @@
         "type": "school",
         "nameTitle": "University of Waterloo",
         "schoolSlug": "universityofwaterloo",
-        "featuredTitle":"Solid Engineering Education",
-        "imageLink":"http://www.findoutmore.uwaterloo.ca/ict/images/uw/main.jpg",
-     },
-     {
-        "id":"nv23r9-canb9nf9e",
-        "type": "school",
-        "nameTitle": "University of Waterloo",
-        "schoolSlug": "universityofwaterloo",
-        "featuredTitle":"Focused on Coop Education",
+        "featuredTitle":"Solid Engineering School",
         "imageLink":"http://www.findoutmore.uwaterloo.ca/ict/images/uw/main.jpg",
      }
 ]
