@@ -33,13 +33,12 @@
         _schoolSlug = schoolSlug;
         _facultySlug = facultySlug;
         
-        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
+        _coreDataHelper = [[JPCoreDataHelper alloc] init];
         
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         self.automaticallyAdjustsScrollViewInsets = NO;
         
-        
         [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
-        
         if (JPUtility.isOfflineMode) {
             _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
             
@@ -57,8 +56,6 @@
             _dataRequest.delegate = self;
             [_dataRequest requestItemDetailsWithId:itemId ofType:type];
         }
-        
-        _coreDataHelper = [[JPCoreDataHelper alloc] init];
         
         //NavBar Items
         self.title = [self.schoolOrFaculty name];
@@ -142,7 +139,6 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 
 - (void)favoriteButtonPressed: (UIButton*)button

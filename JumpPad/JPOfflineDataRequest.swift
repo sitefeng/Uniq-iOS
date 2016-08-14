@@ -193,7 +193,11 @@ internal final class JPOfflineDataRequest: NSObject {
     func dictionaryFromFilePath(filePath: String) -> [String: AnyObject] {
         // Pretend reading a program json file
         let programJSONURL = NSURL(fileURLWithPath: filePath)
-        let programJSONData = NSData(contentsOfURL: programJSONURL)!
+        
+        guard let programJSONData = NSData(contentsOfURL: programJSONURL) else {
+            print("Program URL data empty (JPOfflineDataRequest)")
+            return [:]
+        }
         
         var programDict: [String: AnyObject] = [:]
         do {
