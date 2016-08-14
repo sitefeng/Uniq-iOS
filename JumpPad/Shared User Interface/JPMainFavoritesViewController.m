@@ -76,7 +76,7 @@
     _dashletTypeCounts = [NSMutableArray arrayWithObjects:@0,@0,@0, nil];
     for(UserFavItem* favItem in favResults)
     {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithItemId:favItem.favItemId withType: (JPDashletType)[favItem.type integerValue]];
+        JPDashlet* dashlet = [[JPDashlet alloc] initFromCoreDataWithItemId:favItem.favItemId withType: (JPDashletType)[favItem.type integerValue]];
         
         //Knowing which type exists for displaying dashelts
         NSInteger typeCount = [[_dashletTypeCounts objectAtIndex:dashlet.type] integerValue];
@@ -158,6 +158,10 @@
 
 - (void)favButtonPressedIsFavorited:(BOOL)fav itemId: (NSString*)itemId itemType:(JPDashletType)type
 {
+    if (!itemId) {
+        return;
+    }
+    
     if(fav)
     {
         if([_favDashletsToDelete containsObject:itemId])

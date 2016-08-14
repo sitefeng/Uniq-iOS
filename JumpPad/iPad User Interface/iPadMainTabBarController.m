@@ -42,7 +42,7 @@
     actionButton = [[UIButton alloc] initWithFrame:CGRectMake(100, kiPadHeightPortrait- 140, kiPadWidthPortrait-200, 54)];
     [actionButton setTitleColor:[JPStyle interfaceTintColor] forState:UIControlStateNormal];
     [actionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [actionButton setTitle:@"Start!" forState:UIControlStateNormal];
+    [actionButton setTitle:@"Start" forState:UIControlStateNormal];
     actionButton.titleLabel.font = [JPFont fontWithName:[JPFont defaultThinFont] size:44];
     actionButton.hidden = YES;
     [actionButton addTarget:self action:@selector(actionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];

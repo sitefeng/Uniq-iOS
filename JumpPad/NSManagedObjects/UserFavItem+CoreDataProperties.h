@@ -2,7 +2,7 @@
 //  UserFavItem+CoreDataProperties.h
 //  Uniq
 //
-//  Created by Si Te Feng on 8/13/16.
+//  Created by Si Te Feng on 8/14/16.
 //  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *researched;
 @property (nullable, nonatomic, retain) NSNumber *response;
 @property (nullable, nonatomic, retain) NSNumber *type;
+@property (nullable, nonatomic, retain) NSString *schoolSlug;
+@property (nullable, nonatomic, retain) NSString *facultySlug;
+@property (nullable, nonatomic, retain) NSString *programSlug;
 @property (nullable, nonatomic, retain) User *user;
 
 @end

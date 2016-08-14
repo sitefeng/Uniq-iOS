@@ -41,8 +41,7 @@ static const float kProgramImageWidth  = 384;
 @implementation iPadSchoolHomeViewController
 
 
-- (id)initWithItemId:(NSString *)itemId type:(JPDashletType)type
-{
+- (id)initWithItemId: (NSString*)itemId type:(JPDashletType)type schoolSlug: (NSString*)schoolSlug facultySlug: (NSString *)facultySlug {
     self = [super init];
     
     if(self)
@@ -53,7 +52,9 @@ static const float kProgramImageWidth  = 384;
         
         _coreDataHelper = [[JPCoreDataHelper alloc] init];
         
-        self.itemId = itemId;
+        _itemId = itemId;
+        _schoolSlug = schoolSlug;
+        _facultySlug = facultySlug;
         
         //Navbar dismiss button
         UIBarButtonItem* dismissButton = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissButtonPressed:)];
@@ -219,7 +220,7 @@ static const float kProgramImageWidth  = 384;
 {
     if(isSelected)
     {
-        [_coreDataHelper addFavoriteWithItemId:self.itemId andType:_itemType];
+        [_coreDataHelper addFavoriteWithItemId:self.itemId andType:_itemType schoolSlug:self.schoolSlug facultySlug:self.facultySlug programSlug:nil];
         self.summaryView.isFavorited = YES;
     }
     else //deselected

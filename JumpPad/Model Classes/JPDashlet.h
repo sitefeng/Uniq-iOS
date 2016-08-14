@@ -46,7 +46,7 @@
 
 //////////////////////////////////////////
 //From Core Data
-- (instancetype)initWithItemId: (NSString*)itemId withType: (JPDashletType)type;
+- (instancetype)initFromCoreDataWithItemId: (NSString*)itemId withType: (JPDashletType)type;
 - (instancetype)initWithSchool: (School*)school;
 - (instancetype)initWithFaculty: (Faculty*)faculty;
 - (instancetype)initWithProgram: (Program*)program;

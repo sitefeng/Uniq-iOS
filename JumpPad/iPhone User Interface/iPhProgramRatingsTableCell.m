@@ -11,15 +11,11 @@
 #import "JPStyle.h"
 
 
-
-
-
 @interface iPhProgramRatingsTableCell()
 
 @property (nonatomic, strong) UILabel* titleLabel;
 
 @end
-
 
 
 @implementation iPhProgramRatingsTableCell

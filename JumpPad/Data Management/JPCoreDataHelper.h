@@ -22,7 +22,7 @@
     UserFavItem*  _userFav;
     
     JPCloudFavoritesHelper* _cloudFav;
-    JPDataRequest*  _dataRequest;
+    
     
     Program*      _downloadItemProgramToBeLinked;
     Faculty*      _downloadItemFacultyToBeLinked;
@@ -34,7 +34,8 @@
 
 //Favoriting
 - (void)removeFavoriteWithItemId: (NSString*)itemId withType:(JPDashletType)type;
-- (void)addFavoriteWithItemId: (NSString*)itemId andType: (JPDashletType)type;
+- (void)addFavoriteWithItemId:(NSString *)itemId andType:(JPDashletType)type schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug programSlug: (NSString *)programSlug;
+
 - (BOOL)isFavoritedWithItemId: (NSString*)itemId;
 
 
@@ -50,7 +51,7 @@
 
 
 //Downloading
-- (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type;
+- (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug programSlug: (NSString *)programSlug;
 
 
 

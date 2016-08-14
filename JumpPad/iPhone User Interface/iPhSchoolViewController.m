@@ -13,19 +13,25 @@
 #import "JPDataRequest.h"
 #import "DejalActivityView.h"
 
+#import "Uniq-Swift.h"
 
-@interface iPhSchoolViewController ()
+@interface iPhSchoolViewController () <JPDataRequestDelegate>
+
+@property (nonatomic, strong) JPDataRequest *dataRequest;
+@property (nonatomic, strong) JPOfflineDataRequest *offlineDataRequest;
 
 @end
 
 @implementation iPhSchoolViewController
 
-- (instancetype)initWithItemId:(NSString*)itemId itemType: (JPDashletType)type
+- (instancetype)initWithItemId:(NSString*)itemId itemType: (JPDashletType)type schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.itemId=  itemId;
         self.type = type;
+        _schoolSlug = schoolSlug;
+        _facultySlug = facultySlug;
         
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
         
@@ -34,10 +40,23 @@
         
         [DejalBezelActivityView activityViewForView:self.view withLabel:@"Loading" width:100];
         
-        _dataRequest = [JPDataRequest request];
-        _dataRequest.delegate = self;
-        [_dataRequest requestItemDetailsWithId:itemId ofType:type];
-
+        if (JPUtility.isOfflineMode) {
+            _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
+            
+            NSDictionary *dataDict = @{};
+            if (type == JPDashletTypeFaculty) {
+                dataDict = [_offlineDataRequest requestFacultyDetails:self.schoolSlug facultySlug:self.facultySlug];
+            } else {
+                dataDict = [_offlineDataRequest requestSchoolDetails:self.schoolSlug];
+            }
+            
+            [self finishedLoadingDetailsOfType:type dataDict:dataDict isSuccessful:true];
+            
+        } else {
+            _dataRequest = [JPDataRequest request];
+            _dataRequest.delegate = self;
+            [_dataRequest requestItemDetailsWithId:itemId ofType:type];
+        }
         
         _coreDataHelper = [[JPCoreDataHelper alloc] init];
         
@@ -57,14 +76,15 @@
     [super viewDidLoad];
     
     
-    
 }
 
 
 
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success {
+    [self finishedLoadingDetailsOfType:type dataDict:dict isSuccessful:success];
+}
 
-- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
-{
+- (void)finishedLoadingDetailsOfType: (JPDashletType)type dataDict: (NSDictionary *)dict isSuccessful: (BOOL)success {
     if(!success) {
         return;
     }
@@ -117,7 +137,6 @@
 
 
 
-
 #pragma mark - Navigation Bar Item Callbacks
 - (void)dismissButtonPressed: (UIBarButtonItem*)button
 {
@@ -131,7 +150,7 @@
     if(!button.selected)
     {
         button.selected = YES;
-        [_coreDataHelper addFavoriteWithItemId:self.itemId andType:self.type];
+        [_coreDataHelper addFavoriteWithItemId:self.itemId andType:self.type schoolSlug:self.schoolSlug facultySlug:self.facultySlug programSlug:nil];
     }
     else
     {

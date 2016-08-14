@@ -222,10 +222,13 @@
     </entity>
     <entity name="UserFavItem" representedClassName="UserFavItem" syncable="YES">
         <attribute name="applied" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="facultySlug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favItemId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gotOffer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="programSlug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="researched" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="response" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="schoolSlug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favItems" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -250,6 +253,6 @@
         <element name="UniqKEKeyword" positionX="-945" positionY="-45" width="128" height="75"/>
         <element name="UniqKEOne" positionX="-774" positionY="-6" width="128" height="60"/>
         <element name="User" positionX="466" positionY="42" width="128" height="225"/>
-        <element name="UserFavItem" positionX="466" positionY="-126" width="128" height="148"/>
+        <element name="UserFavItem" positionX="466" positionY="-126" width="128" height="195"/>
     </elements>
 </model>

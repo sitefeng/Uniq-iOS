@@ -279,7 +279,7 @@
 
 - (void)infoButtonPressed:(iPadMainCollectionViewCell*)sender
 {
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:sender.dashletInfo.itemId type:JPDashletTypeSchool];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:sender.dashletInfo.itemId type:JPDashletTypeSchool schoolSlug:sender.dashletInfo.schoolSlug facultySlug:nil];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     

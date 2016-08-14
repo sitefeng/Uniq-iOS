@@ -150,7 +150,7 @@
     self.dashlets = [NSMutableArray array];
     for (NSDictionary* facultyDict in array)
     {
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:facultyDict ofDashletType:JPDashletTypeFaculty];
+        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:facultyDict ofDashletType:JPDashletTypeFaculty ];
         [self.dashlets addObject:dashlet];
     }
     
@@ -325,7 +325,7 @@
 
 - (void)infoButtonPressed:(iPadMainCollectionViewCell *)sender
 {
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:sender.dashletInfo.itemId type:JPDashletTypeFaculty];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:sender.dashletInfo.itemId type:JPDashletTypeFaculty schoolSlug:sender.dashletInfo.schoolSlug facultySlug:sender.dashletInfo.facultySlug];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
@@ -333,10 +333,9 @@
 }
 
 
-- (void)schoolInfoPressed
-{
+- (void)schoolInfoPressed {
     
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:self.schoolId type:JPDashletTypeSchool];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:self.schoolId type:JPDashletTypeSchool schoolSlug:self.schoolDashlet.schoolSlug facultySlug:nil];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     

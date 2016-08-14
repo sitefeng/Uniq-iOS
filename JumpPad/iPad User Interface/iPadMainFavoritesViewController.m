@@ -201,7 +201,7 @@
     
     if(dashletType == JPDashletTypeProgram)
     {
-        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithItemId:dashlet.itemId];
+        iPadProgramViewController* programVC = [[iPadProgramViewController alloc] initWithItemId:dashlet.itemId slug:dashlet.programSlug];
         
         programVC.title = dashlet.title;
         
@@ -212,7 +212,7 @@
     }
     else //dashlet is School or Faculty
     {
-        iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithItemId:dashlet.itemId type:dashletType];
+    iPadSchoolHomeViewController* schoolVC = [[iPadSchoolHomeViewController alloc] initWithItemId:dashlet.itemId type:dashletType schoolSlug:dashlet.schoolSlug facultySlug:dashlet.facultySlug];
         UINavigationController* switchViewController = [[UINavigationController alloc] initWithRootViewController:schoolVC];
         [self presentViewController:switchViewController animated:YES completion:nil];
     }

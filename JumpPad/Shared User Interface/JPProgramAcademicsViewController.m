@@ -162,7 +162,7 @@
 
 - (void)createNewFavItem
 {
-    [_coreDataHelper addFavoriteWithItemId:self.program.programId andType:JPDashletTypeProgram];
+    [_coreDataHelper addFavoriteWithItemId:self.program.programId andType:JPDashletTypeProgram schoolSlug:self.program.schoolSlug facultySlug:self.program.facultySlug programSlug:self.program.slug];
     
     NSFetchRequest* favReq = [[NSFetchRequest alloc] initWithEntityName:@"UserFavItem"];
     favReq.predicate = [NSPredicate predicateWithFormat: @"favItemId = %@", self.program.programId];

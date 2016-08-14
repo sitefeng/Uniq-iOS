@@ -44,13 +44,13 @@
         }
         else if([title isEqual:@"Tuition"])
         {
-            UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 10, 200, 20)];
+            UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 10, 230, 20)];
             localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            localLabel.text = @"Domestic (per term)";
+            localLabel.text = @"Domestic Tuition + Fees per term";
             localLabel.textColor = [UIColor blackColor];
-            UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 85, 200, 20)];
+            UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 85, 230, 20)];
             intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-            intLabel.text = @"International (per term)";
+            intLabel.text = @"International Tuition + Fees per term";
             intLabel.textColor = [UIColor blackColor];
             
             [self addSubview:localLabel];

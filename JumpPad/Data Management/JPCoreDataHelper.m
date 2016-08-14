@@ -18,7 +18,15 @@
 #import "School.h"
 #import "ManagedObjects+JPConvenience.h"
 
+#import "Uniq-Swift.h"
 
+
+@interface JPCoreDataHelper()
+
+@property (nonatomic, strong) JPDataRequest *dataRequest;
+@property (nonatomic, strong) JPOfflineDataRequest *offlineDataRequest;
+
+@end
 
 @implementation JPCoreDataHelper
 
@@ -205,8 +213,8 @@
 }
 
 
-- (void)addFavoriteWithItemId:(NSString *)itemId andType:(JPDashletType)type
-{
+- (void)addFavoriteWithItemId:(NSString *)itemId andType:(JPDashletType)type schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug programSlug: (NSString *)programSlug {
+    
     NSEntityDescription* newFavItemDes = [NSEntityDescription entityForName:@"UserFavItem" inManagedObjectContext:context];
     _userFav = (UserFavItem*)[[NSManagedObject alloc] initWithEntity:newFavItemDes insertIntoManagedObjectContext:context];
 
@@ -216,6 +224,9 @@
     _userFav.researched = @false;
     _userFav.response = @false;
     _userFav.applied = @false;
+    _userFav.schoolSlug = schoolSlug;
+    _userFav.facultySlug = facultySlug;
+    _userFav.programSlug = programSlug;
 
     NSFetchRequest* userFetch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
     NSArray* userArray = [context executeFetchRequest:userFetch error:nil];
@@ -228,7 +239,7 @@
     [_cloudFav uploadItemFavoritedWithUid:itemId];
     
     //Download Item To Device
-    [self downloadItemToCoreDataWithItemId:itemId itemType:type];
+    [self downloadItemToCoreDataWithItemId:itemId itemType:type schoolSlug:schoolSlug facultySlug:facultySlug programSlug:programSlug];
     
 }
 
@@ -399,15 +410,38 @@
 
 #pragma mark - Downloading Contents from Server
 
-- (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type
-{
-    [_dataRequest requestItemDetailsWithId:itemId ofType:type];
+- (void)downloadItemToCoreDataWithItemId:(NSString*)itemId itemType:(JPDashletType)type schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug programSlug: (NSString *)programSlug {
+    
+    if (JPUtility.isOfflineMode) {
+        _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
+        
+        NSDictionary *dataDict = @{};
+        if (type == JPDashletTypeSchool) {
+            dataDict = [_offlineDataRequest requestSchoolDetails:schoolSlug];
+        } else if (type == JPDashletTypeFaculty) {
+            dataDict = [_offlineDataRequest requestFacultyDetails:schoolSlug facultySlug:facultySlug];
+        } else if (type == JPDashletTypeProgram) {
+            dataDict = [_offlineDataRequest requestProgramDetails:schoolSlug facultySlug:facultySlug programSlug:programSlug];
+        }
+        [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dataDict isSuccessful:true];
+        
+    } else {
+        [_dataRequest requestItemDetailsWithId:itemId ofType:type];
+    }
     
 }
 
 
-- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success
-{
+- (void)dataRequest:(JPDataRequest *)request didLoadItemDetailsWithId:(NSString *)itemId ofType:(JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful:(BOOL)success {
+    [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dict isSuccessful:success];
+}
+
+- (void)finishedLoadingDetailsOfType: (JPDashletType)type itemId:(NSString*)itemId dataDict: (NSDictionary *)dict isSuccessful: (BOOL)success {
+    
+    if (!success) {
+        return;
+    }
+    
     if(type == JPDashletTypeSchool)
     {
         //See if the school is already there
@@ -437,7 +471,7 @@
             faculty.toDelete = @NO;
             [context insertObject:faculty];
         }
-
+        
         _downloadItemFacultyToBeLinked = faculty;
         
         if(_downloadItemProgramToBeLinked)
@@ -447,7 +481,7 @@
         }
         
         NSLog(@"Faculty Downloaded and Linked");
-        [self downloadItemToCoreDataWithItemId:faculty.schoolId itemType:JPDashletTypeSchool];
+        [self downloadItemToCoreDataWithItemId:faculty.schoolId itemType:JPDashletTypeSchool schoolSlug:faculty.schoolSlug facultySlug:faculty.slug programSlug:nil];
     }
     else //program
     {
@@ -462,12 +496,11 @@
         _downloadItemProgramToBeLinked = program;
         
         NSLog(@"Program Downloaded and Linked");
-        [self downloadItemToCoreDataWithItemId:program.facultyId itemType:JPDashletTypeFaculty];
+        [self downloadItemToCoreDataWithItemId:program.facultyId itemType:JPDashletTypeFaculty schoolSlug:program.schoolSlug facultySlug:program.faculty programSlug:program.slug];
     }
     [context save:nil];
-    
-}
 
+}
 
 
 #pragma mark - Cloud Favorites Helper Delegate
@@ -477,10 +510,6 @@
     if(success && !exists)
         NSLog(@"Firebase Favorites successfully updated");
 }
-
-
-
-
 
 
 

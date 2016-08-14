@@ -2,7 +2,7 @@
 //  UserFavItem+CoreDataProperties.m
 //  Uniq
 //
-//  Created by Si Te Feng on 8/13/16.
+//  Created by Si Te Feng on 8/14/16.
 //  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,6 +19,9 @@
 @dynamic researched;
 @dynamic response;
 @dynamic type;
+@dynamic schoolSlug;
+@dynamic facultySlug;
+@dynamic programSlug;
 @dynamic user;
 
 @end

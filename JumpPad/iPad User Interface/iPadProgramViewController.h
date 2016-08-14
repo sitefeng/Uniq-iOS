@@ -26,6 +26,7 @@
 
 
 @property (nonatomic, strong) NSString* programId;
+@property (nonatomic, strong) NSString *slug;
 
 @property (nonatomic, strong) Program* program;
 
@@ -37,10 +38,7 @@
 @property (nonatomic, strong)iPadProgramRatingsViewController *vc5 ;
 
 
-
-
-
-- (id)initWithItemId: (NSString*)itemId;
+- (id)initWithItemId: (NSString*)itemId slug: (NSString *)slug;
 
 
 

@@ -217,7 +217,7 @@
 {
     iPhSchoolViewController* viewController = nil;
     
-    viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:self.type];
+    viewController = [[iPhSchoolViewController alloc] initWithItemId:self.itemId itemType:self.type schoolSlug:_schoolSlug facultySlug:_facultySlug];
     
     viewController.title = self.title;
     

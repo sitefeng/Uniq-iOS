@@ -18,14 +18,14 @@
 
 @implementation iPadProgramViewController
 
-- (id)initWithItemId:(NSString *)itemId
-{
+- (id)initWithItemId:(NSString *)itemId slug:(NSString *)slug {
     self = [super init];
     if (self) {
         // Custom initialization
         self.automaticallyAdjustsScrollViewInsets = NO;
         
-        self.programId = itemId;
+        _programId = itemId;
+        _slug = slug;
         
         UniqAppDelegate* delegate = [[UIApplication sharedApplication] delegate];
         context = [delegate managedObjectContext];

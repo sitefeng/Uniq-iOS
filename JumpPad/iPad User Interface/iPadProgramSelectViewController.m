@@ -199,7 +199,7 @@
 {
     JPDashlet* selectedDashlet = (JPDashlet*) self.dashlets[indexPath.row];
     
-    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:selectedDashlet.itemId];
+    iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:selectedDashlet.itemId slug:selectedDashlet.programSlug];
     viewController.title = selectedDashlet.title;
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
@@ -317,7 +317,7 @@
 
 - (void)facultyInfoPressed
 {
-    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:self.facultyId type:JPDashletTypeFaculty];
+    iPadSchoolHomeViewController* viewController = [[iPadSchoolHomeViewController alloc] initWithItemId:self.facultyId type:JPDashletTypeFaculty schoolSlug:self.facultyDashlet.schoolSlug facultySlug:self.self.facultyDashlet.facultySlug];
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     

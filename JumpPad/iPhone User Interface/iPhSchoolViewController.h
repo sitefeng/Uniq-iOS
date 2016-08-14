@@ -12,10 +12,9 @@
 
 
 @class Faculty, School, JPCoreDataHelper;
-@interface iPhSchoolViewController : UITabBarController <JPDataRequestDelegate>
+@interface iPhSchoolViewController : UITabBarController
 {
     NSManagedObjectContext* context;
-    JPDataRequest*   _dataRequest;
     
     JPCoreDataHelper*  _coreDataHelper;
 }
@@ -23,18 +22,16 @@
 
 
 @property (nonatomic, assign) JPDashletType type;
-@property (nonatomic, strong) NSString*     itemId;
+@property (nonatomic, strong) NSString *itemId;
+@property (nonatomic, strong) NSString *schoolSlug;
+@property (nonatomic, strong) NSString *facultySlug;
 
 
 @property (nonatomic, strong) id schoolOrFaculty;
 
 
 
-- (instancetype)initWithItemId:(NSString*)itemId itemType: (JPDashletType)type;
-
-
-
-
+- (instancetype)initWithItemId:(NSString*)itemId itemType: (JPDashletType)type schoolSlug: (NSString *)schoolSlug facultySlug: (NSString *)facultySlug;
 
 
 @end

@@ -123,7 +123,7 @@
         contentController = [[iPhProgramViewController alloc] initWithItemId:dashlet.itemId schoolSlug:dashlet.schoolSlug facultySlug:dashlet.facultySlug programSlug:dashlet.programSlug];
         
     } else {
-        contentController = [[iPhSchoolViewController alloc] initWithItemId:dashlet.itemId itemType:dashlet.type];
+        contentController = [[iPhSchoolViewController alloc] initWithItemId:dashlet.itemId itemType:dashlet.type schoolSlug:dashlet.schoolSlug facultySlug:dashlet.facultySlug];
     }
     
     [contentController setTitle:dashlet.title];

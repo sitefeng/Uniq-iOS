@@ -147,7 +147,7 @@
     if(!button.selected)
     {
         button.selected = YES;
-        [_helper addFavoriteWithItemId:self.itemId andType:JPDashletTypeProgram];
+        [_helper addFavoriteWithItemId:self.itemId andType:JPDashletTypeProgram schoolSlug:self.schoolSlug facultySlug:self.facultySlug programSlug:self.slug];
         
         //Mixpanel
         [[Mixpanel sharedInstance] track:@"Program Favorited"

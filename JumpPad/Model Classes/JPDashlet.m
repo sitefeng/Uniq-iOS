@@ -33,14 +33,11 @@
 }
 
 
-- (instancetype)initWithItemId: (NSString*)itemId withType: (JPDashletType)type
-{
+- (instancetype)initFromCoreDataWithItemId: (NSString*)itemId withType: (JPDashletType)type {
     self = [self init];
     
     self.itemId = itemId;
     self.type = type;
-    
-    ImageLink* backgroundImage = nil;
     
     if(type == JPDashletTypeSchool)
     {
@@ -50,11 +47,7 @@
         NSArray* schoolResults = [context executeFetchRequest:itemReq error:&err];
         School* school = (School*)[schoolResults firstObject];
         
-        self.title = school.name;
-        self.population = school.undergradPopulation;
-        self.location = [[JPLocation alloc] initWithSchoolLocation:school.location];
-        self.icon = [NSURL URLWithString:school.logoUrl];
-        backgroundImage = [[school.images allObjects] firstObject];
+        [self initializeWithSchool:school];
                                  
     }
     else if(type == JPDashletTypeFaculty)
@@ -65,10 +58,7 @@
         NSArray* facResults = [context executeFetchRequest:itemReq error:&err];
         Faculty* faculty = (Faculty*)[facResults firstObject];
         
-        self.title = faculty.name;
-        self.population = faculty.undergradPopulation;
-        self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
-        backgroundImage = [[faculty.images allObjects] firstObject];
+        [self initializeWithFaculty:faculty];
     }
     else if(type == JPDashletTypeProgram)
     {
@@ -78,13 +68,8 @@
         NSArray* progResults = [context executeFetchRequest:itemReq error:&err];
         Program* program = (Program*)[progResults firstObject];
         
-        self.title = program.name;
-        self.population = program.undergradPopulation;
-        self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
-        backgroundImage = [[program.images allObjects] firstObject];
+        [self initializeWithProgram:program];
     }
-    
-    self.backgroundImages = [[NSMutableArray alloc]initWithObjects:[NSURL URLWithString:backgroundImage.imageLink], nil];
     
     return self;
 }
@@ -96,67 +81,19 @@
 - (instancetype)initWithSchool:(School *)school
 {
     self = [self init];
-    if(self)
-    {
-        self.itemId = school.schoolId;
-        
-        SchoolLocation* sLoc = school.location;
-        float lat = [sLoc.latitude doubleValue];
-        float lon = [sLoc.longitude doubleValue];
-        
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
-        
-        self.title = school.name;
-        self.type = JPDashletTypeSchool;
-        
-        self.backgroundImages = [NSMutableArray array];
-        
-        NSArray* imageLinks = [school.images allObjects];
-        for(ImageLink* link in imageLinks)
-        {
-            NSURL* url = [NSURL URLWithString:link.imageLink];
-            if(url)
-                [self.backgroundImages addObject:url];
-        }
-        
-        self.population = school.undergradPopulation;
-        
-        NSURL* url = [NSURL URLWithString:school.logoUrl];
-        self.icon = url;
-       
-        
+    if(self) {
+        [self initializeWithSchool:school];
     }
     
     return self;
 }
 
 
-
 - (instancetype)initWithFaculty: (Faculty*)faculty
 {
     self = [self init];
-    if(self)
-    {
-        self.itemId = faculty.facultyId;
-        self.title = faculty.name;
-        self.type = JPDashletTypeFaculty;
-        
-        SchoolLocation* sLoc = faculty.location;
-        float lat = [sLoc.latitude doubleValue];
-        float lon = [sLoc.longitude doubleValue];
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
-        
-        self.backgroundImages = [NSMutableArray array];
-        
-        NSArray* imageLinks = [faculty.images allObjects];
-        for(ImageLink* link in imageLinks)
-        {
-            NSURL* url = [NSURL URLWithString:link.imageLink];
-            if(url)
-                [self.backgroundImages addObject:url];
-        }
-        
-        self.population = faculty.undergradPopulation;
+    if(self) {
+        [self initializeWithFaculty:faculty];
     }
     
     return self;
@@ -166,33 +103,73 @@
 - (instancetype)initWithProgram: (Program*)program
 {
     self = [self init];
-    if(self)
-    {
-        self.itemId = program.programId;
-        self.title = program.name;
-        self.type = JPDashletTypeProgram;
-        
-        SchoolLocation* sLoc = program.location;
-        float lat = [sLoc.latitude doubleValue];
-        float lon = [sLoc.longitude doubleValue];
-        self.location = [[JPLocation alloc] initWithCooridinates:CGPointMake(lat, lon) city:sLoc.city province:sLoc.region];
-        self.backgroundImages = [NSMutableArray array];
-        
-        NSArray* imageLinks = [program.images allObjects];
-        for(ImageLink* link in imageLinks)
-        {
-            NSURL* url = [NSURL URLWithString:link.imageLink];
-            if(url)
-                [self.backgroundImages addObject:url];
-        }
-        
-        self.population = program.undergradPopulation;
+    if(self) {
+        [self initializeWithProgram:program];
     }
     
     return self;
 }
 
 
+- (void)initializeWithSchool: (School *)school {
+    self.itemId = school.schoolId;
+    self.schoolSlug = school.slug;
+    
+    self.title = school.name;
+    self.population = school.undergradPopulation;
+    self.location = [[JPLocation alloc] initWithSchoolLocation:school.location];
+    
+    NSArray* imageLinks = [school.images allObjects];
+    for(ImageLink* imageLink in imageLinks)
+    {
+        NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
+        if(imgUrl)
+            [self.backgroundImages addObject:imgUrl];
+    }
+    self.population = school.undergradPopulation;
+    self.icon = [NSURL URLWithString:school.logoUrl];
+}
+
+
+- (void)initializeWithFaculty: (Faculty *)faculty {
+    self.itemId = faculty.facultyId;
+    self.facultySlug = faculty.slug;
+    self.schoolSlug = faculty.schoolSlug;
+    
+    self.title = faculty.name;
+    self.population = faculty.undergradPopulation;
+    self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
+    
+    NSArray* imageLinks = [faculty.images allObjects];
+    for(ImageLink* imageLink in imageLinks)
+    {
+        NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
+        if(imgUrl)
+            [self.backgroundImages addObject:imgUrl];
+    }
+    self.population = faculty.undergradPopulation;
+
+}
+
+- (void)initializeWithProgram: (Program *)program {
+    self.itemId = program.programId;
+    self.programSlug = program.slug;
+    self.facultySlug = program.facultySlug;
+    self.schoolSlug = program.schoolSlug;
+    
+    self.title = program.name;
+    self.population = program.undergradPopulation;
+    self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
+    
+    NSArray* imageLinks = [program.images allObjects];
+    for(ImageLink* imageLink in imageLinks)
+    {
+        NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
+        if(imgUrl)
+            [self.backgroundImages addObject:imgUrl];
+    }
+    self.population = program.undergradPopulation;
+}
 
 - (instancetype)initWithDictionary:(NSDictionary*)dict ofDashletType:(JPDashletType)type
 {
@@ -208,54 +185,17 @@
             if(type == JPDashletTypeSchool)
             {
                 School* school = [dict objectForKey:@"itemObject"];
-                self.itemId = school.schoolId;
-                self.title = school.name;
-                self.population = school.undergradPopulation;
-                self.location = [[JPLocation alloc] initWithSchoolLocation:school.location];
-                
-                NSArray* imageLinks = [school.images allObjects];
-                for(ImageLink* imageLink in imageLinks)
-                {
-                    NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
-                    if(imgUrl)
-                       [self.backgroundImages addObject:imgUrl];
-                }
-                
-                self.icon = [NSURL URLWithString:school.logoUrl];
-                
+                [self initializeWithSchool: school];
             }
             else if(type == JPDashletTypeFaculty)
             {
                 Faculty* faculty = [dict objectForKey:@"itemObject"];
-                self.itemId = faculty.facultyId;
-                self.title = faculty.name;
-                self.population = faculty.undergradPopulation;
-                self.location = [[JPLocation alloc] initWithSchoolLocation:faculty.location];
-                
-                NSArray* imageLinks = [faculty.images allObjects];
-                for(ImageLink* imageLink in imageLinks)
-                {
-                    NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
-                    if(imgUrl)
-                        [self.backgroundImages addObject:imgUrl];
-                }
-
+                [self initializeWithFaculty: faculty];
             }
             else if(type == JPDashletTypeProgram)
             {
                 Program* program = [dict objectForKey:@"itemObject"];
-                self.itemId = program.programId;
-                self.title = program.name;
-                self.population = program.undergradPopulation;
-                self.location = [[JPLocation alloc] initWithSchoolLocation:program.location];
-                
-                NSArray* imageLinks = [program.images allObjects];
-                for(ImageLink* imageLink in imageLinks)
-                {
-                    NSURL* imgUrl = [NSURL URLWithString:imageLink.imageLink];
-                    if(imgUrl)
-                        [self.backgroundImages addObject:imgUrl];
-                }
+                [self initializeWithProgram: program];
             }
         }
         else //if dictionary is raw info from server

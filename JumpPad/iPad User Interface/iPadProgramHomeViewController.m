@@ -170,7 +170,7 @@ static const float kProgramImageWidth  = 384;
 {
     if(isSelected)
     {
-        [_coreDataHelper addFavoriteWithItemId:self.program.programId andType:JPDashletTypeProgram];
+        [_coreDataHelper addFavoriteWithItemId:self.program.programId andType:JPDashletTypeProgram schoolSlug:self.program.slug facultySlug:nil programSlug:nil];
         
         self.summaryView.isFavorited = YES;
     }

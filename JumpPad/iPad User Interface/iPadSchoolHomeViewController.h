@@ -14,6 +14,7 @@
 
 @class iPadProgramImagesViewController, iPadProgramLabelView, JPSchoolSummaryView, School, iPadProgramContactViewController;
 
+// For School and Faculty
 @interface iPadSchoolHomeViewController  : UIViewController <JPSchoolSummaryDelegate, JPDataRequestDelegate>
 {
     NSManagedObjectContext* context;
@@ -27,8 +28,9 @@
 }
 
 
-
 @property (nonatomic, strong) NSString* itemId;
+@property (nonatomic, strong) NSString *schoolSlug;
+@property (nonatomic, strong) NSString *facultySlug;
 
 @property (nonatomic, strong) School* school;
 @property (nonatomic, strong) Faculty* faculty;
@@ -40,9 +42,7 @@
 @property (nonatomic, strong) iPadProgramContactViewController* contactVC;
 
 
-
-
-- (id)initWithItemId: (NSString*)itemId type:(JPDashletType)type;
+- (id)initWithItemId: (NSString*)itemId type:(JPDashletType)type schoolSlug: (NSString*)schoolSlug facultySlug: (NSString *)facultySlug;
 
 
 @end

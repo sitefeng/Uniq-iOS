@@ -176,7 +176,6 @@
 
 - (void)favoriteButtonPressed: (UIButton*)button
 {
-    
     if(!button.selected) //Selecting the button
     {
         button.selected = YES;
@@ -187,7 +186,6 @@
         button.selected = NO;
         [self.delegate favoriteButtonSelected:NO forCell:self];
     }
-    
 }
 
 

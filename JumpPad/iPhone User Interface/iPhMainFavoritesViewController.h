@@ -10,16 +10,8 @@
 #import "JPMainFavoritesViewController.h"
 
 @interface iPhMainFavoritesViewController : JPMainFavoritesViewController <UITableViewDataSource, UITableViewDelegate>
-{
-
-}
-
-
 
 @property (nonatomic, strong) UITableView* tableView;
-
-
-
 
 
 @end

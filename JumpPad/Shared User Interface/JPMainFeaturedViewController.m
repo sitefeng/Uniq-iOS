@@ -140,6 +140,10 @@
     
     cell.delegate = self;
     cell.itemId = [featureItem objectForKey:@"id"];
+    cell.schoolSlug = [featureItem objectForKey:@"schoolSlug"];
+    cell.facultySlug = [featureItem objectForKey:@"facultySlug"];
+    cell.programSlug = [featureItem objectForKey:@"programSlug"];
+    
     cell.title = [featureItem objectForKey:@"featuredTitle"];
     cell.subtitle = [featureItem objectForKey:@"nameTitle"];
     cell.type = [self dashletTypeFromTypeString:[featureItem objectForKey:@"type"]];
@@ -178,13 +182,13 @@
         
         if(cell.type == JPDashletTypeProgram)
         {
-            iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:cell.itemId];
+            iPadProgramViewController* viewController =[[iPadProgramViewController alloc] initWithItemId:cell.itemId slug:cell.programSlug];
             viewController.title = cell.subtitle;
             [self presentViewController:viewController animated:YES completion:nil];
         }
         else
         {
-            iPadSchoolHomeViewController* schoolViewController = [[iPadSchoolHomeViewController alloc] initWithItemId:cell.itemId type:cell.type];
+            iPadSchoolHomeViewController* schoolViewController = [[iPadSchoolHomeViewController alloc] initWithItemId:cell.itemId type:cell.type schoolSlug:cell.schoolSlug facultySlug:cell.facultySlug];
             UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:schoolViewController];
             [self presentViewController:navController animated:YES completion:nil];
         }
@@ -200,7 +204,7 @@
         }
         else
         {
-            detailsViewController = [[iPhSchoolViewController alloc] initWithItemId:cell.itemId itemType:cell.type];
+            detailsViewController = [[iPhSchoolViewController alloc] initWithItemId:cell.itemId itemType:cell.type schoolSlug:cell.schoolSlug facultySlug:cell.facultySlug];
         }
         [detailsViewController setTitle:cell.subtitle];
         
@@ -223,7 +227,7 @@
 
     if(selected)
     {
-        [_helper addFavoriteWithItemId:cell.itemId andType:cell.type];
+        [_helper addFavoriteWithItemId:cell.itemId andType:cell.type schoolSlug:cell.schoolSlug facultySlug:cell.facultySlug programSlug:cell.programSlug];
         
     }
     else //deselected

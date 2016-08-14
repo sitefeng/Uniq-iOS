@@ -160,17 +160,23 @@ internal final class JPOfflineDataRequest: NSObject {
         
         let programPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(programSlug).json"
         
-        let programJSONURL = NSURL(fileURLWithPath: programPath)
-        let programJSONData = NSData(contentsOfURL: programJSONURL)!
+        return dictionaryFromFilePath(programPath)
+    }
+    
+    
+    func requestSchoolDetails(slug: String) -> [String: AnyObject] {
         
-        var programDict: [String: AnyObject] = [:]
-        do {
-            programDict = try NSJSONSerialization.JSONObjectWithData(programJSONData, options: []) as! [String : AnyObject]
-        } catch {
-            return programDict
-        }
+        let schoolPath = offlineDataPath() + "/\(slug)/\(slug).json"
         
-        return programDict
+        return dictionaryFromFilePath(schoolPath)
+    }
+    
+    
+    func requestFacultyDetails(schoolSlug: String, facultySlug: String) -> [String: AnyObject] {
+        
+        let facultyPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
+        
+        return dictionaryFromFilePath(facultyPath)
     }
     
     
@@ -182,6 +188,21 @@ internal final class JPOfflineDataRequest: NSObject {
             return ""
         }
         return offlineDataPath
+    }
+    
+    func dictionaryFromFilePath(filePath: String) -> [String: AnyObject] {
+        // Pretend reading a program json file
+        let programJSONURL = NSURL(fileURLWithPath: filePath)
+        let programJSONData = NSData(contentsOfURL: programJSONURL)!
+        
+        var programDict: [String: AnyObject] = [:]
+        do {
+            programDict = try NSJSONSerialization.JSONObjectWithData(programJSONData, options: []) as! [String : AnyObject]
+        } catch {
+            return programDict
+        }
+        
+        return programDict
     }
 
 }
