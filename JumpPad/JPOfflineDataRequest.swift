@@ -149,7 +149,10 @@ internal final class JPOfflineDataRequest: NSObject {
     
     //MARK: Request for school location
     func requestLocationForSchool(schoolSlug: String) -> JPLocation {
-        assert(schoolSlug != "", "School Slug cannot be empty")
+        guard schoolSlug != "" else {
+            print("School Slug cannot be empty")
+            return JPLocation()
+        }
 
         let schoolName = schoolSlug
         let schoolJSONPath = offlineDataPath() + "/\(schoolName)/\(schoolName).json"

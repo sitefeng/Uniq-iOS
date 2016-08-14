@@ -12,23 +12,14 @@
 
 
 @class Program, iPhMapPanView;
-@interface iPhProgramContactViewController : JPProgramContactViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
-{
-    iPhMapPanView*   _mapPanView;
+@interface iPhProgramContactViewController : JPProgramContactViewController <UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate> {
     
     CGFloat   _imageViewYBeforePan;
-        
-        
     MFMailComposeViewController* _mailController;
-
 }
 
 
-
 @property (nonatomic, strong) UITableView* tableView;
-
-
-
 
 
 @end

@@ -146,13 +146,12 @@
     
     if(userDistance <0 )
     {
-        return @"--kms away";
+        return @"";
     }
     else
     {
         return [NSString stringWithFormat:@"%.00fkms away", userDistance];
     }
-    
     
 }
 

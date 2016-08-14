@@ -38,7 +38,6 @@
         [bottomVisibleView addSubview:dragBarLabel];
         
         //Map View
-        
         self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - 30)];
         self.mapView.mapType = MKMapTypeStandard;
         self.mapView.clipsToBounds = YES;
@@ -57,7 +56,6 @@
         _distanceLabel = [[UILabel alloc] initWithFrame:CGRectMake(36, 6, 68, 22)];
         _distanceLabel.textColor = [UIColor blackColor];
         _distanceLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-        _distanceLabel.text = @"--kms away";
         [_distanceLabel sizeToFit];
         
         [_distanceView addSubview:distanceImg];
@@ -67,9 +65,6 @@
 
         [self.mapView addSubview:_distanceView];
 
-        
-        
-        
     }
     return self;
 }
@@ -83,21 +78,9 @@
     CLLocationCoordinate2D mapCenterCoord = CLLocationCoordinate2DMake(coord.x, coord.y);
     self.mapView.region = MKCoordinateRegionMakeWithDistance(mapCenterCoord, 1500, 1500);
     
-    JPCoreDataHelper* helper = [[JPCoreDataHelper alloc] init];
-    CGFloat distance = [helper distanceToUserLocationWithLocation:location];
-    if(distance < 0)
-    {
-        _distanceLabel.text = @"--kms away";
-    } else {
-        _distanceLabel.text = [NSString stringWithFormat:@"%.0fkms away", distance];
-    }
-    
     [_distanceLabel sizeToFit];
     [_distanceView setFrame:CGRectMake(_distanceView.frame.origin.x, _distanceView.frame.origin.y, _distanceLabel.frame.size.width + 32 + 10, _distanceView.frame.size.height)];
 }
-
-
-
 
 
 

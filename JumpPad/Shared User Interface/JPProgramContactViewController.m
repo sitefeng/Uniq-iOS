@@ -18,6 +18,9 @@
 
 #import "Uniq-Swift.h"
 
+
+static NSString *const NotAvailableString = @"Not Available";
+
 @interface JPProgramContactViewController ()
 
 @end
@@ -79,28 +82,48 @@
     if(!self.program && !self.faculty && !self.school)
         return nil;
     
+    NSString *phoneNum = self.contactInfo.phoneNum;
+    if (phoneNum.length == 0) { phoneNum = NotAvailableString; }
+    
+    NSString *email = self.contactInfo.email;
+    if (email.length == 0) { email = NotAvailableString; }
+    
+    NSString *website = self.contactInfo.website;
+    if (website.length == 0) { website = NotAvailableString; }
+    
+    NSString *facebook = self.contactInfo.facebook;
+    if (facebook.length == 0) { facebook = NotAvailableString; }
+    
+    NSString *twitter = self.contactInfo.twitter;
+    if (twitter.length == 0) { twitter = NotAvailableString; }
+    
+    NSString *linkedin = self.contactInfo.linkedin;
+    if (linkedin.length == 0) { linkedin = NotAvailableString; }
+    
+    NSString *extraInfo = self.contactInfo.extraInfo;
+    if (extraInfo.length == 0) { extraInfo = NotAvailableString; }
+    
+    NSMutableArray *dataArray = [@[ address,
+                                    phoneNum,
+                                    email,
+                                    website,
+                                    facebook,
+                                    twitter,
+                                    linkedin,
+                                    extraInfo
+                                  ] mutableCopy];
+    
     if([arrayType isEqual:@"imageNames"])
     {
-        return @[@"address-50", @"phoneIcon", @"email",@"safariIcon",@"facebookIcon",@"twitterIcon", @"linkedinIcon"];
+        return @[@"address-50", @"phoneIcon", @"email",@"safariIcon",@"facebookIcon",@"twitterIcon", @"linkedinIcon", @"info-75"];
     }
     else if([arrayType isEqual:@"labelNames"])
     {
-        return @[self.name, @"Phone",@"Email",@"Website",@"Facebook Group",@"Twitter", @"LinkedIn"];
+        return @[self.name, @"Phone",@"Email",@"Website",@"Facebook Group",@"Twitter", @"LinkedIn", @"Extra Information"];
     }
-    else if([arrayType isEqual:@"data"])
+    else if([arrayType isEqual:@"data"]) //eg to just get the phone number, as opposed to extension
     {
-        
-        return [NSArray arrayWithObjectsCount:7 replaceNilWithEmptyString:
-                address,
-                self.contactInfo.phoneNum,
-                self.contactInfo.email,
-                self.contactInfo.website,
-                self.contactInfo.facebook,
-                self.contactInfo.twitter,
-                self.contactInfo.linkedin,
-                self.contactInfo.extraInfo, nil
-                ];
-
+        return dataArray;
     }
     else //Array of Values
     {
@@ -108,17 +131,8 @@
         if(![self.contactInfo.ext isEqual:@""])
             phoneString = [NSString stringWithFormat:@"%@ ex.%@", self.contactInfo.phoneNum, self.contactInfo.ext];
         
-        return [NSArray arrayWithObjectsCount:7 replaceNilWithEmptyString:
-                address,
-                phoneString,
-                self.contactInfo.email,
-                self.contactInfo.website,
-                self.contactInfo.facebook,
-                self.contactInfo.twitter,
-                self.contactInfo.linkedin,
-                self.contactInfo.extraInfo, nil
-                ];
-
+        [dataArray replaceObjectAtIndex:1 withObject:phoneString];
+        return dataArray;
     }
     
     return @[];
@@ -159,37 +173,27 @@
     _program = program;
     _itemType = JPDashletTypeProgram;
     
+    _name = program.name;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        JPOfflineDataRequest *dataRequest = [[JPOfflineDataRequest alloc] init];
-        __block JPContact *contact = [dataRequest requestContactForFaculty:program.schoolSlug facultySlug:program.facultySlug];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.contactInfo = contact;
-            [self reloadViews];
+    if (JPUtility.isOfflineMode) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            JPOfflineDataRequest *request = [[JPOfflineDataRequest alloc] init];
+            __block JPLocation *newLocation = [request requestLocationForSchool:self.program.schoolSlug];
+            __block JPContact *newContact = [request requestContactForFaculty:program.schoolSlug facultySlug:program.facultySlug];
+            _location = newLocation;
+            _contactInfo = newContact;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadViews];
+            });
         });
-    });
+    } else {
+        //TODO request updated info form server
+        
+        // Implementation
+    }
     
-    self.name = program.name;
 }
-
-
-- (void)setLocation:(JPLocation *)location
-{
-    _location = location;
-    
-    JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
-    self.distanceToHome = [coreDataHelper distanceToUserLocationWithLocation:location];
-}
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 
 @end

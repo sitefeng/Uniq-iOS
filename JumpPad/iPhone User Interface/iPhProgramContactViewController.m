@@ -20,6 +20,7 @@ static const NSInteger numberOfRowsInSectionOne = 1;
 
 @interface iPhProgramContactViewController ()
 
+@property (nonatomic, strong) iPhMapPanView *mapPanView;
 @end
 
 @implementation iPhProgramContactViewController
@@ -177,9 +178,8 @@ static const NSInteger numberOfRowsInSectionOne = 1;
 
 - (void)reloadViews {
     [self.tableView reloadData];
-    _mapPanView.location = self.location;
+    self.mapPanView.location = self.location;
 }
-
 
 
 #pragma mark - Other Methods
@@ -232,13 +232,6 @@ static const NSInteger numberOfRowsInSectionOne = 1;
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
