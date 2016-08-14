@@ -88,7 +88,6 @@ internal final class JPOfflineDataRequest: NSObject {
             } catch {
                 return
             }
-            
         }
         
         delegate?.offlineDataRequest(self, didLoadAllItemsOfType: JPDashletType.Faculty, dataArray: dataArray, isSuccessful: true)

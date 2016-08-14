@@ -42,7 +42,7 @@
     
     _cellSectionTitles = @[@"Utilities",@"General"];
     
-    _cellTitleStrings = @[@[@"Locate Me"],@[@"About", @"Rate Uniq on App Store", @"Send Feedback", @"Share This App", @"Authors", @"Special Thanks", @"Like on Facebook", @"Follow on Twitter", @"Visit Our Website"]];
+    _cellTitleStrings = @[@[@"eINFO Website"],@[@"About", @"Rate Uniq on App Store", @"Send Feedback", @"Share This App", @"Authors", @"Special Thanks", @"Like on Facebook", @"Follow on Twitter", @"Visit Our Website"]];
     _cellImageStrings = @[@[@"distance-50"],@[@"info-75",@"thumb_up-75",@"email-50",@"share-75",@"groups-75",@"thanks-75",@"facebook-50",@"twitter-50", @"safari-50"]];
     
 //    ,@"download-75",@"tones-75"
@@ -113,7 +113,6 @@
     
     if(indexPath.section == 0 && indexPath.row== 0 && _user.locationString!= nil && ![_user.locationString isEqual:@""])
     {
-        cell.textLabel.text = [NSString stringWithFormat:@"Location: %@", _user.locationString];
         UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkmark-64"]];
         imageView.frame = CGRectMake(0, 0, 30, 30);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -139,13 +138,8 @@
         switch (indexPath.row)
         {
             case 0: {
-                if(_user.locationString!= nil && ![_user.locationString isEqual:@""])
-                {
-                    [[[UIAlertView alloc] initWithTitle:@"User Location" message:[NSString stringWithFormat:@"Your Location is currently set to %@", _user.locationString] delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:@"Update", nil] show];
-                }
-                else {
-                    [_userLocator startLocating];
-                }
+                NSURL *eInfo = [NSURL URLWithString:@"http://www.electronicinfo.ca"];
+                [[UIApplication sharedApplication] openURL: eInfo];
                 break;
             }
             case 1: {
@@ -159,7 +153,6 @@
             default:
                 break;
         }
-        
     }
     else if(indexPath.section == 1)
     {
@@ -171,7 +164,7 @@
                 break;
             }
             case 1: {
-                NSURL* url = [NSURL URLWithString:@"http://uniq.url.ph"];
+                NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/Uniq-263885313811132/"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }

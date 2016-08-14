@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JPDataRequest.h"
 
-#import <Uniq-Swift.h>
+#import "Uniq-Swift.h"
 
 
 @class JPBannerView;
@@ -25,8 +25,6 @@
 
 @property (nonatomic, strong) JPBannerView* bannerView;
 @property (nonatomic, strong) NSMutableArray* bannerURLs;
-
-
 
 
 

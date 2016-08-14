@@ -98,29 +98,21 @@
 
 - (void)offlineDataRequest:(JPOfflineDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type dataArray:(NSArray *)dataArray isSuccessful:(BOOL)isSuccessful {
     
-    if(!isSuccessful)
-        return;
-    
-    NSMutableArray* dashletArray = [NSMutableArray array];
-    
-    for(NSDictionary* schoolDict in dataArray) {
-        
-        JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:schoolDict ofDashletType:type];
-        [dashletArray addObject:dashlet];
-    }
-    
-    self.dashlets = dashletArray;
+    [self finishedLoadItemsWithType:type dataArray:dataArray isSuccessful:isSuccessful];
 }
 
 
 - (void)dataRequest:(JPDataRequest *)request didLoadAllItemsOfType:(JPDashletType)type allFields:(BOOL)fullFields withDataArray:(NSArray *)array isSuccessful:(BOOL)success {
-    
+    [self finishedLoadItemsWithType:type dataArray:array isSuccessful:success];
+}
+
+- (void)finishedLoadItemsWithType: (JPDashletType)type dataArray:(NSArray *)dataArray isSuccessful: (BOOL)success {
     if(!success)
         return;
     
     NSMutableArray* dashletArray = [NSMutableArray array];
     
-    for(NSDictionary* schoolDict in array) {
+    for(NSDictionary* schoolDict in dataArray) {
         
         JPDashlet* dashlet = [[JPDashlet alloc] initWithDictionary:schoolDict ofDashletType:type];
         [dashletArray addObject:dashlet];
