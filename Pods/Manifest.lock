@@ -1,4 +1,7 @@
 PODS:
+  - Charts (2.2.5):
+    - Charts/Core (= 2.2.5)
+  - Charts/Core (2.2.5)
   - Firebase/Analytics (3.4.0):
     - FirebaseAnalytics (~> 3.3)
   - Firebase/Core (3.4.0):
@@ -29,11 +32,13 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
 
 DEPENDENCIES:
+  - Charts
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
 
 SPEC CHECKSUMS:
+  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   Firebase: 754562547af419cc2f4b15247fee419081924bc2
   FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
   FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
@@ -44,6 +49,6 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
 
-PODFILE CHECKSUM: 1e56aaa95927878ce4edd0e8d8ebc716c3b37c3a
+PODFILE CHECKSUM: db46a235c916d658448902a2d4654557ef645686
 
 COCOAPODS: 1.0.1

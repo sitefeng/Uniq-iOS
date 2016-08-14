@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XYPieChart.h"
+@import Charts;
+
 #import "iPadProgramDetailGraphView.h"
 #import "JPProgramDetailView.h"
 #import "JPRatings.h"
 
 @class Program, ProgramRating, RPRadarChart;
 @protocol JPCoursesDetailViewDelegate;
-@interface iPhProgramDetailView : JPProgramDetailView <XYPieChartDataSource, XYPieChartDelegate, RPRadarChartDataSource, RPRadarChartDelegate>
+@interface iPhProgramDetailView : JPProgramDetailView <ChartViewDelegate, RPRadarChartDataSource, RPRadarChartDelegate>
 {
 
     float  _indexOfLargestSlice;
@@ -27,7 +28,7 @@
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) CGFloat viewHeight;
 
-@property (nonatomic, strong) XYPieChart* pieChart;
+@property (nonatomic, strong) PieChartView* pieChart;
 @property (nonatomic, strong) RPRadarChart* radarChart;
 
 @property (nonatomic, weak) id<JPCoursesDetailViewDelegate> delegate;

@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
+
+@import Charts;
 #import "JPProgramDetailView.h"
 #import "RPRadarChart.h"
-#import "XYPieChart.h"
 #import "JPGlobal.h"
 #import "ProgramRating.h"
 
@@ -27,13 +28,13 @@
 
 #pragma mark - Why Pie Chart View Methods
 
-- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
+- (NSUInteger)numberOfSlicesInPieChart:(NSString *)pieChartName
 {
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
+    if([pieChartName isEqualToString:@"whyPieChart"])
     {
         return 6;
     }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
+    else if([pieChartName isEqualToString:@"ratioPieChart"])
     {
         return 2;
     }
@@ -42,11 +43,11 @@
 }
 
 
-- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
+- (CGFloat)pieChart:(NSString *)pieChartName valueForSliceAtIndex:(NSUInteger)index
 {
     CGFloat value = 0.0;
     
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
+    if([pieChartName isEqualToString:@"whyPieChart"])
     {
         switch (index)
         {
@@ -74,7 +75,7 @@
         }
         
     }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
+    else if([pieChartName isEqualToString:@"ratioPieChart"])
     {
         if(index == 0)//Girls
         {
@@ -90,13 +91,13 @@
 }
 
 
-- (UIColor*)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
+- (UIColor*)pieChart:(NSString *)pieChartName colorForSliceAtIndex:(NSUInteger)index
 {
-    if([pieChart.accessibilityLabel isEqualToString:@"whyPieChart"])
+    if([pieChartName isEqualToString:@"whyPieChart"])
     {
         return [JPStyle rainbowColorWithIndex:index];
     }
-    else if([pieChart.accessibilityLabel isEqualToString:@"ratioPieChart"])
+    else if([pieChartName isEqualToString:@"ratioPieChart"])
     {
         if(index ==0) //girl
         {

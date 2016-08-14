@@ -45,7 +45,6 @@
 		5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9D191FF26700ECDCF7 /* DPMeterView.m */; };
 		5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */; };
 		5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592BA8191FF2D300ECDCF7 /* LBActionSheet.m */; };
-		5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D592C0819207CB900ECDCF7 /* XYPieChart.m */; };
 		5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F118B9B240002941B3 /* iPadSearchBarView.m */; };
 		5D7055F718B9C779002941B3 /* JPBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055F618B9C779002941B3 /* JPBannerView.m */; };
 		5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7055FA18B9E10D002941B3 /* AFHTTPRequestOperation.m */; };
@@ -347,8 +346,6 @@
 		5D592B9F191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+BasicShapes.m"; sourceTree = "<group>"; };
 		5D592BA7191FF2D300ECDCF7 /* LBActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBActionSheet.h; sourceTree = "<group>"; };
 		5D592BA8191FF2D300ECDCF7 /* LBActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBActionSheet.m; sourceTree = "<group>"; };
-		5D592C0719207CB900ECDCF7 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
-		5D592C0819207CB900ECDCF7 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		5D7055F018B9B240002941B3 /* iPadSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadSearchBarView.h; path = "iPad User Interface/iPadSearchBarView.h"; sourceTree = "<group>"; };
 		5D7055F118B9B240002941B3 /* iPadSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadSearchBarView.m; path = "iPad User Interface/iPadSearchBarView.m"; sourceTree = "<group>"; };
 		5D7055F518B9C779002941B3 /* JPBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPBannerView.h; path = "iPad User Interface/JPBannerView.h"; sourceTree = "<group>"; };
@@ -899,15 +896,6 @@
 			name = VolumeBar;
 			sourceTree = "<group>";
 		};
-		5D592B2D191C740B00ECDCF7 /* XYPieChart */ = {
-			isa = PBXGroup;
-			children = (
-				5D592C0719207CB900ECDCF7 /* XYPieChart.h */,
-				5D592C0819207CB900ECDCF7 /* XYPieChart.m */,
-			);
-			path = XYPieChart;
-			sourceTree = "<group>";
-		};
 		5D592B31191C741F00ECDCF7 /* AsyncImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1141,7 +1129,6 @@
 				5D22646A192DB96E004B3B42 /* JBParallaxCell */,
 				5D4897EF1925CC400062DD54 /* RPRadarChart */,
 				5D592B9B191FF26700ECDCF7 /* DPMeterView */,
-				5D592B2D191C740B00ECDCF7 /* XYPieChart */,
 				5D592BB2191FF65E00ECDCF7 /* CorePlot */,
 				5D592B31191C741F00ECDCF7 /* AsyncImageView */,
 				5DA82D2718C2FE430011AC26 /* Mixpanel */,
@@ -2172,7 +2159,6 @@
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
 				AA49F3C51D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
-				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
 				AA49F3E51D6001C300680B8A /* UniqKEOne+CoreDataProperties.m in Sources */,

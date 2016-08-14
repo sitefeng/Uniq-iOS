@@ -74,9 +74,9 @@
 
 
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     
     [_highlighView reloadData];
     [_ratioView reloadData];

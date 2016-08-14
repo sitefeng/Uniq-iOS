@@ -76,27 +76,14 @@
             [self addSubview:intLabelVal];
             self.viewHeight = 170;
         }
-        else if([title isEqual:@"Highlight"])
-        {
-            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(5, 10, 200, 200)];
-            
-            [self.pieChart setDataSource:self];
-            [self.pieChart setDelegate:self];
-            
-            self.pieChart.showLabel = YES;
-            
-            self.pieChart.startPieAngle = M_PI_2;
-            self.pieChart.animationSpeed = 1.0;
-            
-            self.pieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
-            self.pieChart.labelColor = [UIColor whiteColor];
-            [self.pieChart setPieBackgroundColor: [UIColor clearColor]];
-            
-            self.pieChart.labelRadius = 60;
-            self.pieChart.showPercentage = YES;
+        else if([title isEqual:@"Highlight"]) {
+          
+            self.pieChart = [[PieChartView alloc] initWithFrame:CGRectMake(0, 10, 230, 230)];
+            self.pieChart.drawHoleEnabled = true;
             self.pieChart.backgroundColor = [UIColor clearColor];
+            self.pieChart.delegate = self;
+            self.pieChart.descriptionText = @"";
             self.pieChart.accessibilityLabel = @"whyPieChart";
-            
             [self addSubview:self.pieChart];
             
             //Generating the Pie Chart
@@ -120,7 +107,6 @@
                 }
             }
             
-            [self.pieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
             
             //Legend for Pie Chart
             
@@ -182,39 +168,19 @@
             
             self.viewHeight = 220;
         }
-        else if([title isEqual:@"Gals vs Guys Ratio"])
-        {
-            self.pieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(70, 0, 170, 170) Center:CGPointMake(170/2.0, 170/2.0) Radius:72];
-            self.pieChart.dataSource = self;
-            self.pieChart.delegate = self;
-            self.pieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:17];
-            self.pieChart.labelColor = [UIColor whiteColor];
-            self.pieChart.showPercentage = YES;
-            self.pieChart.showLabel = YES;
-            self.pieChart.animationSpeed = 1;
-            self.pieChart.startPieAngle = M_PI_2;
-            self.pieChart.labelRadius = 45;
-            
+        else if([title isEqual:@"Gals vs Guys Ratio"]) {
+            self.pieChart = [[PieChartView alloc] initWithFrame:CGRectMake(70, 0, 200, 200)];
+            self.pieChart.center = CGPointMake([UIScreen mainScreen].bounds.size.width /2.0, self.pieChart.frame.size.height / 2.0);
             self.pieChart.accessibilityLabel = @"ratioPieChart";
-            [self.pieChart setPieBackgroundColor: self.backgroundColor];
+            self.pieChart.drawHoleEnabled = true;
+            self.pieChart.backgroundColor = [UIColor clearColor];
+            self.pieChart.delegate = self;
+            self.pieChart.descriptionText = @"";
+            self.pieChart.centerText = @"%";
+            self.pieChart.holeColor = [UIColor whiteColor];
             
-            [self setUserInteractionEnabled:NO];
+            self.pieChart.userInteractionEnabled = false;
             [self addSubview:self.pieChart];
-            
-            UILabel* percentageLabel = [[UILabel alloc] init];
-            
-            [percentageLabel setFrame:CGRectMake(0, 0, 40, 40)];
-            [percentageLabel setCenter:self.pieChart.center];
-            
-            [percentageLabel setFont:[UIFont fontWithName:[JPFont defaultThinFont] size:25]];
-            percentageLabel.text = @"%";
-            percentageLabel.textColor = [UIColor whiteColor];
-            percentageLabel.clipsToBounds = YES;
-            percentageLabel.textAlignment = NSTextAlignmentCenter;
-            percentageLabel.backgroundColor = [UIColor blackColor];
-            [percentageLabel.layer setCornerRadius:percentageLabel.frame.size.width/2.0f];
-            
-            [self addSubview:percentageLabel];
             
             self.viewHeight = 170;
         }
@@ -279,20 +245,30 @@
 
 #pragma mark - Custom Methods
 
-- (void)reloadData
-{
-    [self.pieChart reloadData];
+- (void)reloadData {
+    
+    // Reload Pie Chart
+    NSString *pieChartName = self.pieChart.accessibilityLabel;
+    NSUInteger pieChartPieces = [self numberOfSlicesInPieChart: pieChartName];
+    
+    NSMutableArray *colors = [@[] mutableCopy];
+    NSMutableArray *yVals = [@[] mutableCopy];
+    for (NSUInteger i=0; i<pieChartPieces; i++) {
+        [colors addObject:[self pieChart:pieChartName colorForSliceAtIndex:i]];
+        CGFloat value = [self pieChart:pieChartName valueForSliceAtIndex:i];
+        ChartDataEntry *entry = [[ChartDataEntry alloc] initWithValue:value xIndex:i];
+        [yVals addObject: entry];
+    }
+    
+    PieChartDataSet *dataSet = [[PieChartDataSet alloc] initWithYVals:yVals label: @""];
+    dataSet.sliceSpace = 2.0;
+    dataSet.colors = colors;
+    
+    PieChartData *chartData = [[PieChartData alloc] init];
+    chartData.dataSets = @[dataSet];
+    
+    self.pieChart.data = chartData;
 }
-
-
-
-#pragma mark - Setter Methods
-
-
-
-
-
-
 
 
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
+@import Charts;
 #import "iPadProgramDetailGraphView.h"
 
 #import "Program.h"
@@ -67,25 +68,25 @@
         {
             self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
             
-            self.ratioPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(450, 50, 200, 200) Center:CGPointMake(100, 100) Radius:100];
-            self.ratioPieChart.dataSource = self;
-            self.ratioPieChart.delegate = self;
-            self.ratioPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
-            self.ratioPieChart.labelColor = [UIColor whiteColor];
-            self.ratioPieChart.showPercentage = YES;
-            self.ratioPieChart.showLabel = YES;
-            
-            self.ratioPieChart.animationSpeed = 1;
-            self.ratioPieChart.startPieAngle = M_PI_2;
-            self.ratioPieChart.labelRadius = 66;
-            
-            self.ratioPieChart.accessibilityLabel = @"ratioPieChart";
-            [self.ratioPieChart setPieBackgroundColor: self.backgroundColor];
-            
-            [self setUserInteractionEnabled:NO];
-            
-            [self.ratioPieChart reloadData];
-            [self addSubview:self.ratioPieChart];
+            self.ratioPieChart = [[PieChartView alloc] initWithFrame:CGRectMake(450, 50, 200, 200)];
+//            self.ratioPieChart.dataSource = self;
+//            self.ratioPieChart.delegate = self;
+//            self.ratioPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
+//            self.ratioPieChart.labelColor = [UIColor whiteColor];
+//            self.ratioPieChart.showPercentage = YES;
+//            self.ratioPieChart.showLabel = YES;
+//            
+//            self.ratioPieChart.animationSpeed = 1;
+//            self.ratioPieChart.startPieAngle = M_PI_2;
+//            self.ratioPieChart.labelRadius = 66;
+//            
+//            self.ratioPieChart.accessibilityLabel = @"ratioPieChart";
+//            [self.ratioPieChart setPieBackgroundColor: self.backgroundColor];
+//            
+//            [self setUserInteractionEnabled:NO];
+//            
+//            [self.ratioPieChart reloadData];
+//            [self addSubview:self.ratioPieChart];
             
             
             UILabel* percentageLabel = [[UILabel alloc] init];
@@ -141,11 +142,11 @@
     
     UILabel* localLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 55, 200, 40)];
     localLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-    localLabel.text = @"Domestic (per term)";
+    localLabel.text = @"Domestic Tuition + Fees per year";
     localLabel.textColor = [UIColor blackColor];
     UILabel* intLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, titleLabelY + 145, 200, 40)];
     intLabel.font = [UIFont fontWithName:[JPFont defaultThinFont] size:15];
-    intLabel.text = @"International (per term)";
+    intLabel.text = @"International Tuition + Fees per year";
     intLabel.textColor = [UIColor blackColor];
     
     [self addSubview:localLabel];
@@ -542,24 +543,24 @@
     
     
     
-    self.whyPieChart = [[XYPieChart alloc] initWithFrame:CGRectMake(340, 100, 300, 300)];
+    self.whyPieChart = [[PieChartView alloc] initWithFrame:CGRectMake(340, 100, 300, 300)];
     
-    [self.whyPieChart setDataSource:self];
-    [self.whyPieChart setDelegate:self];
-    
-    self.whyPieChart.showLabel = YES;
-    
-    self.whyPieChart.startPieAngle = M_PI_2;
-    self.whyPieChart.animationSpeed = 1.0;
-    
-    self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
-    self.whyPieChart.labelColor = [UIColor whiteColor];
-    [self.whyPieChart setPieBackgroundColor: [UIColor clearColor]];
-    
-    self.whyPieChart.labelRadius = 100;
-    self.whyPieChart.showPercentage = YES;
-    
-    self.whyPieChart.accessibilityLabel = @"whyPieChart";
+//    [self.whyPieChart setDataSource:self];
+//    [self.whyPieChart setDelegate:self];
+//    
+//    self.whyPieChart.showLabel = YES;
+//    
+//    self.whyPieChart.startPieAngle = M_PI_2;
+//    self.whyPieChart.animationSpeed = 1.0;
+//    
+//    self.whyPieChart.labelFont = [UIFont fontWithName:[JPFont defaultThinFont] size:25];
+//    self.whyPieChart.labelColor = [UIColor whiteColor];
+//    [self.whyPieChart setPieBackgroundColor: [UIColor clearColor]];
+//    
+//    self.whyPieChart.labelRadius = 100;
+//    self.whyPieChart.showPercentage = YES;
+//    
+//    self.whyPieChart.accessibilityLabel = @"whyPieChart";
     
     [self addSubview:self.whyPieChart];
     
@@ -579,8 +580,6 @@
             _indexOfLargestSlice = i;
         }
     }
-    
-    [self.whyPieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
     
     
     
@@ -799,10 +798,6 @@
 
 - (void)reloadData
 {
-    [self.whyPieChart reloadData];
-    [self.whyPieChart setSliceSelectedAtIndex: _indexOfLargestSlice];
-    
-    [self.ratioPieChart reloadData];
     
 }
 

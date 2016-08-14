@@ -6,12 +6,13 @@
 //  Copyright (c) 2014 Si Te Feng. All rights reserved.
 //
 
+
+@import Charts;
 #import <UIKit/UIKit.h>
 #import "RPRadarChart.h"
-#import "XYPieChart.h"
 
 @class ProgramRating;
-@interface JPProgramDetailView : UIView<XYPieChartDataSource, XYPieChartDelegate, RPRadarChartDataSource, RPRadarChartDelegate>
+@interface JPProgramDetailView : UIView<ChartViewDelegate, RPRadarChartDataSource, RPRadarChartDelegate>
 {
     @protected
     ProgramRating* _programRating;
@@ -19,11 +20,11 @@
 
 
 
+- (UIColor*)pieChart:(NSString *)pieChartName colorForSliceAtIndex:(NSUInteger)index;
 
+- (CGFloat)pieChart:(NSString *)pieChartName valueForSliceAtIndex:(NSUInteger)index;
 
-
-
-
+- (NSUInteger)numberOfSlicesInPieChart:(NSString *)pieChartName;
 
 
 

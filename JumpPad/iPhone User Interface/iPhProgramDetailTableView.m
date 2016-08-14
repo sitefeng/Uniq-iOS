@@ -61,6 +61,7 @@
         iPhProgramDetailView* detailView = [[iPhProgramDetailView alloc] initWithFrame:CGRectMake(0, 30, dashletView.frame.size.width, dashletView.frame.size.height- 30) title:dashletTitle program: self.program];
         detailView.delegate = self.dataSource;
         [detailView reloadData];
+        
         //Changing dashlet height dynamically
         CGRect dashletFrame = dashletView.frame;
         dashletFrame.size.height = detailView.viewHeight + dashletLabel.frame.size.height;

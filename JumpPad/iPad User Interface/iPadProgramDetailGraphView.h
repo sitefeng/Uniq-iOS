@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 #import "CorePlot-CocoaTouch.h"
-#import "XYPieChart.h"
 #import "RPRadarChart.h"
 
 #import "DPMeterView.h"
@@ -38,7 +37,7 @@
 @property (nonatomic, strong) CPTGraphHostingView* barChartView;
 
 
-@property (nonatomic, strong) XYPieChart* whyPieChart;
+@property (nonatomic, strong) PieChartView* whyPieChart;
 
 
 @property (nonatomic, strong) RPRadarChart* radarChart;
@@ -46,7 +45,7 @@
 
 
 
-@property (nonatomic, strong) XYPieChart *ratioPieChart;
+@property (nonatomic, strong) PieChartView *ratioPieChart;
 
 
 - (id)initWithFrame:(CGRect)frame  title:(NSString*)title  program:(Program*) program;
