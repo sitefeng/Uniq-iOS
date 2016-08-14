@@ -202,15 +202,15 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
     func actionSheet(actionSheet: UIActionSheet, didDismissWithButtonIndex buttonIndex: Int) {
         
         let message : String! = "Checkout Uniq for iOS. College Info Reimagined."
-        var image:UIImage! = UIImage(named:"appIcon-152")
+        let image:UIImage! = UIImage(named:"appIcon-152")
         
-        var link: NSURL! = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")
+        let link: NSURL! = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")
         
         if(buttonIndex==0)//facebook
         {
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)
             {
-                var facebook : SLComposeViewController!  = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                let facebook : SLComposeViewController!  = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                 facebook.setInitialText(message)
                 facebook.addImage(image)
                 facebook.addURL(link)
@@ -225,7 +225,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         {
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter)
             {
-                var facebook : SLComposeViewController!  = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                let facebook : SLComposeViewController!  = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                 facebook.setInitialText(message)
                 facebook.addImage(image)
                 facebook.addURL(link)

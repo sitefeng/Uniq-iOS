@@ -150,6 +150,10 @@
 
 - (NSInteger)getItemFavCountWithUid:(NSString *)programUid
 {
+    if (!programUid.length) {
+        NSLog(@"Error: programUid is empty!");
+        return 0;
+    }
     //Get Current Favorite Count
     NSString* getURLStr = [NSString stringWithFormat:@"%@/favorites/count/%@.json", FirebaseBaseURL, programUid];
     
@@ -164,7 +168,7 @@
     if(connectionError)
     {
         NSLog(@"Increment Connection error:%@", connectionError.localizedDescription);
-        return nil;
+        return -1;
     }
     
     ///////////////////////////////////

@@ -24,6 +24,20 @@ internal final class JPOfflineDataRequest: NSObject {
         super.init()
     }
     
+    func requestAllFeaturedItems() -> [AnyObject] {
+        let featuredPath = NSBundle.mainBundle().pathForResource("getAllFeaturedInfo", ofType: "json")!
+        
+        let fileData = NSFileManager.defaultManager().contentsAtPath(featuredPath)!
+        do {
+            let featuredJSONArray = try NSJSONSerialization.JSONObjectWithData(fileData, options: [])
+            return featuredJSONArray as! [AnyObject]
+        } catch {
+            print("Error: cannot get featured items")
+            return []
+        }
+        
+    }
+    
     func requestAllSchools() {
         
         var dataArray: [AnyObject] = []
@@ -177,6 +191,11 @@ internal final class JPOfflineDataRequest: NSObject {
     
     
     func requestSchoolDetails(slug: String, itemUid: String) -> [String: AnyObject] {
+        
+        if itemUid.characters.count == 0 {
+            NSLog("ItemUid cannot be empty");
+            return [:]
+        }
         
         let schoolPath = offlineDataPath() + "/\(slug)/\(slug).json"
         

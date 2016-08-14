@@ -8,7 +8,7 @@
 
 #import "JPFirebaseCentral.h"
 
-NSString *const FirebaseBaseURL = @"https://uniq-7bdaf.firebaseio.com/";
+NSString *const FirebaseBaseURL = @"https://uniq-7bdaf.firebaseio.com";
 
 
 @implementation JPFirebaseCentral

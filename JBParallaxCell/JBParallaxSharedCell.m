@@ -117,7 +117,6 @@
 }
 
 
-
 - (void)layoutSubviews {
     [super layoutSubviews];
  
@@ -137,9 +136,7 @@
         
         _bottomBarView.frame= CGRectMake(0, 150 - 40, kiPhoneWidthPortrait, 40);
     }
-    
 }
-
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -172,8 +169,6 @@
 }
 
 
-
-
 - (void)favoriteButtonPressed: (UIButton*)button
 {
     if(!button.selected) //Selecting the button
@@ -187,8 +182,6 @@
         [self.delegate favoriteButtonSelected:NO forCell:self];
     }
 }
-
-
 
 
 - (void)setAsyncImageUrl:(NSURL *)asyncImageUrl
@@ -207,10 +200,8 @@
     self.titleLabel.text = [title uppercaseString];
 }
 
-- (void)setSubtitle:(NSString *)subtitle
-{
+- (void)setSubtitle:(NSString *)subtitle {
     _subtitle = subtitle;
-    
     self.subtitleLabel.text = [subtitle uppercaseString];
 }
 
@@ -222,10 +213,6 @@
     else
         return 150;
 }
-
-
-
-
 
 
 @end

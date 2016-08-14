@@ -50,7 +50,7 @@
 
 @property (nonatomic, weak) id<JPFavoriteButtonDelegate> delegate;
 
-@property (strong, nonatomic) NSString* itemId;
+@property (strong, nonatomic) NSString *itemId;
 @property (strong, nonatomic) NSString *schoolSlug;
 @property (strong, nonatomic) NSString *facultySlug;
 @property (strong, nonatomic) NSString *programSlug;

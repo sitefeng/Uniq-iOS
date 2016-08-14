@@ -17,7 +17,6 @@
 {
     NSManagedObjectContext* context;
     JPCoreDataHelper*  _helper;
-    JPDataRequest*     _dataReq;
     JPCloudFavoritesHelper*  _cloudFav;
 }
 

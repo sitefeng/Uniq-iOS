@@ -21,9 +21,12 @@
 #import "iPadSchoolHomeViewController.h"
 #import "JBParallaxCell.h"
 
+#import "Uniq-Swift.h"
 
 @interface JPMainFeaturedViewController ()
 
+@property (nonatomic, strong) JPDataRequest *dataReq;
+@property (nonatomic, strong) JPOfflineDataRequest *offlineDataRequest;
 @end
 
 @implementation JPMainFeaturedViewController
@@ -66,12 +69,23 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_dataReq requestAllFeaturedItems];
+    
+    if (JPUtility.isOfflineMode) {
+        _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
+        NSArray *items = [_offlineDataRequest requestAllFeaturedItems];
+        [self finishedLoadItems:items isSuccessful:true];
+    } else {
+        [_dataReq requestAllFeaturedItems];
+    }
 }
 
 
-- (void)dataRequest:(JPDataRequest *)request didLoadAllFeaturedItems:(NSArray *)featuredDicts isSuccessful:(BOOL)success
-{
+- (void)dataRequest:(JPDataRequest *)request didLoadAllFeaturedItems:(NSArray *)featuredDicts isSuccessful:(BOOL)success {
+    [self finishedLoadItems:featuredDicts isSuccessful:success];
+}
+
+- (void)finishedLoadItems: (NSArray *)featuredDicts isSuccessful: (BOOL)success {
+    
     if(!success)
         return;
     
@@ -211,11 +225,7 @@
         UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:detailsViewController];
         [self presentViewController:navController animated:YES completion:nil];
     }
-    
 }
-
-
-
 
 
 
@@ -257,15 +267,5 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

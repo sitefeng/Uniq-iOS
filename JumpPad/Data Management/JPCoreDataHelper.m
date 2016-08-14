@@ -453,12 +453,6 @@
             [context insertObject:school];
         }
         
-        if(_downloadItemFacultyToBeLinked)
-        {
-            [school addFacultiesObject: _downloadItemFacultyToBeLinked];
-            _downloadItemFacultyToBeLinked = nil;
-        }
-        
         NSLog(@"School Downloaded and Linked");
     }
     else if(type == JPDashletTypeFaculty)
@@ -469,19 +463,8 @@
         {
             faculty = [[Faculty alloc] initWithDictionary:dict];
             faculty.toDelete = @NO;
-            [context insertObject:faculty];
         }
         
-        _downloadItemFacultyToBeLinked = faculty;
-        
-        if(_downloadItemProgramToBeLinked)
-        {
-            [faculty addProgramsObject:_downloadItemProgramToBeLinked];
-            _downloadItemProgramToBeLinked = nil;
-        }
-        
-        NSLog(@"Faculty Downloaded and Linked");
-        [self downloadItemToCoreDataWithItemId:faculty.schoolId itemType:JPDashletTypeSchool schoolSlug:faculty.schoolSlug facultySlug:faculty.slug programSlug:nil];
     }
     else //program
     {
@@ -490,16 +473,9 @@
         {
             program = [[Program alloc] initWithDictionary:dict];
             program.toDelete = @NO;
-            [context insertObject:program];
         }
-        
-        _downloadItemProgramToBeLinked = program;
-        
-        NSLog(@"Program Downloaded and Linked");
-        [self downloadItemToCoreDataWithItemId:program.facultyId itemType:JPDashletTypeFaculty schoolSlug:program.schoolSlug facultySlug:program.faculty programSlug:program.slug];
     }
     [context save:nil];
-
 }
 
 
