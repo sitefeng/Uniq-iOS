@@ -12,6 +12,7 @@
 #import "Program.h"
 #import "ProgramRating.h"
 #import "RPRadarChart.h"
+#import "ProgramYearlyTuition.h"
 
 
 @implementation iPhProgramDetailView
@@ -59,17 +60,16 @@
             UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 30, 190, 40)];
             localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
             
-            NSDictionary* tuitionDict = [self.program.tuitions anyObject];
-            NSDecimalNumber *domesticT = (NSDecimalNumber*)[tuitionDict valueForKey:@"domesticTuition"];
+            ProgramYearlyTuition *tuition = self.program.tuition;
             
-            localLabelVal.text = [NSString stringWithFormat:@"$ %@", [domesticT stringValue]];
+            localLabelVal.text = [NSString stringWithFormat:@"$ %.f", tuition.domesticTuition.floatValue];
             localLabelVal.textColor = [UIColor blackColor];
             
             //----------
             UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(70, 105, 190, 40)];
             intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
-            NSDecimalNumber *internationalT = (NSDecimalNumber*)[tuitionDict valueForKey:@"internationalTuition"];
-            intLabelVal.text = [NSString stringWithFormat:@"$ %@", [internationalT stringValue]];
+            
+            intLabelVal.text = [NSString stringWithFormat:@"$ %.f", tuition.internationalTuition.floatValue];
             intLabelVal.textColor = [UIColor blackColor];
             
             [self addSubview:localLabelVal];

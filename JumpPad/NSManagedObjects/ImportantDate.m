@@ -2,21 +2,16 @@
 //  ImportantDate.m
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import "ImportantDate.h"
 #import "Faculty.h"
 #import "Program.h"
 
-
 @implementation ImportantDate
 
-@dynamic date;
-@dynamic descriptor;
-@dynamic type;
-@dynamic faculty;
-@dynamic program;
+// Insert code here to add functionality to your managed object subclass
 
 @end

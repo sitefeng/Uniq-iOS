@@ -2,8 +2,8 @@
 //  RelatedItem.m
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import "RelatedItem.h"
@@ -11,13 +11,8 @@
 #import "Program.h"
 #import "School.h"
 
-
 @implementation RelatedItem
 
-@dynamic itemId;
-@dynamic type;
-@dynamic faculty;
-@dynamic program;
-@dynamic school;
+// Insert code here to add functionality to your managed object subclass
 
 @end

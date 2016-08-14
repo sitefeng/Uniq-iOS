@@ -23,12 +23,12 @@
 
 
 
-@property (nonatomic, strong)Program* program;
+@property (nonatomic, strong) Program* program;
 @property (nonatomic, strong) NSString* title;
 @property (nonatomic, assign) CGFloat viewHeight;
 
-@property (nonatomic, strong)XYPieChart* pieChart;
-@property (nonatomic, strong)RPRadarChart* radarChart;
+@property (nonatomic, strong) XYPieChart* pieChart;
+@property (nonatomic, strong) RPRadarChart* radarChart;
 
 @property (nonatomic, weak) id<JPCoursesDetailViewDelegate> delegate;
 

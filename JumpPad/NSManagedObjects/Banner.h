@@ -2,19 +2,21 @@
 //  Banner.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface Banner : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * bannerId;
-@property (nonatomic, retain) NSString * bannerLink;
-@property (nonatomic, retain) NSString * linkedUrl;
-@property (nonatomic, retain) NSString * title;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "Banner+CoreDataProperties.h"

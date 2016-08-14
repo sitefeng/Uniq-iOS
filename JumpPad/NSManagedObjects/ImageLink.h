@@ -2,8 +2,8 @@
 //  ImageLink.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,12 +11,14 @@
 
 @class Faculty, Program, School;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ImageLink : NSManagedObject
 
-@property (nonatomic, retain) NSString * descriptor;
-@property (nonatomic, retain) NSString * imageLink;
-@property (nonatomic, retain) Faculty *faculty;
-@property (nonatomic, retain) Program *program;
-@property (nonatomic, retain) School *school;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "ImageLink+CoreDataProperties.h"

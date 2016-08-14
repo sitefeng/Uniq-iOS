@@ -29,6 +29,9 @@
     self.toDelete = @YES;
     if([dict objectForKey:@"id"] != [NSNull null])
         self.schoolId = [dict objectForKey:@"id"];
+    if([dict objectForKey:@"slug"] != [NSNull null])
+        self.slug = [dict objectForKey:@"slug"];
+    
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
     if([dict objectForKey:@"alumniNumber"] != [NSNull null])
@@ -130,6 +133,11 @@
     
     if([dict objectForKey:@"id"] != [NSNull null])
         self.facultyId = [dict objectForKey:@"id"];
+    if([dict objectForKey:@"slug"] != [NSNull null])
+        self.slug = [dict objectForKey:@"slug"];
+    if([dict objectForKey:@"schoolSlug"] != [NSNull null])
+        self.schoolSlug = [dict objectForKey:@"schoolSlug"];
+    
     if([dict objectForKey:@"about"] != [NSNull null])
         self.about = [dict objectForKey:@"about"];
     if([dict objectForKey:@"alumniNumber"] != [NSNull null])
@@ -246,6 +254,20 @@
     
     if([dict objectForKey:@"id"] != [NSNull null])
         self.programId = [dict objectForKey:@"id"];
+    if([dict objectForKey:@"slug"] != [NSNull null])
+    self.slug = [dict objectForKey:@"slug"];
+    
+    if([dict objectForKey:@"schoolId"] != [NSNull null])
+    self.schoolId = [dict objectForKey:@"schoolId"];
+    if([dict objectForKey:@"schoolSlug"] != [NSNull null])
+    self.schoolSlug = [dict objectForKey:@"schoolSlug"];
+    
+    if([dict objectForKey:@"facultyId"] != [NSNull null])
+    self.facultyId = [dict objectForKey:@"facultySlug"];
+    if([dict objectForKey:@"facultyId"] != [NSNull null])
+    self.facultySlug = [dict objectForKey:@"facultySlug"];
+    
+    ////////////////////////
     if([dict objectForKey:@"name"] != [NSNull null])
         self.name = [dict objectForKey:@"name"];
     if([dict objectForKey:@"shortName"] != [NSNull null])
@@ -264,15 +286,6 @@
         self.yearEstablished = [NSNumber numberWithLong:[[dict objectForKey:@"yearEstablished"] longValue]];
     
     ///////////////////////////
-    if([dict objectForKey:@"slug"] != [NSNull null])
-        self.slug = [dict objectForKey:@"slug"];
-    
-    if([dict objectForKey:@"schoolId"] != [NSNull null])
-        self.schoolId = [dict objectForKey:@"schoolId"];
-    if([dict objectForKey:@"facultyId"] != [NSNull null])
-        self.facultyId = [dict objectForKey:@"facultyId"];
-    if([dict objectForKey:@"slug"] != [NSNull null])
-        self.slug = [dict objectForKey:@"slug"];
     
     if([dict objectForKey:@"degree"] != [NSNull null])
         self.degree = [dict objectForKey:@"degree"];
@@ -332,39 +345,17 @@
     
     if([dict objectForKey:@"fees"] != [NSNull null])
     {
-        NSDictionary* feeDict = [dict objectForKey:@"fees"];
+        NSDictionary* feesDict = [dict objectForKey:@"fees"];
         
-        id domFees = [feeDict objectForKey:@"domestic"];
-        id intFees = [feeDict objectForKey:@"international"];
+        NSEntityDescription* tuitionEntity = [NSEntityDescription entityForName:@"ProgramYearlyTuition" inManagedObjectContext:context];
+        ProgramYearlyTuition* tuition = [[ProgramYearlyTuition alloc] initWithEntity:tuitionEntity insertIntoManagedObjectContext:context];
+
+        if([feesDict objectForKey:@"domestic"] != [NSNull null])
+            tuition.domesticTuition = [feesDict objectForKey:@"domestic"];
+        if([feesDict objectForKey:@"international"] != [NSNull null])
+            tuition.internationalTuition = [feesDict objectForKey:@"international"];
         
-        if([domFees isKindOfClass:[NSArray class]])
-        {
-            NSArray* domesticFees = (NSArray*)domFees;
-            NSArray* internationalFees = @[];
-            if([intFees isKindOfClass:[NSArray class]])
-                internationalFees = (NSArray*)intFees;
-            
-            NSMutableSet* tuitionSet = [[NSMutableSet alloc] init];
-            
-            for(int i=0; i<[domesticFees count]; i++)
-            {
-                NSDictionary* domFeeDict = [domesticFees objectAtIndex:i];
-                NSDictionary* intFeeDict = [internationalFees objectAtIndex:i];
-                
-                NSEntityDescription* tuitionEntity = [NSEntityDescription entityForName:@"ProgramYearlyTuition" inManagedObjectContext:context];
-                ProgramYearlyTuition* tuition = [[ProgramYearlyTuition alloc] initWithEntity:tuitionEntity insertIntoManagedObjectContext:context];
-                if([domFeeDict objectForKey:@"totalFees"] != [NSNull null])
-                    tuition.domesticTuition = [domFeeDict objectForKey:@"totalFees"];
-                if([domFeeDict objectForKey:@"term"] != [NSNull null])
-                    tuition.term = [domFeeDict objectForKey:@"term"];
-                if([intFeeDict objectForKey:@"totalFees"] != [NSNull null])
-                    tuition.internationalTuition = [intFeeDict objectForKey:@"totalFees"];
-
-                [tuitionSet addObject:tuition];
-            }
-
-            self.tuitions = tuitionSet;
-        }
+        self.tuition = tuition;
     }
     
     if([dict objectForKey:@"rating"] != [NSNull null])

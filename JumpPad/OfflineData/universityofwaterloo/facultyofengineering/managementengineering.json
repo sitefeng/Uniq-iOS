@@ -418,7 +418,10 @@
         ]
     }, 
     "facultyId": "", 
-    "fees": null, 
+    "fees": {
+        "domestic": 13410,
+        "international": 33286
+    }, 
     "gradPopulation": "186", 
     "images": [
         {

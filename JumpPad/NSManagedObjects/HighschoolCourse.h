@@ -2,8 +2,8 @@
 //  HighschoolCourse.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,13 +11,14 @@
 
 @class Program, User;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface HighschoolCourse : NSManagedObject
 
-@property (nonatomic, retain) NSString * courseCode;
-@property (nonatomic, retain) NSString * courseLevel;
-@property (nonatomic, retain) NSNumber * courseMark;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) Program *program;
-@property (nonatomic, retain) User *user;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "HighschoolCourse+CoreDataProperties.h"

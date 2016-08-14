@@ -15,7 +15,7 @@
                     "catalog_number": "102", 
                     "description": "Chemical principles with applications in engineering. Stoichiometric calculations, properties of gases, properties of liquids and solutions, gas phase chemical equilibrium, ionic equilibrium in aqueous solution, oxidation-reduction reactions, chemical kinetics. [Offered: F]", 
                     "subject": "CHE", 
-                    "title": "Chemistry for Engineers", 
+                    "title": "Chemistry for Engineers",
                     "units": 0.5
                 }, 
                 {
@@ -600,7 +600,10 @@
         ]
     }, 
     "facultyId": "", 
-    "fees": null, 
+    "fees": {
+        "domestic": 13410,
+        "international": 33286
+    }, 
     "gradPopulation": "244", 
     "images": [
         {

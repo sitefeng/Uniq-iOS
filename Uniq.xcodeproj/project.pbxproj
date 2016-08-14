@@ -141,6 +141,48 @@
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
 		AA447E3519B5799E004855CC /* ManagedObjects+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AA447E3419B5799E004855CC /* ManagedObjects+JPConvenience.m */; };
+		AA49F3BD1D6001C300680B8A /* UserFavItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F36A1D6001C300680B8A /* UserFavItem+CoreDataProperties.m */; };
+		AA49F3BE1D6001C300680B8A /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F36C1D6001C300680B8A /* UserFavItem.m */; };
+		AA49F3BF1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F36E1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.m */; };
+		AA49F3C01D6001C300680B8A /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3701D6001C300680B8A /* UniqKEFunction.m */; };
+		AA49F3C11D6001C300680B8A /* Banner+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3721D6001C300680B8A /* Banner+CoreDataProperties.m */; };
+		AA49F3C21D6001C300680B8A /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3741D6001C300680B8A /* Banner.m */; };
+		AA49F3C31D6001C300680B8A /* Contact+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3761D6001C300680B8A /* Contact+CoreDataProperties.m */; };
+		AA49F3C41D6001C300680B8A /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3781D6001C300680B8A /* Contact.m */; };
+		AA49F3C51D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F37A1D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.m */; };
+		AA49F3C61D6001C300680B8A /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F37C1D6001C300680B8A /* ProgramYearlyTuition.m */; };
+		AA49F3C71D6001C300680B8A /* RelatedItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F37E1D6001C300680B8A /* RelatedItem+CoreDataProperties.m */; };
+		AA49F3C81D6001C300680B8A /* RelatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3801D6001C300680B8A /* RelatedItem.m */; };
+		AA49F3C91D6001C300680B8A /* Featured+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3821D6001C300680B8A /* Featured+CoreDataProperties.m */; };
+		AA49F3CA1D6001C300680B8A /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3841D6001C300680B8A /* Featured.m */; };
+		AA49F3CB1D6001C300680B8A /* HighschoolCourse+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3861D6001C300680B8A /* HighschoolCourse+CoreDataProperties.m */; };
+		AA49F3CC1D6001C300680B8A /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3881D6001C300680B8A /* HighschoolCourse.m */; };
+		AA49F3CD1D6001C300680B8A /* Faculty+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F38A1D6001C300680B8A /* Faculty+CoreDataProperties.m */; };
+		AA49F3CE1D6001C300680B8A /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F38C1D6001C300680B8A /* Faculty.m */; };
+		AA49F3CF1D6001C300680B8A /* SchoolRanking+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F38E1D6001C300680B8A /* SchoolRanking+CoreDataProperties.m */; };
+		AA49F3D01D6001C300680B8A /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3901D6001C300680B8A /* SchoolRanking.m */; };
+		AA49F3D11D6001C300680B8A /* ImageLink+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3921D6001C300680B8A /* ImageLink+CoreDataProperties.m */; };
+		AA49F3D21D6001C300680B8A /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3941D6001C300680B8A /* ImageLink.m */; };
+		AA49F3D31D6001C300680B8A /* ProgramCourse+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3961D6001C300680B8A /* ProgramCourse+CoreDataProperties.m */; };
+		AA49F3D41D6001C300680B8A /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3981D6001C300680B8A /* ProgramCourse.m */; };
+		AA49F3D51D6001C300680B8A /* SchoolLocation+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F39A1D6001C300680B8A /* SchoolLocation+CoreDataProperties.m */; };
+		AA49F3D61D6001C300680B8A /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F39C1D6001C300680B8A /* SchoolLocation.m */; };
+		AA49F3D71D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F39E1D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.m */; };
+		AA49F3D81D6001C300680B8A /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3A01D6001C300680B8A /* UniqKEKeyword.m */; };
+		AA49F3D91D6001C300680B8A /* Program+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3A21D6001C300680B8A /* Program+CoreDataProperties.m */; };
+		AA49F3DA1D6001C300680B8A /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3A41D6001C300680B8A /* Program.m */; };
+		AA49F3DB1D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3A61D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.m */; };
+		AA49F3DC1D6001C300680B8A /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3A81D6001C300680B8A /* ProgramApplicationStat.m */; };
+		AA49F3DD1D6001C300680B8A /* ImportantDate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3AA1D6001C300680B8A /* ImportantDate+CoreDataProperties.m */; };
+		AA49F3DE1D6001C300680B8A /* ImportantDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3AC1D6001C300680B8A /* ImportantDate.m */; };
+		AA49F3DF1D6001C300680B8A /* ProgramRating+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3AE1D6001C300680B8A /* ProgramRating+CoreDataProperties.m */; };
+		AA49F3E01D6001C300680B8A /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3B01D6001C300680B8A /* ProgramRating.m */; };
+		AA49F3E11D6001C300680B8A /* School+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3B21D6001C300680B8A /* School+CoreDataProperties.m */; };
+		AA49F3E21D6001C300680B8A /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3B41D6001C300680B8A /* School.m */; };
+		AA49F3E31D6001C300680B8A /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3B61D6001C300680B8A /* User+CoreDataProperties.m */; };
+		AA49F3E41D6001C300680B8A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3B81D6001C300680B8A /* User.m */; };
+		AA49F3E51D6001C300680B8A /* UniqKEOne+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3BA1D6001C300680B8A /* UniqKEOne+CoreDataProperties.m */; };
+		AA49F3E61D6001C300680B8A /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = AA49F3BC1D6001C300680B8A /* UniqKEOne.m */; };
 		AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */; };
 		AA520EE11971F6F60003EF98 /* iPhSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */; };
 		AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA520EE8197219070003EF98 /* iPhProgramViewController.m */; };
@@ -196,27 +238,6 @@
 		AAF733E91A8B3FAF00F3398D /* JPGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E21A8B3FAF00F3398D /* JPGlobal.m */; };
 		AAF733EA1A8B3FAF00F3398D /* JPStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E41A8B3FAF00F3398D /* JPStyle.m */; };
 		AAF733EB1A8B3FAF00F3398D /* NSObject+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF733E61A8B3FAF00F3398D /* NSObject+JPConvenience.m */; };
-		AAF7342D1A8B407400F3398D /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7342C1A8B407400F3398D /* Contact.m */; };
-		AAF734301A8B407500F3398D /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7342F1A8B407500F3398D /* User.m */; };
-		AAF734331A8B407500F3398D /* UniqKEFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734321A8B407500F3398D /* UniqKEFunction.m */; };
-		AAF734361A8B407500F3398D /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734351A8B407500F3398D /* Program.m */; };
-		AAF734391A8B407500F3398D /* UniqKEOne.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734381A8B407500F3398D /* UniqKEOne.m */; };
-		AAF7343C1A8B407500F3398D /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7343B1A8B407500F3398D /* School.m */; };
-		AAF7343F1A8B407500F3398D /* Banner.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7343E1A8B407500F3398D /* Banner.m */; };
-		AAF734421A8B407500F3398D /* ImportantDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734411A8B407500F3398D /* ImportantDate.m */; };
-		AAF734451A8B407500F3398D /* ProgramRating.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734441A8B407500F3398D /* ProgramRating.m */; };
-		AAF734481A8B407500F3398D /* ProgramYearlyTuition.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734471A8B407500F3398D /* ProgramYearlyTuition.m */; };
-		AAF7344B1A8B407500F3398D /* HighschoolCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7344A1A8B407500F3398D /* HighschoolCourse.m */; };
-		AAF7344E1A8B407500F3398D /* Featured.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7344D1A8B407500F3398D /* Featured.m */; };
-		AAF734511A8B407500F3398D /* Faculty.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734501A8B407500F3398D /* Faculty.m */; };
-		AAF734541A8B407500F3398D /* ImageLink.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734531A8B407500F3398D /* ImageLink.m */; };
-		AAF734571A8B407500F3398D /* SchoolRanking.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734561A8B407500F3398D /* SchoolRanking.m */; };
-		AAF7345A1A8B407600F3398D /* SchoolLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734591A8B407600F3398D /* SchoolLocation.m */; };
-		AAF7345D1A8B407600F3398D /* ProgramCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7345C1A8B407600F3398D /* ProgramCourse.m */; };
-		AAF734601A8B407600F3398D /* ProgramApplicationStat.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7345F1A8B407600F3398D /* ProgramApplicationStat.m */; };
-		AAF734631A8B407600F3398D /* UserFavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734621A8B407600F3398D /* UserFavItem.m */; };
-		AAF734661A8B407600F3398D /* RelatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734651A8B407600F3398D /* RelatedItem.m */; };
-		AAF734691A8B407600F3398D /* UniqKEKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF734681A8B407600F3398D /* UniqKEKeyword.m */; };
 		AAF734721A8B409900F3398D /* JPConnectivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346B1A8B409900F3398D /* JPConnectivityManager.m */; };
 		AAF734731A8B409900F3398D /* JPCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346D1A8B409900F3398D /* JPCoreDataHelper.m */; };
 		AAF734741A8B409900F3398D /* JPDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF7346F1A8B409900F3398D /* JPDataRequest.m */; };
@@ -465,6 +486,90 @@
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsAboutViewController.swift; path = "iPad User Interface/iPadSettingsAboutViewController.swift"; sourceTree = "<group>"; };
 		AA447E3319B5799E004855CC /* ManagedObjects+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ManagedObjects+JPConvenience.h"; sourceTree = "<group>"; };
 		AA447E3419B5799E004855CC /* ManagedObjects+JPConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ManagedObjects+JPConvenience.m"; sourceTree = "<group>"; };
+		AA49F3691D6001C300680B8A /* UserFavItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UserFavItem+CoreDataProperties.h"; path = "NSManagedObjects/UserFavItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F36A1D6001C300680B8A /* UserFavItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UserFavItem+CoreDataProperties.m"; path = "NSManagedObjects/UserFavItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F36B1D6001C300680B8A /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserFavItem.h; path = NSManagedObjects/UserFavItem.h; sourceTree = "<group>"; };
+		AA49F36C1D6001C300680B8A /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserFavItem.m; path = NSManagedObjects/UserFavItem.m; sourceTree = "<group>"; };
+		AA49F36D1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UniqKEFunction+CoreDataProperties.h"; path = "NSManagedObjects/UniqKEFunction+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F36E1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UniqKEFunction+CoreDataProperties.m"; path = "NSManagedObjects/UniqKEFunction+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F36F1D6001C300680B8A /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEFunction.h; path = NSManagedObjects/UniqKEFunction.h; sourceTree = "<group>"; };
+		AA49F3701D6001C300680B8A /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEFunction.m; path = NSManagedObjects/UniqKEFunction.m; sourceTree = "<group>"; };
+		AA49F3711D6001C300680B8A /* Banner+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Banner+CoreDataProperties.h"; path = "NSManagedObjects/Banner+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3721D6001C300680B8A /* Banner+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Banner+CoreDataProperties.m"; path = "NSManagedObjects/Banner+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3731D6001C300680B8A /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banner.h; path = NSManagedObjects/Banner.h; sourceTree = "<group>"; };
+		AA49F3741D6001C300680B8A /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banner.m; path = NSManagedObjects/Banner.m; sourceTree = "<group>"; };
+		AA49F3751D6001C300680B8A /* Contact+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Contact+CoreDataProperties.h"; path = "NSManagedObjects/Contact+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3761D6001C300680B8A /* Contact+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Contact+CoreDataProperties.m"; path = "NSManagedObjects/Contact+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3771D6001C300680B8A /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = NSManagedObjects/Contact.h; sourceTree = "<group>"; };
+		AA49F3781D6001C300680B8A /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = NSManagedObjects/Contact.m; sourceTree = "<group>"; };
+		AA49F3791D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProgramYearlyTuition+CoreDataProperties.h"; path = "NSManagedObjects/ProgramYearlyTuition+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F37A1D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProgramYearlyTuition+CoreDataProperties.m"; path = "NSManagedObjects/ProgramYearlyTuition+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F37B1D6001C300680B8A /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramYearlyTuition.h; path = NSManagedObjects/ProgramYearlyTuition.h; sourceTree = "<group>"; };
+		AA49F37C1D6001C300680B8A /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramYearlyTuition.m; path = NSManagedObjects/ProgramYearlyTuition.m; sourceTree = "<group>"; };
+		AA49F37D1D6001C300680B8A /* RelatedItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RelatedItem+CoreDataProperties.h"; path = "NSManagedObjects/RelatedItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F37E1D6001C300680B8A /* RelatedItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "RelatedItem+CoreDataProperties.m"; path = "NSManagedObjects/RelatedItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F37F1D6001C300680B8A /* RelatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RelatedItem.h; path = NSManagedObjects/RelatedItem.h; sourceTree = "<group>"; };
+		AA49F3801D6001C300680B8A /* RelatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RelatedItem.m; path = NSManagedObjects/RelatedItem.m; sourceTree = "<group>"; };
+		AA49F3811D6001C300680B8A /* Featured+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Featured+CoreDataProperties.h"; path = "NSManagedObjects/Featured+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3821D6001C300680B8A /* Featured+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Featured+CoreDataProperties.m"; path = "NSManagedObjects/Featured+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3831D6001C300680B8A /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Featured.h; path = NSManagedObjects/Featured.h; sourceTree = "<group>"; };
+		AA49F3841D6001C300680B8A /* Featured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Featured.m; path = NSManagedObjects/Featured.m; sourceTree = "<group>"; };
+		AA49F3851D6001C300680B8A /* HighschoolCourse+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HighschoolCourse+CoreDataProperties.h"; path = "NSManagedObjects/HighschoolCourse+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3861D6001C300680B8A /* HighschoolCourse+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "HighschoolCourse+CoreDataProperties.m"; path = "NSManagedObjects/HighschoolCourse+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3871D6001C300680B8A /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighschoolCourse.h; path = NSManagedObjects/HighschoolCourse.h; sourceTree = "<group>"; };
+		AA49F3881D6001C300680B8A /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighschoolCourse.m; path = NSManagedObjects/HighschoolCourse.m; sourceTree = "<group>"; };
+		AA49F3891D6001C300680B8A /* Faculty+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Faculty+CoreDataProperties.h"; path = "NSManagedObjects/Faculty+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F38A1D6001C300680B8A /* Faculty+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Faculty+CoreDataProperties.m"; path = "NSManagedObjects/Faculty+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F38B1D6001C300680B8A /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faculty.h; path = NSManagedObjects/Faculty.h; sourceTree = "<group>"; };
+		AA49F38C1D6001C300680B8A /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faculty.m; path = NSManagedObjects/Faculty.m; sourceTree = "<group>"; };
+		AA49F38D1D6001C300680B8A /* SchoolRanking+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SchoolRanking+CoreDataProperties.h"; path = "NSManagedObjects/SchoolRanking+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F38E1D6001C300680B8A /* SchoolRanking+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SchoolRanking+CoreDataProperties.m"; path = "NSManagedObjects/SchoolRanking+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F38F1D6001C300680B8A /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolRanking.h; path = NSManagedObjects/SchoolRanking.h; sourceTree = "<group>"; };
+		AA49F3901D6001C300680B8A /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolRanking.m; path = NSManagedObjects/SchoolRanking.m; sourceTree = "<group>"; };
+		AA49F3911D6001C300680B8A /* ImageLink+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ImageLink+CoreDataProperties.h"; path = "NSManagedObjects/ImageLink+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3921D6001C300680B8A /* ImageLink+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ImageLink+CoreDataProperties.m"; path = "NSManagedObjects/ImageLink+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3931D6001C300680B8A /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLink.h; path = NSManagedObjects/ImageLink.h; sourceTree = "<group>"; };
+		AA49F3941D6001C300680B8A /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLink.m; path = NSManagedObjects/ImageLink.m; sourceTree = "<group>"; };
+		AA49F3951D6001C300680B8A /* ProgramCourse+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProgramCourse+CoreDataProperties.h"; path = "NSManagedObjects/ProgramCourse+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3961D6001C300680B8A /* ProgramCourse+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProgramCourse+CoreDataProperties.m"; path = "NSManagedObjects/ProgramCourse+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3971D6001C300680B8A /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramCourse.h; path = NSManagedObjects/ProgramCourse.h; sourceTree = "<group>"; };
+		AA49F3981D6001C300680B8A /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramCourse.m; path = NSManagedObjects/ProgramCourse.m; sourceTree = "<group>"; };
+		AA49F3991D6001C300680B8A /* SchoolLocation+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SchoolLocation+CoreDataProperties.h"; path = "NSManagedObjects/SchoolLocation+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F39A1D6001C300680B8A /* SchoolLocation+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SchoolLocation+CoreDataProperties.m"; path = "NSManagedObjects/SchoolLocation+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F39B1D6001C300680B8A /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolLocation.h; path = NSManagedObjects/SchoolLocation.h; sourceTree = "<group>"; };
+		AA49F39C1D6001C300680B8A /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolLocation.m; path = NSManagedObjects/SchoolLocation.m; sourceTree = "<group>"; };
+		AA49F39D1D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UniqKEKeyword+CoreDataProperties.h"; path = "NSManagedObjects/UniqKEKeyword+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F39E1D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UniqKEKeyword+CoreDataProperties.m"; path = "NSManagedObjects/UniqKEKeyword+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F39F1D6001C300680B8A /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEKeyword.h; path = NSManagedObjects/UniqKEKeyword.h; sourceTree = "<group>"; };
+		AA49F3A01D6001C300680B8A /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEKeyword.m; path = NSManagedObjects/UniqKEKeyword.m; sourceTree = "<group>"; };
+		AA49F3A11D6001C300680B8A /* Program+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Program+CoreDataProperties.h"; path = "NSManagedObjects/Program+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3A21D6001C300680B8A /* Program+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Program+CoreDataProperties.m"; path = "NSManagedObjects/Program+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3A31D6001C300680B8A /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = NSManagedObjects/Program.h; sourceTree = "<group>"; };
+		AA49F3A41D6001C300680B8A /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Program.m; path = NSManagedObjects/Program.m; sourceTree = "<group>"; };
+		AA49F3A51D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProgramApplicationStat+CoreDataProperties.h"; path = "NSManagedObjects/ProgramApplicationStat+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3A61D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProgramApplicationStat+CoreDataProperties.m"; path = "NSManagedObjects/ProgramApplicationStat+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3A71D6001C300680B8A /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramApplicationStat.h; path = NSManagedObjects/ProgramApplicationStat.h; sourceTree = "<group>"; };
+		AA49F3A81D6001C300680B8A /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramApplicationStat.m; path = NSManagedObjects/ProgramApplicationStat.m; sourceTree = "<group>"; };
+		AA49F3A91D6001C300680B8A /* ImportantDate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ImportantDate+CoreDataProperties.h"; path = "NSManagedObjects/ImportantDate+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3AA1D6001C300680B8A /* ImportantDate+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ImportantDate+CoreDataProperties.m"; path = "NSManagedObjects/ImportantDate+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3AB1D6001C300680B8A /* ImportantDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportantDate.h; path = NSManagedObjects/ImportantDate.h; sourceTree = "<group>"; };
+		AA49F3AC1D6001C300680B8A /* ImportantDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportantDate.m; path = NSManagedObjects/ImportantDate.m; sourceTree = "<group>"; };
+		AA49F3AD1D6001C300680B8A /* ProgramRating+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ProgramRating+CoreDataProperties.h"; path = "NSManagedObjects/ProgramRating+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3AE1D6001C300680B8A /* ProgramRating+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ProgramRating+CoreDataProperties.m"; path = "NSManagedObjects/ProgramRating+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3AF1D6001C300680B8A /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramRating.h; path = NSManagedObjects/ProgramRating.h; sourceTree = "<group>"; };
+		AA49F3B01D6001C300680B8A /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramRating.m; path = NSManagedObjects/ProgramRating.m; sourceTree = "<group>"; };
+		AA49F3B11D6001C300680B8A /* School+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "School+CoreDataProperties.h"; path = "NSManagedObjects/School+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3B21D6001C300680B8A /* School+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "School+CoreDataProperties.m"; path = "NSManagedObjects/School+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3B31D6001C300680B8A /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = School.h; path = NSManagedObjects/School.h; sourceTree = "<group>"; };
+		AA49F3B41D6001C300680B8A /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = School.m; path = NSManagedObjects/School.m; sourceTree = "<group>"; };
+		AA49F3B51D6001C300680B8A /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "NSManagedObjects/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3B61D6001C300680B8A /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "NSManagedObjects/User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3B71D6001C300680B8A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = NSManagedObjects/User.h; sourceTree = "<group>"; };
+		AA49F3B81D6001C300680B8A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = NSManagedObjects/User.m; sourceTree = "<group>"; };
+		AA49F3B91D6001C300680B8A /* UniqKEOne+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UniqKEOne+CoreDataProperties.h"; path = "NSManagedObjects/UniqKEOne+CoreDataProperties.h"; sourceTree = "<group>"; };
+		AA49F3BA1D6001C300680B8A /* UniqKEOne+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UniqKEOne+CoreDataProperties.m"; path = "NSManagedObjects/UniqKEOne+CoreDataProperties.m"; sourceTree = "<group>"; };
+		AA49F3BB1D6001C300680B8A /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEOne.h; path = NSManagedObjects/UniqKEOne.h; sourceTree = "<group>"; };
+		AA49F3BC1D6001C300680B8A /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEOne.m; path = NSManagedObjects/UniqKEOne.m; sourceTree = "<group>"; };
 		AA520EDB1971F55A0003EF98 /* iPhFacProgSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhFacProgSelectViewController.h; path = "iPhone User Interface/iPhFacProgSelectViewController.h"; sourceTree = "<group>"; };
 		AA520EDC1971F55A0003EF98 /* iPhFacProgSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhFacProgSelectViewController.m; path = "iPhone User Interface/iPhFacProgSelectViewController.m"; sourceTree = "<group>"; };
 		AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhSchoolHomeViewController.h; path = "iPhone User Interface/iPhSchoolHomeViewController.h"; sourceTree = "<group>"; };
@@ -639,48 +744,6 @@
 		AAF733E51A8B3FAF00F3398D /* NSObject+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+JPConvenience.h"; path = "UI Specifications/NSObject+JPConvenience.h"; sourceTree = "<group>"; };
 		AAF733E61A8B3FAF00F3398D /* NSObject+JPConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+JPConvenience.m"; path = "UI Specifications/NSObject+JPConvenience.m"; sourceTree = "<group>"; };
 		AAF733E71A8B3FAF00F3398D /* UserInterfaceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInterfaceConstants.h; path = "UI Specifications/UserInterfaceConstants.h"; sourceTree = "<group>"; };
-		AAF7342B1A8B407400F3398D /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = NSManagedObjects/Contact.h; sourceTree = "<group>"; };
-		AAF7342C1A8B407400F3398D /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = NSManagedObjects/Contact.m; sourceTree = "<group>"; };
-		AAF7342E1A8B407500F3398D /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = NSManagedObjects/User.h; sourceTree = "<group>"; };
-		AAF7342F1A8B407500F3398D /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = NSManagedObjects/User.m; sourceTree = "<group>"; };
-		AAF734311A8B407500F3398D /* UniqKEFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEFunction.h; path = NSManagedObjects/UniqKEFunction.h; sourceTree = "<group>"; };
-		AAF734321A8B407500F3398D /* UniqKEFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEFunction.m; path = NSManagedObjects/UniqKEFunction.m; sourceTree = "<group>"; };
-		AAF734341A8B407500F3398D /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Program.h; path = NSManagedObjects/Program.h; sourceTree = "<group>"; };
-		AAF734351A8B407500F3398D /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Program.m; path = NSManagedObjects/Program.m; sourceTree = "<group>"; };
-		AAF734371A8B407500F3398D /* UniqKEOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEOne.h; path = NSManagedObjects/UniqKEOne.h; sourceTree = "<group>"; };
-		AAF734381A8B407500F3398D /* UniqKEOne.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEOne.m; path = NSManagedObjects/UniqKEOne.m; sourceTree = "<group>"; };
-		AAF7343A1A8B407500F3398D /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = School.h; path = NSManagedObjects/School.h; sourceTree = "<group>"; };
-		AAF7343B1A8B407500F3398D /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = School.m; path = NSManagedObjects/School.m; sourceTree = "<group>"; };
-		AAF7343D1A8B407500F3398D /* Banner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Banner.h; path = NSManagedObjects/Banner.h; sourceTree = "<group>"; };
-		AAF7343E1A8B407500F3398D /* Banner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Banner.m; path = NSManagedObjects/Banner.m; sourceTree = "<group>"; };
-		AAF734401A8B407500F3398D /* ImportantDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImportantDate.h; path = NSManagedObjects/ImportantDate.h; sourceTree = "<group>"; };
-		AAF734411A8B407500F3398D /* ImportantDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImportantDate.m; path = NSManagedObjects/ImportantDate.m; sourceTree = "<group>"; };
-		AAF734431A8B407500F3398D /* ProgramRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramRating.h; path = NSManagedObjects/ProgramRating.h; sourceTree = "<group>"; };
-		AAF734441A8B407500F3398D /* ProgramRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramRating.m; path = NSManagedObjects/ProgramRating.m; sourceTree = "<group>"; };
-		AAF734461A8B407500F3398D /* ProgramYearlyTuition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramYearlyTuition.h; path = NSManagedObjects/ProgramYearlyTuition.h; sourceTree = "<group>"; };
-		AAF734471A8B407500F3398D /* ProgramYearlyTuition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramYearlyTuition.m; path = NSManagedObjects/ProgramYearlyTuition.m; sourceTree = "<group>"; };
-		AAF734491A8B407500F3398D /* HighschoolCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HighschoolCourse.h; path = NSManagedObjects/HighschoolCourse.h; sourceTree = "<group>"; };
-		AAF7344A1A8B407500F3398D /* HighschoolCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HighschoolCourse.m; path = NSManagedObjects/HighschoolCourse.m; sourceTree = "<group>"; };
-		AAF7344C1A8B407500F3398D /* Featured.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Featured.h; path = NSManagedObjects/Featured.h; sourceTree = "<group>"; };
-		AAF7344D1A8B407500F3398D /* Featured.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Featured.m; path = NSManagedObjects/Featured.m; sourceTree = "<group>"; };
-		AAF7344F1A8B407500F3398D /* Faculty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Faculty.h; path = NSManagedObjects/Faculty.h; sourceTree = "<group>"; };
-		AAF734501A8B407500F3398D /* Faculty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Faculty.m; path = NSManagedObjects/Faculty.m; sourceTree = "<group>"; };
-		AAF734521A8B407500F3398D /* ImageLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageLink.h; path = NSManagedObjects/ImageLink.h; sourceTree = "<group>"; };
-		AAF734531A8B407500F3398D /* ImageLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageLink.m; path = NSManagedObjects/ImageLink.m; sourceTree = "<group>"; };
-		AAF734551A8B407500F3398D /* SchoolRanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolRanking.h; path = NSManagedObjects/SchoolRanking.h; sourceTree = "<group>"; };
-		AAF734561A8B407500F3398D /* SchoolRanking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolRanking.m; path = NSManagedObjects/SchoolRanking.m; sourceTree = "<group>"; };
-		AAF734581A8B407600F3398D /* SchoolLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SchoolLocation.h; path = NSManagedObjects/SchoolLocation.h; sourceTree = "<group>"; };
-		AAF734591A8B407600F3398D /* SchoolLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SchoolLocation.m; path = NSManagedObjects/SchoolLocation.m; sourceTree = "<group>"; };
-		AAF7345B1A8B407600F3398D /* ProgramCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramCourse.h; path = NSManagedObjects/ProgramCourse.h; sourceTree = "<group>"; };
-		AAF7345C1A8B407600F3398D /* ProgramCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramCourse.m; path = NSManagedObjects/ProgramCourse.m; sourceTree = "<group>"; };
-		AAF7345E1A8B407600F3398D /* ProgramApplicationStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramApplicationStat.h; path = NSManagedObjects/ProgramApplicationStat.h; sourceTree = "<group>"; };
-		AAF7345F1A8B407600F3398D /* ProgramApplicationStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgramApplicationStat.m; path = NSManagedObjects/ProgramApplicationStat.m; sourceTree = "<group>"; };
-		AAF734611A8B407600F3398D /* UserFavItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserFavItem.h; path = NSManagedObjects/UserFavItem.h; sourceTree = "<group>"; };
-		AAF734621A8B407600F3398D /* UserFavItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserFavItem.m; path = NSManagedObjects/UserFavItem.m; sourceTree = "<group>"; };
-		AAF734641A8B407600F3398D /* RelatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RelatedItem.h; path = NSManagedObjects/RelatedItem.h; sourceTree = "<group>"; };
-		AAF734651A8B407600F3398D /* RelatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RelatedItem.m; path = NSManagedObjects/RelatedItem.m; sourceTree = "<group>"; };
-		AAF734671A8B407600F3398D /* UniqKEKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UniqKEKeyword.h; path = NSManagedObjects/UniqKEKeyword.h; sourceTree = "<group>"; };
-		AAF734681A8B407600F3398D /* UniqKEKeyword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UniqKEKeyword.m; path = NSManagedObjects/UniqKEKeyword.m; sourceTree = "<group>"; };
 		AAF7346A1A8B409900F3398D /* JPConnectivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPConnectivityManager.h; path = "Data Management/JPConnectivityManager.h"; sourceTree = "<group>"; };
 		AAF7346B1A8B409900F3398D /* JPConnectivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPConnectivityManager.m; path = "Data Management/JPConnectivityManager.m"; sourceTree = "<group>"; };
 		AAF7346C1A8B409900F3398D /* JPCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPCoreDataHelper.h; path = "Data Management/JPCoreDataHelper.h"; sourceTree = "<group>"; };
@@ -1229,48 +1292,90 @@
 		5DF56C5818BC7EA8006D3024 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
-				AAF734671A8B407600F3398D /* UniqKEKeyword.h */,
-				AAF734681A8B407600F3398D /* UniqKEKeyword.m */,
-				AAF734641A8B407600F3398D /* RelatedItem.h */,
-				AAF734651A8B407600F3398D /* RelatedItem.m */,
-				AAF734611A8B407600F3398D /* UserFavItem.h */,
-				AAF734621A8B407600F3398D /* UserFavItem.m */,
-				AAF7345E1A8B407600F3398D /* ProgramApplicationStat.h */,
-				AAF7345F1A8B407600F3398D /* ProgramApplicationStat.m */,
-				AAF7345B1A8B407600F3398D /* ProgramCourse.h */,
-				AAF7345C1A8B407600F3398D /* ProgramCourse.m */,
-				AAF734581A8B407600F3398D /* SchoolLocation.h */,
-				AAF734591A8B407600F3398D /* SchoolLocation.m */,
-				AAF734551A8B407500F3398D /* SchoolRanking.h */,
-				AAF734561A8B407500F3398D /* SchoolRanking.m */,
-				AAF734521A8B407500F3398D /* ImageLink.h */,
-				AAF734531A8B407500F3398D /* ImageLink.m */,
-				AAF7344F1A8B407500F3398D /* Faculty.h */,
-				AAF734501A8B407500F3398D /* Faculty.m */,
-				AAF7344C1A8B407500F3398D /* Featured.h */,
-				AAF7344D1A8B407500F3398D /* Featured.m */,
-				AAF734491A8B407500F3398D /* HighschoolCourse.h */,
-				AAF7344A1A8B407500F3398D /* HighschoolCourse.m */,
-				AAF734461A8B407500F3398D /* ProgramYearlyTuition.h */,
-				AAF734471A8B407500F3398D /* ProgramYearlyTuition.m */,
-				AAF734431A8B407500F3398D /* ProgramRating.h */,
-				AAF734441A8B407500F3398D /* ProgramRating.m */,
-				AAF734401A8B407500F3398D /* ImportantDate.h */,
-				AAF734411A8B407500F3398D /* ImportantDate.m */,
-				AAF7343D1A8B407500F3398D /* Banner.h */,
-				AAF7343E1A8B407500F3398D /* Banner.m */,
-				AAF7343A1A8B407500F3398D /* School.h */,
-				AAF7343B1A8B407500F3398D /* School.m */,
-				AAF734371A8B407500F3398D /* UniqKEOne.h */,
-				AAF734381A8B407500F3398D /* UniqKEOne.m */,
-				AAF734341A8B407500F3398D /* Program.h */,
-				AAF734351A8B407500F3398D /* Program.m */,
-				AAF734311A8B407500F3398D /* UniqKEFunction.h */,
-				AAF734321A8B407500F3398D /* UniqKEFunction.m */,
-				AAF7342E1A8B407500F3398D /* User.h */,
-				AAF7342F1A8B407500F3398D /* User.m */,
-				AAF7342B1A8B407400F3398D /* Contact.h */,
-				AAF7342C1A8B407400F3398D /* Contact.m */,
+				AA49F3691D6001C300680B8A /* UserFavItem+CoreDataProperties.h */,
+				AA49F36A1D6001C300680B8A /* UserFavItem+CoreDataProperties.m */,
+				AA49F36B1D6001C300680B8A /* UserFavItem.h */,
+				AA49F36C1D6001C300680B8A /* UserFavItem.m */,
+				AA49F36D1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.h */,
+				AA49F36E1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.m */,
+				AA49F36F1D6001C300680B8A /* UniqKEFunction.h */,
+				AA49F3701D6001C300680B8A /* UniqKEFunction.m */,
+				AA49F3711D6001C300680B8A /* Banner+CoreDataProperties.h */,
+				AA49F3721D6001C300680B8A /* Banner+CoreDataProperties.m */,
+				AA49F3731D6001C300680B8A /* Banner.h */,
+				AA49F3741D6001C300680B8A /* Banner.m */,
+				AA49F3751D6001C300680B8A /* Contact+CoreDataProperties.h */,
+				AA49F3761D6001C300680B8A /* Contact+CoreDataProperties.m */,
+				AA49F3771D6001C300680B8A /* Contact.h */,
+				AA49F3781D6001C300680B8A /* Contact.m */,
+				AA49F3791D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.h */,
+				AA49F37A1D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.m */,
+				AA49F37B1D6001C300680B8A /* ProgramYearlyTuition.h */,
+				AA49F37C1D6001C300680B8A /* ProgramYearlyTuition.m */,
+				AA49F37D1D6001C300680B8A /* RelatedItem+CoreDataProperties.h */,
+				AA49F37E1D6001C300680B8A /* RelatedItem+CoreDataProperties.m */,
+				AA49F37F1D6001C300680B8A /* RelatedItem.h */,
+				AA49F3801D6001C300680B8A /* RelatedItem.m */,
+				AA49F3811D6001C300680B8A /* Featured+CoreDataProperties.h */,
+				AA49F3821D6001C300680B8A /* Featured+CoreDataProperties.m */,
+				AA49F3831D6001C300680B8A /* Featured.h */,
+				AA49F3841D6001C300680B8A /* Featured.m */,
+				AA49F3851D6001C300680B8A /* HighschoolCourse+CoreDataProperties.h */,
+				AA49F3861D6001C300680B8A /* HighschoolCourse+CoreDataProperties.m */,
+				AA49F3871D6001C300680B8A /* HighschoolCourse.h */,
+				AA49F3881D6001C300680B8A /* HighschoolCourse.m */,
+				AA49F3891D6001C300680B8A /* Faculty+CoreDataProperties.h */,
+				AA49F38A1D6001C300680B8A /* Faculty+CoreDataProperties.m */,
+				AA49F38B1D6001C300680B8A /* Faculty.h */,
+				AA49F38C1D6001C300680B8A /* Faculty.m */,
+				AA49F38D1D6001C300680B8A /* SchoolRanking+CoreDataProperties.h */,
+				AA49F38E1D6001C300680B8A /* SchoolRanking+CoreDataProperties.m */,
+				AA49F38F1D6001C300680B8A /* SchoolRanking.h */,
+				AA49F3901D6001C300680B8A /* SchoolRanking.m */,
+				AA49F3911D6001C300680B8A /* ImageLink+CoreDataProperties.h */,
+				AA49F3921D6001C300680B8A /* ImageLink+CoreDataProperties.m */,
+				AA49F3931D6001C300680B8A /* ImageLink.h */,
+				AA49F3941D6001C300680B8A /* ImageLink.m */,
+				AA49F3951D6001C300680B8A /* ProgramCourse+CoreDataProperties.h */,
+				AA49F3961D6001C300680B8A /* ProgramCourse+CoreDataProperties.m */,
+				AA49F3971D6001C300680B8A /* ProgramCourse.h */,
+				AA49F3981D6001C300680B8A /* ProgramCourse.m */,
+				AA49F3991D6001C300680B8A /* SchoolLocation+CoreDataProperties.h */,
+				AA49F39A1D6001C300680B8A /* SchoolLocation+CoreDataProperties.m */,
+				AA49F39B1D6001C300680B8A /* SchoolLocation.h */,
+				AA49F39C1D6001C300680B8A /* SchoolLocation.m */,
+				AA49F39D1D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.h */,
+				AA49F39E1D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.m */,
+				AA49F39F1D6001C300680B8A /* UniqKEKeyword.h */,
+				AA49F3A01D6001C300680B8A /* UniqKEKeyword.m */,
+				AA49F3A11D6001C300680B8A /* Program+CoreDataProperties.h */,
+				AA49F3A21D6001C300680B8A /* Program+CoreDataProperties.m */,
+				AA49F3A31D6001C300680B8A /* Program.h */,
+				AA49F3A41D6001C300680B8A /* Program.m */,
+				AA49F3A51D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.h */,
+				AA49F3A61D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.m */,
+				AA49F3A71D6001C300680B8A /* ProgramApplicationStat.h */,
+				AA49F3A81D6001C300680B8A /* ProgramApplicationStat.m */,
+				AA49F3A91D6001C300680B8A /* ImportantDate+CoreDataProperties.h */,
+				AA49F3AA1D6001C300680B8A /* ImportantDate+CoreDataProperties.m */,
+				AA49F3AB1D6001C300680B8A /* ImportantDate.h */,
+				AA49F3AC1D6001C300680B8A /* ImportantDate.m */,
+				AA49F3AD1D6001C300680B8A /* ProgramRating+CoreDataProperties.h */,
+				AA49F3AE1D6001C300680B8A /* ProgramRating+CoreDataProperties.m */,
+				AA49F3AF1D6001C300680B8A /* ProgramRating.h */,
+				AA49F3B01D6001C300680B8A /* ProgramRating.m */,
+				AA49F3B11D6001C300680B8A /* School+CoreDataProperties.h */,
+				AA49F3B21D6001C300680B8A /* School+CoreDataProperties.m */,
+				AA49F3B31D6001C300680B8A /* School.h */,
+				AA49F3B41D6001C300680B8A /* School.m */,
+				AA49F3B51D6001C300680B8A /* User+CoreDataProperties.h */,
+				AA49F3B61D6001C300680B8A /* User+CoreDataProperties.m */,
+				AA49F3B71D6001C300680B8A /* User.h */,
+				AA49F3B81D6001C300680B8A /* User.m */,
+				AA49F3B91D6001C300680B8A /* UniqKEOne+CoreDataProperties.h */,
+				AA49F3BA1D6001C300680B8A /* UniqKEOne+CoreDataProperties.m */,
+				AA49F3BB1D6001C300680B8A /* UniqKEOne.h */,
+				AA49F3BC1D6001C300680B8A /* UniqKEOne.m */,
 			);
 			name = NSManagedObjects;
 			sourceTree = "<group>";
@@ -1931,131 +2036,152 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D84161519108D20005A8D74 /* iPadMainSearchViewController.m in Sources */,
-				AAF7343F1A8B407500F3398D /* Banner.m in Sources */,
+				AA49F3D31D6001C300680B8A /* ProgramCourse+CoreDataProperties.m in Sources */,
 				5D338A1E19189D8100A62AC0 /* iPadProgramHomeViewController.m in Sources */,
+				AA49F3E01D6001C300680B8A /* ProgramRating.m in Sources */,
 				5D22646D192DB96E004B3B42 /* JBParallaxCell.m in Sources */,
 				AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */,
-				AAF734301A8B407500F3398D /* User.m in Sources */,
+				AA49F3CE1D6001C300680B8A /* Faculty.m in Sources */,
+				AA49F3DD1D6001C300680B8A /* ImportantDate+CoreDataProperties.m in Sources */,
 				AA520F041972DCAD0003EF98 /* iPhMapPanView.m in Sources */,
 				AA0DB941197B8CE6005A5665 /* iPhSchoolViewController.m in Sources */,
 				AA520EEC19721A300003EF98 /* iPhProgramHomeViewController.m in Sources */,
+				AA49F3C91D6001C300680B8A /* Featured+CoreDataProperties.m in Sources */,
+				AA49F3CD1D6001C300680B8A /* Faculty+CoreDataProperties.m in Sources */,
 				AAEC90ED197D8120006E8E1C /* AsyncImageView.m in Sources */,
+				AA49F3D41D6001C300680B8A /* ProgramCourse.m in Sources */,
+				AA49F3CC1D6001C300680B8A /* HighschoolCourse.m in Sources */,
 				5D70561018B9E10D002941B3 /* AFSecurityPolicy.m in Sources */,
 				AAF734991A8B40F300F3398D /* NSString+JPKnowledgeEngine.m in Sources */,
 				5D338A0E1918747D00A62AC0 /* iPadFacultySelectViewController.m in Sources */,
 				AA222B4019592D9700820BCD /* iPadHomeMarkTableViewCell.m in Sources */,
 				5D70560D18B9E10D002941B3 /* AFHTTPRequestOperationManager.m in Sources */,
 				5D94204219308AD40033D57B /* Reachability.m in Sources */,
-				AAF734541A8B407500F3398D /* ImageLink.m in Sources */,
-				AAF734391A8B407500F3398D /* UniqKEOne.m in Sources */,
+				AA49F3C41D6001C300680B8A /* Contact.m in Sources */,
+				AA49F3DA1D6001C300680B8A /* Program.m in Sources */,
 				AAF734961A8B40F300F3398D /* JPRatings.m in Sources */,
 				5D70560C18B9E10D002941B3 /* AFHTTPRequestOperation.m in Sources */,
 				AAF734AE1A8B411A00F3398D /* JPProgramDetailView.m in Sources */,
 				AA8D271A194E589F00783DA2 /* iPadSettingsAuthorsTableViewController.swift in Sources */,
 				5D1DE04919315DEF00C36935 /* DejalActivityView.m in Sources */,
 				AA520EF219721A4F0003EF98 /* iPhProgramContactViewController.m in Sources */,
-				AAF734511A8B407500F3398D /* Faculty.m in Sources */,
+				AA49F3E31D6001C300680B8A /* User+CoreDataProperties.m in Sources */,
+				AA49F3D11D6001C300680B8A /* ImageLink+CoreDataProperties.m in Sources */,
 				5D55551E193A9EB300BF6F20 /* iPadProgramHexView.m in Sources */,
 				5DA82D7218C2FE430011AC26 /* Mixpanel.m in Sources */,
+				AA49F3CB1D6001C300680B8A /* HighschoolCourse+CoreDataProperties.m in Sources */,
 				5DF6503C1933D7AE003E0490 /* JPDateView.m in Sources */,
+				AA49F3D01D6001C300680B8A /* SchoolRanking.m in Sources */,
 				AAF734A81A8B411A00F3398D /* iPhProgramSchoolAbstractViewController.m in Sources */,
 				5D338A2D19189E3800A62AC0 /* iPadProgramLabelView.m in Sources */,
 				AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */,
 				5D2540B218B73F9600FAB887 /* iPadMainCollectionViewCell.m in Sources */,
 				5DA82D8818C2FE430011AC26 /* UIColor+MPColor.m in Sources */,
-				AAF7342D1A8B407400F3398D /* Contact.m in Sources */,
 				AAF734AD1A8B411A00F3398D /* JPProgramContactViewController.m in Sources */,
-				AAF7345D1A8B407600F3398D /* ProgramCourse.m in Sources */,
 				AA520F071972DD240003EF98 /* iPhAppProgressPanView.m in Sources */,
 				AA11544C195DF63600C56E2B /* UIImage+ImageEffects.m in Sources */,
 				AAF734981A8B40F300F3398D /* NSString+JPDateStringParser.m in Sources */,
+				AA49F3DE1D6001C300680B8A /* ImportantDate.m in Sources */,
 				AA2FE19D194ADB81004CB34B /* iPadHomeProfileBanner.swift in Sources */,
 				AAF506B9194D6BD600191043 /* iPadSettingsSplitViewController.swift in Sources */,
 				AA447E3519B5799E004855CC /* ManagedObjects+JPConvenience.m in Sources */,
+				AA49F3C71D6001C300680B8A /* RelatedItem+CoreDataProperties.m in Sources */,
+				AA49F3BE1D6001C300680B8A /* UserFavItem.m in Sources */,
 				AA63DCF0196E4141001D9768 /* iPhMainSettingsViewController.m in Sources */,
 				AAF734921A8B40F300F3398D /* JPHighschoolCourse.m in Sources */,
 				AAF733EA1A8B3FAF00F3398D /* JPStyle.m in Sources */,
 				AA63DCF7196E55B6001D9768 /* iPhMainExploreViewController.m in Sources */,
 				5D338A11191878D200A62AC0 /* iPadFacultyBannerView.m in Sources */,
-				AAF734451A8B407500F3398D /* ProgramRating.m in Sources */,
 				AAF734741A8B409900F3398D /* JPDataRequest.m in Sources */,
 				5DAD989C19312E6A00FA8FF5 /* SFGaugeView.m in Sources */,
+				AA49F3CF1D6001C300680B8A /* SchoolRanking+CoreDataProperties.m in Sources */,
 				AAF734A91A8B411A00F3398D /* JPMainExploreViewController.m in Sources */,
-				AAF734481A8B407500F3398D /* ProgramYearlyTuition.m in Sources */,
+				AA49F3D61D6001C300680B8A /* SchoolLocation.m in Sources */,
 				AA520EF8197236130003EF98 /* iPhImagePanView.m in Sources */,
 				5D555518193A9D0100BF6F20 /* iPadProgramHexCollectionView.m in Sources */,
+				AA49F3E21D6001C300680B8A /* School.m in Sources */,
 				5D338A1A19189B5D00A62AC0 /* iPadProgramViewController.m in Sources */,
 				AAEC90F3197D8182006E8E1C /* UIColor+RGBValues.m in Sources */,
-				AAF734691A8B407600F3398D /* UniqKEKeyword.m in Sources */,
 				5D338A14191896CA00A62AC0 /* iPadProgramSelectViewController.m in Sources */,
+				AA49F3C11D6001C300680B8A /* Banner+CoreDataProperties.m in Sources */,
 				AAF734751A8B409900F3398D /* JPMainSync.m in Sources */,
 				AAA248A01D5F7B970016300A /* JPUtility.swift in Sources */,
+				AA49F3C21D6001C300680B8A /* Banner.m in Sources */,
 				5DA82D7F18C2FE430011AC26 /* MPNotification.m in Sources */,
 				5DA82D8118C2FE430011AC26 /* MPNotificationViewController.m in Sources */,
 				AA318CB91D5FF9DB002229AC /* JPFirebaseCentral.m in Sources */,
 				5D16764018591AE10041993E /* iPadDashletDetailsView.m in Sources */,
 				AA520EDD1971F55A0003EF98 /* iPhFacProgSelectViewController.m in Sources */,
-				AAF734571A8B407500F3398D /* SchoolRanking.m in Sources */,
-				AAF7345A1A8B407600F3398D /* SchoolLocation.m in Sources */,
+				AA49F3C31D6001C300680B8A /* Contact+CoreDataProperties.m in Sources */,
 				AAF733E81A8B3FAF00F3398D /* JPFont.m in Sources */,
 				5D1DE04619315DD400C36935 /* VolumeBar.m in Sources */,
 				AA520EE11971F6F60003EF98 /* iPhSchoolHomeViewController.m in Sources */,
 				5D2540B518B74EDA00FAB887 /* iPadDashletImageView.m in Sources */,
 				5DA82D8618C2FE430011AC26 /* MPSurveyQuestionViewController.m in Sources */,
+				AA49F3DC1D6001C300680B8A /* ProgramApplicationStat.m in Sources */,
+				AA49F3C81D6001C300680B8A /* RelatedItem.m in Sources */,
 				AAF7347D1A8B40C400F3398D /* JPCloudFavoritesHelper.m in Sources */,
-				AAF734661A8B407600F3398D /* RelatedItem.m in Sources */,
 				5D338A2419189DA700A62AC0 /* iPadProgramContactViewController.m in Sources */,
 				AAF734971A8B40F300F3398D /* JPUserLocator.m in Sources */,
 				5DA82D8918C2FE430011AC26 /* UIImage+MPAverageColor.m in Sources */,
+				AA49F3CA1D6001C300680B8A /* Featured.m in Sources */,
 				5D9C99D519357D1C004EFC47 /* iPadDebugSyncViewController.m in Sources */,
-				AAF734631A8B407600F3398D /* UserFavItem.m in Sources */,
 				AAC6BD96199D2E6800683DB1 /* iPhProgramRatingsTableCell.m in Sources */,
 				AA55F93A199AD160005F9F76 /* iPhMainTabBarController.m in Sources */,
 				AAF734731A8B409900F3398D /* JPCoreDataHelper.m in Sources */,
 				AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */,
+				AA49F3C61D6001C300680B8A /* ProgramYearlyTuition.m in Sources */,
+				AA49F3D21D6001C300680B8A /* ImageLink.m in Sources */,
 				5D7055F718B9C779002941B3 /* JPBannerView.m in Sources */,
 				5D592B3C191F050D00ECDCF7 /* iPadProgramDetailGraphView.m in Sources */,
 				AA55F937199AD147005F9F76 /* iPadMainTabBarController.m in Sources */,
 				AA520EFE197260D40003EF98 /* iPhProgramDetailView.m in Sources */,
-				AAF7343C1A8B407500F3398D /* School.m in Sources */,
 				5D592B8D191F426800ECDCF7 /* iPadProgramDetailInfoView.m in Sources */,
 				5D2664D118BB249100C8CC91 /* JPLocalDatabase.xcdatamodeld in Sources */,
-				AAF7344B1A8B407500F3398D /* HighschoolCourse.m in Sources */,
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
 				AAF734AC1A8B411A00F3398D /* JPProgramAcademicsViewController.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
 				AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */,
+				AA49F3D91D6001C300680B8A /* Program+CoreDataProperties.m in Sources */,
+				AA49F3DF1D6001C300680B8A /* ProgramRating+CoreDataProperties.m in Sources */,
 				5D555526193B140900BF6F20 /* JPProgramCoursesViewController.m in Sources */,
 				5D7055F218B9B240002941B3 /* iPadSearchBarView.m in Sources */,
 				AA115F2519A9BCC6006E07C1 /* TLTiltSlider.m in Sources */,
 				5D338A2A19189DCB00A62AC0 /* iPadProgramRatingsViewController.m in Sources */,
 				5D70560E18B9E10D002941B3 /* AFHTTPSessionManager.m in Sources */,
 				AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */,
+				AA49F3C01D6001C300680B8A /* UniqKEFunction.m in Sources */,
+				AA49F3DB1D6001C300680B8A /* ProgramApplicationStat+CoreDataProperties.m in Sources */,
 				5D592BA9191FF2D300ECDCF7 /* LBActionSheet.m in Sources */,
 				AA0DB944197BA8AD005A5665 /* JBParallaxSharedCell.m in Sources */,
 				5D555521193AF98500BF6F20 /* iPadProgramRelatedViewCell.m in Sources */,
 				AA636EBE19A42C3B007FCBA4 /* HNScrollView.m in Sources */,
 				5D592B35191C893900ECDCF7 /* JPProgramSummaryView.m in Sources */,
 				5DA82D8518C2FE430011AC26 /* MPSurveyQuestion.m in Sources */,
+				AA49F3BF1D6001C300680B8A /* UniqKEFunction+CoreDataProperties.m in Sources */,
 				5DA82D8B18C2FE430011AC26 /* UIView+MPSnapshotImage.m in Sources */,
+				AA49F3D81D6001C300680B8A /* UniqKEKeyword.m in Sources */,
 				5D592BA0191FF26700ECDCF7 /* DPMeterView.m in Sources */,
 				5DAC8F8B1855254200FE3B5B /* iPadMainHomeViewController.m in Sources */,
 				AA520EE9197219070003EF98 /* iPhProgramViewController.m in Sources */,
+				AA49F3E61D6001C300680B8A /* UniqKEOne.m in Sources */,
 				5D167632185787750041993E /* JPDashletTitleView.m in Sources */,
 				AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */,
-				AAF734361A8B407500F3398D /* Program.m in Sources */,
 				AA636EB519A42BFD007FCBA4 /* SVStatusHUD.m in Sources */,
 				AAF734AB1A8B411A00F3398D /* JPMainFeaturedViewController.m in Sources */,
 				5D338A2119189D9600A62AC0 /* iPadProgramAcademicsViewController.m in Sources */,
+				AA49F3C51D6001C300680B8A /* ProgramYearlyTuition+CoreDataProperties.m in Sources */,
 				5DA82D8718C2FE430011AC26 /* NSData+MPBase64.m in Sources */,
 				5D592C0919207CB900ECDCF7 /* XYPieChart.m in Sources */,
 				5D70561118B9E10D002941B3 /* AFURLConnectionOperation.m in Sources */,
 				5D592B38191C897D00ECDCF7 /* iPadProgramDetailView.m in Sources */,
+				AA49F3E51D6001C300680B8A /* UniqKEOne+CoreDataProperties.m in Sources */,
 				5D70561218B9E10D002941B3 /* AFURLRequestSerialization.m in Sources */,
 				5D555529193BBA9800BF6F20 /* JPProgramCoursesTableViewCell.m in Sources */,
 				AAF7347E1A8B40C400F3398D /* JPProgramRatingHelper.m in Sources */,
 				AAF733EB1A8B3FAF00F3398D /* NSObject+JPConvenience.m in Sources */,
 				AA63DCFA196E561B001D9768 /* iPhMainTableViewCell.m in Sources */,
+				AA49F3D51D6001C300680B8A /* SchoolLocation+CoreDataProperties.m in Sources */,
 				AA56DDEF19B8EE59005EE1CD /* TRVSMonitor.m in Sources */,
 				5D338A3219189EC100A62AC0 /* iPadProgramImagesViewController.m in Sources */,
 				5D55551B193A9E5A00BF6F20 /* iPadProgramRelatedView.m in Sources */,
@@ -2064,9 +2190,9 @@
 				5D70561418B9E10D002941B3 /* AFURLSessionManager.m in Sources */,
 				5D70562118B9EAB2002941B3 /* sortViewController.m in Sources */,
 				5D70561318B9E10D002941B3 /* AFURLResponseSerialization.m in Sources */,
+				AA49F3E11D6001C300680B8A /* School+CoreDataProperties.m in Sources */,
 				AA63DCF3196E470E001D9768 /* iPhMainFavoritesViewController.m in Sources */,
 				AAA248A21D5F99A20016300A /* JPOfflineDataRequest.swift in Sources */,
-				AAF7344E1A8B407500F3398D /* Featured.m in Sources */,
 				5DE5B7C0184ACBB700EFCE0A /* UniqAppDelegate.m in Sources */,
 				AAF734931A8B40F300F3398D /* JPImageRetriever.m in Sources */,
 				5DA82D8218C2FE430011AC26 /* MPSurvey.m in Sources */,
@@ -2075,19 +2201,19 @@
 				5D4897F21925CC400062DD54 /* RPRadarChart.m in Sources */,
 				AAAEE36119BD004D00988810 /* iPhProgramDetailTableView.m in Sources */,
 				5D94203F19308AA10033D57B /* DXAlertView.m in Sources */,
-				AAF734331A8B407500F3398D /* UniqKEFunction.m in Sources */,
 				5DA82D8A18C2FE430011AC26 /* UIImage+MPImageEffects.m in Sources */,
 				AAF734911A8B40F300F3398D /* JPDashlet.m in Sources */,
+				AA49F3D71D6001C300680B8A /* UniqKEKeyword+CoreDataProperties.m in Sources */,
 				5DA82D8418C2FE430011AC26 /* MPSurveyNavigationController.m in Sources */,
 				AA22BC87197A003000182486 /* iPhSettingsAboutViewController.m in Sources */,
 				5DE5B7BC184ACBB700EFCE0A /* main.m in Sources */,
 				AAF734951A8B40F300F3398D /* JPLocation.m in Sources */,
 				AA636EC619A42C93007FCBA4 /* HNBorderButton.m in Sources */,
+				AA49F3BD1D6001C300680B8A /* UserFavItem+CoreDataProperties.m in Sources */,
 				5DAC8F851855251300FE3B5B /* iPadMainExploreViewController.m in Sources */,
 				AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */,
-				AAF734421A8B407500F3398D /* ImportantDate.m in Sources */,
-				AAF734601A8B407600F3398D /* ProgramApplicationStat.m in Sources */,
 				5D592BA1191FF26700ECDCF7 /* UIBezierPath+BasicShapes.m in Sources */,
+				AA49F3E41D6001C300680B8A /* User.m in Sources */,
 				AA34FA5A198999B100A73292 /* AutoScrollLabel.m in Sources */,
 				AA520EEF19721A410003EF98 /* iPhProgramAcademicsViewController.m in Sources */,
 				AAF734721A8B409900F3398D /* JPConnectivityManager.m in Sources */,

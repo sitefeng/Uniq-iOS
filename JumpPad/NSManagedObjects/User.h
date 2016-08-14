@@ -2,8 +2,8 @@
 //  User.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,32 +11,14 @@
 
 @class HighschoolCourse, UserFavItem;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * currentAvg;
-@property (nonatomic, retain) NSString * interest;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSString * locationString;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSData * profileImage;
-@property (nonatomic, retain) NSNumber * satGrammar;
-@property (nonatomic, retain) NSNumber * satMath;
-@property (nonatomic, retain) NSNumber * satReading;
-@property (nonatomic, retain) NSSet *courses;
-@property (nonatomic, retain) NSSet *favItems;
-@end
-
-@interface User (CoreDataGeneratedAccessors)
-
-- (void)addCoursesObject:(HighschoolCourse *)value;
-- (void)removeCoursesObject:(HighschoolCourse *)value;
-- (void)addCourses:(NSSet *)values;
-- (void)removeCourses:(NSSet *)values;
-
-- (void)addFavItemsObject:(UserFavItem *)value;
-- (void)removeFavItemsObject:(UserFavItem *)value;
-- (void)addFavItems:(NSSet *)values;
-- (void)removeFavItems:(NSSet *)values;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "User+CoreDataProperties.h"

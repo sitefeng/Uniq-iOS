@@ -2,8 +2,8 @@
 //  ProgramRating.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,17 +11,14 @@
 
 @class Program;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ProgramRating : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * classmates;
-@property (nonatomic, retain) NSNumber * difficulty;
-@property (nonatomic, retain) NSNumber * guyToGirlRatio;
-@property (nonatomic, retain) NSNumber * professor;
-@property (nonatomic, retain) NSNumber * ratingOverall;
-@property (nonatomic, retain) NSNumber * schedule;
-@property (nonatomic, retain) NSNumber * socialEnjoyments;
-@property (nonatomic, retain) NSNumber * studyEnv;
-@property (nonatomic, retain) NSNumber * weight;
-@property (nonatomic, retain) Program *program;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "ProgramRating+CoreDataProperties.h"

@@ -2,8 +2,8 @@
 //  UniqKEOne.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,16 +11,14 @@
 
 @class UniqKEFunction;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UniqKEOne : NSManagedObject
 
-@property (nonatomic, retain) NSSet *functions;
-@end
-
-@interface UniqKEOne (CoreDataGeneratedAccessors)
-
-- (void)addFunctionsObject:(UniqKEFunction *)value;
-- (void)removeFunctionsObject:(UniqKEFunction *)value;
-- (void)addFunctions:(NSSet *)values;
-- (void)removeFunctions:(NSSet *)values;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "UniqKEOne+CoreDataProperties.h"

@@ -2,18 +2,14 @@
 //  Banner.m
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import "Banner.h"
 
-
 @implementation Banner
 
-@dynamic bannerId;
-@dynamic bannerLink;
-@dynamic linkedUrl;
-@dynamic title;
+// Insert code here to add functionality to your managed object subclass
 
 @end

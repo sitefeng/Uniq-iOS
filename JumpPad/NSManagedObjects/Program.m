@@ -2,8 +2,8 @@
 //  Program.m
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import "Program.h"
@@ -19,41 +19,8 @@
 #import "RelatedItem.h"
 #import "SchoolLocation.h"
 
-
 @implementation Program
 
-@dynamic about;
-@dynamic applicationDeadline;
-@dynamic appProcess;
-@dynamic avgAdm;
-@dynamic curriculumTerms;
-@dynamic degree;
-@dynamic degreeAbbrev;
-@dynamic facultyId;
-@dynamic gradPopulation;
-@dynamic internshipAbout;
-@dynamic isCoop;
-@dynamic name;
-@dynamic numAccepted;
-@dynamic numApplicants;
-@dynamic numFavorites;
-@dynamic programId;
-@dynamic schoolId;
-@dynamic shortName;
-@dynamic slug;
-@dynamic toDelete;
-@dynamic undergradPopulation;
-@dynamic yearEstablished;
-@dynamic applicationStats;
-@dynamic contacts;
-@dynamic courses;
-@dynamic faculty;
-@dynamic images;
-@dynamic importantDates;
-@dynamic location;
-@dynamic rating;
-@dynamic relatedItems;
-@dynamic requiredCourses;
-@dynamic tuitions;
+// Insert code here to add functionality to your managed object subclass
 
 @end

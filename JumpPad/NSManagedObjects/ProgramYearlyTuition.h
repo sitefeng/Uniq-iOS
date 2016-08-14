@@ -2,8 +2,8 @@
 //  ProgramYearlyTuition.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,11 +11,14 @@
 
 @class Program;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface ProgramYearlyTuition : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * domesticTuition;
-@property (nonatomic, retain) NSNumber * internationalTuition;
-@property (nonatomic, retain) NSString * term;
-@property (nonatomic, retain) Program *program;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "ProgramYearlyTuition+CoreDataProperties.h"

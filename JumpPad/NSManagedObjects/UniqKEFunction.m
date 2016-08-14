@@ -2,21 +2,16 @@
 //  UniqKEFunction.m
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import "UniqKEFunction.h"
 #import "UniqKEKeyword.h"
 #import "UniqKEOne.h"
 
-
 @implementation UniqKEFunction
 
-@dynamic category;
-@dynamic name;
-@dynamic priority;
-@dynamic keywords;
-@dynamic knowledgeEngine;
+// Insert code here to add functionality to your managed object subclass
 
 @end

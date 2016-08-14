@@ -2,8 +2,8 @@
 //  UserFavItem.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,14 +11,14 @@
 
 @class User;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UserFavItem : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * applied;
-@property (nonatomic, retain) NSString * favItemId;
-@property (nonatomic, retain) NSNumber * gotOffer;
-@property (nonatomic, retain) NSNumber * researched;
-@property (nonatomic, retain) NSNumber * response;
-@property (nonatomic, retain) NSNumber * type;
-@property (nonatomic, retain) User *user;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "UserFavItem+CoreDataProperties.h"

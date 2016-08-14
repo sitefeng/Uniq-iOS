@@ -156,17 +156,17 @@
     UILabel* localLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(40, titleLabelY + 80, 185,70)];
     localLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
     localLabelVal.textAlignment = NSTextAlignmentCenter;
-    ProgramYearlyTuition* tuition = [self.program.tuitions anyObject];
-    NSNumber*    domesticT = tuition.domesticTuition;
-    localLabelVal.text = [NSString stringWithFormat:@"$ %@", domesticT];
+    
+    ProgramYearlyTuition* tuition = self.program.tuition;
+    localLabelVal.text = [NSString stringWithFormat:@"$ %.f", tuition.domesticTuition.floatValue];
     localLabelVal.textColor = [UIColor blackColor];
     
     //----------
     UILabel* intLabelVal = [[UILabel alloc] initWithFrame:CGRectMake(40, titleLabelY + 170, 185, 70)];
     intLabelVal.font = [UIFont fontWithName:[JPFont defaultThinFont] size:35];
     intLabelVal.textAlignment = NSTextAlignmentCenter;
-    NSNumber *internationalT = tuition.internationalTuition;
-    intLabelVal.text = [NSString stringWithFormat:@"$ %@", internationalT];
+
+    intLabelVal.text = [NSString stringWithFormat:@"$ %.f", tuition.domesticTuition.floatValue];
     intLabelVal.textColor = [UIColor blackColor];
     
     [self addSubview:localLabelVal];
@@ -400,9 +400,9 @@
 - (NSNumber*)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
     //tuitions:
-    ProgramYearlyTuition* tuition = [self.program.tuitions anyObject];
-    float domesticTuition = [tuition.domesticTuition doubleValue];
-    float intTuition = [tuition.internationalTuition doubleValue];
+    ProgramYearlyTuition* tuition = self.program.tuition;
+    float domesticTuition = tuition.domesticTuition.floatValue;
+    float intTuition = tuition.internationalTuition.floatValue;
     
     //Regional:
     float domesticTuitionRegional = 7259/2.0;

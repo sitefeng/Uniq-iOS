@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6220.8" systemVersion="13F25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="iOS 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 4.3">
     <entity name="Banner" representedClassName="Banner" syncable="YES">
         <attribute name="bannerId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="bannerLink" optional="YES" attributeType="String" syncable="YES"/>
@@ -30,6 +30,8 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numPrograms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="schoolId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolSlug" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toDelete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="totalFunding" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="undergradPopulation" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -80,6 +82,7 @@
         <attribute name="degree" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="degreeAbbrev" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="facultyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="facultySlug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gradPopulation" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="internshipAbout" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isCoop" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -89,6 +92,7 @@
         <attribute name="numFavorites" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="programId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schoolId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolSlug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toDelete" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -104,7 +108,7 @@
         <relationship name="rating" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramRating" inverseName="program" inverseEntity="ProgramRating" syncable="YES"/>
         <relationship name="relatedItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RelatedItem" inverseName="program" inverseEntity="RelatedItem" syncable="YES"/>
         <relationship name="requiredCourses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HighschoolCourse" inverseName="program" inverseEntity="HighschoolCourse" syncable="YES"/>
-        <relationship name="tuitions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ProgramYearlyTuition" inverseName="program" inverseEntity="ProgramYearlyTuition" syncable="YES"/>
+        <relationship name="tuition" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ProgramYearlyTuition" inverseName="program" inverseEntity="ProgramYearlyTuition" syncable="YES"/>
     </entity>
     <entity name="ProgramApplicationStat" representedClassName="ProgramApplicationStat" syncable="YES">
         <attribute name="numApplicants" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
@@ -136,8 +140,7 @@
     <entity name="ProgramYearlyTuition" representedClassName="ProgramYearlyTuition" syncable="YES">
         <attribute name="domesticTuition" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="internationalTuition" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="term" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="tuitions" inverseEntity="Program" syncable="YES"/>
+        <relationship name="program" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Program" inverseName="tuition" inverseEntity="Program" syncable="YES"/>
     </entity>
     <entity name="RelatedItem" representedClassName="RelatedItem" syncable="YES">
         <attribute name="itemId" optional="YES" attributeType="String" syncable="YES"/>
@@ -156,6 +159,7 @@
         <attribute name="numFaculties" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="numPrograms" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="schoolId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slug" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toDelete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="totalFunding" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="undergradPopulation" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -228,18 +232,18 @@
     <elements>
         <element name="Banner" positionX="207" positionY="327" width="128" height="105"/>
         <element name="Contact" positionX="-54" positionY="-27" width="128" height="225"/>
-        <element name="Faculty" positionX="142" positionY="-54" width="128" height="343"/>
+        <element name="Faculty" positionX="142" positionY="-54" width="128" height="375"/>
         <element name="Featured" positionX="367" positionY="324" width="128" height="118"/>
         <element name="HighschoolCourse" positionX="306" positionY="108" width="128" height="133"/>
         <element name="ImageLink" positionX="-20" positionY="207" width="128" height="120"/>
         <element name="ImportantDate" positionX="-54" positionY="342" width="128" height="118"/>
-        <element name="Program" positionX="-297" positionY="155" width="128" height="538"/>
+        <element name="Program" positionX="-297" positionY="155" width="128" height="570"/>
         <element name="ProgramApplicationStat" positionX="-531" positionY="153" width="128" height="120"/>
         <element name="ProgramCourse" positionX="-531" positionY="288" width="128" height="133"/>
         <element name="ProgramRating" positionX="-531" positionY="432" width="128" height="195"/>
-        <element name="ProgramYearlyTuition" positionX="-524" positionY="653" width="128" height="105"/>
+        <element name="ProgramYearlyTuition" positionX="-524" positionY="653" width="128" height="90"/>
         <element name="RelatedItem" positionX="-155" positionY="207" width="128" height="118"/>
-        <element name="School" positionX="-252" positionY="-189" width="128" height="328"/>
+        <element name="School" positionX="-252" positionY="-189" width="128" height="345"/>
         <element name="SchoolLocation" positionX="-54" positionY="-292" width="128" height="240"/>
         <element name="SchoolRanking" positionX="-425" positionY="21" width="128" height="105"/>
         <element name="UniqKEFunction" positionX="-783" positionY="-171" width="128" height="120"/>

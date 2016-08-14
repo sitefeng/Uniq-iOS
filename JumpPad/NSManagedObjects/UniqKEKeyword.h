@@ -2,8 +2,8 @@
 //  UniqKEKeyword.h
 //  Uniq
 //
-//  Created by Si Te Feng on 2/10/15.
-//  Copyright (c) 2015 Si Te Feng. All rights reserved.
+//  Created by Si Te Feng on 8/13/16.
+//  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,9 +11,14 @@
 
 @class UniqKEFunction;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UniqKEKeyword : NSManagedObject
 
-@property (nonatomic, retain) NSString * keyword;
-@property (nonatomic, retain) UniqKEFunction *function;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "UniqKEKeyword+CoreDataProperties.h"
