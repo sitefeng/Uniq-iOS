@@ -16,8 +16,6 @@
 @protocol JPDataRequestDelegate, JPProgramRatingHelper, JPConnectivityManager;
 @interface JPDataRequest : NSObject <JPProgramRatingHelperDelegate, JPCloudFavoritesHelperDelegate>
 {
-    NSMutableDictionary*  _itemDetailsDictWithoutRatings;
-    JPDashletType  _itemDetailType;
     NSInteger      _itemDetailExpectedReturnNumber;
     
     JPConnectivityManager*  _connectivity;

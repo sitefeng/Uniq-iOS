@@ -18,16 +18,17 @@
 
 - (void)uploadRatingsWithProgramUid: (NSString*)uid ratings:(JPRatings*)ratings;
 
-- (void)downloadRatingsWithProgramUid: (NSString*)uid getAverageValue: (BOOL)isAverage;
-- (NSDictionary*)downloadRatingsSynchronouslyWithProgramUid:(NSString *)uid getAverageValue:(BOOL)isAverage;
+/**
+ * @param isAverage if true means get the average ratings of all the users, if false means get the rating for the current user based on UIDevice Id
+ */
+- (void)downloadRatingsWithProgramUid:(NSString *)uid getAverageValue: (BOOL)isAverage completionHandler: (void (^)(BOOL success, JPRatings *ratings))completion;
 
 @end
 
 
 @protocol JPProgramRatingHelperDelegate <NSObject>
 
+@optional
 - (void)ratingHelper: (JPProgramRatingHelper*)helper didUploadRatingsForProgramUid: (NSString*)uid error: (NSError*)error;
-
-- (void)ratingHelper:(JPProgramRatingHelper *)helper didDownloadRatingsForProgramUid:(NSString *)uid ratings: (JPRatings*)ratings ratingExists: (BOOL)exists networkError: (NSError*)error;
 
 @end

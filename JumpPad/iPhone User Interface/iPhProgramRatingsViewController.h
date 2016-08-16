@@ -12,17 +12,6 @@
 
 @class Program, JPProgramRatingHelper;
 @interface iPhProgramRatingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, JPProgramRatingsCellDelegate, JPProgramRatingHelperDelegate>
-{
-    NSArray*        _cellTitles;
-    NSMutableArray* _cellValues; //NSNumber
-    
-    JPProgramRatingHelper* _ratingsHelper;
-    
-    BOOL            _offlineMode;
-    BOOL            _prevRatingExists;
-}
-
-
 
 
 @property (nonatomic, strong) Program* program;
@@ -30,7 +19,5 @@
 @property (nonatomic, strong) UITableView* tableView;
 
 - (instancetype)initWithProgram: (Program*)program;
-
-
 
 @end

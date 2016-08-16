@@ -213,50 +213,30 @@
         }
         
         NSDictionary* mainDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        _itemDetailsDictWithoutRatings = [mainDict mutableCopy];
-        _itemDetailType = type;
+        NSMutableDictionary *itemDetailsDict = [mainDict mutableCopy];
         _itemDetailExpectedReturnNumber = 1;
         
         _cloudFavHelper = [[JPCloudFavoritesHelper alloc] init];
         _cloudFavHelper.delegate = self;
-        NSInteger favNum = [_cloudFavHelper getItemFavCountWithUid:itemId];
-        [_itemDetailsDictWithoutRatings setObject:[NSNumber numberWithInteger:favNum] forKey:@"numFavorites"];
+        
+        NSInteger favNum = [_cloudFavHelper getItemFavCountSyncWithUid:itemId];
+        [itemDetailsDict setObject:[NSNumber numberWithInteger:favNum] forKey:@"numFavorites"];
         
         //Adding Ratings from Firebase
         _ratingHelper = [[JPProgramRatingHelper alloc] init];
         _ratingHelper.delegate = self;
-        [_ratingHelper downloadRatingsWithProgramUid:itemId getAverageValue:YES];
+        [_ratingHelper downloadRatingsWithProgramUid:itemId getAverageValue:YES completionHandler:^(BOOL success, JPRatings *ratings) {
+            
+            NSDictionary *ratingsDict = ratings.getFullKeyDictionaryRepresentation;
+            [itemDetailsDict setObject:ratingsDict forKey:@"rating"];
+            
+            _itemDetailExpectedReturnNumber--;
+            
+            [self.delegate dataRequest:self didLoadItemDetailsWithId:itemId ofType:type dataDict:itemDetailsDict isSuccessful:YES];
+        }];
       
-
     }];
-
 }
-
-
-- (void)ratingHelper:(JPProgramRatingHelper *)helper didDownloadRatingsForProgramUid:(NSString *)uid ratings:(JPRatings *)ratings ratingExists:(BOOL)exists networkError:(NSError *)error
-{
-    if(error)
-    {
-        NSLog(@"Firebase avg rating network Error: %@", error.localizedDescription);
-        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadItemDetailsWithId:ofType:dataDict:isSuccessful:)])
-            [self.delegate dataRequest:self didLoadItemDetailsWithId:uid ofType:JPDashletTypeProgram dataDict:nil isSuccessful:NO];
-        return;
-    }
-    
-    if(!exists) {
-        ratings = [[JPRatings alloc] initWithDefaultValues];
-    }
-    
-    NSMutableDictionary* newDict = [_itemDetailsDictWithoutRatings mutableCopy];
-    NSMutableDictionary* ratingsDict = [[ratings getFullKeyDictionaryRepresentation] mutableCopy];
-    [newDict setObject:ratingsDict forKey:@"rating"];
-    
-    _itemDetailExpectedReturnNumber--;
-    
-    if([self.delegate respondsToSelector:@selector(dataRequest:didLoadItemDetailsWithId:ofType:dataDict:isSuccessful:)] && _itemDetailExpectedReturnNumber<=0)
-        [self.delegate dataRequest:self didLoadItemDetailsWithId:uid ofType:_itemDetailType dataDict:newDict isSuccessful:YES];
-}
-
 
 
 //Without Ratings & Favorites from Firebase
@@ -267,8 +247,7 @@
         JPCoreDataHelper* coreDataHelper = [[JPCoreDataHelper alloc] init];
         NSDictionary* dataDict = [coreDataHelper retrieveItemDictionaryFromCoreDataWithItemId:itemId withType:type];
         
-        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadItemBriefDetailsWithId:ofType:dataDict:isSuccessful:)])
-        {
+        if([self.delegate respondsToSelector:@selector(dataRequest:didLoadItemBriefDetailsWithId:ofType:dataDict:isSuccessful:)]) {
             if(dataDict)
                 [self.delegate dataRequest:self didLoadItemBriefDetailsWithId:itemId ofType:type dataDict:dataDict isSuccessful:YES];
             else

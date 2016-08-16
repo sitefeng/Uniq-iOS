@@ -42,14 +42,21 @@
         if (JPUtility.isOfflineMode) {
             _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
             
-            NSDictionary *dataDict = @{};
             if (type == JPDashletTypeFaculty) {
-                dataDict = [_offlineDataRequest requestFacultyDetails:self.schoolSlug facultySlug:self.facultySlug itemUid:self.itemId];
+                [_offlineDataRequest requestFacultyDetails:_schoolSlug facultySlug:_facultySlug itemUid:_itemId completion:^(BOOL success, NSDictionary<NSString *,id> * _Nonnull dataDict) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self finishedLoadingDetailsOfType:type dataDict:dataDict isSuccessful:success];
+                    });
+                }];
+                            
             } else {
-                dataDict = [_offlineDataRequest requestSchoolDetails:self.schoolSlug itemUid:self.itemId];
+                [_offlineDataRequest requestSchoolDetails:_schoolSlug itemUid:_itemId completion:^(BOOL success, NSDictionary<NSString *,id> * _Nonnull dataDict) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self finishedLoadingDetailsOfType:type dataDict:dataDict isSuccessful:success];
+                    });
+                }];
             }
-            
-            [self finishedLoadingDetailsOfType:type dataDict:dataDict isSuccessful:true];
             
         } else {
             _dataRequest = [JPDataRequest request];

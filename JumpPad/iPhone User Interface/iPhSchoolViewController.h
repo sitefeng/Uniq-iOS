@@ -15,7 +15,6 @@
 @interface iPhSchoolViewController : UITabBarController
 {
     NSManagedObjectContext* context;
-    
     JPCoreDataHelper*  _coreDataHelper;
 }
 

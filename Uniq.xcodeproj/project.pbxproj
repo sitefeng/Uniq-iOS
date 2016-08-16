@@ -224,8 +224,6 @@
 		AAAEE36119BD004D00988810 /* iPhProgramDetailTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */; };
 		AAC6BD92199D2B1A00683DB1 /* iPhProgramRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */; };
 		AAC6BD96199D2E6800683DB1 /* iPhProgramRatingsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */; };
-		AACB7776199E47D100C02513 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7775199E47D100C02513 /* Parse.framework */; };
-		AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7797199E5C1600C02513 /* FacebookSDK.framework */; };
 		AAE509D819644773000C6899 /* iPadSchoolHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */; };
 		AAE50A5D1965A3D3000C6899 /* JPSchoolSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */; };
 		AAE50A651966685E000C6899 /* iPadProgramComparisonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE50A641966685E000C6899 /* iPadProgramComparisonViewController.m */; };
@@ -288,7 +286,6 @@
 		5D22646B192DB96E004B3B42 /* JBParallaxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBParallaxCell.h; sourceTree = "<group>"; };
 		5D22646C192DB96E004B3B42 /* JBParallaxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBParallaxCell.m; sourceTree = "<group>"; };
 		5D2443FC192AABF500E7E8E0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5D2540B018B73F9600FAB887 /* iPadMainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadMainCollectionViewCell.h; path = "iPad User Interface/iPadMainCollectionViewCell.h"; sourceTree = "<group>"; };
 		5D2540B118B73F9600FAB887 /* iPadMainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadMainCollectionViewCell.m; path = "iPad User Interface/iPadMainCollectionViewCell.m"; sourceTree = "<group>"; };
 		5D2540B318B74EDA00FAB887 /* iPadDashletImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadDashletImageView.h; path = "iPad User Interface/iPadDashletImageView.h"; sourceTree = "<group>"; };
@@ -633,14 +630,12 @@
 		AAC6BD91199D2B1A00683DB1 /* iPhProgramRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramRatingsViewController.m; path = "iPhone User Interface/iPhProgramRatingsViewController.m"; sourceTree = "<group>"; };
 		AAC6BD94199D2E6800683DB1 /* iPhProgramRatingsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhProgramRatingsTableCell.h; path = "iPhone User Interface/iPhProgramRatingsTableCell.h"; sourceTree = "<group>"; };
 		AAC6BD95199D2E6800683DB1 /* iPhProgramRatingsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhProgramRatingsTableCell.m; path = "iPhone User Interface/iPhProgramRatingsTableCell.m"; sourceTree = "<group>"; };
-		AACB7775199E47D100C02513 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		AACB7777199E480500C02513 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AACB7779199E480C00C02513 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AACB777B199E481600C02513 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AACB777D199E481D00C02513 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		AACB777F199E482700C02513 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AACB7781199E482F00C02513 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		AACB7797199E5C1600C02513 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPadSchoolHomeViewController.h; path = "iPad User Interface/iPadSchoolHomeViewController.h"; sourceTree = "<group>"; };
 		AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPadSchoolHomeViewController.m; path = "iPad User Interface/iPadSchoolHomeViewController.m"; sourceTree = "<group>"; };
 		AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPSchoolSummaryView.h; path = "iPad User Interface/JPSchoolSummaryView.h"; sourceTree = "<group>"; };
@@ -736,9 +731,7 @@
 				5DE5C30B1923449000F7F01B /* Social.framework in Frameworks */,
 				5DE5C3091923448900F7F01B /* MessageUI.framework in Frameworks */,
 				5D36C3DB1915793700A5A7D8 /* CoreData.framework in Frameworks */,
-				AACB7776199E47D100C02513 /* Parse.framework in Frameworks */,
 				5DE5B7B4184ACBB700EFCE0A /* UIKit.framework in Frameworks */,
-				AACB7798199E5C1600C02513 /* FacebookSDK.framework in Frameworks */,
 				9BE6E475B241C1280F79B04A /* Pods_Uniq.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1064,19 +1057,16 @@
 			children = (
 				AA115F2F19AAAA4D006E07C1 /* Accounts.framework */,
 				AA115F2D19AAAA20006E07C1 /* libz.1.1.3.dylib */,
-				AACB7797199E5C1600C02513 /* FacebookSDK.framework */,
 				AACB7781199E482F00C02513 /* StoreKit.framework */,
 				AACB777F199E482700C02513 /* Security.framework */,
 				AACB777D199E481D00C02513 /* MobileCoreServices.framework */,
 				AACB777B199E481600C02513 /* libz.dylib */,
 				AACB7779199E480C00C02513 /* CFNetwork.framework */,
 				AACB7777199E480500C02513 /* AudioToolbox.framework */,
-				AACB7775199E47D100C02513 /* Parse.framework */,
 				AA115456195E024000C56E2B /* AddressBook.framework */,
 				5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */,
 				AA35BDC619D22C45008BFF5F /* CFNetwork.framework */,
 				5D925310192E4C4100BE5BA3 /* AVFoundation.framework */,
-				5D24470B192B16CA00E7E8E0 /* SenTestingKit.framework */,
 				5D2443FC192AABF500E7E8E0 /* MapKit.framework */,
 				5DE5C30A1923449000F7F01B /* Social.framework */,
 				5DE5C3081923448900F7F01B /* MessageUI.framework */,
@@ -2187,10 +2177,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Si Te Feng (PAR485YFSL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Si Te Feng (PAR485YFSL)";
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -2212,7 +2202,7 @@
 					"-objC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d4cbecea-9151-47b7-a1a0-94c1db247540";
 				SWIFT_OBJC_BRIDGING_HEADER = "JumpPad/Uniq-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2231,7 +2221,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Si Te Feng (52GHE2Q332)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Si Te Feng (52GHE2Q332)";
 				DEFINES_MODULE = YES;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",

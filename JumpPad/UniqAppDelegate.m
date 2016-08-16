@@ -15,7 +15,6 @@
 #import "JPMainSync.h"
 #import "JPConnectivityManager.h"
 #import "AFNetworkReachabilityManager.h"
-#import <Parse/Parse.h>
 #import "JPCoreDataHelper.h"
 
 
@@ -60,12 +59,12 @@
     
     ////////////////////////////////////////
     //Parse
-    [Parse setApplicationId:@"P7owDlPOJQHtrQxoyMUlbHZE6dpNylK9ZggTvOjL"
-                  clientKey:@"7qbh1hOkCegxe3QH86ktkxZwISBeDI2cIUUJAJlP"];
-    
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
-     UIRemoteNotificationTypeAlert|
-     UIRemoteNotificationTypeSound];
+//    [Parse setApplicationId:@"P7owDlPOJQHtrQxoyMUlbHZE6dpNylK9ZggTvOjL"
+//                  clientKey:@"7qbh1hOkCegxe3QH86ktkxZwISBeDI2cIUUJAJlP"];
+//    
+//    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+//     UIRemoteNotificationTypeAlert|
+//     UIRemoteNotificationTypeSound];
     
     
     ///////////////////////////////////////////
@@ -122,16 +121,16 @@
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     // Store the deviceToken in the current installation and save it to Parse.
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setDeviceTokenFromData:deviceToken];
-    [currentInstallation saveInBackground];
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    [currentInstallation setDeviceTokenFromData:deviceToken];
+//    [currentInstallation saveInBackground];
 }
 
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    [PFPush handlePush:userInfo];
+//    [PFPush handlePush:userInfo];
 }
 
 

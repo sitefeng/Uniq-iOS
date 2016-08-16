@@ -19,6 +19,12 @@
 
 @interface iPhProgramRatingsViewController ()
 
+@property (nonatomic, strong) NSArray     *cellTitles;
+// array of NSNumbers
+@property (nonatomic, strong) NSMutableArray *cellValues;
+
+@property (nonatomic, assign) BOOL prevRatingExists;
+@property (nonatomic, strong) JPProgramRatingHelper* ratingsHelper;
 @end
 
 @implementation iPhProgramRatingsViewController
@@ -38,10 +44,21 @@
         //TODO: get real value from Firebase
         _cellValues = [@[@50,@50,@50,@50,@50,@50,@50,@50] mutableCopy];
         
-        _offlineMode = NO;
-        
-        
-        [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId] getAverageValue:NO];
+        [_ratingsHelper downloadRatingsWithProgramUid:self.program.programId getAverageValue:NO completionHandler:^(BOOL success, JPRatings *ratings) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(!success) {
+                    JPLog(@"Error: program ratings cannot be downloaded");
+                    // then continue with blank data anyway
+                }
+
+                NSArray* cellRatingsArray = [ratings getOrderedArray];
+                if(cellRatingsArray)
+                    _cellValues = [cellRatingsArray mutableCopy];
+                
+                [self.tableView reloadData];
+            });
+            
+        }];
         
     }
     return self;
@@ -65,9 +82,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if(_offlineMode)
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"downloadFailedHUD"] status:@"Currently Offline"];
 }
 
 
@@ -193,32 +207,6 @@
     [self.tableView reloadRowsAtIndexPaths:@[submitCellPath] withRowAnimation:UITableViewRowAnimationFade];
     
 }
-
-
-- (void)ratingHelper:(JPProgramRatingHelper *)helper didDownloadRatingsForProgramUid:(NSString *)uid ratings:(JPRatings *)ratings ratingExists:(BOOL)exists networkError:(NSError *)error
-{
-    if(error)
-    {
-        _offlineMode = YES;
-        return;
-    }
-    
-    _offlineMode = NO;
-    _prevRatingExists = exists;
-    if(!exists || !ratings) {
-        return;
-    }
-    
-    NSArray* cellRatingsArray = [ratings getOrderedArray];
-    if(cellRatingsArray)
-        _cellValues = [cellRatingsArray mutableCopy];
-    
-    [self.tableView reloadData];
-}
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning

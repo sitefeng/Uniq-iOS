@@ -168,16 +168,39 @@
     [self.view addSubview:self.ratingScrollView];
     
     
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
-    [_ratingsHelper downloadRatingsWithProgramUid:[NSString stringWithFormat:@"%@",self.program.programId] getAverageValue:NO];
-    
+    /////////////////////
+    [_ratingsHelper downloadRatingsWithProgramUid:self.program.programId getAverageValue:NO completionHandler:^(BOOL success, JPRatings *ratings) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(!success) {
+                [SVStatusHUD showWithImage:[UIImage imageNamed:@"downloadFailedHUD"] status:@"Currently Offline"];
+                return;
+            }
+            
+            [submitButton setTitle:@"Update Submission" forState:UIControlStateNormal];
+            
+            NSArray* orderedArray = [ratings getOrderedArray];
+            
+            float maxVal = 1.0502156;
+            float minVal = -1.0482738;
+            float overallValue = [[orderedArray objectAtIndex:0] floatValue];
+            
+            self.overallSelector.currentRadian = (overallValue/100.0)*(maxVal-minVal) + minVal;
+            
+            for(int i=1; i<=6; i++)
+            {
+                NSInteger value = [[orderedArray objectAtIndex:i] integerValue];
+                VolumeBar* volume = [self.categorySelectors objectAtIndex:i-1];
+                volume.currentVolume = value;
+            }
+            
+            NSInteger ratioValue = ratings.guyRatio;
+            self.tiltSlider.value = ratioValue/100.0;
+            _guyLabel.text = [NSString stringWithFormat:@"%ld", (long)ratioValue];
+            _girlLabel.text = [NSString stringWithFormat:@"%ld", 100-ratioValue];
+        });
+    }];
 }
-
 
 
 - (void)sliderChanged: (TLTiltSlider*)slider
@@ -228,41 +251,6 @@
     }
     
     [submitButton setTitle:@"Update Submission" forState:UIControlStateNormal];
-}
-
-- (void)ratingHelper:(JPProgramRatingHelper *)helper didDownloadRatingsForProgramUid:(NSString *)uid ratings:(JPRatings *)ratings ratingExists:(BOOL)exists networkError:(NSError *)error
-{
-    if(error)
-    {
-        [SVStatusHUD showWithImage:[UIImage imageNamed:@"downloadFailedHUD"] status:@"Currently Offline"];
-        return;
-    }
-    
-    if(!exists)
-        return;
-    
-    [submitButton setTitle:@"Update Submission" forState:UIControlStateNormal];
-    
-    NSArray* orderedArray = [ratings getOrderedArray];
-    
-    float maxVal = 1.0502156;
-    float minVal = -1.0482738;
-    float overallValue = [[orderedArray objectAtIndex:0] floatValue];
-    
-    self.overallSelector.currentRadian = (overallValue/100.0)*(maxVal-minVal) + minVal;
-    
-    for(int i=1; i<=6; i++)
-    {
-        NSInteger value = [[orderedArray objectAtIndex:i] integerValue];
-        VolumeBar* volume = [self.categorySelectors objectAtIndex:i-1];
-        volume.currentVolume = value;
-    }
-    
-    NSInteger ratioValue = ratings.guyRatio;
-    self.tiltSlider.value = ratioValue/100.0;
-    _guyLabel.text = [NSString stringWithFormat:@"%ld", (long)ratioValue];
-    _girlLabel.text = [NSString stringWithFormat:@"%d", 100-ratioValue];
-    
 }
 
 

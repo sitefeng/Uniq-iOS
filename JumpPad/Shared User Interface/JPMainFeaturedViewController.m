@@ -106,22 +106,18 @@
         [self.featuredFavNums addObject:@0];
         
         NSInteger rowNum = [self.featuredArray indexOfObject:featured];
-        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
+        __block NSIndexPath* indexPath = [NSIndexPath indexPathForRow:rowNum inSection:0];
         
-        [_cloudFav getItemFavCountAsyncWithUid:[featured objectForKey:@"id"] indexPath:indexPath];
+        [_cloudFav getItemFavCountAsyncWithUid:featured[@"id"] completionHandler:^(BOOL success, NSInteger favoriteCount) {
+            if(favoriteCount >= 0)
+            {
+                [self.featuredFavNums replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:favoriteCount]];
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }];
     }
 }
 
-
-- (void)cloudFavHelper:(JPCloudFavoritesHelper *)helper didGetItemFavCountWithUid:(NSString *)programUid cellIndexPath:(NSIndexPath *)indexPath countNumber:(NSInteger)count
-{
-    if(count >= 0 && count< 999999)
-    {
-        [self.featuredFavNums replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger:count]];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }
-
-}
 
 
 

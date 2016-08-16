@@ -18,16 +18,16 @@
 
 - (void)uploadItemFavoritedWithUid: (NSString*)uid;
 
-- (NSInteger)getItemFavCountWithUid: (NSString*)programUid;
-- (void)getItemFavCountAsyncWithUid: (NSString*)programUid indexPath: (NSIndexPath*)indexPath;
+- (void)getItemFavCountAsyncWithUid:(NSString *)programUid completionHandler: (void (^)(BOOL success, NSInteger favoriteCount))completion;
+
+// Note: Synchronous network operation, only to be used in background thread
+- (NSInteger)getItemFavCountSyncWithUid:(NSString *)programUid;
 
 @end
 
 @protocol JPCloudFavoritesHelperDelegate <NSObject>
 @optional
 - (void)cloudFavHelper: (JPCloudFavoritesHelper*)helper didFinishUploadItemFavoritedWithUid: (NSString*)uid itemExistsAlready: (BOOL)exists success: (BOOL)success;
-
-- (void)cloudFavHelper: (JPCloudFavoritesHelper*)helper didGetItemFavCountWithUid: (NSString*)programUid cellIndexPath:(NSIndexPath*)indexPath countNumber: (NSInteger)count;
 
 @end
 

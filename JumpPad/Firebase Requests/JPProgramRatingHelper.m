@@ -139,9 +139,8 @@
 
 #pragma mark - Downloading Ratings
 
-
-- (void)downloadRatingsWithProgramUid:(NSString *)uid getAverageValue: (BOOL)isAverage
-{
+- (void)downloadRatingsWithProgramUid:(NSString *)uid getAverageValue: (BOOL)isAverage completionHandler: (void (^)(BOOL success, JPRatings *ratings))completion {
+    
     NSString* deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     if(isAverage)
         deviceId = @"avg";
@@ -158,8 +157,8 @@
        
         if(connectionError)
         {
-            NSLog(@"Download connectionError: %@", connectionError.localizedDescription);
-            [self.delegate ratingHelper:self didDownloadRatingsForProgramUid:uid ratings:nil ratingExists:NO networkError:connectionError];
+            JPLog(@"Download connectionError: %@", connectionError.localizedDescription);
+            completion(NO, nil);
             return;
         }
         
@@ -167,17 +166,19 @@
         
         if([dataDict isEqual: [NSNull null]] || !dataDict)
         {
-            [self.delegate ratingHelper:self didDownloadRatingsForProgramUid:uid ratings:nil ratingExists:NO networkError:nil];
+            JPLog(@"Program rating does not exist");
+            completion(NO, nil);
         }
         else
         {
             JPRatings* ratings = [[JPRatings alloc] initWithShortKeyDictionary:dataDict];
-            [self.delegate ratingHelper:self didDownloadRatingsForProgramUid:uid ratings:ratings ratingExists:YES networkError:nil];
+            completion(YES, ratings);
         }
         
     }];
     
 }
+
 
 
 - (NSDictionary*)downloadRatingsSynchronouslyWithProgramUid:(NSString *)uid getAverageValue:(BOOL)isAverage

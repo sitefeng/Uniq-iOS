@@ -9,12 +9,13 @@
 
 @objc internal protocol JPOfflineDataRequestDelegate {
     
-    func offlineDataRequest(request: JPOfflineDataRequest, didLoadAllItemsOfType type: JPDashletType, dataArray: [AnyObject], isSuccessful: Bool)
-    
+    optional func offlineDataRequest(request: JPOfflineDataRequest, didLoadAllItemsOfType type: JPDashletType, dataArray: [AnyObject], isSuccessful: Bool)
+
 }
 
 
-internal final class JPOfflineDataRequest: NSObject {
+/// Although it's mainly offline requests, it contains some online operations (such as firebase ratings)
+internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelegate {
     
     var delegate: JPOfflineDataRequestDelegate?
     
@@ -66,7 +67,7 @@ internal final class JPOfflineDataRequest: NSObject {
             }
         }
         
-        delegate?.offlineDataRequest(self, didLoadAllItemsOfType: JPDashletType.School, dataArray: dataArray, isSuccessful: true)
+        delegate?.offlineDataRequest?(self, didLoadAllItemsOfType: JPDashletType.School, dataArray: dataArray, isSuccessful: true)
     }
     
     
@@ -106,7 +107,7 @@ internal final class JPOfflineDataRequest: NSObject {
             }
         }
         
-        delegate?.offlineDataRequest(self, didLoadAllItemsOfType: JPDashletType.Faculty, dataArray: dataArray, isSuccessful: true)
+        delegate?.offlineDataRequest?(self, didLoadAllItemsOfType: JPDashletType.Faculty, dataArray: dataArray, isSuccessful: true)
     }
     
     
@@ -142,7 +143,7 @@ internal final class JPOfflineDataRequest: NSObject {
             }
         }
         
-        delegate?.offlineDataRequest(self, didLoadAllItemsOfType: JPDashletType.Program, dataArray: dataArray, isSuccessful: true)
+        delegate?.offlineDataRequest?(self, didLoadAllItemsOfType: JPDashletType.Program, dataArray: dataArray, isSuccessful: true)
     }
     
     // MARK: - Serialized Requests
@@ -201,51 +202,65 @@ internal final class JPOfflineDataRequest: NSObject {
     
     //MARK: - Requesting Indivitual item details
     /// Get program details in dictionary format
-    func requestProgramDetails(schoolSlug: String, facultySlug: String, programSlug: String, itemUid: String) -> [String: AnyObject] {
-        
-        let programPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(programSlug).json"
-        
-        var dictionary = dictionaryFromFilePath(programPath)
-        dictionary = addRealtimeValuesToDictionary(itemUid, dict: dictionary)
-        
-        //Adding Ratings from Firebase
-        let programRatingHelper = JPProgramRatingHelper()
-        let ratingsShortForm = programRatingHelper.downloadRatingsSynchronouslyWithProgramUid(itemUid, getAverageValue: true)
-        let ratings = JPRatings(shortKeyDictionary: ratingsShortForm)
-        
-        let ratingsDict = ratings.getFullKeyDictionaryRepresentation()
-        dictionary["rating"] = ratingsDict
-        
-        return dictionary
-    }
-    
-    
-    func requestSchoolDetails(slug: String, itemUid: String) -> [String: AnyObject] {
+    func requestProgramDetails(schoolSlug: String, facultySlug: String, programSlug: String, itemUid: String, completion: ((Bool, [String: AnyObject]) -> Void)) {
         
         if itemUid.characters.count == 0 {
             NSLog("ItemUid cannot be empty");
-            return [:]
+            completion(false, [:])
+        }
+        
+        let programPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(programSlug).json"
+        
+        let dictionary = dictionaryFromFilePath(programPath)
+        addFavoriteCountToDictionary(itemUid, dict: dictionary) { (success1, augmentedDict) in
+            
+            var augmentedFavDict = augmentedDict
+            
+            //Adding Ratings from Firebase
+            let programRatingHelper = JPProgramRatingHelper()
+            programRatingHelper.delegate = self
+            programRatingHelper.downloadRatingsWithProgramUid(itemUid, getAverageValue: true) { (success2, ratings) in
+                
+                let ratingsShortForm = ratings.getShortKeyDictionaryRepresentation()
+                let ratings = JPRatings(shortKeyDictionary: ratingsShortForm)
+                
+                let ratingsDict = ratings.getFullKeyDictionaryRepresentation()
+                augmentedFavDict["rating"] = ratingsDict
+                
+                completion(success1 && success2, augmentedFavDict)
+            }
+        }
+    }
+    
+    func requestFacultyDetails(schoolSlug: String, facultySlug: String, itemUid: String, completion: ((Bool, [String: AnyObject]) -> Void)) {
+        if itemUid.characters.count == 0 {
+            NSLog("ItemUid cannot be empty");
+            completion(false, [:])
+        }
+        
+        let facultyPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
+        
+        let dictionary = dictionaryFromFilePath(facultyPath)
+        addFavoriteCountToDictionary(itemUid, dict: dictionary) { (success, augmentedDict) in
+            completion(success, augmentedDict)
+        }
+    }
+    
+    func requestSchoolDetails(slug: String, itemUid: String, completion: ((Bool, [String: AnyObject]) -> Void)) {
+        
+        if itemUid.characters.count == 0 {
+            NSLog("ItemUid cannot be empty");
+            completion(false, [:])
         }
         
         let schoolPath = offlineDataPath() + "/\(slug)/\(slug).json"
         
-        var dictionary = dictionaryFromFilePath(schoolPath)
-        dictionary = addRealtimeValuesToDictionary(itemUid, dict: dictionary)
-        
-        return dictionary
+        let dictionary = dictionaryFromFilePath(schoolPath)
+        addFavoriteCountToDictionary(itemUid, dict: dictionary) { (success, augmentedDict) in
+            completion(success, augmentedDict)
+        }
     }
     
-    
-    func requestFacultyDetails(schoolSlug: String, facultySlug: String, itemUid: String) -> [String: AnyObject] {
-        
-        let facultyPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
-        
-        var dictionary = dictionaryFromFilePath(facultyPath)
-        dictionary = addRealtimeValuesToDictionary(itemUid, dict: dictionary)
-        
-        return dictionary
-    }
-
     
     // MARK: Helpers
     private func offlineDataPath() -> String {
@@ -277,13 +292,18 @@ internal final class JPOfflineDataRequest: NSObject {
     }
     
     
-    private func addRealtimeValuesToDictionary(itemUid: String, dict: [String: AnyObject]) -> [String: AnyObject] {
+    
+    /**
+     * @param completion (success, augmentedDictionary) pass back original dictionary if the new information cannot be fetched
+     */
+    private func addFavoriteCountToDictionary(itemUid: String, dict: [String: AnyObject], completion: ((Bool, [String: AnyObject]) -> Void)) {
         var tempDictionary: [String: AnyObject] = dict
         _cloudFavoritesHelper = JPCloudFavoritesHelper()
-        let numFavorites = _cloudFavoritesHelper?.getItemFavCountWithUid(itemUid)
-        tempDictionary["numFavorites"] = NSNumber(integer: numFavorites ?? 0)
+        _cloudFavoritesHelper?.getItemFavCountAsyncWithUid(itemUid, completionHandler: { (success, numFavorites) in
+            tempDictionary["numFavorites"] = NSNumber(integer: numFavorites)
+            completion(success, tempDictionary)
+        })
         
-        return tempDictionary
     }
 
 }

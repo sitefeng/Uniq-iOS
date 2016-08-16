@@ -415,15 +415,25 @@
     if (JPUtility.isOfflineMode) {
         _offlineDataRequest = [[JPOfflineDataRequest alloc] init];
         
-        NSDictionary *dataDict = @{};
         if (type == JPDashletTypeSchool) {
-            dataDict = [_offlineDataRequest requestSchoolDetails:schoolSlug itemUid:itemId];
+            [_offlineDataRequest requestSchoolDetails:schoolSlug itemUid:itemId completion:^(BOOL success, NSDictionary<NSString *,id> * _Nonnull dataDict) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dataDict isSuccessful:success];
+                });
+            }];
         } else if (type == JPDashletTypeFaculty) {
-            dataDict = [_offlineDataRequest requestFacultyDetails:schoolSlug facultySlug:facultySlug itemUid:itemId];
+            [_offlineDataRequest requestFacultyDetails:schoolSlug facultySlug:facultySlug itemUid:itemId completion:^(BOOL success, NSDictionary<NSString *,id> * _Nonnull dataDict) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dataDict isSuccessful:success];
+                });
+            }];
         } else if (type == JPDashletTypeProgram) {
-            dataDict = [_offlineDataRequest requestProgramDetails:schoolSlug facultySlug:facultySlug programSlug:programSlug itemUid:itemId];
+            [_offlineDataRequest requestProgramDetails:schoolSlug facultySlug:facultySlug programSlug:programSlug itemUid:itemId completion:^(BOOL success, NSDictionary<NSString *,id> * _Nonnull dataDict) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dataDict isSuccessful:success];
+                });
+            }];
         }
-        [self finishedLoadingDetailsOfType:type itemId:itemId dataDict:dataDict isSuccessful:true];
         
     } else {
         [_dataRequest requestItemDetailsWithId:itemId ofType:type];
