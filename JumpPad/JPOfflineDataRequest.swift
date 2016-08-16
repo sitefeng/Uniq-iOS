@@ -241,11 +241,13 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             programRatingHelper.delegate = self
             programRatingHelper.downloadRatingsWithProgramUid(itemUid, getAverageValue: true) { (success2, ratings) in
                 
-                let ratingsShortForm = ratings.getShortKeyDictionaryRepresentation()
-                let ratings = JPRatings(shortKeyDictionary: ratingsShortForm)
-                
-                let ratingsDict = ratings.getFullKeyDictionaryRepresentation()
-                augmentedFavDict["rating"] = ratingsDict
+                if ratings != nil {
+                    let ratingsShortForm = ratings.getShortKeyDictionaryRepresentation()
+                    let ratings = JPRatings(shortKeyDictionary: ratingsShortForm)
+                    
+                    let ratingsDict = ratings.getFullKeyDictionaryRepresentation()
+                    augmentedFavDict["rating"] = ratingsDict
+                }
                 
                 completion(success1 && success2, augmentedFavDict)
             }
