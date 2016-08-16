@@ -164,14 +164,17 @@
         
         NSDictionary* dataDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         
+        JPRatings *ratings = [[JPRatings alloc] initWithDefaultValues];
+        
         if([dataDict isEqual: [NSNull null]] || !dataDict)
         {
-            JPLog(@"Program rating does not exist");
-            completion(NO, nil);
+            JPLog(@"Program rating does not exist, returning generic blank program rating");
+            // Continue anyway
+            completion(YES, ratings);
         }
         else
         {
-            JPRatings* ratings = [[JPRatings alloc] initWithShortKeyDictionary:dataDict];
+            ratings = [[JPRatings alloc] initWithShortKeyDictionary:dataDict];
             completion(YES, ratings);
         }
         

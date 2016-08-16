@@ -77,6 +77,10 @@
     
 }
 
+/** If programUid has not been uploaded to the cloud previously,
+ *  This method handles cloud data initialization
+ *  To be used internally
+ */
 
 //fav num is the number of favorited programs for the device
 //returns success status
@@ -107,7 +111,8 @@
 }
 
 
-
+// If the programUid has already been initialized on the cloud
+// To be used internally
 //Returns success status
 - (void)incrementProgramFavCountWithUid: (NSString*)programUid
 {

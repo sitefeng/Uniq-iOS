@@ -13,9 +13,6 @@
 
 @property (nonatomic, weak) id<JPCloudFavoritesHelperDelegate> delegate;
 
-//Takes an array of NSStrings
-- (void)syncFirebaseWithLocalFavItemUids: (NSArray*)uids;
-
 - (void)uploadItemFavoritedWithUid: (NSString*)uid;
 
 - (void)getItemFavCountAsyncWithUid:(NSString *)programUid completionHandler: (void (^)(BOOL success, NSInteger favoriteCount))completion;

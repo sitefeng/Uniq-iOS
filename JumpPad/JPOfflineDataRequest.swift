@@ -234,6 +234,11 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
         let dictionary = dictionaryFromFilePath(programPath)
         addFavoriteCountToDictionary(itemUid, dict: dictionary) { (success1, augmentedDict) in
             
+            if !success1 {
+                //Continue anyway without appending favorite count to dictionary
+            }
+            
+            // If favorite count for the program isn't found
             var augmentedFavDict = augmentedDict
             
             //Adding Ratings from Firebase
@@ -249,7 +254,8 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
                     augmentedFavDict["rating"] = ratingsDict
                 }
                 
-                completion(success1 && success2, augmentedFavDict)
+                // Succeed event if data cannot be appended for offline mode
+                completion(true, augmentedFavDict)
             }
         }
     }
