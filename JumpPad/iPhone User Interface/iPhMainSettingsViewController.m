@@ -162,7 +162,7 @@
                 break;
             }
             case 1: {
-                NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/Uniq-263885313811132/"];
+                NSURL* url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/fruit-ninja/id1143949288?mt=8"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }
@@ -209,7 +209,7 @@
                 break;
             }
             case 8: {
-                NSURL* url = [NSURL URLWithString:@"https://www.facebook.com/Uniq-263885313811132/"];
+                NSURL* url = [NSURL URLWithString:@"http://sitefeng.info/uniq.html"];
                 [[UIApplication sharedApplication] openURL:url];
                 break;
             }

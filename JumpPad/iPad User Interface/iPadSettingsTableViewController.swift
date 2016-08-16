@@ -146,7 +146,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         else if(row == 1)
         {
-            let url: NSURL = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")!
+            let url: NSURL = NSURL(string: "https://itunes.apple.com/us/app/fruit-ninja/id1143949288?mt=8")!
             UIApplication.sharedApplication().openURL(url)
         }
         else if(row == 2)
@@ -180,7 +180,7 @@ class iPadSettingsTableViewController: UITableViewController, UISplitViewControl
         }
         else if(row == 8)
         {
-            let url: NSURL = NSURL(string: "https://www.facebook.com/Uniq-263885313811132/")!
+            let url: NSURL = NSURL(string: "http://sitefeng.info/uniq.html")!
             UIApplication.sharedApplication().openURL(url)
         }
         
