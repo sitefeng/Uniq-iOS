@@ -26,7 +26,6 @@
         self.title = title;
         _programRating = self.program.rating;
         
-        
         if([title isEqual:@"About"])
         {
             UITextView* textView =[[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];

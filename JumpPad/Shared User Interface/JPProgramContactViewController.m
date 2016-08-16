@@ -48,6 +48,7 @@ static NSString *const NotAvailableString = @"Not Available";
         self.tabBarItem.image = [UIImage imageNamed:@"contact"];
         
         self.school = school;
+
     }
     return self;
 }
@@ -75,8 +76,20 @@ static NSString *const NotAvailableString = @"Not Available";
 
 - (NSArray*)getInformationArrayOfType: (NSString*)arrayType
 {
+    
     JPOfflineDataRequest *offlineRequest = [[JPOfflineDataRequest alloc] init];
     self.location = [offlineRequest requestLocationForSchool:self.program.schoolSlug];
+    
+    if (JPUtility.isOfflineMode) {
+        if (_itemType == JPDashletTypeProgram) {
+            self.location = [offlineRequest requestLocationForSchool:self.program.schoolSlug];
+        } else if (_itemType == JPDashletTypeFaculty) {
+            self.location = [offlineRequest requestLocationForSchool:self.faculty.schoolSlug];
+        } else if (_itemType == JPDashletTypeSchool) {
+            self.location = [offlineRequest requestLocationForSchool:self.school.slug];
+        }
+    }
+    
     NSString* address = [self.location userVisibleAddressString];
     
     if(!self.program && !self.faculty && !self.school)
@@ -119,7 +132,7 @@ static NSString *const NotAvailableString = @"Not Available";
     }
     else if([arrayType isEqual:@"labelNames"])
     {
-        return @[self.name, @"Phone",@"Email",@"Website",@"Facebook Group",@"Twitter", @"LinkedIn", @"Extra Information"];
+        return @[self.name ?: @"", @"Phone", @"Email", @"Website",@"Facebook Group",@"Twitter", @"LinkedIn", @"Extra Information"];
     }
     else if([arrayType isEqual:@"data"]) //eg to just get the phone number, as opposed to extension
     {
@@ -150,10 +163,25 @@ static NSString *const NotAvailableString = @"Not Available";
 {
     _school = school;
     _itemType = JPDashletTypeSchool;
+    _name = school.name;
     
-    NSArray* contacts = [school.contacts allObjects];
-    self.contactInfo = [contacts firstObject];
-    self.name = school.name;
+    if (JPUtility.isOfflineMode) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            JPOfflineDataRequest *request = [[JPOfflineDataRequest alloc] init];
+            __block JPLocation *newLocation = [request requestLocationForSchool:_school.slug];
+            __block JPContact *newContact = [request requestContactForSchool:_school.slug];
+            _location = newLocation;
+            _contactInfo = newContact;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadViews];
+            });
+        });
+    } else {
+        //TODO request updated info form server
+        
+        // Implementation
+    }
 }
 
 
@@ -161,10 +189,25 @@ static NSString *const NotAvailableString = @"Not Available";
 {
     _faculty = faculty;
     _itemType = JPDashletTypeFaculty;
+    _name = faculty.name;
     
-    NSArray* contacts = [faculty.contacts allObjects];
-    self.contactInfo = [contacts firstObject];
-    self.name = faculty.name;
+    if (JPUtility.isOfflineMode) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            JPOfflineDataRequest *request = [[JPOfflineDataRequest alloc] init];
+            __block JPLocation *newLocation = [request requestLocationForSchool:_faculty.schoolSlug];
+            __block JPContact *newContact = [request requestContactForFaculty:_faculty.schoolSlug facultySlug:_faculty.slug];
+            _location = newLocation;
+            _contactInfo = newContact;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadViews];
+            });
+        });
+    } else {
+        //TODO request updated info form server
+        
+        // Implementation
+    }
 }
 
 
@@ -172,13 +215,12 @@ static NSString *const NotAvailableString = @"Not Available";
 {
     _program = program;
     _itemType = JPDashletTypeProgram;
-    
     _name = program.name;
     
     if (JPUtility.isOfflineMode) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             JPOfflineDataRequest *request = [[JPOfflineDataRequest alloc] init];
-            __block JPLocation *newLocation = [request requestLocationForSchool:self.program.schoolSlug];
+            __block JPLocation *newLocation = [request requestLocationForSchool:_program.schoolSlug];
             __block JPContact *newContact = [request requestContactForFaculty:program.schoolSlug facultySlug:program.facultySlug];
             _location = newLocation;
             _contactInfo = newContact;

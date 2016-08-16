@@ -174,12 +174,34 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
     }
     
     // For when program doesn't have a specific contact info
+    func requestContactForSchool(schoolSlug: String) -> JPContact {
+        guard schoolSlug != "" else {
+            print("School Slug cannot be empty")
+            return JPContact()
+        }
+        
+        let schoolJSONPath = offlineDataPath() + "/\(schoolSlug)/\(schoolSlug).json"
+        
+        return _getContactFromJSONFilePath(schoolJSONPath)
+    }
+
+    
+    
+    // For when program doesn't have a specific contact info
     func requestContactForFaculty(schoolSlug: String, facultySlug: String) -> JPContact {
-        assert(schoolSlug != "" && facultySlug != "", "Faculty Slug cannot be empty")
+        guard schoolSlug != "" && facultySlug != "" else {
+            print("Faculty Slug cannot be empty")
+            return JPContact()
+        }
         
         let facultyJSONPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
+        return _getContactFromJSONFilePath(facultyJSONPath)
+    }
+    
+    private func _getContactFromJSONFilePath(path: String) -> JPContact {
         
-        let facultyJSONURL = NSURL(fileURLWithPath: facultyJSONPath)
+        // naming: Pretend getting contact for faculty
+        let facultyJSONURL = NSURL(fileURLWithPath: path)
         let facultyJSONData = NSData(contentsOfURL: facultyJSONURL)
         
         var facultyDictionary = [:]
@@ -197,8 +219,6 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
         let contact = JPContact(contactArray: facultyContactDict)
         return contact
     }
-    
-    
     
     //MARK: - Requesting Indivitual item details
     /// Get program details in dictionary format

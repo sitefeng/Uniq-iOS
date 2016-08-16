@@ -49,6 +49,8 @@
         NSString* dashletTitle = [self.dataSource programDetailTable:self dashletTitleForRow:i];
         
         UIView* dashletView = [[UIView alloc] initWithFrame:CGRectMake(5, currYPosition, self.frame.size.width-10, 200)];
+        dashletView.layer.cornerRadius = 10.0f;
+        dashletView.layer.masksToBounds = YES;
         dashletView.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         
         UILabel* dashletLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, dashletView.frame.size.width, 30)];
