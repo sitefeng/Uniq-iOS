@@ -9,7 +9,6 @@
 #import "JPGlobal.h"
 #import "JPDashlet.h"
 
-
 @implementation JPGlobal
 
 
@@ -135,11 +134,12 @@
     }
     else
     {
-        [[[UIAlertView alloc] initWithTitle:@"Cannot Open URL" message:@"Link is currently broken, please try again later. You may report this bug to us under 'Settings', and we'll resolve this issue as soon as possible." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil] show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Cannot Open URL" message:@"We are currently aware of this issue and will provide a fix a soon as possible. Sorry for the inconvenience." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:action];
+        [alertController show];
     }
 }
-
-
 
 
 UIImage* imageFromView(UIView *view)

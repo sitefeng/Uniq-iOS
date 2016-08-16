@@ -138,6 +138,7 @@
 		AA35BDC419D22ADC008BFF5F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACB7781199E482F00C02513 /* StoreKit.framework */; };
 		AA35BDC519D22AE3008BFF5F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D92531C1930718B00BE5BA3 /* SystemConfiguration.framework */; };
 		AA35BDC719D22C45008BFF5F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA35BDC619D22C45008BFF5F /* CFNetwork.framework */; };
+		AA38A1081D62D6AC005ED70F /* UIAlertController+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = AA38A1071D62D6AC005ED70F /* UIAlertController+Window.m */; };
 		AA3BEC58194D5D23001482D7 /* iPadSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */; };
 		AA3BEC5A194D5D56001482D7 /* iPadSettingsAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */; };
 		AA447E3519B5799E004855CC /* ManagedObjects+JPConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = AA447E3419B5799E004855CC /* ManagedObjects+JPConvenience.m */; };
@@ -477,6 +478,8 @@
 		AA34FA58198999B100A73292 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
 		AA34FA59198999B100A73292 /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabel.m; sourceTree = "<group>"; };
 		AA35BDC619D22C45008BFF5F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../../System/Library/Frameworks/CFNetwork.framework; sourceTree = "<group>"; };
+		AA38A1061D62D6AC005ED70F /* UIAlertController+Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertController+Window.h"; path = "UI Specifications/UIAlertController+Window.h"; sourceTree = "<group>"; };
+		AA38A1071D62D6AC005ED70F /* UIAlertController+Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertController+Window.m"; path = "UI Specifications/UIAlertController+Window.m"; sourceTree = "<group>"; };
 		AA3BEC57194D5D23001482D7 /* iPadSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsTableViewController.swift; path = "iPad User Interface/iPadSettingsTableViewController.swift"; sourceTree = "<group>"; };
 		AA3BEC59194D5D56001482D7 /* iPadSettingsAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = iPadSettingsAboutViewController.swift; path = "iPad User Interface/iPadSettingsAboutViewController.swift"; sourceTree = "<group>"; };
 		AA447E3319B5799E004855CC /* ManagedObjects+JPConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ManagedObjects+JPConvenience.h"; sourceTree = "<group>"; };
@@ -1272,6 +1275,8 @@
 				AAF733E01A8B3FAF00F3398D /* JPFont.m */,
 				AAF733E11A8B3FAF00F3398D /* JPGlobal.h */,
 				AAF733E21A8B3FAF00F3398D /* JPGlobal.m */,
+				AA38A1061D62D6AC005ED70F /* UIAlertController+Window.h */,
+				AA38A1071D62D6AC005ED70F /* UIAlertController+Window.m */,
 				AAA2489F1D5F7B970016300A /* JPUtility.swift */,
 				AAF733E31A8B3FAF00F3398D /* JPStyle.h */,
 				AAF733E41A8B3FAF00F3398D /* JPStyle.m */,
@@ -1953,6 +1958,7 @@
 				5D9C99D91935806B004EFC47 /* iPadSearchResultsView.m in Sources */,
 				AAF734AC1A8B411A00F3398D /* JPProgramAcademicsViewController.m in Sources */,
 				5D338A2719189DB900A62AC0 /* iPadProgramCompareViewController.m in Sources */,
+				AA38A1081D62D6AC005ED70F /* UIAlertController+Window.m in Sources */,
 				AAEC90F2197D8182006E8E1C /* LDProgressView.m in Sources */,
 				AA49F3D91D6001C300680B8A /* Program+CoreDataProperties.m in Sources */,
 				AA49F3DF1D6001C300680B8A /* ProgramRating+CoreDataProperties.m in Sources */,
