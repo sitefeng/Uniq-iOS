@@ -13,6 +13,8 @@
 #import "JPStyle.h"
 
 
+static const CGFloat DashletVerticalGap = 15.0f;
+
 @implementation iPhProgramDetailTableView
 
 - (instancetype)initWithFrame:(CGRect)frame program:(Program*)program
@@ -73,7 +75,7 @@
         [_programDetailViews addObject:detailView];
         [self addSubview:dashletView];
         
-        currYPosition += dashletFrame.size.height + 5;
+        currYPosition += dashletFrame.size.height + DashletVerticalGap;
         
     }
     
