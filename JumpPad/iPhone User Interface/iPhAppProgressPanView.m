@@ -17,7 +17,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectCalendarButtonsFromCoreData) name:kProgramFavoriteStatusDidChangeNotification object:nil];
         
         self.backgroundColor = [JPStyle colorWithName:@"tWhite"];
         UIView* bottomVisibleView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 30, frame.size.width, 30)];
@@ -37,7 +36,7 @@
         context = [(UniqAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
         
         UIView* whiteBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-30)];
-        whiteBackground.backgroundColor = [UIColor whiteColor];
+        whiteBackground.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent: 0.85];
         [self addSubview:whiteBackground];
         
         //Processes
