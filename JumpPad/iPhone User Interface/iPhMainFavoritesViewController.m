@@ -26,11 +26,12 @@
     
     context = [(UniqAppDelegate*)[[UIApplication sharedApplication] delegate] managedObjectContext];
     
-    self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 100)];
+    CGFloat bannerViewHeight = 100.0f;
+    self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, self.view.frame.size.width, bannerViewHeight)];
     [self.view addSubview:self.bannerView];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+100, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-100) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + bannerViewHeight, self.view.frame.size.width, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height) - bannerViewHeight) style:UITableViewStyleGrouped];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.showsVerticalScrollIndicator = NO;

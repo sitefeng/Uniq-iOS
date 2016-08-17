@@ -162,8 +162,8 @@
         return;
     }
     
-    if(fav)
-    {
+    if(fav) {
+        
         if([_favDashletsToDelete containsObject:itemId])
         {
             [_favDashletsToDelete removeObject:itemId];

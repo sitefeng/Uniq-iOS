@@ -42,7 +42,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    _panImageView = [[iPhImagePanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270)];
+    _panImageView = [[iPhImagePanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, self.view.frame.size.width, 270)];
    
     _panImageView.program = self.program;
     
@@ -50,20 +50,20 @@
     [_panImageView addGestureRecognizer:panRec];
     [self.view addSubview:_panImageView];
 
-    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait)];
+    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, self.view.frame.size.width, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height))];
     _detailScrollView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
     _detailScrollView.showsHorizontalScrollIndicator = NO;
     _detailScrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_detailScrollView];
 
 
-    JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait, 308) program:self.program isPhoneInterface:YES];
+    JPProgramSummaryView* summaryView = [[JPProgramSummaryView alloc] initWithFrame:CGRectMake(-10, 0, self.view.frame.size.width, 308) program:self.program isPhoneInterface:YES];
     summaryView.delegate = self;
     [_detailScrollView addSubview:summaryView];
 
-    _dashletTitles = @[@"About",@"Tuition",@"Highlight",@"Ratings",@"Gals vs Guys Ratio"];
+    _dashletTitles = @[@"About", @"Tuition", @"Highlight", @"Ratings", @"Gals vs Guys Ratio"];
     
-    self.dashletTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, 310, kiPhoneWidthPortrait, 500) program:self.program];
+    self.dashletTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, 310, self.view.frame.size.width, 500) program:self.program];
     self.dashletTableView.scrollable = NO;
     self.dashletTableView.dataSource = self;
     [_detailScrollView addSubview:self.dashletTableView];

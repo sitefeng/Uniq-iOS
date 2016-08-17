@@ -446,7 +446,7 @@
     "rating": {
         "classmates": 0, 
         "difficulty": 0, 
-        "guyRatio": 61.8, 
+        "guyRatio": 0, 
         "professors": 0, 
         "ratingOverall": 0, 
         "schedule": 0, 

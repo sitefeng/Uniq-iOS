@@ -488,14 +488,14 @@
     "numApplicants": "", 
     "rankings": [], 
     "rating": {
-        "classmates": 20, 
-        "difficulty": 40, 
-        "guyRatio": 87.5, 
-        "professors": 50, 
-        "ratingOverall": 10, 
-        "schedule": 80, 
-        "socialEnjoyment": 70, 
-        "studyEnv": 60
+        "classmates": 0, 
+        "difficulty": 0, 
+        "guyRatio": 0, 
+        "professors": 0, 
+        "ratingOverall": 0, 
+        "schedule": 0, 
+        "socialEnjoyment": 0, 
+        "studyEnv": 0
     }, 
     "relatedProgramKeys": [
         "universityofwaterloo_facultyofengineering_mechatronicsengineering",

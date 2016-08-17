@@ -38,7 +38,7 @@ static const NSInteger numberOfRowsInSectionOne = 1;
     [self.view addSubview:_mapPanView];
     _imageViewYBeforePan = _mapPanView.frame.origin.y;
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+30, kiPhoneWidthPortrait, kiPhoneContentHeightPortrait-30) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+30, kiPhoneWidthPortrait, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height)-30) style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];

@@ -33,7 +33,7 @@
     self.tabBarController.tabBar.translucent = NO;
     self.tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, kiPhoneHeightPortrait-kiPhoneTabBarHeight-kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, self.view.frame.size.width, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height)) style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.showsVerticalScrollIndicator = NO;

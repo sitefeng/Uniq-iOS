@@ -28,7 +28,6 @@
     self = [super initWithProgram:program];
     if (self) {
 
-        
     }
     return self;
 }
@@ -50,22 +49,11 @@
     //Program Detail Table View
     _dashletTitles = @[@"Courses", @"+"];
     
-    self.tableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, kiPhoneWidthPortrait, kiPhoneHeightPortrait - kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight-30) program:self.program];
+    self.tableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, self.view.frame.size.width, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height)-30) program:self.program];
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    self.tableView.frame = CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight + 30, kiPhoneWidthPortrait, kiPhoneHeightPortrait - kiPhoneStatusBarHeight-kiPhoneNavigationBarHeight-kiPhoneTabBarHeight-30);
-    
-
     
     [self.view bringSubviewToFront:_progressPanView];
-    
-}
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
- 
 }
 
 
@@ -87,33 +75,20 @@
 
 #pragma mark - Callback Methods
 
-- (void)courseTermPressed:(NSString*)term
-{
-    
+- (void)courseTermPressed:(NSString*)term {
     JPProgramCoursesViewController* vc = [[JPProgramCoursesViewController alloc] initWithNibName:nil bundle:nil];
     vc.program = self.program;
     vc.programTerm = term;
     
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:vc];
-    
     [self presentViewController:navController animated:YES completion:nil];
-    
 }
-
 
 
 - (void)appProgressDidPressFavoriteButton
 {
     iPhProgramViewController* tabController = (iPhProgramViewController*)self.tabBarController;
     [tabController reloadFavoriteButtonState];
-}
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

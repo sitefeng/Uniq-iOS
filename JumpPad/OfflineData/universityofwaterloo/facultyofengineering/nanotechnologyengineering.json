@@ -604,7 +604,7 @@
     "rating": {
         "classmates": 0, 
         "difficulty": 0, 
-        "guyRatio": 78.3, 
+        "guyRatio": 0, 
         "professors": 0, 
         "ratingOverall": 0, 
         "schedule": 0, 

@@ -36,25 +36,21 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     _indexPathsNeedReloading = [NSMutableArray array];
 
-    self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, kiPhoneWidthPortrait, 100)];
+    CGFloat bannerHeight = 100.0f;
+    CGFloat viewWidth = self.view.frame.size.width;
+    
+    self.bannerView = [[JPBannerView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight, viewWidth, bannerHeight)];
     [self.view addSubview:self.bannerView];
     
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bannerView.frame), kiPhoneWidthPortrait, 355) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.bannerView.frame), viewWidth, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height) - bannerHeight) style:UITableViewStylePlain];
     self.tableView.backgroundColor = [JPStyle transluscentWhite];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView registerClass:[iPhMainTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
     [self.view addSubview:self.tableView];
-    
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    
-}
 
 #pragma mark - UITable View Data Source
 

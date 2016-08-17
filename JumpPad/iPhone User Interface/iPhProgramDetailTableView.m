@@ -17,12 +17,12 @@ static const CGFloat DashletVerticalGap = 15.0f;
 
 @implementation iPhProgramDetailTableView
 
-- (instancetype)initWithFrame:(CGRect)frame program:(Program*)program
-{
-    self = [super initWithFrame:frame];
+- (instancetype)initWithFrame:(CGRect)frame program:(Program*)program {
     
-    self.program = program;
-    
+    if (self = [super initWithFrame:frame]) {
+        _program = program;
+        _scrollable = YES;
+    }
     return self;
 }
 
@@ -101,7 +101,6 @@ static const CGFloat DashletVerticalGap = 15.0f;
 - (iPhProgramDetailView*)dashletForRow:(NSInteger)row
 {
     return _programDetailViews[row];
-    
 }
 
 
