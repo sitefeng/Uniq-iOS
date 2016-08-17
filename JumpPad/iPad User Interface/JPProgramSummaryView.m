@@ -244,6 +244,11 @@ typedef NS_ENUM(NSInteger, JPProgramSummaryLabelType) {
 
 
 #pragma mark - Callback Methods
+- (void)imageItemTapped: (UIImageView *)imageView {
+    // Do nothing
+}
+
+
 - (void)emailButtonTapped: (UIButton*)sender
 {
     [self.delegate emailButtonTapped];
