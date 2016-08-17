@@ -481,6 +481,7 @@
 		AA3034D71D64062400219C9A /* iPhFacultyDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhFacultyDetailView.m; path = "iPhone User Interface/iPhFacultyDetailView.m"; sourceTree = "<group>"; };
 		AA3034D91D64063700219C9A /* iPhSchoolDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhSchoolDetailView.h; sourceTree = "<group>"; };
 		AA3034DA1D64063700219C9A /* iPhSchoolDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iPhSchoolDetailView.m; sourceTree = "<group>"; };
+		AA3034DC1D640D8E00219C9A /* ProgramDetailViewGeneric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgramDetailViewGeneric.h; path = "iPhone User Interface/ProgramDetailViewGeneric.h"; sourceTree = "<group>"; };
 		AA318CB71D5FF9DB002229AC /* JPFirebaseCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPFirebaseCentral.h; path = "Firebase Requests/JPFirebaseCentral.h"; sourceTree = "<group>"; };
 		AA318CB81D5FF9DB002229AC /* JPFirebaseCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPFirebaseCentral.m; path = "Firebase Requests/JPFirebaseCentral.m"; sourceTree = "<group>"; };
 		AA34FA58198999B100A73292 /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabel.h; sourceTree = "<group>"; };
@@ -1354,6 +1355,7 @@
 			children = (
 				AAAEE35F19BD004D00988810 /* iPhProgramDetailTableView.h */,
 				AAAEE36019BD004D00988810 /* iPhProgramDetailTableView.m */,
+				AA3034DC1D640D8E00219C9A /* ProgramDetailViewGeneric.h */,
 				AA520EFC197260D40003EF98 /* iPhProgramDetailView.h */,
 				AA520EFD197260D40003EF98 /* iPhProgramDetailView.m */,
 				AA3034D61D64062400219C9A /* iPhFacultyDetailView.h */,

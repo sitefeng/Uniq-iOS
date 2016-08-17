@@ -7,8 +7,10 @@
 //
 
 
+#import "ProgramDetailViewGeneric.h"
+
 @class Faculty;
-@interface iPhFacultyDetailView : UIView
+@interface iPhFacultyDetailView : UIView <ProgramDetailViewGeneric>
 
 
 
@@ -16,6 +18,9 @@
 @property (nonatomic, readonly, copy) NSString *title;
 
 @property (nonatomic, assign) CGFloat viewHeight;
+
+
+- (instancetype)initWithFrame:(CGRect)frame title: (NSString*)title faculty: (Faculty*)faculty;
 
 
 @end

@@ -29,6 +29,7 @@
 @property (nonatomic, assign) BOOL scrollable;
 
 
+// Note: Height of the table view doesn't matter when "scrollable = false" because the tableView's height is dynamic depending on the number of dashlets. The delegate will pass back later what the adjusted height for the detail table view is.
 - (instancetype)initWithFrame:(CGRect)frame program:(Program*)program;
 - (instancetype)initWithFrame:(CGRect)frame faculty:(Faculty*)faculty;
 - (instancetype)initWithFrame:(CGRect)frame school:(School*)school;

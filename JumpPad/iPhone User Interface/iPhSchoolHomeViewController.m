@@ -17,6 +17,7 @@
 
 @interface iPhSchoolHomeViewController ()
 
+@property (nonatomic, strong) JPSchoolSummaryView* summaryView;
 @property (nonatomic, strong) UIScrollView *detailScrollView;
 @property (nonatomic, strong) iPhImagePanView *panImageView;
 @property (nonatomic, strong) iPhProgramDetailTableView *detailTableView;
@@ -54,12 +55,12 @@
     [super viewDidLoad];
     
     // Initializing properties
-    self.detailViewTitles = @[@"About", @"Application Process"];
+    self.detailViewTitles = @[@"About"];//, @"Application Process"];
     
     // Setup View
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
-    _panImageView = [[iPhImagePanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270) offset:0];
+    _panImageView = [[iPhImagePanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, self.view.frame.size.width, 270) offset:0];
     
     if(self.type == JPDashletTypeFaculty)
         _panImageView.faculty = self.faculty;
@@ -71,20 +72,28 @@
     [self.view addSubview:_panImageView];
     
     
-    self.detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 30, kiPhoneContentHeightPortrait, kiPhoneContentHeightPortrait-30)];
+    self.detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 30, self.view.frame.size.width, kiPhoneContentHeightWithHeight([UIScreen mainScreen].bounds.size.height) - 30)];
     [self.view addSubview:self.detailScrollView];
     
-    JPSchoolSummaryView* summaryView = [[JPSchoolSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait+10, 280) isPhoneInterface:YES];
-    summaryView.delegate = self;
+    self.summaryView = [[JPSchoolSummaryView alloc] initWithFrame:CGRectMake(-10, 0, self.view.frame.size.width+10, 280) isPhoneInterface:YES];
+    self.summaryView.delegate = self;
     if(self.type == JPDashletTypeFaculty)
-        summaryView.faculty=self.faculty;
+        self.summaryView.faculty=self.faculty;
     else
-        summaryView.school=self.school;
+        self.summaryView.school=self.school;
     
-    [self.detailScrollView addSubview:summaryView];
+    [self.detailScrollView addSubview: self.summaryView];
     
     
-    self.detailTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, 310, self.view.frame.size.width, 500) program:self.program];
+    // Detail Table view with dashlets
+    
+    CGFloat summaryViewYBottom = self.summaryView.frame.origin.y + self.summaryView.frame.size.height;
+    
+    if (self.type == JPDashletTypeSchool) {
+        self.detailTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, summaryViewYBottom, self.view.frame.size.width, 500) school:self.school];
+    } else if (self.type == JPDashletTypeFaculty) {
+        self.detailTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, summaryViewYBottom, self.view.frame.size.width, 500) faculty:self.faculty];
+    }
     self.detailTableView.scrollable = NO;
     self.detailTableView.dataSource = self;
     [self.detailScrollView addSubview:self.detailTableView];
@@ -167,7 +176,8 @@
 }
 
 - (void)programDetailTable: (iPhProgramDetailTableView*)tableView didFindMaximumHeight: (CGFloat)height {
-    self.detailScrollView.contentSize = CGSizeMake(self.view.frame.size.width, height);
+    CGFloat tableStartingY = self.summaryView.frame.origin.y + self.summaryView.frame.size.height;
+    self.detailScrollView.contentSize = CGSizeMake(self.view.frame.size.width, tableStartingY + height);
 }
 
 

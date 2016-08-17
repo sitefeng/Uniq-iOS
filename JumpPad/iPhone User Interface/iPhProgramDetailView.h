@@ -12,10 +12,11 @@
 #import "iPadProgramDetailGraphView.h"
 #import "JPProgramDetailView.h"
 #import "JPRatings.h"
+#import "ProgramDetailViewGeneric.h"
 
 @class Program, ProgramRating, RPRadarChart;
 @protocol JPCoursesDetailViewDelegate;
-@interface iPhProgramDetailView : JPProgramDetailView <ChartViewDelegate, RPRadarChartDataSource, RPRadarChartDelegate>
+@interface iPhProgramDetailView : JPProgramDetailView <ChartViewDelegate, RPRadarChartDataSource, RPRadarChartDelegate, ProgramDetailViewGeneric>
 {
 
     float  _indexOfLargestSlice;
@@ -50,3 +51,6 @@
 - (void)courseTermPressed: (NSString*)term;
 
 @end
+
+
+
