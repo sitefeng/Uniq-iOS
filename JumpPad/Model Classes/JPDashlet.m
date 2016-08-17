@@ -204,6 +204,10 @@
         {
             self.itemId = [dict objectForKey:@"id"];
             
+            if (!self.itemId || [self.itemId isEqual:[NSNull null]]) {
+                self.itemId = [dict objectForKey:@"slug"];
+            }
+            
             if (type == JPDashletTypeSchool) {
                 self.schoolSlug = [dict objectForKey:@"slug"];
             } else if (type == JPDashletTypeFaculty) {

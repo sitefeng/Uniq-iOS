@@ -27,8 +27,14 @@
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     
     self.toDelete = @YES;
-    if([dict objectForKey:@"id"] != [NSNull null])
+    if([dict objectForKey:@"id"] != [NSNull null]) {
         self.schoolId = [dict objectForKey:@"id"];
+    }
+    else {
+        if([dict objectForKey:@"slug"] != [NSNull null]) {
+            self.schoolId = [dict objectForKey:@"slug"];
+        }
+    }
     if([dict objectForKey:@"slug"] != [NSNull null])
         self.slug = [dict objectForKey:@"slug"];
     
@@ -131,8 +137,13 @@
     self = [super initWithEntity:entity insertIntoManagedObjectContext:context];
     self.toDelete = @YES;
     
-    if([dict objectForKey:@"id"] != [NSNull null])
+    if([dict objectForKey:@"id"] != [NSNull null]) {
         self.facultyId = [dict objectForKey:@"id"];
+    }
+    else {
+        if([dict objectForKey:@"slug"] != [NSNull null])
+            self.facultyId = [dict objectForKey:@"slug"];
+    }
     if([dict objectForKey:@"slug"] != [NSNull null])
         self.slug = [dict objectForKey:@"slug"];
     if([dict objectForKey:@"schoolSlug"] != [NSNull null])
@@ -254,8 +265,14 @@
     
     if([dict objectForKey:@"id"] != [NSNull null])
         self.programId = [dict objectForKey:@"id"];
-    if([dict objectForKey:@"slug"] != [NSNull null])
-    self.slug = [dict objectForKey:@"slug"];
+    else {
+        if([dict objectForKey:@"slug"] != [NSNull null]) {
+            self.programId = [dict objectForKey:@"slug"];
+        }
+    }
+    if([dict objectForKey:@"slug"] != [NSNull null]) {
+        self.slug = [dict objectForKey:@"slug"];
+    }
     
     if([dict objectForKey:@"schoolId"] != [NSNull null])
     self.schoolId = [dict objectForKey:@"schoolId"];

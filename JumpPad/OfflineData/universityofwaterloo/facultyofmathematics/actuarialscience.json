@@ -2,7 +2,7 @@
     "id": "nos89pv83qh4nigf",
     "about": "The Department of Statistics and Actuarial Science offers courses and plans in Actuarial Science, which is the application of mathematics and statistics to financial problems with particular emphasis on life insurance, casualty insurance, and employee benefit programs. The courses offered provide theoretical preparation for the courses of the Society of Actuaries and the Casualty Actuarial Society, and include studies of such subject areas as Mathematics of Finance, Life Contingencies, Risk Theory, and Casualty Ratemaking. Note: Students in Honours Actuarial Science and Honours Actuarial Science/Finance Option require a special major average (SMAV) of 70% to remain eligible to continue in their plan.\nBy carefully selecting their non-math courses, students can also gain valuable background knowledge in economics, finance, administration, and law.", 
     "applicationProcess": null, 
-    "avgAdm": "90-93", 
+    "avgAdm": "", 
     "contacts": [], 
     "dateEstablished": "01-07-1957", 
     "degree": "Bachelor's of Applied Science", 
@@ -470,8 +470,8 @@
     "gradPopulation": "602", 
     "images": [
         {
-            "descriptor": "e5 building", 
-            "link": "http://www.freedomcad.com/betawebsite/wp-content/uploads/2013/08/electrical_engineering.jpg", 
+            "descriptor": "act sci", 
+            "link": "https://admissions.carleton.ca/wp-content/uploads/ActuarialScience_600x400.jpg", 
             "type": "misc"
         }
     ], 
@@ -483,7 +483,7 @@
         "dateModified": "01-09-2014", 
         "yearValid": 2015
     }, 
-    "name": "Electrical and Computer Engineering", 
+    "name": "Actuarial Science", 
     "numAccepted": "", 
     "numApplicants": "", 
     "rankings": [], 
@@ -550,9 +550,9 @@
     }, 
     "schoolId": "",
     "schoolSlug": "universityofwaterloo",
-    "facultySlug": "facultyofengineering",
-    "shortName": "ece", 
-    "slug": "electricalengineering", 
+    "facultySlug": "facultyofmathematics",
+    "shortName": "actsci", 
+    "slug": "actuarialscience", 
     "streams": null, 
-    "undergradPopulation": "835"
+    "undergradPopulation": ""
 }

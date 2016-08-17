@@ -97,10 +97,15 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             let facultyPath = schoolPath + "/\(facultyName)"
             
             let facultyJSONURL = NSURL(fileURLWithPath: facultyPath + "/\(facultyName).json")
-            let facultyJSONData = NSData(contentsOfURL: facultyJSONURL)
+            let facultyJSONDataOrNil = NSData(contentsOfURL: facultyJSONURL)
+            
+            guard let facultyJSONData = facultyJSONDataOrNil else {
+                print("matching faculty json does not exist in the faculty folder")
+                return
+            }
             
             do {
-                let facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData!, options: [])
+                let facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData, options: [])
                 dataArray.append(facultyDictionary)
             } catch {
                 return

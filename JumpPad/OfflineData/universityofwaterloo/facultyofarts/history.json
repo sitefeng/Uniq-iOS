@@ -1,0 +1,96 @@
+{
+    "id": "",
+    "about": "",
+    "applicationProcess": null, 
+    "avgAdm": "", 
+    "contacts": [], 
+    "dateEstablished": "", 
+    "degree": "", 
+    "degreeAbbrev": "", 
+    "degreeRequirements": {
+        "about": "",
+        "curriculum": [
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "000", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+            ], 
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "000", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "000", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "000", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+            ]
+        ], 
+        "curriculumTerms": [
+            "Year 1", 
+            "Year 2",
+            "Year 3",
+            "Year 4"
+        ]
+    }, 
+    "facultyId": "", 
+    "fees": {
+        "domestic": 0,
+        "international": 0
+    }, 
+    "gradPopulation": "", 
+    "images": [
+        {
+            "descriptor": "image", 
+            "link": "http://studentcompetitions-general.s3.amazonaws.com/cyp-2014/img/lundsuniversitet_-_b.jpg",
+            "type": "misc"
+        }
+    ], 
+    "applicationDeadline": "", 
+    "metaData": {
+        "dateCreated": "08-09-2016", 
+        "dateModified": "08-09-2016", 
+        "yearValid": 2016
+    }, 
+    "name": "History", 
+    "numAccepted": "", 
+    "numApplicants": "", 
+    "rankings": [], 
+    "rating": {
+        "classmates": 0, 
+        "difficulty": 0, 
+        "guyRatio": 0, 
+        "professors": 0, 
+        "ratingOverall": 0, 
+        "schedule": 0, 
+        "socialEnjoyment": 0, 
+        "studyEnv": 0
+    }, 
+    "schoolId": "",
+    "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofarts",
+    "shortName": "", 
+    "slug": "history", 
+    "undergradPopulation": ""
+}
