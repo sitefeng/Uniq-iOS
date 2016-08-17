@@ -119,7 +119,7 @@ static const NSInteger numberOfRowsInSectionOne = 1;
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString* dataString = [[self getInformationArrayOfType:@"data"] objectAtIndex:indexPath.row+2];
+    NSString* dataString = [[self getInformationArrayOfType:@"data"] objectAtIndex:indexPath.row+1];
     
     if(indexPath.row == 0 )
     {
