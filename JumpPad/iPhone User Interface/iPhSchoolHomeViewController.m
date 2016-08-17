@@ -17,6 +17,12 @@
 
 @interface iPhSchoolHomeViewController ()
 
+@property (nonatomic, strong) UIScrollView *detailScrollView;
+@property (nonatomic, strong) iPhImagePanView *panImageView;
+@property (nonatomic, strong) iPhProgramDetailTableView *detailTableView;
+
+@property (nonatomic, strong) NSArray *detailViewTitles;
+
 @end
 
 @implementation iPhSchoolHomeViewController
@@ -46,6 +52,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Initializing properties
+    self.detailViewTitles = @[@"About", @"Application Process"];
+    
+    // Setup View
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"edgeBackground"]];
     
     _panImageView = [[iPhImagePanView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight - 240, kiPhoneWidthPortrait, 270) offset:0];
@@ -60,8 +71,8 @@
     [self.view addSubview:_panImageView];
     
     
-    UIScrollView* detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 30, kiPhoneContentHeightPortrait, kiPhoneContentHeightPortrait-30)];
-    [self.view addSubview:detailScrollView];
+    self.detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kiPhoneStatusBarHeight+kiPhoneNavigationBarHeight+ 30, kiPhoneContentHeightPortrait, kiPhoneContentHeightPortrait-30)];
+    [self.view addSubview:self.detailScrollView];
     
     JPSchoolSummaryView* summaryView = [[JPSchoolSummaryView alloc] initWithFrame:CGRectMake(-10, 0, kiPhoneWidthPortrait+10, 280) isPhoneInterface:YES];
     summaryView.delegate = self;
@@ -70,15 +81,19 @@
     else
         summaryView.school=self.school;
     
+    [self.detailScrollView addSubview:summaryView];
     
-    [detailScrollView addSubview:summaryView];
     
-    
+    self.detailTableView = [[iPhProgramDetailTableView alloc] initWithFrame:CGRectMake(0, 310, self.view.frame.size.width, 500) program:self.program];
+    self.detailTableView.scrollable = NO;
+    self.detailTableView.dataSource = self;
+    [self.detailScrollView addSubview:self.detailTableView];
     
     [self.view bringSubviewToFront:_panImageView];
 }
 
 
+#pragma mark - Summary View Callbacks
 
 - (void)websiteButtonTapped
 {
@@ -136,30 +151,24 @@
     [JPGlobal openURL:url];
 }
 
-
-
-- (void)favoriteButtonSelected:(BOOL)isSelected
-{
+- (void)favoriteButtonSelected:(BOOL)isSelected {
     //NOT USING
 }
 
 
+#pragma mark - Program detail table view data source
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfDashletsInProgramDetailTable:(iPhProgramDetailTableView*)tableView {
+    return self.detailViewTitles.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSString*)programDetailTable:(iPhProgramDetailTableView*)tableView dashletTitleForRow:(NSInteger)row {
+    return self.detailViewTitles[row];
 }
-*/
+
+- (void)programDetailTable: (iPhProgramDetailTableView*)tableView didFindMaximumHeight: (CGFloat)height {
+    self.detailScrollView.contentSize = CGSizeMake(self.view.frame.size.width, height);
+}
+
 
 @end

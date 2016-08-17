@@ -9,14 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "iPhProgramDetailView.h"
 
-@class iPhProgramDetailView, Program;
+@class iPhProgramDetailView, Program, Faculty, School;
 @protocol JPProgramDetailTableViewDataSource;
-@interface iPhProgramDetailTableView : UIScrollView <JPCoursesDetailViewDelegate>
-{
+
+// Also used for schools and faculties
+@interface iPhProgramDetailTableView : UIScrollView <JPCoursesDetailViewDelegate> {
     NSMutableArray* _programDetailViews;
 }
 
 @property (nonatomic, strong) Program* program;
+@property (nonatomic, strong) Faculty* faculty;
+@property (nonatomic, strong) School* school;
+
+@property (nonatomic, assign) JPDashletType type;
 
 @property (nonatomic, strong) id<JPProgramDetailTableViewDataSource> dataSource;
 
@@ -25,6 +30,8 @@
 
 
 - (instancetype)initWithFrame:(CGRect)frame program:(Program*)program;
+- (instancetype)initWithFrame:(CGRect)frame faculty:(Faculty*)faculty;
+- (instancetype)initWithFrame:(CGRect)frame school:(School*)school;
 
 - (void)reloadData;
 

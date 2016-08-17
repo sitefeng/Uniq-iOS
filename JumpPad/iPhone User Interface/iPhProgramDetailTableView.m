@@ -9,6 +9,8 @@
 #import "iPhProgramDetailTableView.h"
 #import "iPhProgramDetailView.h"
 #import "Program.h"
+#import "Faculty.h"
+#import "School.h"
 #import "JPFont.h"
 #import "JPStyle.h"
 
@@ -17,11 +19,32 @@ static const CGFloat DashletVerticalGap = 15.0f;
 
 @implementation iPhProgramDetailTableView
 
-- (instancetype)initWithFrame:(CGRect)frame program:(Program*)program {
-    
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _program = program;
         _scrollable = YES;
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame program:(Program*)program {
+    if (self = [self initWithFrame:frame]) {
+        _type = JPDashletTypeProgram;
+        _program = program;
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame faculty:(Faculty*)faculty {
+    if (self = [self initWithFrame:frame]) {
+        _type = JPDashletTypeFaculty;
+        _faculty = faculty;
+    }
+    return self;
+}
+- (instancetype)initWithFrame:(CGRect)frame school:(School*)school {
+    if (self = [self initWithFrame:frame]) {
+        _type = JPDashletTypeSchool;
+        _school = school;
     }
     return self;
 }
@@ -98,19 +121,15 @@ static const CGFloat DashletVerticalGap = 15.0f;
 
 
 
-- (iPhProgramDetailView*)dashletForRow:(NSInteger)row
-{
+- (iPhProgramDetailView*)dashletForRow:(NSInteger)row {
     return _programDetailViews[row];
 }
 
 
 
-- (void)setDataSource:(id<JPProgramDetailTableViewDataSource>)dataSource
-{
+- (void)setDataSource:(id<JPProgramDetailTableViewDataSource>)dataSource {
     _dataSource = dataSource;
-    
     [self reloadData];
-    
 }
 
 

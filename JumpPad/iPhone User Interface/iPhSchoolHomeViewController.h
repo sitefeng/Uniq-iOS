@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "iPhProgramSchoolAbstractViewController.h"
 #import "JPSchoolSummaryView.h"
+#import "iPhProgramDetailTableView.h"
 
 @class School, Faculty, iPhImagePanView;
-@interface iPhSchoolHomeViewController : iPhProgramSchoolAbstractViewController <JPSchoolSummaryDelegate>
-{
-    iPhImagePanView*  _panImageView;
-    
-    
-}
+@interface iPhSchoolHomeViewController : iPhProgramSchoolAbstractViewController <JPSchoolSummaryDelegate,
+    JPProgramDetailTableViewDataSource>
 
 
 @property (nonatomic, assign) JPDashletType type;
@@ -26,11 +23,7 @@
 
 
 - (instancetype)initWithFaculty: (Faculty*)faculty;
-
 - (instancetype)initWithSchool: (School*)school;
-
-
-
 
 
 @end
