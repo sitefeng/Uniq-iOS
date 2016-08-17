@@ -157,6 +157,12 @@
 
 
 - (void)getItemFavCountAsyncWithUid:(NSString *)programUid completionHandler: (void (^)(BOOL success, NSInteger favoriteCount))completion {
+    
+    if (!programUid || [programUid isEqual:@""]) {
+        JPLog(@"Cannot get favorite count for item because Uid is missing");
+        return;
+    }
+    
     //Get Current Favorite Count
     NSString* getURLStr = [NSString stringWithFormat:@"%@/favorites/count/%@.json", FirebaseBaseURL, programUid];
     

@@ -1,6 +1,6 @@
 {  
   "id": "npg9sepoig934ngf",
-  "name":"",
+  "name":"Faculty of Arts",
   "shortName":"",
   "slug":"facultyofarts",
   "schoolSlug": "universityofwaterloo", 
@@ -32,20 +32,35 @@
     "dateCreated":"",
     "yearValid":2015
   },
-  "contacts":{  
-    "name":"Philippe Bezaire, Associate Director of Admissions",
-    "email":"admissions@engmail.uwaterloo.ca",
-    "phoneNum":"519-888-4894",
-    "website":"",
-    "facebook":"",
-    "twitter":"",
-    "linkedin":"",
-    "extraInfo":"Office: CPH 1320"
-  },
+  "contacts": [
+    {  
+      "name":"Philippe Bezaire, Associate Director of Admissions",
+      "email":"admissions@engmail.uwaterloo.ca",
+      "phoneNum":"519-888-4894",
+      "website":"",
+      "facebook":"",
+      "twitter":"",
+      "linkedin":"",
+      "extraInfo":"Office: CPH 1320"
+
+    }
+  ],
   "images":[  
       {  "type":"misc",
-         "descriptor":"image",
-         "link":"https://universityhub.ca/wp-content/uploads/2013/02/University-Waterloo-Engineering.jpg"
+         "descriptor":"image1",
+         "link":"https://c2.staticflickr.com/5/4128/5158350265_d6126ed1af_b.jpg"
+      },
+      {  "type":"misc",
+         "descriptor":"image2",
+         "link":"http://www.uwimprint.ca/uploads/2012/06/hh.png"
+      },
+      {  "type":"misc",
+         "descriptor":"image3",
+         "link":"http://img.ffffound.com/static-data/assets/6/9a7a010f017f7219b50b1147e6cde6855a263865_m.jpg"
+      },
+      {  "type":"misc",
+         "descriptor":"image3",
+         "link":"https://c2.staticflickr.com/2/1635/25370109443_bb2b634b9a_b.jpg"
       }
   ],
   "location":{  
