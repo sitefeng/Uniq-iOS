@@ -36,7 +36,8 @@
     {  
       "name":"Arts Undergraduate Office",
       "email":"",
-      "phoneNum":"519-888-4567,35870",
+      "phoneNum":"519-888-4567",
+      "ext": "35870",
       "website":"",
       "facebook":"",
       "twitter":"",

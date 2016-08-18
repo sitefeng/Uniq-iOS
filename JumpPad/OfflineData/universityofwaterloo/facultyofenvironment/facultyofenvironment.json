@@ -33,19 +33,24 @@
     "yearValid":2015
   },
   "contacts":{  
-    "name":"Philippe Bezaire, Associate Director of Admissions",
-    "email":"admissions@engmail.uwaterloo.ca",
-    "phoneNum":"519-888-4894",
-    "website":"",
-    "facebook":"",
-    "twitter":"",
-    "linkedin":"",
-    "extraInfo":"Office: CPH 1320"
+    "name":"Faculty of Environment",
+    "email":"",
+    "phoneNum":"519-888-4567",
+    "ext": "33463",
+    "website":"https://uwaterloo.ca/environment/",
+    "facebook":"https://www.facebook.com/envwaterloo",
+    "twitter":"https://twitter.com/envwaterloo",
+    "linkedin":"https://www.linkedin.com/groups/3125591",
+    "extraInfo":" Office located on the third floor of Environment 1 (EV1)"
   },
   "images":[  
       {  "type":"misc",
-         "descriptor":"image",
-         "link":"https://universityhub.ca/wp-content/uploads/2013/02/University-Waterloo-Engineering.jpg"
+         "descriptor":"image 1",
+         "link":"http://www.oaa.on.ca/oaamedia/uploads/A_Frame_EV3_Perspective_01_10.jpg"
+      },
+      {  "type":"misc",
+         "descriptor":"image 2",
+         "link":"http://www.oaa.on.ca/oaamedia/uploads/A_Frame_EV3_Perspective_06_3.jpg"
       }
   ],
   "location":{  

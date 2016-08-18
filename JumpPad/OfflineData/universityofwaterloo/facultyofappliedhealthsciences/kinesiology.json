@@ -1,0 +1,353 @@
+{
+    "id": "hugos8ilnkfh4ieslfjn,",
+    "about": "",
+    "applicationProcess": null, 
+    "avgAdm": "", 
+    "contacts": [], 
+    "dateEstablished": "", 
+    "degree": "", 
+    "degreeAbbrev": "", 
+    "degreeRequirements": {
+        "about": "",
+        "curriculum": [
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 104", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 155", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 107", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 130", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 120", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ], 
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 100", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 101", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "BIOL 273", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "PHYS 111", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "PSYCH 101", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 105", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 121", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 217", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 354", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "MATH 124/ MATH 127", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 204", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 205", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 221", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 346", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 1",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 2",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 3",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 4",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 332", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 1",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 2",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 3",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 4",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "KIN 470", 
+                    "description": "",
+                    "subject": "", 
+                    "title": "", 
+                }, 
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 1",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 2",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 3",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 4",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ],
+            [
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 1",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 2",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 3",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 4",
+                    "subject": "", 
+                    "title": "", 
+                },
+                {
+                    "academic_level": "undergraduate", 
+                    "catalog_number": "Elective", 
+                    "description": "Elective 5",
+                    "subject": "", 
+                    "title": "", 
+                }
+            ]
+        ], 
+        "curriculumTerms": [
+            "1A", 
+            "1B",
+            "2A",
+            "2B",
+            "3A",
+            "3B",
+            "4A",
+            "4B"
+        ]
+    }, 
+    "facultyId": "", 
+    "fees": {
+        "domestic": 0,
+        "international": 0
+    }, 
+    "gradPopulation": "", 
+    "images": [
+        {
+            "descriptor": "image", 
+            "link": "http://studentcompetitions-general.s3.amazonaws.com/cyp-2014/img/lundsuniversitet_-_b.jpg",
+            "type": "misc"
+        }
+    ], 
+    "applicationDeadline": "", 
+    "metaData": {
+        "dateCreated": "08-09-2016", 
+        "dateModified": "08-09-2016", 
+        "yearValid": 2016
+    }, 
+    "name": "Kinesiology", 
+    "numAccepted": "", 
+    "numApplicants": "", 
+    "rankings": [], 
+    "rating": {
+        "classmates": 0, 
+        "difficulty": 0, 
+        "guyRatio": 0, 
+        "professors": 0, 
+        "ratingOverall": 0, 
+        "schedule": 0, 
+        "socialEnjoyment": 0, 
+        "studyEnv": 0
+    }, 
+    "schoolId": "",
+    "schoolSlug": "universityofwaterloo",
+    "facultySlug": "facultyofkinesiology",
+    "shortName": "", 
+    "slug": "kinesiology", 
+    "undergradPopulation": ""
+}

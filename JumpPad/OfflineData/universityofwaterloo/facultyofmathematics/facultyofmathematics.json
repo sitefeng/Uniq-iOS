@@ -33,14 +33,14 @@
     "yearValid":2015
   },
   "contacts":{  
-    "name":"Philippe Bezaire, Associate Director of Admissions",
-    "email":"admissions@engmail.uwaterloo.ca",
-    "phoneNum":"519-888-4894",
+    "name":"Faculty of Mathematics",
+    "email":"",
+    "phoneNum":"",
     "website":"",
     "facebook":"",
     "twitter":"",
     "linkedin":"",
-    "extraInfo":"Office: CPH 1320"
+    "extraInfo":""
   },
   "images":[  
       {  "type":"misc",

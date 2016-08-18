@@ -1,17 +1,17 @@
 {  
-  "id": "",
-  "name":"",
+  "id": "jg8seiukhdbfkjfrd",
+  "name":"Faculty of Applied Health Sciences",
   "shortName":"",
-  "slug":"",
-  "schoolSlug": "", 
+  "slug":"facultyofappliedhealthsciences",
+  "schoolSlug": "universityofwaterloo", 
   "about":"",
   "undergradPopulation":"",
   "gradPopulation":"",
   "avgAdm":"",
   "dateEstablished":"",
   "numPrograms":"",
-  "degree": "", 
-  "degreeAbbrev": "", 
+  "degree": "Bachelor of Science", 
+  "degreeAbbrev": "BA.Sc", 
   "applicationProcess":"",
   "schoolId":"",
   "internship": {
@@ -33,19 +33,20 @@
     "yearValid":2015
   },
   "contacts":{  
-    "name":"Philippe Bezaire, Associate Director of Admissions",
-    "email":"admissions@engmail.uwaterloo.ca",
-    "phoneNum":"519-888-4894",
-    "website":"",
+    "name":"Applied Heath Sciences, Waterloo",
+    "email":"ahsrecep@uwaterloo.ca",
+    "phoneNum":"519-888-4567",
+    "ext": "31346",
+    "website":"https://uwaterloo.ca/applied-health-sciences/",
     "facebook":"",
     "twitter":"",
     "linkedin":"",
-    "extraInfo":"Office: CPH 1320"
+    "extraInfo":"Office is located on the third floor of B.C. Matthews Hall"
   },
   "images":[  
       {  "type":"misc",
          "descriptor":"image",
-         "link":"https://universityhub.ca/wp-content/uploads/2013/02/University-Waterloo-Engineering.jpg"
+         "link":"http://www.aclsteel.ca/wp-content/uploads/2015/11/capture1.jpg"
       }
   ],
   "location":{  
