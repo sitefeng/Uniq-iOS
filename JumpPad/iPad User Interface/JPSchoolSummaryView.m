@@ -50,7 +50,7 @@ static const NSInteger kLabelConst =321;
         self.summary.text = @"SUMMARY";
         
         
-        NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SAlumni",@"SDistance",@"SPrograms",@"SFunding", nil];
+        NSArray* iconImageNames = [NSMutableArray arrayWithObjects:@"SStudents",@"SLocation",@"SAlumni",@"SEstablished",@"SPrograms",@"SFunding", nil];
         
         int horizDist =200;
         if(self.isIphoneInterface)
@@ -160,49 +160,28 @@ static const NSInteger kLabelConst =321;
             
             if(self.location.cityName)
             {
-                location = [NSMutableString stringWithFormat:@"%@, ",self.location.cityName];
+                location = [NSMutableString stringWithFormat:@"%@",self.location.cityName];
             }
             else
             {
-                location = [@"Unknown, " mutableCopy];
-            }
-            if(self.location.provinceName)
-            {
-                [location appendString:self.location.provinceName];
-            }
-            else
-            {
-                [location appendString:@"--"];
+                location = [@"Unknown" mutableCopy];
             }
             
             return location;
         }
         case 11:
         {
-            UniqAppDelegate* delegate= (UniqAppDelegate*)[[UIApplication sharedApplication] delegate];
-            NSManagedObjectContext* context = [delegate managedObjectContext];
-            NSFetchRequest* userRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-            NSArray* userArray = [context executeFetchRequest:userRequest error:nil];
-            User* user = nil;
-            if([userArray count] >0)
-            {
-                user = [userArray firstObject];
-                if([user.latitude floatValue] == 0 || [user.longitude floatValue] == 0)
-                    return @"-- kms Away";
-                self.distanceToHome = [self.location distanceToCoordinate:CGPointMake([user.latitude doubleValue], [user.longitude doubleValue])];
-                return [NSString stringWithFormat:@"%.00f kms Away", self.distanceToHome];
-            }
-            else
-            {
-                return @"-- kms Away";
-            }
+            if(_itemType == JPDashletTypeSchool)
+                return [NSString stringWithFormat:@"%@", self.school.yearEstablished];
+            else //faculty
+                return [NSString stringWithFormat:@"%@", self.faculty.yearEstablished];
         }
         case 12:
         {
             if(_itemType == JPDashletTypeSchool)
-                return [NSString stringWithFormat:@"$%@ Funding", self.school.totalFunding];
+                return [NSString stringWithFormat:@"$%@", self.school.totalFunding];
             else //faculty
-                return [NSString stringWithFormat:@"$%@ Funding", self.faculty.totalFunding];
+                return [NSString stringWithFormat:@"$%@", self.faculty.totalFunding];
         }
             
         default:

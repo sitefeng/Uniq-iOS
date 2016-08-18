@@ -2,7 +2,7 @@
 //  School+CoreDataProperties.m
 //  Uniq
 //
-//  Created by Si Te Feng on 8/13/16.
+//  Created by Si Te Feng on 8/17/16.
 //  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -22,11 +22,11 @@
 @dynamic numFaculties;
 @dynamic numPrograms;
 @dynamic schoolId;
+@dynamic slug;
 @dynamic toDelete;
 @dynamic totalFunding;
 @dynamic undergradPopulation;
 @dynamic yearEstablished;
-@dynamic slug;
 @dynamic contacts;
 @dynamic faculties;
 @dynamic images;

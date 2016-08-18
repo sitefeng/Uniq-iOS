@@ -52,6 +52,8 @@
         self.name = [dict objectForKey:@"name"];
     if([dict objectForKey:@"numFaculties"] != [NSNull null])
         self.numFaculties = [NSNumber numberWithInteger:[[dict objectForKey:@"numFaculties"] integerValue]];
+    if([dict objectForKey:@"numPrograms"] != [NSNull null])
+        self.numPrograms = [NSNumber numberWithInteger:[[dict objectForKey:@"numPrograms"] integerValue]];
     if([dict objectForKey:@"totalFunding"] != [NSNull null])
         self.totalFunding = [self numberFromNumberString:[dict objectForKey:@"totalFunding"]];
     if([dict objectForKey:@"undergradPopulation"] != [NSNull null])
@@ -154,7 +156,9 @@
     if([dict objectForKey:@"alumniNumber"] != [NSNull null])
         self.alumniNumber = [self numberFromNumberString: [dict objectForKey:@"alumniNumber"]];
     if([dict objectForKey:@"avgAdm"] != [NSNull null])
-        self.avgAdm = [[NSDecimalNumber alloc] initWithString: [dict objectForKey:@"avgAdm"]];
+        self.avgAdm = [self numberFromNumberString: [dict objectForKey:@"avgAdm"]];
+    if([dict objectForKey:@"numPrograms"] != [NSNull null])
+        self.numPrograms = [self numberFromNumberString: [dict objectForKey:@"numPrograms"]];
     if([dict objectForKey:@"gradPopulation"] != [NSNull null])
         self.gradPopulation = [self numberFromNumberString:[dict objectForKey:@"gradPopulation"]];
     if([dict objectForKey:@"logoUrl"] != [NSNull null])

@@ -23,7 +23,7 @@
     <entity name="Faculty" representedClassName="Faculty" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="alumniNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="avgAdm" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="avgAdm" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="facultyId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gradPopulation" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="logoUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -152,7 +152,7 @@
     <entity name="School" representedClassName="School" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="alumniNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="avgAdm" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="avgAdm" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="gradPopulation" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="logoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

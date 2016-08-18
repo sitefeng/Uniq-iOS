@@ -1312,6 +1312,8 @@
 				AA0DB940197B8CE6005A5665 /* iPhSchoolViewController.m */,
 				AA520EDF1971F6F60003EF98 /* iPhSchoolHomeViewController.h */,
 				AA520EE01971F6F60003EF98 /* iPhSchoolHomeViewController.m */,
+				AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */,
+				AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */,
 			);
 			name = "School/Faculty View Controller";
 			sourceTree = "<group>";
@@ -1544,8 +1546,6 @@
 			children = (
 				AAE509D619644773000C6899 /* iPadSchoolHomeViewController.h */,
 				AAE509D719644773000C6899 /* iPadSchoolHomeViewController.m */,
-				AAE50A5B1965A3D3000C6899 /* JPSchoolSummaryView.h */,
-				AAE50A5C1965A3D3000C6899 /* JPSchoolSummaryView.m */,
 			);
 			name = "School/Faculty View Controllers";
 			sourceTree = "<group>";

@@ -2,7 +2,7 @@
 //  Faculty+CoreDataProperties.h
 //  Uniq
 //
-//  Created by Si Te Feng on 8/13/16.
+//  Created by Si Te Feng on 8/17/16.
 //  Copyright © 2016 Si Te Feng. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,19 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSString *about;
 @property (nullable, nonatomic, retain) NSNumber *alumniNumber;
-@property (nullable, nonatomic, retain) NSDecimalNumber *avgAdm;
+@property (nullable, nonatomic, retain) NSNumber *avgAdm;
 @property (nullable, nonatomic, retain) NSString *facultyId;
 @property (nullable, nonatomic, retain) NSNumber *gradPopulation;
 @property (nullable, nonatomic, retain) NSString *logoUrl;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSNumber *numPrograms;
 @property (nullable, nonatomic, retain) NSString *schoolId;
+@property (nullable, nonatomic, retain) NSString *schoolSlug;
+@property (nullable, nonatomic, retain) NSString *slug;
 @property (nullable, nonatomic, retain) NSNumber *toDelete;
 @property (nullable, nonatomic, retain) NSNumber *totalFunding;
 @property (nullable, nonatomic, retain) NSNumber *undergradPopulation;
 @property (nullable, nonatomic, retain) NSNumber *yearEstablished;
-@property (nullable, nonatomic, retain) NSString *schoolSlug;
-@property (nullable, nonatomic, retain) NSString *slug;
 @property (nullable, nonatomic, retain) NSSet<Contact *> *contacts;
 @property (nullable, nonatomic, retain) NSSet<ImageLink *> *images;
 @property (nullable, nonatomic, retain) NSSet<ImportantDate *> *importantDates;
