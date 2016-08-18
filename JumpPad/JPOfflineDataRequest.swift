@@ -210,11 +210,16 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
         
         // naming: Pretend getting contact for faculty
         let facultyJSONURL = NSURL(fileURLWithPath: path)
-        let facultyJSONData = NSData(contentsOfURL: facultyJSONURL)
+        let facultyJSONDataOrNil = NSData(contentsOfURL: facultyJSONURL)
+        
+        guard let facultyJSONData = facultyJSONDataOrNil else {
+            print("Faculty JSON data cannot be found, slug given in file may not be correct")
+            return JPContact()
+        }
         
         var facultyDictionary = [:]
         do {
-            facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData!, options: []) as! NSDictionary
+            facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData, options: []) as? [String: AnyObject] ?? [:]
         } catch {
             return JPContact()
         }

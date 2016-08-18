@@ -261,7 +261,7 @@
     self.toDelete = @YES;
     
     //todo: fix
-    self.applicationDeadline = @"01/14";
+    self.applicationDeadline = @"January 13";
     
     if([dict objectForKey:@"id"] != [NSNull null])
         self.programId = [dict objectForKey:@"id"];

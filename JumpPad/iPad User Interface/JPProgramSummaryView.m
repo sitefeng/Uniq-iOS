@@ -109,12 +109,8 @@ typedef NS_ENUM(NSInteger, JPProgramSummaryLabelType) {
     deadlineLabel.font = [UIFont fontWithName:[JPFont defaultFont] size:19];
     deadlineLabel.textColor = [UIColor whiteColor];
     
-    NSString* monthString = [self.program.applicationDeadline substringToIndex:2];//@"02"
-    
-    NSString* month = [JPGlobal monthStringWithInt:[monthString intValue]];//@"Feb"
-    NSString* date = [self.program.applicationDeadline substringFromIndex:3];
-    
-    deadlineLabel.text = [NSString stringWithFormat:@"App Deadline: %@ %@", month, date];
+    NSString* deadline = self.program.applicationDeadline;
+    deadlineLabel.text = [NSString stringWithFormat:@"App Deadline: %@", deadline];
     
     [self addSubview:deadlineView];
     [self addSubview:deadlineLabel];
