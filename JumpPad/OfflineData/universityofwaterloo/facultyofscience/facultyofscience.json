@@ -33,7 +33,7 @@
     "dateCreated":"",
     "yearValid":2015
   },
-  "contacts":{  
+  "contacts":[{  
     "name":"Diana Kim, Science Recruitment Coordinator",
     "email":"science@uwaterloo.ca",
     "phoneNum":"5198884567",
@@ -43,7 +43,7 @@
     "twitter":"",
     "linkedin":"",
     "extraInfo":"Office: CPH 1320"
-  },
+  }],
   "images":[  
       {  "type":"misc",
          "descriptor":"image1",

@@ -32,7 +32,7 @@
     "dateCreated":"",
     "yearValid":2015
   },
-  "contacts":{  
+  "contacts":[{  
     "name":"Faculty of Environment",
     "email":"",
     "phoneNum":"519-888-4567",
@@ -42,7 +42,7 @@
     "twitter":"https://twitter.com/envwaterloo",
     "linkedin":"https://www.linkedin.com/groups/3125591",
     "extraInfo":" Office located on the third floor of Environment 1 (EV1)"
-  },
+  }],
   "images":[  
       {  "type":"misc",
          "descriptor":"image 1",

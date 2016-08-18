@@ -32,7 +32,7 @@
     "dateCreated":"",
     "yearValid":2015
   },
-  "contacts":{  
+  "contacts":[{  
     "name":"Faculty of Mathematics",
     "email":"",
     "phoneNum":"",
@@ -41,7 +41,7 @@
     "twitter":"",
     "linkedin":"",
     "extraInfo":""
-  },
+  }],
   "images":[  
       {  "type":"misc",
          "descriptor":"image1",

@@ -55,11 +55,11 @@
     if([dict objectForKey:@"numPrograms"] != [NSNull null])
         self.numPrograms = [NSNumber numberWithInteger:[[dict objectForKey:@"numPrograms"] integerValue]];
     if([dict objectForKey:@"totalFunding"] != [NSNull null])
-        self.totalFunding = [self numberFromNumberString:[dict objectForKey:@"totalFunding"]];
+        self.totalFunding = [dict objectForKey:@"totalFunding"];
     if([dict objectForKey:@"undergradPopulation"] != [NSNull null])
         self.undergradPopulation = [self numberFromNumberString:[dict objectForKey:@"undergradPopulation"]];
     if([dict objectForKey:@"yearEstablished"] != [NSNull null])
-        self.yearEstablished = [NSNumber numberWithLong:[[dict objectForKey:@"yearEstablished"] longValue]];
+        self.yearEstablished = [NSNumber numberWithInteger:[[dict objectForKey:@"yearEstablished"] integerValue]];
 
     if([dict objectForKey:@"contacts"] != [NSNull null])
     {
@@ -168,7 +168,7 @@
     if([dict objectForKey:@"schoolId"] != [NSNull null])
         self.schoolId = [dict objectForKey:@"schoolId"];
     if([dict objectForKey:@"totalFunding"] != [NSNull null])
-        self.totalFunding = [self numberFromNumberString:[dict objectForKey:@"totalFunding"]];
+        self.totalFunding = [dict objectForKey:@"totalFunding"];
     if([dict objectForKey:@"undergradPopulation"] != [NSNull null])
         self.undergradPopulation = [self numberFromNumberString:[dict objectForKey:@"undergradPopulation"]];
     if([dict objectForKey:@"yearEstablished"] != [NSNull null])

@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *schoolSlug;
 @property (nullable, nonatomic, retain) NSString *slug;
 @property (nullable, nonatomic, retain) NSNumber *toDelete;
-@property (nullable, nonatomic, retain) NSNumber *totalFunding;
+@property (nullable, nonatomic, retain) NSString *totalFunding;
 @property (nullable, nonatomic, retain) NSNumber *undergradPopulation;
 @property (nullable, nonatomic, retain) NSNumber *yearEstablished;
 @property (nullable, nonatomic, retain) NSSet<Contact *> *contacts;

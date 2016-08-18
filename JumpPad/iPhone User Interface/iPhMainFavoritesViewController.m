@@ -70,7 +70,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count: %@", self.dashlets[section]);
     return [self.dashlets[section] count];
 }
 

@@ -32,7 +32,7 @@
     "dateCreated":"",
     "yearValid":2015
   },
-  "contacts":{  
+  "contacts":[{  
     "name":"Philippe Bezaire, Associate Director of Admissions",
     "email":"admissions@engmail.uwaterloo.ca",
     "phoneNum":"519-888-4894",
@@ -41,7 +41,7 @@
     "twitter":"",
     "linkedin":"",
     "extraInfo":"Office: CPH 1320"
-  },
+  }],
   "images":[  
       {  "type":"misc",
          "descriptor":"image",
