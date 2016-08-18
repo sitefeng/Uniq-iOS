@@ -59,7 +59,8 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             let schoolJSONData = NSData(contentsOfURL: schoolJSONURL)
             
             do {
-                let schoolDictionary = try NSJSONSerialization.JSONObjectWithData(schoolJSONData!, options: [])
+                var schoolDictionary = try NSJSONSerialization.JSONObjectWithData(schoolJSONData!, options: []) as! [String: AnyObject]
+                replaceEmptyItemIdWithSlugIfNecessary(&schoolDictionary)
                 dataArray.append(schoolDictionary)
             } catch {
                 print("JSON error")
@@ -105,7 +106,8 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             }
             
             do {
-                let facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData, options: [])
+                var facultyDictionary = try NSJSONSerialization.JSONObjectWithData(facultyJSONData, options: []) as! [String: AnyObject]
+                replaceEmptyItemIdWithSlugIfNecessary(&facultyDictionary)
                 dataArray.append(facultyDictionary)
             } catch {
                 return
@@ -141,7 +143,8 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             let programJSONData = NSData(contentsOfURL: programJSONURL)
             
             do {
-                let programDictionary = try NSJSONSerialization.JSONObjectWithData(programJSONData!, options: [])
+                var programDictionary = try NSJSONSerialization.JSONObjectWithData(programJSONData!, options: []) as! [String: AnyObject]
+                replaceEmptyItemIdWithSlugIfNecessary(&programDictionary)
                 dataArray.append(programDictionary)
             } catch {
                 return
@@ -274,6 +277,7 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
         let facultyPath = offlineDataPath() + "/\(schoolSlug)/\(facultySlug)/\(facultySlug).json"
         
         let dictionary = dictionaryFromFilePath(facultyPath)
+        
         addFavoriteCountToDictionary(itemUid, dict: dictionary) { (success, augmentedDict) in
             completion(success, augmentedDict)
         }
@@ -305,6 +309,8 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
         return offlineDataPath
     }
     
+    /// Getting JSON file data and turn it into a Swift dictionary
+    /// If the "id" key of the JSON is empty, use the "slug" as "id"
     private func dictionaryFromFilePath(filePath: String) -> [String: AnyObject] {
         // Pretend reading a program json file
         let programJSONURL = NSURL(fileURLWithPath: filePath)
@@ -314,16 +320,30 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             return [:]
         }
         
-        var programDict: [String: AnyObject] = [:]
+        var itemDictionary: [String: AnyObject] = [:]
         do {
-            programDict = try NSJSONSerialization.JSONObjectWithData(programJSONData, options: []) as! [String : AnyObject]
+            itemDictionary = try NSJSONSerialization.JSONObjectWithData(programJSONData, options: []) as! [String : AnyObject]
+            replaceEmptyItemIdWithSlugIfNecessary(&itemDictionary)
         } catch {
-            return programDict
+            return itemDictionary
         }
         
-        return programDict
+        return itemDictionary
     }
     
+    
+    // When inputing JSON data manually, putting in a random itemID for each JSON file is too cumbersome,
+    // so itemId can be left empty and using slug as a placeholder itemId instead
+    private func replaceEmptyItemIdWithSlugIfNecessary(inout itemDictionary: [String: AnyObject]) {
+        
+        if let itemId = itemDictionary["id"] as? String
+            where itemId != "" && !itemId.isEqual(NSNull()) {
+            // If itemId exists in the dictionary, do nothing
+            return
+        }
+        
+        itemDictionary["id"] = itemDictionary["slug"]
+    }
     
     
     /**
@@ -336,7 +356,6 @@ internal final class JPOfflineDataRequest: NSObject, JPProgramRatingHelperDelega
             tempDictionary["numFavorites"] = NSNumber(integer: numFavorites)
             completion(success, tempDictionary)
         })
-        
     }
 
 }

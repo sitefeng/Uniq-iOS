@@ -95,7 +95,7 @@
 
 - (void)finshedLoadingDataWithType: (JPDashletType)type dataDict:(NSDictionary *)dict isSuccessful: (BOOL)success {
     if(!success) {
-        JPLog(@"Could not load");
+        JPLog(@"Could not load program data");
         return;
     }
     
