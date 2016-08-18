@@ -1,0 +1,62 @@
+{  
+  "id": "",
+  "name":"",
+  "shortName":"",
+  "slug":"",
+  "schoolSlug": "", 
+  "about":"",
+  "undergradPopulation":"",
+  "gradPopulation":"",
+  "avgAdm":"",
+  "dateEstablished":"",
+  "numPrograms":"",
+  "degree": "", 
+  "degreeAbbrev": "", 
+  "applicationProcess":"",
+  "schoolId":"",
+  "internship": {
+        "earnings": "$50,000 to $90,000 over 6 work terms", 
+        "general": "Waterloo hosts the largest co-op program on the planet, with connections to over 4,500 employers. As an engineering or architecture student at Waterloo you'll automatically be entered into the co-op program. Throughout your degree, you'll gain up to two years of real-world experience, build connections in industry and strengthen your professional skills with WatPD-Engineering, an online program that covers r\u00e9sum\u00e9 writing, networking and more. On average, engineering students earn $50,000 to $90,000 over six work terms, helping to pay for tuition, books and living expenses.", 
+        "specific": "You will be in either Stream 4 or Stream 8. You will be assigned to a stream in late June when classes are scheduled."
+  }, 
+  "importantDates": [
+      {
+         "date": "September 19, 2014", 
+         "description": "Ontario Universities' Fair in Toronto begins",
+         "type": "event"
+      }, 
+      
+  ],
+  "metaData":{  
+    "dateModified":"",
+    "dateCreated":"",
+    "yearValid":2015
+  },
+  "contacts":{  
+    "name":"Philippe Bezaire, Associate Director of Admissions",
+    "email":"admissions@engmail.uwaterloo.ca",
+    "phoneNum":"519-888-4894",
+    "website":"",
+    "facebook":"",
+    "twitter":"",
+    "linkedin":"",
+    "extraInfo":"Office: CPH 1320"
+  },
+  "images":[  
+      {  "type":"misc",
+         "descriptor":"image",
+         "link":"https://universityhub.ca/wp-content/uploads/2013/02/University-Waterloo-Engineering.jpg"
+      }
+  ],
+  "location":{  
+    "address":"200 University Avenue West",
+    "apt":"",
+    "unit":"",
+    "city":"Waterloo",
+    "region":"Ontario",
+    "postalCode":"N2L3G1",
+    "country":"Canada",
+    "latitude":43.4689,
+    "longitude":-80.5400
+  }
+}

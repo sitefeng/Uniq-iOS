@@ -1,17 +1,17 @@
 {  
   "id": "npg9sepoig934ngf",
   "name":"Faculty of Arts",
-  "shortName":"",
+  "shortName":"arts",
   "slug":"facultyofarts",
   "schoolSlug": "universityofwaterloo", 
   "about":"Waterloo Arts is committed to education and scholarship in the humanities, social sciences, languages and cultures, and the fine and performing arts for the benefit of the people of Ontario, of Canada, and of the world beyond our borders. The education students receive in the Faculty of Arts, including its federated university and affiliated university colleges, offers them the tools and skills they need to succeed in today's diverse and changing world, while empowering them intellectually with the rich tradition of ideas and techniques of understanding that shape cultures and civilizations. The Faculty is a community dedicated to producing research of high academic merit and impact. The driving force behind all our work is a deep commitment to curiosity, creativity, and the desire to understand - and engage - the world.",
-  "undergradPopulation":"",
+  "undergradPopulation":"7200",
   "gradPopulation":"",
   "avgAdm":"Low 80s",
   "dateEstablished":"",
-  "numPrograms":"",
-  "degree": "", 
-  "degreeAbbrev": "", 
+  "numPrograms":"23",
+  "degree": "Bachelor of Arts", 
+  "degreeAbbrev": "B.A.", 
   "applicationProcess":"",
   "schoolId":"",
   "internship": {
@@ -34,14 +34,14 @@
   },
   "contacts": [
     {  
-      "name":"Philippe Bezaire, Associate Director of Admissions",
-      "email":"admissions@engmail.uwaterloo.ca",
-      "phoneNum":"519-888-4894",
+      "name":"Arts Undergraduate Office",
+      "email":"",
+      "phoneNum":"519-888-4567,35870",
       "website":"",
       "facebook":"",
       "twitter":"",
       "linkedin":"",
-      "extraInfo":"Office: CPH 1320"
+      "extraInfo":""
 
     }
   ],
